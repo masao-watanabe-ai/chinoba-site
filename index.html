@@ -4,300 +4,880 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Chinoba</title>
+  <title>Chinoba — Intelligence as Relationship</title>
 
   <style>
+    :root {
+      --bg: #0b0b0b;
+      --bg-elev: #111111;
+      --fg: #f5f5f5;
+      --fg-mute: #b0b0b0;
+      --fg-dim: #8a8a8a;
+      --fg-faint: #6a6a6a;
+      --line: #1f1f1f;
+      --line-strong: #2a2a2a;
+      --accent: #7db7ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      background: var(--bg);
+      color: var(--fg);
+    }
+
     body {
-      background: #0b0b0b;
-      color: #f5f5f5;
       font-family: Arial, sans-serif;
-      max-width: 960px;
-      margin: 80px auto;
-      padding: 20px;
-      line-height: 1.9;
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    p { margin: 0 0 20px; }
+
+    /* ---------- Masthead ---------- */
+    .masthead {
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 64px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin-bottom: 28px;
     }
 
     h1 {
       font-size: 56px;
-      margin-bottom: 10px;
+      line-height: 1.05;
       letter-spacing: 1px;
+      margin: 0 0 14px;
+      font-weight: 700;
+    }
+
+    .tagline {
+      color: var(--fg-mute);
+      font-size: 18px;
+      margin: 0 0 36px;
+      letter-spacing: 0.3px;
+    }
+
+    .intro {
+      color: var(--fg);
+      max-width: 680px;
+      font-size: 16px;
+    }
+
+    .intro .muted {
+      color: var(--fg-mute);
+    }
+
+    /* ---------- Section frame ---------- */
+    section {
+      margin: 0 0 96px;
+    }
+
+    .section-head {
+      margin-bottom: 32px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
 
     h2 {
-      color: #9aa0a6;
-      font-weight: normal;
-      margin-bottom: 40px;
-    }
-
-    h3 {
-      margin-top: 60px;
-      margin-bottom: 20px;
-      color: #ffffff;
-    }
-
-    p {
-      margin-bottom: 24px;
-    }
-
-    ul {
-      margin-top: 20px;
-      margin-bottom: 40px;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    a {
-      color: #7db7ff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .links {
-      margin-top: 50px;
-      margin-bottom: 70px;
-    }
-
-    .links a {
-      display: inline-block;
-      margin-right: 24px;
-    }
-
-    .book {
-      margin-bottom: 50px;
-      padding-bottom: 30px;
-      border-bottom: 1px solid #222;
-    }
-
-    .book-title {
-      font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .book-subtitle {
-      color: #b0b0b0;
-      margin-bottom: 16px;
+      font-size: 26px;
+      margin: 0 0 12px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
     }
 
     .section-description {
-      color: #cccccc;
-      margin-bottom: 40px;
+      color: var(--fg-mute);
+      max-width: 640px;
+      margin: 0 0 8px;
+    }
+
+    .section-description ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+    }
+
+    .section-description li {
+      color: var(--fg-mute);
+      margin-bottom: 4px;
+    }
+
+    /* ---------- Research Areas ---------- */
+    .areas {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .areas li {
+      padding: 18px 20px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      color: var(--fg);
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .areas .idx {
+      color: var(--fg-faint);
+      font-size: 12px;
+      letter-spacing: 1px;
+      min-width: 28px;
+    }
+
+    /* ---------- Cards ---------- */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .card {
+      background: var(--bg);
+      padding: 22px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      min-height: 150px;
+    }
+
+    .card .kicker {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 17px;
+      margin: 0 0 8px;
+      font-weight: 600;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+    }
+
+    .card p {
+      color: var(--fg-mute);
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 0 0 14px;
+    }
+
+    .card .meta {
+      margin-top: auto;
+      font-size: 13px;
+      color: var(--accent);
+    }
+
+    .card .meta-muted {
+      margin-top: auto;
+      font-size: 12px;
+      color: var(--fg-faint);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ---------- Output blocks (Blog / GitHub / Talks / Runtime) ---------- */
+    .block {
+      margin-top: 8px;
+    }
+
+    .block-title {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+
+    .block-title .glyph {
+      color: var(--fg-faint);
+      font-size: 14px;
+      transform: translateY(-1px);
+    }
+
+    .block-title h3 {
+      font-size: 22px;
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .block-desc {
+      color: var(--fg-mute);
+      max-width: 640px;
+      margin: 0 0 24px;
+      font-size: 15px;
+    }
+
+    .block-desc ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+
+    .block-desc li {
+      margin-bottom: 4px;
+    }
+
+    .output-section {
+      padding-top: 36px;
+      border-top: 1px solid var(--line);
+      margin-top: 56px;
+    }
+
+    .output-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    /* ---------- Books ---------- */
+    .books-group-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin: 36px 0 18px;
+    }
+
+    .book {
+      padding: 22px 0 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .book:last-child { border-bottom: none; }
+
+    .book-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      letter-spacing: 0.2px;
+    }
+
+    .book-subtitle {
+      color: var(--fg-mute);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .book p {
+      color: var(--fg-mute);
+      font-size: 14px;
+      margin-bottom: 12px;
+      max-width: 640px;
     }
 
     .book-link {
-      font-size: 14px;
-      color: #7db7ff;
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
     }
 
-    footer {
-      margin-top: 100px;
-      color: #666;
+    /* ---------- Talk card ---------- */
+    .talk {
+      border: 1px solid var(--line-strong);
+      padding: 28px 26px;
+      background: linear-gradient(180deg, #101010 0%, #0b0b0b 100%);
+    }
+
+    .talk .kicker {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 16px;
+    }
+
+    .talk h3 {
+      font-size: 22px;
+      margin: 0 0 6px;
+      font-weight: 600;
+    }
+
+    .talk .talk-sub {
+      color: var(--fg-mute);
+      font-style: italic;
+      margin-bottom: 18px;
+      font-size: 15px;
+    }
+
+    .talk .talk-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 13px;
+      color: var(--fg-dim);
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .talk .talk-meta span {
+      padding: 4px 10px;
+      border: 1px solid var(--line-strong);
+      border-radius: 2px;
+    }
+
+    .talk .topics {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 8px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px 18px;
+    }
+
+    .talk .topics li {
+      color: var(--fg-mute);
       font-size: 14px;
-      text-align: center;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .talk .topics li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--fg-faint);
+    }
+
+    .past-sessions {
+      margin-top: 24px;
+      padding: 18px 20px;
+      border: 1px dashed var(--line-strong);
+      color: var(--fg-faint);
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ---------- Runtime Chat ---------- */
+    .runtime {
+      border: 1px solid var(--line-strong);
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .runtime::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          rgba(255,255,255,0.012) 0px,
+          rgba(255,255,255,0.012) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+      pointer-events: none;
+    }
+
+    .runtime > * { position: relative; }
+
+    .runtime .status {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      padding: 4px 10px;
+      border: 1px solid var(--line-strong);
+      margin-bottom: 20px;
+    }
+
+    .runtime h3 {
+      font-size: 24px;
+      margin: 0 0 8px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .runtime .runtime-lede {
+      color: var(--fg-mute);
+      margin: 0 0 22px;
+      max-width: 600px;
+      font-size: 15px;
+    }
+
+    .runtime ul.runtime-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 22px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px 18px;
+    }
+
+    .runtime ul.runtime-features li {
+      color: var(--fg);
+      font-size: 14px;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .runtime ul.runtime-features li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--fg-faint);
+      font-size: 10px;
+      top: 6px;
+    }
+
+    .runtime .runtime-claim {
+      color: var(--fg);
+      font-size: 15px;
+      margin: 0 0 4px;
+    }
+
+    .runtime .runtime-claim em {
+      color: var(--fg-mute);
+      font-style: normal;
+    }
+
+    /* ---------- Latest Research ---------- */
+    .latest {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .latest .card {
+      min-height: 130px;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--line);
+      color: var(--fg-faint);
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+
+    footer p { margin: 0 0 6px; }
+
+    footer .footer-tag {
+      color: var(--fg-dim);
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 640px) {
+      body { padding: 56px 20px 40px; }
+      h1 { font-size: 40px; }
+      .areas,
+      .cards,
+      .latest,
+      .talk .topics,
+      .runtime ul.runtime-features {
+        grid-template-columns: 1fr;
+      }
+      .masthead { padding-bottom: 40px; margin-bottom: 48px; }
+      section { margin-bottom: 72px; }
     }
   </style>
 </head>
 
 <body>
 
-<h1>Chinoba</h1>
+  <!-- ============ MASTHEAD ============ -->
+  <header class="masthead">
+    <div class="eyebrow">Research Initiative</div>
+    <h1>Chinoba</h1>
+    <p class="tagline">Intelligence as Relationship</p>
 
-<h2>Intelligence as Relationship</h2>
+    <div class="intro">
+      <p>
+        Chinoba is a research initiative exploring intelligence
+        as relationships between AI, humans, organizations,
+        protocols, and society.
+      </p>
+      <p class="muted">
+        A platform for runtime experimentation, decision
+        infrastructure, and structured exploration of intelligence
+        as a relational system.
+      </p>
+    </div>
+  </header>
 
-<p>
-Chinoba is a research initiative exploring
-intelligence as relationships between
-AI, humans, organizations, protocols, and society.
-</p>
+  <!-- ============ RESEARCH AREAS ============ -->
+  <section id="research">
+    <div class="section-head">
+      <div class="section-label">01 / Research Areas</div>
+      <h2>Lines of Inquiry</h2>
+      <p class="section-description">
+        Seven interrelated threads investigated as a single field.
+      </p>
+    </div>
 
-<p>
-Research Areas:
-</p>
+    <ul class="areas">
+      <li><span class="idx">01</span> Decision Trace Model</li>
+      <li><span class="idx">02</span> Runtime Society</li>
+      <li><span class="idx">03</span> Knowledge Flow</li>
+      <li><span class="idx">04</span> Trust Infrastructure</li>
+      <li><span class="idx">05</span> AI Coordination</li>
+      <li><span class="idx">06</span> Multi-Agent Systems</li>
+      <li><span class="idx">07</span> Governance &amp; Boundary Systems</li>
+      <li><span class="idx">∞</span> Intelligence as Relationship</li>
+    </ul>
+  </section>
 
-<ul>
-  <li>Decision Trace Model</li>
-  <li>Runtime Society</li>
-  <li>Knowledge Flow</li>
-  <li>Trust Infrastructure</li>
-  <li>AI Coordination</li>
-  <li>Multi-Agent Systems</li>
-  <li>Governance and Boundary Systems</li>
-</ul>
+  <!-- ============ RESEARCH OUTPUTS ============ -->
+  <section id="outputs">
+    <div class="section-head">
+      <div class="section-label">02 / Research Outputs</div>
+      <h2>Channels of Exploration</h2>
+      <p class="section-description">
+        Active surfaces where the research is published,
+        implemented, taught, and practiced.
+      </p>
+    </div>
 
-<div class="links">
-  <a href="https://github.com/masao-watanabe-ai" target="_blank">
-    GitHub
-  </a>
+    <!-- ------- Blog ------- -->
+    <div class="output-section block">
+      <div class="block-title">
+        <span class="glyph">■</span>
+        <h3>Blog</h3>
+      </div>
+      <div class="block-desc">
+        <p>Long-form notes and field observations. Exploring:</p>
+        <ul>
+          <li>Runtime Society</li>
+          <li>Decision Trace</li>
+          <li>Trust Infrastructure</li>
+          <li>AI Coordination</li>
+          <li>Weak Signal Handling</li>
+        </ul>
+      </div>
 
-  <a href="https://deus-ex-machina-ism.com/" target="_blank">
-    Blog
-  </a>
+      <div class="cards">
+        <div class="card">
+          <div class="kicker">Latest Post</div>
+          <h3>Decision Trace as Runtime Memory</h3>
+          <p>How traces become the substrate for coordinated decisions across agents and humans.</p>
+          <div class="meta-muted">Coming Soon</div>
+        </div>
+        <div class="card">
+          <div class="kicker">Note</div>
+          <h3>Weak Signals and the Human Gate</h3>
+          <p>Where ambiguity should pause computation and hand control back to a person.</p>
+          <div class="meta-muted">Coming Soon</div>
+        </div>
+        <div class="card">
+          <div class="kicker">Essay</div>
+          <h3>Runtime Society: A Working Definition</h3>
+          <p>A first sketch of the social runtime layer and why it matters.</p>
+          <div class="meta-muted">Coming Soon</div>
+        </div>
+        <div class="card">
+          <div class="kicker">Index</div>
+          <h3>All Posts</h3>
+          <p>Ongoing writing on intelligence as relationship.</p>
+          <a class="meta" href="https://deus-ex-machina-ism.com/" target="_blank">Visit Blog →</a>
+        </div>
+      </div>
+    </div>
 
-  <a href="#books">
-    Books
-  </a>
+    <!-- ------- GitHub / OSS ------- -->
+    <div class="output-section block">
+      <div class="block-title">
+        <span class="glyph">■</span>
+        <h3>GitHub / OSS</h3>
+      </div>
+      <div class="block-desc">
+        <p>Open-source implementations related to:</p>
+        <ul>
+          <li>Decision Runtime</li>
+          <li>Decision Trace</li>
+          <li>Runtime Infrastructure</li>
+          <li>Multi-Agent Coordination</li>
+        </ul>
+      </div>
 
-  <a href="https://www.linkedin.com/" target="_blank">
-    LinkedIn
-  </a>
-</div>
+      <div class="cards">
+        <div class="card">
+          <div class="kicker">Runtime</div>
+          <h3>decision-runtime-core</h3>
+          <p>Core runtime for executing decisions with structured traces, gates, and boundaries.</p>
+          <a class="meta" href="https://github.com/masao-watanabe-ai" target="_blank">View on GitHub →</a>
+        </div>
+        <div class="card">
+          <div class="kicker">Trace</div>
+          <h3>decision-trace-model-v2</h3>
+          <p>Reference implementation of the Decision Trace Model — schema, ingestion, replay.</p>
+          <a class="meta" href="https://github.com/masao-watanabe-ai" target="_blank">View on GitHub →</a>
+        </div>
+        <div class="card">
+          <div class="kicker">Interaction</div>
+          <h3>interaction-core-v2</h3>
+          <p>Primitives for AI–human–agent interaction loops with explicit boundaries.</p>
+          <a class="meta" href="https://github.com/masao-watanabe-ai" target="_blank">View on GitHub →</a>
+        </div>
+        <div class="card">
+          <div class="kicker">View</div>
+          <h3>view-core-v2</h3>
+          <p>Composable view layer for inspecting traces, decisions, and runtime state.</p>
+          <a class="meta" href="https://github.com/masao-watanabe-ai" target="_blank">View on GitHub →</a>
+        </div>
+      </div>
+    </div>
 
-<h3 id="books">📘 Books</h3>
+    <!-- ------- Books ------- -->
+    <div class="output-section block" id="books">
+      <div class="block-title">
+        <span class="glyph">■</span>
+        <h3>Books</h3>
+      </div>
+      <div class="block-desc">
+        <p>
+          Knowledge artifacts — the research compiled into long-form
+          texts. Each volume formalizes a layer of the field.
+        </p>
+      </div>
 
-<p class="section-description">
-These ideas have been compiled into the following books.
-</p>
+      <div class="books-group-label">Japanese Editions</div>
 
-<h3>🇯🇵 Japanese Editions</h3>
+      <div class="book">
+        <div class="book-title">
+          AIは予測ではない。意思決定である。: Decision Trace Model 実践ガイド
+        </div>
+        <div class="book-subtitle">— AIを「意思決定システム」に変える —</div>
+        <p>AIを「予測システム」ではなく、「意思決定システム」として設計するための実践ガイド。</p>
+        <a class="book-link" href="https://amzn.to/4twsoui" target="_blank">Available on Kindle →</a>
+      </div>
 
-<div class="book">
-  <div class="book-title">
-    AIは予測ではない。意思決定である。: Decision Trace Model 実践ガイド
-  </div>
+      <div class="book">
+        <div class="book-title">知能場</div>
+        <div class="book-subtitle">— Intelligence as Relationship —</div>
+        <p>AI・人間・組織・社会の関係性として、知能を捉え直すための探究。</p>
+        <a class="book-link" href="https://amzn.to/4uN51hl" target="_blank">Available on Kindle →</a>
+      </div>
 
-  <div class="book-subtitle">
-    — AIを「意思決定システム」に変える —
-  </div>
+      <div class="book">
+        <div class="book-title">AIはどんな数学観の上に作られているのか</div>
+        <div class="book-subtitle">— 有限ルールから生成モデルへ —</div>
+        <a class="book-link" href="https://amzn.to/4frireb" target="_blank">Available on Kindle →</a>
+      </div>
 
-  <p>
-    AIを「予測システム」ではなく、「意思決定システム」として設計するための実践ガイド。
-  </p>
+      <div class="book">
+        <div class="book-title">Intelligence Field Economics</div>
+        <div class="book-subtitle">— Chinōba Keizai —</div>
+        <p>AI時代における、信頼・知識・協調構造についての探究。</p>
+        <a class="book-link" href="https://amzn.to/49A4JC8" target="_blank">Available on Kindle →</a>
+      </div>
 
-  <a class="book-link" href="https://amzn.to/4twsoui" target="_blank">
-    Available on Kindle →
-  </a>
-</div>
+      <div class="books-group-label">English Editions</div>
 
-<div class="book">
-  <div class="book-title">
-    知能場
-  </div>
+      <div class="book">
+        <div class="book-title">AI is not prediction. It is decision.</div>
+        <div class="book-subtitle">— Decision Trace Model Practical Guide —</div>
+        <p>A practical guide for designing AI as a decision system.</p>
+        <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank">Available on Kindle →</a>
+      </div>
 
-  <div class="book-subtitle">
-    — Intelligence as Relationship —
-  </div>
+      <div class="book">
+        <div class="book-title">Intelligence Field</div>
+        <div class="book-subtitle">— Intelligence as Relationship —</div>
+        <p>A new perspective on AI, relational intelligence, and social intelligence fields.</p>
+        <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank">Available on Kindle →</a>
+      </div>
 
-  <p>
-    AI・人間・組織・社会の関係性として、知能を捉え直すための探究。
-  </p>
+      <div class="book">
+        <div class="book-title">What Kind of Mathematical Worldview Is AI Built Upon?</div>
+        <div class="book-subtitle">— From Finite Rules to Generative Models —</div>
+        <a class="book-link" href="https://amzn.to/3PcGpzs" target="_blank">Available on Kindle →</a>
+      </div>
 
-  <a class="book-link" href="https://amzn.to/4uN51hl" target="_blank">
-    Available on Kindle →
-  </a>
-</div>
+      <div class="book">
+        <div class="book-title">Intelligence Field Economics</div>
+        <div class="book-subtitle">— Chinōba Keizai —</div>
+        <p>Trust, Knowledge and Coordination in the AI Era.</p>
+        <a class="book-link" href="https://amzn.to/49HvoNp" target="_blank">Available on Kindle →</a>
+      </div>
+    </div>
 
-<div class="book">
-  <div class="book-title">
-    AIはどんな数学観の上に作られているのか
-  </div>
+    <!-- ------- Talks / Sessions ------- -->
+    <div class="output-section block" id="talks">
+      <div class="block-title">
+        <span class="glyph">■</span>
+        <h3>Talks / Sessions</h3>
+      </div>
+      <div class="block-desc">
+        <p>
+          Public exploration — open sessions where the research is
+          presented, questioned, and extended in real time.
+        </p>
+      </div>
 
-  <div class="book-subtitle">
-    — 有限ルールから生成モデルへ —
-  </div>
+      <div class="talk">
+        <div class="kicker">Upcoming Session</div>
+        <h3>Decision Trace Model (DTM)</h3>
+        <p class="talk-sub">AI is not prediction. It is decision.</p>
 
-  <a class="book-link" href="https://amzn.to/4frireb" target="_blank">
-    Available on Kindle →
-  </a>
-</div>
+        <div class="talk-meta">
+          <span>Remote Session</span>
+          <span>Free</span>
+          <span>May 28, 2026 (JST)</span>
+        </div>
 
-<div class="book">
-  <div class="book-title">
-    Intelligence Field Economics
-  </div>
+        <ul class="topics">
+          <li>AI Runtime</li>
+          <li>Human-in-the-loop</li>
+          <li>Boundary / Governance</li>
+          <li>Weak Signal Handling</li>
+          <li>Multi-Agent Coordination</li>
+          <li>Decision Trace</li>
+        </ul>
+      </div>
 
-  <div class="book-subtitle">
-    — Chinōba Keizai —
-  </div>
+      <div class="past-sessions">Past Sessions — Coming Soon</div>
+    </div>
 
-  <p>
-    AI時代における、信頼・知識・協調構造についての探究。
-  </p>
+    <!-- ------- Runtime Chat ------- -->
+    <div class="output-section block" id="runtime-chat">
+      <div class="block-title">
+        <span class="glyph">■</span>
+        <h3>Runtime Chat <span style="color: var(--fg-faint); font-size: 14px; font-weight: 400; letter-spacing: 2px;">(Experimental)</span></h3>
+      </div>
 
-  <a class="book-link" href="https://amzn.to/49A4JC8" target="_blank">
-    Available on Kindle →
-  </a>
-</div>
+      <div class="runtime">
+        <div class="status">Status — Coming Soon</div>
+        <h3>A place to practice structured decision-making.</h3>
+        <p class="runtime-lede">
+          Runtime Chat is not a chatbot.
+          It is a practical environment for exploring decision
+          structures under real conditions.
+        </p>
 
-<h3>🇺🇸 English Editions</h3>
+        <ul class="runtime-features">
+          <li>Decision Trace</li>
+          <li>Human Gate</li>
+          <li>Boundary</li>
+          <li>Runtime-based reasoning</li>
+          <li>Weak Signal handling</li>
+          <li>Structured decision-making</li>
+        </ul>
 
-<div class="book">
-  <div class="book-title">
-    AI is not prediction. It is decision.
-  </div>
+        <p class="runtime-claim">Not just AI conversation.</p>
+        <p class="runtime-claim"><em>A place to practice decision structures.</em></p>
+      </div>
+    </div>
+  </section>
 
-  <div class="book-subtitle">
-    — Decision Trace Model Practical Guide —
-  </div>
+  <!-- ============ LATEST RESEARCH ============ -->
+  <section id="latest">
+    <div class="section-head">
+      <div class="section-label">03 / Latest Research</div>
+      <h2>Working Surface</h2>
+      <p class="section-description">
+        Most recent movement across the platform.
+      </p>
+    </div>
 
-  <p>
-    A practical guide for designing AI as a decision system.
-  </p>
+    <div class="latest">
+      <div class="card">
+        <div class="kicker">Latest Article</div>
+        <h3>Notes on the Runtime Layer</h3>
+        <p>An in-progress sketch of what sits between agents and society.</p>
+        <div class="meta-muted">Draft</div>
+      </div>
+      <div class="card">
+        <div class="kicker">Latest OSS</div>
+        <h3>decision-runtime-core</h3>
+        <p>Recent commits to the core runtime and trace primitives.</p>
+        <div class="meta-muted">In Development</div>
+      </div>
+      <div class="card">
+        <div class="kicker">Latest Talk</div>
+        <h3>Decision Trace Model (DTM)</h3>
+        <p>Open remote session — May 28, 2026 (JST).</p>
+        <a class="meta" href="#talks">See Session →</a>
+      </div>
+      <div class="card">
+        <div class="kicker">Latest Experiment</div>
+        <h3>Runtime Chat Prototype</h3>
+        <p>Early environment for practicing structured decision-making.</p>
+        <a class="meta" href="#runtime-chat">See Experiment →</a>
+      </div>
+    </div>
+  </section>
 
-  <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank">
-    Available on Kindle →
-  </a>
-</div>
+  <!-- ============ UPCOMING SESSION (highlight) ============ -->
+  <section id="upcoming">
+    <div class="section-head">
+      <div class="section-label">04 / Upcoming Session</div>
+      <h2>Next Public Window</h2>
+      <p class="section-description">
+        An open invitation to enter the research mid-flow.
+      </p>
+    </div>
 
-<div class="book">
-  <div class="book-title">
-    Intelligence Field
-  </div>
+    <div class="talk">
+      <div class="kicker">May 28, 2026 — JST</div>
+      <h3>Decision Trace Model (DTM)</h3>
+      <p class="talk-sub">AI is not prediction. It is decision.</p>
 
-  <div class="book-subtitle">
-    — Intelligence as Relationship —
-  </div>
+      <div class="talk-meta">
+        <span>Remote</span>
+        <span>Free</span>
+        <span>Open Session</span>
+      </div>
 
-  <p>
-    A new perspective on AI, relational intelligence,
-    and social intelligence fields.
-  </p>
+      <p style="color: var(--fg-mute); font-size: 14px; margin: 0 0 18px; max-width: 600px;">
+        A working session on AI runtime, human-in-the-loop boundaries,
+        weak signal handling, and multi-agent coordination — framed
+        through the Decision Trace Model.
+      </p>
+    </div>
+  </section>
 
-  <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank">
-    Available on Kindle →
-  </a>
-</div>
-
-<div class="book">
-  <div class="book-title">
-    What Kind of Mathematical Worldview Is AI Built Upon?
-  </div>
-
-  <div class="book-subtitle">
-    — From Finite Rules to Generative Models —
-  </div>
-
-  <a class="book-link" href="https://amzn.to/3PcGpzs" target="_blank">
-    Available on Kindle →
-  </a>
-</div>
-
-<div class="book">
-  <div class="book-title">
-    Intelligence Field Economics
-  </div>
-
-  <div class="book-subtitle">
-    — Chinōba Keizai —
-  </div>
-
-  <p>
-    Trust, Knowledge and Coordination in the AI Era
-  </p>
-
-  <a class="book-link" href="https://amzn.to/49HvoNp" target="_blank">
-    Available on Kindle →
-  </a>
-</div>
-
-<footer>
-  <p>Chinoba — Intelligence as Relationship</p>
-  <p>AI is not prediction. It is decision.</p>
-</footer>
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <p>Chinoba — Intelligence as Relationship</p>
+    <p class="footer-tag">AI is not prediction. It is decision.</p>
+    <p style="margin-top: 18px;">
+      <a href="https://github.com/masao-watanabe-ai" target="_blank">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="https://deus-ex-machina-ism.com/" target="_blank">Blog</a>
+      &nbsp;·&nbsp;
+      <a href="#books">Books</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+    </p>
+  </footer>
 
 </body>
 </html>
