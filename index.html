@@ -6,6 +6,8 @@
 
   <title>Chinoba — Intelligence as Relationship</title>
 
+  <link rel="icon" type="image/png" href="assets/chinoba-logo.png">
+
   <style>
     :root {
       --bg: #0b0b0b;
@@ -48,6 +50,16 @@
       padding-bottom: 56px;
       border-bottom: 1px solid var(--line);
       margin-bottom: 64px;
+    }
+
+    .logo {
+      display: block;
+      width: 260px;
+      max-width: 70%;
+      height: auto;
+      margin: 0 0 36px;
+      opacity: 0.92;
+      filter: brightness(0.96);
     }
 
     .eyebrow {
@@ -498,6 +510,7 @@
     @media (max-width: 640px) {
       body { padding: 56px 20px 40px; }
       h1 { font-size: 40px; }
+      .logo { width: 180px; margin-bottom: 28px; }
       .areas,
       .cards,
       .latest,
@@ -515,6 +528,7 @@
 
   <!-- ============ MASTHEAD ============ -->
   <header class="masthead">
+    <img src="assets/chinoba-logo.png" alt="Chinoba" class="logo">
     <div class="eyebrow">Research Initiative</div>
     <h1>Chinoba</h1>
     <p class="tagline">Intelligence as Relationship</p>
