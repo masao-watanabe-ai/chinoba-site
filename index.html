@@ -391,32 +391,26 @@
       text-transform: uppercase;
     }
 
-    /* ---------- Runtime Chat ---------- */
-    .runtime {
+    /* ---------- Research Prototypes ---------- */
+    .prototypes {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .prototype {
       border: 1px solid var(--line-strong);
-      padding: 32px 28px;
-      position: relative;
-      overflow: hidden;
+      padding: 30px 28px;
+      background: linear-gradient(180deg, #101010 0%, #0b0b0b 100%);
+      transition: border-color 160ms ease, background 160ms ease;
     }
 
-    .runtime::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        repeating-linear-gradient(
-          0deg,
-          rgba(255,255,255,0.012) 0px,
-          rgba(255,255,255,0.012) 1px,
-          transparent 1px,
-          transparent 3px
-        );
-      pointer-events: none;
+    .prototype:hover {
+      border-color: #3a3a3a;
+      background: linear-gradient(180deg, #121212 0%, #0c0c0c 100%);
     }
 
-    .runtime > * { position: relative; }
-
-    .runtime .status {
+    .prototype .status {
       display: inline-block;
       font-size: 11px;
       letter-spacing: 3px;
@@ -427,54 +421,58 @@
       margin-bottom: 20px;
     }
 
-    .runtime h3 {
-      font-size: 24px;
+    .prototype h3 {
+      font-size: 22px;
       margin: 0 0 8px;
       font-weight: 600;
       letter-spacing: 0.3px;
     }
 
-    .runtime .runtime-lede {
+    .prototype .prototype-tag {
       color: var(--fg-mute);
-      margin: 0 0 22px;
+      font-size: 15px;
+      margin: 0 0 18px;
+      line-height: 1.6;
       max-width: 600px;
-      font-size: 15px;
     }
 
-    .runtime ul.runtime-features {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 22px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 6px 18px;
-    }
-
-    .runtime ul.runtime-features li {
-      color: var(--fg);
-      font-size: 14px;
-      padding-left: 16px;
-      position: relative;
-    }
-
-    .runtime ul.runtime-features li::before {
-      content: "▸";
-      position: absolute;
-      left: 0;
-      color: var(--fg-faint);
-      font-size: 10px;
-      top: 6px;
-    }
-
-    .runtime .runtime-claim {
-      color: var(--fg);
-      font-size: 15px;
-      margin: 0 0 4px;
-    }
-
-    .runtime .runtime-claim em {
+    .prototype .prototype-desc {
       color: var(--fg-mute);
-      font-style: normal;
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 0 0 18px;
+      max-width: 620px;
+    }
+
+    .prototype .prototype-features {
+      color: var(--fg-dim);
+      font-size: 13px;
+      letter-spacing: 0.4px;
+      margin: 0 0 24px;
+      max-width: 720px;
+    }
+
+    .prototype .prototype-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .prototype-link {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid var(--line-strong);
+      color: var(--fg);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: border-color 160ms ease, color 160ms ease;
+    }
+
+    .prototype-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
     }
 
     /* ---------- Latest Research ---------- */
@@ -514,8 +512,7 @@
       .areas,
       .cards,
       .latest,
-      .talk .topics,
-      .runtime ul.runtime-features {
+      .talk .topics {
         grid-template-columns: 1fr;
       }
       .masthead { padding-bottom: 40px; margin-bottom: 48px; }
@@ -569,10 +566,43 @@
     </ul>
   </section>
 
+  <!-- ============ RESEARCH PROTOTYPES ============ -->
+  <section id="prototypes">
+    <div class="section-head">
+      <div class="section-label">02 / Research Prototypes</div>
+      <h2>Experiments in Runtime</h2>
+      <p class="section-description">
+        Working prototypes that test the research as code.
+      </p>
+    </div>
+
+    <div class="prototypes">
+      <article class="prototype">
+        <div class="status">Experimental</div>
+        <h3>Runtime Chat</h3>
+        <p class="prototype-tag">
+          Not a chatbot.<br>
+          A structured decision environment.
+        </p>
+        <p class="prototype-desc">
+          Runtime Chat is an experimental prototype for exploring
+          structured decision-making under uncertainty.
+        </p>
+        <p class="prototype-features">
+          Decision Trace · Runtime-based reasoning · Weak Signal handling · Boundary evaluation · Human Gate escalation
+        </p>
+        <div class="prototype-actions">
+          <a class="prototype-link" href="https://masao-watanabe-ai.github.io/runtime-chat-experimental/" target="_blank" rel="noopener">Live Demo →</a>
+          <a class="prototype-link" href="https://github.com/masao-watanabe-ai/runtime-chat-experimental" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!-- ============ RESEARCH OUTPUTS ============ -->
   <section id="outputs">
     <div class="section-head">
-      <div class="section-label">02 / Research Outputs</div>
+      <div class="section-label">03 / Research Outputs</div>
       <h2>Channels of Exploration</h2>
       <p class="section-description">
         Active surfaces where the research is published,
@@ -792,42 +822,12 @@
 
       <div class="past-sessions">Past Sessions — Coming Soon</div>
     </div>
-
-    <!-- ------- Runtime Chat ------- -->
-    <div class="output-section block" id="runtime-chat">
-      <div class="block-title">
-        <span class="glyph">■</span>
-        <h3>Runtime Chat <span style="color: var(--fg-faint); font-size: 14px; font-weight: 400; letter-spacing: 2px;">(Experimental)</span></h3>
-      </div>
-
-      <div class="runtime">
-        <div class="status">Status — Coming Soon</div>
-        <h3>A place to practice structured decision-making.</h3>
-        <p class="runtime-lede">
-          Runtime Chat is not a chatbot.
-          It is a practical environment for exploring decision
-          structures under real conditions.
-        </p>
-
-        <ul class="runtime-features">
-          <li>Decision Trace</li>
-          <li>Human Gate</li>
-          <li>Boundary</li>
-          <li>Runtime-based reasoning</li>
-          <li>Weak Signal handling</li>
-          <li>Structured decision-making</li>
-        </ul>
-
-        <p class="runtime-claim">Not just AI conversation.</p>
-        <p class="runtime-claim"><em>A place to practice decision structures.</em></p>
-      </div>
-    </div>
   </section>
 
   <!-- ============ LATEST RESEARCH ============ -->
   <section id="latest">
     <div class="section-head">
-      <div class="section-label">03 / Latest Research</div>
+      <div class="section-label">04 / Latest Research</div>
       <h2>Working Surface</h2>
       <p class="section-description">
         Most recent movement across the platform.
@@ -857,7 +857,7 @@
         <div class="kicker">Latest Experiment</div>
         <h3>Runtime Chat Prototype</h3>
         <p>Early environment for practicing structured decision-making.</p>
-        <a class="meta" href="#runtime-chat">See Experiment →</a>
+        <a class="meta" href="#prototypes">See Prototype →</a>
       </div>
     </div>
   </section>
@@ -865,7 +865,7 @@
   <!-- ============ UPCOMING SESSION (highlight) ============ -->
   <section id="upcoming">
     <div class="section-head">
-      <div class="section-label">04 / Upcoming Session</div>
+      <div class="section-label">05 / Upcoming Session</div>
       <h2>Next Public Window</h2>
       <p class="section-description">
         An open invitation to enter the research mid-flow.
