@@ -284,9 +284,15 @@
     .book {
       padding: 22px 0 24px;
       border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr 132px;
+      gap: 32px;
+      align-items: start;
     }
 
     .book:last-child { border-bottom: none; }
+
+    .book-body { min-width: 0; }
 
     .book-title {
       font-size: 18px;
@@ -312,6 +318,29 @@
       font-size: 13px;
       color: var(--accent);
       letter-spacing: 0.3px;
+    }
+
+    .book-cover {
+      display: block;
+      width: 132px;
+      justify-self: end;
+    }
+
+    .book-cover img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 3px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5),
+                  0 6px 18px rgba(0, 0, 0, 0.35);
+      background: var(--bg-elev);
+      transition: transform 320ms ease, box-shadow 320ms ease;
+    }
+
+    .book-cover:hover img {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.55),
+                  0 10px 24px rgba(0, 0, 0, 0.42);
     }
 
     /* ---------- Talk card ---------- */
@@ -515,6 +544,14 @@
       .talk .topics {
         grid-template-columns: 1fr;
       }
+      .book {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+      .book-cover {
+        width: 116px;
+        justify-self: center;
+      }
       .masthead { padding-bottom: 40px; margin-bottom: 48px; }
       section { margin-bottom: 72px; }
     }
@@ -715,61 +752,101 @@
       <div class="books-group-label">Japanese Editions</div>
 
       <div class="book">
-        <div class="book-title">
-          AIは予測ではない。意思決定である。: Decision Trace Model 実践ガイド
+        <div class="book-body">
+          <div class="book-title">
+            AIは予測ではない。意思決定である。: Decision Trace Model 実践ガイド
+          </div>
+          <div class="book-subtitle">— AIを「意思決定システム」に変える —</div>
+          <p>AIを「予測システム」ではなく、「意思決定システム」として設計するための実践ガイド。</p>
+          <a class="book-link" href="https://amzn.to/4twsoui" target="_blank">Available on Kindle →</a>
         </div>
-        <div class="book-subtitle">— AIを「意思決定システム」に変える —</div>
-        <p>AIを「予測システム」ではなく、「意思決定システム」として設計するための実践ガイド。</p>
-        <a class="book-link" href="https://amzn.to/4twsoui" target="_blank">Available on Kindle →</a>
+        <a class="book-cover" href="https://amzn.to/4twsoui" target="_blank" aria-hidden="true" tabindex="-1">
+          <img src="assets/book_pic/jp/01.jpg" alt="" loading="lazy">
+        </a>
       </div>
 
       <div class="book">
-        <div class="book-title">知能場</div>
-        <div class="book-subtitle">— Intelligence as Relationship —</div>
-        <p>AI・人間・組織・社会の関係性として、知能を捉え直すための探究。</p>
-        <a class="book-link" href="https://amzn.to/4uN51hl" target="_blank">Available on Kindle →</a>
+        <div class="book-body">
+          <div class="book-title">知能場</div>
+          <div class="book-subtitle">— Intelligence as Relationship —</div>
+          <p>AI・人間・組織・社会の関係性として、知能を捉え直すための探究。</p>
+          <a class="book-link" href="https://amzn.to/4uN51hl" target="_blank">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://amzn.to/4uN51hl" target="_blank" aria-hidden="true" tabindex="-1">
+          <img src="assets/book_pic/jp/02.jpg" alt="" loading="lazy">
+        </a>
       </div>
 
       <div class="book">
-        <div class="book-title">AIはどんな数学観の上に作られているのか</div>
-        <div class="book-subtitle">— 有限ルールから生成モデルへ —</div>
-        <a class="book-link" href="https://amzn.to/4frireb" target="_blank">Available on Kindle →</a>
+        <div class="book-body">
+          <div class="book-title">AIはどんな数学観の上に作られているのか</div>
+          <div class="book-subtitle">— 有限ルールから生成モデルへ —</div>
+          <a class="book-link" href="https://amzn.to/4frireb" target="_blank">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://amzn.to/4frireb" target="_blank" aria-hidden="true" tabindex="-1">
+          <img src="assets/book_pic/jp/03.jpg" alt="" loading="lazy">
+        </a>
       </div>
 
       <div class="book">
-        <div class="book-title">Intelligence Field Economics</div>
-        <div class="book-subtitle">— Chinōba Keizai —</div>
-        <p>AI時代における、信頼・知識・協調構造についての探究。</p>
-        <a class="book-link" href="https://amzn.to/49A4JC8" target="_blank">Available on Kindle →</a>
+        <div class="book-body">
+          <div class="book-title">Intelligence Field Economics</div>
+          <div class="book-subtitle">— Chinōba Keizai —</div>
+          <p>AI時代における、信頼・知識・協調構造についての探究。</p>
+          <a class="book-link" href="https://amzn.to/49A4JC8" target="_blank">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://amzn.to/49A4JC8" target="_blank" aria-hidden="true" tabindex="-1">
+          <img src="assets/book_pic/jp/04.jpg" alt="" loading="lazy">
+        </a>
       </div>
 
       <div class="books-group-label">English Editions</div>
 
       <div class="book">
-        <div class="book-title">AI is not prediction. It is decision.</div>
-        <div class="book-subtitle">— Decision Trace Model Practical Guide —</div>
-        <p>A practical guide for designing AI as a decision system.</p>
-        <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank">Available on Kindle →</a>
+        <div class="book-body">
+          <div class="book-title">AI is not prediction. It is decision.</div>
+          <div class="book-subtitle">— Decision Trace Model Practical Guide —</div>
+          <p>A practical guide for designing AI as a decision system.</p>
+          <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" aria-hidden="true" tabindex="-1">
+          <img src="assets/book_pic/en/01.jpg" alt="" loading="lazy">
+        </a>
       </div>
 
       <div class="book">
-        <div class="book-title">Intelligence Field</div>
-        <div class="book-subtitle">— Intelligence as Relationship —</div>
-        <p>A new perspective on AI, relational intelligence, and social intelligence fields.</p>
-        <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank">Available on Kindle →</a>
+        <div class="book-body">
+          <div class="book-title">Intelligence Field</div>
+          <div class="book-subtitle">— Intelligence as Relationship —</div>
+          <p>A new perspective on AI, relational intelligence, and social intelligence fields.</p>
+          <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" aria-hidden="true" tabindex="-1">
+          <img src="assets/book_pic/en/02.jpg" alt="" loading="lazy">
+        </a>
       </div>
 
       <div class="book">
-        <div class="book-title">What Kind of Mathematical Worldview Is AI Built Upon?</div>
-        <div class="book-subtitle">— From Finite Rules to Generative Models —</div>
-        <a class="book-link" href="https://amzn.to/3PcGpzs" target="_blank">Available on Kindle →</a>
+        <div class="book-body">
+          <div class="book-title">What Kind of Mathematical Worldview Is AI Built Upon?</div>
+          <div class="book-subtitle">— From Finite Rules to Generative Models —</div>
+          <a class="book-link" href="https://amzn.to/3PcGpzs" target="_blank">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://amzn.to/3PcGpzs" target="_blank" aria-hidden="true" tabindex="-1">
+          <img src="assets/book_pic/en/03.jpg" alt="" loading="lazy">
+        </a>
       </div>
 
       <div class="book">
-        <div class="book-title">Intelligence Field Economics</div>
-        <div class="book-subtitle">— Chinōba Keizai —</div>
-        <p>Trust, Knowledge and Coordination in the AI Era.</p>
-        <a class="book-link" href="https://amzn.to/49HvoNp" target="_blank">Available on Kindle →</a>
+        <div class="book-body">
+          <div class="book-title">Intelligence Field Economics</div>
+          <div class="book-subtitle">— Chinōba Keizai —</div>
+          <p>Trust, Knowledge and Coordination in the AI Era.</p>
+          <a class="book-link" href="https://amzn.to/49HvoNp" target="_blank">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://amzn.to/49HvoNp" target="_blank" aria-hidden="true" tabindex="-1">
+          <img src="assets/book_pic/en/04.jpg" alt="" loading="lazy">
+        </a>
       </div>
     </div>
 
