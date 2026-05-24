@@ -962,7 +962,8 @@
       <li>
         <button type="button" class="inquiry-item"
                 data-slug="physical-ai-cyber-physical-systems"
-                data-description="Robotics, autonomous systems, IoT, industrial AI, and executable intelligence in the physical world."
+                data-url="/research/physical-ai-cyber-physical-systems"
+                data-description="Decision structures for AI systems operating in the physical world."
                 aria-controls="inquiry-panel" aria-expanded="false">
           <span class="idx">08</span>
           <span class="inquiry-name">Physical AI &amp; Cyber-Physical Systems</span>
@@ -1497,7 +1498,7 @@
 
       items.forEach(function (item) {
         item.addEventListener('click', function () {
-          if (item.dataset.slug === 'decision-trace-model' && item.dataset.url) {
+          if (item.dataset.url) {
             window.location.href = item.dataset.url;
             return;
           }

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Physical AI &amp; Cyber-Physical Systems — Chinoba</title>
+  <meta name="description" content="Decision structures for AI systems operating in the physical world — runtime coordination, boundaries, human escalation, and traceable action across robotics, autonomous systems, IoT, and smart factories.">
+
+  <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
+  <link rel="stylesheet" href="/assets/research.css">
+
+  <style>
+    /* ---------- Page-specific overrides ---------- */
+    .concept-grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .flow.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .flow.cols-4 .flow-step + .flow-step {
+      margin-left: 1px;
+    }
+
+    .flow.cols-4 .flow-step:nth-child(4n + 1) {
+      margin-left: 0;
+    }
+
+    .flow.cols-4 .flow-step .step-desc {
+      opacity: 1;
+    }
+
+    /* Diagram placeholders */
+    .diagrams {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .diagram-card {
+      background: var(--bg);
+      padding: 26px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+
+    .diagram-card .kicker {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .diagram-card h3 {
+      font-size: 16px;
+      margin: 0 0 14px;
+      font-weight: 600;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+    }
+
+    .diagram-frame {
+      flex: 1;
+      border: 1px dashed var(--line-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
+        var(--bg-elev);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      min-height: 110px;
+    }
+
+    @media (max-width: 900px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .flow.cols-4 {
+        grid-template-columns: 1fr;
+      }
+      .flow.cols-4 .flow-step + .flow-step {
+        margin-left: 0;
+        margin-top: 1px;
+      }
+      .diagrams {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <nav class="topbar" aria-label="Breadcrumb">
+    <div class="breadcrumb">
+      <a href="/">Chinoba</a>
+      <span class="sep">/</span>
+      <a href="/#research">Research</a>
+      <span class="sep">/</span>
+      <span>Physical AI &amp; Cyber-Physical Systems</span>
+    </div>
+    <div class="meta-id">08 / Lines of Inquiry</div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Research / Physical AI &amp; Cyber-Physical Systems</div>
+      <h1>Physical AI &amp; Cyber-Physical Systems</h1>
+      <p class="hero-sub">
+        <span>Physical AI is not only embodied intelligence.</span>
+        <span>It is runtime-based decision-making in the real world.</span>
+      </p>
+      <p class="hero-desc">
+        As AI moves from information spaces into physical
+        environments, decision structures, boundaries,
+        human escalation, and runtime coordination become critical.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============ 01 OVERVIEW ============ -->
+  <section class="research-section" id="overview" aria-labelledby="overview-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Overview</div>
+        <h2 id="overview-h">Decision Systems in the Physical World</h2>
+        <p class="section-lede">
+          Physical AI spans robotics, autonomous systems,
+          smart factories, IoT, sensor networks, and the
+          coordination between digital and physical worlds.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <p>
+            The category we call <em>Physical AI</em> includes a wide
+            surface of systems — robotics, autonomous vehicles,
+            smart factories, IoT networks, sensor fabrics, and
+            cyber-physical coordination across distributed
+            infrastructure.
+          </p>
+          <p>
+            These systems are commonly framed as a perception
+            problem and a control problem. That framing
+            is incomplete.
+          </p>
+
+          <code class="quote">Physical AI is not merely perception and control.</code>
+
+          <p>
+            The real challenge is how AI systems make decisions
+            <em>safely</em> under uncertainty in physical
+            environments — where actions are irreversible,
+            responsibility is real, and ambiguity is the default
+            condition of the signal.
+          </p>
+
+          <h3>Why This Inquiry</h3>
+          <p>
+            Physical environments are not data lakes. They contain
+            partial observations, weak signals, latency, conflicting
+            sensors, and human presence. A decision made by an AI
+            system here is not an output — it is an event that
+            changes the world.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>Within Scope</h3>
+          <ul>
+            <li>Physical AI &amp; embodied systems</li>
+            <li>Robotics &amp; autonomous platforms</li>
+            <li>Smart factories &amp; industrial AI</li>
+            <li>IoT &amp; sensor networks</li>
+            <li>Cyber-physical coordination</li>
+            <li>Edge runtime &amp; distributed execution</li>
+            <li>Human-machine boundary design</li>
+          </ul>
+
+          <h3>Working Question</h3>
+          <p>
+            How should decision structure — not just model
+            architecture — be designed for AI systems that act
+            inside the physical world?
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 WHY IT MATTERS ============ -->
+  <section class="research-section" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / Why It Matters</div>
+        <h2 id="why-h">From Input → Output to Runtime → Trace</h2>
+        <p class="section-lede">
+          Traditional AI architectures collapse perception, model,
+          and output into a single chain. Physical environments
+          demand more layers.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <p>Physical environments contain:</p>
+          <ul>
+            <li>ambiguity</li>
+            <li>weak signals</li>
+            <li>incomplete sensor data</li>
+            <li>latency</li>
+            <li>safety risks</li>
+            <li>real-world responsibility</li>
+            <li>human interaction</li>
+          </ul>
+
+          <p>The classical pipeline is insufficient:</p>
+
+          <code class="quote">Input → Model → Output</code>
+
+          <p>
+            It does not represent boundary, escalation, coordination,
+            or trace. It treats decision as a side effect of
+            inference, not as a layer with its own structure.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>What Physical AI Actually Requires</h3>
+          <code class="quote">
+Sensor
+  ↓
+Signal
+  ↓
+Context
+  ↓
+Decision Runtime
+  ↓
+Boundary
+  ↓
+Human Gate
+  ↓
+Execution
+  ↓
+Trace
+          </code>
+          <p>
+            Each stage is a distinct architectural concern. Each
+            stage is also where physical-world AI fails when it is
+            collapsed into the model.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 CORE STRUCTURE ============ -->
+  <section class="research-section" id="core" aria-labelledby="core-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Core Structure</div>
+        <h2 id="core-h">Runtime Primitives for the Physical World</h2>
+        <p class="section-lede">
+          Seven primitives that compose the decision layer for
+          AI systems operating in physical environments.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Sensor Layer</h3>
+          <p>Cameras, lidar, IMUs, edge devices, industrial telemetry. The substrate of physical observation — noisy, partial, and continuous.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Context Formation</h3>
+          <p>Sensor signals are not context. Context is constructed across time, history, location, intent, and adjacent systems.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Runtime Decision Layer</h3>
+          <p>The orchestration layer where signals are interpreted into actions under uncertainty — the Decision OS of the physical system.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Boundary Systems</h3>
+          <p>Safety envelopes, operational limits, regulatory constraints. Boundaries prevent unsafe autonomous execution at the edge.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Human Escalation</h3>
+          <p>When ambiguity exceeds threshold, control returns to a person. Escalation is architectural, not a fallback.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Multi-Agent Coordination</h3>
+          <p>Robots, machines, sensors, and humans operate as a distributed runtime — negotiation, handoff, and shared state.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Decision Trace</h3>
+          <p>Every action in the physical world remains traceable, replayable, and accountable. Trace is the memory of the system.</p>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top: clamp(56px, 7vw, 80px); margin-bottom: 28px;">
+        <div class="section-label">Physical AI Runtime Flow</div>
+        <h2 style="font-size: clamp(20px, 2.4vw, 24px);">Sensor → Trace</h2>
+      </div>
+
+      <ol class="flow cols-4" role="list">
+        <li class="flow-step" tabindex="0">
+          <span class="step-num">01</span>
+          <span class="step-name">Sensor</span>
+          <p class="step-desc">The physical world is observed through continuous, partial signals.</p>
+        </li>
+        <li class="flow-step" tabindex="0">
+          <span class="step-num">02</span>
+          <span class="step-name">Signal</span>
+          <p class="step-desc">Raw observations become interpretable signals — features, anomalies, events.</p>
+        </li>
+        <li class="flow-step" tabindex="0">
+          <span class="step-num">03</span>
+          <span class="step-name">Context</span>
+          <p class="step-desc">Signals are placed against history, location, and adjacent state.</p>
+        </li>
+        <li class="flow-step" tabindex="0">
+          <span class="step-num">04</span>
+          <span class="step-name">Decision Runtime</span>
+          <p class="step-desc">The runtime forms a candidate action under uncertainty.</p>
+        </li>
+        <li class="flow-step" tabindex="0">
+          <span class="step-num">05</span>
+          <span class="step-name">Boundary</span>
+          <p class="step-desc">Safety envelopes, regulations, and operational limits are checked.</p>
+        </li>
+        <li class="flow-step" tabindex="0">
+          <span class="step-num">06</span>
+          <span class="step-name">Human Gate</span>
+          <p class="step-desc">Critical or ambiguous decisions are escalated to a person.</p>
+        </li>
+        <li class="flow-step" tabindex="0">
+          <span class="step-num">07</span>
+          <span class="step-name">Execution</span>
+          <p class="step-desc">The decision becomes a physical action in the world.</p>
+        </li>
+        <li class="flow-step" tabindex="0">
+          <span class="step-num">08</span>
+          <span class="step-name">Trace</span>
+          <p class="step-desc">The full path is preserved as a structured, replayable record.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 04 RELATED ESSAYS ============ -->
+  <section class="research-section" id="essays" aria-labelledby="essays-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Related Essays</div>
+        <h2 id="essays-h">Reading Around Physical AI</h2>
+        <p class="section-lede">
+          Essays that extend this inquiry into IoT, embodied
+          intelligence, and the sensor-decision boundary.
+        </p>
+      </div>
+
+      <div class="essays">
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/iot-decision-system-decision-trace-model-multi-agent/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">IoT / Decision Systems</div>
+          <h3>IoT from Detection Systems to Decision Systems</h3>
+          <p>How IoT architectures are shifting from detection pipelines into runtime-based decision systems coordinated across multiple agents.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/physical-ai-dtm-intelligence-field/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Physical AI</div>
+          <h3>Physical AI Beyond Embodied Intelligence — DTM and Intelligence Field Perspectives —</h3>
+          <p>A rethinking of Physical AI through the lens of Decision Trace Model and the Intelligence Field — beyond perception and control.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/sensor-data-iot/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Sensor / IoT</div>
+          <h3>Sensor Data &amp; IoT Technologies</h3>
+          <p>A field-level overview of sensor data, IoT technologies, and their role inside cyber-physical decision infrastructure.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 RELATED BOOKS ============ -->
+  <section class="research-section" id="books" aria-labelledby="books-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Related Books</div>
+        <h2 id="books-h">Long-form Texts</h2>
+        <p class="section-lede">
+          Knowledge artifacts that compile the surrounding research
+          into structured volumes. English editions shown here.
+        </p>
+      </div>
+
+      <div class="books-list">
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">AI is not prediction. It is decision.</div>
+            <div class="book-subtitle">— Decision Trace Model Practical Guide —</div>
+            <p>A practical guide for designing AI as a decision system rather than a predictive output engine.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Intelligence Field</div>
+            <div class="book-subtitle">— Intelligence as Relationship —</div>
+            <p>A new perspective on AI, relational intelligence, and social intelligence fields — extended toward physical-world coordination.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/02.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 RELATED OSS ============ -->
+  <section class="research-section" id="oss" aria-labelledby="oss-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Related OSS</div>
+        <h2 id="oss-h">Related OSS</h2>
+        <p class="section-lede">
+          Runtime-oriented architectures for physical-world
+          AI systems — decision execution, trace, and coordination.
+        </p>
+      </div>
+
+      <div class="oss-block">
+        <div class="oss-meta">
+          <h3>Modular runtime components</h3>
+          <p>
+            The OSS ecosystem provides primitives for Physical AI:
+            decision runtimes, interaction loops, traceable execution,
+            graph-based decision modeling, and signal analytics
+            across sensor networks.
+          </p>
+
+          <a class="oss-link" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">
+            GitHub — masao-watanabe-ai →
+          </a>
+        </div>
+
+        <ul class="oss-tags" aria-label="Related OSS modules">
+          <li>decision-runtime-core</li>
+          <li>interaction-core-v2</li>
+          <li>decision-trace-model-v2</li>
+          <li>decision-trace-gnn</li>
+          <li>Synapse-Insights</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 DIAGRAMS ============ -->
+  <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Diagrams</div>
+        <h2 id="diagrams-h">Architecture Archive</h2>
+        <p class="section-lede">
+          A growing archive of architectural sketches for
+          Physical AI runtime structures.
+        </p>
+      </div>
+
+      <div class="diagrams">
+        <div class="diagram-card">
+          <div class="kicker">Diagram 01</div>
+          <h3>Physical AI Runtime Architecture</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 02</div>
+          <h3>Smart Factory Runtime Flow</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 03</div>
+          <h3>IoT Decision Structure</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 04</div>
+          <h3>Human Escalation Architecture</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 CLOSING ============ -->
+  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+    <blockquote>
+      <span>Physical AI is not merely embodied intelligence.</span>
+      <span>It is the emergence of</span>
+      <span>runtime coordination,</span>
+      <span>decision boundaries,</span>
+      <span>human escalation,</span>
+      <span>and traceable action</span>
+      <span>inside the physical world.</span>
+    </blockquote>
+    <div class="closing-mark">Chinoba.org</div>
+  </section>
+
+  <!-- ============ 09 RELATED RESEARCH ============ -->
+  <section class="research-section" id="related" aria-labelledby="related-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">+ / Related Research</div>
+        <h2 id="related-h">Other Lines of Inquiry</h2>
+        <p class="section-lede">
+          Physical AI connects outward to neighboring threads in
+          the Chinoba field.
+        </p>
+      </div>
+
+      <div class="related-research">
+        <a href="/research/decision-trace-model" data-slug="decision-trace-model">
+          <span class="related-label">01 / Inquiry</span>
+          <span class="related-name">Decision Trace Model</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/#research" data-slug="runtime-society">
+          <span class="related-label">02 / Inquiry</span>
+          <span class="related-name">Runtime Society</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="ai-coordination">
+          <span class="related-label">05 / Inquiry</span>
+          <span class="related-name">AI Coordination</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="multi-agent-systems">
+          <span class="related-label">06 / Inquiry</span>
+          <span class="related-name">Multi-Agent Systems</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="trust-infrastructure">
+          <span class="related-label">04 / Inquiry</span>
+          <span class="related-name">Trust Infrastructure</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="research-footer">
+    <div class="footer-inner">
+      <div class="footer-text">
+        <p>Chinoba — Intelligence as Relationship</p>
+        <p class="footer-tag">AI is not prediction. It is decision.</p>
+        <p style="margin-top: 18px;">
+          <a href="/">Home</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://deus-ex-machina-ism.com/" target="_blank" rel="noopener">Blog</a>
+          &nbsp;·&nbsp;
+          <a href="/#books">Books</a>
+        </p>
+      </div>
+      <div class="footer-contact">
+        <span class="contact-label">Contact</span>
+        <a href="mailto:hello@chinoba.org">hello@chinoba.org</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
