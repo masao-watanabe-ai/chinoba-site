@@ -252,8 +252,8 @@
       margin-bottom: 4px;
     }
 
-    /* ---------- Research Areas ---------- */
-    .areas {
+    /* ---------- Research Areas (Lines of Inquiry) ---------- */
+    .inquiry {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -264,22 +264,97 @@
       border-left: 1px solid var(--line);
     }
 
-    .areas li {
-      padding: 18px 20px;
+    .inquiry > li {
+      margin: 0;
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      color: var(--fg);
-      font-size: 15px;
+      background: var(--bg);
+    }
+
+    .inquiry-item {
+      width: 100%;
       display: flex;
       align-items: center;
       gap: 14px;
+      padding: 18px 20px;
+      background: transparent;
+      border: 0;
+      color: var(--fg);
+      font: inherit;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.4;
+      text-align: left;
+      letter-spacing: 0.1px;
+      cursor: pointer;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+      transition: background 220ms ease, color 220ms ease,
+                  box-shadow 220ms ease;
     }
 
-    .areas .idx {
+    .inquiry-item:hover {
+      background: #0f0f0f;
+      color: #ffffff;
+    }
+
+    .inquiry-item:focus-visible {
+      outline: none;
+      box-shadow: inset 0 0 0 1px var(--accent);
+    }
+
+    .inquiry-item .idx {
       color: var(--fg-faint);
       font-size: 12px;
       letter-spacing: 1px;
       min-width: 28px;
+      transition: color 220ms ease;
+    }
+
+    .inquiry-item.is-active {
+      background: #101010;
+      color: var(--fg);
+      box-shadow: inset 2px 0 0 var(--accent);
+    }
+
+    .inquiry-item.is-active .idx {
+      color: var(--accent);
+    }
+
+    .inquiry-panel {
+      border: 1px solid var(--line);
+      border-top: 0;
+      padding: 24px 24px 26px;
+      background: var(--bg);
+    }
+
+    .inquiry-panel-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 10px;
+    }
+
+    .inquiry-panel-desc {
+      color: var(--fg-mute);
+      font-size: 15px;
+      line-height: 1.75;
+      margin: 0;
+      max-width: 640px;
+      transition: opacity 220ms ease;
+    }
+
+    .inquiry-panel.is-switching .inquiry-panel-desc {
+      opacity: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .inquiry-item,
+      .inquiry-item .idx,
+      .inquiry-panel-desc {
+        transition: none;
+      }
     }
 
     /* ---------- Cards ---------- */
@@ -693,12 +768,15 @@
       body { padding: 56px 20px 40px; }
       h1 { font-size: 40px; }
       .logo { width: 180px; margin-bottom: 28px; }
-      .areas,
+      .inquiry,
       .cards,
       .latest,
       .talk .topics {
         grid-template-columns: 1fr;
       }
+      .inquiry-item { padding: 16px 18px; }
+      .inquiry-panel { padding: 20px 18px 22px; }
+      .inquiry-panel-desc { font-size: 14.5px; line-height: 1.7; }
       .book {
         grid-template-columns: 1fr;
         gap: 22px;
@@ -816,16 +894,93 @@
       </p>
     </div>
 
-    <ul class="areas">
-      <li><span class="idx">01</span> Decision Trace Model</li>
-      <li><span class="idx">02</span> Runtime Society</li>
-      <li><span class="idx">03</span> Knowledge Flow</li>
-      <li><span class="idx">04</span> Trust Infrastructure</li>
-      <li><span class="idx">05</span> AI Coordination</li>
-      <li><span class="idx">06</span> Multi-Agent Systems</li>
-      <li><span class="idx">07</span> Governance &amp; Boundary Systems</li>
-      <li><span class="idx">∞</span> Intelligence as Relationship</li>
+    <ul class="inquiry" role="list">
+      <li>
+        <button type="button" class="inquiry-item is-active"
+                data-slug="decision-trace-model"
+                data-url="/research/decision-trace-model"
+                data-description="A framework for separating AI-generated signals from organizational decisions, making judgment traceable, auditable, and reusable."
+                aria-controls="inquiry-panel" aria-expanded="true">
+          <span class="idx">01</span>
+          <span class="inquiry-name">Decision Trace Model</span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="inquiry-item"
+                data-slug="runtime-society"
+                data-url="/research/runtime-society"
+                data-description="A view of society where rules, coordination, and decisions are continuously adjusted at runtime rather than fixed in advance."
+                aria-controls="inquiry-panel" aria-expanded="false">
+          <span class="idx">02</span>
+          <span class="inquiry-name">Runtime Society</span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="inquiry-item"
+                data-slug="knowledge-flow"
+                data-url="/research/knowledge-flow"
+                data-description="The circulation of knowledge across people, AI systems, organizations, and memory structures."
+                aria-controls="inquiry-panel" aria-expanded="false">
+          <span class="idx">03</span>
+          <span class="inquiry-name">Knowledge Flow</span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="inquiry-item"
+                data-slug="trust-infrastructure"
+                data-url="/research/trust-infrastructure"
+                data-description="Systems for making trust observable through traces, reputation, accountability, and shared decision history."
+                aria-controls="inquiry-panel" aria-expanded="false">
+          <span class="idx">04</span>
+          <span class="inquiry-name">Trust Infrastructure</span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="inquiry-item"
+                data-slug="ai-coordination"
+                data-url="/research/ai-coordination"
+                data-description="The design of mechanisms that allow AI systems, humans, and institutions to coordinate safely and meaningfully."
+                aria-controls="inquiry-panel" aria-expanded="false">
+          <span class="idx">05</span>
+          <span class="inquiry-name">AI Coordination</span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="inquiry-item"
+                data-slug="multi-agent-systems"
+                data-url="/research/multi-agent-systems"
+                data-description="Architectures where multiple AI agents interact, negotiate, specialize, and collaborate under shared constraints."
+                aria-controls="inquiry-panel" aria-expanded="false">
+          <span class="idx">06</span>
+          <span class="inquiry-name">Multi-Agent Systems</span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="inquiry-item"
+                data-slug="governance-boundary-systems"
+                data-url="/research/governance-boundary-systems"
+                data-description="Structures that define limits, escalation rules, human gates, responsibility, and safe operating boundaries."
+                aria-controls="inquiry-panel" aria-expanded="false">
+          <span class="idx">07</span>
+          <span class="inquiry-name">Governance &amp; Boundary Systems</span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="inquiry-item"
+                data-slug="intelligence-as-relationship"
+                data-url="/research/intelligence-as-relationship"
+                data-description="The central Chinoba idea that intelligence does not exist in isolation, but emerges through relationships among humans, AI, knowledge, trust, and society."
+                aria-controls="inquiry-panel" aria-expanded="false">
+          <span class="idx">∞</span>
+          <span class="inquiry-name">Intelligence as Relationship</span>
+        </button>
+      </li>
     </ul>
+
+    <div class="inquiry-panel" id="inquiry-panel" aria-live="polite">
+      <div class="inquiry-panel-label">Decision Trace Model</div>
+      <p class="inquiry-panel-desc">A framework for separating AI-generated signals from organizational decisions, making judgment traceable, auditable, and reusable.</p>
+    </div>
   </section>
 
   <!-- ============ RESEARCH PROTOTYPES ============ -->
@@ -1246,6 +1401,47 @@
       }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
 
       targets.forEach(function (el) { io.observe(el); });
+    })();
+
+    (function () {
+      var items = document.querySelectorAll('.inquiry-item');
+      var panel = document.getElementById('inquiry-panel');
+      if (!items.length || !panel) return;
+
+      var label = panel.querySelector('.inquiry-panel-label');
+      var desc = panel.querySelector('.inquiry-panel-desc');
+      var reduced = window.matchMedia &&
+                    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function setContent(item) {
+        var name = item.querySelector('.inquiry-name');
+        label.textContent = name ? name.textContent : '';
+        desc.textContent = item.getAttribute('data-description') || '';
+      }
+
+      function activate(item) {
+        if (item.classList.contains('is-active')) return;
+        items.forEach(function (it) {
+          var isActive = it === item;
+          it.classList.toggle('is-active', isActive);
+          it.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+        });
+
+        if (reduced) {
+          setContent(item);
+          return;
+        }
+
+        panel.classList.add('is-switching');
+        window.setTimeout(function () {
+          setContent(item);
+          panel.classList.remove('is-switching');
+        }, 160);
+      }
+
+      items.forEach(function (item) {
+        item.addEventListener('click', function () { activate(item); });
+      });
     })();
   </script>
 
