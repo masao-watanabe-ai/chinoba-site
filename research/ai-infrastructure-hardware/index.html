@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>AI Infrastructure &amp; Hardware — Chinoba</title>
+  <meta name="description" content="Hardware, semiconductor architectures, interconnects, memory, and infrastructure layers for the age of AI and multi-agent systems — a research archive on runtime-oriented computational foundations.">
+
+  <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
+  <link rel="stylesheet" href="/assets/research.css">
+
+  <style>
+    /* ---------- Page-specific overrides ---------- */
+    .concept-grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .flow.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .flow.cols-4 .flow-step + .flow-step {
+      margin-left: 1px;
+    }
+
+    .flow.cols-4 .flow-step:nth-child(4n + 1) {
+      margin-left: 0;
+    }
+
+    .flow.cols-4 .flow-step .step-desc {
+      opacity: 1;
+    }
+
+    /* Diagram placeholders */
+    .diagrams {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .diagram-card {
+      background: var(--bg);
+      padding: 26px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+
+    .diagram-card .kicker {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .diagram-card h3 {
+      font-size: 16px;
+      margin: 0 0 14px;
+      font-weight: 600;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+    }
+
+    .diagram-frame {
+      flex: 1;
+      border: 1px dashed var(--line-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
+        var(--bg-elev);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      min-height: 110px;
+    }
+
+    /* ---------- Infrastructure stack diagram ---------- */
+    .stack-diagram {
+      margin-top: clamp(56px, 7vw, 80px);
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      padding: 28px clamp(20px, 4vw, 40px) 32px;
+      border-radius: 4px;
+    }
+
+    .stack-diagram-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 6px;
+    }
+
+    .stack-diagram-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--fg);
+      margin: 0 0 22px;
+      letter-spacing: 0.2px;
+    }
+
+    .stack-layers {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .stack-layer {
+      background: var(--bg);
+      padding: 16px 22px;
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      transition: background 220ms ease;
+    }
+
+    .stack-layer:hover {
+      background: #0f0f0f;
+    }
+
+    .stack-layer .layer-idx {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      min-width: 36px;
+    }
+
+    .stack-layer .layer-name {
+      font-size: 14px;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+      min-width: 220px;
+    }
+
+    .stack-layer .layer-note {
+      font-size: 13px;
+      color: var(--fg-mute);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .flow.cols-4 {
+        grid-template-columns: 1fr;
+      }
+      .flow.cols-4 .flow-step + .flow-step {
+        margin-left: 0;
+        margin-top: 1px;
+      }
+      .diagrams {
+        grid-template-columns: 1fr;
+      }
+      .stack-layer {
+        flex-direction: column;
+        gap: 6px;
+      }
+      .stack-layer .layer-name {
+        min-width: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <nav class="topbar" aria-label="Breadcrumb">
+    <div class="breadcrumb">
+      <a href="/">Chinoba</a>
+      <span class="sep">/</span>
+      <a href="/#research">Research</a>
+      <span class="sep">/</span>
+      <span>AI Infrastructure &amp; Hardware</span>
+    </div>
+    <div class="meta-id">10 / Lines of Inquiry</div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Research / AI Infrastructure &amp; Hardware</div>
+      <h1>AI Infrastructure &amp; Hardware</h1>
+      <p class="hero-sub">
+        <span>AI is changing not only software,</span>
+        <span>but the physical architecture of computation.</span>
+      </p>
+      <p class="hero-desc">
+        As AI shifts from large language models
+        to multi-agent and runtime-based systems,
+        hardware, semiconductors, interconnects,
+        memory, and infrastructure layers
+        must also evolve.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============ 01 OVERVIEW ============ -->
+  <section class="research-section" id="overview" aria-labelledby="overview-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Overview</div>
+        <h2 id="overview-h">Overview</h2>
+        <p class="section-lede">
+          AI infrastructure is no longer only about faster GPUs.
+          It spans semiconductors, interconnects, memory,
+          edge compute, and runtime-oriented hardware layers.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <p>
+            For most of its history, AI infrastructure was
+            described in a single dimension — accelerator
+            performance. More FLOPs, more memory, more parallelism.
+          </p>
+          <p>
+            That framing is no longer enough. The shape of AI
+            workloads is changing, and with it the shape of the
+            underlying computation.
+          </p>
+
+          <code class="quote">AI infrastructure is no longer only about faster GPUs.</code>
+
+          <p>
+            The next generation of AI infrastructure is composed
+            of architectural concerns that span the full stack —
+            from photonic-electronic integration at the silicon
+            layer to runtime execution at the orchestration layer.
+          </p>
+
+          <h3>Within Scope</h3>
+          <ul>
+            <li>Semiconductor architecture</li>
+            <li>Photonic-electronic integration</li>
+            <li>Interposer technologies</li>
+            <li>Memory bandwidth</li>
+            <li>Edge computing</li>
+            <li>Distributed inference</li>
+            <li>Multi-agent execution infrastructure</li>
+            <li>Runtime-oriented hardware layers</li>
+          </ul>
+        </div>
+
+        <div class="col-text">
+          <h3>The Shift</h3>
+          <p>
+            AI infrastructure used to mean racks of accelerators
+            connected to centralized storage. It increasingly
+            means a layered system spanning silicon, interconnect,
+            memory, edge devices, runtime orchestration, and
+            cross-agent coordination.
+          </p>
+
+          <h3>Working Statement</h3>
+          <code class="quote">
+            The next generation of AI requires
+            not only smarter models,
+            but new computational foundations.
+          </code>
+
+          <p>
+            This inquiry treats infrastructure as a research
+            subject in its own right — a layered architecture
+            that shapes which kinds of intelligence are even
+            possible to build.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 WHY IT MATTERS ============ -->
+  <section class="research-section" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / Why It Matters</div>
+        <h2 id="why-h">Why It Matters</h2>
+        <p class="section-lede">
+          The shift from LLMs to multi-agent systems changes
+          the requirements of computation itself.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Traditional AI Workloads</h3>
+          <p>Conventional AI infrastructure was tuned for:</p>
+          <ul>
+            <li>Large model inference</li>
+            <li>Batch processing</li>
+            <li>Centralized acceleration</li>
+          </ul>
+          <p>
+            These workloads concentrate compute at the data
+            center and assume that latency can be amortized
+            over batch boundaries.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>Agentic &amp; Runtime-Based Systems</h3>
+          <p>Agentic systems require something different:</p>
+          <ul>
+            <li>Low-latency coordination</li>
+            <li>Memory-rich execution</li>
+            <li>Distributed processing</li>
+            <li>Real-time decision support</li>
+            <li>Edge-cloud cooperation</li>
+            <li>Traceable execution infrastructure</li>
+            <li>Energy-efficient scaling</li>
+          </ul>
+
+          <code class="quote">AI infrastructure becomes part of the decision system itself.</code>
+
+          <p>
+            Once agents coordinate across boundaries, the
+            infrastructure stops being a neutral substrate
+            and starts shaping the decision behavior.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 CORE STRUCTURE ============ -->
+  <section class="research-section" id="core" aria-labelledby="core-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Core Structure</div>
+        <h2 id="core-h">Core Structure</h2>
+        <p class="section-lede">
+          Eight layers that together compose the AI
+          infrastructure stack for multi-agent, runtime-based
+          systems.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Semiconductor Layer</h3>
+          <p>Process nodes, transistor architectures, photonic-electronic integration — the silicon foundation of every layer above.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Interconnect Layer</h3>
+          <p>Interposers, optical links, chiplet fabrics. The wiring that decides whether systems behave as one machine or many.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Memory Layer</h3>
+          <p>HBM, near-memory, persistent memory tiers. Memory bandwidth and locality define the ceiling of agentic execution.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Compute Acceleration</h3>
+          <p>GPUs, NPUs, sparse and analog accelerators. The execution engines for both model inference and runtime work.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Edge / Cloud Infrastructure</h3>
+          <p>Distributed deployment surface — edge nodes, regional clusters, cloud back-ends — and the policies that span them.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Runtime Execution Layer</h3>
+          <p>The orchestration substrate where signals, decisions, and actions are executed under constraints and timing.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Multi-Agent Coordination Layer</h3>
+          <p>Negotiation, routing, escalation, and handoff between agents distributed across the infrastructure.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">viii</div>
+          <h3>Trace &amp; Observability Layer</h3>
+          <p>Structured records of execution — the memory that makes infrastructure auditable, replayable, and accountable.</p>
+        </div>
+      </div>
+
+      <!-- ====== AI Infrastructure Stack (layer diagram) ====== -->
+      <div class="stack-diagram" aria-label="AI Infrastructure Stack">
+        <div class="stack-diagram-label">Layer Diagram</div>
+        <h3 class="stack-diagram-title">AI Infrastructure Stack</h3>
+
+        <ol class="stack-layers" role="list">
+          <li class="stack-layer">
+            <span class="layer-idx">08</span>
+            <span class="layer-name">Trace &amp; Observability Layer</span>
+            <span class="layer-note">Structured records of every decision and action.</span>
+          </li>
+          <li class="stack-layer">
+            <span class="layer-idx">07</span>
+            <span class="layer-name">Multi-Agent Coordination Layer</span>
+            <span class="layer-note">Negotiation, escalation, routing between agents.</span>
+          </li>
+          <li class="stack-layer">
+            <span class="layer-idx">06</span>
+            <span class="layer-name">Runtime Execution Layer</span>
+            <span class="layer-note">Decision runtime and orchestration substrate.</span>
+          </li>
+          <li class="stack-layer">
+            <span class="layer-idx">05</span>
+            <span class="layer-name">Edge / Cloud Infrastructure</span>
+            <span class="layer-note">Distributed surface from device to data center.</span>
+          </li>
+          <li class="stack-layer">
+            <span class="layer-idx">04</span>
+            <span class="layer-name">Compute Acceleration</span>
+            <span class="layer-note">GPUs, NPUs, sparse and analog accelerators.</span>
+          </li>
+          <li class="stack-layer">
+            <span class="layer-idx">03</span>
+            <span class="layer-name">Memory Layer</span>
+            <span class="layer-note">HBM, near-memory, tiered persistent memory.</span>
+          </li>
+          <li class="stack-layer">
+            <span class="layer-idx">02</span>
+            <span class="layer-name">Interconnect Layer</span>
+            <span class="layer-note">Interposers, optical links, chiplet fabrics.</span>
+          </li>
+          <li class="stack-layer">
+            <span class="layer-idx">01</span>
+            <span class="layer-name">Semiconductor Layer</span>
+            <span class="layer-note">Silicon foundation — process, transistors, photonics.</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 RELATED ESSAYS ============ -->
+  <section class="research-section" id="essays" aria-labelledby="essays-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Related Essays</div>
+        <h2 id="essays-h">Reading Around AI Infrastructure</h2>
+        <p class="section-lede">
+          Essays that extend this inquiry into semiconductors,
+          interposer evolution, and the hardware shift driven
+          by multi-agent AI.
+        </p>
+      </div>
+
+      <div class="essays">
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/interposer-evolution-from-wiring-to-integration-platform/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Semiconductors / Integration</div>
+          <h3>Interposer Technologies Accelerating Photonic-Electronic Integration — Semiconductors Evolve from Wiring to Integration Platforms —</h3>
+          <p>How interposer technology is transforming semiconductors from wiring substrates into integration platforms.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/from-llm-to-multi-agent-semiconductor-shift/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">LLM → Multi-Agent</div>
+          <h3>From the LLM Era to the Multi-Agent Era: How Semiconductor Architecture Will Change</h3>
+          <p>Why multi-agent AI changes the requirements for semiconductor and computation architectures.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/hardware-architecture/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Hardware Foundations</div>
+          <h3>Hardware Architecture in Computers</h3>
+          <p>A foundational overview of computer hardware architecture and its role in modern computation.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 RELATED BOOKS ============ -->
+  <section class="research-section" id="books" aria-labelledby="books-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Related Books</div>
+        <h2 id="books-h">Long-form Texts</h2>
+        <p class="section-lede">
+          Knowledge artifacts that compile the surrounding research
+          into structured volumes. English editions shown here.
+        </p>
+      </div>
+
+      <div class="books-list">
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">AI is not prediction. It is decision.</div>
+            <div class="book-subtitle">— Decision Trace Model Practical Guide —</div>
+            <p>A practical guide for designing AI as a decision system rather than a predictive output engine — the conceptual frame this infrastructure inquiry inherits from.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Intelligence Field</div>
+            <div class="book-subtitle">— Intelligence as Relationship —</div>
+            <p>A new perspective on AI, relational intelligence, and the field within which infrastructure decisions are made.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/02.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 RELATED OSS ============ -->
+  <section class="research-section" id="oss" aria-labelledby="oss-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Related OSS</div>
+        <h2 id="oss-h">Related OSS</h2>
+        <p class="section-lede">
+          Software and runtime components for building
+          decision-oriented AI infrastructure.
+        </p>
+      </div>
+
+      <div class="oss-block">
+        <div class="oss-meta">
+          <h3>Runtime-oriented components</h3>
+          <p>
+            The OSS ecosystem provides primitives that map
+            onto the infrastructure layers above: decision
+            runtimes, interaction loops, traceable execution,
+            graph-based decision modeling, and signal
+            analytics across distributed systems.
+          </p>
+
+          <a class="oss-link" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">
+            GitHub — masao-watanabe-ai →
+          </a>
+        </div>
+
+        <ul class="oss-tags" aria-label="Related OSS modules">
+          <li>decision-runtime-core</li>
+          <li>decision-trace-model-v2</li>
+          <li>interaction-core-v2</li>
+          <li>ledger-core-k2</li>
+          <li>view-core-v2</li>
+          <li>decision-trace-gnn</li>
+          <li>Synapse-Insights</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 DIAGRAMS ============ -->
+  <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Diagrams</div>
+        <h2 id="diagrams-h">Architecture Archive</h2>
+        <p class="section-lede">
+          A growing archive of architectural sketches for
+          AI infrastructure and runtime hardware structures.
+        </p>
+      </div>
+
+      <div class="diagrams">
+        <div class="diagram-card">
+          <div class="kicker">Diagram 01</div>
+          <h3>AI Infrastructure Stack</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 02</div>
+          <h3>Semiconductor-to-Runtime Architecture</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 03</div>
+          <h3>Multi-Agent Hardware Requirements</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 04</div>
+          <h3>Edge / Cloud / Runtime Coordination</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 05</div>
+          <h3>Traceable Execution Infrastructure</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 CLOSING ============ -->
+  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+    <blockquote>
+      <span>AI infrastructure is no longer a background layer.</span>
+      <span>It is becoming the physical foundation</span>
+      <span>for runtime coordination,</span>
+      <span>multi-agent execution,</span>
+      <span>traceable decisions,</span>
+      <span>and the next generation of intelligence.</span>
+    </blockquote>
+    <div class="closing-mark">Chinoba.org</div>
+  </section>
+
+  <!-- ============ 09 RELATED RESEARCH ============ -->
+  <section class="research-section" id="related" aria-labelledby="related-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">+ / Related Research</div>
+        <h2 id="related-h">Other Lines of Inquiry</h2>
+        <p class="section-lede">
+          AI Infrastructure connects outward to neighboring
+          threads in the Chinoba field.
+        </p>
+      </div>
+
+      <div class="related-research">
+        <a href="/research/decision-trace-model" data-slug="decision-trace-model">
+          <span class="related-label">01 / Inquiry</span>
+          <span class="related-name">Decision Trace Model</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/physical-ai-cyber-physical-systems" data-slug="physical-ai-cyber-physical-systems">
+          <span class="related-label">08 / Inquiry</span>
+          <span class="related-name">Physical AI &amp; Cyber-Physical Systems</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/#research" data-slug="ai-coordination">
+          <span class="related-label">05 / Inquiry</span>
+          <span class="related-name">AI Coordination</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="multi-agent-systems">
+          <span class="related-label">06 / Inquiry</span>
+          <span class="related-name">Multi-Agent Systems</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="knowledge-flow">
+          <span class="related-label">03 / Inquiry</span>
+          <span class="related-name">Knowledge Flow</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="trust-infrastructure">
+          <span class="related-label">04 / Inquiry</span>
+          <span class="related-name">Trust Infrastructure</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="research-footer">
+    <div class="footer-inner">
+      <div class="footer-text">
+        <p>Chinoba — Intelligence as Relationship</p>
+        <p class="footer-tag">AI is not prediction. It is decision.</p>
+        <p style="margin-top: 18px;">
+          <a href="/">Home</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://deus-ex-machina-ism.com/" target="_blank" rel="noopener">Blog</a>
+          &nbsp;·&nbsp;
+          <a href="/#books">Books</a>
+        </p>
+      </div>
+      <div class="footer-contact">
+        <span class="contact-label">Contact</span>
+        <a href="mailto:hello@chinoba.org">hello@chinoba.org</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
