@@ -495,6 +495,22 @@ section.research-section:last-of-type {
   text-transform: uppercase;
 }
 
+.essay .essay-meta.is-available {
+  color: var(--accent);
+}
+
+.essay .essay-meta.is-available::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 8px;
+  vertical-align: middle;
+  transform: translateY(-1px);
+}
+
 /* ---------- Books ---------- */
 .book {
   padding: 22px 0 24px;
