@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Public AI &amp; Algorithmic Governance — Chinoba</title>
+  <meta name="description" content="Decision structures, boundaries, human review, and accountability systems for AI used in government, public administration, and civic infrastructure — a research archive on public decision runtime and algorithmic governance.">
+
+  <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
+  <link rel="stylesheet" href="/assets/research.css">
+
+  <style>
+    /* ---------- Page-specific overrides ---------- */
+    .concept-grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    /* Essay coming-soon variant */
+    .essay.is-coming-soon {
+      cursor: default;
+    }
+
+    .essay.is-coming-soon:hover {
+      background: var(--bg);
+    }
+
+    .essay .essay-meta.is-coming-soon {
+      color: var(--fg-faint);
+    }
+
+    .essay .essay-meta.is-coming-soon::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--fg-faint);
+      margin-right: 8px;
+      vertical-align: middle;
+      transform: translateY(-1px);
+    }
+
+    /* Diagram placeholders */
+    .diagrams {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .diagram-card {
+      background: var(--bg);
+      padding: 26px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+
+    .diagram-card .kicker {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .diagram-card h3 {
+      font-size: 16px;
+      margin: 0 0 14px;
+      font-weight: 600;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+    }
+
+    .diagram-frame {
+      flex: 1;
+      border: 1px dashed var(--line-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
+        var(--bg-elev);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      min-height: 110px;
+    }
+
+    /* ---------- Public AI Governance Flow diagram ---------- */
+    .governance-flow {
+      margin-top: clamp(56px, 7vw, 80px);
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      padding: 28px clamp(20px, 4vw, 40px) 36px;
+      border-radius: 4px;
+    }
+
+    .governance-flow-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 6px;
+    }
+
+    .governance-flow-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--fg);
+      margin: 0 0 22px;
+      letter-spacing: 0.2px;
+    }
+
+    .governance-stages {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .governance-stage {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr);
+      align-items: baseline;
+      gap: 18px;
+      padding: 14px 4px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .governance-stage:last-child {
+      border-bottom: none;
+    }
+
+    .governance-stage .stage-idx {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+    }
+
+    .governance-stage .stage-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .governance-stage .stage-name {
+      font-size: 15px;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+      font-weight: 600;
+    }
+
+    .governance-stage .stage-note {
+      font-size: 13px;
+      color: var(--fg-mute);
+      line-height: 1.6;
+    }
+
+    .governance-arrow {
+      display: flex;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 4px;
+      padding: 4px 0 6px;
+    }
+
+    @media (max-width: 900px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .diagrams {
+        grid-template-columns: 1fr;
+      }
+      .governance-stage {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <nav class="topbar" aria-label="Breadcrumb">
+    <div class="breadcrumb">
+      <a href="/">Chinoba</a>
+      <span class="sep">/</span>
+      <a href="/#research">Research</a>
+      <span class="sep">/</span>
+      <span>Public AI &amp; Algorithmic Governance</span>
+    </div>
+    <div class="meta-id">09 / Lines of Inquiry</div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Research / Public AI &amp; Algorithmic Governance</div>
+      <h1>Public AI &amp; Algorithmic Governance</h1>
+      <p class="hero-sub">
+        <span>Public AI is not only automation.</span>
+        <span>It is a question of decision, accountability, and governance.</span>
+      </p>
+      <p class="hero-desc">
+        As AI enters government,
+        public services,
+        administration,
+        and civic infrastructure,
+        the central issue becomes not only how AI predicts,
+        but how public decisions are made,
+        bounded,
+        reviewed,
+        and traced.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============ 01 OVERVIEW ============ -->
+  <section class="research-section" id="overview" aria-labelledby="overview-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Overview</div>
+        <h2 id="overview-h">Overview</h2>
+        <p class="section-lede">
+          Public AI is the layer of AI systems used inside
+          institutions whose decisions affect rights,
+          access, fairness, and public trust.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Where Public AI Operates</h3>
+          <p>Public AI refers to AI systems used in:</p>
+          <ul>
+            <li>government services</li>
+            <li>public administration</li>
+            <li>social systems</li>
+            <li>civic infrastructure</li>
+            <li>regulatory decision support</li>
+            <li>welfare, healthcare, education, and disaster response</li>
+            <li>public-sector automation</li>
+          </ul>
+
+          <code class="quote">
+            Public AI must not be treated
+            as simple automation.
+          </code>
+
+          <p>
+            It requires decision structures that make
+            responsibility, review, boundaries, appeal,
+            and accountability visible — not optional.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>Not Automation Alone</h3>
+          <p>
+            Public AI is often introduced under the framing
+            of efficiency — faster processing, fewer manual
+            steps, reduced administrative load. That framing
+            is not wrong, but it is incomplete.
+          </p>
+
+          <h3>Working Statement</h3>
+          <code class="quote">
+            Public AI is the design of decision
+            structures inside public institutions —
+            not the deployment of models inside them.
+          </code>
+
+          <p>
+            This inquiry treats public AI as institutional
+            infrastructure: a runtime layer through which
+            public decisions are made, reviewed, and traced.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 WHY IT MATTERS ============ -->
+  <section class="research-section" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / Why It Matters</div>
+        <h2 id="why-h">Why It Matters</h2>
+        <p class="section-lede">
+          Public-sector AI is not a productivity tool.
+          It touches the legitimacy of the institutions
+          that use it.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What Public AI Affects</h3>
+          <p>Public-sector AI affects:</p>
+          <ul>
+            <li>rights</li>
+            <li>access to services</li>
+            <li>fairness</li>
+            <li>safety</li>
+            <li>public trust</li>
+            <li>administrative transparency</li>
+            <li>democratic legitimacy</li>
+          </ul>
+
+          <p>
+            Traditional AI systems often focus on a
+            narrow pipeline:
+          </p>
+
+          <code class="quote">
+            Input → Model → Output
+          </code>
+
+          <p>
+            That framing is sufficient for product
+            features. It is not sufficient for public
+            decisions.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>What Public AI Requires</h3>
+          <p>Public AI requires a longer chain:</p>
+
+          <code class="quote">
+            Public Event
+            ↓
+            Signal
+            ↓
+            Context
+            ↓
+            Decision Runtime
+            ↓
+            Policy Boundary
+            ↓
+            Human Review
+            ↓
+            Public Accountability
+            ↓
+            Trace
+          </code>
+
+          <p>
+            In public systems, the problem is not only
+            whether AI is accurate.
+          </p>
+
+          <code class="quote">
+            The problem is whether AI-assisted decisions
+            can be explained, challenged, audited,
+            and governed.
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 CORE STRUCTURE ============ -->
+  <section class="research-section" id="core" aria-labelledby="core-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Core Structure</div>
+        <h2 id="core-h">Core Structure</h2>
+        <p class="section-lede">
+          Eight layers that together compose a public AI
+          decision runtime — from signal to trace.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Public Signal Layer</h3>
+          <p>Events, applications, requests, and observations entering the public system — the raw input of public decisions.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Policy Context Layer</h3>
+          <p>Statutes, regulations, internal rules, and institutional norms that frame what any decision is allowed to mean.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Decision Runtime</h3>
+          <p>The execution substrate where signals, policy, and AI-generated suggestions are combined into draft decisions.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Boundary &amp; Rights Layer</h3>
+          <p>Limits on what may be decided automatically, what must be paused, and which rights cannot be overridden by a model.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Human Review / Appeal Gate</h3>
+          <p>A required pause where a human official assumes responsibility — and where a citizen can challenge a decision.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Audit &amp; Accountability Layer</h3>
+          <p>Mechanisms for oversight bodies, auditors, and the public to inspect how a decision was made and by whom.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Public Ledger / Trace Layer</h3>
+          <p>Structured, durable records of decisions — the institutional memory through which legitimacy is reconstructed.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">viii</div>
+          <h3>Feedback &amp; Institutional Learning</h3>
+          <p>Loops that carry audit findings, appeals, and outcomes back into policy and runtime configuration over time.</p>
+        </div>
+      </div>
+
+      <!-- ====== Public AI Governance Flow diagram ====== -->
+      <div class="governance-flow" aria-label="Public AI Governance Flow">
+        <div class="governance-flow-label">Layer Diagram</div>
+        <h3 class="governance-flow-title">Public AI Governance Flow</h3>
+
+        <ol class="governance-stages" role="list">
+          <li class="governance-stage">
+            <span class="stage-idx">01</span>
+            <span class="stage-body">
+              <span class="stage-name">Public Event</span>
+              <span class="stage-note">An application, request, observation, or incident enters the institution.</span>
+            </span>
+          </li>
+          <li class="governance-arrow" aria-hidden="true">↓</li>
+          <li class="governance-stage">
+            <span class="stage-idx">02</span>
+            <span class="stage-body">
+              <span class="stage-name">Signal</span>
+              <span class="stage-note">The event is captured, classified, and translated into a structured signal.</span>
+            </span>
+          </li>
+          <li class="governance-arrow" aria-hidden="true">↓</li>
+          <li class="governance-stage">
+            <span class="stage-idx">03</span>
+            <span class="stage-body">
+              <span class="stage-name">Context</span>
+              <span class="stage-note">Policy, history, and case-specific context are attached to the signal.</span>
+            </span>
+          </li>
+          <li class="governance-arrow" aria-hidden="true">↓</li>
+          <li class="governance-stage">
+            <span class="stage-idx">04</span>
+            <span class="stage-body">
+              <span class="stage-name">Decision Runtime</span>
+              <span class="stage-note">A draft decision is composed under explicit rules — AI assists, never concludes.</span>
+            </span>
+          </li>
+          <li class="governance-arrow" aria-hidden="true">↓</li>
+          <li class="governance-stage">
+            <span class="stage-idx">05</span>
+            <span class="stage-body">
+              <span class="stage-name">Policy Boundary</span>
+              <span class="stage-note">Rights, statutes, and institutional limits constrain what may be executed.</span>
+            </span>
+          </li>
+          <li class="governance-arrow" aria-hidden="true">↓</li>
+          <li class="governance-stage">
+            <span class="stage-idx">06</span>
+            <span class="stage-body">
+              <span class="stage-name">Human Review</span>
+              <span class="stage-note">A responsible official confirms, modifies, or refuses the draft decision.</span>
+            </span>
+          </li>
+          <li class="governance-arrow" aria-hidden="true">↓</li>
+          <li class="governance-stage">
+            <span class="stage-idx">07</span>
+            <span class="stage-body">
+              <span class="stage-name">Public Accountability</span>
+              <span class="stage-note">The decision is communicated, justified, and made open to appeal.</span>
+            </span>
+          </li>
+          <li class="governance-arrow" aria-hidden="true">↓</li>
+          <li class="governance-stage">
+            <span class="stage-idx">08</span>
+            <span class="stage-body">
+              <span class="stage-name">Trace</span>
+              <span class="stage-note">A durable record is written — replayable, auditable, and citizen-accessible.</span>
+            </span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 RELATED ESSAYS ============ -->
+  <section class="research-section" id="essays" aria-labelledby="essays-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Related Essays</div>
+        <h2 id="essays-h">Reading Around Public AI</h2>
+        <p class="section-lede">
+          Essays that extend this inquiry into government AI,
+          near-future automation, and the foundational
+          technologies of accountable public systems.
+        </p>
+      </div>
+
+      <div class="essays">
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/government-ai-strengths-and-missing-decision-layer/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Government AI</div>
+          <h3>Why Government AI Is Powerful — and What Has Not Yet Been Designed</h3>
+          <p>Why government AI can be powerful, but still lacks a designed decision layer, boundary structure, and accountability runtime.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/not-sci-fi-the-future-is-already-here/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Near-Future Reality</div>
+          <h3>Not Science Fiction — A Future Already Near Us</h3>
+          <p>A reflection on how AI, agents, automation, and social systems are rapidly moving from speculative fiction into near-future reality.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Cryptography / Data</div>
+          <h3>Encryption, Security Technologies, and Data Compression Technologies</h3>
+          <p>Foundational technologies for protecting, compressing, and governing data in AI-enabled public systems.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Agent Boundaries</div>
+          <h3>How to Stop an AI Agent</h3>
+          <p>A forthcoming essay on shutdown, override, boundary enforcement, and human authority in agentic AI systems.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 RELATED BOOKS ============ -->
+  <section class="research-section" id="books" aria-labelledby="books-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Related Books</div>
+        <h2 id="books-h">Long-form Texts</h2>
+        <p class="section-lede">
+          Knowledge artifacts that compile the surrounding research
+          into structured volumes. English editions shown here.
+        </p>
+      </div>
+
+      <div class="books-list">
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">AI is not prediction. It is decision.</div>
+            <div class="book-subtitle">— Decision Trace Model Practical Guide —</div>
+            <p>A practical guide for designing AI as a decision system rather than a predictive output engine — the conceptual frame this public AI inquiry inherits from.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Intelligence Field</div>
+            <div class="book-subtitle">— Intelligence as Relationship —</div>
+            <p>A new perspective on AI, relational intelligence, and the institutional field within which public decisions are made.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/02.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 RELATED OSS ============ -->
+  <section class="research-section" id="oss" aria-labelledby="oss-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Related OSS</div>
+        <h2 id="oss-h">Related OSS</h2>
+        <p class="section-lede">
+          Runtime and trace-based components
+          for accountable AI decision systems.
+        </p>
+      </div>
+
+      <div class="oss-block">
+        <div class="oss-meta">
+          <h3>Runtime &amp; trace components</h3>
+          <p>
+            The OSS ecosystem provides primitives that map
+            onto the public AI stack: decision runtimes,
+            interaction loops, traceable execution, graph-based
+            decision modeling, ledgered records, and signal
+            analytics across institutional systems.
+          </p>
+
+          <a class="oss-link" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">
+            GitHub — masao-watanabe-ai →
+          </a>
+        </div>
+
+        <ul class="oss-tags" aria-label="Related OSS modules">
+          <li>decision-runtime-core</li>
+          <li>decision-trace-model-v2</li>
+          <li>interaction-core-v2</li>
+          <li>ledger-core-k2</li>
+          <li>view-core-v2</li>
+          <li>decision-trace-gnn</li>
+          <li>Synapse-Insights</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 DIAGRAMS ============ -->
+  <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Diagrams</div>
+        <h2 id="diagrams-h">Architecture Archive</h2>
+        <p class="section-lede">
+          A growing archive of architectural sketches for
+          public AI, algorithmic governance, and accountable
+          decision runtimes.
+        </p>
+      </div>
+
+      <div class="diagrams">
+        <div class="diagram-card">
+          <div class="kicker">Diagram 01</div>
+          <h3>Public AI Governance Flow</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 02</div>
+          <h3>Policy Boundary Architecture</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 03</div>
+          <h3>Human Review and Appeal Gate</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 04</div>
+          <h3>Agent Shutdown / Override Structure</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 05</div>
+          <h3>Decision Trace for Public Accountability</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 CLOSING ============ -->
+  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+    <blockquote>
+      <span>Public AI is not merely a matter of automation.</span>
+      <span>It is the design of</span>
+      <span>decision boundaries,</span>
+      <span>human review,</span>
+      <span>accountability,</span>
+      <span>appeal,</span>
+      <span>and institutional memory</span>
+      <span>inside public systems.</span>
+    </blockquote>
+    <div class="closing-mark">Chinoba.org</div>
+  </section>
+
+  <!-- ============ 09 RELATED RESEARCH ============ -->
+  <section class="research-section" id="related" aria-labelledby="related-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">+ / Related Research</div>
+        <h2 id="related-h">Other Lines of Inquiry</h2>
+        <p class="section-lede">
+          Public AI connects outward to neighboring
+          threads in the Chinoba field.
+        </p>
+      </div>
+
+      <div class="related-research">
+        <a href="/research/decision-trace-model" data-slug="decision-trace-model">
+          <span class="related-label">01 / Inquiry</span>
+          <span class="related-name">Decision Trace Model</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/#research" data-slug="governance-boundary-systems">
+          <span class="related-label">07 / Inquiry</span>
+          <span class="related-name">Governance &amp; Boundary Systems</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="trust-infrastructure">
+          <span class="related-label">04 / Inquiry</span>
+          <span class="related-name">Trust Infrastructure</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="ai-coordination">
+          <span class="related-label">05 / Inquiry</span>
+          <span class="related-name">AI Coordination</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="multi-agent-systems">
+          <span class="related-label">06 / Inquiry</span>
+          <span class="related-name">Multi-Agent Systems</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="runtime-society">
+          <span class="related-label">02 / Inquiry</span>
+          <span class="related-name">Runtime Society</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="research-footer">
+    <div class="footer-inner">
+      <div class="footer-text">
+        <p>Chinoba — Intelligence as Relationship</p>
+        <p class="footer-tag">AI is not prediction. It is decision.</p>
+        <p style="margin-top: 18px;">
+          <a href="/">Home</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://deus-ex-machina-ism.com/" target="_blank" rel="noopener">Blog</a>
+          &nbsp;·&nbsp;
+          <a href="/#books">Books</a>
+        </p>
+      </div>
+      <div class="footer-contact">
+        <span class="contact-label">Contact</span>
+        <a href="mailto:hello@chinoba.org">hello@chinoba.org</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
