@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Decision Trace Model — Chinoba</title>
+  <meta name="description" content="Decision Trace Model (DTM): a framework for separating AI-generated signals from organizational decisions — making judgment traceable, auditable, and governable.">
+
+  <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
+  <link rel="stylesheet" href="/assets/research.css">
+</head>
+
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <nav class="topbar" aria-label="Breadcrumb">
+    <div class="breadcrumb">
+      <a href="/">Chinoba</a>
+      <span class="sep">/</span>
+      <a href="/#research">Research</a>
+      <span class="sep">/</span>
+      <span>Decision Trace Model</span>
+    </div>
+    <div class="meta-id">01 / Lines of Inquiry</div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Research / Decision Trace Model</div>
+      <h1>Decision Trace Model</h1>
+      <p class="hero-sub">
+        <span>AI is not prediction.</span>
+        <span>It is decision.</span>
+      </p>
+      <p class="hero-desc">
+        A framework for separating AI-generated signals
+        from organizational decisions —
+        making judgment traceable, auditable, and governable.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============ 01 OVERVIEW ============ -->
+  <section class="research-section" id="overview" aria-labelledby="overview-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Overview</div>
+        <h2 id="overview-h">Signal is not Decision</h2>
+        <p class="section-lede">
+          DTM is a framework for handling decision-making in
+          environments where AI, humans, organizations, and external
+          systems interact under uncertainty.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <p>
+            Modern AI systems are extremely powerful at generating
+            <em>signals</em> — predictions, classifications,
+            recommendations, generated content, retrieved knowledge.
+          </p>
+          <p>
+            But real-world organizations do not operate on signals
+            alone. They must decide what action to take, who is
+            responsible, where escalation is required, what safety
+            boundaries exist, when humans must intervene, and how
+            decisions can later be audited.
+          </p>
+
+          <code class="quote">Signal &ne; Decision</code>
+
+          <p>
+            The core idea is that AI output should not directly
+            become organizational action. Decisions emerge through
+            a runtime structure involving context formation,
+            boundary evaluation, human gates, coordination,
+            traceability, and execution control.
+          </p>
+
+          <h3>Why It Matters</h3>
+          <p>
+            As AI becomes more autonomous and agentic, organizations
+            face a growing problem: AI can generate answers, but
+            organizations still struggle to decide safely.
+          </p>
+          <p>
+            Real-world problems contain ambiguity, weak signals,
+            conflicting historical cases, incomplete information,
+            organizational constraints, legal boundaries, and
+            safety requirements. Traditional AI architectures focus on
+            <em>Input → Model → Output</em>. DTM introduces the
+            missing decision layer between AI generation and
+            organizational action.
+          </p>
+        </div>
+
+        <figure class="figure">
+          <a class="figure-frame" href="/assets/DTM_page/DTM%20module.png"
+             data-lightbox aria-label="Open DTM module diagram">
+            <img src="/assets/DTM_page/DTM%20module.png"
+                 alt="Decision Trace Model — module diagram"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 01 — DTM Module Architecture</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 CORE STRUCTURE ============ -->
+  <section class="research-section" id="core" aria-labelledby="core-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / Core Structure</div>
+        <h2 id="core-h">Decision Runtime as a Layer</h2>
+        <p class="section-lede">
+          DTM treats decision-making itself as a first-class
+          architectural layer — assembled from five primitives that
+          separate signal generation from organizational action.
+        </p>
+      </div>
+
+      <div class="concept-grid">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Signal</h3>
+          <p>AI-generated outputs — predictions, anomalies, recommendations, generated text, similarity results. Informative, but not authoritative.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Runtime</h3>
+          <p>The central orchestration layer. Evaluates signals, forms context, checks boundaries, coordinates agents, records traces. A Decision OS.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Boundary</h3>
+          <p>Safety limits, escalation rules, operational constraints, governance conditions. Boundaries prevent unsafe automatic execution.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Human Gate</h3>
+          <p>Critical decisions require explicit human involvement. Human-in-the-loop is architectural, not optional.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Decision Trace</h3>
+          <p>Every important decision remains traceable, explainable, auditable, reusable, learnable — forming organizational memory.</p>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide">
+        <a class="figure-frame" href="/assets/DTM_page/Applicable%20system%20architecture%20for%20manufacturing.png"
+           data-lightbox aria-label="Open manufacturing architecture diagram">
+          <img src="/assets/DTM_page/Applicable%20system%20architecture%20for%20manufacturing.png"
+               alt="Applicable system architecture for manufacturing"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 02 — Applicable System Architecture for Manufacturing</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 03 OSS ECOSYSTEM ============ -->
+  <section class="research-section" id="oss" aria-labelledby="oss-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Open-Source Ecosystem</div>
+        <h2 id="oss-h">Open-Source Ecosystem</h2>
+        <p class="section-lede">
+          The DTM ecosystem consists of modular OSS components
+          for runtime-based decision systems.
+        </p>
+      </div>
+
+      <div class="oss-block">
+        <figure class="figure">
+          <a class="figure-frame" href="/assets/DTM_page/OSS%20module.png"
+             data-lightbox aria-label="Open OSS module diagram">
+            <img src="/assets/DTM_page/OSS%20module.png"
+                 alt="DTM OSS module map"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 03 — OSS Module Map</figcaption>
+        </figure>
+
+        <div class="oss-meta">
+          <h3>Modular components</h3>
+          <p>
+            Each module addresses a single concern within the
+            decision runtime — execution, trace, interaction,
+            view, ledger, organizational memory.
+          </p>
+
+          <a class="oss-link" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">
+            GitHub — masao-watanabe-ai →
+          </a>
+
+          <ul class="oss-tags" aria-label="OSS modules">
+            <li>decision-runtime-core</li>
+            <li>decision-trace-model-v2</li>
+            <li>interaction-core-v2</li>
+            <li>ledger-core-k2</li>
+            <li>view-core-v2</li>
+            <li>Synapse-Insights</li>
+            <li>decision-trace-gnn</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 DECISION FLOW ============ -->
+  <section class="research-section" id="flow" aria-labelledby="flow-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Decision Flow</div>
+        <h2 id="flow-h">Event → Trace</h2>
+        <p class="section-lede">
+          A decision is not a single moment. It is a traversal
+          across distinct stages — each leaving a structured record.
+        </p>
+      </div>
+
+      <ol class="flow" role="list">
+        <li class="flow-step" tabindex="0">
+          <span class="step-num">01</span>
+          <span class="step-name">Event</span>
+          <p class="step-desc">Something happens in the world that the system observes.</p>
+        </li>
+        <li class="flow-step" tabindex="0">
+          <span class="step-num">02</span>
+          <span class="step-name">Signal</span>
+          <p class="step-desc">AI generates an interpretation — prediction, anomaly, suggestion.</p>
+        </li>
+        <li class="flow-step" tabindex="0">
+          <span class="step-num">03</span>
+          <span class="step-name">Decision</span>
+          <p class="step-desc">The runtime forms context and considers what action is appropriate.</p>
+        </li>
+        <li class="flow-step" tabindex="0">
+          <span class="step-num">04</span>
+          <span class="step-name">Boundary</span>
+          <p class="step-desc">Safety limits, escalation rules, and governance conditions are checked.</p>
+        </li>
+        <li class="flow-step" tabindex="0">
+          <span class="step-num">05</span>
+          <span class="step-name">Human Gate</span>
+          <p class="step-desc">When ambiguity exceeds threshold, a human enters the loop.</p>
+        </li>
+        <li class="flow-step" tabindex="0">
+          <span class="step-num">06</span>
+          <span class="step-name">Execution</span>
+          <p class="step-desc">The decision is enacted — by a system, agent, or person.</p>
+        </li>
+        <li class="flow-step" tabindex="0">
+          <span class="step-num">07</span>
+          <span class="step-name">Trace</span>
+          <p class="step-desc">The full path becomes an artifact — auditable, replayable, learnable.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 05 RELATED ESSAYS ============ -->
+  <section class="research-section" id="essays" aria-labelledby="essays-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Related Essays</div>
+        <h2 id="essays-h">Reading Around DTM</h2>
+        <p class="section-lede">
+          Essays that surround and extend the model — written in
+          the same investigative line.
+        </p>
+      </div>
+
+      <div class="essays">
+        <a class="essay" href="#">
+          <div class="kicker">Core Concept</div>
+          <h3>AI is not prediction. It is decision.</h3>
+          <p>Reframing AI systems as decision infrastructure rather than predictive output engines.</p>
+          <div class="essay-meta">Coming Soon</div>
+        </a>
+        <a class="essay" href="#">
+          <div class="kicker">Runtime</div>
+          <h3>Why AI Needs Runtime-Based Decision Structures</h3>
+          <p>The case for treating decision-making as an operational runtime, not a model property.</p>
+          <div class="essay-meta">Coming Soon</div>
+        </a>
+        <a class="essay" href="#">
+          <div class="kicker">Runtime Society</div>
+          <h3>Runtime Society</h3>
+          <p>A view of society where rules and decisions are continuously adjusted at runtime.</p>
+          <div class="essay-meta">Coming Soon</div>
+        </a>
+        <a class="essay" href="#">
+          <div class="kicker">Coordination</div>
+          <h3>AI Coordination Beyond Automation</h3>
+          <p>Coordination as the central problem once individual AI capabilities stop being the bottleneck.</p>
+          <div class="essay-meta">Coming Soon</div>
+        </a>
+        <a class="essay" href="#">
+          <div class="kicker">Boundary</div>
+          <h3>Handling Ambiguity at the Decision Boundary</h3>
+          <p>Where weak signals meet the limits of automation — and the human re-enters the loop.</p>
+          <div class="essay-meta">Coming Soon</div>
+        </a>
+        <a class="essay" href="#">
+          <div class="kicker">Memory</div>
+          <h3>Decision Trace as Runtime Memory</h3>
+          <p>How traces become the substrate for coordinated decisions across agents and humans.</p>
+          <div class="essay-meta">Coming Soon</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 RELATED BOOKS ============ -->
+  <section class="research-section" id="books" aria-labelledby="books-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Related Books</div>
+        <h2 id="books-h">Long-form Texts</h2>
+        <p class="section-lede">
+          Knowledge artifacts that compile this line of inquiry into
+          structured volumes. English editions shown here.
+        </p>
+      </div>
+
+      <div class="books-list">
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">AI is not prediction. It is decision.</div>
+            <div class="book-subtitle">— Decision Trace Model Practical Guide —</div>
+            <p>A practical guide for designing AI as a decision system rather than a predictive output engine.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Intelligence Field</div>
+            <div class="book-subtitle">— Intelligence as Relationship —</div>
+            <p>A new perspective on AI, relational intelligence, and social intelligence fields.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/02.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Intelligence Field Economics</div>
+            <div class="book-subtitle">— Chinōba Keizai —</div>
+            <p>Trust, Knowledge, and Coordination in the AI Era.</p>
+            <a class="book-link" href="https://amzn.to/49HvoNp" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://amzn.to/49HvoNp" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/04.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 CLOSING ============ -->
+  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+    <blockquote>
+      <span>Intelligence emerges not from isolated intelligence,</span>
+      <span>but from relationships,</span>
+      <span>coordination,</span>
+      <span>boundaries,</span>
+      <span>and traceable decisions.</span>
+    </blockquote>
+    <div class="closing-mark">Chinoba.org</div>
+  </section>
+
+  <!-- ============ RELATED RESEARCH ============ -->
+  <section class="research-section" id="related" aria-labelledby="related-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">+ / Related Research</div>
+        <h2 id="related-h">Other Lines of Inquiry</h2>
+        <p class="section-lede">
+          DTM connects outward to neighboring threads in the Chinoba field.
+        </p>
+      </div>
+
+      <div class="related-research">
+        <a href="/#research" data-slug="runtime-society">
+          <span class="related-label">02 / Inquiry</span>
+          <span class="related-name">Runtime Society</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="trust-infrastructure">
+          <span class="related-label">04 / Inquiry</span>
+          <span class="related-name">Trust Infrastructure</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="ai-coordination">
+          <span class="related-label">05 / Inquiry</span>
+          <span class="related-name">AI Coordination</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="research-footer">
+    <div class="footer-inner">
+      <div class="footer-text">
+        <p>Chinoba — Intelligence as Relationship</p>
+        <p class="footer-tag">AI is not prediction. It is decision.</p>
+        <p style="margin-top: 18px;">
+          <a href="/">Home</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://deus-ex-machina-ism.com/" target="_blank" rel="noopener">Blog</a>
+          &nbsp;·&nbsp;
+          <a href="/#books">Books</a>
+        </p>
+      </div>
+      <div class="footer-contact">
+        <span class="contact-label">Contact</span>
+        <a href="mailto:hello@chinoba.org">hello@chinoba.org</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button type="button" class="lightbox-close" aria-label="Close preview">Close</button>
+    <img alt="">
+  </div>
+
+  <script>
+    (function () {
+      var lb = document.getElementById('lightbox');
+      if (!lb) return;
+      var lbImg = lb.querySelector('img');
+      var lbClose = lb.querySelector('.lightbox-close');
+
+      function open(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('is-open');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          var img = el.querySelector('img');
+          open(el.getAttribute('href'), img ? img.alt : '');
+        });
+      });
+
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target === lbImg) close();
+      });
+      lbClose.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
+      });
+    })();
+  </script>
+
+</body>
+</html>

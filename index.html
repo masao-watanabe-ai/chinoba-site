@@ -1440,7 +1440,13 @@
       }
 
       items.forEach(function (item) {
-        item.addEventListener('click', function () { activate(item); });
+        item.addEventListener('click', function () {
+          if (item.dataset.slug === 'decision-trace-model' && item.dataset.url) {
+            window.location.href = item.dataset.url;
+            return;
+          }
+          activate(item);
+        });
       });
     })();
   </script>
