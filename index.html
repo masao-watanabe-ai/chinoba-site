@@ -650,6 +650,44 @@
       color: var(--fg-dim);
     }
 
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .footer-text { flex: 1 1 auto; min-width: 0; }
+
+    .footer-contact {
+      flex: 0 0 auto;
+      text-align: right;
+      line-height: 1.7;
+    }
+
+    .footer-contact .contact-label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 8px;
+    }
+
+    .footer-contact a {
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: 0.3px;
+      text-decoration: none;
+      transition: color 180ms ease, opacity 180ms ease;
+    }
+
+    .footer-contact a:hover {
+      color: #a8cdff;
+      text-decoration: none;
+    }
+
     /* ---------- Responsive ---------- */
     @media (max-width: 640px) {
       body { padding: 56px 20px 40px; }
@@ -685,6 +723,14 @@
         font-size: 14.5px;
         max-width: 460px;
         transition-duration: 800ms;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 28px;
+      }
+      .footer-contact {
+        text-align: left;
       }
     }
   </style>
@@ -1156,17 +1202,25 @@
 
   <!-- ============ FOOTER ============ -->
   <footer>
-    <p>Chinoba — Intelligence as Relationship</p>
-    <p class="footer-tag">AI is not prediction. It is decision.</p>
-    <p style="margin-top: 18px;">
-      <a href="https://github.com/masao-watanabe-ai" target="_blank">GitHub</a>
-      &nbsp;·&nbsp;
-      <a href="https://deus-ex-machina-ism.com/" target="_blank">Blog</a>
-      &nbsp;·&nbsp;
-      <a href="#books">Books</a>
-      &nbsp;·&nbsp;
-      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
-    </p>
+    <div class="footer-inner">
+      <div class="footer-text">
+        <p>Chinoba — Intelligence as Relationship</p>
+        <p class="footer-tag">AI is not prediction. It is decision.</p>
+        <p style="margin-top: 18px;">
+          <a href="https://github.com/masao-watanabe-ai" target="_blank">GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://deus-ex-machina-ism.com/" target="_blank">Blog</a>
+          &nbsp;·&nbsp;
+          <a href="#books">Books</a>
+          &nbsp;·&nbsp;
+          <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+        </p>
+      </div>
+      <div class="footer-contact">
+        <span class="contact-label">Contact</span>
+        <a href="mailto:hello@chinoba.org">hello@chinoba.org</a>
+      </div>
+    </div>
   </footer>
 
   <script>
