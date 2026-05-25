@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Knowledge Flow — Chinoba</title>
+  <meta name="description" content="A research archive on Knowledge Flow — how information, context, memory, AI systems, human interpretation, and organizational structures interact to produce usable intelligence and become actionable for decision-making.">
+
+  <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
+  <link rel="stylesheet" href="/assets/research.css">
+
+  <style>
+    /* ---------- Page-specific overrides ---------- */
+    .concept-grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    /* Essay coming-soon variant */
+    .essay.is-coming-soon {
+      cursor: default;
+    }
+    .essay.is-coming-soon:hover {
+      background: var(--bg);
+    }
+    .essay .essay-meta.is-coming-soon {
+      color: var(--fg-faint);
+    }
+    .essay .essay-meta.is-coming-soon::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--fg-faint);
+      margin-right: 8px;
+      vertical-align: middle;
+      transform: translateY(-1px);
+    }
+
+    /* Diagram placeholders */
+    .diagrams {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .diagram-card {
+      background: var(--bg);
+      padding: 26px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+    .diagram-card .kicker {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .diagram-card h3 {
+      font-size: 16px;
+      margin: 0 0 14px;
+      font-weight: 600;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+    }
+    .diagram-frame {
+      flex: 1;
+      border: 1px dashed var(--line-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
+        var(--bg-elev);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      min-height: 110px;
+    }
+
+    /* ---------- Knowledge Flow Structure (CSS layered diagram) ---------- */
+    .field-runtime {
+      margin-top: clamp(56px, 7vw, 80px);
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      padding: 28px clamp(20px, 4vw, 40px) 36px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .field-runtime::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%);
+      pointer-events: none;
+    }
+
+    .field-runtime-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 6px;
+      position: relative;
+    }
+
+    .field-runtime-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--fg);
+      margin: 0 0 22px;
+      letter-spacing: 0.2px;
+      position: relative;
+    }
+
+    .field-layers {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .field-layer {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) auto;
+      align-items: baseline;
+      gap: 18px;
+      padding: 14px 4px;
+      border-bottom: 1px solid var(--line);
+    }
+    .field-layer:last-child {
+      border-bottom: none;
+    }
+
+    .field-layer .layer-idx {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+    }
+
+    .field-layer .layer-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .field-layer .layer-name {
+      font-size: 15px;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+      font-weight: 600;
+    }
+
+    .field-layer .layer-note {
+      font-size: 13px;
+      color: var(--fg-mute);
+      line-height: 1.6;
+    }
+
+    .field-layer .layer-tag {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+    }
+
+    .field-arrow {
+      display: flex;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 4px;
+      padding: 4px 0 6px;
+    }
+
+    @media (max-width: 900px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .diagrams {
+        grid-template-columns: 1fr;
+      }
+      .field-layer {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .field-layer .layer-tag {
+        margin-top: 2px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <nav class="topbar" aria-label="Breadcrumb">
+    <div class="breadcrumb">
+      <a href="/">Chinoba</a>
+      <span class="sep">/</span>
+      <a href="/#research">Research</a>
+      <span class="sep">/</span>
+      <span>Knowledge Flow</span>
+    </div>
+    <div class="meta-id">03 / Lines of Inquiry</div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Research / Knowledge Flow</div>
+      <h1>Knowledge Flow</h1>
+      <p class="hero-sub">
+        <span>Knowledge is not static information.</span>
+        <span>It flows,</span>
+        <span>transforms,</span>
+        <span>and becomes actionable through relationships.</span>
+      </p>
+      <p class="hero-desc">
+        Knowledge Flow explores how information,
+        context,
+        memory,
+        AI systems,
+        human interpretation,
+        and organizational structures interact
+        to produce usable intelligence.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============ 01 OVERVIEW ============ -->
+  <section class="research-section" id="overview" aria-labelledby="overview-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Overview</div>
+        <h2 id="overview-h">Overview</h2>
+        <p class="section-lede">
+          Knowledge is not a static asset stored in archives.
+          It is a circulating substance — moving across people,
+          systems, conversations, and memory structures, and
+          becoming usable only through that movement.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What Circulates</h3>
+          <p>
+            Knowledge Flow refers to the circulation of
+            knowledge across the layers that compose an
+            organization's intelligence.
+          </p>
+          <ul>
+            <li>people</li>
+            <li>AI systems</li>
+            <li>organizations</li>
+            <li>documents</li>
+            <li>conversations</li>
+            <li>databases</li>
+            <li>knowledge graphs</li>
+            <li>decision traces</li>
+            <li>institutional memory</li>
+          </ul>
+        </div>
+
+        <div class="col-text">
+          <h3>From Storage to Circulation</h3>
+          <p>
+            A repository of files is not yet knowledge.
+            A vector index is not yet knowledge.
+            A chat log is not yet knowledge.
+          </p>
+          <p>
+            What turns information into knowledge is the way
+            it moves — through context, interpretation, reuse,
+            and finally into decisions.
+          </p>
+
+          <code class="quote">
+            Knowledge becomes valuable
+            not when it is merely stored,
+            but when it moves through systems
+            and becomes available for judgment,
+            coordination,
+            and decision-making.
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 WHY IT MATTERS ============ -->
+  <section class="research-section" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / Why It Matters</div>
+        <h2 id="why-h">Why It Matters</h2>
+        <p class="section-lede">
+          Most modern organizations are not short on information.
+          They are short on the structure that turns information
+          into knowledge — and knowledge into decisions.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What Organizations Already Have</h3>
+          <p>Modern organizations already accumulate large amounts of information:</p>
+          <ul>
+            <li>documents</li>
+            <li>chat logs</li>
+            <li>reports</li>
+            <li>meeting notes</li>
+            <li>sensor data</li>
+            <li>search results</li>
+            <li>AI-generated summaries</li>
+          </ul>
+
+          <p>
+            However,
+            information does not automatically become knowledge.
+            Volume is not understanding.
+            Storage is not circulation.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>What Knowledge Requires</h3>
+          <p>For information to behave as knowledge, it must be shaped by:</p>
+          <ul>
+            <li>context</li>
+            <li>structure</li>
+            <li>interpretation</li>
+            <li>connection</li>
+            <li>retrieval</li>
+            <li>reuse</li>
+            <li>trust</li>
+            <li>decision linkage</li>
+          </ul>
+
+          <code class="quote">
+            The future of
+            AI-enabled organizations
+            depends not only on
+            storing knowledge,
+            but on designing
+            knowledge circulation.
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 CORE STRUCTURE ============ -->
+  <section class="research-section" id="core" aria-labelledby="core-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Core Structure</div>
+        <h2 id="core-h">Core Structure</h2>
+        <p class="section-lede">
+          Eight structural components that together compose
+          a knowledge flow — from the first intake of raw
+          information to the moment it becomes a decision
+          and feeds back as organizational learning.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Information Intake</h3>
+          <p>The point at which raw signals, documents, and observations enter the system as candidate knowledge.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Context Formation</h3>
+          <p>Surrounding situation — actors, scope, history — that gives raw information its interpretive frame.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Knowledge Structuring</h3>
+          <p>The act of shaping information into concepts, relationships, and reusable units of meaning.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Memory Systems</h3>
+          <p>The durable substrate where structured knowledge persists across time, sessions, and personnel.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Knowledge Graph</h3>
+          <p>A relational view of knowledge — concepts, entities, and traces connected through navigable links.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Human Interpretation</h3>
+          <p>The judgment layer where humans read, refuse, recontextualize, and validate circulating knowledge.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Decision Linkage</h3>
+          <p>The bridge from knowledge to action — knowledge becomes accountable when it shapes a decision.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">viii</div>
+          <h3>Organizational Learning</h3>
+          <p>Feedback from decisions back into memory, graph, and context — the loop that grows institutional intelligence.</p>
+        </div>
+      </div>
+
+      <!-- ====== Knowledge Flow Structure (layered diagram) ====== -->
+      <div class="field-runtime" aria-label="Knowledge Flow Structure">
+        <div class="field-runtime-label">Layer Diagram</div>
+        <h3 class="field-runtime-title">Knowledge Flow Structure</h3>
+
+        <ol class="field-layers" role="list">
+          <li class="field-layer">
+            <span class="layer-idx">L1</span>
+            <span class="layer-body">
+              <span class="layer-name">Information Intake</span>
+              <span class="layer-note">Raw signals enter the system — documents, conversations, telemetry, search results, AI outputs.</span>
+            </span>
+            <span class="layer-tag">intake</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L2</span>
+            <span class="layer-body">
+              <span class="layer-name">Context Formation</span>
+              <span class="layer-note">Surrounding situation is attached — actors, history, scope — so information acquires interpretive shape.</span>
+            </span>
+            <span class="layer-tag">context</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L3</span>
+            <span class="layer-body">
+              <span class="layer-name">Knowledge Structuring</span>
+              <span class="layer-note">Information is shaped into concepts, relations, and reusable units that can move across the organization.</span>
+            </span>
+            <span class="layer-tag">structure</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L4</span>
+            <span class="layer-body">
+              <span class="layer-name">Memory Systems</span>
+              <span class="layer-note">Structured knowledge persists in durable memory — across time, sessions, agents, and people.</span>
+            </span>
+            <span class="layer-tag">memory</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L5</span>
+            <span class="layer-body">
+              <span class="layer-name">Knowledge Graph</span>
+              <span class="layer-note">Memory becomes navigable — entities, concepts, and decision traces are linked into a relational field.</span>
+            </span>
+            <span class="layer-tag">graph</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L6</span>
+            <span class="layer-body">
+              <span class="layer-name">Retrieval &amp; Reuse</span>
+              <span class="layer-note">Knowledge is recalled into the current situation — context-aware retrieval rather than blind lookup.</span>
+            </span>
+            <span class="layer-tag">retrieval</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L7</span>
+            <span class="layer-body">
+              <span class="layer-name">Human Interpretation</span>
+              <span class="layer-note">Humans read, refuse, recontextualize, and validate — turning candidate knowledge into trustworthy knowledge.</span>
+            </span>
+            <span class="layer-tag">interpretation</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L8</span>
+            <span class="layer-body">
+              <span class="layer-name">Decision Linkage</span>
+              <span class="layer-note">Knowledge connects to action — the point at which it becomes accountable for a real decision.</span>
+            </span>
+            <span class="layer-tag">decision</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L9</span>
+            <span class="layer-body">
+              <span class="layer-name">Organizational Learning</span>
+              <span class="layer-note">Outcomes feed back into memory, graph, and context — the loop through which institutional intelligence grows.</span>
+            </span>
+            <span class="layer-tag">learning</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 RELATED ESSAYS ============ -->
+  <section class="research-section" id="essays" aria-labelledby="essays-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Related Essays</div>
+        <h2 id="essays-h">Reading Around Knowledge Flow</h2>
+        <p class="section-lede">
+          Forthcoming essays that extend this inquiry into
+          knowledge circulation, organizational memory, and
+          AI-enabled intelligence infrastructure.
+        </p>
+      </div>
+
+      <div class="essays">
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Foundations</div>
+          <h3>Knowledge Flow</h3>
+          <p>A foundational essay on how knowledge circulates across humans, AI systems, organizations, and memory structures.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Circulation</div>
+          <h3>From Information Storage to Knowledge Circulation</h3>
+          <p>Why organizations need systems that move knowledge, not only systems that store it.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Graph &amp; Trace</div>
+          <h3>Knowledge Graphs and Decision Traces</h3>
+          <p>How knowledge graphs and decision traces can connect memory to decision-making.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Institutional Memory</div>
+          <h3>Organizational Memory in the AI Era</h3>
+          <p>How AI transforms organizational memory from static archives into active intelligence infrastructure.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 RELATED BOOKS ============ -->
+  <section class="research-section" id="books" aria-labelledby="books-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Related Books</div>
+        <h2 id="books-h">Long-form Texts</h2>
+        <p class="section-lede">
+          Knowledge artifacts that compile the surrounding research
+          into structured volumes. English editions shown here.
+        </p>
+      </div>
+
+      <div class="books-list">
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Intelligence as Relationship</div>
+            <div class="book-subtitle">— Intelligence Field —</div>
+            <p>A foundational text on relational intelligence — the conceptual ground from which knowledge flow inherits its sense of context, memory, and circulation.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/02.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">AI is not prediction. It is decision.</div>
+            <div class="book-subtitle">— Decision Trace Model —</div>
+            <p>A frame for treating AI as a decision system — the layer that gives knowledge its decision linkage and traceable accountability.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Decision Trace Model Practical Guide</div>
+            <div class="book-subtitle">— Designing AI as a Decision System —</div>
+            <p>A practical guide for engineers and architects building memory, retrieval, and trace structures into decision-grade knowledge systems.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 RELATED OSS ============ -->
+  <section class="research-section" id="oss" aria-labelledby="oss-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Related OSS</div>
+        <h2 id="oss-h">Related OSS</h2>
+        <p class="section-lede">
+          Runtime,
+          graph,
+          and trace-based components
+          for knowledge circulation,
+          organizational memory,
+          and decision support.
+        </p>
+      </div>
+
+      <div class="oss-block">
+        <div class="oss-meta">
+          <h3>Components for knowledge circulation</h3>
+          <p>
+            The OSS ecosystem provides primitives that compose
+            the knowledge flow stack: graph-based insight engines,
+            decision-trace memory, runtime cores, interaction and
+            view layers, and ledgered memory for institutional
+            knowledge retention across time and agents.
+          </p>
+
+          <a class="oss-link" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">
+            GitHub — masao-watanabe-ai →
+          </a>
+        </div>
+
+        <ul class="oss-tags" aria-label="Related OSS modules">
+          <li>Synapse-Insights</li>
+          <li>decision-trace-gnn</li>
+          <li>decision-runtime-core</li>
+          <li>decision-trace-model-v2</li>
+          <li>interaction-core-v2</li>
+          <li>view-core-v2</li>
+          <li>ledger-core-k2</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 DIAGRAMS ============ -->
+  <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Diagrams</div>
+        <h2 id="diagrams-h">Architecture Archive</h2>
+        <p class="section-lede">
+          A growing archive of architectural sketches for
+          knowledge flow, organizational memory, and the
+          circulation pathways between humans, AI, and decisions.
+        </p>
+      </div>
+
+      <div class="diagrams">
+        <div class="diagram-card">
+          <div class="kicker">Diagram 01</div>
+          <h3>Knowledge Flow Structure</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 02</div>
+          <h3>Organizational Memory Architecture</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 03</div>
+          <h3>Knowledge Graph and Decision Trace</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 04</div>
+          <h3>Human-AI Knowledge Circulation</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 05</div>
+          <h3>Context-to-Decision Flow</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 CLOSING ============ -->
+  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+    <blockquote>
+      <span>Knowledge is not only</span>
+      <span>something we store.</span>
+      <span>It becomes intelligence</span>
+      <span>when it flows through</span>
+      <span>context,</span>
+      <span>relationships,</span>
+      <span>memory,</span>
+      <span>trust,</span>
+      <span>and decision structures.</span>
+    </blockquote>
+    <div class="closing-mark">Chinoba.org</div>
+  </section>
+
+  <!-- ============ 09 RELATED RESEARCH ============ -->
+  <section class="research-section" id="related" aria-labelledby="related-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">+ / Related Research</div>
+        <h2 id="related-h">Other Lines of Inquiry</h2>
+        <p class="section-lede">
+          Knowledge Flow connects outward to neighboring threads
+          across the Chinoba field — from decision traces and
+          relational graphs to trust, coordination, and the
+          relational view of intelligence itself.
+        </p>
+      </div>
+
+      <div class="related-research">
+        <a href="/research/decision-trace-model" data-slug="decision-trace-model">
+          <span class="related-label">01 / Inquiry</span>
+          <span class="related-name">Decision Trace Model</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/graph-intelligence-relational-systems" data-slug="graph-intelligence-relational-systems">
+          <span class="related-label">12 / Inquiry</span>
+          <span class="related-name">Graph Intelligence &amp; Relational Systems</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/#research" data-slug="trust-infrastructure">
+          <span class="related-label">04 / Inquiry</span>
+          <span class="related-name">Trust Infrastructure</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/research/emergent-distributed-intelligence" data-slug="emergent-distributed-intelligence">
+          <span class="related-label">13 / Inquiry</span>
+          <span class="related-name">Emergent &amp; Distributed Intelligence</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/#research" data-slug="ai-coordination">
+          <span class="related-label">05 / Inquiry</span>
+          <span class="related-name">AI Coordination</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="intelligence-as-relationship">
+          <span class="related-label">∞ / Inquiry</span>
+          <span class="related-name">Intelligence as Relationship</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="research-footer">
+    <div class="footer-inner">
+      <div class="footer-text">
+        <p>Chinoba — Intelligence as Relationship</p>
+        <p class="footer-tag">AI is not prediction. It is decision.</p>
+        <p style="margin-top: 18px;">
+          <a href="/">Home</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://deus-ex-machina-ism.com/" target="_blank" rel="noopener">Blog</a>
+          &nbsp;·&nbsp;
+          <a href="/#books">Books</a>
+        </p>
+      </div>
+      <div class="footer-contact">
+        <span class="contact-label">Contact</span>
+        <a href="mailto:hello@chinoba.org">hello@chinoba.org</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
