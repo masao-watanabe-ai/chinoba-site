@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Foundational AI Technologies — Chinoba</title>
+  <meta name="description" content="A research archive on foundational AI technologies — large language models, reinforcement learning, generative systems, logic, prompt design, cognitive orchestration, creative variation, and externalized decision structures.">
+
+  <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
+  <link rel="stylesheet" href="/assets/research.css">
+
+  <style>
+    /* ---------- Page-specific overrides ---------- */
+    .concept-grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    /* Diagram placeholders */
+    .diagrams {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .diagram-card {
+      background: var(--bg);
+      padding: 26px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+    .diagram-card .kicker {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .diagram-card h3 {
+      font-size: 16px;
+      margin: 0 0 14px;
+      font-weight: 600;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+    }
+    .diagram-frame {
+      flex: 1;
+      border: 1px dashed var(--line-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
+        var(--bg-elev);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      min-height: 110px;
+    }
+
+    /* ---------- Foundational AI Stack (CSS-based layered diagram) ---------- */
+    .stack-structure {
+      margin-top: clamp(56px, 7vw, 80px);
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      padding: 28px clamp(20px, 4vw, 40px) 36px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stack-structure::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%);
+      pointer-events: none;
+    }
+
+    .stack-structure-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 6px;
+      position: relative;
+    }
+
+    .stack-structure-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--fg);
+      margin: 0 0 22px;
+      letter-spacing: 0.2px;
+      position: relative;
+    }
+
+    .stack-layers {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .stack-layer {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) auto;
+      align-items: baseline;
+      gap: 18px;
+      padding: 14px 4px;
+      border-bottom: 1px solid var(--line);
+    }
+    .stack-layer:last-child {
+      border-bottom: none;
+    }
+
+    .stack-layer .layer-idx {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+    }
+
+    .stack-layer .layer-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stack-layer .layer-name {
+      font-size: 15px;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+      font-weight: 600;
+    }
+
+    .stack-layer .layer-note {
+      font-size: 13px;
+      color: var(--fg-mute);
+      line-height: 1.6;
+    }
+
+    .stack-layer .layer-tag {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+    }
+
+    .stack-arrow {
+      display: flex;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 4px;
+      padding: 4px 0 6px;
+    }
+
+    /* ---------- Generation → Decision Flow (small inline diagram) ---------- */
+    .flow-box {
+      margin-top: 28px;
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      padding: 24px clamp(18px, 4vw, 36px) 28px;
+      border-radius: 4px;
+    }
+
+    .flow-box-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 18px;
+    }
+
+    .flow-chain {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .flow-chain li {
+      font-size: 14px;
+      color: var(--fg);
+      letter-spacing: 0.3px;
+      padding: 8px 0;
+      text-align: center;
+    }
+
+    .flow-chain li.flow-arrow {
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 4px;
+      padding: 2px 0;
+    }
+
+    @media (max-width: 900px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .diagrams {
+        grid-template-columns: 1fr;
+      }
+      .stack-layer {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .stack-layer .layer-tag {
+        margin-top: 2px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <nav class="topbar" aria-label="Breadcrumb">
+    <div class="breadcrumb">
+      <a href="/">Chinoba</a>
+      <span class="sep">/</span>
+      <a href="/#research">Research</a>
+      <span class="sep">/</span>
+      <span>Foundational AI Technologies</span>
+    </div>
+    <div class="meta-id">11 / Lines of Inquiry</div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Research / Foundational AI Technologies</div>
+      <h1>Foundational AI Technologies</h1>
+      <p class="hero-sub">
+        <span>AI is built not only from models,</span>
+        <span>but from reasoning,</span>
+        <span>generation,</span>
+        <span>variation,</span>
+        <span>and externalized decision structures.</span>
+      </p>
+      <p class="hero-desc">
+        Foundational AI technologies include
+        large language models,
+        reinforcement learning,
+        logic systems,
+        creative generation,
+        cognitive orchestration,
+        and architectures that separate generation
+        from decision-making.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============ 01 OVERVIEW ============ -->
+  <section class="research-section" id="overview" aria-labelledby="overview-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Overview</div>
+        <h2 id="overview-h">Overview</h2>
+        <p class="section-lede">
+          The technical base beneath modern AI systems —
+          read as a stack of generation, reasoning, variation,
+          selection, and runtime control.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>The Stack Beneath the Stack</h3>
+          <p>
+            Foundational AI Technologies explores the technical
+            base beneath modern AI systems.
+          </p>
+
+          <p>This base includes:</p>
+          <ul>
+            <li>LLMs</li>
+            <li>reinforcement learning</li>
+            <li>generative models</li>
+            <li>logic-based reasoning</li>
+            <li>prompt systems</li>
+            <li>cognitive orchestration</li>
+            <li>creative variation</li>
+            <li>externalized decision logic</li>
+          </ul>
+        </div>
+
+        <div class="col-text">
+          <h3>Not a Single Technology</h3>
+          <p>
+            Modern AI is not one technology. It is an evolving
+            stack — generation, reasoning, variation, selection,
+            and runtime control composed together.
+          </p>
+
+          <h3>Working Statement</h3>
+          <code class="quote">
+            Modern AI is not a single technology.
+            It is an evolving stack of generation,
+            reasoning,
+            variation,
+            selection,
+            and runtime control.
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 WHY IT MATTERS ============ -->
+  <section class="research-section" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / Why It Matters</div>
+        <h2 id="why-h">Why It Matters</h2>
+        <p class="section-lede">
+          AI systems now generate language, code, images, plans,
+          and possible worlds — but generation alone is not a
+          decision.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Generation Is Not Decision</h3>
+          <p>
+            AI systems can now generate language,
+            code,
+            images,
+            plans,
+            and possible worlds.
+          </p>
+
+          <p>
+            However, generation alone does not equal decision.
+          </p>
+
+          <p>The central question becomes:</p>
+
+          <code class="quote">
+            How do we connect AI-generated possibilities
+            to stable,
+            auditable,
+            human-aligned decision structures?
+          </code>
+        </div>
+
+        <div class="col-text">
+          <h3>From Input → Output to a Decision Architecture</h3>
+          <p>Traditional AI flow:</p>
+
+          <div class="flow-box">
+            <div class="flow-box-label">Traditional</div>
+            <ol class="flow-chain" role="list">
+              <li>Input</li>
+              <li class="flow-arrow">↓</li>
+              <li>Model</li>
+              <li class="flow-arrow">↓</li>
+              <li>Output</li>
+            </ol>
+          </div>
+
+          <p style="margin-top: 22px;">Foundational AI for decision systems:</p>
+
+          <div class="flow-box">
+            <div class="flow-box-label">Decision Architecture</div>
+            <ol class="flow-chain" role="list">
+              <li>Input</li>
+              <li class="flow-arrow">↓</li>
+              <li>Generation</li>
+              <li class="flow-arrow">↓</li>
+              <li>Variation</li>
+              <li class="flow-arrow">↓</li>
+              <li>Reasoning</li>
+              <li class="flow-arrow">↓</li>
+              <li>Selection</li>
+              <li class="flow-arrow">↓</li>
+              <li>Decision Runtime</li>
+              <li class="flow-arrow">↓</li>
+              <li>Trace</li>
+            </ol>
+          </div>
+
+          <code class="quote" style="margin-top: 22px;">
+            The future of AI depends not only on larger models,
+            but on architectures that organize generation
+            into judgment.
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 CORE STRUCTURE ============ -->
+  <section class="research-section" id="core" aria-labelledby="core-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Core Structure</div>
+        <h2 id="core-h">Core Structure</h2>
+        <p class="section-lede">
+          Eight technical surfaces beneath modern AI — from
+          generation models to externalized decision logic.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Large Language Models</h3>
+          <p>Statistical generators of language and structure — the dominant surface through which AI now interacts with the world.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Reinforcement Learning</h3>
+          <p>Learning through interaction, reward, and stabilization — a substrate for behavior, exploration, and policy formation.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Generative Models</h3>
+          <p>Architectures that synthesize text, images, code, and possible worlds — generation as a first-class operation.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Logic &amp; Symbolic Reasoning</h3>
+          <p>Formal systems for inference, constraints, and structured deduction — where reasoning becomes auditable.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Prompt Systems</h3>
+          <p>The interface layer between intent and generation — prompts as programmable structures, not casual instructions.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Cognitive Orchestration</h3>
+          <p>Coordinating generation, memory, evaluation, and variation as composed cognitive operations rather than monolithic calls.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Creative Variation</h3>
+          <p>Variation as a designable property — the space of alternative outputs from which selection and judgment can operate.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">viii</div>
+          <h3>Externalized Decision Logic</h3>
+          <p>Decisions held outside the model — in runtimes, boundaries, and traces — so judgment remains stable and auditable.</p>
+        </div>
+      </div>
+
+      <!-- ====== Foundational AI Technology Stack (layered diagram) ====== -->
+      <div class="stack-structure" aria-label="Foundational AI Technology Stack">
+        <div class="stack-structure-label">Layer Diagram</div>
+        <h3 class="stack-structure-title">Foundational AI Technology Stack</h3>
+
+        <ol class="stack-layers" role="list">
+          <li class="stack-layer">
+            <span class="layer-idx">L1</span>
+            <span class="layer-body">
+              <span class="layer-name">Generation</span>
+              <span class="layer-note">Large language models and generative architectures — the source of language, code, and possible worlds.</span>
+            </span>
+            <span class="layer-tag">generation</span>
+          </li>
+          <li class="stack-arrow" aria-hidden="true">↓</li>
+          <li class="stack-layer">
+            <span class="layer-idx">L2</span>
+            <span class="layer-body">
+              <span class="layer-name">Variation</span>
+              <span class="layer-note">Creative variation as a designable surface — the space of alternatives over which selection can operate.</span>
+            </span>
+            <span class="layer-tag">variation</span>
+          </li>
+          <li class="stack-arrow" aria-hidden="true">↓</li>
+          <li class="stack-layer">
+            <span class="layer-idx">L3</span>
+            <span class="layer-body">
+              <span class="layer-name">Reasoning</span>
+              <span class="layer-note">Logic, symbolic systems, and structured inference — the layer where outputs become inspectable.</span>
+            </span>
+            <span class="layer-tag">reasoning</span>
+          </li>
+          <li class="stack-arrow" aria-hidden="true">↓</li>
+          <li class="stack-layer">
+            <span class="layer-idx">L4</span>
+            <span class="layer-body">
+              <span class="layer-name">Learning</span>
+              <span class="layer-note">Reinforcement learning and adaptive policies — how systems shape behavior across feedback.</span>
+            </span>
+            <span class="layer-tag">learning</span>
+          </li>
+          <li class="stack-arrow" aria-hidden="true">↓</li>
+          <li class="stack-layer">
+            <span class="layer-idx">L5</span>
+            <span class="layer-body">
+              <span class="layer-name">Prompt Systems</span>
+              <span class="layer-note">The interface between intent and generation — prompts as programmable, composable structures.</span>
+            </span>
+            <span class="layer-tag">interface</span>
+          </li>
+          <li class="stack-arrow" aria-hidden="true">↓</li>
+          <li class="stack-layer">
+            <span class="layer-idx">L6</span>
+            <span class="layer-body">
+              <span class="layer-name">Cognitive Orchestration</span>
+              <span class="layer-note">Composing generation, memory, evaluation, and variation into structured cognitive operations.</span>
+            </span>
+            <span class="layer-tag">orchestration</span>
+          </li>
+          <li class="stack-arrow" aria-hidden="true">↓</li>
+          <li class="stack-layer">
+            <span class="layer-idx">L7</span>
+            <span class="layer-body">
+              <span class="layer-name">Selection</span>
+              <span class="layer-note">Choosing among generated possibilities — where variation collapses into a candidate decision.</span>
+            </span>
+            <span class="layer-tag">selection</span>
+          </li>
+          <li class="stack-arrow" aria-hidden="true">↓</li>
+          <li class="stack-layer">
+            <span class="layer-idx">L8</span>
+            <span class="layer-body">
+              <span class="layer-name">Externalized Decision Runtime</span>
+              <span class="layer-note">Decisions and traces held outside the model — stable, auditable, human-aligned, and composable.</span>
+            </span>
+            <span class="layer-tag">runtime</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 RELATED ESSAYS ============ -->
+  <section class="research-section" id="essays" aria-labelledby="essays-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Related Essays</div>
+        <h2 id="essays-h">Reading Around Foundational AI</h2>
+        <p class="section-lede">
+          Essays that extend this inquiry into orchestration,
+          externalized decision-making, creative variation, and
+          possible-world logic.
+        </p>
+      </div>
+
+      <div class="essays">
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/cognitive-orchestration-beyond-reinforcement-learning/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Cognitive Orchestration</div>
+          <h3>What Is Cognitive Orchestration? — Stability × Creativity × Variation Beyond Reinforcement Learning</h3>
+          <p>A framework for extending reinforcement learning through stability, creativity, and variation as cognitive structures.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/llm-no-decision-logic-externalized-decision-making/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Externalized Decision</div>
+          <h3>LLMs Do Not Have Judgment — Claude Code, Prompts, and the Design of Externalized Decision-Making</h3>
+          <p>Why LLMs generate signals, but decision logic must be externalized into runtime structures.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/creativity-as-variation-llm-human-creativity-designable-creativity/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Creative Variation</div>
+          <h3>Creativity Is Variation — What LLMs Reveal About Human Creativity and Designable Creativity</h3>
+          <p>An exploration of creativity as variation, and how LLMs reveal designable structures of creative generation.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/ai-generates-worlds-decision-selects-reality/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Possible Worlds</div>
+          <h3>AI Generates Worlds. Decisions Select Reality — Possible World Logic, ASP, and Decision Trace Model</h3>
+          <p>How AI-generated possible worlds can be connected to selection, logic, and traceable decision-making.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 RELATED BOOKS ============ -->
+  <section class="research-section" id="books" aria-labelledby="books-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Related Books</div>
+        <h2 id="books-h">Long-form Texts</h2>
+        <p class="section-lede">
+          Knowledge artifacts that compile the surrounding research
+          into structured volumes. English editions shown here.
+        </p>
+      </div>
+
+      <div class="books-list">
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">AI is not prediction. It is decision.</div>
+            <div class="book-subtitle">— Decision Trace Model Practical Guide —</div>
+            <p>A practical guide for designing AI as a decision system — where generation, variation, and selection are organized into a runtime decision architecture.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Intelligence as Relationship</div>
+            <div class="book-subtitle">— Intelligence Field and the Relational Frame —</div>
+            <p>A relational perspective on AI — where foundational technologies become meaningful only through the structures and contexts they operate within.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/02.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Decision Trace Model Practical Guide</div>
+            <div class="book-subtitle">— Designing AI as a Decision System —</div>
+            <p>The companion practical guide for engineers and architects building decision systems on top of generation, reasoning, and traceable runtime structures.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 RELATED OSS ============ -->
+  <section class="research-section" id="oss" aria-labelledby="oss-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Related OSS</div>
+        <h2 id="oss-h">Related OSS</h2>
+        <p class="section-lede">
+          Experimental AI runtime components for connecting
+          generation, reasoning, orchestration, and traceable
+          decision structures.
+        </p>
+      </div>
+
+      <div class="oss-block">
+        <div class="oss-meta">
+          <h3>Generation, reasoning, and runtime as components</h3>
+          <p>
+            The OSS surface around this inquiry treats foundational
+            AI as something to compose with — generation modules,
+            decision runtimes, traceable structures, relational
+            graphs, and ledgered coordination layers built as
+            concrete artifacts.
+          </p>
+
+          <a class="oss-link" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">
+            GitHub — masao-watanabe-ai →
+          </a>
+        </div>
+
+        <ul class="oss-tags" aria-label="Related OSS modules">
+          <li>decision-runtime-core</li>
+          <li>decision-trace-model-v2</li>
+          <li>interaction-core-v2</li>
+          <li>decision-trace-gnn</li>
+          <li>Synapse-Insights</li>
+          <li>ledger-core-k2</li>
+          <li>view-core-v2</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 DIAGRAMS ============ -->
+  <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Diagrams</div>
+        <h2 id="diagrams-h">Architecture Archive</h2>
+        <p class="section-lede">
+          A growing archive of conceptual sketches for the
+          foundational AI stack — generation, variation, reasoning,
+          and decision runtime.
+        </p>
+      </div>
+
+      <div class="diagrams">
+        <div class="diagram-card">
+          <div class="kicker">Diagram 01</div>
+          <h3>Foundational AI Technology Stack</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 02</div>
+          <h3>Generation-to-Decision Architecture</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 03</div>
+          <h3>Cognitive Orchestration Model</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 04</div>
+          <h3>Variation and Selection Flow</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 05</div>
+          <h3>Possible Worlds and Decision Runtime</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 CLOSING ============ -->
+  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+    <blockquote>
+      <span>AI does not become intelligence</span>
+      <span>only by generating more possibilities.</span>
+      <span>It becomes useful intelligence</span>
+      <span>when generation,</span>
+      <span>variation,</span>
+      <span>reasoning,</span>
+      <span>selection,</span>
+      <span>and decision traces</span>
+      <span>are organized into a runtime structure.</span>
+    </blockquote>
+    <div class="closing-mark">Chinoba.org</div>
+  </section>
+
+  <!-- ============ 09 RELATED RESEARCH ============ -->
+  <section class="research-section" id="related" aria-labelledby="related-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">+ / Related Research</div>
+        <h2 id="related-h">Other Lines of Inquiry</h2>
+        <p class="section-lede">
+          Foundational AI Technologies connects outward to
+          neighboring threads across the Chinoba field.
+        </p>
+      </div>
+
+      <div class="related-research">
+        <a href="/research/decision-trace-model" data-slug="decision-trace-model">
+          <span class="related-label">01 / Inquiry</span>
+          <span class="related-name">Decision Trace Model</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/philosophy-of-ai" data-slug="philosophy-of-ai">
+          <span class="related-label">14 / Inquiry</span>
+          <span class="related-name">Philosophy of AI</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/graph-intelligence-relational-systems" data-slug="graph-intelligence-relational-systems">
+          <span class="related-label">12 / Inquiry</span>
+          <span class="related-name">Graph Intelligence &amp; Relational Systems</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/#research" data-slug="ai-coordination">
+          <span class="related-label">05 / Inquiry</span>
+          <span class="related-name">AI Coordination</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="multi-agent-systems">
+          <span class="related-label">06 / Inquiry</span>
+          <span class="related-name">Multi-Agent Systems</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="intelligence-as-relationship">
+          <span class="related-label">∞ / Inquiry</span>
+          <span class="related-name">Intelligence as Relationship</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="research-footer">
+    <div class="footer-inner">
+      <div class="footer-text">
+        <p>Chinoba — Intelligence as Relationship</p>
+        <p class="footer-tag">AI is not prediction. It is decision.</p>
+        <p style="margin-top: 18px;">
+          <a href="/">Home</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://deus-ex-machina-ism.com/" target="_blank" rel="noopener">Blog</a>
+          &nbsp;·&nbsp;
+          <a href="/#books">Books</a>
+        </p>
+      </div>
+      <div class="footer-contact">
+        <span class="contact-label">Contact</span>
+        <a href="mailto:hello@chinoba.org">hello@chinoba.org</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
