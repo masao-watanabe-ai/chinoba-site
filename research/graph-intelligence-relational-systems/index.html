@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Graph Intelligence &amp; Relational Systems — Chinoba</title>
+  <meta name="description" content="A research archive on graph-based intelligence, relational learning, propagation structures, trust graphs, and decision graphs for organizational and runtime AI systems.">
+
+  <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
+  <link rel="stylesheet" href="/assets/research.css">
+
+  <style>
+    /* ---------- Page-specific overrides ---------- */
+    .concept-grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    /* Essay coming-soon variant */
+    .essay.is-coming-soon {
+      cursor: default;
+    }
+    .essay.is-coming-soon:hover {
+      background: var(--bg);
+    }
+    .essay .essay-meta.is-coming-soon {
+      color: var(--fg-faint);
+    }
+    .essay .essay-meta.is-coming-soon::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--fg-faint);
+      margin-right: 8px;
+      vertical-align: middle;
+      transform: translateY(-1px);
+    }
+
+    /* Diagram placeholders */
+    .diagrams {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .diagram-card {
+      background: var(--bg);
+      padding: 26px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+    .diagram-card .kicker {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .diagram-card h3 {
+      font-size: 16px;
+      margin: 0 0 14px;
+      font-weight: 600;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+    }
+    .diagram-frame {
+      flex: 1;
+      border: 1px dashed var(--line-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
+        var(--bg-elev);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      min-height: 110px;
+    }
+
+    /* ---------- Graph Intelligence Runtime Structure (CSS-based layered diagram) ---------- */
+    .graph-runtime {
+      margin-top: clamp(56px, 7vw, 80px);
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      padding: 28px clamp(20px, 4vw, 40px) 36px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .graph-runtime::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%);
+      pointer-events: none;
+    }
+
+    .graph-runtime-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 6px;
+      position: relative;
+    }
+
+    .graph-runtime-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--fg);
+      margin: 0 0 22px;
+      letter-spacing: 0.2px;
+      position: relative;
+    }
+
+    .graph-layers {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .graph-layer {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) auto;
+      align-items: baseline;
+      gap: 18px;
+      padding: 14px 4px;
+      border-bottom: 1px solid var(--line);
+    }
+    .graph-layer:last-child {
+      border-bottom: none;
+    }
+
+    .graph-layer .layer-idx {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+    }
+
+    .graph-layer .layer-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .graph-layer .layer-name {
+      font-size: 15px;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+      font-weight: 600;
+    }
+
+    .graph-layer .layer-note {
+      font-size: 13px;
+      color: var(--fg-mute);
+      line-height: 1.6;
+    }
+
+    .graph-layer .layer-tag {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+    }
+
+    .graph-arrow {
+      display: flex;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 4px;
+      padding: 4px 0 6px;
+    }
+
+    @media (max-width: 900px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .diagrams {
+        grid-template-columns: 1fr;
+      }
+      .graph-layer {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .graph-layer .layer-tag {
+        margin-top: 2px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <nav class="topbar" aria-label="Breadcrumb">
+    <div class="breadcrumb">
+      <a href="/">Chinoba</a>
+      <span class="sep">/</span>
+      <a href="/#research">Research</a>
+      <span class="sep">/</span>
+      <span>Graph Intelligence &amp; Relational Systems</span>
+    </div>
+    <div class="meta-id">12 / Lines of Inquiry</div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Research / Graph Intelligence &amp; Relational Systems</div>
+      <h1>Graph Intelligence &amp; Relational Systems</h1>
+      <p class="hero-sub">
+        <span>Intelligence does not emerge only from isolated models,</span>
+        <span>but from relationships,</span>
+        <span>propagation,</span>
+        <span>and structure.</span>
+      </p>
+      <p class="hero-desc">
+        Graph-based intelligence systems
+        allow AI to model relationships,
+        context propagation,
+        trust structures,
+        decision traces,
+        and organizational knowledge flow.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============ 01 OVERVIEW ============ -->
+  <section class="research-section" id="overview" aria-labelledby="overview-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Overview</div>
+        <h2 id="overview-h">Overview</h2>
+        <p class="section-lede">
+          A relational view of intelligence — where meaning,
+          influence, and decision live between entities, not
+          inside them.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What Graph Intelligence Models</h3>
+          <p>Graph Intelligence refers to AI systems that model:</p>
+          <ul>
+            <li>relationships</li>
+            <li>propagation</li>
+            <li>topology</li>
+            <li>semantic structure</li>
+            <li>organizational interaction</li>
+            <li>influence networks</li>
+            <li>trust structures</li>
+            <li>decision dependencies</li>
+          </ul>
+
+          <code class="quote">
+            Many real-world systems
+            are not isolated entities.
+          </code>
+
+          <p>
+            They are relational systems —
+            and their behavior cannot be
+            recovered from the parts alone.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>Why a Graph Frame</h3>
+          <p>
+            Graph-based architectures enable AI to model
+            interaction, propagation, dependency, and
+            collective structure — the substrate that
+            isolated embeddings tend to flatten away.
+          </p>
+
+          <h3>Working Statement</h3>
+          <code class="quote">
+            Intelligence is not stored in a node.
+            It is shaped by the edges.
+          </code>
+
+          <p>
+            This inquiry treats graph intelligence as a
+            relational layer for decision systems — where
+            organizational memory, trust, and influence
+            become first-class objects of computation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 WHY IT MATTERS ============ -->
+  <section class="research-section" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / Why It Matters</div>
+        <h2 id="why-h">Why It Matters</h2>
+        <p class="section-lede">
+          Real organizational intelligence is relational —
+          and relational structure is exactly what most AI
+          pipelines discard at the input boundary.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>The Default AI Pipeline</h3>
+          <p>Traditional AI often processes information as:</p>
+
+          <code class="quote">
+            Input → Embedding → Output
+          </code>
+
+          <p>
+            This frame is sufficient for many product
+            features. It treats each input as if it were
+            independent of every other.
+          </p>
+
+          <p>
+            But organizations — and the decisions inside
+            them — are rarely independent. They carry
+            history, context, and connection.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>What Real Organizations Carry</h3>
+          <p>However, real organizational intelligence contains:</p>
+          <ul>
+            <li>relational context</li>
+            <li>propagation</li>
+            <li>temporal influence</li>
+            <li>semantic dependency</li>
+            <li>organizational memory</li>
+            <li>trust flow</li>
+            <li>decision linkage</li>
+          </ul>
+
+          <p>
+            GNNs and graph intelligence systems allow AI
+            to move closer to relational reasoning — to
+            propagate context, not just compress it.
+          </p>
+
+          <code class="quote">
+            The future of AI may not depend
+            only on larger models.
+            It may depend on better representations
+            of relationships.
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 CORE STRUCTURE ============ -->
+  <section class="research-section" id="core" aria-labelledby="core-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Core Structure</div>
+        <h2 id="core-h">Core Structure</h2>
+        <p class="section-lede">
+          Eight layers that compose a graph-based intelligence
+          runtime — from nodes and edges to organizational
+          coordination.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Node Intelligence</h3>
+          <p>The smallest unit of representation — an entity, agent, document, or decision endowed with its own state and meaning.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Edge Relationships</h3>
+          <p>Typed connections between nodes — influence, dependency, citation, trust, escalation — making structure explicit.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Propagation Layer</h3>
+          <p>How signals, context, and influence travel across the graph — the substrate on which relational reasoning runs.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Semantic Structure</h3>
+          <p>The meaning carried by topology itself — neighborhoods, motifs, and patterns that encode what a region of the graph is about.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Trust Graph</h3>
+          <p>A relational ledger of reputation, verification, and reliability — where trust is a measurable property of connection.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Decision Graph</h3>
+          <p>The web of decisions, dependencies, and traces — how a single decision inherits from and conditions others.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Organizational Memory</h3>
+          <p>The accumulated relational history of an institution — preserved as structure, not flattened into prose.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">viii</div>
+          <h3>Runtime Graph Coordination</h3>
+          <p>Live coordination across agents, humans, and systems — the graph as an executable layer for relational decisions.</p>
+        </div>
+      </div>
+
+      <!-- ====== Graph Intelligence Runtime Structure (layered diagram) ====== -->
+      <div class="graph-runtime" aria-label="Graph Intelligence Runtime Structure">
+        <div class="graph-runtime-label">Layer Diagram</div>
+        <h3 class="graph-runtime-title">Graph Intelligence Runtime Structure</h3>
+
+        <ol class="graph-layers" role="list">
+          <li class="graph-layer">
+            <span class="layer-idx">L1</span>
+            <span class="layer-body">
+              <span class="layer-name">Nodes</span>
+              <span class="layer-note">Entities, agents, documents, and decisions — the atomic units of representation.</span>
+            </span>
+            <span class="layer-tag">entities</span>
+          </li>
+          <li class="graph-arrow" aria-hidden="true">↓</li>
+          <li class="graph-layer">
+            <span class="layer-idx">L2</span>
+            <span class="layer-body">
+              <span class="layer-name">Edges</span>
+              <span class="layer-note">Typed relationships — influence, dependency, citation, trust, escalation.</span>
+            </span>
+            <span class="layer-tag">relationships</span>
+          </li>
+          <li class="graph-arrow" aria-hidden="true">↓</li>
+          <li class="graph-layer">
+            <span class="layer-idx">L3</span>
+            <span class="layer-body">
+              <span class="layer-name">Propagation</span>
+              <span class="layer-note">Message passing and context flow — the mechanism by which structure becomes inference.</span>
+            </span>
+            <span class="layer-tag">message passing</span>
+          </li>
+          <li class="graph-arrow" aria-hidden="true">↓</li>
+          <li class="graph-layer">
+            <span class="layer-idx">L4</span>
+            <span class="layer-body">
+              <span class="layer-name">Semantic Structure</span>
+              <span class="layer-note">Topology-aware meaning — neighborhoods, motifs, and patterns encoding what regions are about.</span>
+            </span>
+            <span class="layer-tag">topology</span>
+          </li>
+          <li class="graph-arrow" aria-hidden="true">↓</li>
+          <li class="graph-layer">
+            <span class="layer-idx">L5</span>
+            <span class="layer-body">
+              <span class="layer-name">Trust Graph</span>
+              <span class="layer-note">Reputation, verification, and reliability expressed as a relational property of connection.</span>
+            </span>
+            <span class="layer-tag">trust</span>
+          </li>
+          <li class="graph-arrow" aria-hidden="true">↓</li>
+          <li class="graph-layer">
+            <span class="layer-idx">L6</span>
+            <span class="layer-body">
+              <span class="layer-name">Decision Graph</span>
+              <span class="layer-note">Decision dependencies and trace lineage — decisions as nodes with inheritance.</span>
+            </span>
+            <span class="layer-tag">decisions</span>
+          </li>
+          <li class="graph-arrow" aria-hidden="true">↓</li>
+          <li class="graph-layer">
+            <span class="layer-idx">L7</span>
+            <span class="layer-body">
+              <span class="layer-name">Organizational Memory</span>
+              <span class="layer-note">Accumulated relational history retained as structure — replayable across time.</span>
+            </span>
+            <span class="layer-tag">memory</span>
+          </li>
+          <li class="graph-arrow" aria-hidden="true">↓</li>
+          <li class="graph-layer">
+            <span class="layer-idx">L8</span>
+            <span class="layer-body">
+              <span class="layer-name">Runtime Graph Coordination</span>
+              <span class="layer-note">Live coordination across agents and humans — graph as an executable substrate.</span>
+            </span>
+            <span class="layer-tag">runtime</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 RELATED ESSAYS ============ -->
+  <section class="research-section" id="essays" aria-labelledby="essays-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Related Essays</div>
+        <h2 id="essays-h">Reading Around Graph Intelligence</h2>
+        <p class="section-lede">
+          Essays that extend this inquiry into GNN-based
+          decision structures, relational reasoning, and the
+          foundations of graph-shaped intelligence.
+        </p>
+      </div>
+
+      <div class="essays">
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/decision-trace-gnn-learnable-decision-structure/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Decision Trace GNN</div>
+          <h3>Decision Trace Model GNN Design — Making Decision Structures Learnable</h3>
+          <p>How GNN architectures can model decision structures, propagation, and organizational runtime behavior.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/gnn-bridging-continuous-ai-and-the-meaning-gap/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Meaning Gap</div>
+          <h3>GNN Between Continuous Approximation AI and the Meaning Gap</h3>
+          <p>An exploration of how graph intelligence may bridge semantic discontinuity through relational propagation.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/graph-neural-networks-overview/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Foundations</div>
+          <h3>Graph Neural Networks Overview</h3>
+          <p>A foundational overview of Graph Neural Networks, their architectures, and applications.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Relational Runtime</div>
+          <h3>Graphs as Runtime — From Static Topology to Live Coordination</h3>
+          <p>A forthcoming essay on how graphs operate as a runtime substrate for organizational and agentic AI systems.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 RELATED BOOKS ============ -->
+  <section class="research-section" id="books" aria-labelledby="books-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Related Books</div>
+        <h2 id="books-h">Long-form Texts</h2>
+        <p class="section-lede">
+          Knowledge artifacts that compile the surrounding research
+          into structured volumes. English editions shown here.
+        </p>
+      </div>
+
+      <div class="books-list">
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Intelligence Field</div>
+            <div class="book-subtitle">— Intelligence as Relationship —</div>
+            <p>A new perspective on AI, relational intelligence, and the relational field within which graph-based intelligence becomes meaningful.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/02.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">AI is not prediction. It is decision.</div>
+            <div class="book-subtitle">— Decision Trace Model Practical Guide —</div>
+            <p>A practical guide for designing AI as a decision system — the conceptual frame from which Decision Graph and Decision Trace GNN inherit.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Decision Trace Model Practical Guide</div>
+            <div class="book-subtitle">— Designing AI as a Decision System —</div>
+            <p>The companion practical guide for engineers and architects building decision systems on top of relational and traceable structures.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 RELATED OSS ============ -->
+  <section class="research-section" id="oss" aria-labelledby="oss-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Related OSS</div>
+        <h2 id="oss-h">Related OSS</h2>
+        <p class="section-lede">
+          Graph-oriented runtime and intelligence components
+          for relational AI systems.
+        </p>
+      </div>
+
+      <div class="oss-block">
+        <div class="oss-meta">
+          <h3>Graph-oriented runtime components</h3>
+          <p>
+            The OSS ecosystem provides primitives that map
+            onto the graph intelligence stack: graph-shaped
+            decision modeling, relational runtime cores,
+            traceable execution, ledgered structure, and
+            view layers for inspecting propagation and
+            decision graphs.
+          </p>
+
+          <a class="oss-link" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">
+            GitHub — masao-watanabe-ai →
+          </a>
+        </div>
+
+        <ul class="oss-tags" aria-label="Related OSS modules">
+          <li>decision-trace-gnn</li>
+          <li>decision-runtime-core</li>
+          <li>decision-trace-model-v2</li>
+          <li>interaction-core-v2</li>
+          <li>Synapse-Insights</li>
+          <li>ledger-core-k2</li>
+          <li>view-core-v2</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 DIAGRAMS ============ -->
+  <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Diagrams</div>
+        <h2 id="diagrams-h">Architecture Archive</h2>
+        <p class="section-lede">
+          A growing archive of architectural sketches for
+          graph intelligence, relational propagation, and
+          decision-graph runtimes.
+        </p>
+      </div>
+
+      <div class="diagrams">
+        <div class="diagram-card">
+          <div class="kicker">Diagram 01</div>
+          <h3>Decision Graph Structure</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 02</div>
+          <h3>Trust Propagation Network</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 03</div>
+          <h3>Organizational Intelligence Graph</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 04</div>
+          <h3>Runtime Coordination Graph</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 05</div>
+          <h3>Semantic Relationship Architecture</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 CLOSING ============ -->
+  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+    <blockquote>
+      <span>Intelligence is not merely computation.</span>
+      <span>It is the propagation of meaning,</span>
+      <span>relationships,</span>
+      <span>trust,</span>
+      <span>and decisions</span>
+      <span>across connected structures.</span>
+    </blockquote>
+    <div class="closing-mark">Chinoba.org</div>
+  </section>
+
+  <!-- ============ 09 RELATED RESEARCH ============ -->
+  <section class="research-section" id="related" aria-labelledby="related-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">+ / Related Research</div>
+        <h2 id="related-h">Other Lines of Inquiry</h2>
+        <p class="section-lede">
+          Graph Intelligence connects outward to neighboring
+          threads in the Chinoba field.
+        </p>
+      </div>
+
+      <div class="related-research">
+        <a href="/research/decision-trace-model" data-slug="decision-trace-model">
+          <span class="related-label">01 / Inquiry</span>
+          <span class="related-name">Decision Trace Model</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/#research" data-slug="knowledge-flow">
+          <span class="related-label">03 / Inquiry</span>
+          <span class="related-name">Knowledge Flow</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="trust-infrastructure">
+          <span class="related-label">04 / Inquiry</span>
+          <span class="related-name">Trust Infrastructure</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="ai-coordination">
+          <span class="related-label">05 / Inquiry</span>
+          <span class="related-name">AI Coordination</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="multi-agent-systems">
+          <span class="related-label">06 / Inquiry</span>
+          <span class="related-name">Multi-Agent Systems</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="intelligence-as-relationship">
+          <span class="related-label">∞ / Inquiry</span>
+          <span class="related-name">Intelligence as Relationship</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="research-footer">
+    <div class="footer-inner">
+      <div class="footer-text">
+        <p>Chinoba — Intelligence as Relationship</p>
+        <p class="footer-tag">AI is not prediction. It is decision.</p>
+        <p style="margin-top: 18px;">
+          <a href="/">Home</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://deus-ex-machina-ism.com/" target="_blank" rel="noopener">Blog</a>
+          &nbsp;·&nbsp;
+          <a href="/#books">Books</a>
+        </p>
+      </div>
+      <div class="footer-contact">
+        <span class="contact-label">Contact</span>
+        <a href="mailto:hello@chinoba.org">hello@chinoba.org</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
