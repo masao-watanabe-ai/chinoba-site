@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Runtime Society — Chinoba</title>
+  <meta name="description" content="A research archive on Runtime Society — social architecture where rules, decisions, and coordination are adjusted at runtime through context, feedback, AI systems, human review, boundaries, governance layers, and decision traces.">
+
+  <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
+  <link rel="stylesheet" href="/assets/research.css">
+
+  <style>
+    /* ---------- Page-specific overrides ---------- */
+    .concept-grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    /* Essay coming-soon variant */
+    .essay.is-coming-soon {
+      cursor: default;
+    }
+    .essay.is-coming-soon:hover {
+      background: var(--bg);
+    }
+    .essay .essay-meta.is-coming-soon {
+      color: var(--fg-faint);
+    }
+    .essay .essay-meta.is-coming-soon::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--fg-faint);
+      margin-right: 8px;
+      vertical-align: middle;
+      transform: translateY(-1px);
+    }
+
+    /* Diagram placeholders */
+    .diagrams {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .diagram-card {
+      background: var(--bg);
+      padding: 26px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+    .diagram-card .kicker {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .diagram-card h3 {
+      font-size: 16px;
+      margin: 0 0 14px;
+      font-weight: 600;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+    }
+    .diagram-frame {
+      flex: 1;
+      border: 1px dashed var(--line-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
+        var(--bg-elev);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      min-height: 110px;
+    }
+
+    /* ---------- Runtime Society Structure (CSS layered diagram) ---------- */
+    .field-runtime {
+      margin-top: clamp(56px, 7vw, 80px);
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      padding: 28px clamp(20px, 4vw, 40px) 36px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .field-runtime::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%);
+      pointer-events: none;
+    }
+
+    .field-runtime-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 6px;
+      position: relative;
+    }
+
+    .field-runtime-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--fg);
+      margin: 0 0 22px;
+      letter-spacing: 0.2px;
+      position: relative;
+    }
+
+    .field-layers {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .field-layer {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) auto;
+      align-items: baseline;
+      gap: 18px;
+      padding: 14px 4px;
+      border-bottom: 1px solid var(--line);
+    }
+    .field-layer:last-child {
+      border-bottom: none;
+    }
+
+    .field-layer .layer-idx {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+    }
+
+    .field-layer .layer-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .field-layer .layer-name {
+      font-size: 15px;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+      font-weight: 600;
+    }
+
+    .field-layer .layer-note {
+      font-size: 13px;
+      color: var(--fg-mute);
+      line-height: 1.6;
+    }
+
+    .field-layer .layer-tag {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+    }
+
+    .field-arrow {
+      display: flex;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 4px;
+      padding: 4px 0 6px;
+    }
+
+    @media (max-width: 900px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .diagrams {
+        grid-template-columns: 1fr;
+      }
+      .field-layer {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .field-layer .layer-tag {
+        margin-top: 2px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <nav class="topbar" aria-label="Breadcrumb">
+    <div class="breadcrumb">
+      <a href="/">Chinoba</a>
+      <span class="sep">/</span>
+      <a href="/#research">Research</a>
+      <span class="sep">/</span>
+      <span>Runtime Society</span>
+    </div>
+    <div class="meta-id">02 / Lines of Inquiry</div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Research / Runtime Society</div>
+      <h1>Runtime Society</h1>
+      <p class="hero-sub">
+        <span>Society is moving from fixed rules</span>
+        <span>to runtime coordination.</span>
+      </p>
+      <p class="hero-desc">
+        Runtime Society explores how AI,
+        institutions,
+        humans,
+        and organizations coordinate decisions
+        through adaptive rules,
+        boundaries,
+        feedback,
+        and traceable execution.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============ 01 OVERVIEW ============ -->
+  <section class="research-section" id="overview" aria-labelledby="overview-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Overview</div>
+        <h2 id="overview-h">Overview</h2>
+        <p class="section-lede">
+          A view of society as a runtime — a system where rules,
+          decisions, and coordination are not fully fixed in
+          advance but adjusted as conditions change.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What Becomes Runtime</h3>
+          <p>
+            Runtime Society refers to a social architecture
+            where rules, decisions, and coordination are no
+            longer fully fixed in advance.
+          </p>
+          <p>Instead, they are adjusted dynamically through:</p>
+          <ul>
+            <li>context</li>
+            <li>feedback</li>
+            <li>AI systems</li>
+            <li>human review</li>
+            <li>institutional boundaries</li>
+            <li>governance layers</li>
+            <li>decision traces</li>
+            <li>distributed coordination</li>
+          </ul>
+        </div>
+
+        <div class="col-text">
+          <h3>Governance as a Coordination System</h3>
+          <p>
+            In a runtime society, governance is no longer
+            primarily a static document. It is a continuously
+            operating system — sensing signals, applying
+            boundaries, and routing decisions through human
+            and machine review.
+          </p>
+
+          <code class="quote">
+            In a Runtime Society,
+            governance becomes less like
+            a static rulebook
+            and more like a continuously
+            operating coordination system.
+          </code>
+
+          <p>
+            This inquiry treats society itself as a runtime —
+            where rules, traces, and feedback compose the
+            executable substrate of collective decision-making.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 WHY IT MATTERS ============ -->
+  <section class="research-section" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / Why It Matters</div>
+        <h2 id="why-h">Why It Matters</h2>
+        <p class="section-lede">
+          Modern society no longer runs only on fixed rules.
+          It runs on signals, contexts, and adaptive
+          coordination — and most institutions are not yet
+          designed for that mode of operation.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What Modern Society Already Is</h3>
+          <p>Modern society is increasingly shaped by:</p>
+          <ul>
+            <li>AI agents</li>
+            <li>automated workflows</li>
+            <li>public algorithms</li>
+            <li>platform governance</li>
+            <li>real-time data</li>
+            <li>multi-agent coordination</li>
+            <li>dynamic risk</li>
+            <li>institutional complexity</li>
+          </ul>
+
+          <p>Traditional governance assumes a linear flow:</p>
+
+          <code class="quote">
+            Rule → Application → Outcome
+          </code>
+
+          <p>
+            But this frame no longer matches how decisions
+            actually move through institutions, platforms,
+            and AI systems.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>What Runtime Society Requires</h3>
+          <p>A runtime society requires a deeper sequence:</p>
+
+          <code class="quote">
+            Event
+            ↓
+            Signal
+            ↓
+            Context
+            ↓
+            Boundary
+            ↓
+            Decision Runtime
+            ↓
+            Human Review
+            ↓
+            Execution
+            ↓
+            Trace
+            ↓
+            Feedback
+          </code>
+
+          <code class="quote">
+            The key issue is not only
+            whether AI is correct.
+
+            The key issue is how societies
+            coordinate decisions
+            under uncertainty,
+            change,
+            and distributed responsibility.
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 CORE STRUCTURE ============ -->
+  <section class="research-section" id="core" aria-labelledby="core-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Core Structure</div>
+        <h2 id="core-h">Core Structure</h2>
+        <p class="section-lede">
+          Eight structural components that together compose
+          a runtime society — from event-driven sensing to
+          traceable, adaptive coordination.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Event-Driven Society</h3>
+          <p>A society that operates on events and signals rather than only on scheduled or codified procedure.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Contextual Rules</h3>
+          <p>Rules whose application depends on the situation — sensitive to actors, scope, history, and consequence.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Decision Runtime</h3>
+          <p>The executable layer where signals, boundaries, and reviews resolve into decisions in real time.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Boundary Systems</h3>
+          <p>Safety-critical thresholds, escalation lines, and refusal structures that define what must not be crossed.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Human Review</h3>
+          <p>Human judgment as a first-class step in the runtime — not a fallback, but a structural participant.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Institutional Feedback</h3>
+          <p>Feedback loops that allow institutions to sense their own behavior and adjust over time.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Traceable Governance</h3>
+          <p>Governance whose decisions leave traces — readable, auditable, and reviewable after the fact.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">viii</div>
+          <h3>Adaptive Coordination</h3>
+          <p>Coordination across actors that adjusts to context — a continuous substrate, not a one-time settlement.</p>
+        </div>
+      </div>
+
+      <!-- ====== Runtime Society Structure (layered diagram) ====== -->
+      <div class="field-runtime" aria-label="Runtime Society Structure">
+        <div class="field-runtime-label">Layer Diagram</div>
+        <h3 class="field-runtime-title">Runtime Society Structure</h3>
+
+        <ol class="field-layers" role="list">
+          <li class="field-layer">
+            <span class="layer-idx">L1</span>
+            <span class="layer-body">
+              <span class="layer-name">Event</span>
+              <span class="layer-note">A change in the world — an act, a transaction, a request, or an environmental shift.</span>
+            </span>
+            <span class="layer-tag">event</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L2</span>
+            <span class="layer-body">
+              <span class="layer-name">Signal</span>
+              <span class="layer-note">The legible form of the event — data, evidence, telemetry, or testimony entering the runtime.</span>
+            </span>
+            <span class="layer-tag">signal</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L3</span>
+            <span class="layer-body">
+              <span class="layer-name">Context</span>
+              <span class="layer-note">The surrounding situation — actors, scope, history, and consequence — that shapes interpretation.</span>
+            </span>
+            <span class="layer-tag">context</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L4</span>
+            <span class="layer-body">
+              <span class="layer-name">Boundary</span>
+              <span class="layer-note">Thresholds and escalation lines — what must not be crossed, and where authority must be raised.</span>
+            </span>
+            <span class="layer-tag">boundary</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L5</span>
+            <span class="layer-body">
+              <span class="layer-name">Decision Runtime</span>
+              <span class="layer-note">The executable layer where signals, boundaries, and rules resolve into a candidate decision.</span>
+            </span>
+            <span class="layer-tag">runtime</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L6</span>
+            <span class="layer-body">
+              <span class="layer-name">Human Review</span>
+              <span class="layer-note">Human judgment as a structural step — confirming, refusing, or reshaping the decision.</span>
+            </span>
+            <span class="layer-tag">review</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L7</span>
+            <span class="layer-body">
+              <span class="layer-name">Execution</span>
+              <span class="layer-note">The committed action — the point at which the decision becomes a fact in the world.</span>
+            </span>
+            <span class="layer-tag">execution</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L8</span>
+            <span class="layer-body">
+              <span class="layer-name">Trace</span>
+              <span class="layer-note">The durable record of why and how the decision happened — the substrate of accountability.</span>
+            </span>
+            <span class="layer-tag">trace</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L9</span>
+            <span class="layer-body">
+              <span class="layer-name">Feedback</span>
+              <span class="layer-note">The loop back into rules, boundaries, and runtime — society learning from its own decisions.</span>
+            </span>
+            <span class="layer-tag">feedback</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 RELATED ESSAYS ============ -->
+  <section class="research-section" id="essays" aria-labelledby="essays-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Related Essays</div>
+        <h2 id="essays-h">Reading Around Runtime Society</h2>
+        <p class="section-lede">
+          Forthcoming essays that extend this inquiry into
+          governance, institutions, and the future of social
+          decision infrastructure.
+        </p>
+      </div>
+
+      <div class="essays">
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Foundations</div>
+          <h3>Runtime Society</h3>
+          <p>A foundational essay on society as a runtime coordination system.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Governance</div>
+          <h3>Governance as Runtime Coordination</h3>
+          <p>How governance may shift from static rule enforcement to adaptive coordination structures.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Institutions</div>
+          <h3>From Static Institutions to Adaptive Systems</h3>
+          <p>Why institutions must become capable of feedback, traceability, and runtime adjustment.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Future Infrastructure</div>
+          <h3>Decision Runtime and the Future of Social Systems</h3>
+          <p>How decision runtimes may become a foundation for future social infrastructure.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 RELATED BOOKS ============ -->
+  <section class="research-section" id="books" aria-labelledby="books-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Related Books</div>
+        <h2 id="books-h">Long-form Texts</h2>
+        <p class="section-lede">
+          Knowledge artifacts that compile the surrounding research
+          into structured volumes. English editions shown here.
+        </p>
+      </div>
+
+      <div class="books-list">
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">AI is not prediction. It is decision.</div>
+            <div class="book-subtitle">— Decision Trace Model —</div>
+            <p>A frame for treating AI as a decision system — the conceptual ground from which runtime society inherits its sense of traceable, boundary-aware decision flow.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Intelligence as Relationship</div>
+            <div class="book-subtitle">— Intelligence Field —</div>
+            <p>A foundational text on relational intelligence and the field within which institutions, agents, and humans coordinate as a runtime.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/02.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Decision Trace Model Practical Guide</div>
+            <div class="book-subtitle">— Designing AI as a Decision System —</div>
+            <p>A practical guide for engineers and architects building decision systems on top of traceable, boundary-aware runtime structures.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 RELATED OSS ============ -->
+  <section class="research-section" id="oss" aria-labelledby="oss-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Related OSS</div>
+        <h2 id="oss-h">Related OSS</h2>
+        <p class="section-lede">
+          Runtime and trace-based components
+          for adaptive decision systems,
+          governance,
+          and institutional coordination.
+        </p>
+      </div>
+
+      <div class="oss-block">
+        <div class="oss-meta">
+          <h3>Runtime components for social coordination</h3>
+          <p>
+            The OSS ecosystem provides primitives that map
+            onto the runtime society stack: decision runtimes,
+            traceable decision records, boundary and escalation
+            structures, ledgered memory, and view layers for
+            inspecting coordination across institutions, agents,
+            and humans.
+          </p>
+
+          <a class="oss-link" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">
+            GitHub — masao-watanabe-ai →
+          </a>
+        </div>
+
+        <ul class="oss-tags" aria-label="Related OSS modules">
+          <li>decision-runtime-core</li>
+          <li>decision-trace-model-v2</li>
+          <li>ledger-core-k2</li>
+          <li>interaction-core-v2</li>
+          <li>view-core-v2</li>
+          <li>decision-trace-gnn</li>
+          <li>Synapse-Insights</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 DIAGRAMS ============ -->
+  <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Diagrams</div>
+        <h2 id="diagrams-h">Architecture Archive</h2>
+        <p class="section-lede">
+          A growing archive of architectural sketches for
+          runtime society, governance runtime layers, and
+          social decision infrastructure.
+        </p>
+      </div>
+
+      <div class="diagrams">
+        <div class="diagram-card">
+          <div class="kicker">Diagram 01</div>
+          <h3>Runtime Society Structure</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 02</div>
+          <h3>Governance Runtime Layer</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 03</div>
+          <h3>Boundary and Human Review System</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 04</div>
+          <h3>Institutional Feedback Loop</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 05</div>
+          <h3>Social Decision Trace Architecture</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 CLOSING ============ -->
+  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+    <blockquote>
+      <span>A runtime society is not governed</span>
+      <span>only by fixed rules.</span>
+      <span>It is coordinated through</span>
+      <span>context,</span>
+      <span>boundaries,</span>
+      <span>human review,</span>
+      <span>feedback,</span>
+      <span>and traceable decisions.</span>
+    </blockquote>
+    <div class="closing-mark">Chinoba.org</div>
+  </section>
+
+  <!-- ============ 09 RELATED RESEARCH ============ -->
+  <section class="research-section" id="related" aria-labelledby="related-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">+ / Related Research</div>
+        <h2 id="related-h">Other Lines of Inquiry</h2>
+        <p class="section-lede">
+          Runtime Society connects outward to neighboring threads
+          across the Chinoba field — from decision traces to
+          algorithmic governance and distributed coordination.
+        </p>
+      </div>
+
+      <div class="related-research">
+        <a href="/research/decision-trace-model" data-slug="decision-trace-model">
+          <span class="related-label">01 / Inquiry</span>
+          <span class="related-name">Decision Trace Model</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/public-ai-algorithmic-governance" data-slug="public-ai-algorithmic-governance">
+          <span class="related-label">09 / Inquiry</span>
+          <span class="related-name">Public AI &amp; Algorithmic Governance</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/#research" data-slug="governance-boundary-systems">
+          <span class="related-label">07 / Inquiry</span>
+          <span class="related-name">Governance &amp; Boundary Systems</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="trust-infrastructure">
+          <span class="related-label">04 / Inquiry</span>
+          <span class="related-name">Trust Infrastructure</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="ai-coordination">
+          <span class="related-label">05 / Inquiry</span>
+          <span class="related-name">AI Coordination</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="multi-agent-systems">
+          <span class="related-label">06 / Inquiry</span>
+          <span class="related-name">Multi-Agent Systems</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="intelligence-as-relationship">
+          <span class="related-label">∞ / Inquiry</span>
+          <span class="related-name">Intelligence as Relationship</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="research-footer">
+    <div class="footer-inner">
+      <div class="footer-text">
+        <p>Chinoba — Intelligence as Relationship</p>
+        <p class="footer-tag">AI is not prediction. It is decision.</p>
+        <p style="margin-top: 18px;">
+          <a href="/">Home</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://deus-ex-machina-ism.com/" target="_blank" rel="noopener">Blog</a>
+          &nbsp;·&nbsp;
+          <a href="/#books">Books</a>
+        </p>
+      </div>
+      <div class="footer-contact">
+        <span class="contact-label">Contact</span>
+        <a href="mailto:hello@chinoba.org">hello@chinoba.org</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
