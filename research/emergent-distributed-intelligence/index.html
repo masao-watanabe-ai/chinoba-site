@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Emergent &amp; Distributed Intelligence — Chinoba</title>
+  <meta name="description" content="A research archive on emergent and distributed intelligence — collective coordination, distributed agents, human-AI networks, trust propagation, feedback loops, and runtime intelligence fields.">
+
+  <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
+  <link rel="stylesheet" href="/assets/research.css">
+
+  <style>
+    /* ---------- Page-specific overrides ---------- */
+    .concept-grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    /* Essay coming-soon variant */
+    .essay.is-coming-soon {
+      cursor: default;
+    }
+    .essay.is-coming-soon:hover {
+      background: var(--bg);
+    }
+    .essay .essay-meta.is-coming-soon {
+      color: var(--fg-faint);
+    }
+    .essay .essay-meta.is-coming-soon::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--fg-faint);
+      margin-right: 8px;
+      vertical-align: middle;
+      transform: translateY(-1px);
+    }
+
+    /* Diagram placeholders */
+    .diagrams {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .diagram-card {
+      background: var(--bg);
+      padding: 26px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+    .diagram-card .kicker {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .diagram-card h3 {
+      font-size: 16px;
+      margin: 0 0 14px;
+      font-weight: 600;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+    }
+    .diagram-frame {
+      flex: 1;
+      border: 1px dashed var(--line-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
+        var(--bg-elev);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      min-height: 110px;
+    }
+
+    /* ---------- Emergent Distributed Intelligence Structure (CSS layered diagram) ---------- */
+    .field-runtime {
+      margin-top: clamp(56px, 7vw, 80px);
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      padding: 28px clamp(20px, 4vw, 40px) 36px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .field-runtime::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%);
+      pointer-events: none;
+    }
+
+    .field-runtime-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 6px;
+      position: relative;
+    }
+
+    .field-runtime-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--fg);
+      margin: 0 0 22px;
+      letter-spacing: 0.2px;
+      position: relative;
+    }
+
+    .field-layers {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .field-layer {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) auto;
+      align-items: baseline;
+      gap: 18px;
+      padding: 14px 4px;
+      border-bottom: 1px solid var(--line);
+    }
+    .field-layer:last-child {
+      border-bottom: none;
+    }
+
+    .field-layer .layer-idx {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+    }
+
+    .field-layer .layer-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .field-layer .layer-name {
+      font-size: 15px;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+      font-weight: 600;
+    }
+
+    .field-layer .layer-note {
+      font-size: 13px;
+      color: var(--fg-mute);
+      line-height: 1.6;
+    }
+
+    .field-layer .layer-tag {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+    }
+
+    .field-arrow {
+      display: flex;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 4px;
+      padding: 4px 0 6px;
+    }
+
+    @media (max-width: 900px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .diagrams {
+        grid-template-columns: 1fr;
+      }
+      .field-layer {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .field-layer .layer-tag {
+        margin-top: 2px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <nav class="topbar" aria-label="Breadcrumb">
+    <div class="breadcrumb">
+      <a href="/">Chinoba</a>
+      <span class="sep">/</span>
+      <a href="/#research">Research</a>
+      <span class="sep">/</span>
+      <span>Emergent &amp; Distributed Intelligence</span>
+    </div>
+    <div class="meta-id">13 / Lines of Inquiry</div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Research / Emergent &amp; Distributed Intelligence</div>
+      <h1>Emergent &amp; Distributed Intelligence</h1>
+      <p class="hero-sub">
+        <span>Intelligence is not always centralized.</span>
+        <span>It often emerges from distributed relationships,</span>
+        <span>coordination,</span>
+        <span>and interaction.</span>
+      </p>
+      <p class="hero-desc">
+        This inquiry explores intelligence as an emergent property
+        of networks,
+        agents,
+        organizations,
+        knowledge flows,
+        trust structures,
+        and runtime coordination systems.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============ 01 OVERVIEW ============ -->
+  <section class="research-section" id="overview" aria-labelledby="overview-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Overview</div>
+        <h2 id="overview-h">Overview</h2>
+        <p class="section-lede">
+          A view of intelligence as a field — something that
+          arises between agents, humans, organizations, and
+          environments, not only inside any single one.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What Emerges, and From Where</h3>
+          <p>Emergent and Distributed Intelligence refers to intelligence that arises from:</p>
+          <ul>
+            <li>multiple agents</li>
+            <li>human-AI collaboration</li>
+            <li>organizational networks</li>
+            <li>knowledge circulation</li>
+            <li>trust propagation</li>
+            <li>decentralized coordination</li>
+            <li>feedback loops</li>
+            <li>collective learning</li>
+          </ul>
+
+          <code class="quote">
+            Intelligence may not be located
+            in a single model.
+          </code>
+
+          <p>
+            It may emerge from the structure
+            of relationships among people,
+            AI systems, organizations,
+            and environments.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>A Field View of Intelligence</h3>
+          <p>
+            A field view treats intelligence as a property of
+            the system, not only of its components. The
+            substrate is the network itself — its couplings,
+            feedbacks, memory, and trust.
+          </p>
+
+          <h3>Working Statement</h3>
+          <code class="quote">
+            Intelligence is what a connected
+            system does together.
+          </code>
+
+          <p>
+            This inquiry treats distributed intelligence as a
+            relational layer for runtime coordination — where
+            collective behavior, organizational learning, and
+            multi-agent coordination become first-class
+            objects of design.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 WHY IT MATTERS ============ -->
+  <section class="research-section" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / Why It Matters</div>
+        <h2 id="why-h">Why It Matters</h2>
+        <p class="section-lede">
+          Most discourse still centers the model. Most working
+          systems already depend on coordination, feedback, and
+          distributed participation.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>The Default Frame</h3>
+          <p>Most AI discourse still focuses on:</p>
+          <ul>
+            <li>larger models</li>
+            <li>stronger agents</li>
+            <li>centralized intelligence</li>
+            <li>autonomous systems</li>
+          </ul>
+
+          <p>
+            This frame treats intelligence as something to
+            scale inside a single locus — a model, an agent,
+            a system boundary.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>What Real Intelligence Depends On</h3>
+          <p>But real-world intelligence often depends on:</p>
+          <ul>
+            <li>coordination</li>
+            <li>communication</li>
+            <li>trust</li>
+            <li>feedback</li>
+            <li>specialization</li>
+            <li>memory</li>
+            <li>distributed decision-making</li>
+            <li>human participation</li>
+          </ul>
+
+          <code class="quote">
+            The future of AI may be less about
+            building one superintelligence,
+            and more about designing distributed
+            intelligence fields.
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 CORE STRUCTURE ============ -->
+  <section class="research-section" id="core" aria-labelledby="core-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Core Structure</div>
+        <h2 id="core-h">Core Structure</h2>
+        <p class="section-lede">
+          Eight layers that compose a distributed intelligence
+          field — from individual agents to runtime coordination
+          and emergent collective behavior.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Distributed Agents</h3>
+          <p>Multiple agents — human, AI, or hybrid — acting locally with their own state, scope, and partial view of the system.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Human-AI Networks</h3>
+          <p>Mixed networks in which humans and AI systems coordinate, escalate, and complement one another across decision contexts.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Knowledge Flow</h3>
+          <p>How signals, context, and meaning circulate across the field — the lived movement of knowledge between participants.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Trust Propagation</h3>
+          <p>How reliability, reputation, and accountability travel through relationships — the relational currency of coordination.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Feedback Loops</h3>
+          <p>Closed-loop dynamics that allow the system to sense its own behavior, correct, and converge — or diverge.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Collective Learning</h3>
+          <p>Learning that occurs at the level of the network — accumulated experience held by the field, not by any one node.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Runtime Coordination</h3>
+          <p>Live orchestration across agents, humans, and systems — the executable substrate on which distributed intelligence runs.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">viii</div>
+          <h3>Emergent Intelligence Field</h3>
+          <p>The whole — a continuous field of relationships, coordination, and meaning that no single participant fully contains.</p>
+        </div>
+      </div>
+
+      <!-- ====== Emergent Distributed Intelligence Structure (layered diagram) ====== -->
+      <div class="field-runtime" aria-label="Emergent Distributed Intelligence Structure">
+        <div class="field-runtime-label">Layer Diagram</div>
+        <h3 class="field-runtime-title">Emergent Distributed Intelligence Structure</h3>
+
+        <ol class="field-layers" role="list">
+          <li class="field-layer">
+            <span class="layer-idx">L1</span>
+            <span class="layer-body">
+              <span class="layer-name">Distributed Agents</span>
+              <span class="layer-note">Local actors — human, AI, or hybrid — operating with partial views and bounded scope.</span>
+            </span>
+            <span class="layer-tag">agents</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L2</span>
+            <span class="layer-body">
+              <span class="layer-name">Human-AI Networks</span>
+              <span class="layer-note">Mixed coordination structures spanning humans and AI systems across decision contexts.</span>
+            </span>
+            <span class="layer-tag">networks</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L3</span>
+            <span class="layer-body">
+              <span class="layer-name">Knowledge Flow</span>
+              <span class="layer-note">Circulation of context and meaning between participants — the lived motion of knowledge.</span>
+            </span>
+            <span class="layer-tag">flow</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L4</span>
+            <span class="layer-body">
+              <span class="layer-name">Trust Propagation</span>
+              <span class="layer-note">Reliability and accountability traveling through relationships as relational structure.</span>
+            </span>
+            <span class="layer-tag">trust</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L5</span>
+            <span class="layer-body">
+              <span class="layer-name">Feedback Loops</span>
+              <span class="layer-note">Closed-loop dynamics — sensing, correction, and the convergence of distributed behavior.</span>
+            </span>
+            <span class="layer-tag">feedback</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L6</span>
+            <span class="layer-body">
+              <span class="layer-name">Collective Learning</span>
+              <span class="layer-note">Learning held at the level of the network — accumulated experience that lives in the field.</span>
+            </span>
+            <span class="layer-tag">learning</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L7</span>
+            <span class="layer-body">
+              <span class="layer-name">Runtime Coordination</span>
+              <span class="layer-note">Live orchestration across agents, humans, and systems — the executable substrate.</span>
+            </span>
+            <span class="layer-tag">runtime</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L8</span>
+            <span class="layer-body">
+              <span class="layer-name">Emergent Intelligence Field</span>
+              <span class="layer-note">The whole — a continuous field of relationships and meaning no single participant contains.</span>
+            </span>
+            <span class="layer-tag">field</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 RELATED ESSAYS ============ -->
+  <section class="research-section" id="essays" aria-labelledby="essays-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Related Essays</div>
+        <h2 id="essays-h">Reading Around Distributed Intelligence</h2>
+        <p class="section-lede">
+          Forthcoming essays that extend this inquiry into
+          relational intelligence, distributed fields, and
+          runtime coordination across agents and humans.
+        </p>
+      </div>
+
+      <div class="essays">
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Foundations</div>
+          <h3>Intelligence as Relationship</h3>
+          <p>A foundational essay on intelligence as something that emerges from relationships rather than isolated entities.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Distributed Fields</div>
+          <h3>Distributed Intelligence Fields</h3>
+          <p>A research note on distributed intelligence, coordination, and collective systems.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Agents to Fields</div>
+          <h3>From Agents to Intelligence Fields</h3>
+          <p>How multiple agents, humans, and organizations can form larger intelligence structures.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Runtime Coordination</div>
+          <h3>Collective Intelligence and Runtime Coordination</h3>
+          <p>Why coordination, feedback, and runtime structures are essential for distributed intelligence.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 RELATED BOOKS ============ -->
+  <section class="research-section" id="books" aria-labelledby="books-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Related Books</div>
+        <h2 id="books-h">Long-form Texts</h2>
+        <p class="section-lede">
+          Knowledge artifacts that compile the surrounding research
+          into structured volumes. English editions shown here.
+        </p>
+      </div>
+
+      <div class="books-list">
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Intelligence as Relationship</div>
+            <div class="book-subtitle">— Intelligence Field —</div>
+            <p>A foundational text on relational intelligence and the field within which distributed and emergent intelligence becomes meaningful.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/02.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">AI is not prediction. It is decision.</div>
+            <div class="book-subtitle">— Decision Trace Model —</div>
+            <p>A frame for treating AI as a decision system — the conceptual ground from which runtime coordination and distributed decision structures inherit.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Decision Trace Model Practical Guide</div>
+            <div class="book-subtitle">— Designing AI as a Decision System —</div>
+            <p>A practical guide for engineers and architects building decision systems on top of relational, traceable, and distributed structures.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 RELATED OSS ============ -->
+  <section class="research-section" id="oss" aria-labelledby="oss-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Related OSS</div>
+        <h2 id="oss-h">Related OSS</h2>
+        <p class="section-lede">
+          Experimental runtime and graph-based systems
+          for distributed intelligence,
+          coordination,
+          and organizational learning.
+        </p>
+      </div>
+
+      <div class="oss-block">
+        <div class="oss-meta">
+          <h3>Runtime components for distributed intelligence</h3>
+          <p>
+            The OSS ecosystem provides primitives that map
+            onto the distributed intelligence stack: runtime
+            cores, traceable decision structures, relational
+            propagation, ledgered memory, and view layers for
+            inspecting coordination across agents and humans.
+          </p>
+
+          <a class="oss-link" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">
+            GitHub — masao-watanabe-ai →
+          </a>
+        </div>
+
+        <ul class="oss-tags" aria-label="Related OSS modules">
+          <li>decision-runtime-core</li>
+          <li>decision-trace-model-v2</li>
+          <li>decision-trace-gnn</li>
+          <li>Synapse-Insights</li>
+          <li>interaction-core-v2</li>
+          <li>ledger-core-k2</li>
+          <li>view-core-v2</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 DIAGRAMS ============ -->
+  <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Diagrams</div>
+        <h2 id="diagrams-h">Architecture Archive</h2>
+        <p class="section-lede">
+          A growing archive of architectural sketches for
+          distributed intelligence fields, agent networks,
+          and runtime coordination structures.
+        </p>
+      </div>
+
+      <div class="diagrams">
+        <div class="diagram-card">
+          <div class="kicker">Diagram 01</div>
+          <h3>Intelligence Field Structure</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 02</div>
+          <h3>Distributed Agent Network</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 03</div>
+          <h3>Human-AI Collective System</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 04</div>
+          <h3>Trust and Knowledge Propagation</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 05</div>
+          <h3>Runtime Coordination Field</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 CLOSING ============ -->
+  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+    <blockquote>
+      <span>Intelligence does not always begin</span>
+      <span>inside a single mind,</span>
+      <span>model,</span>
+      <span>or machine.</span>
+      <span>It can emerge from relationships,</span>
+      <span>feedback,</span>
+      <span>trust,</span>
+      <span>coordination,</span>
+      <span>and distributed decision structures.</span>
+    </blockquote>
+    <div class="closing-mark">Chinoba.org</div>
+  </section>
+
+  <!-- ============ 09 RELATED RESEARCH ============ -->
+  <section class="research-section" id="related" aria-labelledby="related-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">+ / Related Research</div>
+        <h2 id="related-h">Other Lines of Inquiry</h2>
+        <p class="section-lede">
+          Distributed Intelligence connects outward to
+          neighboring threads in the Chinoba field.
+        </p>
+      </div>
+
+      <div class="related-research">
+        <a href="/#research" data-slug="intelligence-as-relationship">
+          <span class="related-label">∞ / Inquiry</span>
+          <span class="related-name">Intelligence as Relationship</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="multi-agent-systems">
+          <span class="related-label">06 / Inquiry</span>
+          <span class="related-name">Multi-Agent Systems</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/research/graph-intelligence-relational-systems" data-slug="graph-intelligence-relational-systems">
+          <span class="related-label">12 / Inquiry</span>
+          <span class="related-name">Graph Intelligence &amp; Relational Systems</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/#research" data-slug="knowledge-flow">
+          <span class="related-label">03 / Inquiry</span>
+          <span class="related-name">Knowledge Flow</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="trust-infrastructure">
+          <span class="related-label">04 / Inquiry</span>
+          <span class="related-name">Trust Infrastructure</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="runtime-society">
+          <span class="related-label">02 / Inquiry</span>
+          <span class="related-name">Runtime Society</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/research/decision-trace-model" data-slug="decision-trace-model">
+          <span class="related-label">01 / Inquiry</span>
+          <span class="related-name">Decision Trace Model</span>
+          <span class="related-status">Available</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="research-footer">
+    <div class="footer-inner">
+      <div class="footer-text">
+        <p>Chinoba — Intelligence as Relationship</p>
+        <p class="footer-tag">AI is not prediction. It is decision.</p>
+        <p style="margin-top: 18px;">
+          <a href="/">Home</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://deus-ex-machina-ism.com/" target="_blank" rel="noopener">Blog</a>
+          &nbsp;·&nbsp;
+          <a href="/#books">Books</a>
+        </p>
+      </div>
+      <div class="footer-contact">
+        <span class="contact-label">Contact</span>
+        <a href="mailto:hello@chinoba.org">hello@chinoba.org</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
