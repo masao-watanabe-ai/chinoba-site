@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Philosophy of AI — Chinoba</title>
+  <meta name="description" content="A research archive on the philosophy of AI — structures of intelligence, meaning, coordination, discontinuity, and the architecture of civilization-scale decision systems.">
+
+  <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
+  <link rel="stylesheet" href="/assets/research.css">
+
+  <style>
+    /* ---------- Page-specific overrides ---------- */
+    .concept-grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    /* Essay coming-soon variant */
+    .essay.is-coming-soon {
+      cursor: default;
+    }
+    .essay.is-coming-soon:hover {
+      background: var(--bg);
+    }
+    .essay .essay-meta.is-coming-soon {
+      color: var(--fg-faint);
+    }
+    .essay .essay-meta.is-coming-soon::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--fg-faint);
+      margin-right: 8px;
+      vertical-align: middle;
+      transform: translateY(-1px);
+    }
+
+    /* Diagram placeholders */
+    .diagrams {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .diagram-card {
+      background: var(--bg);
+      padding: 26px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+    .diagram-card .kicker {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .diagram-card h3 {
+      font-size: 16px;
+      margin: 0 0 14px;
+      font-weight: 600;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+    }
+    .diagram-frame {
+      flex: 1;
+      border: 1px dashed var(--line-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
+        var(--bg-elev);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      min-height: 110px;
+    }
+
+    /* ---------- Philosophy of AI Structure (CSS-based layered diagram) ---------- */
+    .phil-structure {
+      margin-top: clamp(56px, 7vw, 80px);
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      padding: 28px clamp(20px, 4vw, 40px) 36px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .phil-structure::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%);
+      pointer-events: none;
+    }
+
+    .phil-structure-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 6px;
+      position: relative;
+    }
+
+    .phil-structure-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--fg);
+      margin: 0 0 22px;
+      letter-spacing: 0.2px;
+      position: relative;
+    }
+
+    .phil-layers {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .phil-layer {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) auto;
+      align-items: baseline;
+      gap: 18px;
+      padding: 14px 4px;
+      border-bottom: 1px solid var(--line);
+    }
+    .phil-layer:last-child {
+      border-bottom: none;
+    }
+
+    .phil-layer .layer-idx {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+    }
+
+    .phil-layer .layer-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .phil-layer .layer-name {
+      font-size: 15px;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+      font-weight: 600;
+    }
+
+    .phil-layer .layer-note {
+      font-size: 13px;
+      color: var(--fg-mute);
+      line-height: 1.6;
+    }
+
+    .phil-layer .layer-tag {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+    }
+
+    .phil-arrow {
+      display: flex;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 4px;
+      padding: 4px 0 6px;
+    }
+
+    @media (max-width: 900px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .diagrams {
+        grid-template-columns: 1fr;
+      }
+      .phil-layer {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .phil-layer .layer-tag {
+        margin-top: 2px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <nav class="topbar" aria-label="Breadcrumb">
+    <div class="breadcrumb">
+      <a href="/">Chinoba</a>
+      <span class="sep">/</span>
+      <a href="/#research">Research</a>
+      <span class="sep">/</span>
+      <span>Philosophy of AI</span>
+    </div>
+    <div class="meta-id">14 / Lines of Inquiry</div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Research / Philosophy of AI</div>
+      <h1>Philosophy of AI</h1>
+      <p class="hero-sub">
+        <span>AI is not only a technical system.</span>
+        <span>It is a structure that reshapes meaning,</span>
+        <span>society,</span>
+        <span>judgment,</span>
+        <span>and human coordination.</span>
+      </p>
+      <p class="hero-desc">
+        As AI evolves beyond prediction engines,
+        questions emerge about meaning,
+        structure,
+        discontinuity,
+        intelligence,
+        governance,
+        culture,
+        collective systems,
+        and civilization-scale coordination.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============ 01 OVERVIEW ============ -->
+  <section class="research-section" id="overview" aria-labelledby="overview-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Overview</div>
+        <h2 id="overview-h">Overview</h2>
+        <p class="section-lede">
+          A philosophical inquiry into the structures through
+          which intelligence emerges, coordinates, and shapes
+          civilization.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Beyond Consciousness Debates</h3>
+          <p>
+            The philosophy of AI is not limited to consciousness
+            or speculative AGI debates.
+          </p>
+
+          <p>It also concerns:</p>
+          <ul>
+            <li>structures of coordination</li>
+            <li>how meaning emerges</li>
+            <li>how systems shape culture</li>
+            <li>how information becomes actionable</li>
+            <li>the relationship between intelligence and society</li>
+            <li>the architecture of decision-making</li>
+          </ul>
+
+          <code class="quote">
+            AI changes not only computation.
+            It changes the structure of civilization.
+          </code>
+        </div>
+
+        <div class="col-text">
+          <h3>A Structural View</h3>
+          <p>
+            This inquiry treats AI as a structural force —
+            a system that reshapes how meaning is formed,
+            how judgment is distributed, and how collectives
+            coordinate.
+          </p>
+
+          <h3>Working Statement</h3>
+          <code class="quote">
+            Intelligence is not only an internal property of agents.
+            It is also a property of the structures
+            in which agents act.
+          </code>
+
+          <p>
+            From this angle, the philosophy of AI is closer
+            to the philosophy of civilization than to a
+            philosophy of machines.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 WHY IT MATTERS ============ -->
+  <section class="research-section" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / Why It Matters</div>
+        <h2 id="why-h">Why It Matters</h2>
+        <p class="section-lede">
+          Modern AI systems do not only generate predictions —
+          they increasingly shape the conditions under which
+          society itself operates.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What AI Increasingly Influences</h3>
+          <p>Modern AI systems increasingly influence:</p>
+          <ul>
+            <li>communication</li>
+            <li>governance</li>
+            <li>attention</li>
+            <li>trust</li>
+            <li>social coordination</li>
+            <li>organizational behavior</li>
+            <li>collective intelligence</li>
+          </ul>
+
+          <p>
+            These are not peripheral effects. They are the
+            substrate through which a civilization perceives,
+            decides, and remembers itself.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>From AGI to Relational Intelligence</h3>
+          <p>Traditional AI discourse often asks:</p>
+
+          <code class="quote">
+            Can AI become intelligent?
+          </code>
+
+          <p>But a deeper question may be:</p>
+
+          <code class="quote">
+            What structures allow intelligence to emerge,
+            coordinate,
+            and sustain society?
+          </code>
+
+          <p>
+            The future of AI may depend less on isolated
+            superintelligence, and more on relational
+            intelligence, coordination, and societal
+            architecture.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 CORE STRUCTURE ============ -->
+  <section class="research-section" id="core" aria-labelledby="core-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Core Structure</div>
+        <h2 id="core-h">Core Structure</h2>
+        <p class="section-lede">
+          Eight conceptual layers through which the philosophy of
+          AI moves — from meaning and judgment to civilization-scale
+          systems.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Meaning Structures</h3>
+          <p>How meaning is produced, propagated, and stabilized — the substrate beneath any intelligent act.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Intelligence Fields</h3>
+          <p>Intelligence considered not as a property of a node, but as a field across agents, contexts, and history.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Decision Structures</h3>
+          <p>The forms through which judgment is composed, distributed, and held accountable across humans and systems.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Social Coordination</h3>
+          <p>How groups, institutions, and AI systems align attention, trust, and action under shared conditions.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Information Structuring</h3>
+          <p>How raw information becomes legible, navigable, and actionable — the architecture beneath every decision.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Human-AI Relationships</h3>
+          <p>The shifting relational geometry between humans and AI — neither tool, nor peer, but a structural counterpart.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Discontinuity &amp; Judgment</h3>
+          <p>The discontinuities — meaning gaps, value shifts, irreducible choices — that smooth computation cannot represent.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">viii</div>
+          <h3>Civilization-Scale Systems</h3>
+          <p>AI as part of the long architecture of civilization — alongside writing, institutions, law, and infrastructure.</p>
+        </div>
+      </div>
+
+      <!-- ====== Philosophy of AI Structure (layered diagram) ====== -->
+      <div class="phil-structure" aria-label="Philosophy of AI Structure">
+        <div class="phil-structure-label">Layer Diagram</div>
+        <h3 class="phil-structure-title">Philosophy of AI Structure</h3>
+
+        <ol class="phil-layers" role="list">
+          <li class="phil-layer">
+            <span class="layer-idx">L1</span>
+            <span class="layer-body">
+              <span class="layer-name">Meaning</span>
+              <span class="layer-note">The ground layer — how meaning is formed, carried, and recognized across agents.</span>
+            </span>
+            <span class="layer-tag">meaning</span>
+          </li>
+          <li class="phil-arrow" aria-hidden="true">↓</li>
+          <li class="phil-layer">
+            <span class="layer-idx">L2</span>
+            <span class="layer-body">
+              <span class="layer-name">Information Structuring</span>
+              <span class="layer-note">The transformation of raw information into structures that judgment can act on.</span>
+            </span>
+            <span class="layer-tag">structure</span>
+          </li>
+          <li class="phil-arrow" aria-hidden="true">↓</li>
+          <li class="phil-layer">
+            <span class="layer-idx">L3</span>
+            <span class="layer-body">
+              <span class="layer-name">Intelligence Fields</span>
+              <span class="layer-note">Intelligence as relational — distributed across humans, agents, and shared context.</span>
+            </span>
+            <span class="layer-tag">field</span>
+          </li>
+          <li class="phil-arrow" aria-hidden="true">↓</li>
+          <li class="phil-layer">
+            <span class="layer-idx">L4</span>
+            <span class="layer-body">
+              <span class="layer-name">Discontinuity &amp; Judgment</span>
+              <span class="layer-note">The non-smooth: meaning gaps, value shifts, and irreducible decisions that resist approximation.</span>
+            </span>
+            <span class="layer-tag">judgment</span>
+          </li>
+          <li class="phil-arrow" aria-hidden="true">↓</li>
+          <li class="phil-layer">
+            <span class="layer-idx">L5</span>
+            <span class="layer-body">
+              <span class="layer-name">Decision Structures</span>
+              <span class="layer-note">The forms in which judgment is composed, traced, and held accountable across systems.</span>
+            </span>
+            <span class="layer-tag">decision</span>
+          </li>
+          <li class="phil-arrow" aria-hidden="true">↓</li>
+          <li class="phil-layer">
+            <span class="layer-idx">L6</span>
+            <span class="layer-body">
+              <span class="layer-name">Human-AI Relationships</span>
+              <span class="layer-note">The relational geometry between humans and AI — neither tool nor peer, but structural counterpart.</span>
+            </span>
+            <span class="layer-tag">relation</span>
+          </li>
+          <li class="phil-arrow" aria-hidden="true">↓</li>
+          <li class="phil-layer">
+            <span class="layer-idx">L7</span>
+            <span class="layer-body">
+              <span class="layer-name">Social Coordination</span>
+              <span class="layer-note">How groups, institutions, and AI systems align attention, trust, and action.</span>
+            </span>
+            <span class="layer-tag">society</span>
+          </li>
+          <li class="phil-arrow" aria-hidden="true">↓</li>
+          <li class="phil-layer">
+            <span class="layer-idx">L8</span>
+            <span class="layer-body">
+              <span class="layer-name">Civilization-Scale Systems</span>
+              <span class="layer-note">AI as part of the long architecture of civilization — alongside writing, law, and infrastructure.</span>
+            </span>
+            <span class="layer-tag">civilization</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 RELATED ESSAYS ============ -->
+  <section class="research-section" id="essays" aria-labelledby="essays-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Related Essays</div>
+        <h2 id="essays-h">Reading Around the Philosophy of AI</h2>
+        <p class="section-lede">
+          Essays that extend this inquiry into structure,
+          intelligence fields, information design, and the
+          discontinuities at the edge of computation.
+        </p>
+      </div>
+
+      <div class="essays">
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/structure-to-culture-bauhaus-to-ai-design/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Structure &amp; Culture</div>
+          <h3>Structure Creates Culture — From Bauhaus to Design in the AI Era</h3>
+          <p>How structural design shapes culture, interaction, and collective intelligence.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/ai-intelligence-field-social-architecture/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Intelligence Field</div>
+          <h3>Should AI Pursue Superintelligence? — Intelligence Field and the Redesign of Social Conditions</h3>
+          <p>A philosophical exploration of Intelligence Field, collective intelligence, and social coordination beyond isolated AGI.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/structuring-information-for-decision-making/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Information Structuring</div>
+          <h3>Structure Changes the World — Making Information Actionable</h3>
+          <p>Why structuring information is essential for judgment, coordination, and decision-making systems.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/ai-discontinuity-judgment-not-smooth-computation/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Discontinuity</div>
+          <h3>Smooth Computation Cannot Fully Represent Judgment — AI and the Problem of Discontinuity</h3>
+          <p>An exploration of discontinuity, judgment, meaning gaps, and the limitations of continuous approximation in AI.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 RELATED BOOKS ============ -->
+  <section class="research-section" id="books" aria-labelledby="books-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Related Books</div>
+        <h2 id="books-h">Long-form Texts</h2>
+        <p class="section-lede">
+          Knowledge artifacts that compile the surrounding research
+          into structured volumes. English editions shown here.
+        </p>
+      </div>
+
+      <div class="books-list">
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Intelligence as Relationship</div>
+            <div class="book-subtitle">— Intelligence Field and the Relational Frame —</div>
+            <p>A new perspective on AI, relational intelligence, and the field within which collective and civilization-scale intelligence becomes meaningful.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/02.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">AI is not prediction. It is decision.</div>
+            <div class="book-subtitle">— Decision Trace Model Practical Guide —</div>
+            <p>A practical guide for designing AI as a decision system — the conceptual frame from which Decision Trace Model and Decision Graph inherit.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Decision Trace Model Practical Guide</div>
+            <div class="book-subtitle">— Designing AI as a Decision System —</div>
+            <p>The companion practical guide for engineers and architects building decision systems on top of relational and traceable structures.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 RELATED OSS ============ -->
+  <section class="research-section" id="oss" aria-labelledby="oss-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Related OSS</div>
+        <h2 id="oss-h">Related OSS</h2>
+        <p class="section-lede">
+          Experimental runtime and intelligence infrastructures
+          exploring relational AI, decision systems, and
+          collective coordination.
+        </p>
+      </div>
+
+      <div class="oss-block">
+        <div class="oss-meta">
+          <h3>Runtime &amp; intelligence infrastructure</h3>
+          <p>
+            The OSS surface around this inquiry treats the
+            philosophy of AI as something to build with, not
+            only to discuss — decision runtimes, traceable
+            structures, relational graphs, and ledgered
+            coordination layers as concrete artifacts.
+          </p>
+
+          <a class="oss-link" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">
+            GitHub — masao-watanabe-ai →
+          </a>
+        </div>
+
+        <ul class="oss-tags" aria-label="Related OSS modules">
+          <li>decision-runtime-core</li>
+          <li>decision-trace-model-v2</li>
+          <li>interaction-core-v2</li>
+          <li>decision-trace-gnn</li>
+          <li>Synapse-Insights</li>
+          <li>ledger-core-k2</li>
+          <li>view-core-v2</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 DIAGRAMS ============ -->
+  <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Diagrams</div>
+        <h2 id="diagrams-h">Architecture Archive</h2>
+        <p class="section-lede">
+          A growing archive of conceptual sketches for the
+          philosophy of AI — meaning, judgment, coordination,
+          and civilization-scale architecture.
+        </p>
+      </div>
+
+      <div class="diagrams">
+        <div class="diagram-card">
+          <div class="kicker">Diagram 01</div>
+          <h3>Intelligence Field Structure</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 02</div>
+          <h3>Meaning Propagation Architecture</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 03</div>
+          <h3>Decision and Discontinuity</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 04</div>
+          <h3>Civilization Coordination Layer</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 05</div>
+          <h3>Human-AI Relational Systems</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 CLOSING ============ -->
+  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+    <blockquote>
+      <span>AI is not merely a machine for prediction.</span>
+      <span>It is becoming part of the structure</span>
+      <span>through which meaning,</span>
+      <span>coordination,</span>
+      <span>judgment,</span>
+      <span>and civilization itself</span>
+      <span>are organized.</span>
+    </blockquote>
+    <div class="closing-mark">Chinoba.org</div>
+  </section>
+
+  <!-- ============ 09 RELATED RESEARCH ============ -->
+  <section class="research-section" id="related" aria-labelledby="related-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">+ / Related Research</div>
+        <h2 id="related-h">Other Lines of Inquiry</h2>
+        <p class="section-lede">
+          The philosophy of AI connects outward to neighboring
+          threads across the Chinoba field.
+        </p>
+      </div>
+
+      <div class="related-research">
+        <a href="/#research" data-slug="intelligence-as-relationship">
+          <span class="related-label">∞ / Inquiry</span>
+          <span class="related-name">Intelligence as Relationship</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/research/decision-trace-model" data-slug="decision-trace-model">
+          <span class="related-label">01 / Inquiry</span>
+          <span class="related-name">Decision Trace Model</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/#research" data-slug="runtime-society">
+          <span class="related-label">02 / Inquiry</span>
+          <span class="related-name">Runtime Society</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="trust-infrastructure">
+          <span class="related-label">04 / Inquiry</span>
+          <span class="related-name">Trust Infrastructure</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/research/graph-intelligence-relational-systems" data-slug="graph-intelligence-relational-systems">
+          <span class="related-label">12 / Inquiry</span>
+          <span class="related-name">Graph Intelligence &amp; Relational Systems</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/public-ai-algorithmic-governance" data-slug="public-ai-algorithmic-governance">
+          <span class="related-label">09 / Inquiry</span>
+          <span class="related-name">Public AI &amp; Algorithmic Governance</span>
+          <span class="related-status">Available</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="research-footer">
+    <div class="footer-inner">
+      <div class="footer-text">
+        <p>Chinoba — Intelligence as Relationship</p>
+        <p class="footer-tag">AI is not prediction. It is decision.</p>
+        <p style="margin-top: 18px;">
+          <a href="/">Home</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://deus-ex-machina-ism.com/" target="_blank" rel="noopener">Blog</a>
+          &nbsp;·&nbsp;
+          <a href="/#books">Books</a>
+        </p>
+      </div>
+      <div class="footer-contact">
+        <span class="contact-label">Contact</span>
+        <a href="mailto:hello@chinoba.org">hello@chinoba.org</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
