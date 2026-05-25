@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Case Study — Chinoba</title>
+  <meta name="description" content="Real-world applications of decision runtime structures across manufacturing, healthcare, finance, government, retail, infrastructure, and multi-agent environments.">
+
+  <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
+  <link rel="stylesheet" href="/assets/research.css">
+
+  <style>
+    /* ---------- Page-specific overrides ---------- */
+    .concept-grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    /* Essay coming-soon variant */
+    .essay.is-coming-soon {
+      cursor: default;
+    }
+    .essay.is-coming-soon:hover {
+      background: var(--bg);
+    }
+    .essay .essay-meta.is-coming-soon {
+      color: var(--fg-faint);
+    }
+    .essay .essay-meta.is-coming-soon::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--fg-faint);
+      margin-right: 8px;
+      vertical-align: middle;
+      transform: translateY(-1px);
+    }
+
+    /* ---------- Case Study Runtime Structure (CSS layered diagram) ---------- */
+    .field-runtime {
+      margin-top: clamp(56px, 7vw, 80px);
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      padding: 28px clamp(20px, 4vw, 40px) 36px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .field-runtime::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%);
+      pointer-events: none;
+    }
+
+    .field-runtime-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 6px;
+      position: relative;
+    }
+
+    .field-runtime-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--fg);
+      margin: 0 0 22px;
+      letter-spacing: 0.2px;
+      position: relative;
+    }
+
+    .field-layers {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .field-layer {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) auto;
+      align-items: baseline;
+      gap: 18px;
+      padding: 14px 4px;
+      border-bottom: 1px solid var(--line);
+    }
+    .field-layer:last-child {
+      border-bottom: none;
+    }
+
+    .field-layer .layer-idx {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+    }
+
+    .field-layer .layer-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .field-layer .layer-name {
+      font-size: 15px;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+      font-weight: 600;
+    }
+
+    .field-layer .layer-note {
+      font-size: 13px;
+      color: var(--fg-mute);
+      line-height: 1.6;
+    }
+
+    .field-layer .layer-tag {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+    }
+
+    .field-arrow {
+      display: flex;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 4px;
+      padding: 4px 0 6px;
+    }
+
+    /* ---------- Why It Matters flow strip ---------- */
+    .why-flow {
+      margin-top: clamp(36px, 5vw, 56px);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-start;
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--fg-mute);
+    }
+    .why-flow .step {
+      border: 1px solid var(--line);
+      padding: 8px 14px;
+      border-radius: 2px;
+      background: var(--bg-elev);
+      color: var(--fg);
+    }
+    .why-flow .arrow {
+      color: var(--fg-faint);
+    }
+
+    @media (max-width: 900px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .field-layer {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .field-layer .layer-tag {
+        margin-top: 2px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <nav class="topbar" aria-label="Breadcrumb">
+    <div class="breadcrumb">
+      <a href="/">Chinoba</a>
+      <span class="sep">/</span>
+      <a href="/#research">Research</a>
+      <span class="sep">/</span>
+      <span>Case Study</span>
+    </div>
+    <div class="meta-id">15 / Lines of Inquiry</div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Research / Case Study</div>
+      <h1>Case Study</h1>
+      <p class="hero-sub">
+        <span>How Decision Runtime structures</span>
+        <span>operate inside real-world domains.</span>
+      </p>
+      <p class="hero-desc">
+        AI output alone does not create safe or accountable systems.
+        Real environments require boundaries,
+        escalation,
+        human coordination,
+        organizational context,
+        and executable decision structures.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============ 01 OVERVIEW ============ -->
+  <section class="research-section" id="overview" aria-labelledby="overview-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Overview</div>
+        <h2 id="overview-h">Decision Trace Model in the Real World</h2>
+        <p class="section-lede">
+          A page that connects the Decision Trace Model to the
+          concrete domains where decisions are actually made — under
+          ambiguity, regulation, safety constraints, and human
+          accountability.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <p>
+            Case Study collects the lines where research meets the
+            field. Manufacturing,
+            healthcare,
+            finance,
+            government,
+            infrastructure,
+            multi-agent systems,
+            and retail
+            each have their own structure of risk,
+            their own escalation patterns,
+            and their own definition of an acceptable decision.
+          </p>
+          <p>
+            Across these domains, the same set of structural problems
+            keep reappearing — decision ambiguity, organizational
+            coordination, safety boundaries, human escalation,
+            runtime governance, and operational risk.
+          </p>
+
+          <code class="quote">AI is met by the world only through structure.</code>
+
+          <p>
+            The Decision Trace Model treats these not as separate
+            verticals, but as different surfaces of the same
+            underlying runtime — the layer where signals become
+            decisions and decisions become accountable actions.
+          </p>
+
+          <h3>What This Page Holds</h3>
+          <p>
+            Each case study is a study of how Signal,
+            Runtime,
+            Boundary,
+            Human Gate,
+            and Trace
+            assemble inside a real domain. Together they form a
+            comparative atlas of decision structures across the
+            real world.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>Recurring Problems Across Domains</h3>
+          <p>
+            Different industries — same structural questions.
+          </p>
+          <ul class="oss-tags" aria-label="Recurring problems">
+            <li>decision ambiguity</li>
+            <li>organizational coordination</li>
+            <li>safety boundary</li>
+            <li>human escalation</li>
+            <li>runtime governance</li>
+            <li>operational risk</li>
+            <li>regulatory exposure</li>
+            <li>exception handling</li>
+          </ul>
+
+          <h3>Why a Cross-Domain View</h3>
+          <p>
+            Studying domains in isolation hides the shared structure.
+            A cross-domain view exposes the runtime layer beneath the
+            surface — the layer where AI either becomes part of an
+            accountable system, or fails to.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 WHY IT MATTERS ============ -->
+  <section class="research-section" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / Why It Matters</div>
+        <h2 id="why-h">Not Accuracy — Connection to the Real</h2>
+        <p class="section-lede">
+          What matters is not the accuracy of the AI,
+          but how the AI is connected to the real world.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <p>
+            Real environments are not benchmarks. They contain
+            responsibility,
+            safety,
+            approval,
+            regulation,
+            coordination,
+            human judgment,
+            and exception handling.
+          </p>
+          <p>
+            None of these are produced by a model. They are produced
+            by structure — by how the system around the model is
+            designed, where decisions cross boundaries, who is
+            allowed to act, and what is recorded.
+          </p>
+          <p>
+            This is why a runtime is required between the signal
+            and the decision. Without it, AI output collides
+            directly with operational reality — and reality wins.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>The Required Structure</h3>
+          <p>
+            Across every domain in this page, the same chain
+            recurs — only the labels change.
+          </p>
+
+          <div class="why-flow" aria-label="Runtime chain">
+            <span class="step">Signal</span>
+            <span class="arrow">↓</span>
+            <span class="step">Runtime</span>
+            <span class="arrow">↓</span>
+            <span class="step">Boundary</span>
+            <span class="arrow">↓</span>
+            <span class="step">Human Gate</span>
+            <span class="arrow">↓</span>
+            <span class="step">Decision</span>
+            <span class="arrow">↓</span>
+            <span class="step">Trace</span>
+          </div>
+
+          <p style="margin-top: 22px;">
+            Case studies are read against this chain. Where the chain
+            breaks is where the failure mode lives.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 CORE DOMAINS ============ -->
+  <section class="research-section" id="domains" aria-labelledby="domains-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Core Domains</div>
+        <h2 id="domains-h">Seven Domains, One Runtime</h2>
+        <p class="section-lede">
+          Seven domains where Decision Trace structures meet the
+          ground — each with its own characteristic, core challenge,
+          and reason runtime matters.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Manufacturing</h3>
+          <p>Safety-critical operations, sensor uncertainty, and operational variation. Runtime matters because plant decisions need traceable escalation between AI signals and human judgment on the line.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Healthcare</h3>
+          <p>Patient safety, approval responsibility, clinical uncertainty. Runtime matters because every clinical decision must remain reviewable, attributable, and traceable across the chain of care.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Finance</h3>
+          <p>Risk evaluation, compliance regimes, market volatility. Runtime matters because models alone cannot carry override, audit, or human accountability — structure must.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Government</h3>
+          <p>Public accountability, policy boundaries, transparency. Runtime matters because public decisions must remain explainable, contestable, and bounded by mandate.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Infrastructure</h3>
+          <p>Failure propagation, operational coordination, real-time monitoring. Runtime matters because resilience depends on bounded autonomy and coordinated escalation across systems.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Multi-Agent Systems</h3>
+          <p>Agent conflict, escalation routing, coordination runtime. Runtime matters because multiple agents acting in parallel require a layer that arbitrates, traces, and bounds execution.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Retail</h3>
+          <p>Demand uncertainty, dynamic pricing, customer interaction. Runtime matters because rapid commercial decisions still require coordination, override, and operational coherence.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">+</div>
+          <h3>Cross-Domain</h3>
+          <p>The seven surfaces are not separate problems. They share a single underlying runtime structure — the layer this page exists to study.</p>
+        </div>
+      </div>
+
+      <!-- ====== Case Study Runtime Structure (layered diagram) ====== -->
+      <div class="field-runtime" aria-label="Case Study Runtime Structure">
+        <div class="field-runtime-label">Layer Diagram</div>
+        <h3 class="field-runtime-title">Case Study Runtime Structure</h3>
+
+        <ol class="field-layers" role="list">
+          <li class="field-layer">
+            <span class="layer-idx">L1</span>
+            <span class="layer-body">
+              <span class="layer-name">Signal Layer</span>
+              <span class="layer-note">AI-generated signals — predictions, anomalies, recommendations — entering from sensors, models, and external systems.</span>
+            </span>
+            <span class="layer-tag">signal</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L2</span>
+            <span class="layer-body">
+              <span class="layer-name">Context Layer</span>
+              <span class="layer-note">Domain context, organizational state, situational variables — the field in which a signal must be interpreted.</span>
+            </span>
+            <span class="layer-tag">context</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L3</span>
+            <span class="layer-body">
+              <span class="layer-name">Risk Layer</span>
+              <span class="layer-note">Evaluation of operational, safety, regulatory, and reputational risk associated with acting on the signal.</span>
+            </span>
+            <span class="layer-tag">risk</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L4</span>
+            <span class="layer-body">
+              <span class="layer-name">Boundary Layer</span>
+              <span class="layer-note">Safety limits, governance rules, and operational constraints that bound what the system may execute autonomously.</span>
+            </span>
+            <span class="layer-tag">boundary</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L5</span>
+            <span class="layer-body">
+              <span class="layer-name">Human Gate Layer</span>
+              <span class="layer-note">Explicit human involvement where ambiguity, accountability, or stakes exceed automated thresholds.</span>
+            </span>
+            <span class="layer-tag">human-gate</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L6</span>
+            <span class="layer-body">
+              <span class="layer-name">Coordination Layer</span>
+              <span class="layer-note">Cross-agent, cross-team, and cross-system orchestration — aligning multiple actors around a single decision.</span>
+            </span>
+            <span class="layer-tag">coordination</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L7</span>
+            <span class="layer-body">
+              <span class="layer-name">Execution Layer</span>
+              <span class="layer-note">The point at which the decision becomes action — enacted by a system, agent, operator, or organizational process.</span>
+            </span>
+            <span class="layer-tag">execution</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L8</span>
+            <span class="layer-body">
+              <span class="layer-name">Decision Trace Layer</span>
+              <span class="layer-note">The full path becomes a traceable artifact — auditable, reviewable, learnable across cases and across domains.</span>
+            </span>
+            <span class="layer-tag">trace</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 RELATED ESSAYS ============ -->
+  <section class="research-section" id="essays" aria-labelledby="essays-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Related Essays</div>
+        <h2 id="essays-h">Reading Around Case Studies</h2>
+        <p class="section-lede">
+          Essays exploring how runtime structures operate inside
+          real-world systems.
+        </p>
+      </div>
+
+      <div class="essays">
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/use-cases-ja/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Manufacturing</div>
+          <h3>DTM Manufacturing Runtime</h3>
+          <p>How Decision Trace Model structures operate inside plant floors, sensor fields, and operator escalation loops.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Healthcare</div>
+          <h3>Runtime Healthcare Systems</h3>
+          <p>Clinical decision runtimes — boundaries, approval, traceability, and the limits of automated recommendation in care.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Multi-Agent</div>
+          <h3>Multi-Agent Coordination</h3>
+          <p>How multiple agents are bounded, arbitrated, and traced through a shared coordination runtime.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Government</div>
+          <h3>Public AI Governance</h3>
+          <p>Decision structures for public-facing AI — accountability, contestability, and the boundary of mandate.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Infrastructure</div>
+          <h3>Physical AI Runtime</h3>
+          <p>Runtime structures for cyber-physical systems — bounded autonomy, resilience, and coordinated escalation.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Boundary</div>
+          <h3>Governance Boundary Systems</h3>
+          <p>How boundary structures are designed, encoded, and enforced across regulated environments.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 RELATED BOOKS ============ -->
+  <section class="research-section" id="books" aria-labelledby="books-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Related Books</div>
+        <h2 id="books-h">Long-form Texts</h2>
+        <p class="section-lede">
+          Knowledge artifacts that compile the surrounding research
+          into structured volumes. English editions shown here.
+        </p>
+      </div>
+
+      <div class="books-list">
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">AI is not prediction. It is decision.</div>
+            <div class="book-subtitle">— Decision Trace Model Practical Guide —</div>
+            <p>A practical guide for designing AI as a decision system rather than a predictive output engine — the foundation that every case study in this page builds on.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener noreferrer">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Intelligence Field</div>
+            <div class="book-subtitle">— Intelligence as Relationship —</div>
+            <p>A new perspective on AI, relational intelligence, and social intelligence fields — the context against which case studies become legible.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener noreferrer">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/02.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Intelligence Field Economics</div>
+            <div class="book-subtitle">— Chinōba Keizai —</div>
+            <p>Trust, knowledge, and coordination in the AI era — the economic and organizational frame that real-world runtimes operate within.</p>
+            <a class="book-link" href="https://amzn.to/49HvoNp" target="_blank" rel="noopener noreferrer">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://amzn.to/49HvoNp" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/04.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 CLOSING ============ -->
+  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+    <blockquote>
+      <span>What matters is not the accuracy of the model,</span>
+      <span>but how the model is connected to the real.</span>
+      <span>Across every domain,</span>
+      <span>the runtime is the connection.</span>
+    </blockquote>
+    <div class="closing-mark">Chinoba.org</div>
+  </section>
+
+  <!-- ============ RELATED RESEARCH ============ -->
+  <section class="research-section" id="related" aria-labelledby="related-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">+ / Related Research</div>
+        <h2 id="related-h">Other Lines of Inquiry</h2>
+        <p class="section-lede">
+          Case Study connects outward to neighboring threads in the
+          Chinoba field.
+        </p>
+      </div>
+
+      <div class="related-research">
+        <a href="/research/decision-trace-model" data-slug="decision-trace-model">
+          <span class="related-label">01 / Inquiry</span>
+          <span class="related-name">Decision Trace Model</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/#research" data-slug="runtime-society">
+          <span class="related-label">02 / Inquiry</span>
+          <span class="related-name">Runtime Society</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="multi-agent-systems">
+          <span class="related-label">06 / Inquiry</span>
+          <span class="related-name">Multi-Agent Systems</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/#research" data-slug="governance-boundary-systems">
+          <span class="related-label">10 / Inquiry</span>
+          <span class="related-name">Governance &amp; Boundary Systems</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="research-footer">
+    <div class="footer-inner">
+      <div class="footer-text">
+        <p>Chinoba — Intelligence as Relationship</p>
+        <p class="footer-tag">AI is not prediction. It is decision.</p>
+        <p style="margin-top: 18px;">
+          <a href="/">Home</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener noreferrer">GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://deus-ex-machina-ism.com/" target="_blank" rel="noopener noreferrer">Blog</a>
+          &nbsp;·&nbsp;
+          <a href="/#books">Books</a>
+        </p>
+      </div>
+      <div class="footer-contact">
+        <span class="contact-label">Contact</span>
+        <a href="mailto:hello@chinoba.org">hello@chinoba.org</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
