@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Multi-Agent Systems — Chinoba</title>
+  <meta name="description" content="A research archive on Multi-Agent Systems — how multiple AI agents specialize, communicate, negotiate, coordinate, and operate safely under shared boundaries, human gates, and traceable decision structures.">
+
+  <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
+  <link rel="stylesheet" href="/assets/research.css">
+
+  <style>
+    /* ---------- Page-specific overrides ---------- */
+    .concept-grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    /* Essay coming-soon variant */
+    .essay.is-coming-soon {
+      cursor: default;
+    }
+    .essay.is-coming-soon:hover {
+      background: var(--bg);
+    }
+    .essay .essay-meta.is-coming-soon {
+      color: var(--fg-faint);
+    }
+    .essay .essay-meta.is-coming-soon::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--fg-faint);
+      margin-right: 8px;
+      vertical-align: middle;
+      transform: translateY(-1px);
+    }
+
+    /* Diagram placeholders */
+    .diagrams {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .diagram-card {
+      background: var(--bg);
+      padding: 26px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+    .diagram-card .kicker {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .diagram-card h3 {
+      font-size: 16px;
+      margin: 0 0 14px;
+      font-weight: 600;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+    }
+    .diagram-frame {
+      flex: 1;
+      border: 1px dashed var(--line-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
+        var(--bg-elev);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      min-height: 110px;
+    }
+
+    /* ---------- Multi-Agent Runtime Structure (CSS layered diagram) ---------- */
+    .field-runtime {
+      margin-top: clamp(56px, 7vw, 80px);
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      padding: 28px clamp(20px, 4vw, 40px) 36px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .field-runtime::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%);
+      pointer-events: none;
+    }
+
+    .field-runtime-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 6px;
+      position: relative;
+    }
+
+    .field-runtime-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--fg);
+      margin: 0 0 22px;
+      letter-spacing: 0.2px;
+      position: relative;
+    }
+
+    .field-layers {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .field-layer {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) auto;
+      align-items: baseline;
+      gap: 18px;
+      padding: 14px 4px;
+      border-bottom: 1px solid var(--line);
+    }
+    .field-layer:last-child {
+      border-bottom: none;
+    }
+
+    .field-layer .layer-idx {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+    }
+
+    .field-layer .layer-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .field-layer .layer-name {
+      font-size: 15px;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+      font-weight: 600;
+    }
+
+    .field-layer .layer-note {
+      font-size: 13px;
+      color: var(--fg-mute);
+      line-height: 1.6;
+    }
+
+    .field-layer .layer-tag {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+    }
+
+    .field-arrow {
+      display: flex;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 4px;
+      padding: 4px 0 6px;
+    }
+
+    @media (max-width: 900px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .diagrams {
+        grid-template-columns: 1fr;
+      }
+      .field-layer {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .field-layer .layer-tag {
+        margin-top: 2px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <nav class="topbar" aria-label="Breadcrumb">
+    <div class="breadcrumb">
+      <a href="/">Chinoba</a>
+      <span class="sep">/</span>
+      <a href="/#research">Research</a>
+      <span class="sep">/</span>
+      <span>Multi-Agent Systems</span>
+    </div>
+    <div class="meta-id">06 / Lines of Inquiry</div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Research / Multi-Agent Systems</div>
+      <h1>Multi-Agent Systems</h1>
+      <p class="hero-sub">
+        <span>The future of AI is not a single agent.</span>
+        <span>It is coordinated systems of agents,</span>
+        <span>humans,</span>
+        <span>tools,</span>
+        <span>and decision runtimes.</span>
+      </p>
+      <p class="hero-desc">
+        Multi-Agent Systems explores how multiple AI agents
+        can specialize,
+        communicate,
+        negotiate,
+        coordinate,
+        and operate safely under shared boundaries,
+        human gates,
+        and traceable decision structures.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============ 01 OVERVIEW ============ -->
+  <section class="research-section" id="overview" aria-labelledby="overview-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Overview</div>
+        <h2 id="overview-h">Overview</h2>
+        <p class="section-lede">
+          Multi-Agent Systems refer to architectures where
+          multiple agents work together across decomposition,
+          specialization, planning, communication, and
+          runtime orchestration — under shared boundaries
+          and traceable responsibility.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What Multi-Agent Systems Span</h3>
+          <p>
+            Multi-Agent Systems refer to architectures where
+            multiple agents work together across:
+          </p>
+          <ul>
+            <li>task decomposition</li>
+            <li>role specialization</li>
+            <li>planning</li>
+            <li>tool use</li>
+            <li>communication</li>
+            <li>negotiation</li>
+            <li>human collaboration</li>
+            <li>runtime orchestration</li>
+            <li>decision traceability</li>
+          </ul>
+        </div>
+
+        <div class="col-text">
+          <h3>From Individual Agents to Coordinated Systems</h3>
+          <p>
+            The challenge is not only making each agent intelligent.
+          </p>
+          <p>
+            The deeper challenge is designing how agents coordinate,
+            conflict,
+            escalate,
+            and remain accountable as a system.
+          </p>
+
+          <code class="quote">
+            A multi-agent system is not many agents.
+            It is the architecture
+            through which agents
+            become a coordinated whole.
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 WHY IT MATTERS ============ -->
+  <section class="research-section" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / Why It Matters</div>
+        <h2 id="why-h">Why It Matters</h2>
+        <p class="section-lede">
+          As AI systems evolve,
+          single-agent automation becomes insufficient.
+          Real-world systems need coordination, boundaries,
+          and accountability designed as first-class architecture.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What Real-World Systems Require</h3>
+          <p>Real-world systems require:</p>
+          <ul>
+            <li>specialized agents</li>
+            <li>coordination protocols</li>
+            <li>shared memory</li>
+            <li>conflict resolution</li>
+            <li>safety boundaries</li>
+            <li>human approval</li>
+            <li>execution control</li>
+            <li>auditability</li>
+          </ul>
+
+          <p>
+            Traditional agent flow:
+          </p>
+          <code class="quote">
+            Agent → Action → Result
+          </code>
+        </div>
+
+        <div class="col-text">
+          <h3>What Multi-Agent Systems Require</h3>
+          <p>But multi-agent systems require a longer chain:</p>
+          <code class="quote">
+            Intent
+            ↓ Task Decomposition
+            ↓ Agent Assignment
+            ↓ Coordination Runtime
+            ↓ Conflict / Boundary Check
+            ↓ Human Gate
+            ↓ Execution
+            ↓ Trace
+            ↓ Learning
+          </code>
+
+          <code class="quote">
+            Multi-agent AI becomes powerful only when coordination,
+            boundaries,
+            and accountability are designed
+            as first-class architecture.
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 CORE STRUCTURE ============ -->
+  <section class="research-section" id="core" aria-labelledby="core-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Core Structure</div>
+        <h2 id="core-h">Core Structure</h2>
+        <p class="section-lede">
+          Eight structural components that together compose
+          a multi-agent system — from roles and decomposition,
+          through shared context and coordination, to boundaries,
+          human gates, and decision traces.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Agent Roles</h3>
+          <p>Differentiated capabilities and responsibilities — specialized participants, not interchangeable solvers, anchored to scope.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Task Decomposition</h3>
+          <p>How a goal is broken into sub-problems and routed across agents — the substrate that turns intent into coordinated work.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Shared Context</h3>
+          <p>The common memory, state, and signals that agents read and write — the connective tissue of multi-agent reasoning.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Coordination Runtime</h3>
+          <p>The shared substrate where agents are sequenced, negotiated, and routed — coordination as architecture, not free interaction.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Conflict Resolution</h3>
+          <p>How disagreement, contradiction, and competing actions are resolved — turning conflict into structured decisions.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Boundary System</h3>
+          <p>Sanctioned scope, policy, and safety constraints — the rules that decide what coordinated action is allowed to do.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Human Gate</h3>
+          <p>The point where a human approves, refuses, or escalates — keeping judgment central when agents produce competing actions.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">viii</div>
+          <h3>Decision Trace</h3>
+          <p>A structured record of what was decided, by which agent, with which signals, boundaries, and approvals — memory across agents.</p>
+        </div>
+      </div>
+
+      <!-- ====== Multi-Agent Runtime Structure (layered diagram) ====== -->
+      <div class="field-runtime" aria-label="Multi-Agent Runtime Structure">
+        <div class="field-runtime-label">Layer Diagram</div>
+        <h3 class="field-runtime-title">Multi-Agent Runtime Structure</h3>
+
+        <ol class="field-layers" role="list">
+          <li class="field-layer">
+            <span class="layer-idx">L1</span>
+            <span class="layer-body">
+              <span class="layer-name">Intent</span>
+              <span class="layer-note">Goals, constraints, and stakeholder intent enter the system — the source of meaning for downstream coordination.</span>
+            </span>
+            <span class="layer-tag">intent</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L2</span>
+            <span class="layer-body">
+              <span class="layer-name">Task Decomposition</span>
+              <span class="layer-note">Intent is broken into sub-problems and structured into a coordinated task graph across agents and roles.</span>
+            </span>
+            <span class="layer-tag">decompose</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L3</span>
+            <span class="layer-body">
+              <span class="layer-name">Agent Assignment</span>
+              <span class="layer-note">Sub-problems are routed to specialized agents — each bound to a defined role, scope, and capability.</span>
+            </span>
+            <span class="layer-tag">assign</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L4</span>
+            <span class="layer-body">
+              <span class="layer-name">Shared Context</span>
+              <span class="layer-note">Agents read and write a common memory of state, signals, and intermediate results — the connective tissue of the system.</span>
+            </span>
+            <span class="layer-tag">context</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L5</span>
+            <span class="layer-body">
+              <span class="layer-name">Coordination Runtime</span>
+              <span class="layer-note">Agents are sequenced, negotiated, and routed through a runtime — coordination as a structured layer, not free interaction.</span>
+            </span>
+            <span class="layer-tag">runtime</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L6</span>
+            <span class="layer-body">
+              <span class="layer-name">Conflict / Boundary Check</span>
+              <span class="layer-note">Disagreement, risk, and policy violations are surfaced and resolved against sanctioned scope and safety constraints.</span>
+            </span>
+            <span class="layer-tag">boundary</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L7</span>
+            <span class="layer-body">
+              <span class="layer-name">Human Gate</span>
+              <span class="layer-note">A human approves, refuses, or escalates when agents produce competing or high-impact actions — keeping accountability at the center.</span>
+            </span>
+            <span class="layer-tag">gate</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L8</span>
+            <span class="layer-body">
+              <span class="layer-name">Execution</span>
+              <span class="layer-note">Tools, APIs, and external systems are invoked — the outward edge where coordinated agent decisions reach the world.</span>
+            </span>
+            <span class="layer-tag">execution</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L9</span>
+            <span class="layer-body">
+              <span class="layer-name">Trace</span>
+              <span class="layer-note">A structured record across agents — what was decided, by which agent, with which signals, boundaries, and approvals.</span>
+            </span>
+            <span class="layer-tag">trace</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L10</span>
+            <span class="layer-body">
+              <span class="layer-name">Learning</span>
+              <span class="layer-note">Outcomes — including conflicts and failures — return into roles, decomposition, boundaries, and the runtime, so the system can adapt.</span>
+            </span>
+            <span class="layer-tag">learning</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 RELATED ESSAYS ============ -->
+  <section class="research-section" id="essays" aria-labelledby="essays-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Related Essays</div>
+        <h2 id="essays-h">Reading Around Multi-Agent Systems</h2>
+        <p class="section-lede">
+          Forthcoming essays that extend this inquiry into
+          coordination, conflict, boundaries, and the runtime
+          structures that turn agentic workflows into
+          governed decision systems.
+        </p>
+      </div>
+
+      <div class="essays">
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Foundations</div>
+          <h3>Multi-Agent Coordination</h3>
+          <p>A foundational essay on coordinating multiple agents through runtime structures, shared context, and boundaries.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Conflict</div>
+          <h3>Agent Conflict and Boundary Systems</h3>
+          <p>How multi-agent systems handle disagreement, risk, policy limits, and escalation.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Human Gate</div>
+          <h3>Human Gate in Multi-Agent Systems</h3>
+          <p>Why human review remains necessary when multiple agents produce competing actions.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+          <div class="kicker">Runtime</div>
+          <h3>From Agentic Workflow to Decision Runtime</h3>
+          <p>How agentic workflows evolve into traceable, governed, runtime-based decision systems.</p>
+          <div class="essay-meta is-coming-soon">Coming Soon</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 RELATED BOOKS ============ -->
+  <section class="research-section" id="books" aria-labelledby="books-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Related Books</div>
+        <h2 id="books-h">Long-form Texts</h2>
+        <p class="section-lede">
+          Knowledge artifacts that compile the surrounding research
+          into structured volumes. English editions shown here.
+        </p>
+      </div>
+
+      <div class="books-list">
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">AI is not prediction. It is decision.</div>
+            <div class="book-subtitle">— Decision Trace Model —</div>
+            <p>A frame for treating AI as a decision system — the substrate from which coordinated, traceable multi-agent behavior can be built.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Intelligence as Relationship</div>
+            <div class="book-subtitle">— Intelligence Field —</div>
+            <p>A foundational text on relational intelligence — the conceptual ground from which coordination across agents, humans, and systems inherits its meaning.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/02.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="book-title">Decision Trace Model Practical Guide</div>
+            <div class="book-subtitle">— Designing AI as a Decision System —</div>
+            <p>A practical guide for engineers and architects building coordinated, traceable multi-agent systems — from boundaries and gates to runtime traces.</p>
+            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 RELATED OSS ============ -->
+  <section class="research-section" id="oss" aria-labelledby="oss-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Related OSS</div>
+        <h2 id="oss-h">Related OSS</h2>
+        <p class="section-lede">
+          Runtime,
+          coordination,
+          trace,
+          and graph-based components
+          for multi-agent decision systems.
+        </p>
+      </div>
+
+      <div class="oss-block">
+        <div class="oss-meta">
+          <h3>Components for multi-agent decision systems</h3>
+          <p>
+            The OSS ecosystem provides primitives that compose
+            the multi-agent stack: decision runtimes, interaction
+            loops, decision-trace memory, ledger and graph
+            substrates, and view layers for inspecting agent
+            behavior and runtime state across coordinated agents.
+          </p>
+
+          <a class="oss-link" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">
+            GitHub — masao-watanabe-ai →
+          </a>
+        </div>
+
+        <ul class="oss-tags" aria-label="Related OSS modules">
+          <li>decision-runtime-core</li>
+          <li>interaction-core-v2</li>
+          <li>decision-trace-model-v2</li>
+          <li>decision-trace-gnn</li>
+          <li>ledger-core-k2</li>
+          <li>view-core-v2</li>
+          <li>Synapse-Insights</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 DIAGRAMS ============ -->
+  <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Diagrams</div>
+        <h2 id="diagrams-h">Architecture Archive</h2>
+        <p class="section-lede">
+          A growing archive of architectural sketches for
+          multi-agent systems — the role, coordination, conflict,
+          gate, and trace pathways through which coordinated
+          agent behavior becomes observable.
+        </p>
+      </div>
+
+      <div class="diagrams">
+        <div class="diagram-card">
+          <div class="kicker">Diagram 01</div>
+          <h3>Multi-Agent Runtime Structure</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 02</div>
+          <h3>Agent Role and Task Decomposition</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 03</div>
+          <h3>Conflict Resolution Flow</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 04</div>
+          <h3>Human Gate for Multi-Agent Systems</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 05</div>
+          <h3>Decision Trace Across Agents</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 CLOSING ============ -->
+  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+    <blockquote>
+      <span>Multi-agent intelligence is not merely</span>
+      <span>many agents working in parallel.</span>
+      <span>It is the design of coordination,</span>
+      <span>conflict handling,</span>
+      <span>boundaries,</span>
+      <span>human review,</span>
+      <span>and traceable responsibility</span>
+      <span>across distributed AI systems.</span>
+    </blockquote>
+    <div class="closing-mark">Chinoba.org</div>
+  </section>
+
+  <!-- ============ 09 RELATED RESEARCH ============ -->
+  <section class="research-section" id="related" aria-labelledby="related-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">+ / Related Research</div>
+        <h2 id="related-h">Other Lines of Inquiry</h2>
+        <p class="section-lede">
+          Multi-Agent Systems connect outward to neighboring
+          threads across the Chinoba field — from coordination
+          and decision traces to runtime society, governance,
+          trust, graph intelligence, and emergent systems.
+        </p>
+      </div>
+
+      <div class="related-research">
+        <a href="/research/ai-coordination" data-slug="ai-coordination">
+          <span class="related-label">05 / Inquiry</span>
+          <span class="related-name">AI Coordination</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/decision-trace-model" data-slug="decision-trace-model">
+          <span class="related-label">01 / Inquiry</span>
+          <span class="related-name">Decision Trace Model</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/runtime-society" data-slug="runtime-society">
+          <span class="related-label">02 / Inquiry</span>
+          <span class="related-name">Runtime Society</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/#research" data-slug="governance-boundary-systems">
+          <span class="related-label">07 / Inquiry</span>
+          <span class="related-name">Governance &amp; Boundary Systems</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
+        <a href="/research/trust-infrastructure" data-slug="trust-infrastructure">
+          <span class="related-label">04 / Inquiry</span>
+          <span class="related-name">Trust Infrastructure</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/graph-intelligence-relational-systems" data-slug="graph-intelligence-relational-systems">
+          <span class="related-label">12 / Inquiry</span>
+          <span class="related-name">Graph Intelligence &amp; Relational Systems</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/emergent-distributed-intelligence" data-slug="emergent-distributed-intelligence">
+          <span class="related-label">13 / Inquiry</span>
+          <span class="related-name">Emergent &amp; Distributed Intelligence</span>
+          <span class="related-status">Available</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="research-footer">
+    <div class="footer-inner">
+      <div class="footer-text">
+        <p>Chinoba — Intelligence as Relationship</p>
+        <p class="footer-tag">AI is not prediction. It is decision.</p>
+        <p style="margin-top: 18px;">
+          <a href="/">Home</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://deus-ex-machina-ism.com/" target="_blank" rel="noopener">Blog</a>
+          &nbsp;·&nbsp;
+          <a href="/#books">Books</a>
+        </p>
+      </div>
+      <div class="footer-contact">
+        <span class="contact-label">Contact</span>
+        <a href="mailto:hello@chinoba.org">hello@chinoba.org</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
