@@ -875,6 +875,169 @@
     @media (max-width: 720px) {
       .artifact-grid { grid-template-columns: 1fr; }
     }
+
+    /* ---------- Compiled from the Field — tabs ---------- */
+    .compiled-tabs {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 0 34px;
+      padding: 0;
+    }
+    .compiled-tabs li { display: flex; align-items: center; }
+    .compiled-tabs li:not(:last-child)::after {
+      content: "·";
+      margin: 0 14px;
+      color: var(--fg-faint);
+    }
+    .compiled-tab {
+      -webkit-appearance: none;
+      appearance: none;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-dim);
+      transition: color 180ms ease;
+    }
+    .compiled-tab:hover { color: var(--fg-mute); }
+    .compiled-tab.active { color: var(--accent); }
+
+    .compiled-panel { display: none; }
+    .compiled-panel.active { display: block; }
+
+    /* ---------- Essays ---------- */
+    .essay-list { list-style: none; margin: 0; padding: 0; }
+    .essay-item {
+      padding: 18px 0 20px;
+      border-bottom: 1px solid var(--line);
+    }
+    .essay-item:last-child { border-bottom: none; }
+    .essay-title {
+      display: block;
+      font-size: 16px;
+      color: var(--fg);
+      line-height: 1.6;
+      margin-bottom: 8px;
+      letter-spacing: 0.2px;
+      transition: color 180ms ease;
+    }
+    .essay-title:hover { color: var(--accent); }
+    .essay-date {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 8px;
+    }
+    .essay-read {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+    }
+
+    /* ---------- Talks panel ---------- */
+    .talks-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .talk p {
+      color: var(--fg-mute);
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 0 0 18px;
+      max-width: 640px;
+    }
+    .talk-theme {
+      font-size: 14px;
+      color: var(--fg-mute);
+      margin: 0 0 18px;
+    }
+    .talk-cta {
+      font-size: 14px;
+      color: var(--accent);
+      letter-spacing: 0.4px;
+      font-weight: 500;
+    }
+
+    /* ---------- Papers panel ---------- */
+    .papers-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .paper {
+      border: 1px solid var(--line-strong);
+      padding: 28px 26px;
+      background: linear-gradient(180deg, #101010 0%, #0b0b0b 100%);
+      transition: border-color 320ms ease, transform 320ms ease,
+                  background 320ms ease;
+    }
+    .paper:hover {
+      border-color: #3a3a3a;
+      transform: translateY(-2px);
+      background: linear-gradient(180deg, #121212 0%, #0c0c0c 100%);
+    }
+    .paper .kicker {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 16px;
+    }
+    .paper h3 {
+      font-size: 20px;
+      margin: 0 0 6px;
+      font-weight: 600;
+      line-height: 1.45;
+      letter-spacing: 0.2px;
+    }
+    .paper .paper-sub {
+      color: var(--fg-mute);
+      font-style: italic;
+      margin: 0 0 16px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .paper p {
+      color: var(--fg-mute);
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 0 0 18px;
+      max-width: 640px;
+    }
+    .compiled-link {
+      font-size: 14px;
+      color: var(--accent);
+      letter-spacing: 0.4px;
+      font-weight: 500;
+    }
+    .compiled-link.disabled {
+      opacity: .5;
+      cursor: default;
+      pointer-events: none;
+    }
+    .compiled-link.disabled:hover {
+      transform: none;
+    }
+
+    /* ---------- Coming soon placeholder ---------- */
+    .coming-soon {
+      border: 1px solid var(--line-strong);
+      padding: 56px 26px;
+      background: linear-gradient(180deg, #101010 0%, #0b0b0b 100%);
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+    }
   </style>
 </head>
 
@@ -1137,56 +1300,169 @@
       </p>
     </div>
 
-    <ul class="artifact-types" role="list">
-      <li>Books</li>
-      <li>Essays</li>
-      <li>Papers</li>
-      <li>Talks</li>
-      <li>Notes</li>
+    <ul class="compiled-tabs" role="tablist">
+      <li><button type="button" class="compiled-tab active" data-compiled-tab="books" role="tab" aria-selected="true" aria-controls="compiled-panel-books">Books</button></li>
+      <li><button type="button" class="compiled-tab" data-compiled-tab="essays" role="tab" aria-selected="false" aria-controls="compiled-panel-essays">Essays</button></li>
+      <li><button type="button" class="compiled-tab" data-compiled-tab="papers" role="tab" aria-selected="false" aria-controls="compiled-panel-papers">Papers</button></li>
+      <li><button type="button" class="compiled-tab" data-compiled-tab="talks" role="tab" aria-selected="false" aria-controls="compiled-panel-talks">Talks</button></li>
+      <li><button type="button" class="compiled-tab" data-compiled-tab="notes" role="tab" aria-selected="false" aria-controls="compiled-panel-notes">Notes</button></li>
     </ul>
 
-    <div class="block">
-      <div class="block-title">
-        <span class="glyph">■</span>
-        <h3>Books</h3>
+    <!-- ---- BOOKS ---- -->
+    <div class="compiled-panel active" data-compiled-panel="books" id="compiled-panel-books" role="tabpanel">
+      <div class="block">
+        <div class="block-title">
+          <span class="glyph">■</span>
+          <h3>Books</h3>
+        </div>
+        <p class="artifact-stat">22 books published · English &amp; Japanese editions · organized by theme</p>
+
+        <div class="artifact-grid">
+          <div class="artifact-theme">
+            <div class="books-group-label">Decision Systems</div>
+            <ul class="artifact-list">
+              <li>Decision Trace Model — Practical Implementation Guide</li>
+              <li>AI is not prediction. It is decision.</li>
+            </ul>
+          </div>
+
+          <div class="artifact-theme">
+            <div class="books-group-label">Trust Infrastructure</div>
+            <ul class="artifact-list">
+              <li>The Trust Infrastructure in the Age of AI</li>
+            </ul>
+          </div>
+
+          <div class="artifact-theme">
+            <div class="books-group-label">Intelligence as Relationship</div>
+            <ul class="artifact-list">
+              <li>Intelligence Field</li>
+              <li>Intelligence Field Economics</li>
+            </ul>
+          </div>
+
+          <div class="artifact-theme">
+            <div class="books-group-label">Foundations</div>
+            <ul class="artifact-list">
+              <li>What Kind of Mathematical Worldview Is AI Built Upon?</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="artifact-foot">
+          <p class="artifact-more">+18 additional publications across English &amp; Japanese editions</p>
+          <a class="block-cta" href="/library/">View Library →</a>
+        </div>
       </div>
-      <p class="artifact-stat">22 books published · English &amp; Japanese editions · organized by theme</p>
+    </div>
 
-      <div class="artifact-grid">
-        <div class="artifact-theme">
-          <div class="books-group-label">Decision Systems</div>
-          <ul class="artifact-list">
-            <li>Decision Trace Model — Practical Implementation Guide</li>
-            <li>AI is not prediction. It is decision.</li>
-          </ul>
+    <!-- ---- ESSAYS ----
+         Cards are rendered from the recentEssays array in the script block below.
+         Update that array periodically from https://deus-ex-machina-ism.com/feed/ -->
+    <div class="compiled-panel" data-compiled-panel="essays" id="compiled-panel-essays" role="tabpanel">
+      <div class="block">
+        <div class="block-title">
+          <span class="glyph">■</span>
+          <h3>Essays</h3>
         </div>
+        <p class="artifact-stat">Latest field notes from the blog · deus-ex-machina-ism.com</p>
 
-        <div class="artifact-theme">
-          <div class="books-group-label">Trust Infrastructure</div>
-          <ul class="artifact-list">
-            <li>The Trust Infrastructure in the Age of AI</li>
-          </ul>
-        </div>
+        <ul class="essay-list" id="essay-list" role="list"></ul>
 
-        <div class="artifact-theme">
-          <div class="books-group-label">Intelligence as Relationship</div>
-          <ul class="artifact-list">
-            <li>Intelligence Field</li>
-            <li>Intelligence Field Economics</li>
-          </ul>
-        </div>
-
-        <div class="artifact-theme">
-          <div class="books-group-label">Foundations</div>
-          <ul class="artifact-list">
-            <li>What Kind of Mathematical Worldview Is AI Built Upon?</li>
-          </ul>
+        <div class="artifact-foot">
+          <p class="artifact-more">Updated continuously on the blog</p>
+          <a class="block-cta" href="https://deus-ex-machina-ism.com/" target="_blank" rel="noopener noreferrer">Visit Blog →</a>
         </div>
       </div>
+    </div>
 
-      <div class="artifact-foot">
-        <p class="artifact-more">+18 additional publications across English &amp; Japanese editions</p>
-        <a class="block-cta" href="/library/">View Library →</a>
+    <!-- ---- PAPERS ---- -->
+    <div class="compiled-panel" data-compiled-panel="papers" id="compiled-panel-papers" role="tabpanel">
+      <div class="block">
+        <div class="block-title">
+          <span class="glyph">■</span>
+          <h3>Papers</h3>
+        </div>
+
+        <div class="papers-grid">
+          <div class="paper">
+            <div class="kicker">Industrial AI</div>
+            <h3>Working Process Quantification in Factory Using Wearable Sensor Device and Ontology-based Stream Data Processing</h3>
+            <p>A framework for quantifying manufacturing work processes using wearable sensors and ontology-based stream data processing. The study focuses on real-time context understanding and semantic integration of industrial data.</p>
+            <span class="compiled-link disabled">Coming Soon</span>
+          </div>
+
+          <div class="paper">
+            <div class="kicker">Semantic AI</div>
+            <h3>Predicting Relations of Embedded RDF Entities by Deep Neural Network</h3>
+            <p>A deep neural network approach for predicting relationships among RDF entities represented in embedding spaces, enabling semantic reasoning and knowledge graph completion.</p>
+            <span class="compiled-link disabled">Coming Soon</span>
+          </div>
+
+          <div class="paper">
+            <div class="kicker">Knowledge Engineering</div>
+            <h3>グラフモジュール分解に基づく専門用語辞書からのオントロジー自動構築</h3>
+            <p class="paper-sub">Automatic Ontology Construction from Technical Dictionaries Based on Graph Module Decomposition</p>
+            <p>Research on automatically constructing ontologies from technical terminology dictionaries using graph modular decomposition techniques, enabling scalable knowledge engineering.</p>
+            <span class="compiled-link disabled">Coming Soon</span>
+          </div>
+
+          <div class="paper">
+            <div class="kicker">Early Research</div>
+            <h3>Structure changes by annealing and doping of a-Si:H prepared at high deposition rate studied by means of positron annihilation</h3>
+            <p>Materials science research investigating structural changes in hydrogenated amorphous silicon prepared at high deposition rates. The work analyzes the effects of annealing and doping using positron annihilation techniques.</p>
+            <span class="compiled-link disabled">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- TALKS ---- -->
+    <div class="compiled-panel" data-compiled-panel="talks" id="compiled-panel-talks" role="tabpanel">
+      <div class="block">
+        <div class="block-title">
+          <span class="glyph">■</span>
+          <h3>Talks</h3>
+        </div>
+
+        <div class="talks-grid">
+          <div class="talk">
+            <div class="kicker">Recent Talk</div>
+            <h3>Designing AI Systems with Embedded Decision-Making</h3>
+            <p class="talk-sub">Structuring Human Thought and Judgment into AI Systems</p>
+            <p>Presented at the 178th Square Free Seminar: “The Frontline of Trust and Systems Built with AI”</p>
+            <div class="talk-meta">
+              <span>Remote</span>
+              <span>Free</span>
+              <span>May 28, 2026 · 19:00–20:30 JST</span>
+              <span>Zoom / YouTube Live</span>
+            </div>
+            <span class="compiled-link disabled">Coming Soon</span>
+          </div>
+
+          <div class="talk">
+            <div class="kicker">Upcoming Talk</div>
+            <h3>デジタル社会とホスピタリティ</h3>
+            <p>Presented at the 10th Annual Conference of ASHHE (Association for the Study of Hospitality and Hospitality Education)</p>
+            <div class="talk-meta">
+              <span>September 5, 2026</span>
+              <span>10:30–15:30 JST</span>
+            </div>
+            <p class="talk-theme">Theme: 「デジタル社会とホスピタリティ」</p>
+            <span class="compiled-link disabled">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- NOTES ---- -->
+    <div class="compiled-panel" data-compiled-panel="notes" id="compiled-panel-notes" role="tabpanel">
+      <div class="block">
+        <div class="block-title">
+          <span class="glyph">■</span>
+          <h3>Notes</h3>
+        </div>
+        <div class="coming-soon">Coming Soon</div>
       </div>
     </div>
   </section>
@@ -1468,6 +1744,118 @@
             return;
           }
           activate(item);
+        });
+      });
+    })();
+
+    /* Compiled from the Field — Essays (self-contained, no external RSS service) */
+    (function () {
+      // Update periodically from https://deus-ex-machina-ism.com/feed/
+      var recentEssays = [
+        {
+          title: "Knowledge Flow ― 知識とは「保存」ではなく「循環」である AI時代における知識社会から知能創発への転換",
+          date: "June 20, 2026",
+          url: "https://deus-ex-machina-ism.com/knowledge-flow-from-knowledge-storage-to-intelligence-emergence/"
+        },
+        {
+          title: "製造業におけるDTM導入ステップ ― 「検索AI」から「意思決定支援基盤」へ進化するために ―",
+          date: "June 19, 2026",
+          url: "https://deus-ex-machina-ism.com/from-search-ai-to-decision-runtime/"
+        },
+        {
+          title: "複数のAIを連携させたシステム（マルチエージェント）の評価はどの様にすれば良いのか？",
+          date: "June 18, 2026",
+          url: "https://deus-ex-machina-ism.com/from-model-evaluation-to-runtime-evaluation/"
+        },
+        {
+          title: "新刊出版のお知らせ 『AI運用基盤アーキテクチャ: Enterprise AI GatewayとDecisionOpsの実践』",
+          date: "June 17, 2026",
+          url: "https://deus-ex-machina-ism.com/enterprise-ai-gateway-runtime-decisionops/"
+        },
+        {
+          title: "デスクトップOS・組み込みOSから考える Runtime OS の最小構成とDTM",
+          date: "June 16, 2026",
+          url: "https://deus-ex-machina-ism.com/runtime-os-minimum-architecture/"
+        },
+        {
+          title: "AIは「正しい答え」を出しても、組織は止まる ― 士業・法務領域で始まる Multi-Agent Conflict の時代 ―",
+          date: "June 15, 2026",
+          url: "https://deus-ex-machina-ism.com/multi-agent-conflict-legal-ai/"
+        },
+        {
+          title: "なぜDSLだけでは不十分なのか — Decision Trace Model × マルチエージェントによる入力安定化 —",
+          date: "June 14, 2026",
+          url: "https://deus-ex-machina-ism.com/decision-trace-model-and-input-stability/"
+        },
+        {
+          title: "Human-in-the-loop Runtime なぜAI時代に必要なのは「自動化」ではなく「Human-in-the-loop Runtime」なのか",
+          date: "June 13, 2026",
+          url: "https://deus-ex-machina-ism.com/human-in-the-loop-runtime/"
+        },
+        {
+          title: "AIは「政策」を決められるのか？ ― DTMとGovernment Runtimeが必要になる理由 ―",
+          date: "June 12, 2026",
+          url: "https://deus-ex-machina-ism.com/government-ai-decision-runtime/"
+        },
+        {
+          title: "Runtime OS — なぜAI時代に「OS」が再び重要になるのか",
+          date: "June 11, 2026",
+          url: "https://deus-ex-machina-ism.com/runtime-os-ai-era/"
+        }
+      ];
+
+      var list = document.getElementById('essay-list');
+      if (!list) return;
+
+      recentEssays.slice(0, 10).forEach(function (essay) {
+        var item = document.createElement('li');
+        item.className = 'essay-item';
+
+        var title = document.createElement('a');
+        title.className = 'essay-title';
+        title.href = essay.url;
+        title.target = '_blank';
+        title.rel = 'noopener noreferrer';
+        title.textContent = essay.title;
+
+        var date = document.createElement('span');
+        date.className = 'essay-date';
+        date.textContent = essay.date;
+
+        var read = document.createElement('a');
+        read.className = 'essay-read';
+        read.href = essay.url;
+        read.target = '_blank';
+        read.rel = 'noopener noreferrer';
+        read.textContent = 'Read →';
+
+        item.appendChild(title);
+        item.appendChild(date);
+        item.appendChild(read);
+        list.appendChild(item);
+      });
+    })();
+
+    /* Compiled from the Field — tab navigation */
+    (function () {
+      var tabs = document.querySelectorAll('[data-compiled-tab]');
+      var panels = document.querySelectorAll('[data-compiled-panel]');
+      if (!tabs.length || !panels.length) return;
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var key = tab.getAttribute('data-compiled-tab');
+
+          tabs.forEach(function (t) {
+            var isActive = t === tab;
+            t.classList.toggle('active', isActive);
+            t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          });
+
+          panels.forEach(function (panel) {
+            var isActive = panel.getAttribute('data-compiled-panel') === key;
+            panel.classList.toggle('active', isActive);
+          });
         });
       });
     })();
