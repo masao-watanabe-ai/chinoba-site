@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library — Chinoba</title>
+  <meta name="description" content="The Chinoba Library — books and knowledge artifacts compiled from the Lines of Inquiry, in English and Japanese editions.">
+  <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
+  <link rel="stylesheet" href="/assets/research.css">
+  <style>
+    /* ---------- Library: theme blocks ---------- */
+    .library-theme { margin-top: 64px; }
+    .library-theme:first-of-type { margin-top: 8px; }
+
+    .theme-head { margin-bottom: 8px; }
+    .theme-head .section-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 10px;
+    }
+    .theme-head h2 {
+      font-size: 24px;
+      letter-spacing: 0.2px;
+      margin: 0;
+    }
+
+    .books-group-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin: 34px 0 16px;
+    }
+
+    .book {
+      padding: 22px 0 24px;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr 132px;
+      gap: 32px;
+      align-items: start;
+    }
+    .book:last-child { border-bottom: none; }
+    .book-body { min-width: 0; }
+    .book-title { font-size: 18px; font-weight: 600; margin-bottom: 6px; letter-spacing: 0.2px; }
+    .book-subtitle { color: var(--fg-mute); font-size: 14px; margin-bottom: 12px; }
+    .book p { color: var(--fg-mute); font-size: 14px; margin-bottom: 12px; max-width: 640px; }
+    .book-link { font-size: 13px; color: var(--accent); letter-spacing: 0.3px; }
+    .book-cover { display: block; width: 132px; justify-self: end; }
+    .book-cover img {
+      width: 100%; height: auto; display: block; border-radius: 3px;
+      box-shadow: 0 1px 2px rgba(0,0,0,.5), 0 6px 18px rgba(0,0,0,.35);
+      background: var(--bg-elev);
+      transition: transform 320ms ease, box-shadow 320ms ease;
+    }
+    .book-cover:hover img {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 2px 4px rgba(0,0,0,.55), 0 10px 24px rgba(0,0,0,.42);
+    }
+
+    @media (max-width: 720px) {
+      .book { grid-template-columns: 1fr; gap: 22px; }
+      .book-cover { width: 116px; justify-self: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <nav class="topbar" aria-label="Breadcrumb">
+    <div class="breadcrumb">
+      <a href="/">Chinoba</a>
+      <span class="sep">/</span>
+      <a href="/#artifacts">Knowledge Artifacts</a>
+      <span class="sep">/</span>
+      <span>Library</span>
+    </div>
+    <div class="meta-id">02 / Knowledge Artifacts</div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Knowledge Artifacts / Library</div>
+      <h1>Library</h1>
+      <p class="hero-sub">
+        <span>The research, compiled.</span>
+      </p>
+      <p class="hero-desc">
+        Books and long-form artifacts produced from the Lines of Inquiry —
+        organized by theme, available in English and Japanese editions.
+      </p>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- ===== Decision Systems ===== -->
+    <section class="library-theme" aria-labelledby="theme-decision">
+      <div class="theme-head">
+        <div class="section-label">Theme 01</div>
+        <h2 id="theme-decision">Decision Systems</h2>
+      </div>
+
+      <div class="books-group-label">English Editions</div>
+
+      <div class="book">
+        <div class="book-body">
+          <div class="book-title">Decision Trace Model Practical Implementation Guide</div>
+          <div class="book-subtitle">— A Practical Guide to Connecting AI-Powered Judgment to Real-World Organizational Implementation —</div>
+          <p>A practical implementation guide for applying Decision Trace Model (DTM) to manufacturing, healthcare, retail, and multi-agent systems.</p>
+          <a class="book-link" href="https://amzn.to/4x5zNUo" target="_blank" rel="noopener">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://amzn.to/4x5zNUo" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="/assets/book_pic/en/05.jpg" alt="" loading="lazy">
+        </a>
+      </div>
+
+      <div class="book">
+        <div class="book-body">
+          <div class="book-title">AI is not prediction. It is decision.</div>
+          <div class="book-subtitle">— Decision Trace Model Practical Guide —</div>
+          <p>A practical guide for designing AI as a decision system.</p>
+          <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+        </a>
+      </div>
+
+      <div class="books-group-label">Japanese Editions</div>
+
+      <div class="book">
+        <div class="book-body">
+          <div class="book-title">Decision Trace Model 実践導入ガイド</div>
+          <div class="book-subtitle">— 製造・医療・リテール・マルチエージェントで学ぶAI意思決定システム —</div>
+          <p>AIを「予測システム」ではなく、「意思決定システム」として設計・導入するための実践ガイド。</p>
+          <a class="book-link" href="https://amzn.to/4o5oyXT" target="_blank" rel="noopener">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://amzn.to/4o5oyXT" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="/assets/book_pic/jp/05.jpg" alt="" loading="lazy">
+        </a>
+      </div>
+
+      <div class="book">
+        <div class="book-body">
+          <div class="book-title">AIは予測ではない。意思決定である。</div>
+          <div class="book-subtitle">— Decision Trace Model 実践ガイド —</div>
+          <p>AIを「予測システム」ではなく、「意思決定システム」として設計するための実践ガイド。</p>
+          <a class="book-link" href="https://amzn.to/4twsoui" target="_blank" rel="noopener">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://amzn.to/4twsoui" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="/assets/book_pic/jp/01.jpg" alt="" loading="lazy">
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== Trust Infrastructure ===== -->
+    <section class="library-theme" aria-labelledby="theme-trust">
+      <div class="theme-head">
+        <div class="section-label">Theme 02</div>
+        <h2 id="theme-trust">Trust Infrastructure</h2>
+      </div>
+
+      <div class="books-group-label">English Editions</div>
+
+      <div class="book">
+        <div class="book-body">
+          <div class="book-title">The Trust Infrastructure in the Age of AI</div>
+          <div class="book-subtitle">— How Trace, Reputation, and Coordination Power the Next Generation Society —</div>
+          <p>An exploration of trust, reputation, verification, and coordination as the foundation of AI-era society.</p>
+          <a class="book-link" href="https://amzn.to/4dNGtiE" target="_blank" rel="noopener">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://amzn.to/4dNGtiE" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="/assets/book_pic/en/06.jpg" alt="" loading="lazy">
+        </a>
+      </div>
+
+      <div class="books-group-label">Japanese Editions</div>
+
+      <div class="book">
+        <div class="book-body">
+          <div class="book-title">Trust Infrastructure AI時代の信用基盤</div>
+          <div class="book-subtitle">— Trace・Reputation・Coordinationが支える次世代社会 —</div>
+          <p>AI時代における信頼・評判・検証・協調の基盤構造を解説する一冊。</p>
+          <a class="book-link" href="https://amzn.to/3RJgQHa" target="_blank" rel="noopener">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://amzn.to/3RJgQHa" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="/assets/book_pic/jp/06.jpg" alt="" loading="lazy">
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== Intelligence as Relationship ===== -->
+    <section class="library-theme" aria-labelledby="theme-relationship">
+      <div class="theme-head">
+        <div class="section-label">Theme 03</div>
+        <h2 id="theme-relationship">Intelligence as Relationship</h2>
+      </div>
+
+      <div class="books-group-label">English Editions</div>
+
+      <div class="book">
+        <div class="book-body">
+          <div class="book-title">Intelligence Field</div>
+          <div class="book-subtitle">— Intelligence as Relationship —</div>
+          <p>A new perspective on AI, relational intelligence, and social intelligence fields.</p>
+          <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="/assets/book_pic/en/02.jpg" alt="" loading="lazy">
+        </a>
+      </div>
+
+      <div class="book">
+        <div class="book-body">
+          <div class="book-title">Intelligence Field Economics</div>
+          <div class="book-subtitle">— Chinōba Keizai —</div>
+          <p>Trust, Knowledge and Coordination in the AI Era.</p>
+          <a class="book-link" href="https://amzn.to/49HvoNp" target="_blank" rel="noopener">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://amzn.to/49HvoNp" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="/assets/book_pic/en/04.jpg" alt="" loading="lazy">
+        </a>
+      </div>
+
+      <div class="books-group-label">Japanese Editions</div>
+
+      <div class="book">
+        <div class="book-body">
+          <div class="book-title">知能場</div>
+          <div class="book-subtitle">— Intelligence as Relationship —</div>
+          <p>AI・人間・組織・社会の関係性として、知能を捉え直すための探究。</p>
+          <a class="book-link" href="https://amzn.to/4uN51hl" target="_blank" rel="noopener">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://amzn.to/4uN51hl" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="/assets/book_pic/jp/02.jpg" alt="" loading="lazy">
+        </a>
+      </div>
+
+      <div class="book">
+        <div class="book-body">
+          <div class="book-title">Intelligence Field Economics</div>
+          <div class="book-subtitle">— Chinōba Keizai —</div>
+          <p>AI時代における、信頼・知識・協調構造についての探究。</p>
+          <a class="book-link" href="https://amzn.to/49A4JC8" target="_blank" rel="noopener">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://amzn.to/49A4JC8" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="/assets/book_pic/jp/04.jpg" alt="" loading="lazy">
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== Foundations ===== -->
+    <section class="library-theme" aria-labelledby="theme-foundations">
+      <div class="theme-head">
+        <div class="section-label">Theme 04</div>
+        <h2 id="theme-foundations">Foundations</h2>
+      </div>
+
+      <div class="books-group-label">English Editions</div>
+
+      <div class="book">
+        <div class="book-body">
+          <div class="book-title">What Kind of Mathematical Worldview Is AI Built Upon?</div>
+          <div class="book-subtitle">— From Finite Rules to Generative Models —</div>
+          <a class="book-link" href="https://amzn.to/3PcGpzs" target="_blank" rel="noopener">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://amzn.to/3PcGpzs" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="/assets/book_pic/en/03.jpg" alt="" loading="lazy">
+        </a>
+      </div>
+
+      <div class="books-group-label">Japanese Editions</div>
+
+      <div class="book">
+        <div class="book-body">
+          <div class="book-title">AIはどんな数学観の上に作られているのか</div>
+          <div class="book-subtitle">— 有限ルールから生成モデルへ —</div>
+          <a class="book-link" href="https://amzn.to/4frireb" target="_blank" rel="noopener">Available on Kindle →</a>
+        </div>
+        <a class="book-cover" href="https://amzn.to/4frireb" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+          <img src="/assets/book_pic/jp/03.jpg" alt="" loading="lazy">
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-text">
+        <p>Chinoba — Intelligence as Relationship</p>
+        <p class="footer-tag">AI is not prediction. It is decision.</p>
+        <p style="margin-top: 18px;">
+          <a href="/">Home</a>
+          &nbsp;·&nbsp;
+          <a href="/#artifacts">Knowledge Artifacts</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://deus-ex-machina-ism.com/" target="_blank" rel="noopener">Blog</a>
+        </p>
+      </div>
+      <div class="footer-contact">
+        <span class="contact-label">Contact</span>
+        <a href="mailto:hello@chinoba.org">hello@chinoba.org</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

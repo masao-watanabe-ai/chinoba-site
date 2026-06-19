@@ -811,6 +811,70 @@
         text-align: left;
       }
     }
+
+    /* ---------- 02 Knowledge Artifacts ---------- */
+    .artifact-types {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 0 34px;
+      padding: 0;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-dim);
+    }
+    .artifact-types li { display: flex; align-items: center; }
+    .artifact-types li:not(:last-child)::after {
+      content: "·";
+      margin: 0 14px;
+      color: var(--fg-faint);
+    }
+    .artifact-stat {
+      font-size: 13px;
+      color: var(--fg-mute);
+      letter-spacing: 0.3px;
+      margin: 0 0 28px;
+    }
+    .artifact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px 48px;
+    }
+    .artifact-list { list-style: none; margin: 0; padding: 0; }
+    .artifact-list li {
+      font-size: 15px;
+      color: var(--fg);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line);
+      letter-spacing: 0.2px;
+    }
+    .artifact-list li:last-child { border-bottom: none; }
+    .artifact-foot {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+    .artifact-more {
+      font-size: 13px;
+      color: var(--fg-faint);
+      margin: 0;
+      letter-spacing: 0.3px;
+    }
+    .block-cta {
+      font-size: 14px;
+      color: var(--accent);
+      letter-spacing: 0.4px;
+      font-weight: 500;
+    }
+    @media (max-width: 720px) {
+      .artifact-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 
@@ -1062,13 +1126,79 @@
     </div>
   </section>
 
-  <!-- ============ RESEARCH PROTOTYPES ============ -->
-  <section id="prototypes">
+  <!-- ============ 02 / KNOWLEDGE ARTIFACTS ============ -->
+  <section id="artifacts">
     <div class="section-head">
-      <div class="section-label">02 / Research Prototypes</div>
-      <h2>Experiments in Runtime</h2>
+      <div class="section-label">02 / Knowledge Artifacts</div>
+      <h2>Compiled from the Field</h2>
       <p class="section-description">
-        Working prototypes that test the research as code.
+        Knowledge artifacts produced from the Lines of Inquiry —
+        the research formalized into durable, citable form.
+      </p>
+    </div>
+
+    <ul class="artifact-types" role="list">
+      <li>Books</li>
+      <li>Essays</li>
+      <li>Papers</li>
+      <li>Talks</li>
+      <li>Notes</li>
+    </ul>
+
+    <div class="block">
+      <div class="block-title">
+        <span class="glyph">■</span>
+        <h3>Books</h3>
+      </div>
+      <p class="artifact-stat">22 books published · English &amp; Japanese editions · organized by theme</p>
+
+      <div class="artifact-grid">
+        <div class="artifact-theme">
+          <div class="books-group-label">Decision Systems</div>
+          <ul class="artifact-list">
+            <li>Decision Trace Model — Practical Implementation Guide</li>
+            <li>AI is not prediction. It is decision.</li>
+          </ul>
+        </div>
+
+        <div class="artifact-theme">
+          <div class="books-group-label">Trust Infrastructure</div>
+          <ul class="artifact-list">
+            <li>The Trust Infrastructure in the Age of AI</li>
+          </ul>
+        </div>
+
+        <div class="artifact-theme">
+          <div class="books-group-label">Intelligence as Relationship</div>
+          <ul class="artifact-list">
+            <li>Intelligence Field</li>
+            <li>Intelligence Field Economics</li>
+          </ul>
+        </div>
+
+        <div class="artifact-theme">
+          <div class="books-group-label">Foundations</div>
+          <ul class="artifact-list">
+            <li>What Kind of Mathematical Worldview Is AI Built Upon?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="artifact-foot">
+        <p class="artifact-more">+18 additional publications across English &amp; Japanese editions</p>
+        <a class="block-cta" href="/library/">View Library →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 / EXPERIMENTS ============ -->
+  <section id="experiments">
+    <div class="section-head">
+      <div class="section-label">03 / Experiments</div>
+      <h2>Executable Intelligence</h2>
+      <p class="section-description">
+        Where the research runs as code — prototypes and
+        open-source systems that test the field in execution.
       </p>
     </div>
 
@@ -1081,8 +1211,8 @@
           A structured decision environment.
         </p>
         <p class="prototype-desc">
-          Runtime Chat is an experimental prototype for exploring
-          structured decision-making under uncertainty.
+          An experimental prototype for exploring structured
+          decision-making under uncertainty.
         </p>
         <p class="prototype-features">
           Decision Trace · Runtime-based reasoning · Weak Signal handling · Boundary evaluation · Human Gate escalation
@@ -1093,353 +1223,119 @@
         </div>
       </article>
     </div>
+
+    <div class="cards" style="margin-top: 40px;">
+      <div class="card">
+        <div class="kicker">Decision Trace Runtime</div>
+        <h3>decision-runtime-core</h3>
+        <p>Core runtime for executing decisions with structured traces, gates, and boundaries.</p>
+        <a class="meta" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+      <div class="card">
+        <div class="kicker">Boundary Systems</div>
+        <h3>decision-trace-model-v2</h3>
+        <p>Reference implementation of the Decision Trace Model — schema, ingestion, replay.</p>
+        <a class="meta" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+      <div class="card">
+        <div class="kicker">Agent Runtime</div>
+        <h3>interaction-core-v2</h3>
+        <p>Primitives for AI–human–agent interaction loops with explicit boundaries.</p>
+        <a class="meta" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+      <div class="card">
+        <div class="kicker">Trust Infrastructure</div>
+        <h3>view-core-v2</h3>
+        <p>Composable view layer for inspecting traces, decisions, and runtime state.</p>
+        <a class="meta" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+    </div>
+
+    <p style="margin-top: 32px;">
+      <a class="block-cta" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">View Projects →</a>
+    </p>
   </section>
 
-  <!-- ============ RESEARCH OUTPUTS ============ -->
-  <section id="outputs">
+  <!-- ============ 04 / CHANNELS ============ -->
+  <section id="channels">
     <div class="section-head">
-      <div class="section-label">03 / Research Outputs</div>
+      <div class="section-label">04 / Channels</div>
       <h2>Channels of Exploration</h2>
       <p class="section-description">
-        Active surfaces where the research is published,
-        implemented, taught, and practiced.
+        Where the research is published, built, taught, and discussed —
+        consolidated entry points to every external surface.
       </p>
     </div>
 
-    <!-- ------- Blog ------- -->
-    <div class="output-section block">
-      <div class="block-title">
-        <span class="glyph">■</span>
+    <div class="cards">
+      <div class="card">
+        <div class="kicker">Writing</div>
         <h3>Blog</h3>
+        <p>Long-form notes and field observations on intelligence as relationship.</p>
+        <a class="meta" href="https://deus-ex-machina-ism.com/" target="_blank" rel="noopener">Visit Blog →</a>
       </div>
-      <div class="block-desc">
-        <p>Long-form notes and field observations. Exploring:</p>
-        <ul>
-          <li>Runtime Society</li>
-          <li>Decision Trace</li>
-          <li>Trust Infrastructure</li>
-          <li>AI Coordination</li>
-          <li>Weak Signal Handling</li>
-        </ul>
+      <div class="card">
+        <div class="kicker">Software</div>
+        <h3>GitHub</h3>
+        <p>Open-source runtime, trace, and coordination implementations.</p>
+        <a class="meta" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">View GitHub →</a>
       </div>
-
-      <div class="cards">
-        <div class="card">
-          <div class="kicker">Latest Post</div>
-          <h3>Decision Trace as Runtime Memory</h3>
-          <p>How traces become the substrate for coordinated decisions across agents and humans.</p>
-          <div class="meta-muted">Coming Soon</div>
-        </div>
-        <div class="card">
-          <div class="kicker">Note</div>
-          <h3>Weak Signals and the Human Gate</h3>
-          <p>Where ambiguity should pause computation and hand control back to a person.</p>
-          <div class="meta-muted">Coming Soon</div>
-        </div>
-        <div class="card">
-          <div class="kicker">Essay</div>
-          <h3>Runtime Society: A Working Definition</h3>
-          <p>A first sketch of the social runtime layer and why it matters.</p>
-          <div class="meta-muted">Coming Soon</div>
-        </div>
-        <div class="card">
-          <div class="kicker">Index</div>
-          <h3>All Posts</h3>
-          <p>Ongoing writing on intelligence as relationship.</p>
-          <a class="meta" href="https://deus-ex-machina-ism.com/" target="_blank">Visit Blog →</a>
-        </div>
+      <div class="card">
+        <div class="kicker">Books</div>
+        <h3>Amazon Kindle</h3>
+        <p>22 volumes formalizing the field — English &amp; Japanese editions.</p>
+        <a class="meta" href="/library/">Browse Library →</a>
       </div>
-    </div>
-
-    <!-- ------- GitHub / OSS ------- -->
-    <div class="output-section block">
-      <div class="block-title">
-        <span class="glyph">■</span>
-        <h3>GitHub / OSS</h3>
+      <div class="card">
+        <div class="kicker">Talks</div>
+        <h3>YouTube</h3>
+        <p>Recorded sessions and live presentations of the research.</p>
+        <a class="meta" href="https://www.youtube.com/" target="_blank" rel="noopener">Watch →</a>
       </div>
-      <div class="block-desc">
-        <p>Open-source implementations related to:</p>
-        <ul>
-          <li>Decision Runtime</li>
-          <li>Decision Trace</li>
-          <li>Runtime Infrastructure</li>
-          <li>Multi-Agent Coordination</li>
-        </ul>
+      <div class="card">
+        <div class="kicker">Network</div>
+        <h3>LinkedIn</h3>
+        <p>Professional updates and ongoing discussion.</p>
+        <a class="meta" href="https://www.linkedin.com/" target="_blank" rel="noopener">Connect →</a>
       </div>
-
-      <div class="cards">
-        <div class="card">
-          <div class="kicker">Runtime</div>
-          <h3>decision-runtime-core</h3>
-          <p>Core runtime for executing decisions with structured traces, gates, and boundaries.</p>
-          <a class="meta" href="https://github.com/masao-watanabe-ai" target="_blank">View on GitHub →</a>
-        </div>
-        <div class="card">
-          <div class="kicker">Trace</div>
-          <h3>decision-trace-model-v2</h3>
-          <p>Reference implementation of the Decision Trace Model — schema, ingestion, replay.</p>
-          <a class="meta" href="https://github.com/masao-watanabe-ai" target="_blank">View on GitHub →</a>
-        </div>
-        <div class="card">
-          <div class="kicker">Interaction</div>
-          <h3>interaction-core-v2</h3>
-          <p>Primitives for AI–human–agent interaction loops with explicit boundaries.</p>
-          <a class="meta" href="https://github.com/masao-watanabe-ai" target="_blank">View on GitHub →</a>
-        </div>
-        <div class="card">
-          <div class="kicker">View</div>
-          <h3>view-core-v2</h3>
-          <p>Composable view layer for inspecting traces, decisions, and runtime state.</p>
-          <a class="meta" href="https://github.com/masao-watanabe-ai" target="_blank">View on GitHub →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- ------- Books ------- -->
-    <div class="output-section block" id="books">
-      <div class="block-title">
-        <span class="glyph">■</span>
-        <h3>Books</h3>
-      </div>
-      <div class="block-desc">
-        <p>
-          Knowledge artifacts — the research compiled into long-form
-          texts. Each volume formalizes a layer of the field.
-        </p>
-      </div>
-
-      <div class="books-group-label">English Editions</div>
-
-      <div class="book">
-        <div class="book-body">
-          <div class="book-title">Decision Trace Model Practical Implementation Guide</div>
-          <div class="book-subtitle">— A Practical Guide to Connecting AI-Powered Judgment to Real-World Organizational Implementation —</div>
-          <p>A practical implementation guide for applying Decision Trace Model (DTM) to manufacturing, healthcare, retail, and multi-agent systems.</p>
-          <a class="book-link" href="https://amzn.to/4x5zNUo" target="_blank">Available on Kindle →</a>
-        </div>
-        <a class="book-cover" href="https://amzn.to/4x5zNUo" target="_blank" aria-hidden="true" tabindex="-1">
-          <img src="assets/book_pic/en/05.jpg" alt="" loading="lazy">
-        </a>
-      </div>
-
-      <div class="book">
-        <div class="book-body">
-          <div class="book-title">The Trust Infrastructure in the Age of AI</div>
-          <div class="book-subtitle">— How Trace, Reputation, and Coordination Power the Next Generation Society —</div>
-          <p>An exploration of trust, reputation, verification, and coordination as the foundation of AI-era society.</p>
-          <a class="book-link" href="https://amzn.to/4dNGtiE" target="_blank">Available on Kindle →</a>
-        </div>
-        <a class="book-cover" href="https://amzn.to/4dNGtiE" target="_blank" aria-hidden="true" tabindex="-1">
-          <img src="assets/book_pic/en/06.jpg" alt="" loading="lazy">
-        </a>
-      </div>
-
-      <div class="book">
-        <div class="book-body">
-          <div class="book-title">AI is not prediction. It is decision.</div>
-          <div class="book-subtitle">— Decision Trace Model Practical Guide —</div>
-          <p>A practical guide for designing AI as a decision system.</p>
-          <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank">Available on Kindle →</a>
-        </div>
-        <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" aria-hidden="true" tabindex="-1">
-          <img src="assets/book_pic/en/01.jpg" alt="" loading="lazy">
-        </a>
-      </div>
-
-      <div class="book">
-        <div class="book-body">
-          <div class="book-title">Intelligence Field</div>
-          <div class="book-subtitle">— Intelligence as Relationship —</div>
-          <p>A new perspective on AI, relational intelligence, and social intelligence fields.</p>
-          <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank">Available on Kindle →</a>
-        </div>
-        <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" aria-hidden="true" tabindex="-1">
-          <img src="assets/book_pic/en/02.jpg" alt="" loading="lazy">
-        </a>
-      </div>
-
-      <div class="book">
-        <div class="book-body">
-          <div class="book-title">What Kind of Mathematical Worldview Is AI Built Upon?</div>
-          <div class="book-subtitle">— From Finite Rules to Generative Models —</div>
-          <a class="book-link" href="https://amzn.to/3PcGpzs" target="_blank">Available on Kindle →</a>
-        </div>
-        <a class="book-cover" href="https://amzn.to/3PcGpzs" target="_blank" aria-hidden="true" tabindex="-1">
-          <img src="assets/book_pic/en/03.jpg" alt="" loading="lazy">
-        </a>
-      </div>
-
-      <div class="book">
-        <div class="book-body">
-          <div class="book-title">Intelligence Field Economics</div>
-          <div class="book-subtitle">— Chinōba Keizai —</div>
-          <p>Trust, Knowledge and Coordination in the AI Era.</p>
-          <a class="book-link" href="https://amzn.to/49HvoNp" target="_blank">Available on Kindle →</a>
-        </div>
-        <a class="book-cover" href="https://amzn.to/49HvoNp" target="_blank" aria-hidden="true" tabindex="-1">
-          <img src="assets/book_pic/en/04.jpg" alt="" loading="lazy">
-        </a>
-      </div>
-
-      <div class="books-group-label">Japanese Editions</div>
-
-      <div class="book">
-        <div class="book-body">
-          <div class="book-title">Decision Trace Model 実践導入ガイド</div>
-          <div class="book-subtitle">— 製造・医療・リテール・マルチエージェントで学ぶAI意思決定システム —</div>
-          <p>AIを「予測システム」ではなく、「意思決定システム」として設計・導入するための実践ガイド。</p>
-          <a class="book-link" href="https://amzn.to/4o5oyXT" target="_blank">Available on Kindle →</a>
-        </div>
-        <a class="book-cover" href="https://amzn.to/4o5oyXT" target="_blank" aria-hidden="true" tabindex="-1">
-          <img src="assets/book_pic/jp/05.jpg" alt="" loading="lazy">
-        </a>
-      </div>
-
-      <div class="book">
-        <div class="book-body">
-          <div class="book-title">Trust Infrastructure AI時代の信用基盤</div>
-          <div class="book-subtitle">— Trace・Reputation・Coordinationが支える次世代社会 —</div>
-          <p>AI時代における信頼・評判・検証・協調の基盤構造を解説する一冊。</p>
-          <a class="book-link" href="https://amzn.to/3RJgQHa" target="_blank">Available on Kindle →</a>
-        </div>
-        <a class="book-cover" href="https://amzn.to/3RJgQHa" target="_blank" aria-hidden="true" tabindex="-1">
-          <img src="assets/book_pic/jp/06.jpg" alt="" loading="lazy">
-        </a>
-      </div>
-
-      <div class="book">
-        <div class="book-body">
-          <div class="book-title">AIは予測ではない。意思決定である。</div>
-          <div class="book-subtitle">— Decision Trace Model 実践ガイド —</div>
-          <p>AIを「予測システム」ではなく、「意思決定システム」として設計するための実践ガイド。</p>
-          <a class="book-link" href="https://amzn.to/4twsoui" target="_blank">Available on Kindle →</a>
-        </div>
-        <a class="book-cover" href="https://amzn.to/4twsoui" target="_blank" aria-hidden="true" tabindex="-1">
-          <img src="assets/book_pic/jp/01.jpg" alt="" loading="lazy">
-        </a>
-      </div>
-
-      <div class="book">
-        <div class="book-body">
-          <div class="book-title">知能場</div>
-          <div class="book-subtitle">— Intelligence as Relationship —</div>
-          <p>AI・人間・組織・社会の関係性として、知能を捉え直すための探究。</p>
-          <a class="book-link" href="https://amzn.to/4uN51hl" target="_blank">Available on Kindle →</a>
-        </div>
-        <a class="book-cover" href="https://amzn.to/4uN51hl" target="_blank" aria-hidden="true" tabindex="-1">
-          <img src="assets/book_pic/jp/02.jpg" alt="" loading="lazy">
-        </a>
-      </div>
-
-      <div class="book">
-        <div class="book-body">
-          <div class="book-title">AIはどんな数学観の上に作られているのか</div>
-          <div class="book-subtitle">— 有限ルールから生成モデルへ —</div>
-          <a class="book-link" href="https://amzn.to/4frireb" target="_blank">Available on Kindle →</a>
-        </div>
-        <a class="book-cover" href="https://amzn.to/4frireb" target="_blank" aria-hidden="true" tabindex="-1">
-          <img src="assets/book_pic/jp/03.jpg" alt="" loading="lazy">
-        </a>
-      </div>
-
-      <div class="book">
-        <div class="book-body">
-          <div class="book-title">Intelligence Field Economics</div>
-          <div class="book-subtitle">— Chinōba Keizai —</div>
-          <p>AI時代における、信頼・知識・協調構造についての探究。</p>
-          <a class="book-link" href="https://amzn.to/49A4JC8" target="_blank">Available on Kindle →</a>
-        </div>
-        <a class="book-cover" href="https://amzn.to/49A4JC8" target="_blank" aria-hidden="true" tabindex="-1">
-          <img src="assets/book_pic/jp/04.jpg" alt="" loading="lazy">
-        </a>
-      </div>
-    </div>
-
-    <!-- ------- Talks / Sessions ------- -->
-    <div class="output-section block" id="talks">
-      <div class="block-title">
-        <span class="glyph">■</span>
-        <h3>Talks / Sessions</h3>
-      </div>
-      <div class="block-desc">
-        <p>
-          Public exploration — open sessions where the research is
-          presented, questioned, and extended in real time.
-        </p>
-      </div>
-
-      <div class="talk">
-        <div class="kicker">Upcoming Session</div>
-        <h3>
-          <a href="http://square.corcocu.com/meeting/" target="_blank" style="color: inherit;">Designing AI Systems with Embedded Decision-Making</a>
-        </h3>
-        <p class="talk-sub">— Structuring Human Thought and Judgment into AI Systems —</p>
-
-        <p style="color: var(--fg-mute); font-size: 14px; margin: 0 0 20px; max-width: 600px;">
-          Presented at the 178th Square Free Seminar:<br>
-          <span style="color: var(--fg);">“The Frontline of Trust and Systems Built with AI”</span>
-        </p>
-
-        <div class="talk-meta">
-          <span>Remote Session</span>
-          <span>Free</span>
-          <span>May 28, 2026 · 19:00–20:30 JST</span>
-          <span>Zoom / YouTube Live</span>
-        </div>
-
-        <ul class="topics">
-          <li>AI Runtime</li>
-          <li>Human-in-the-loop</li>
-          <li>Boundary / Governance</li>
-          <li>Weak Signal Handling</li>
-          <li>Multi-Agent Coordination</li>
-          <li>Decision Trace</li>
-        </ul>
-
-        <div style="margin-top: 22px; display: flex; gap: 22px; flex-wrap: wrap; font-size: 13px; letter-spacing: 0.3px;">
-          <a href="http://square.corcocu.com/meeting/registration.html" target="_blank">Register →</a>
-          <a href="http://square.corcocu.com/meeting/" target="_blank">Details →</a>
-        </div>
-      </div>
-
-      <div class="past-sessions">Past Sessions — Coming Soon</div>
     </div>
   </section>
 
-  <!-- ============ LATEST RESEARCH ============ -->
-  <section id="latest">
+  <!-- ============ 05 / ACTIVITY ============ -->
+  <section id="activity">
     <div class="section-head">
-      <div class="section-label">04 / Latest Research</div>
-      <h2>Working Surface</h2>
+      <div class="section-label">05 / Activity</div>
+      <h2>Recent Movement</h2>
       <p class="section-description">
-        Most recent movement across the platform.
+        The latest across the field — drawn from essays, books,
+        projects, and talks as they appear.
       </p>
     </div>
 
     <div class="latest">
       <div class="card">
-        <div class="kicker">Latest Article</div>
-        <h3>Notes on the Runtime Layer</h3>
-        <p>An in-progress sketch of what sits between agents and society.</p>
-        <div class="meta-muted">Draft</div>
+        <div class="kicker">Latest Essay</div>
+        <h3>Decision Trace as Runtime Memory</h3>
+        <p>How traces become the substrate for coordinated decisions across agents and humans.</p>
+        <a class="meta" href="https://deus-ex-machina-ism.com/" target="_blank" rel="noopener">Read →</a>
       </div>
       <div class="card">
-        <div class="kicker">Latest OSS</div>
+        <div class="kicker">Recent Book</div>
+        <h3>Decision Trace Model — Practical Implementation Guide</h3>
+        <p>The research compiled into a practical implementation guide.</p>
+        <a class="meta" href="/library/">View Library →</a>
+      </div>
+      <div class="card">
+        <div class="kicker">Latest Project</div>
         <h3>decision-runtime-core</h3>
         <p>Recent commits to the core runtime and trace primitives.</p>
-        <div class="meta-muted">In Development</div>
+        <a class="meta" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">View on GitHub →</a>
       </div>
       <div class="card">
-        <div class="kicker">Latest Talk</div>
+        <div class="kicker">Recent Talk</div>
         <h3>Designing AI Systems with Embedded Decision-Making</h3>
-        <p>178th Square Free Seminar — May 28, 2026, 19:00–20:30 JST. Zoom / YouTube Live.</p>
-        <a class="meta" href="#talks">See Session →</a>
-      </div>
-      <div class="card">
-        <div class="kicker">Latest Experiment</div>
-        <h3>Runtime Chat Prototype</h3>
-        <p>Early environment for practicing structured decision-making.</p>
-        <a class="meta" href="#prototypes">See Prototype →</a>
+        <p>178th Square Free Seminar — May 28, 2026, 19:00–20:30 JST.</p>
+        <a class="meta" href="#upcoming">See Session →</a>
       </div>
     </div>
   </section>
@@ -1447,7 +1343,7 @@
   <!-- ============ UPCOMING SESSION (highlight) ============ -->
   <section id="upcoming">
     <div class="section-head">
-      <div class="section-label">05 / Upcoming Session</div>
+      <div class="section-label">06 / Next Public Window</div>
       <h2>Next Public Window</h2>
       <p class="section-description">
         An open invitation to enter the research mid-flow.
@@ -1491,7 +1387,7 @@
           &nbsp;·&nbsp;
           <a href="https://deus-ex-machina-ism.com/" target="_blank">Blog</a>
           &nbsp;·&nbsp;
-          <a href="#books">Books</a>
+          <a href="/library/">Library</a>
           &nbsp;·&nbsp;
           <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
         </p>
