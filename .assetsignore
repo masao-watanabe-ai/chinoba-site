@@ -1,0 +1,27 @@
+# Files excluded from Cloudflare Workers static-asset uploads.
+# Uses .gitignore-style syntax. Keeps internal/tooling files out of the
+# deployed site while preserving all real static assets and routes.
+
+# Version control
+.git/**
+
+# Wrangler local state and build output
+.wrangler/**
+
+# OS cruft
+.DS_Store
+**/.DS_Store
+
+# Logs and temporary files
+*.log
+*.tmp
+*~
+
+# Worker source and project config (served by the runtime, not as assets)
+worker.js
+wrangler.jsonc
+.gitignore
+.assetsignore
+.dev.vars*
+.env*
+node_modules/**

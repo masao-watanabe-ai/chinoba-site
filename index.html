@@ -1357,8 +1357,8 @@
     </div>
 
     <!-- ---- ESSAYS ----
-         Cards are rendered from the recentEssays array in the script block below.
-         Update that array periodically from https://deus-ex-machina-ism.com/feed/ -->
+         Cards are loaded from /api/essays, backed by the English blog RSS feed.
+         The recentEssays array in the script block below is kept only as fallback. -->
     <div class="compiled-panel" data-compiled-panel="essays" id="compiled-panel-essays" role="tabpanel">
       <div class="block">
         <div class="block-title">
@@ -1773,9 +1773,11 @@
       });
     })();
 
-    /* Compiled from the Field — Essays (self-contained, no external RSS service) */
+    /* Compiled from the Field — Essays
+       Essays are loaded from /api/essays, backed by the English blog RSS feed.
+       Static entries are kept only as fallback. */
     (function () {
-      // Update periodically from https://deus-ex-machina-ism.com/en/
+      // Fallback list — rendered only if /api/essays is unavailable.
       var recentEssays = [
         {
           title: "Knowledge Flow — Knowledge Is Not Storage, but Flow: From Knowledge Storage to Intelligence Emergence",
@@ -1832,33 +1834,52 @@
       var list = document.getElementById('essay-list');
       if (!list) return;
 
-      recentEssays.slice(0, 10).forEach(function (essay) {
-        var item = document.createElement('li');
-        item.className = 'essay-item';
+      function render(essays) {
+        list.innerHTML = '';
+        essays.slice(0, 10).forEach(function (essay) {
+          var item = document.createElement('li');
+          item.className = 'essay-item';
 
-        var title = document.createElement('a');
-        title.className = 'essay-title';
-        title.href = essay.url;
-        title.target = '_blank';
-        title.rel = 'noopener noreferrer';
-        title.textContent = essay.title;
+          var title = document.createElement('a');
+          title.className = 'essay-title';
+          title.href = essay.url;
+          title.target = '_blank';
+          title.rel = 'noopener noreferrer';
+          title.textContent = essay.title;
 
-        var date = document.createElement('span');
-        date.className = 'essay-date';
-        date.textContent = essay.date;
+          var date = document.createElement('span');
+          date.className = 'essay-date';
+          date.textContent = essay.date;
 
-        var read = document.createElement('a');
-        read.className = 'essay-read';
-        read.href = essay.url;
-        read.target = '_blank';
-        read.rel = 'noopener noreferrer';
-        read.textContent = 'Read →';
+          var read = document.createElement('a');
+          read.className = 'essay-read';
+          read.href = essay.url;
+          read.target = '_blank';
+          read.rel = 'noopener noreferrer';
+          read.textContent = 'Read →';
 
-        item.appendChild(title);
-        item.appendChild(date);
-        item.appendChild(read);
-        list.appendChild(item);
-      });
+          item.appendChild(title);
+          item.appendChild(date);
+          item.appendChild(read);
+          list.appendChild(item);
+        });
+      }
+
+      // Load the latest posts from the API; fall back to the static list above.
+      fetch('/api/essays', { headers: { 'Accept': 'application/json' } })
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function (essays) {
+          var valid = Array.isArray(essays)
+            ? essays.filter(function (e) { return e && e.title && e.url; })
+            : [];
+          render(valid.length ? valid : recentEssays);
+        })
+        .catch(function () {
+          render(recentEssays);
+        });
     })();
 
     /* Compiled from the Field — tab navigation */
