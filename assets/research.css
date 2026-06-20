@@ -279,6 +279,44 @@ section.research-section:last-of-type {
   margin-top: clamp(48px, 6vw, 64px);
 }
 
+/* Figure sizing — illustration scale, not full-width posters.
+   Size classes constrain max-width and center the figure; the
+   existing .figure / .figure-wide / .figure-frame styling is reused. */
+.figure-main,
+.figure-standard,
+.figure-field {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.figure-main     { max-width: 920px; } /* Fig. 01 — face-of-page diagram */
+.figure-standard { max-width: 760px; } /* Figs. 02–06 — embedded in essay */
+.figure-field    { max-width: 850px; } /* Fig. 07 — map of the field */
+
+/* Large screens — let figures breathe a touch more */
+@media (min-width: 1400px) {
+  .figure-standard { max-width: 860px; }
+}
+
+/* Tablet — proportional width */
+@media (max-width: 900px) {
+  .figure-main,
+  .figure-standard,
+  .figure-field {
+    width: 90%;
+    max-width: none;
+  }
+}
+
+/* Mobile — full available width */
+@media (max-width: 600px) {
+  .figure-main,
+  .figure-standard,
+  .figure-field {
+    width: 100%;
+  }
+}
+
 /* ---------- Core structure cards ---------- */
 .concept-grid {
   display: grid;
