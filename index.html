@@ -1315,21 +1315,38 @@
           <span class="glyph">■</span>
           <h3>Books</h3>
         </div>
-        <p class="artifact-stat" id="books-stat">24 books published · English &amp; Japanese editions · organized by theme</p>
+        <p class="artifact-stat" id="books-stat">24 books published · English &amp; Japanese editions · organized across seven themes</p>
 
         <div class="artifact-grid">
           <div class="artifact-theme">
             <div class="books-group-label">Decision Systems</div>
             <ul class="artifact-list">
-              <li>Decision Trace Model — Practical Implementation Guide</li>
+              <li>Decision Trace Model</li>
               <li>AI is not prediction. It is decision.</li>
             </ul>
           </div>
 
           <div class="artifact-theme">
-            <div class="books-group-label">Trust Infrastructure</div>
+            <div class="books-group-label">Trust &amp; Knowledge Infrastructure</div>
             <ul class="artifact-list">
-              <li>The Trust Infrastructure in the Age of AI</li>
+              <li>Trust Infrastructure</li>
+              <li>Knowledge Infrastructure</li>
+            </ul>
+          </div>
+
+          <div class="artifact-theme">
+            <div class="books-group-label">Governance &amp; Coordination</div>
+            <ul class="artifact-list">
+              <li>AI Governance and Boundary Design</li>
+              <li>Multi-Agent Coordination</li>
+            </ul>
+          </div>
+
+          <div class="artifact-theme">
+            <div class="books-group-label">Runtime Society</div>
+            <ul class="artifact-list">
+              <li>Runtime Society</li>
+              <li>Enterprise AI Gateway</li>
             </ul>
           </div>
 
@@ -1342,6 +1359,14 @@
           </div>
 
           <div class="artifact-theme">
+            <div class="books-group-label">Building Intelligence Fields</div>
+            <ul class="artifact-list">
+              <li>Building Intelligence Fields</li>
+              <li>Human–AI Open Source Collaboration</li>
+            </ul>
+          </div>
+
+          <div class="artifact-theme">
             <div class="books-group-label">Foundations</div>
             <ul class="artifact-list">
               <li>What Kind of Mathematical Worldview Is AI Built Upon?</li>
@@ -1350,7 +1375,6 @@
         </div>
 
         <div class="artifact-foot">
-          <p class="artifact-more" id="books-more">+18 additional publications across English &amp; Japanese editions</p>
           <a class="block-cta" href="/library/">View Library →</a>
         </div>
       </div>
@@ -1918,12 +1942,7 @@
   <script>
     (function () {
       var stat = document.getElementById("books-stat");
-      var more = document.getElementById("books-more");
-      if (!stat && !more) return;
-
-      // Books explicitly listed in the on-page sample grid; the remainder is
-      // surfaced as "+N additional publications".
-      var listed = document.querySelectorAll(".artifact-grid .artifact-list li").length;
+      if (!stat) return;
 
       fetch("/library/book_metadata_with_url.json", { headers: { "Accept": "application/json" } })
         .then(function (res) {
@@ -1933,15 +1952,7 @@
         .then(function (data) {
           var total = data && typeof data.total_books === "number" ? data.total_books : null;
           if (total == null) return;
-          if (stat) {
-            stat.textContent = total + " books published · English & Japanese editions · organized by theme";
-          }
-          if (more && listed) {
-            var extra = total - listed;
-            if (extra > 0) {
-              more.textContent = "+" + extra + " additional publications across English & Japanese editions";
-            }
-          }
+          stat.textContent = total + " books published · English & Japanese editions · organized across seven themes";
         })
         .catch(function (err) { if (window.console) console.error(err); });
     })();
