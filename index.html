@@ -1315,7 +1315,7 @@
           <span class="glyph">■</span>
           <h3>Books</h3>
         </div>
-        <p class="artifact-stat">22 books published · English &amp; Japanese editions · organized by theme</p>
+        <p class="artifact-stat" id="books-stat">24 books published · English &amp; Japanese editions · organized by theme</p>
 
         <div class="artifact-grid">
           <div class="artifact-theme">
@@ -1350,7 +1350,7 @@
         </div>
 
         <div class="artifact-foot">
-          <p class="artifact-more">+18 additional publications across English &amp; Japanese editions</p>
+          <p class="artifact-more" id="books-more">+18 additional publications across English &amp; Japanese editions</p>
           <a class="block-cta" href="/library/">View Library →</a>
         </div>
       </div>
@@ -1910,6 +1910,40 @@
           });
         });
       });
+    })();
+  </script>
+
+  <!-- Keep the Books counter in sync with the library metadata so adding a
+       book only requires editing /library/book_metadata_with_url.json. -->
+  <script>
+    (function () {
+      var stat = document.getElementById("books-stat");
+      var more = document.getElementById("books-more");
+      if (!stat && !more) return;
+
+      // Books explicitly listed in the on-page sample grid; the remainder is
+      // surfaced as "+N additional publications".
+      var listed = document.querySelectorAll(".artifact-grid .artifact-list li").length;
+
+      fetch("/library/book_metadata_with_url.json", { headers: { "Accept": "application/json" } })
+        .then(function (res) {
+          if (!res.ok) throw new Error("Failed to load library metadata: " + res.status);
+          return res.json();
+        })
+        .then(function (data) {
+          var total = data && typeof data.total_books === "number" ? data.total_books : null;
+          if (total == null) return;
+          if (stat) {
+            stat.textContent = total + " books published · English & Japanese editions · organized by theme";
+          }
+          if (more && listed) {
+            var extra = total - listed;
+            if (extra > 0) {
+              more.textContent = "+" + extra + " additional publications across English & Japanese editions";
+            }
+          }
+        })
+        .catch(function (err) { if (window.console) console.error(err); });
     })();
   </script>
 
