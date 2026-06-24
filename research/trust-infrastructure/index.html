@@ -230,6 +230,30 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ---------- Explore This Theme ---------- */
+    .theme-links {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .theme-links .theme-lang {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child {
+      margin-top: 0;
+    }
+    .theme-links a {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
   </style>
 </head>
 
@@ -277,6 +301,45 @@
       </p>
     </div>
   </header>
+
+  <!-- ============ EXPLORE THIS THEME ============ -->
+  <section class="research-section" id="explore" aria-labelledby="explore-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Explore</div>
+        <h2 id="explore-h">Explore This Theme</h2>
+        <p class="section-lede">
+          Enter Trust Infrastructure through video and long-form
+          texts — visual introductions and deeper explorations of
+          trace, reputation, and coordination in the age of AI.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay">
+          <h3>📺 Watch on YouTube</h3>
+          <p>Visual introductions to Trust Infrastructure and AI-era coordination.</p>
+          <div class="theme-links">
+            <div class="theme-lang">Japanese</div>
+            <a href="https://youtu.be/w9v0ktZfEVs?si=GdBoL_p44fElKQRM" target="_blank" rel="noopener noreferrer">Trust Infrastructure — AI時代の信用基盤 →</a>
+            <div class="theme-lang">English</div>
+            <a href="https://youtu.be/Afvon5qT51A?si=S-jTTDWUcDITu36-" target="_blank" rel="noopener noreferrer">Trust Infrastructure — Why AI Needs Coordination, Not Just Intelligence →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📚 Related Books</h3>
+          <p>Long-form explorations of trace, reputation, and coordination as the foundation of AI-era society.</p>
+          <div class="theme-links">
+            <div class="theme-lang">Japanese Edition</div>
+            <a href="https://amzn.to/4eGD2cy" target="_blank" rel="noopener noreferrer">Trust Infrastructure AI時代の信用基盤 — Trace・Reputation・Coordinationが支える次世代社会 — →</a>
+            <div class="theme-lang">English Edition</div>
+            <a href="https://amzn.to/3QkhydD" target="_blank" rel="noopener noreferrer">The Trust Infrastructure in the Age of AI — How Trace, Reputation, and Coordination Power the Next Generation Society — →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ 01 OVERVIEW ============ -->
   <section class="research-section" id="overview" aria-labelledby="overview-h">
