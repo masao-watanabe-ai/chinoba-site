@@ -250,6 +250,30 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ---------- Explore This Theme ---------- */
+    .theme-links {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .theme-links .theme-lang {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child {
+      margin-top: 0;
+    }
+    .theme-links a {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
   </style>
 </head>
 
@@ -304,6 +328,46 @@
       </figure>
     </div>
   </header>
+
+  <!-- ============ EXPLORE THIS THEME ============ -->
+  <section class="research-section" id="explore" aria-labelledby="explore-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Explore</div>
+        <h2 id="explore-h">Explore This Theme</h2>
+        <p class="section-lede">
+          Enter Knowledge Infrastructure through video and long-form
+          texts — visual introductions and deeper explorations of
+          Knowledge Flow, Decision Trace, and Collective Intelligence
+          in the age of AI.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay">
+          <h3>📺 Watch on YouTube</h3>
+          <p>Visual introductions to Knowledge Infrastructure and the flow of knowledge in the age of AI.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://youtu.be/r1DlvPI338w" target="_blank" rel="noopener noreferrer">Knowledge Infrastructure: Why Knowledge Must Flow in the Age of AI →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://youtu.be/z_veFYQFnXE" target="_blank" rel="noopener noreferrer">Knowledge Infrastructure — AI時代の知識基盤｜Knowledge Flowが未来の知性をつくる →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📚 Related Books</h3>
+          <p>Long-form explorations of Knowledge Flow, Decision Trace, and Collective Intelligence as the knowledge foundation of the AI era.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English Edition</div>
+            <a href="https://amzn.to/4w6a0Kt" target="_blank" rel="noopener noreferrer">Knowledge Infrastructure: The Knowledge Foundation of the AI Era — Knowledge Flow・Decision Trace・Collective Intelligence — →</a>
+            <div class="theme-lang">Japanese Edition</div>
+            <a href="https://amzn.to/4aMR5MA" target="_blank" rel="noopener noreferrer">知識のインフラ — 知識の流れが、未来の知性を作る — →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ 01 OVERVIEW ============ -->
   <section class="research-section" id="overview" aria-labelledby="overview-h">
