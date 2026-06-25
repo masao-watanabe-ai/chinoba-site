@@ -5,18 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Trust Infrastructure — Chinoba</title>
-  <meta name="description" content="A research archive on Trust Infrastructure — trust as a societal infrastructure that lets humans, AI systems, agents, organizations, and institutions coordinate safely under uncertainty, composed of traces, reputation, boundaries, accountability, learning, and coordination.">
+  <meta name="description" content="A visual story on Trust Infrastructure — how, in the age of AI, trust shifts from authority to structure, becoming the infrastructure that lets humans, AI systems, agents, organizations, and institutions coordinate safely under uncertainty.">
 
   <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
   <link rel="stylesheet" href="/assets/research.css">
 
   <style>
-    /* ---------- Page-specific overrides ---------- */
-    .concept-grid.cols-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    /* Essay coming-soon variant */
+    /* ---------- Essay coming-soon variant (Related Essays) ---------- */
     .essay.is-coming-soon {
       cursor: default;
     }
@@ -38,197 +33,66 @@
       transform: translateY(-1px);
     }
 
-    /* Diagram placeholders */
-    .diagrams {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
+    /* ---------- Visual story (page-specific) ----------
+       Each chapter reads as a scene: a full-width slide drives the
+       narrative, and reading-width prose supports it. */
+    .chapter .section-head {
+      margin-bottom: clamp(28px, 4vw, 44px);
     }
-    .diagram-card {
-      background: var(--bg);
-      padding: 26px 24px 28px;
-      display: flex;
-      flex-direction: column;
-      min-height: 220px;
+
+    /* Full-width keynote slide */
+    .figure-slide {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1040px;
     }
-    .diagram-card .kicker {
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--fg-faint);
-      text-transform: uppercase;
-      margin-bottom: 14px;
+    .figure-slide + .story-text,
+    .story-text + .figure-slide,
+    .figure-slide + .figure-slide {
+      margin-top: clamp(40px, 5vw, 64px);
     }
-    .diagram-card h3 {
-      font-size: 16px;
+
+    /* Reading-width prose beneath a slide */
+    .story-text {
+      max-width: 720px;
+      margin: clamp(28px, 3.5vw, 40px) auto 0;
+    }
+    .story-text > h3 {
+      font-size: 20px;
       margin: 0 0 14px;
       font-weight: 600;
-      color: var(--fg);
       letter-spacing: 0.2px;
-    }
-    .diagram-frame {
-      flex: 1;
-      border: 1px dashed var(--line-strong);
-      border-radius: 8px;
-      background:
-        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
-        var(--bg-elev);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--fg-faint);
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      min-height: 110px;
-    }
-
-    /* ---------- Trust Infrastructure Structure (CSS layered diagram) ---------- */
-    .field-runtime {
-      margin-top: clamp(56px, 7vw, 80px);
-      border: 1px solid var(--line);
-      background: var(--bg-elev);
-      padding: 28px clamp(20px, 4vw, 40px) 36px;
-      border-radius: 4px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .field-runtime::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%);
-      pointer-events: none;
-    }
-
-    .field-runtime-label {
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--fg-faint);
-      margin-bottom: 6px;
-      position: relative;
-    }
-
-    .field-runtime-title {
-      font-size: 18px;
-      font-weight: 600;
       color: var(--fg);
-      margin: 0 0 22px;
-      letter-spacing: 0.2px;
-      position: relative;
     }
-
-    .field-layers {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      position: relative;
+    .story-text > h3:not(:first-child) {
+      margin-top: 36px;
     }
-
-    .field-layer {
-      display: grid;
-      grid-template-columns: 56px minmax(0, 1fr) auto;
-      align-items: baseline;
-      gap: 18px;
-      padding: 14px 4px;
-      border-bottom: 1px solid var(--line);
-    }
-    .field-layer:last-child {
-      border-bottom: none;
-    }
-
-    .field-layer .layer-idx {
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--fg-faint);
-      text-transform: uppercase;
-    }
-
-    .field-layer .layer-body {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .field-layer .layer-name {
-      font-size: 15px;
-      color: var(--fg);
-      letter-spacing: 0.2px;
-      font-weight: 600;
-    }
-
-    .field-layer .layer-note {
-      font-size: 13px;
-      color: var(--fg-mute);
-      line-height: 1.6;
-    }
-
-    .field-layer .layer-tag {
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      color: var(--fg-faint);
-      text-transform: uppercase;
-      font-family: "Courier New", monospace;
-    }
-
-    .field-arrow {
-      display: flex;
-      justify-content: center;
-      color: var(--fg-faint);
-      font-size: 11px;
-      letter-spacing: 4px;
-      padding: 4px 0 6px;
-    }
-
-    .layer-coda {
-      position: relative;
-      margin: 26px 0 0;
-      padding-top: 22px;
-      border-top: 1px solid var(--line);
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--fg-mute);
-      max-width: 60ch;
-    }
-
-    /* Lead-in paragraph that introduces a figure — mirrors body prose */
-    .figure-lede {
+    .story-text p,
+    .story-text li {
       color: var(--fg-mute);
       font-size: 15.5px;
       line-height: 1.85;
-      max-width: 720px;
-      margin: clamp(48px, 6vw, 64px) 0 0;
     }
-    .figure-lede + .figure-wide {
-      margin-top: 18px;
+    .story-text p {
+      margin: 0 0 16px;
     }
-
-    @media (max-width: 900px) {
-      .concept-grid.cols-4 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .diagrams {
-        grid-template-columns: 1fr;
-      }
-      .field-layer {
-        grid-template-columns: 1fr;
-        gap: 4px;
-      }
-      .field-layer .layer-tag {
-        margin-top: 2px;
-      }
+    .story-text ul {
+      margin: 14px 0 20px;
+      padding-left: 18px;
     }
-
-    @media (max-width: 640px) {
-      .concept-grid.cols-4 {
-        grid-template-columns: 1fr;
-      }
+    .story-text ul li {
+      margin-bottom: 6px;
+    }
+    .story-text .quote {
+      display: block;
+      margin: 28px 0 12px;
+      padding: 14px 18px;
+      border-left: 2px solid var(--line-strong);
+      color: var(--fg);
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+      letter-spacing: 0.3px;
+      background: rgba(255,255,255,0.015);
     }
 
     /* ---------- Explore This Theme ---------- */
@@ -253,6 +117,10 @@
       color: var(--accent);
       letter-spacing: 0.3px;
       line-height: 1.55;
+    }
+
+    @media (max-width: 900px) {
+      .figure-slide { max-width: 100%; }
     }
   </style>
 </head>
@@ -341,871 +209,711 @@
     </div>
   </section>
 
-  <!-- ============ 01 OVERVIEW ============ -->
-  <section class="research-section" id="overview" aria-labelledby="overview-h">
+  <!-- ============ 01 — THE FOUNDATION OF TRUST ============ -->
+  <section class="research-section chapter" id="ch01" aria-labelledby="ch01-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">01 / Overview</div>
-        <h2 id="overview-h">Overview</h2>
+        <div class="section-label">01 / Introduction</div>
+        <h2 id="ch01-h">The Foundation of Trust in the AI Era</h2>
         <p class="section-lede">
-          Trust is not merely a feeling. It is the
-          infrastructure that allows humans, AI systems,
-          organizations, and institutions to coordinate
-          under uncertainty. Trust Infrastructure explores
-          how trust emerges from traces, reputation,
-          boundaries, accountability, and learning.
+          This is a visual story about trust — and about how,
+          in the age of AI, it stops being something we simply
+          feel and becomes something a society can build.
         </p>
       </div>
 
-      <div class="two-col">
-        <div class="col-text">
-          <h3>From Belief to Structure</h3>
-          <p>
-            Trust has long been treated as belief —
-            something held by individuals, granted to
-            authorities, and felt rather than examined.
-          </p>
-          <p>
-            In AI-enabled societies, trust is no longer
-            based only on authority. It becomes something
-            that can be observed, verified, accumulated,
-            challenged, and reused.
-          </p>
-
-          <code class="quote">
-            Trust is not merely belief.
-            It becomes observable,
-            verifiable,
-            accumulative,
-            and reusable.
-
-            Trust becomes infrastructure.
-          </code>
-
-          <p>
-            This is a shift in where trust lives — from
-            authority to structure. Trust ceases to be a
-            property of individuals and becomes a shared
-            substrate that coordination can rest on.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>What Trust Infrastructure Supports</h3>
-          <p>
-            Trust Infrastructure refers to the systems that
-            support trust across every layer of an
-            AI-enabled society — wherever actors must rely
-            on one another without full information.
-          </p>
-          <ul>
-            <li>humans</li>
-            <li>AI systems</li>
-            <li>agents</li>
-            <li>organizations</li>
-            <li>communities</li>
-            <li>institutions</li>
-            <li>decision processes</li>
-            <li>reputation networks</li>
-            <li>governance structures</li>
-            <li>coordination mechanisms</li>
-          </ul>
-
-          <code class="quote">
-            Trust is not what we declare.
-            It is what can be traced,
-            challenged,
-            and reused.
-          </code>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 02 WHY IT MATTERS ============ -->
-  <section class="research-section" id="why" aria-labelledby="why-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">02 / Why It Matters</div>
-        <h2 id="why-h">Why It Matters</h2>
-        <p class="section-lede">
-          As AI systems recommend, coordinate, summarize,
-          and produce at a scale no human can verify,
-          the question of trust changes shape. It is no
-          longer only what is correct, but who can be
-          trusted, under what conditions, and to what extent.
-        </p>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>Trust Explosion in the Age of AI</h3>
-          <p>
-            Generative AI dramatically increases the volume
-            of information, decisions, and actions in
-            circulation. Production outpaces verification.
-          </p>
-          <ul>
-            <li>information production expands without limit</li>
-            <li>humans cannot verify everything</li>
-            <li>trust shifts from authority to trace</li>
-            <li>reputation becomes increasingly important</li>
-            <li>coordination becomes the bottleneck</li>
-          </ul>
-          <p>
-            When anything can be generated, the scarce
-            resource is no longer information. It is trust —
-            and the structures that let trust scale.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>The Central Question Shifts</h3>
-          <p>
-            In a world of abundant, machine-generated
-            information, the decisive question is no longer:
-          </p>
-          <code class="quote">
-            What information is correct?
-          </code>
-          <p>It becomes:</p>
-          <code class="quote">
-            Who can be trusted,
-            under what conditions,
-            and to what extent?
-          </code>
-          <p>
-            Correctness is a property of statements.
-            Trust is a property of relationships — and
-            relationships are what coordination runs on.
-          </p>
-        </div>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>The Questions Organizations Must Answer</h3>
-          <p>
-            When AI participates in decision-making,
-            stakeholders begin asking:
-          </p>
-          <ul>
-            <li>Why was this decision made?</li>
-            <li>Who was involved?</li>
-            <li>What evidence was used?</li>
-            <li>Which boundaries were checked?</li>
-            <li>Was human review required?</li>
-            <li>Can the process be audited?</li>
-            <li>Can failures be learned from?</li>
-          </ul>
-
-          <p>
-            None of these questions can be answered by
-            authority alone. They require a structure.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>From Authority to Trace</h3>
-          <p>Traditional trust relies on:</p>
-          <code class="quote">
-            Person → Authority → Belief
-          </code>
-
-          <p>But AI-era trust requires a longer chain:</p>
-          <code class="quote">
-            Event
-            ↓ Signal
-            ↓ Decision
-            ↓ Boundary
-            ↓ Human Review
-            ↓ Trace
-            ↓ Audit
-            ↓ Reputation
-            ↓ Coordination
-            ↓ Learning
-          </code>
-
-          <code class="quote">
-            Trust becomes infrastructure
-            when decisions can be traced,
-            audited,
-            challenged,
-            and coordinated upon.
-          </code>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 03 CORE STRUCTURE ============ -->
-  <section class="research-section" id="core" aria-labelledby="core-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">03 / Core Structure</div>
-        <h2 id="core-h">Core Structure</h2>
-        <p class="section-lede">
-          Eight structural layers that together compose a
-          trust infrastructure. Each is not merely an
-          operational mechanism but a layer of social
-          structure — the means by which trust becomes
-          something a society can build, hold, and rely on.
-          Trust is, in the end, accumulated history, not
-          merely a record of decisions.
-        </p>
-      </div>
-
-      <div class="concept-grid cols-4">
-        <div class="concept">
-          <div class="idx">I</div>
-          <h3>Reputation Ledger</h3>
-          <p>The durable, accumulative history of how actors have decided, kept commitments, and corrected course. Trust begins as accumulated history.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">II</div>
-          <h3>Decision Trace</h3>
-          <p>The structured record of why a single decision was made — its signals, evidence, boundaries, and actors. The atom from which that history is built.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">III</div>
-          <h3>Trust Graph</h3>
-          <p>The relational fabric linking humans, AI systems, organizations, and communities through trust, responsibility, and influence.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">IV</div>
-          <h3>Boundary Verification</h3>
-          <p>The shared limits that define legitimate action — confirming that a decision stayed within sanctioned scope, policy, and consent.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">V</div>
-          <h3>Human Review</h3>
-          <p>The judgment layer where people approve, refuse, or escalate — keeping accountability anchored in human responsibility.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">VI</div>
-          <h3>Failure Trace</h3>
-          <p>Failures preserved not as embarrassment but as reusable knowledge — the memory through which systems and societies learn.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">VII</div>
-          <h3>Distributed Trust</h3>
-          <p>Trust that no longer depends on a single central authority, but emerges from traces, ledgers, reputation, and consensus across many actors.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">VIII</div>
-          <h3>Institutional Accountability</h3>
-          <p>The layer where traces, reviews, and reputation become the basis of responsibility — binding institutions to what they have done.</p>
-        </div>
-      </div>
-
-      <!-- ====== Trust Infrastructure Structure (layered diagram) ====== -->
-      <div class="field-runtime" aria-label="Trust Infrastructure Structure">
-        <div class="field-runtime-label">Layer Diagram</div>
-        <h3 class="field-runtime-title">Trust Infrastructure Structure</h3>
-
-        <ol class="field-layers" role="list">
-          <li class="field-layer">
-            <span class="layer-idx">L1</span>
-            <span class="layer-body">
-              <span class="layer-name">Event</span>
-              <span class="layer-note">Something happens — a request, a situation, an input. The raw moment that may require a decision.</span>
-            </span>
-            <span class="layer-tag">event</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L2</span>
-            <span class="layer-body">
-              <span class="layer-name">Signal</span>
-              <span class="layer-note">Models, sensors, and humans contribute candidate signals — observations that shape what comes next.</span>
-            </span>
-            <span class="layer-tag">signal</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L3</span>
-            <span class="layer-body">
-              <span class="layer-name">Decision</span>
-              <span class="layer-note">A determination is formed from signals — a choice that will commit the system to an action.</span>
-            </span>
-            <span class="layer-tag">decision</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L4</span>
-            <span class="layer-body">
-              <span class="layer-name">Boundary</span>
-              <span class="layer-note">Sanctioned scope and policy are checked — verifying the decision stays within accepted constraints.</span>
-            </span>
-            <span class="layer-tag">boundary</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L5</span>
-            <span class="layer-body">
-              <span class="layer-name">Human Review</span>
-              <span class="layer-note">A human approves, refuses, or escalates — turning machine output into accountable action.</span>
-            </span>
-            <span class="layer-tag">review</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L6</span>
-            <span class="layer-body">
-              <span class="layer-name">Trace</span>
-              <span class="layer-note">The decision is recorded with its signals, boundaries, reviewers, and evidence — the structured account of why.</span>
-            </span>
-            <span class="layer-tag">trace</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L7</span>
-            <span class="layer-body">
-              <span class="layer-name">Audit</span>
-              <span class="layer-note">Traces are read back — by reviewers, regulators, or future operators — to verify, challenge, or confirm.</span>
-            </span>
-            <span class="layer-tag">audit</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L8</span>
-            <span class="layer-body">
-              <span class="layer-name">Reputation</span>
-              <span class="layer-note">Aggregated history of behavior across agents, humans, and institutions becomes a reusable trust signal.</span>
-            </span>
-            <span class="layer-tag">reputation</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L9</span>
-            <span class="layer-body">
-              <span class="layer-name">Coordination</span>
-              <span class="layer-note">Trusted traces and reputation let many actors — human and machine — act together safely. This is what the whole structure exists for.</span>
-            </span>
-            <span class="layer-tag">coordination</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L10</span>
-            <span class="layer-body">
-              <span class="layer-name">Learning</span>
-              <span class="layer-note">Outcomes — including failures — feed back into signals, boundaries, and review structures, growing collective trust over time.</span>
-            </span>
-            <span class="layer-tag">learning</span>
-          </li>
-        </ol>
-
-        <p class="layer-coda">
-          The layers do not end in audit. They end in
-          coordination and learning — because the purpose
-          of trust infrastructure is not surveillance but
-          the capacity to act together safely under
-          uncertainty.
-        </p>
-
-        <p class="layer-coda">
-          Trust Infrastructure ultimately exists to enable
-          safe coordination. Its purpose is not surveillance
-          or control, but reducing uncertainty and making
-          cooperation possible among humans, AI systems,
-          organizations, and institutions. Trust reduces the
-          cost of coordination — and coordination is the
-          ultimate purpose of trust.
-        </p>
-      </div>
-
-      <p class="figure-lede">
-        Trust does not emerge from a single decision. It is
-        built through a sequence of events, signals,
-        boundaries, human judgments, and accumulated
-        histories. The structure below illustrates how trust
-        becomes an infrastructure for coordination.
-      </p>
-
-      <figure class="figure figure-wide figure-main">
+      <figure class="figure figure-slide">
         <a class="figure-frame" href="/research/trust-infrastructure/assets2/01.png"
-           data-lightbox aria-label="Open Trust Infrastructure Structure diagram">
+           data-lightbox aria-label="Open title slide — Trust Infrastructure">
           <img src="/research/trust-infrastructure/assets2/01.png"
-               alt="Trust Infrastructure Structure — layered model from event to coordination and learning"
+               alt="Trust Infrastructure — the foundation of trust in the AI era: trace, verify, and coordinate for the next society"
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">Fig. 01 — Trust Infrastructure Structure</figcaption>
+        <figcaption class="figure-caption">Slide 01 — Trust Infrastructure</figcaption>
       </figure>
+
+      <div class="story-text">
+        <p>
+          Trust has long been treated as belief — something
+          held by individuals, granted to authorities, and
+          felt rather than examined.
+        </p>
+        <p>
+          In AI-enabled societies, trust is no longer based
+          only on authority. It becomes something that can be
+          observed, verified, accumulated, challenged, and
+          reused. Trust becomes infrastructure.
+        </p>
+        <code class="quote">Trace, verify, and coordinate for the next society.</code>
+        <p>
+          The pages that follow trace that shift — from the
+          scarcity of information, through its explosion, to a
+          world where the scarce resource is no longer
+          information but trust, and the structures that let
+          trust scale.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- ============ 04 TRACEABLE TRUST ============ -->
-  <section class="research-section" id="traceable" aria-labelledby="traceable-h">
+  <!-- ============ 02 — INFORMATION SCARCITY ============ -->
+  <section class="research-section chapter" id="ch02" aria-labelledby="ch02-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">04 / Traceable Trust</div>
-        <h2 id="traceable-h">Traceable Trust</h2>
+        <div class="section-label">02 / The Long Era of Scarcity</div>
+        <h2 id="ch02-h">Information Scarcity</h2>
         <p class="section-lede">
-          For most of history, trust flowed downward from
-          authority. In AI-enabled societies, it increasingly
-          flows from accumulated decision history — from what
-          can be traced rather than who is speaking.
+          For most of modern history, the defining problem was
+          that information was scarce. Each successive society
+          was organized around making it less so.
         </p>
       </div>
 
-      <div class="two-col">
-        <div class="col-text">
-          <h3>Authority-based Trust</h3>
-          <p>
-            The older model locates trust in position. We
-            trust a person because of their standing, an
-            institution because of its mandate, a claim
-            because of who makes it.
-          </p>
-          <code class="quote">
-            Person
-            ↓ Institution
-            ↓ Belief
-          </code>
-          <p>
-            This model is fast but fragile. It cannot scale
-            to a world where most statements and actions are
-            machine-generated, and where authority itself
-            can be simulated.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>Trace-based Trust</h3>
-          <p>
-            The emerging model locates trust in history. We
-            trust an actor because of the record they have
-            accumulated — decisions made, boundaries kept,
-            corrections owned.
-          </p>
-          <code class="quote">
-            Event
-            ↓ Decision
-            ↓ Trace
-            ↓ Reputation
-            ↓ Trust
-          </code>
-          <p>
-            Trust increasingly derives from accumulated
-            decision history rather than authority. It is
-            earned in traces, not granted by title.
-          </p>
-        </div>
-      </div>
-
-      <p class="figure-lede">
-        The source of trust is changing. Authority and status
-        once served as the basis of belief. Increasingly,
-        trust emerges from traceable decisions, histories,
-        and outcomes.
-      </p>
-
-      <figure class="figure figure-wide figure-standard">
+      <figure class="figure figure-slide">
         <a class="figure-frame" href="/research/trust-infrastructure/assets2/02.png"
-           data-lightbox aria-label="Open From Authority to Trace diagram">
+           data-lightbox aria-label="Open Information Scarcity slide">
           <img src="/research/trust-infrastructure/assets2/02.png"
-               alt="From Authority to Trace — traditional trust (person, institution, authority, belief) shifting to AI-era trust (event, decision, trace, reputation, trust)"
+               alt="Information scarcity across industrial, information, and AI societies — newspapers, search, and AI chat, with more information everywhere"
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">Fig. 02 — From Authority to Trace</figcaption>
+        <figcaption class="figure-caption">Slide 02 — We Have Long Faced Information Scarcity</figcaption>
       </figure>
+
+      <div class="story-text">
+        <p>
+          Industrial society and then information society were
+          each built around the scarcity of information.
+          Newspapers, the printing press, and mass media
+          existed to spread facts that were hard to come by.
+          Search engines, the web, and the cloud existed to
+          make information easier to find.
+        </p>
+        <p>
+          Every step lowered the cost of obtaining something
+          that had once been precious:
+        </p>
+        <ul>
+          <li>Industrial Society — facts printed and distributed at scale</li>
+          <li>Information Society — search makes knowledge findable</li>
+          <li>AI Society — search, web, social media, cloud, and large language models</li>
+        </ul>
+        <p>
+          Across all of them, the shared assumption held: the
+          bottleneck is getting information. More information,
+          everywhere, was the goal.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- ============ 05 REPUTATION ECONOMY ============ -->
-  <section class="research-section" id="reputation" aria-labelledby="reputation-h">
+  <!-- ============ 03 — INFORMATION EXPLOSION ============ -->
+  <section class="research-section chapter" id="ch03" aria-labelledby="ch03-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">05 / Reputation Economy</div>
-        <h2 id="reputation-h">Reputation Economy</h2>
+        <div class="section-label">03 / The Final Constraint Falls</div>
+        <h2 id="ch03-h">Information Explosion</h2>
         <p class="section-lede">
-          When information is abundant and verification is
-          scarce, value migrates toward reputation. What an
-          actor is worth is increasingly a function of the
-          history they carry, not the price they quote.
+          Generative AI removed the last constraint on
+          information: the cost of producing it. When anything
+          can be generated, abundance — not scarcity — becomes
+          the condition.
         </p>
       </div>
 
-      <div class="two-col">
-        <div class="col-text">
-          <h3>Where Value Comes From</h3>
-          <p>
-            In a reputation economy, value emerges not only
-            from products or prices, but from accumulated
-            record:
-          </p>
-          <ul>
-            <li>decision history — what was chosen, and why</li>
-            <li>responsibility history — what was owned and answered for</li>
-            <li>correction history — how failures were acknowledged and repaired</li>
-          </ul>
-          <p>
-            Correction history matters most. An actor who
-            corrects course visibly becomes more trustworthy
-            than one who never admits to error.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>Reputation as Accumulated Trace</h3>
-          <p>
-            Reputation is not a score handed down by a
-            platform. It is the readable residue of a
-            history of decisions — trace by trace.
-          </p>
-          <code class="quote">
-            Reputation
-            is accumulated trace.
-          </code>
-          <p>
-            This makes reputation portable and inspectable:
-            something an actor builds, carries, and can be
-            held to — across organizations, communities, and
-            institutions.
-          </p>
-        </div>
-      </div>
-
-      <p class="figure-lede">
-        As trust becomes traceable, reputation itself becomes
-        a form of accumulated history. Value increasingly
-        derives not only from products and prices, but from
-        decisions, corrections, and responsibility.
-      </p>
-
-      <figure class="figure figure-wide figure-standard">
+      <figure class="figure figure-slide">
         <a class="figure-frame" href="/research/trust-infrastructure/assets2/03.png"
-           data-lightbox aria-label="Open Reputation as Accumulated Trace diagram">
+           data-lightbox aria-label="Open Information Explosion slide">
           <img src="/research/trust-infrastructure/assets2/03.png"
-               alt="Reputation as Accumulated Trace — industrial economy (products, price, market) shifting to AI-era value built from decision, correction, and responsibility history"
+               alt="Information explosion — AI generating text, images, videos, analytics, code, ideas, and agents, with information generation cost approaching zero"
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">Fig. 03 — Reputation as Accumulated Trace</figcaption>
+        <figcaption class="figure-caption">Slide 03 — Information Explosion</figcaption>
       </figure>
 
-      <div class="two-col">
-        <div class="col-text">
-          <h3>Reputation Is Relational</h3>
-          <p>
-            Reputation is not merely an individual property,
-            a score an actor owns in isolation. It emerges
-            through relationships — it is granted, withheld,
-            and revised by others over time.
-          </p>
-          <p>Trust is formed through:</p>
-          <ul>
-            <li>collaboration</li>
-            <li>responsibility</li>
-            <li>coordination</li>
-            <li>shared history</li>
-          </ul>
-        </div>
-
-        <div class="col-text">
-          <h3>Trust as Relationship</h3>
-          <p>
-            An actor's reputation lives in the web of those
-            who have worked with it, relied on it, and been
-            answered to by it. Strip away the relationships
-            and the reputation has nowhere to stand.
-          </p>
-          <code class="quote">
-            Reputation is not held.
-            It is related.
-          </code>
-          <p>
-            This is why trust is best understood as a
-            relationship rather than a possession — the same
-            ground on which intelligence itself becomes
-            relational.
-          </p>
-        </div>
+      <div class="story-text">
+        <p>
+          AI lifted the final constraint. Producing text,
+          images, video, analysis, code, ideas — even
+          autonomous agents — now costs almost nothing.
+        </p>
+        <code class="quote">Information generation cost ≈ 0.</code>
+        <p>
+          Generative AI dramatically increases the volume of
+          information, decisions, and actions in circulation.
+          Production outpaces verification:
+        </p>
+        <ul>
+          <li>information production expands without limit</li>
+          <li>humans cannot verify everything</li>
+          <li>the scarce resource is no longer information itself</li>
+        </ul>
+        <p>
+          For the first time, the problem is not too little
+          information. It is too much.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- ============ 06 TRUST GRAPH ============ -->
-  <section class="research-section" id="graph" aria-labelledby="graph-h">
+  <!-- ============ 04 — THE TRUTH CRISIS ============ -->
+  <section class="research-section chapter" id="ch04" aria-labelledby="ch04-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">06 / Trust Graph</div>
-        <h2 id="graph-h">Trust Graph</h2>
+        <div class="section-label">04 / The First Turning Point</div>
+        <h2 id="ch04-h">The Truth Crisis</h2>
         <p class="section-lede">
-          Trust is not held in isolation. It lives between
-          actors — a relational network in which humans, AI
-          systems, organizations, and communities are linked
-          by what they extend to and expect of one another.
+          When answers exist in abundance, the decisive question
+          changes shape. It is no longer “What is the answer?”
+          but “What can we trust?”
         </p>
       </div>
 
-      <div class="two-col">
-        <div class="col-text">
-          <h3>Nodes</h3>
-          <p>
-            The graph is populated by every kind of actor
-            that can give or receive trust:
-          </p>
-          <ul>
-            <li>humans</li>
-            <li>AI systems</li>
-            <li>organizations</li>
-            <li>communities</li>
-          </ul>
-          <p>
-            None of these is purely a source or purely a
-            recipient of trust. Each is a node embedded in
-            relationships with the others.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>Edges</h3>
-          <p>
-            What connects the nodes is not a single bond but
-            several distinct relations:
-          </p>
-          <ul>
-            <li>trust — reliance extended under uncertainty</li>
-            <li>coordination — acting together toward shared ends</li>
-            <li>responsibility — who answers for what</li>
-            <li>influence — whose signals move whose decisions</li>
-          </ul>
-          <code class="quote">
-            Trust is relational,
-            not isolated.
-          </code>
-        </div>
-      </div>
-
-      <p class="figure-lede">
-        Trust is not an isolated property. It emerges through
-        relationships among humans, AI systems, organizations,
-        communities, and institutions. Trust is relational.
-      </p>
-
-      <figure class="figure figure-wide figure-standard">
+      <figure class="figure figure-slide">
         <a class="figure-frame" href="/research/trust-infrastructure/assets2/04.png"
-           data-lightbox aria-label="Open Trust Graph diagram">
+           data-lightbox aria-label="Open The Truth Crisis slide — then and now">
           <img src="/research/trust-infrastructure/assets2/04.png"
-               alt="Trust Graph — humans, AI systems, organizations, and communities linked by trust, coordination, responsibility, and influence"
+               alt="AI has ended information scarcity — then: no information, search, find answers; now: too much information, answers in abundance, what can we trust?"
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">Fig. 04 — Trust Graph</figcaption>
+        <figcaption class="figure-caption">Slide 04 — AI Has Ended Information Scarcity</figcaption>
       </figure>
-    </div>
-  </section>
 
-  <!-- ============ 07 DISTRIBUTED TRUST ============ -->
-  <section class="research-section" id="distributed" aria-labelledby="distributed-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">07 / Distributed Trust</div>
-        <h2 id="distributed-h">Distributed Trust</h2>
-        <p class="section-lede">
-          As intelligence itself becomes distributed across
-          many kinds of actors, trust can no longer be
-          concentrated in a single center. Distributed
-          intelligence requires distributed trust.
+      <div class="story-text">
+        <p>
+          The old loop is over. We no longer move from <em>no
+          information</em> to <em>search</em> to <em>find the
+          answer</em>. Answers now exist in abundance — generated
+          faster than anyone can read them.
         </p>
+        <p>In a world of abundant, machine-generated information, the decisive question is no longer:</p>
+        <code class="quote">What information is correct?</code>
+        <p>It becomes:</p>
+        <code class="quote">What can we trust?</code>
       </div>
 
-      <div class="two-col">
-        <div class="col-text">
-          <h3>Distributed Intelligence Requires Distributed Trust</h3>
-          <p>
-            Future societies are not organized around a
-            single intelligence or a single authority. They
-            are populated by many participants, each capable
-            of deciding and acting:
-          </p>
-          <ul>
-            <li>humans</li>
-            <li>AI systems</li>
-            <li>agents</li>
-            <li>organizations</li>
-            <li>communities</li>
-            <li>institutions</li>
-          </ul>
-          <p>
-            Because intelligence itself becomes distributed
-            across these actors, trust must also become
-            distributed. No single center can vouch for all
-            of them.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>From Center to Structure</h3>
-          <p>
-            The traditional model concentrates trust in an
-            institution; the emerging model composes it from
-            many verifiable parts, held by no single party.
-          </p>
-          <code class="quote">
-            Institution
-            ↓ Trust
-
-            Trace
-            + Ledger
-            + Reputation
-            + Consensus
-            ↓ Trust
-          </code>
-          <p>
-            Web3 is one example of this shift — but only one.
-            The deeper movement is that trust becomes a
-            property of structure shared among many actors,
-            wherever intelligence is distributed.
-          </p>
-        </div>
-      </div>
-
-      <p class="figure-lede">
-        As intelligence becomes distributed, trust must also
-        become distributed. No single institution alone can
-        sustain coordination in increasingly complex
-        societies.
-      </p>
-
-      <figure class="figure figure-wide figure-standard">
+      <figure class="figure figure-slide">
         <a class="figure-frame" href="/research/trust-infrastructure/assets2/05.png"
-           data-lightbox aria-label="Open Distributed Intelligence Requires Distributed Trust diagram">
+           data-lightbox aria-label="Open The More Information We Have slide">
           <img src="/research/trust-infrastructure/assets2/05.png"
-               alt="Distributed Intelligence Requires Distributed Trust — trust moving from a central institution to distributed structure across many actors"
+               alt="The more information we have, the harder it becomes to find the truth — deepfakes, AI articles, and bots; the question is no longer what is true but who can we trust"
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">Fig. 05 — Distributed Intelligence Requires Distributed Trust</figcaption>
+        <figcaption class="figure-caption">Slide 05 — Harder to Find the Truth</figcaption>
       </figure>
+
+      <div class="story-text">
+        <h3>The More We Have, the Harder Truth Becomes</h3>
+        <p>
+          Deepfakes, AI-written articles, and bots that insist
+          “this is the truth — believe me” all arrive at the same
+          cost as anything else. The more information we have, the
+          harder it becomes to tell what is real.
+        </p>
+        <p>
+          So the question shifts again — from a property of
+          statements to a property of actors:
+        </p>
+        <code class="quote">No longer “What is true?” — but “Who can we trust?”</code>
+        <p>
+          This is the first turning point of the AI era.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- ============ 08 COORDINATION COST ============ -->
-  <section class="research-section" id="coordination" aria-labelledby="coordination-h">
+  <!-- ============ 05 — TRUST MATTERS ============ -->
+  <section class="research-section chapter" id="ch05" aria-labelledby="ch05-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">08 / Coordination Cost</div>
-        <h2 id="coordination-h">Coordination Cost</h2>
+        <div class="section-label">05 / The New Scarce Resource</div>
+        <h2 id="ch05-h">Trust Matters More Than Ever</h2>
         <p class="section-lede">
-          Beneath every layer, trust infrastructure does one
-          thing: it lowers the cost of coordinating under
-          uncertainty. That is its deepest purpose, and the
-          reason it matters for societies, not only systems.
+          When anything can be generated, the scarce resource is
+          no longer information. It is trust — and the structures
+          that let trust scale.
         </p>
       </div>
 
-      <div class="two-col">
-        <div class="col-text">
-          <h3>The Real Bottleneck</h3>
-          <p>
-            In AI-enabled societies, the scarce resource is
-            not intelligence or information. It is the
-            ability of many actors — humans, AI systems,
-            organizations, agents, and communities — to act
-            together without constant re-verification.
-          </p>
-          <p>
-            Every interaction that requires trust carries a
-            cost: the effort of checking, hedging, and
-            guarding against the unknown. As the number of
-            actors grows, this cost grows faster still.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>Infrastructure for Safe Coordination</h3>
-          <p>
-            Trust infrastructure absorbs that cost. Traces,
-            reputation, boundaries, and accountability let
-            actors rely on one another without re-deriving
-            trust from scratch each time.
-          </p>
-          <code class="quote">
-            Trust Infrastructure
-            = infrastructure
-            for safe coordination.
-          </code>
-          <p>
-            Coordination among humans, AI systems,
-            organizations, agents, and communities becomes
-            the defining challenge of the age. Trust
-            infrastructure is how a society meets it.
-          </p>
-        </div>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>From Transaction Cost to Coordination Cost</h3>
-          <p>
-            Economics has traditionally organized itself
-            around transaction cost — the friction of
-            exchange between parties. AI-enabled societies
-            increasingly depend on coordination cost: the
-            friction of acting together among many human and
-            machine participants.
-          </p>
-          <p>
-            Trust Infrastructure reduces the cost of
-            coordination. Trust therefore becomes not only a
-            social good but an economic infrastructure —
-            something a society's productive capacity rests on.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>Trust as Economic Infrastructure</h3>
-          <code class="quote">
-            Transaction cost
-            → coordination cost.
-
-            Trust reduces
-            the cost of coordination.
-
-            Trust becomes
-            economic infrastructure.
-          </code>
-          <p>
-            This is where Trust Infrastructure meets the
-            runtime layer of society itself: the standing
-            structures through which a society continuously
-            coordinates, decides, and acts. Trust is part of
-            that runtime — the condition under which
-            coordination becomes affordable at scale.
-          </p>
-        </div>
-      </div>
-
-      <p class="figure-lede">
-        The deeper purpose of trust infrastructure is not
-        control. Its purpose is coordination. Trust reduces
-        the cost of coordination and makes cooperation
-        possible.
-      </p>
-
-      <figure class="figure figure-wide figure-standard">
+      <figure class="figure figure-slide">
         <a class="figure-frame" href="/research/trust-infrastructure/assets2/06.png"
-           data-lightbox aria-label="Open From Transaction Cost to Coordination Cost diagram">
+           data-lightbox aria-label="Open Trust Matters More Than Ever slide">
           <img src="/research/trust-infrastructure/assets2/06.png"
-               alt="From Transaction Cost to Coordination Cost — coordination cost reduced by trust infrastructure, enabling safe coordination and the runtime of society"
+               alt="Trust matters more than ever — truth leads to trust leads to coordination, against a backdrop of who can I trust and how do we coordinate"
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">Fig. 06 — From Transaction Cost to Coordination Cost</figcaption>
+        <figcaption class="figure-caption">Slide 06 — Truth → Trust → Coordination</figcaption>
+      </figure>
+
+      <div class="story-text">
+        <p>
+          Trust sits between knowing what is true and being able
+          to act together. Truth alone settles nothing if no one
+          can decide whom to rely on; the chain runs from truth,
+          through trust, to coordination.
+        </p>
+        <code class="quote">Who can I trust? — How do we coordinate?</code>
+        <p>
+          Correctness is a property of statements. Trust is a
+          property of relationships — and relationships are what
+          coordination runs on. As AI systems recommend,
+          coordinate, summarize, and produce at a scale no human
+          can verify, the question of trust stops being optional.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 — THE COORDINATION PROBLEM ============ -->
+  <section class="research-section chapter" id="ch06" aria-labelledby="ch06-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Where the Cost Really Lands</div>
+        <h2 id="ch06-h">The Coordination Problem</h2>
+        <p class="section-lede">
+          The real problem of the AI era is not a lack of
+          information. It is that, as information rises and trust
+          falls, the cost of acting together climbs.
+        </p>
+      </div>
+
+      <figure class="figure figure-slide">
+        <a class="figure-frame" href="/research/trust-infrastructure/assets2/07.png"
+           data-lightbox aria-label="Open The Real Problem Is Not Lack of Information slide">
+          <img src="/research/trust-infrastructure/assets2/07.png"
+               alt="The real problem in the AI era is not lack of information — information up, trust down, coordination cost up; meetings increase, misunderstandings increase, accountability becomes vague, decisions are delayed"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Slide 07 — The Real Problem Is Not Lack of Information</figcaption>
+      </figure>
+
+      <div class="story-text">
+        <p>
+          As information rises, trust tends to fall — and the cost
+          of coordinating rises with it. The symptoms are familiar
+          inside any organization:
+        </p>
+        <ul>
+          <li>meetings multiply</li>
+          <li>misunderstandings increase</li>
+          <li>accountability becomes vague</li>
+          <li>decisions are delayed</li>
+        </ul>
+      </div>
+
+      <figure class="figure figure-slide">
+        <a class="figure-frame" href="/research/trust-infrastructure/assets2/08.png"
+           data-lightbox aria-label="Open Why Do Organizations Become Chaotic slide">
+          <img src="/research/trust-infrastructure/assets2/08.png"
+               alt="Why do organizations become chaotic — information, interpretation, conflict, and coordination cost all rising; the more information we have, the more disorder is automatically generated"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Slide 08 — Why Organizations Become Chaotic</figcaption>
+      </figure>
+
+      <div class="story-text">
+        <h3>More Information, More Disorder</h3>
+        <p>
+          More information produces more interpretations, more
+          interpretations produce more conflict, and conflict
+          drives coordination cost higher still. Everyone has data;
+          no one agrees on what it means.
+        </p>
+        <code class="quote">The more information we have, the more disorder is automatically generated.</code>
+      </div>
+
+      <figure class="figure figure-slide">
+        <a class="figure-frame" href="/research/trust-infrastructure/assets2/09.png"
+           data-lightbox aria-label="Open Social Issues Have Evolved slide">
+          <img src="/research/trust-infrastructure/assets2/09.png"
+               alt="Social issues have evolved — industrial society and transaction cost, information society and communication cost, AI society and coordination cost; the next society rests on trust and coordination"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Slide 09 — From Transaction Cost to Coordination Cost</figcaption>
+      </figure>
+
+      <div class="story-text">
+        <h3>The Cost That Defines Each Era</h3>
+        <p>
+          Economics has long organized itself around transaction
+          cost — the friction of exchange. But each society has
+          worked to lower a different cost:
+        </p>
+        <ul>
+          <li>Industrial Society lowered the cost of transactions</li>
+          <li>Information Society lowered the cost of communication</li>
+          <li>AI Society must lower the cost of coordination</li>
+        </ul>
+        <code class="quote">The infrastructure that supports the next society is not information, but trust and coordination.</code>
+      </div>
+
+      <figure class="figure figure-slide">
+        <a class="figure-frame" href="/research/trust-infrastructure/assets2/10.png"
+           data-lightbox aria-label="Open What Is Coordination Cost slide">
+          <img src="/research/trust-infrastructure/assets2/10.png"
+               alt="What is coordination cost — meetings, emails, approvals, reviews, verifications, and adjustments; people spend more time on coordination than on actual work"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Slide 10 — What Is Coordination Cost?</figcaption>
+      </figure>
+
+      <div class="story-text">
+        <h3>What Coordination Cost Really Is</h3>
+        <p>
+          Coordination cost is the effort spent simply getting
+          actors to act together — meetings, emails, approvals,
+          reviews, verifications, and endless adjustments. As the
+          number of participants grows, this cost grows faster
+          still.
+        </p>
+        <code class="quote">People spend more time on coordination than on actual work.</code>
+        <p>
+          Trust infrastructure absorbs that cost. Traces,
+          reputation, boundaries, and accountability let actors
+          rely on one another without re-deriving trust from
+          scratch each time. Trust reduces the cost of
+          coordination — and coordination is what the whole
+          structure exists for.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 — WHAT IS TRUST? ============ -->
+  <section class="research-section chapter" id="ch07" aria-labelledby="ch07-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Defining the Scarce Resource</div>
+        <h2 id="ch07-h">What Is Trust?</h2>
+        <p class="section-lede">
+          If trust is the new scarce resource, we have to be
+          precise about what it is. Not a feeling — but a
+          prediction, an infrastructure, and ultimately a
+          structure.
+        </p>
+      </div>
+
+      <figure class="figure figure-slide">
+        <a class="figure-frame" href="/research/trust-infrastructure/assets2/11.png"
+           data-lightbox aria-label="Open Trust Is Not an Emotion slide">
+          <img src="/research/trust-infrastructure/assets2/11.png"
+               alt="Trust is not an emotion — trust is a future expectation and social prediction; trust enables coordination and action; trust is not liking but the ability to make coordination possible"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Slide 11 — Trust Is Not an Emotion</figcaption>
+      </figure>
+
+      <div class="story-text">
+        <h3>Trust Is a Future Expectation</h3>
+        <p>
+          Trust is not affinity, and it is not “liking.” It is a
+          future expectation — a social prediction that lets us
+          act before we have certainty.
+        </p>
+        <code class="quote">Trust → Coordination → Action</code>
+        <p>
+          Its purpose is not warmth but capability: trust is the
+          ability to make coordination possible.
+        </p>
+      </div>
+
+      <figure class="figure figure-slide">
+        <a class="figure-frame" href="/research/trust-infrastructure/assets2/12.png"
+           data-lightbox aria-label="Open What Is Trust — prediction slide">
+          <img src="/research/trust-infrastructure/assets2/12.png"
+               alt="What is trust — many think trust equals affinity, friendship, or emotion, but trust is a future expectation built from past behavioral data through a prediction model into a trust score"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Slide 12 — Trust as Prediction</figcaption>
+      </figure>
+
+      <div class="story-text">
+        <h3>Trust Is a Prediction</h3>
+        <p>
+          Many people think trust means affinity, friendship, or
+          emotion. But underneath, trust is a rational expectation
+          about the future, formed from a history of behavior:
+        </p>
+        <code class="quote">Will this person continue to meet expectations?</code>
+        <p>
+          Past behavioral data feeds prediction, and prediction
+          yields something like a trust score. This is why trust
+          increasingly derives from accumulated decision history
+          rather than authority — it is earned in traces, not
+          granted by title.
+        </p>
+      </div>
+
+      <figure class="figure figure-slide">
+        <a class="figure-frame" href="/research/trust-infrastructure/assets2/13.png"
+           data-lightbox aria-label="Open Trust Is Infrastructure slide">
+          <img src="/research/trust-infrastructure/assets2/13.png"
+               alt="Trust is infrastructure — communication society and TCP/IP, financial society and payment networks, logistics society and logistics networks, AI society and trust infrastructure"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Slide 13 — Trust Is Infrastructure</figcaption>
+      </figure>
+
+      <div class="story-text">
+        <h3>Trust Is Infrastructure</h3>
+        <p>
+          Every society runs on a layer that connects, verifies,
+          and enables collaboration. Communication society has
+          TCP/IP; financial society has payment networks;
+          logistics society has shipping networks.
+        </p>
+        <code class="quote">For the AI society, that layer is trust infrastructure.</code>
+        <p>
+          It is the substrate on which humans, AI systems,
+          organizations, and institutions coordinate — wherever
+          actors must rely on one another without full
+          information.
+        </p>
+      </div>
+
+      <figure class="figure figure-slide">
+        <a class="figure-frame" href="/research/trust-infrastructure/assets2/14.png"
+           data-lightbox aria-label="Open Infrastructure Is Invisible slide">
+          <img src="/research/trust-infrastructure/assets2/14.png"
+               alt="Infrastructure is invisible — electricity, water, internet, payments, and logistics; we do not consciously notice it, but when it fails society stops functioning, and trust is the same"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Slide 14 — Infrastructure Is Invisible</figcaption>
+      </figure>
+
+      <div class="story-text">
+        <h3>And Infrastructure Is Invisible</h3>
+        <p>
+          Electricity, water, the internet, payments, logistics —
+          we never consciously notice infrastructure. We only feel
+          it when it fails, and then everything stops.
+        </p>
+        <p>
+          Trust is the same. When it holds, coordination feels
+          effortless and invisible. When it breaks, society stops
+          functioning. All activity rests on infrastructure we
+          rarely see.
+        </p>
+      </div>
+
+      <figure class="figure figure-slide">
+        <a class="figure-frame" href="/research/trust-infrastructure/assets2/15.png"
+           data-lightbox aria-label="Open Trust Infrastructure elements slide">
+          <img src="/research/trust-infrastructure/assets2/15.png"
+               alt="Trust infrastructure — identity, trace, reputation, verification, governance, and coordination linking humans, AI, organizations, agents, and communities"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Slide 15 — The Elements of Trust Infrastructure</figcaption>
+      </figure>
+
+      <div class="story-text">
+        <h3>What Trust Infrastructure Is Made Of</h3>
+        <p>
+          Trust infrastructure is not a single mechanism. It is
+          composed of layers that together let many kinds of actor
+          rely on one another:
+        </p>
+        <ul>
+          <li>Identity — who an actor is</li>
+          <li>Trace — what they have actually done</li>
+          <li>Reputation — the accumulated record of that history</li>
+          <li>Verification — whether claims and evidence hold up</li>
+          <li>Governance — the boundaries and rules that apply</li>
+          <li>Coordination — the safe action all of this exists to enable</li>
+        </ul>
+        <p>
+          These bind humans, AI systems, organizations, agents,
+          and communities into a single fabric of trust.
+        </p>
+      </div>
+
+      <figure class="figure figure-slide">
+        <a class="figure-frame" href="/research/trust-infrastructure/assets2/16.png"
+           data-lightbox aria-label="Open Trust Is Not a Single Thing slide">
+          <img src="/research/trust-infrastructure/assets2/16.png"
+               alt="Trust is not a single thing — identity, trace, reputation, verification, governance, and coordination each answer a question; in short, trust is a structure"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Slide 16 — Trust Is a Structure</figcaption>
+      </figure>
+
+      <div class="story-text">
+        <h3>Trust Is a Structure</h3>
+        <p>
+          Seen this way, each element of trust answers a distinct
+          question:
+        </p>
+        <ul>
+          <li>Identity — “Who is this?”</li>
+          <li>Trace — “What have they done?”</li>
+          <li>Reputation — “How are they evaluated?”</li>
+          <li>Verification — “Is it true?”</li>
+          <li>Governance — “What are the rules?”</li>
+          <li>Coordination — “How can we work together?”</li>
+        </ul>
+        <code class="quote">In short, trust is a structure.</code>
+      </div>
+
+      <figure class="figure figure-slide">
+        <a class="figure-frame" href="/research/trust-infrastructure/assets2/17.png"
+           data-lightbox aria-label="Open Why Is Trust Essential in the AI Era slide">
+          <img src="/research/trust-infrastructure/assets2/17.png"
+               alt="Why is trust essential in the AI era — humans, human plus AI, multi-agent, organizations, communities, and society; as actors increase, complexity grows exponentially and we cannot collaborate without trust"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Slide 17 — Why Trust Is Essential</figcaption>
+      </figure>
+
+      <div class="story-text">
+        <h3>Why AI Requires Trust</h3>
+        <p>
+          Future societies are not organized around a single
+          intelligence or a single authority. They are populated
+          by many participants, each able to decide and act —
+          humans, human-plus-AI pairs, multi-agent systems,
+          organizations, communities, and society itself.
+        </p>
+        <p>
+          As the number of actors grows, complexity grows
+          exponentially: information is read differently,
+          intentions are harder to predict, and the impact of
+          failure expands. Because intelligence itself becomes
+          distributed, trust must become distributed too.
+        </p>
+        <code class="quote">The more actors there are, the less we can collaborate without trust.</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 — TRUST SOCIETY ============ -->
+  <section class="research-section chapter" id="ch08" aria-labelledby="ch08-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">08 / When Coordination Becomes Possible</div>
+        <h2 id="ch08-h">Trust Society</h2>
+        <p class="section-lede">
+          When trust becomes infrastructure and coordination
+          becomes possible, society itself begins to behave like a
+          runtime — and intelligence reveals itself as something
+          relational.
+        </p>
+      </div>
+
+      <figure class="figure figure-slide">
+        <a class="figure-frame" href="/research/trust-infrastructure/assets2/18.png"
+           data-lightbox aria-label="Open From Information Society to Trust Society slide">
+          <img src="/research/trust-infrastructure/assets2/18.png"
+               alt="From information society to trust society — information, knowledge, AI, trust, and runtime society; knowledge to trust, capability to relationship, model to intelligence field; intelligence as relationship"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Slide 18 — From Information Society to Runtime Society</figcaption>
+      </figure>
+
+      <div class="story-text">
+        <h3>Trust Society, Runtime Society</h3>
+        <p>
+          Societies have moved from information to knowledge to AI
+          — and now toward a trust society, and beyond it a runtime
+          society. Trust is where this transition meets the runtime
+          layer of society itself: the standing structures through
+          which a society continuously coordinates, decides, and
+          acts.
+        </p>
+        <code class="quote">When coordination becomes possible, society itself becomes a runtime.</code>
+      </div>
+
+      <figure class="figure figure-slide">
+        <a class="figure-frame" href="/research/trust-infrastructure/assets2/19.png"
+           data-lightbox aria-label="Open Intelligence Does Not Exist in Isolation slide">
+          <img src="/research/trust-infrastructure/assets2/19.png"
+               alt="Intelligence does not exist in isolation — humans, AI, organizations, communities, and relationships generate intelligence; diverse actors and their relationships create insight, discovery, and value"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Slide 19 — Intelligence Does Not Exist in Isolation</figcaption>
+      </figure>
+
+      <div class="story-text">
+        <h3>Intelligence as Relationship</h3>
+        <p>
+          Intelligence does not exist in isolation. Humans, AI,
+          organizations, and communities each carry part of it, but
+          it emerges between them — in the relationships, the
+          interaction, and the shared context.
+        </p>
+        <p>
+          Diverse actors and their relationships generate creative
+          insight, discovery, and value. This is why trust is best
+          understood as a relationship rather than a possession —
+          the same ground on which intelligence itself becomes
+          relational.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 09 — CLOSING ============ -->
+  <section class="research-section chapter" id="ch09" aria-labelledby="ch09-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">09 / Closing</div>
+        <h2 id="ch09-h">Intelligence as Relationship</h2>
+        <p class="section-lede">
+          The story ends where it began — with relationship. Trust
+          becomes infrastructure, coordination becomes possible,
+          and society becomes a runtime.
+        </p>
+      </div>
+
+      <figure class="figure figure-slide">
+        <a class="figure-frame" href="/research/trust-infrastructure/assets2/20.png"
+           data-lightbox aria-label="Open Intelligence as Relationship closing slide">
+          <img src="/research/trust-infrastructure/assets2/20.png"
+               alt="Intelligence as relationship — human, AI, organization, community, and relationship; knowledge to trust, capability to relationship, model to intelligence field; trust society to runtime society"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Slide 20 — Trust Society → Runtime Society</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- ============ 09 RELATED ESSAYS ============ -->
+  <!-- ============ CLOSING STATEMENT ============ -->
+  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+    <blockquote>
+      <span>Trust is not produced</span>
+      <span>by explanation alone.</span>
+      <span>It emerges through accumulated traces,</span>
+      <span>reputation,</span>
+      <span>boundaries,</span>
+      <span>human review,</span>
+      <span>responsibility,</span>
+      <span>and learning.</span>
+      <span>In the age of AI,</span>
+      <span>trust is no longer merely belief.</span>
+      <span>It becomes an infrastructure</span>
+      <span>that lets humans, agents, organizations,</span>
+      <span>and institutions coordinate safely</span>
+      <span>under uncertainty.</span>
+      <span>Trust is not what we declare.</span>
+      <span>It is what can be traced,</span>
+      <span>challenged,</span>
+      <span>reused,</span>
+      <span>and accumulated.</span>
+      <span>Trust emerges through relationships,</span>
+      <span>responsibility,</span>
+      <span>and shared history.</span>
+      <span>Trust becomes infrastructure</span>
+      <span>when coordination becomes possible.</span>
+      <span>And when coordination becomes possible,</span>
+      <span>society itself becomes a runtime.</span>
+    </blockquote>
+    <div class="closing-mark">Chinoba.org</div>
+  </section>
+
+  <!-- ============ RELATED ESSAYS ============ -->
   <section class="research-section" id="essays" aria-labelledby="essays-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">09 / Related Essays</div>
+        <div class="section-label">Reading / Related Essays</div>
         <h2 id="essays-h">Reading Around Trust Infrastructure</h2>
         <p class="section-lede">
           Essays that extend this inquiry into traceable
@@ -1292,11 +1000,11 @@
     </div>
   </section>
 
-  <!-- ============ 10 RELATED BOOKS ============ -->
+  <!-- ============ RELATED BOOKS ============ -->
   <section class="research-section" id="books" aria-labelledby="books-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">10 / Related Books</div>
+        <div class="section-label">Books / Long-form Texts</div>
         <h2 id="books-h">Long-form Texts</h2>
         <p class="section-lede">
           Knowledge artifacts that compile the surrounding research
@@ -1364,11 +1072,11 @@
     </div>
   </section>
 
-  <!-- ============ 11 RELATED OSS ============ -->
+  <!-- ============ RELATED OSS ============ -->
   <section class="research-section" id="oss" aria-labelledby="oss-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">11 / Related OSS</div>
+        <div class="section-label">OSS / Related OSS</div>
         <h2 id="oss-h">Related OSS</h2>
         <p class="section-lede">
           Primitives for trust,
@@ -1407,89 +1115,6 @@
         </ul>
       </div>
     </div>
-  </section>
-
-  <!-- ============ 12 DIAGRAMS ============ -->
-  <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">12 / Diagrams</div>
-        <h2 id="diagrams-h">Architecture Archive</h2>
-        <p class="section-lede">
-          A growing archive of architectural sketches for
-          trust infrastructure — the trace, reputation,
-          graph, and coordination pathways through which
-          trust becomes observable and reusable.
-        </p>
-      </div>
-
-      <div class="diagrams">
-        <div class="diagram-card">
-          <div class="kicker">Diagram 01</div>
-          <h3>Trust Infrastructure Structure</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 02</div>
-          <h3>From Authority to Trace</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 03</div>
-          <h3>Trust Graph Architecture</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 04</div>
-          <h3>Reputation as Accumulated Trace</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 05</div>
-          <h3>Centralized vs Distributed Trust</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 06</div>
-          <h3>Coordination Cost Model</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CLOSING ============ -->
-  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
-    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
-    <blockquote>
-      <span>Trust is not produced</span>
-      <span>by explanation alone.</span>
-      <span>It emerges through accumulated traces,</span>
-      <span>reputation,</span>
-      <span>boundaries,</span>
-      <span>human review,</span>
-      <span>responsibility,</span>
-      <span>and learning.</span>
-      <span>In the age of AI,</span>
-      <span>trust is no longer merely belief.</span>
-      <span>It becomes an infrastructure</span>
-      <span>that lets humans, agents, organizations,</span>
-      <span>and institutions coordinate safely</span>
-      <span>under uncertainty.</span>
-      <span>Trust is not what we declare.</span>
-      <span>It is what can be traced,</span>
-      <span>challenged,</span>
-      <span>reused,</span>
-      <span>and accumulated.</span>
-      <span>Trust emerges through relationships,</span>
-      <span>responsibility,</span>
-      <span>and shared history.</span>
-      <span>Trust becomes infrastructure</span>
-      <span>when coordination becomes possible.</span>
-      <span>And when coordination becomes possible,</span>
-      <span>society itself becomes a runtime.</span>
-    </blockquote>
-    <div class="closing-mark">Chinoba.org</div>
   </section>
 
   <!-- ============ RELATED RESEARCH ============ -->
@@ -1545,7 +1170,7 @@
         </a>
       </div>
 
-      <p class="figure-lede">
+      <p class="story-text" style="margin-top: clamp(48px, 6vw, 64px); text-align: left;">
         Trust Infrastructure does not stand alone. It connects
         outward to neighboring inquiries across the Chinoba
         field. Together, these lines of inquiry describe how
@@ -1553,14 +1178,14 @@
         evolve in AI-enabled societies.
       </p>
 
-      <figure class="figure figure-wide figure-field">
-        <a class="figure-frame" href="/research/trust-infrastructure/assets2/07.png"
+      <figure class="figure figure-field" style="margin-top: 18px;">
+        <a class="figure-frame" href="/research/trust-infrastructure/assets/07.png"
            data-lightbox aria-label="Open Chinoba Field map">
-          <img src="/research/trust-infrastructure/assets2/07.png"
-               alt="Chinoba Field — Intelligence as Relationship, Knowledge Flow, Trust Infrastructure, Runtime Society, Governance & Boundary Systems, and Public AI & Algorithmic Governance"
+          <img src="/research/trust-infrastructure/assets/07.png"
+               alt="Chinoba Field — Intelligence as Relationship, Knowledge Flow, Trust Infrastructure, Runtime Society, Governance &amp; Boundary Systems, and Public AI &amp; Algorithmic Governance"
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">Fig. 07 — Chinoba Field</figcaption>
+        <figcaption class="figure-caption">Fig. — Chinoba Field</figcaption>
       </figure>
     </div>
   </section>
