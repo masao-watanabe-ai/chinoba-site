@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Runtime Society — Chinoba</title>
-  <meta name="description" content="A research archive on Runtime Society — social architecture where rules, decisions, and coordination are adjusted at runtime through context, feedback, AI systems, human review, boundaries, governance layers, and decision traces.">
+  <meta name="description" content="A research archive on Runtime Society — the social extension of Runtime OS. As many decision runtimes interconnect, they begin sharing signals, boundaries, trust, decision traces, and coordination state across AI, humans, organizations, and governance: the socialization of the operating system.">
 
   <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
   <link rel="stylesheet" href="/assets/research.css">
@@ -84,6 +84,27 @@
       min-height: 110px;
     }
 
+    /* Image-bearing diagram frame — reuses the card, swaps the dashed
+       placeholder for a real figure that opens in the shared lightbox. */
+    .diagram-frame.has-img {
+      display: block;
+      padding: 0;
+      border-style: solid;
+      border-color: var(--line);
+      background: var(--bg-elev);
+      cursor: zoom-in;
+      overflow: hidden;
+      transition: border-color 200ms ease;
+    }
+    .diagram-frame.has-img:hover {
+      border-color: var(--line-strong);
+    }
+    .diagram-frame.has-img img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
     /* ---------- Runtime Society Structure (CSS layered diagram) ---------- */
     .field-runtime {
       margin-top: clamp(56px, 7vw, 80px);
@@ -116,8 +137,17 @@
       font-size: 18px;
       font-weight: 600;
       color: var(--fg);
-      margin: 0 0 22px;
+      margin: 0 0 16px;
       letter-spacing: 0.2px;
+      position: relative;
+    }
+
+    .field-runtime-intro {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--fg-mute);
+      margin: 0 0 24px;
+      max-width: 64ch;
       position: relative;
     }
 
@@ -207,6 +237,30 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ---------- Explore This Theme ---------- */
+    .theme-links {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .theme-links .theme-lang {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child {
+      margin-top: 0;
+    }
+    .theme-links a {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
   </style>
 </head>
 
@@ -230,21 +284,63 @@
       <div class="eyebrow">Research / Runtime Society</div>
       <h1>Runtime Society</h1>
       <p class="hero-sub">
-        <span>Society is moving from fixed rules</span>
-        <span>to runtime coordination.</span>
+        <span>Runtime OS coordinates intelligence inside one system.</span>
+        <span>Runtime Society coordinates it across many.</span>
       </p>
       <p class="hero-desc">
-        Runtime Society explores how AI,
-        institutions,
-        humans,
-        and organizations coordinate decisions
-        through adaptive rules,
+        Runtime Society is the social extension of Runtime OS —
+        the layer that emerges when many decision runtimes
+        interconnect and begin sharing signals,
         boundaries,
-        feedback,
-        and traceable execution.
+        trust,
+        and decision traces
+        across AI,
+        humans,
+        organizations,
+        and governance.
       </p>
     </div>
   </header>
+
+  <!-- ============ EXPLORE THIS THEME ============ -->
+  <section class="research-section" id="explore" aria-labelledby="explore-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Explore</div>
+        <h2 id="explore-h">Explore This Theme</h2>
+        <p class="section-lede">
+          Enter Runtime Society through video and long-form texts —
+          visual introductions and deeper explorations of Runtime OS,
+          human-AI coordination, runtime governance, and the social
+          operating system for the age of AI.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay">
+          <h3>📺 Watch on YouTube</h3>
+          <p>Visual introductions to Runtime OS and Runtime Society in the age of AI.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://youtu.be/vj5KGALPKE4" target="_blank" rel="noopener noreferrer">Runtime OS: The Missing Operating System for the AI Era | Human-AI Coordination Explained →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://youtu.be/LmfNIp5EkqU" target="_blank" rel="noopener noreferrer">Runtime OSとは何か？ AI時代の実行基盤を解説｜AIを安全に動かすためのOS →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📚 Related Books</h3>
+          <p>Long-form explorations of Runtime OS, Runtime Society, human-AI coordination, governance, and the social operating system for the AI era.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English Edition</div>
+            <a href="https://amzn.to/4f4I18d" target="_blank" rel="noopener noreferrer">Runtime Society: The Social Operating System for the AI Era →</a>
+            <div class="theme-lang">Japanese Edition</div>
+            <a href="https://amzn.to/3SPt9SB" target="_blank" rel="noopener noreferrer">ランタイム社会論 — AI時代の社会OSと協調知能の設計原理 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ 01 OVERVIEW ============ -->
   <section class="research-section" id="overview" aria-labelledby="overview-h">
@@ -253,55 +349,80 @@
         <div class="section-label">01 / Overview</div>
         <h2 id="overview-h">Overview</h2>
         <p class="section-lede">
-          A view of society as a runtime — a system where rules,
-          decisions, and coordination are not fully fixed in
-          advance but adjusted as conditions change.
+          Runtime Society is what Runtime OS becomes once it
+          leaves a single system. It studies how independent
+          runtimes — each coordinating its own AI, humans, and
+          boundaries — interconnect into shared social
+          infrastructure.
         </p>
       </div>
 
+      <figure class="figure figure-main figure-wide">
+        <a class="figure-frame" href="/research/runtime-society/assets/21.png"
+           data-lightbox aria-label="Open diagram — Runtime OS to Runtime Society to Intelligence Field">
+          <img src="/research/runtime-society/assets/21.png"
+               alt="The arc ahead: Runtime OS coordinates AI, humans, rules, and organizations within a single system through Event, Signal, State, Boundary, Decision, Coordination, Human Gate, Execution, and Trace; Runtime Society extends that coordination across organizations, regions, and nations; Intelligence Field is where collective intelligence emerges and endures."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The arc ahead — Runtime OS → Runtime Society → Intelligence Field</figcaption>
+      </figure>
+
       <div class="two-col">
         <div class="col-text">
-          <h3>What Becomes Runtime</h3>
+          <h3>From Runtime OS to Runtime Society</h3>
           <p>
-            Runtime Society refers to a social architecture
-            where rules, decisions, and coordination are no
-            longer fully fixed in advance.
+            <strong>Runtime OS</strong> is the runtime architecture
+            <em>within a single AI-enabled system</em> — the
+            execution layer inside one organization's boundary that
+            observes signals, applies boundaries, escalates to
+            humans, and records traces.
           </p>
-          <p>Instead, they are adjusted dynamically through:</p>
+          <p>
+            <strong>Runtime Society</strong> is what happens
+            <em>between</em> systems — how many Runtime OS instances,
+            run by different organizations and institutions under
+            different rules, interact across society. It does not
+            replace the single-system runtime; it connects them by
+            sharing:
+          </p>
           <ul>
-            <li>context</li>
-            <li>feedback</li>
-            <li>AI systems</li>
-            <li>human review</li>
-            <li>institutional boundaries</li>
-            <li>governance layers</li>
+            <li>signals</li>
+            <li>boundaries</li>
+            <li>trust</li>
             <li>decision traces</li>
-            <li>distributed coordination</li>
+            <li>coordination state</li>
           </ul>
+          <p>
+            The future of AI is not one giant model, nor one giant
+            runtime. It is a world of interconnected Runtime OS
+            instances.
+          </p>
         </div>
 
         <div class="col-text">
-          <h3>Governance as a Coordination System</h3>
+          <h3>The Socialization of Operating Systems</h3>
           <p>
-            In a runtime society, governance is no longer
-            primarily a static document. It is a continuously
-            operating system — sensing signals, applying
-            boundaries, and routing decisions through human
-            and machine review.
+            Operating systems have always existed to coordinate
+            competing actors safely. What they manage has widened
+            with each generation — from computation, to physical
+            control, to decision-making itself.
           </p>
 
           <code class="quote">
-            In a Runtime Society,
-            governance becomes less like
-            a static rulebook
-            and more like a continuously
-            operating coordination system.
+            Desktop OS managed computation.
+            Embedded OS managed real-world control.
+            Runtime OS manages decision coordination.
+            Runtime Society extends the operating target
+            to intelligence, organizations,
+            and society itself.
           </code>
 
           <p>
-            This inquiry treats society itself as a runtime —
-            where rules, traces, and feedback compose the
-            executable substrate of collective decision-making.
+            Runtime OS brought this coordination to a single
+            AI-enabled system. Runtime Society is its socialization
+            — the point at which the managed substrate is no longer
+            one machine, or one runtime, but coordinated
+            intelligence across organizations and institutions.
           </p>
         </div>
       </div>
@@ -315,74 +436,86 @@
         <div class="section-label">02 / Why It Matters</div>
         <h2 id="why-h">Why It Matters</h2>
         <p class="section-lede">
-          Modern society no longer runs only on fixed rules.
-          It runs on signals, contexts, and adaptive
-          coordination — and most institutions are not yet
-          designed for that mode of operation.
+          AI is moving from generating information to executing
+          decisions in the real world — and no intelligent system
+          executes alone. Coordination, not raw capability,
+          becomes the binding constraint.
         </p>
       </div>
 
+      <figure class="figure figure-standard figure-wide">
+        <a class="figure-frame" href="/research/runtime-society/assets/02.png"
+           data-lightbox aria-label="Open diagram — AI is evolving into an execution system">
+          <img src="/research/runtime-society/assets/02.png"
+               alt="AI is no longer just a chatbot: it calls APIs, executes workflows, coordinates with agents, and operates external systems — evolving from an information generator into an execution system."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">From information generation to execution</figcaption>
+      </figure>
+
       <div class="two-col">
         <div class="col-text">
-          <h3>What Modern Society Already Is</h3>
-          <p>Modern society is increasingly shaped by:</p>
-          <ul>
-            <li>AI agents</li>
-            <li>automated workflows</li>
-            <li>public algorithms</li>
-            <li>platform governance</li>
-            <li>real-time data</li>
-            <li>multi-agent coordination</li>
-            <li>dynamic risk</li>
-            <li>institutional complexity</li>
-          </ul>
-
-          <p>Traditional governance assumes a linear flow:</p>
-
-          <code class="quote">
-            Rule → Application → Outcome
-          </code>
-
+          <h3>AI Does Not Operate Alone</h3>
           <p>
-            But this frame no longer matches how decisions
-            actually move through institutions, platforms,
-            and AI systems.
+            As AI enters agents, multi-agent systems, autonomous
+            workflows, and organizational operations, it must
+            coordinate with humans, organizations, laws, safety
+            standards, business workflows, external systems, and
+            other AI.
+          </p>
+          <p>
+            Multiple intelligent systems already coexist — each
+            under different rules, permissions, responsibilities,
+            and runtimes:
+          </p>
+          <ul>
+            <li>industrial AI</li>
+            <li>medical AI</li>
+            <li>logistics AI</li>
+            <li>government AI</li>
+            <li>personal agents</li>
+            <li>enterprise agents</li>
+          </ul>
+          <p>
+            The decisive question is not whether one model is
+            intelligent, but whether these runtimes can coordinate.
           </p>
         </div>
 
         <div class="col-text">
-          <h3>What Runtime Society Requires</h3>
-          <p>A runtime society requires a deeper sequence:</p>
+          <h3>Coordinating Intelligence, Not Just Building It</h3>
+          <p>
+            The challenge of the AI era is not making models
+            smarter. It is making intelligence safely executable
+            across boundaries. Inside a single Runtime OS, that work
+            reduces to one loop:
+          </p>
 
           <code class="quote">
-            Event
-            ↓
-            Signal
-            ↓
-            Context
-            ↓
-            Boundary
-            ↓
-            Decision Runtime
-            ↓
-            Human Review
-            ↓
-            Execution
-            ↓
-            Trace
-            ↓
-            Feedback
+            # the loop inside a single Runtime OS
+            while true:
+              signal   = observe()
+              decision = runtime(signal)
+              if boundary_ok(decision):
+                  execute()
+              else:
+                  escalate_to_human()
+              trace()
           </code>
 
-          <code class="quote">
-            The key issue is not only
-            whether AI is correct.
+          <p>
+            Runtime Society is what happens when this loop must run
+            across many such systems at once. The open questions are
+            no longer internal — they are coordination questions
+            between runtimes:
+          </p>
 
-            The key issue is how societies
-            coordinate decisions
-            under uncertainty,
-            change,
-            and distributed responsibility.
+          <code class="quote">
+            How is a Signal interpreted?
+            How far may automation proceed?
+            Where do Human Gates intervene?
+            Which runtime receives Escalation?
+            Which Traces require audit?
           </code>
         </div>
       </div>
@@ -396,147 +529,108 @@
         <div class="section-label">03 / Core Structure</div>
         <h2 id="core-h">Core Structure</h2>
         <p class="section-lede">
-          Eight structural components that together compose
-          a runtime society — from event-driven sensing to
-          traceable, adaptive coordination.
+          Runtime Society extends the lineage of distributed
+          systems. Each generation shared a different layer — and
+          Runtime Society shares the layer above legitimacy:
+          meaning-aware coordination between many Runtime OS
+          instances.
         </p>
       </div>
 
       <div class="concept-grid cols-4">
         <div class="concept">
           <div class="idx">i</div>
-          <h3>Event-Driven Society</h3>
-          <p>A society that operates on events and signals rather than only on scheduled or codified procedure.</p>
+          <h3>Internet — Shared Communication</h3>
+          <p>Independent computers kept their autonomy but agreed on protocols — TCP/IP, addressing, routing. Connection without centralization.</p>
         </div>
 
         <div class="concept">
           <div class="idx">ii</div>
-          <h3>Contextual Rules</h3>
-          <p>Rules whose application depends on the situation — sensitive to actors, scope, history, and consequence.</p>
+          <h3>Cloud / Kubernetes — Shared Execution State</h3>
+          <p>Coordination moved from connection to execution: workloads, service discovery, policy, and orchestration state shared across nodes.</p>
         </div>
 
         <div class="concept">
           <div class="idx">iii</div>
-          <h3>Decision Runtime</h3>
-          <p>The executable layer where signals, boundaries, and reviews resolve into decisions in real time.</p>
+          <h3>Web3 — Shared Legitimacy</h3>
+          <p>Participants share ledgers, consensus, and transaction history — agreeing on what is valid without a central authority.</p>
         </div>
 
         <div class="concept">
           <div class="idx">iv</div>
-          <h3>Boundary Systems</h3>
-          <p>Safety-critical thresholds, escalation lines, and refusal structures that define what must not be crossed.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">v</div>
-          <h3>Human Review</h3>
-          <p>Human judgment as a first-class step in the runtime — not a fallback, but a structural participant.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">vi</div>
-          <h3>Institutional Feedback</h3>
-          <p>Feedback loops that allow institutions to sense their own behavior and adjust over time.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">vii</div>
-          <h3>Traceable Governance</h3>
-          <p>Governance whose decisions leave traces — readable, auditable, and reviewable after the fact.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">viii</div>
-          <h3>Adaptive Coordination</h3>
-          <p>Coordination across actors that adjusts to context — a continuous substrate, not a one-time settlement.</p>
+          <h3>Runtime Society — Shared Coordination</h3>
+          <p>Many Runtime OS instances share meaning-aware execution state. The primitives inside each runtime — signals, boundaries, trust, traces — become the common layer between systems.</p>
         </div>
       </div>
 
-      <!-- ====== Runtime Society Structure (layered diagram) ====== -->
-      <div class="field-runtime" aria-label="Runtime Society Structure">
-        <div class="field-runtime-label">Layer Diagram</div>
-        <h3 class="field-runtime-title">Runtime Society Structure</h3>
+      <figure class="figure figure-field figure-wide">
+        <a class="figure-frame" href="/research/runtime-society/assets/18.png"
+           data-lightbox aria-label="Open diagram — the Runtime OS execution architecture">
+          <img src="/research/runtime-society/assets/18.png"
+               alt="The Runtime OS execution architecture as a nine-stage loop within a single system: Event, Signal, State, Boundary, Decision, Coordination, Human Gate, Execution, and Trace — the foundation for autonomous operations that connect the real world and AI through trustworthy, reliable, and accountable outcomes."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Runtime OS — the execution architecture within a single system</figcaption>
+      </figure>
+
+      <!-- ====== What Runtime Society Shares (layered diagram) ====== -->
+      <div class="field-runtime" aria-label="What Runtime Society Shares">
+        <div class="field-runtime-label">Shared Layers · Abstractions of the Runtime OS Architecture</div>
+        <h3 class="field-runtime-title">What Runtime Society Shares</h3>
+
+        <p class="field-runtime-intro">
+          These layers are not new mechanisms that replace Runtime
+          OS. Each is the <em>shared abstraction</em> of a primitive
+          that already exists inside a single Runtime OS — lifted to
+          the level where independent runtimes can exchange and
+          coordinate it. Runtime Society is the inter-runtime
+          projection of the same execution architecture.
+        </p>
 
         <ol class="field-layers" role="list">
           <li class="field-layer">
             <span class="layer-idx">L1</span>
             <span class="layer-body">
-              <span class="layer-name">Event</span>
-              <span class="layer-note">A change in the world — an act, a transaction, a request, or an environmental shift.</span>
-            </span>
-            <span class="layer-tag">event</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L2</span>
-            <span class="layer-body">
               <span class="layer-name">Signal</span>
-              <span class="layer-note">The legible form of the event — data, evidence, telemetry, or testimony entering the runtime.</span>
+              <span class="layer-note">Inside a Runtime OS, the observed input to the decision loop. Shared, it lets one runtime's observations become legible to others — an observation, not yet a decision.</span>
             </span>
             <span class="layer-tag">signal</span>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
           <li class="field-layer">
-            <span class="layer-idx">L3</span>
-            <span class="layer-body">
-              <span class="layer-name">Context</span>
-              <span class="layer-note">The surrounding situation — actors, scope, history, and consequence — that shapes interpretation.</span>
-            </span>
-            <span class="layer-tag">context</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L4</span>
+            <span class="layer-idx">L2</span>
             <span class="layer-body">
               <span class="layer-name">Boundary</span>
-              <span class="layer-note">Thresholds and escalation lines — what must not be crossed, and where authority must be raised.</span>
+              <span class="layer-note">Inside a Runtime OS, the limit beyond which autonomous execution should not proceed. Shared, boundaries that differ across runtimes can be reconciled — and escalation routed to the right authority.</span>
             </span>
             <span class="layer-tag">boundary</span>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
           <li class="field-layer">
-            <span class="layer-idx">L5</span>
+            <span class="layer-idx">L3</span>
             <span class="layer-body">
-              <span class="layer-name">Decision Runtime</span>
-              <span class="layer-note">The executable layer where signals, boundaries, and rules resolve into a candidate decision.</span>
+              <span class="layer-name">Trust</span>
+              <span class="layer-note">Inside a Runtime OS, how much authority a component is granted. Shared, it answers the cross-runtime question: not "is it intelligent?" but "how far can another runtime safely be entrusted?"</span>
             </span>
-            <span class="layer-tag">runtime</span>
+            <span class="layer-tag">trust</span>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
           <li class="field-layer">
-            <span class="layer-idx">L6</span>
+            <span class="layer-idx">L4</span>
             <span class="layer-body">
-              <span class="layer-name">Human Review</span>
-              <span class="layer-note">Human judgment as a structural step — confirming, refusing, or reshaping the decision.</span>
-            </span>
-            <span class="layer-tag">review</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L7</span>
-            <span class="layer-body">
-              <span class="layer-name">Execution</span>
-              <span class="layer-note">The committed action — the point at which the decision becomes a fact in the world.</span>
-            </span>
-            <span class="layer-tag">execution</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L8</span>
-            <span class="layer-body">
-              <span class="layer-name">Trace</span>
-              <span class="layer-note">The durable record of why and how the decision happened — the substrate of accountability.</span>
+              <span class="layer-name">Decision Trace</span>
+              <span class="layer-note">Inside a Runtime OS, the record of how a response emerged. Shared, traces become jointly auditable across organizations — the memory of learnable, cross-runtime coordination.</span>
             </span>
             <span class="layer-tag">trace</span>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
           <li class="field-layer">
-            <span class="layer-idx">L9</span>
+            <span class="layer-idx">L5</span>
             <span class="layer-body">
-              <span class="layer-name">Feedback</span>
-              <span class="layer-note">The loop back into rules, boundaries, and runtime — society learning from its own decisions.</span>
+              <span class="layer-name">Coordination State</span>
+              <span class="layer-note">No single Runtime OS holds this. It is the layer Runtime Society adds — the live, shared state of how many runtimes, agents, humans, and organizations are interacting now.</span>
             </span>
-            <span class="layer-tag">feedback</span>
+            <span class="layer-tag">coordination</span>
           </li>
         </ol>
       </div>
@@ -550,9 +644,10 @@
         <div class="section-label">04 / Related Essays</div>
         <h2 id="essays-h">Reading Around Runtime Society</h2>
         <p class="section-lede">
-          Forthcoming essays that extend this inquiry into
-          governance, institutions, and the future of social
-          decision infrastructure.
+          Essays that trace the path from Runtime OS to Runtime
+          Society — how operating systems evolve into coordination
+          runtimes, and how those runtimes interconnect into shared
+          social infrastructure.
         </p>
       </div>
 
@@ -638,7 +733,7 @@
           <div class="book-body">
             <div class="book-title">AI is not prediction. It is decision.</div>
             <div class="book-subtitle">— Decision Trace Model —</div>
-            <p>A frame for treating AI as a decision system — the conceptual ground from which runtime society inherits its sense of traceable, boundary-aware decision flow.</p>
+            <p>The origin of the sequence: treating AI output as a signal, not a decision. Runtime Society inherits its traceable, boundary-aware decision flow and extends it across many runtimes.</p>
             <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
           </div>
           <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
@@ -650,7 +745,7 @@
           <div class="book-body">
             <div class="book-title">Intelligence as Relationship</div>
             <div class="book-subtitle">— Intelligence Field —</div>
-            <p>A foundational text on relational intelligence and the field within which institutions, agents, and humans coordinate as a runtime.</p>
+            <p>The downstream horizon of the sequence: once runtimes coordinate at social scale, intelligence emerges as a relational field rather than as any single system.</p>
             <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener">Available on Kindle →</a>
           </div>
           <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
@@ -691,12 +786,14 @@
         <div class="oss-meta">
           <h3>Runtime components for social coordination</h3>
           <p>
-            The OSS ecosystem provides primitives that map
-            onto the runtime society stack: decision runtimes,
-            traceable decision records, boundary and escalation
-            structures, ledgered memory, and view layers for
-            inspecting coordination across institutions, agents,
-            and humans.
+            The OSS ecosystem provides primitives that map onto
+            the shared layers of Runtime Society: decision
+            runtimes, signal routing, boundary and escalation
+            structures, trust and traceable decision records,
+            ledgered memory, and view layers for inspecting
+            coordination state across runtimes, agents, and humans.
+            Because runtime becomes social decision infrastructure,
+            it must stay open, auditable, and reproducible.
           </p>
 
           <a class="oss-link" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">
@@ -724,37 +821,54 @@
         <div class="section-label">07 / Diagrams</div>
         <h2 id="diagrams-h">Architecture Archive</h2>
         <p class="section-lede">
-          A growing archive of architectural sketches for
-          runtime society, governance runtime layers, and
-          social decision infrastructure.
+          A reference set of the core runtime mechanisms named
+          throughout this inquiry — the boundary, human gate,
+          decision trace, and coordination structures that exist
+          inside a single Runtime OS and become shared layers across
+          Runtime Society.
         </p>
       </div>
 
       <div class="diagrams">
         <div class="diagram-card">
           <div class="kicker">Diagram 01</div>
-          <h3>Runtime Society Structure</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <h3>Boundary</h3>
+          <a class="diagram-frame has-img" href="/research/runtime-society/assets/12.png"
+             data-lightbox aria-label="Open diagram — Boundary">
+            <img src="/research/runtime-society/assets/12.png"
+                 alt="Boundary — the legal, safety, ethical, authority, and organizational limits that AI must never cross; protecting boundaries is the foundation of trustworthy AI."
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 02</div>
-          <h3>Governance Runtime Layer</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <h3>Human Gate</h3>
+          <a class="diagram-frame has-img" href="/research/runtime-society/assets/15.png"
+             data-lightbox aria-label="Open diagram — Human Gate">
+            <img src="/research/runtime-society/assets/15.png"
+                 alt="Human Gate — AI does not execute everything automatically; high-risk judgments are routed to human verification and approval before execution, keeping the final decision with people."
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 03</div>
-          <h3>Boundary and Human Review System</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <h3>Decision Trace</h3>
+          <a class="diagram-frame has-img" href="/research/runtime-society/assets/17.png"
+             data-lightbox aria-label="Open diagram — Decision Trace">
+            <img src="/research/runtime-society/assets/17.png"
+                 alt="Decision Trace — a sequential record of every decision capturing why, who, when, and the result, providing the foundation for transparency, accountability, and continuous improvement."
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 04</div>
-          <h3>Institutional Feedback Loop</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 05</div>
-          <h3>Social Decision Trace Architecture</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <h3>Coordination</h3>
+          <a class="diagram-frame has-img" href="/research/runtime-society/assets/14.png"
+             data-lightbox aria-label="Open diagram — Coordination">
+            <img src="/research/runtime-society/assets/14.png"
+                 alt="Coordination — the runtime connects multiple agents, humans, and rules into a coordinated whole with integration and shared purpose."
+                 loading="lazy">
+          </a>
         </div>
       </div>
     </div>
@@ -764,14 +878,15 @@
   <section class="research-section closing" id="closing" aria-labelledby="closing-h">
     <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
     <blockquote>
-      <span>A runtime society is not governed</span>
-      <span>only by fixed rules.</span>
-      <span>It is coordinated through</span>
-      <span>context,</span>
-      <span>boundaries,</span>
-      <span>human review,</span>
-      <span>feedback,</span>
-      <span>and traceable decisions.</span>
+      <span>A Runtime OS coordinates one system.</span>
+      <span>Runtime Society coordinates many —</span>
+      <span>the socialization of the operating system.</span>
+      <span>Where earlier systems shared communication,</span>
+      <span>execution, and legitimacy,</span>
+      <span>Runtime Society shares</span>
+      <span>meaning-aware coordinated execution</span>
+      <span>across AI, humans, organizations,</span>
+      <span>and governance.</span>
     </blockquote>
     <div class="closing-mark">Chinoba.org</div>
   </section>
@@ -783,11 +898,22 @@
         <div class="section-label">+ / Related Research</div>
         <h2 id="related-h">Other Lines of Inquiry</h2>
         <p class="section-lede">
-          Runtime Society connects outward to neighboring threads
-          across the Chinoba field — from decision traces to
-          algorithmic governance and distributed coordination.
+          Runtime Society sits within a larger research sequence —
+          Decision Trace Model → Trust Infrastructure → Knowledge
+          Flow → Runtime OS → Runtime Society → Intelligence Field.
+          These are its nearest neighbors.
         </p>
       </div>
+
+      <figure class="figure figure-standard figure-wide">
+        <a class="figure-frame" href="/research/runtime-society/assets/20.png"
+           data-lightbox aria-label="Open diagram — the Chinoba research sequence">
+          <img src="/research/runtime-society/assets/20.png"
+               alt="The research sequence leading into Runtime Society: Decision Trace Model records every decision; Trust Infrastructure builds verifiable trust through verification, guarantees, evaluation, and review; Knowledge Infrastructure connects and grows knowledge into distributed intelligence; and Runtime OS executes safely across AI, people, rules, and organizations."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The sequence leading into Runtime Society</figcaption>
+      </figure>
 
       <div class="related-research">
         <a href="/research/decision-trace-model" data-slug="decision-trace-model">
@@ -795,9 +921,14 @@
           <span class="related-name">Decision Trace Model</span>
           <span class="related-status">Available</span>
         </a>
-        <a href="/research/public-ai-algorithmic-governance" data-slug="public-ai-algorithmic-governance">
-          <span class="related-label">09 / Inquiry</span>
-          <span class="related-name">Public AI &amp; Algorithmic Governance</span>
+        <a href="/research/trust-infrastructure" data-slug="trust-infrastructure">
+          <span class="related-label">04 / Inquiry</span>
+          <span class="related-name">Trust Infrastructure</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/knowledge-flow" data-slug="knowledge-flow">
+          <span class="related-label">03 / Inquiry</span>
+          <span class="related-name">Knowledge Flow</span>
           <span class="related-status">Available</span>
         </a>
         <a href="/research/governance-boundary-systems" data-slug="governance-boundary-systems">
@@ -805,24 +936,14 @@
           <span class="related-name">Governance &amp; Boundary Systems</span>
           <span class="related-status">Available</span>
         </a>
-        <a href="/#research" data-slug="trust-infrastructure">
-          <span class="related-label">04 / Inquiry</span>
-          <span class="related-name">Trust Infrastructure</span>
-          <span class="related-status">Forthcoming</span>
-        </a>
-        <a href="/#research" data-slug="ai-coordination">
-          <span class="related-label">05 / Inquiry</span>
-          <span class="related-name">AI Coordination</span>
-          <span class="related-status">Forthcoming</span>
-        </a>
-        <a href="/#research" data-slug="multi-agent-systems">
+        <a href="/research/multi-agent-systems" data-slug="multi-agent-systems">
           <span class="related-label">06 / Inquiry</span>
           <span class="related-name">Multi-Agent Systems</span>
-          <span class="related-status">Forthcoming</span>
+          <span class="related-status">Available</span>
         </a>
         <a href="/#research" data-slug="intelligence-as-relationship">
           <span class="related-label">∞ / Inquiry</span>
-          <span class="related-name">Intelligence as Relationship</span>
+          <span class="related-name">Intelligence Field</span>
           <span class="related-status">Forthcoming</span>
         </a>
       </div>
@@ -851,6 +972,50 @@
       </div>
     </div>
   </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button type="button" class="lightbox-close" aria-label="Close preview">Close</button>
+    <img alt="">
+  </div>
+
+  <script>
+    (function () {
+      var lb = document.getElementById('lightbox');
+      if (!lb) return;
+      var lbImg = lb.querySelector('img');
+      var lbClose = lb.querySelector('.lightbox-close');
+
+      function open(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('is-open');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          var img = el.querySelector('img');
+          open(el.getAttribute('href'), img ? img.alt : '');
+        });
+      });
+
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target === lbImg) close();
+      });
+      lbClose.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
+      });
+    })();
+  </script>
 
 </body>
 </html>
