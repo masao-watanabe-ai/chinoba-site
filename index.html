@@ -1038,6 +1038,44 @@
       text-transform: uppercase;
       color: var(--fg-faint);
     }
+
+    /* ---------- Explore Chinoba (static intro section) ---------- */
+    .explore-hero {
+      width: 100%;
+      margin: 0 0 clamp(40px, 7vh, 64px);
+      display: flex;
+      justify-content: center;
+    }
+
+    .explore-hero img {
+      display: block;
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      border-radius: 12px;
+      background: var(--bg-elev);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45),
+                  0 18px 52px rgba(0, 0, 0, 0.42);
+    }
+
+    .explore-links { margin: 0; }
+
+    .explore-link {
+      display: block;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 15px;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+      transition: color 180ms ease;
+    }
+
+    .explore-link:last-child { border-bottom: none; }
+
+    .explore-link:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
   </style>
 </head>
 
@@ -1108,6 +1146,62 @@
       <figure class="explain-figure">
         <img src="assets/explain/06.png" alt="Chinoba" loading="lazy">
       </figure>
+    </div>
+  </section>
+
+  <!-- ============ EXPLORE CHINOBA ============ -->
+  <section id="explore-chinoba" aria-labelledby="explore-chinoba-label">
+    <figure class="explore-hero">
+      <img src="assets/chinoba/07.png" alt="Chinoba — intelligence as relationships between AI, humans, organizations, trust, knowledge, and society" loading="lazy">
+    </figure>
+
+    <div class="section-head">
+      <h2 id="explore-chinoba-label">Explore Chinoba</h2>
+      <p class="section-description">
+        Learn about Chinoba through introductory videos and books exploring
+        intelligence as relationships between AI, humans, organizations,
+        trust, knowledge, and society.
+      </p>
+    </div>
+
+    <div class="output-section">
+      <div class="block">
+        <div class="block-title">
+          <span class="glyph">📺</span>
+          <h3>Watch on YouTube</h3>
+        </div>
+        <p class="block-desc">Start with a short introduction to the Chinoba research initiative.</p>
+
+        <div class="books-group-label">English</div>
+        <div class="explore-links">
+          <a class="explore-link" href="https://youtu.be/lj5AuW_aNOU" target="_blank" rel="noopener noreferrer">What Is Chinoba? Building Intelligence Fields for the AI Era →</a>
+        </div>
+
+        <div class="books-group-label">Japanese</div>
+        <div class="explore-links">
+          <a class="explore-link" href="https://youtu.be/sGBA7i_LHdQ" target="_blank" rel="noopener noreferrer">Chinobaとは何か ― AI時代の知能・信頼・意思決定を探究する研究プロジェクト →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="output-section">
+      <div class="block">
+        <div class="block-title">
+          <span class="glyph">📚</span>
+          <h3>Related Books</h3>
+        </div>
+        <p class="block-desc">Explore the complete ideas behind Intelligence as Relationship in book form.</p>
+
+        <div class="books-group-label">English Edition</div>
+        <div class="explore-links">
+          <a class="explore-link" href="https://amzn.to/44zvEek" target="_blank" rel="noopener noreferrer">INTELLIGENCE FIELD: Intelligence as Relationship →</a>
+        </div>
+
+        <div class="books-group-label">Japanese Edition</div>
+        <div class="explore-links">
+          <a class="explore-link" href="https://amzn.to/4w4r1Vi" target="_blank" rel="noopener noreferrer">知能場 — Chinoba: Intelligence as Relationship →</a>
+        </div>
+      </div>
     </div>
   </section>
 
