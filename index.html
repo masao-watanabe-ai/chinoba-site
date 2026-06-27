@@ -45,33 +45,11 @@
 
     p { margin: 0 0 20px; }
 
-    /* ---------- Masthead (Hero) ---------- */
+    /* ---------- Masthead ---------- */
     .masthead {
-      display: flex;
-      align-items: center;
-      gap: clamp(32px, 5vw, 56px);
       padding-bottom: 56px;
       border-bottom: 1px solid var(--line);
       margin-bottom: 64px;
-    }
-
-    .hero-copy {
-      flex: 1 1 52%;
-      min-width: 0;
-    }
-
-    .hero-figure {
-      flex: 0 1 47%;
-      margin: 0;
-      align-self: center;
-    }
-
-    .hero-figure img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border: 1px solid var(--line);
-      border-radius: 6px;
     }
 
     .logo {
@@ -82,39 +60,6 @@
       margin: 0 0 36px;
       opacity: 0.92;
       filter: brightness(0.96);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 22px;
-      font-size: 14px;
-      letter-spacing: 0.4px;
-      border: 1px solid var(--line-strong);
-      border-radius: 4px;
-      color: var(--fg);
-      transition: border-color 200ms ease, color 200ms ease, background 200ms ease;
-    }
-    .btn:hover {
-      text-decoration: none;
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-    .btn-primary {
-      border-color: var(--accent);
-      color: var(--bg);
-      background: var(--accent);
-    }
-    .btn-primary:hover {
-      color: var(--bg);
-      background: #9ec8ff;
-      border-color: #9ec8ff;
     }
 
     .eyebrow {
@@ -819,16 +764,6 @@
     }
 
     /* ---------- Responsive ---------- */
-    @media (max-width: 768px) {
-      .masthead {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 40px;
-      }
-      .hero-figure { flex-basis: auto; align-self: stretch; }
-      .hero-figure img { max-width: 540px; }
-    }
-
     @media (max-width: 640px) {
       body { padding: 56px 20px 40px; }
       h1 { font-size: 40px; }
@@ -850,14 +785,7 @@
         width: 116px;
         justify-self: center;
       }
-      .masthead {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 36px;
-        padding-bottom: 40px;
-        margin-bottom: 48px;
-      }
-      .hero-figure { flex-basis: auto; }
+      .masthead { padding-bottom: 40px; margin-bottom: 48px; }
       section { margin-bottom: 72px; }
 
       .explain { margin-bottom: 72px; }
@@ -1110,121 +1038,30 @@
       text-transform: uppercase;
       color: var(--fg-faint);
     }
-
-    /* ---------- Explore Chinoba ---------- */
-    .research-section {
-      margin: 0 0 96px;
-    }
-    .research-section .section-lede {
-      color: var(--fg-mute);
-      max-width: 640px;
-      margin: 0;
-      font-size: 16px;
-      line-height: 1.8;
-    }
-
-    .explore-figure {
-      margin: 0 0 36px;
-      border: 1px solid var(--line);
-      background: var(--bg-elev);
-      border-radius: 6px;
-      overflow: hidden;
-    }
-    .explore-figure img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .essays {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-    .essay {
-      background: var(--bg);
-      padding: 26px 24px 28px;
-      display: flex;
-      flex-direction: column;
-      min-height: 160px;
-      color: inherit;
-    }
-    .essay h3 {
-      font-size: 17px;
-      margin: 0 0 8px;
-      font-weight: 600;
-      color: var(--fg);
-      letter-spacing: 0.2px;
-      line-height: 1.4;
-    }
-    .essay p {
-      color: var(--fg-mute);
-      font-size: 14px;
-      line-height: 1.7;
-      margin: 0;
-    }
-    .theme-links {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .theme-links .theme-lang {
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--fg-faint);
-      margin-top: 12px;
-    }
-    .theme-links .theme-lang:first-child {
-      margin-top: 0;
-    }
-    .theme-links a {
-      font-size: 13px;
-      color: var(--accent);
-      letter-spacing: 0.3px;
-      line-height: 1.55;
-    }
-
-    @media (max-width: 640px) {
-      .essays {
-        grid-template-columns: 1fr;
-      }
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- ============ MASTHEAD (HERO) ============ -->
+  <!-- ============ MASTHEAD ============ -->
   <header class="masthead">
-    <div class="hero-copy">
-      <img src="assets/chinoba-logo.png" alt="Chinoba" class="logo">
-      <div class="eyebrow">Research Initiative</div>
-      <h1>Chinoba</h1>
-      <p class="tagline">Intelligence as Relationship</p>
+    <img src="assets/chinoba-logo.png" alt="Chinoba" class="logo">
+    <div class="eyebrow">Research Initiative</div>
+    <h1>Chinoba</h1>
+    <p class="tagline">Intelligence as Relationship</p>
 
-      <div class="intro">
-        <p>
-          Chinoba is a research initiative exploring intelligence
-          as relationships between AI, humans, organizations,
-          protocols, and society.
-        </p>
-      </div>
-
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#research">Explore Research</a>
-        <a class="btn" href="https://youtu.be/lj5AuW_aNOU" target="_blank" rel="noopener noreferrer">Watch Videos</a>
-      </div>
+    <div class="intro">
+      <p>
+        Chinoba is a research initiative exploring intelligence
+        as relationships between AI, humans, organizations,
+        protocols, and society.
+      </p>
+      <p class="muted">
+        A platform for runtime experimentation, decision
+        infrastructure, and structured exploration of intelligence
+        as a relational system.
+      </p>
     </div>
-
-    <figure class="hero-figure">
-      <img src="assets/chinoba/07.png"
-           alt="Intelligence is not a model. Intelligence is a relationship — humans, AI, knowledge, trust, organizations, and the real world connected as a relational field."
-           width="1536" height="1024">
-    </figure>
   </header>
 
   <!-- ============ WHY CHINOBA EXISTS (explain flow) ============ -->
@@ -1271,50 +1108,6 @@
       <figure class="explain-figure">
         <img src="assets/explain/06.png" alt="Chinoba" loading="lazy">
       </figure>
-    </div>
-  </section>
-
-  <!-- ============ EXPLORE CHINOBA ============ -->
-  <section class="research-section" id="explore-chinoba" aria-labelledby="explore-chinoba-h">
-    <div class="section-head">
-      <div class="section-label">Explore</div>
-      <h2 id="explore-chinoba-h">Explore Chinoba</h2>
-    </div>
-
-    <figure class="explore-figure">
-      <img src="assets/chinoba/06.png"
-           alt="This is Chinoba — exploring and building the foundation for Intelligence as Relationship across research, prototypes, knowledge, community, and impact."
-           loading="lazy">
-    </figure>
-
-    <p class="section-lede">
-      Discover the ideas behind Chinoba through visual essays, introductory
-      videos, and books exploring intelligence as relationships between AI,
-      humans, organizations, trust, knowledge, and society.
-    </p>
-
-    <div class="essays">
-      <div class="essay">
-        <h3>📺 Watch on YouTube</h3>
-        <p>Visual introductions to Chinoba, Intelligence as Relationship, and the future of AI coordination.</p>
-        <div class="theme-links">
-          <div class="theme-lang">English</div>
-          <a href="https://youtu.be/lj5AuW_aNOU" target="_blank" rel="noopener noreferrer">What Is Chinoba? Building Intelligence Fields for the AI Era →</a>
-          <div class="theme-lang">Japanese</div>
-          <a href="https://youtu.be/sGBA7i_LHdQ" target="_blank" rel="noopener noreferrer">Chinobaとは何か ― AI時代の知能・信頼・意思決定を探究する研究プロジェクト →</a>
-        </div>
-      </div>
-
-      <div class="essay">
-        <h3>📚 Related Books</h3>
-        <p>Long-form explorations of Intelligence as Relationship, Runtime Society, Trust, Knowledge, and the emerging architecture of AI coordination.</p>
-        <div class="theme-links">
-          <div class="theme-lang">English Edition</div>
-          <a href="https://amzn.to/44zvEek" target="_blank" rel="noopener noreferrer">INTELLIGENCE FIELD: Intelligence as Relationship →</a>
-          <div class="theme-lang">Japanese Edition</div>
-          <a href="https://amzn.to/4w4r1Vi" target="_blank" rel="noopener noreferrer">知能場 — Chinoba: Intelligence as Relationship →</a>
-        </div>
-      </div>
     </div>
   </section>
 
