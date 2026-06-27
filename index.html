@@ -976,6 +976,134 @@
       color: var(--accent);
       text-decoration: none;
     }
+
+    /* ---------- Watch the Introduction ---------- */
+    .watch-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 56px);
+      align-items: center;
+    }
+
+    .watch-intro .watch-body {
+      min-width: 0;
+    }
+
+    .watch-intro .section-label {
+      margin-bottom: 12px;
+    }
+
+    .watch-intro h2 {
+      font-size: 26px;
+      margin: 0 0 14px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .watch-intro .watch-desc {
+      color: var(--fg-mute);
+      font-size: 16px;
+      line-height: 1.8;
+      margin: 0 0 28px;
+      max-width: 420px;
+    }
+
+    .watch-links { margin: 0; }
+
+    .watch-link {
+      display: block;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 15px;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+      transition: color 180ms ease;
+    }
+
+    .watch-link:last-child { border-bottom: none; }
+
+    .watch-link:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .watch-link .play-glyph {
+      color: var(--fg-faint);
+      margin-right: 10px;
+      font-size: 13px;
+      transition: color 180ms ease;
+    }
+
+    .watch-link:hover .play-glyph { color: var(--accent); }
+
+    /* ---- Thumbnail card ---- */
+    .watch-thumb {
+      position: relative;
+      display: block;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg-elev);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45),
+                  0 18px 52px rgba(0, 0, 0, 0.42);
+      transition: transform 320ms ease, box-shadow 320ms ease;
+    }
+
+    .watch-thumb img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .watch-thumb:hover {
+      transform: scale(1.015);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.55),
+                  0 24px 64px rgba(0, 0, 0, 0.5);
+      text-decoration: none;
+    }
+
+    .watch-thumb .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(11, 11, 11, 0.55);
+      border: 1px solid rgba(245, 245, 245, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 220ms ease, transform 320ms ease;
+    }
+
+    .watch-thumb:hover .play-button {
+      background: rgba(11, 11, 11, 0.75);
+    }
+
+    .watch-thumb .play-button::before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 11px 0 11px 18px;
+      border-color: transparent transparent transparent #f5f5f5;
+      margin-left: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .watch-thumb,
+      .watch-thumb .play-button { transition: none; }
+    }
+
+    @media (max-width: 640px) {
+      .watch-intro {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .watch-intro .watch-desc { max-width: none; }
+    }
   </style>
 </head>
 
@@ -1017,55 +1145,31 @@
     </div>
   </section>
 
-  <!-- ============ EXPLORE CHINOBA ============ -->
-  <section id="explore-chinoba" aria-labelledby="explore-chinoba-label">
-    <div class="section-head">
-      <h2 id="explore-chinoba-label">Explore Chinoba</h2>
-      <p class="section-description">
-        Learn about Chinoba through introductory videos and books exploring
-        intelligence as relationships between AI, humans, organizations,
-        trust, knowledge, and society.
-      </p>
-    </div>
+  <!-- ============ WATCH THE INTRODUCTION ============ -->
+  <section id="watch-introduction" aria-labelledby="watch-introduction-label">
+    <div class="watch-intro">
+      <div class="watch-body">
+        <div class="section-label">Watch the Introduction</div>
+        <h2 id="watch-introduction-label">What Is Chinoba?</h2>
+        <p class="watch-desc">
+          A short introduction to the Chinoba research initiative and the
+          idea of Intelligence as Relationship.
+        </p>
 
-    <div class="output-section">
-      <div class="block">
-        <div class="block-title">
-          <span class="glyph">📺</span>
-          <h3>Watch on YouTube</h3>
-        </div>
-        <p class="block-desc">Start with a short introduction to the Chinoba research initiative.</p>
-
-        <div class="books-group-label">English</div>
-        <div class="explore-links">
-          <a class="explore-link" href="https://youtu.be/lj5AuW_aNOU" target="_blank" rel="noopener noreferrer">What Is Chinoba? Building Intelligence Fields for the AI Era →</a>
-        </div>
-
-        <div class="books-group-label">Japanese</div>
-        <div class="explore-links">
-          <a class="explore-link" href="https://youtu.be/sGBA7i_LHdQ" target="_blank" rel="noopener noreferrer">Chinobaとは何か ― AI時代の知能・信頼・意思決定を探究する研究プロジェクト →</a>
+        <div class="watch-links">
+          <a class="watch-link" href="https://youtu.be/lj5AuW_aNOU" target="_blank" rel="noopener noreferrer">
+            <span class="play-glyph">▶</span>Watch on YouTube (English)
+          </a>
+          <a class="watch-link" href="https://youtu.be/sGBA7i_LHdQ" target="_blank" rel="noopener noreferrer">
+            <span class="play-glyph">▶</span>YouTubeで見る（日本語）
+          </a>
         </div>
       </div>
-    </div>
 
-    <div class="output-section">
-      <div class="block">
-        <div class="block-title">
-          <span class="glyph">📚</span>
-          <h3>Related Books</h3>
-        </div>
-        <p class="block-desc">Explore the complete ideas behind Intelligence as Relationship in book form.</p>
-
-        <div class="books-group-label">English Edition</div>
-        <div class="explore-links">
-          <a class="explore-link" href="https://amzn.to/44zvEek" target="_blank" rel="noopener noreferrer">INTELLIGENCE FIELD: Intelligence as Relationship →</a>
-        </div>
-
-        <div class="books-group-label">Japanese Edition</div>
-        <div class="explore-links">
-          <a class="explore-link" href="https://amzn.to/4w4r1Vi" target="_blank" rel="noopener noreferrer">知能場 — Chinoba: Intelligence as Relationship →</a>
-        </div>
-      </div>
+      <a class="watch-thumb" href="https://youtu.be/lj5AuW_aNOU" target="_blank" rel="noopener noreferrer" aria-label="Watch the Chinoba introduction on YouTube">
+        <img src="https://img.youtube.com/vi/lj5AuW_aNOU/maxresdefault.jpg" alt="What Is Chinoba? — introduction video thumbnail" loading="lazy">
+        <span class="play-button" aria-hidden="true"></span>
+      </a>
     </div>
   </section>
 
