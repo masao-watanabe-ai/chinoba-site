@@ -203,17 +203,23 @@
       position: relative;
       -webkit-font-smoothing: antialiased;
       transition: background 220ms ease, color 220ms ease,
-                  box-shadow 220ms ease;
+                  transform 220ms ease, box-shadow 220ms ease;
     }
 
     .inquiry-item:hover {
-      background: #0f0f0f;
-      color: #ffffff;
+      background: var(--bg-elev);
+      transform: translateY(-2px);
+      box-shadow: 0 0 0 1px var(--line-strong),
+                  0 6px 18px rgba(0, 0, 0, 0.35);
+      z-index: 1;
     }
 
     .inquiry-item:focus-visible {
       outline: none;
-      box-shadow: inset 0 0 0 1px var(--accent);
+      transform: translateY(-2px);
+      box-shadow: inset 0 0 0 1px var(--accent),
+                  0 6px 18px rgba(0, 0, 0, 0.35);
+      z-index: 1;
     }
 
     .inquiry-item .idx {
@@ -232,6 +238,13 @@
 
     .inquiry-item.is-active .idx {
       color: var(--accent);
+    }
+
+    .inquiry-item.is-active:hover,
+    .inquiry-item.is-active:focus-visible {
+      box-shadow: inset 2px 0 0 var(--accent),
+                  0 0 0 1px var(--line-strong),
+                  0 6px 18px rgba(0, 0, 0, 0.35);
     }
 
     .inquiry-panel {
@@ -267,6 +280,11 @@
       .inquiry-item .idx,
       .inquiry-panel-desc {
         transition: none;
+      }
+
+      .inquiry-item:hover,
+      .inquiry-item:focus-visible {
+        transform: none;
       }
     }
 
