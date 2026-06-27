@@ -1815,14 +1815,19 @@
 
   <script>
     (function () {
+      var list = document.querySelector('.inquiry');
       var items = document.querySelectorAll('.inquiry-item');
       var panel = document.getElementById('inquiry-panel');
-      if (!items.length || !panel) return;
+      if (!list || !items.length || !panel) return;
 
       var label = panel.querySelector('.inquiry-panel-label');
       var desc = panel.querySelector('.inquiry-panel-desc');
       var reduced = window.matchMedia &&
                     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Default active item: whichever is marked active at load, else the first.
+      var defaultItem = document.querySelector('.inquiry-item.is-active') || items[0];
+      var switchTimer = null;
 
       function setContent(item) {
         var name = item.querySelector('.inquiry-name');
@@ -1831,25 +1836,56 @@
       }
 
       function activate(item) {
-        if (item.classList.contains('is-active')) return;
+        if (!item || item.classList.contains('is-active')) return;
         items.forEach(function (it) {
           var isActive = it === item;
           it.classList.toggle('is-active', isActive);
           it.setAttribute('aria-expanded', isActive ? 'true' : 'false');
         });
 
+        if (switchTimer) {
+          window.clearTimeout(switchTimer);
+          switchTimer = null;
+        }
+
         if (reduced) {
+          panel.classList.remove('is-switching');
           setContent(item);
           return;
         }
 
         panel.classList.add('is-switching');
-        window.setTimeout(function () {
+        switchTimer = window.setTimeout(function () {
           setContent(item);
           panel.classList.remove('is-switching');
+          switchTimer = null;
         }, 160);
       }
 
+      // Hover and keyboard focus drive the active card together with the
+      // accent indicator and the detail panel (delegated on the grid).
+      list.addEventListener('mouseover', function (e) {
+        var item = e.target.closest('.inquiry-item');
+        if (item) activate(item);
+      });
+
+      list.addEventListener('focusin', function (e) {
+        var item = e.target.closest('.inquiry-item');
+        if (item) activate(item);
+      });
+
+      // Leaving the grid (pointer or keyboard) returns to the default item.
+      list.addEventListener('mouseleave', function () {
+        activate(defaultItem);
+      });
+
+      list.addEventListener('focusout', function (e) {
+        if (!list.contains(e.relatedTarget) && !list.matches(':hover')) {
+          activate(defaultItem);
+        }
+      });
+
+      // Preserve link behavior; activation itself is handled by hover/focus.
       items.forEach(function (item) {
         item.addEventListener('click', function () {
           if (item.dataset.url) {
