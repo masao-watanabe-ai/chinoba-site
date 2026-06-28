@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<!--
+  ===================================================================
+  CHINOBA RESEARCH PAGE TEMPLATE
+  ===================================================================
+  Canonical editorial template, extracted from
+  /research/governance-boundary-systems/ (the reference page).
+
+  HOW TO USE
+  1. Copy this directory to /research/<your-slug>/.
+  2. Replace every {{TOKEN}} and every block marked "EDITORIAL CONTENT".
+  3. Keep all CORE sections. Keep the THEMATIC sections you need,
+     delete the rest, then renumber section-labels 01..NN in order.
+  4. Drop diagrams into ./assets/ as 01.png, 02.png, …
+  5. Read TEMPLATE.md in this folder for the full rules
+     (section order, figure placement, typography rhythm, style).
+
+  RULE OF THUMB: replace content, never the architecture.
+  ===================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- {{TITLE}} = research line name. Keep the " — Chinoba" suffix. -->
+  <title>{{TITLE}} — Chinoba</title>
+  <!-- {{META_DESCRIPTION}} = one sentence; the page's thesis, no marketing. -->
+  <meta name="description" content="{{META_DESCRIPTION}}">
+
+  <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
+  <link rel="stylesheet" href="/assets/research.css">
+
+  <!--
+    PAGE-SPECIFIC CSS — shared across every research page; do NOT edit.
+    These rules support the canonical components (4-col concept grid,
+    coming-soon essays, is-diagram quote chains, the closing positioning
+    ladder, the diagram archive cards, and the field-runtime layer
+    diagram). Everything else lives in /assets/research.css.
+  -->
+  <style>
+    /* ---------- Page-specific overrides ---------- */
+    .concept-grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    /* Essay coming-soon variant */
+    .essay.is-coming-soon {
+      cursor: default;
+    }
+    .essay.is-coming-soon:hover {
+      background: var(--bg);
+    }
+    .essay .essay-meta.is-coming-soon {
+      color: var(--fg-faint);
+    }
+    .essay .essay-meta.is-coming-soon::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--fg-faint);
+      margin-right: 8px;
+      vertical-align: middle;
+      transform: translateY(-1px);
+    }
+
+    /* ---------- Explore This Theme ---------- */
+    .theme-links {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .theme-links .theme-lang {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child {
+      margin-top: 0;
+    }
+    .theme-links a {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+
+    /* Conceptual diagram variant — vertical token chains rendered as drawn */
+    .two-col .col-text .quote.is-diagram,
+    .oss-meta .quote.is-diagram {
+      white-space: pre-line;
+      line-height: 1.95;
+      letter-spacing: 0.4px;
+    }
+
+    /* Research positioning ladder in the closing section */
+    .closing .positioning {
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      line-height: 2.05;
+      margin: 0 0 44px;
+    }
+    .closing .positioning span {
+      display: block;
+    }
+    .closing .positioning .here {
+      color: var(--fg);
+    }
+
+    /* Quote box styling reused inside the OSS section */
+    .oss-meta .quote {
+      display: block;
+      margin: 22px 0 6px;
+      padding: 14px 18px;
+      border-left: 2px solid var(--line-strong);
+      color: var(--fg);
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+      letter-spacing: 0.3px;
+      background: rgba(255,255,255,0.015);
+    }
+
+    /* Diagram archive cards */
+    .diagrams {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .diagram-card {
+      background: var(--bg);
+      padding: 26px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+    .diagram-card .kicker {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .diagram-card h3 {
+      font-size: 16px;
+      margin: 0 0 14px;
+      font-weight: 600;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+    }
+    .diagram-frame {
+      flex: 1;
+      border: 1px dashed var(--line-strong);
+      border-radius: 8px;
+      background:
+        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
+        var(--bg-elev);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      min-height: 110px;
+    }
+
+    /* ---------- Layer diagram (the "Runtime Structure" component) ---------- */
+    .field-runtime {
+      margin-top: clamp(56px, 7vw, 80px);
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      padding: 28px clamp(20px, 4vw, 40px) 36px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .field-runtime::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%);
+      pointer-events: none;
+    }
+
+    .field-runtime-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 6px;
+      position: relative;
+    }
+
+    .field-runtime-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--fg);
+      margin: 0 0 22px;
+      letter-spacing: 0.2px;
+      position: relative;
+    }
+
+    .field-layers {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .field-layer {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) auto;
+      align-items: baseline;
+      gap: 18px;
+      padding: 14px 4px;
+      border-bottom: 1px solid var(--line);
+    }
+    .field-layer:last-child {
+      border-bottom: none;
+    }
+
+    .field-layer .layer-idx {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+    }
+
+    .field-layer .layer-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .field-layer .layer-name {
+      font-size: 15px;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+      font-weight: 600;
+    }
+
+    .field-layer .layer-note {
+      font-size: 13px;
+      color: var(--fg-mute);
+      line-height: 1.6;
+    }
+
+    .field-layer .layer-tag {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+    }
+
+    .field-arrow {
+      display: flex;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 4px;
+      padding: 4px 0 6px;
+    }
+
+    @media (max-width: 900px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .diagrams {
+        grid-template-columns: 1fr;
+      }
+      .field-layer {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .field-layer .layer-tag {
+        margin-top: 2px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ TOP BAR [CORE] ============ -->
+  <nav class="topbar" aria-label="Breadcrumb">
+    <div class="breadcrumb">
+      <a href="/">Chinoba</a>
+      <span class="sep">/</span>
+      <a href="/#research">Research</a>
+      <span class="sep">/</span>
+      <span>{{TITLE}}</span>
+    </div>
+    <!-- {{INQUIRY_NO}} = this line's number in the master index (e.g. 07). -->
+    <div class="meta-id">{{INQUIRY_NO}} / Lines of Inquiry</div>
+  </nav>
+
+  <!-- ============ HERO [CORE] ============ -->
+  <!--
+    hero-sub  = a short declarative stanza, one clause per <span>.
+                Open on the central TENSION, not on a definition.
+    hero-desc = a single flowing paragraph stating the page's thesis.
+  -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Research / {{TITLE}}</div>
+      <h1>{{TITLE}}</h1>
+      <p class="hero-sub">
+        <span>{{HERO_LINE_1 — the reframing / tension}}</span>
+        <span>{{HERO_LINE_2}}</span>
+        <span>{{HERO_LINE_3}}</span>
+        <span>{{HERO_LINE_4}}</span>
+      </p>
+      <p class="hero-desc">
+        {{HERO_PARAGRAPH — one paragraph; what this research is and why it matters.}}
+      </p>
+    </div>
+  </header>
+
+  <!-- ============ EXPLORE THIS THEME [CORE] ============ -->
+  <!--
+    Every research page opens with this. Unnumbered section ("Explore"),
+    placed immediately after the hero and before Overview. Two .essay cards
+    inside .essays — YouTube (English / Japanese) and Books (English Edition
+    / Japanese Edition) — using .theme-links / .theme-lang. CTA link text
+    ends with " →". A research guide, not a promo banner.
+  -->
+  <section class="research-section" id="explore" aria-labelledby="explore-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Explore</div>
+        <h2 id="explore-h">Explore This Theme</h2>
+        <p class="section-lede">
+          Enter {{TITLE}} through video and long-form texts — visual
+          introductions and deeper explorations of {{KEY_THEMES}}.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay">
+          <h3>📺 Watch on YouTube</h3>
+          <p>{{YOUTUBE_BLURB}}</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="{{YT_EN_URL}}" target="_blank" rel="noopener noreferrer">{{YT_EN_TITLE}} →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="{{YT_JA_URL}}" target="_blank" rel="noopener noreferrer">{{YT_JA_TITLE}} →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📚 Related Books</h3>
+          <p>{{BOOKS_BLURB}}</p>
+          <div class="theme-links">
+            <div class="theme-lang">English Edition</div>
+            <a href="{{BOOK_EN_URL}}" target="_blank" rel="noopener noreferrer">{{BOOK_EN_TITLE}} →</a>
+            <div class="theme-lang">Japanese Edition</div>
+            <a href="{{BOOK_JA_URL}}" target="_blank" rel="noopener noreferrer">{{BOOK_JA_TITLE}} →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 01 OVERVIEW [CORE] ============ -->
+  <!--
+    Pattern: section-head (label + h2 + lede)
+             → FACE FIGURE (figure-main, the page's opening diagram)
+             → two-col (left = structure/list/chain, right = interpretation + .quote)
+  -->
+  <section class="research-section" id="overview" aria-labelledby="overview-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Overview</div>
+        <h2 id="overview-h">Overview</h2>
+        <p class="section-lede">{{OVERVIEW_LEDE — 3–5 sentences naming the subject and its core claim.}}</p>
+      </div>
+
+      <!-- FACE FIGURE — the one "face of page" diagram. Use figure-main (≤920px). -->
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets/01.png"
+           data-lightbox aria-label="Open {{FIG01_LABEL}} diagram">
+          <img src="assets/01.png" alt="{{FIG01_ALT — factual description}}" loading="lazy">
+        </a>
+        <figcaption class="figure-caption">{{FIG01_CAPTION — one declarative line.}}</figcaption>
+      </figure>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>{{OVERVIEW_LEFT_H3}}</h3>
+          <p>{{OVERVIEW_LEFT_PARA}}</p>
+
+          <!-- Conceptual chain. ↓-separated tokens, one per line (pre-line). -->
+          <code class="quote is-diagram">{{TERM_A}}
+↓ {{TERM_B}}
+↓ {{TERM_C}}
+↓ {{TERM_D}}</code>
+
+          <p>{{OVERVIEW_LEFT_PARA_2 — introduce the list below.}}</p>
+          <ul>
+            <li>{{point}}</li>
+            <li>{{point}}</li>
+            <li>{{point}}</li>
+            <li>{{point}}</li>
+          </ul>
+        </div>
+
+        <div class="col-text">
+          <h3>{{OVERVIEW_RIGHT_H3}}</h3>
+          <p>{{OVERVIEW_RIGHT_PARA}}</p>
+          <!-- Aphorism. 3–4 short lines. Closes the column. -->
+          <code class="quote">
+            {{APHORISM_LINE_1}}
+            {{APHORISM_LINE_2}}
+            {{APHORISM_LINE_3}}
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--
+    ============ THEMATIC SECTIONS (02–05) ============
+    Insert the ones your research needs, in this order, then renumber.
+    Each maps to a Governance reference section:
+
+      • THE TENSION       → "The Governance Gap"         (the problem the field exists to close)
+      • THE DISTINCTION   → "Capability vs Governability" (a central A-vs-B reframing)
+      • THE ARCHITECTURE  → "Decision Infrastructure"     (the page's central named construct)
+
+    Keep 1–3 of these. Delete the unused. Every thematic section uses the
+    same skeleton: section-head → (figure-standard) → two-col with an
+    is-diagram chain on one side and a .quote on the other.
+  -->
+
+  <!-- ---- 02 THE TENSION [THEMATIC] ---- -->
+  <section class="research-section" id="tension" aria-labelledby="tension-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / {{TENSION_TITLE}}</div>
+        <h2 id="tension-h">{{TENSION_TITLE}}</h2>
+        <p class="section-lede">{{TENSION_LEDE}}</p>
+      </div>
+
+      <!-- Embedded figure — figure-standard (≤760px). Place after the lede. -->
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/02.png"
+           data-lightbox aria-label="Open {{FIG02_LABEL}} diagram">
+          <img src="assets/02.png" alt="{{FIG02_ALT}}" loading="lazy">
+        </a>
+        <figcaption class="figure-caption">{{FIG02_CAPTION}}</figcaption>
+      </figure>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>{{TENSION_LEFT_H3}}</h3>
+          <p>{{TENSION_LEFT_PARA}}</p>
+          <code class="quote is-diagram">{{DIAGRAM_LINE_1}}
+{{DIAGRAM_LINE_2}}
+{{DIAGRAM_LINE_3}}</code>
+        </div>
+        <div class="col-text">
+          <h3>{{TENSION_RIGHT_H3}}</h3>
+          <p>{{TENSION_RIGHT_PARA}}</p>
+          <code class="quote">
+            {{APHORISM}}
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---- 03 THE DISTINCTION [THEMATIC] ---- -->
+  <section class="research-section" id="distinction" aria-labelledby="distinction-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / {{DISTINCTION_TITLE}}</div>
+        <h2 id="distinction-h">{{DISTINCTION_TITLE}}</h2>
+        <p class="section-lede">{{DISTINCTION_LEDE}}</p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/03.png"
+           data-lightbox aria-label="Open {{FIG03_LABEL}} diagram">
+          <img src="assets/03.png" alt="{{FIG03_ALT}}" loading="lazy">
+        </a>
+        <figcaption class="figure-caption">{{FIG03_CAPTION}}</figcaption>
+      </figure>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>{{DISTINCTION_LEFT_H3}}</h3>
+          <p>{{DISTINCTION_LEFT_PARA}}</p>
+          <code class="quote is-diagram">{{A}}
+↓ {{B}}
+↓ {{C}}
+↓ {{D}}</code>
+        </div>
+        <div class="col-text">
+          <h3>{{DISTINCTION_RIGHT_H3}}</h3>
+          <p>{{DISTINCTION_RIGHT_PARA}}</p>
+          <code class="quote">
+            {{APHORISM}}
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 WHY IT MATTERS [CORE] ============ -->
+  <section class="research-section" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Why It Matters</div>
+        <h2 id="why-h">Why It Matters</h2>
+        <p class="section-lede">{{WHY_LEDE}}</p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/04.png"
+           data-lightbox aria-label="Open {{FIG04_LABEL}} diagram">
+          <img src="assets/04.png" alt="{{FIG04_ALT}}" loading="lazy">
+        </a>
+        <figcaption class="figure-caption">{{FIG04_CAPTION}}</figcaption>
+      </figure>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>{{WHY_LEFT_H3}}</h3>
+          <p>{{WHY_LEFT_PARA}}</p>
+          <ul>
+            <li>{{point}}</li>
+            <li>{{point}}</li>
+            <li>{{point}}</li>
+          </ul>
+        </div>
+        <div class="col-text">
+          <h3>{{WHY_RIGHT_H3}}</h3>
+          <p>{{WHY_RIGHT_PARA}}</p>
+          <code class="quote is-diagram">{{CONTRAST_OLD}}
+
+{{CONTRAST_NEW}}</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---- 05 THE ARCHITECTURE [THEMATIC] ---- -->
+  <!-- The page's central named construct. Two-col with a composition TREE. -->
+  <section class="research-section" id="architecture" aria-labelledby="architecture-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / {{ARCHITECTURE_TITLE}}</div>
+        <h2 id="architecture-h">{{ARCHITECTURE_TITLE}}</h2>
+        <p class="section-lede">{{ARCHITECTURE_LEDE}}</p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/05.png"
+           data-lightbox aria-label="Open {{FIG05_LABEL}} diagram">
+          <img src="assets/05.png" alt="{{FIG05_ALT}}" loading="lazy">
+        </a>
+        <figcaption class="figure-caption">{{FIG05_CAPTION}}</figcaption>
+      </figure>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>{{ARCHITECTURE_LEFT_H3}}</h3>
+          <p>{{ARCHITECTURE_LEFT_PARA}}</p>
+          <!-- Composition tree — what the central construct is made of. -->
+          <code class="quote is-diagram">{{CONSTRUCT}}
+├── {{COMPONENT_1}}
+├── {{COMPONENT_2}}
+├── {{COMPONENT_3}}
+├── {{COMPONENT_4}}
+└── {{COMPONENT_5}}</code>
+        </div>
+        <div class="col-text">
+          <h3>{{ARCHITECTURE_RIGHT_H3}}</h3>
+          <p>{{ARCHITECTURE_RIGHT_PARA}}</p>
+          <code class="quote">
+            {{APHORISM}}
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 CORE STRUCTURE [CORE] ============ -->
+  <!--
+    Two components:
+    (a) concept-grid.cols-4 — N concept cards (i, ii, iii…) of the page's
+        structural elements. 8 is the reference count; 4–8 works.
+    (b) field-runtime — the canonical LAYER DIAGRAM (L1…Ln). This is the
+        page's spine; align its stages with the Decision Trace Model
+        (Signal → Context → … → Trace → Audit → Feedback).
+  -->
+  <section class="research-section" id="core" aria-labelledby="core-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Core Structure</div>
+        <h2 id="core-h">Core Structure</h2>
+        <p class="section-lede">{{CORE_LEDE}}</p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>{{COMPONENT_NAME}}</h3>
+          <p>{{COMPONENT_DESC — one or two sentences.}}</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>{{COMPONENT_NAME}}</h3>
+          <p>{{COMPONENT_DESC}}</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>{{COMPONENT_NAME}}</h3>
+          <p>{{COMPONENT_DESC}}</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>{{COMPONENT_NAME}}</h3>
+          <p>{{COMPONENT_DESC}}</p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>{{COMPONENT_NAME}}</h3>
+          <p>{{COMPONENT_DESC}}</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>{{COMPONENT_NAME}}</h3>
+          <p>{{COMPONENT_DESC}}</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>{{COMPONENT_NAME}}</h3>
+          <p>{{COMPONENT_DESC}}</p>
+        </div>
+        <div class="concept">
+          <div class="idx">viii</div>
+          <h3>{{COMPONENT_NAME}}</h3>
+          <p>{{COMPONENT_DESC}}</p>
+        </div>
+      </div>
+
+      <!-- OPTIONAL two-col here to tie Core Structure to the Decision Trace Model. -->
+
+      <!-- ====== LAYER DIAGRAM (the page's runtime spine) ====== -->
+      <div class="field-runtime" aria-label="{{LAYER_DIAGRAM_TITLE}}">
+        <div class="field-runtime-label">Layer Diagram</div>
+        <h3 class="field-runtime-title">{{LAYER_DIAGRAM_TITLE}}</h3>
+
+        <ol class="field-layers" role="list">
+          <li class="field-layer">
+            <span class="layer-idx">L1</span>
+            <span class="layer-body">
+              <span class="layer-name">{{LAYER_NAME}}</span>
+              <span class="layer-note">{{LAYER_NOTE — one sentence.}}</span>
+            </span>
+            <span class="layer-tag">{{tag}}</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L2</span>
+            <span class="layer-body">
+              <span class="layer-name">{{LAYER_NAME}}</span>
+              <span class="layer-note">{{LAYER_NOTE}}</span>
+            </span>
+            <span class="layer-tag">{{tag}}</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L3</span>
+            <span class="layer-body">
+              <span class="layer-name">{{LAYER_NAME}}</span>
+              <span class="layer-note">{{LAYER_NOTE}}</span>
+            </span>
+            <span class="layer-tag">{{tag}}</span>
+          </li>
+          <!-- … repeat <li class="field-arrow">↓</li> + <li class="field-layer"> … as needed (8–13 layers). -->
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---- 07 THE TYPOLOGY [THEMATIC] ---- -->
+  <!-- "Kinds of X" — a second concept-grid. Keep when the field has a clear taxonomy. -->
+  <section class="research-section" id="typology" aria-labelledby="typology-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / {{TYPOLOGY_TITLE}}</div>
+        <h2 id="typology-h">{{TYPOLOGY_TITLE}}</h2>
+        <p class="section-lede">{{TYPOLOGY_LEDE}}</p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>{{TYPE_NAME}}</h3>
+          <p>{{TYPE_DESC}}</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>{{TYPE_NAME}}</h3>
+          <p>{{TYPE_DESC}}</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>{{TYPE_NAME}}</h3>
+          <p>{{TYPE_DESC}}</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>{{TYPE_NAME}}</h3>
+          <p>{{TYPE_DESC}}</p>
+        </div>
+        <!-- … add cards as needed … -->
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/07.png"
+           data-lightbox aria-label="Open {{FIG07_LABEL}} diagram">
+          <img src="assets/07.png" alt="{{FIG07_ALT}}" loading="lazy">
+        </a>
+        <figcaption class="figure-caption">{{FIG07_CAPTION}}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 08 RELATED ESSAYS [CORE] ============ -->
+  <!--
+    Live posts  = <a class="essay" href="…" target="_blank"> + .essay-meta.is-available "Available Now".
+    Placeholders = <div class="essay is-coming-soon"> + .essay-meta.is-coming-soon "Forthcoming".
+  -->
+  <section class="research-section" id="essays" aria-labelledby="essays-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">08 / Related Essays</div>
+        <h2 id="essays-h">Reading Around {{TITLE}}</h2>
+        <p class="section-lede">{{ESSAYS_LEDE}}</p>
+      </div>
+
+      <div class="essays">
+        <a class="essay" href="{{ESSAY_URL}}" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">{{ESSAY_KICKER}}</div>
+          <h3>{{ESSAY_TITLE}}</h3>
+          <p>{{ESSAY_BLURB}}</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <!-- … more live essays … -->
+
+        <div class="essay is-coming-soon">
+          <div class="kicker">{{CONCEPT_KICKER}}</div>
+          <h3>{{FORTHCOMING_ESSAY_TITLE}}</h3>
+          <p>{{FORTHCOMING_BLURB}}</p>
+          <div class="essay-meta is-coming-soon">Forthcoming</div>
+        </div>
+        <!-- … more forthcoming essays … -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 09 RELATED BOOKS [CORE] ============ -->
+  <!--
+    Lead with the book this page is built on ("This Inquiry"), then the
+    NEIGHBORING research books, each with a one-paragraph connective note
+    that names HOW this line relates to that one. Use a cover image only
+    when you have it; otherwise book-body only is fine.
+  -->
+  <section class="research-section" id="books" aria-labelledby="books-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">09 / Related Books</div>
+        <h2 id="books-h">Long-form Texts</h2>
+        <p class="section-lede">{{BOOKS_LEDE}}</p>
+      </div>
+
+      <div class="books-list">
+        <div class="book">
+          <div class="book-body">
+            <div class="section-label">This Inquiry</div>
+            <div class="book-title">{{BOOK_TITLE}}</div>
+            <div class="book-subtitle">— {{BOOK_SUBTITLE}} —</div>
+            <p>{{BOOK_BLURB}}</p>
+            <a class="book-link" href="{{BOOK_URL}}" target="_blank" rel="noopener noreferrer">Available on Kindle →</a>
+          </div>
+        </div>
+
+        <div class="book">
+          <div class="book-body">
+            <div class="section-label">Neighboring Research — {{NEIGHBOR_NAME}}</div>
+            <div class="book-title">{{BOOK_TITLE}}</div>
+            <div class="book-subtitle">— {{BOOK_SUBTITLE}} —</div>
+            <p>{{CONNECTIVE_NOTE — how this line relates to that one.}}</p>
+            <a class="book-link" href="{{BOOK_URL}}" target="_blank" rel="noopener">Available on Kindle →</a>
+          </div>
+          <!-- Optional cover: -->
+          <a class="book-cover" href="{{BOOK_URL}}" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/book_pic/en/{{NN}}.jpg" alt="" loading="lazy">
+          </a>
+        </div>
+        <!-- … more neighboring-research books … -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 10 RELATED OSS [CORE] ============ -->
+  <!-- Present the repos as primitives that COMPOSE A STACK. Include an is-diagram stack. -->
+  <section class="research-section" id="oss" aria-labelledby="oss-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">10 / Related OSS</div>
+        <h2 id="oss-h">Related OSS</h2>
+        <p class="section-lede">{{OSS_LEDE — frame the repos as one executable stack.}}</p>
+      </div>
+
+      <div class="oss-block">
+        <div class="oss-meta">
+          <h3>{{OSS_H3}}</h3>
+          <p>{{OSS_PARA — how the primitives compose.}}</p>
+
+          <code class="quote is-diagram">{{LAYER_1}}
+↓ {{LAYER_2}}
+↓ {{LAYER_3}}
+↓ {{LAYER_4}}
+↓ {{LAYER_5}}</code>
+
+          <a class="oss-link" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">
+            GitHub — masao-watanabe-ai →
+          </a>
+        </div>
+
+        <ul class="oss-tags" aria-label="Repositories">
+          <li>{{repo-name}}</li>
+          <li>{{repo-name}}</li>
+          <li>{{repo-name}}</li>
+          <li>{{repo-name}}</li>
+          <li>{{repo-name}}</li>
+          <li>{{repo-name}}</li>
+        </ul>
+      </div>
+
+      <!-- Optional stack figure (figure-standard), placed after the oss-block. -->
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/10.png"
+           data-lightbox aria-label="Open {{FIG10_LABEL}} diagram">
+          <img src="assets/10.png" alt="{{FIG10_ALT}}" loading="lazy">
+        </a>
+        <figcaption class="figure-caption">{{FIG10_CAPTION}}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 11 DIAGRAMS [CORE] ============ -->
+  <!--
+    Archive previews ONLY diagrams NOT shown inline above. Real assets go in
+    .diagram-card > a.figure-frame (no caption). Concepts you have not drawn
+    yet stay as .diagram-frame "Forthcoming". Keep an even count (2-col grid).
+  -->
+  <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">11 / Diagrams</div>
+        <h2 id="diagrams-h">Architecture Archive</h2>
+        <p class="section-lede">{{DIAGRAMS_LEDE — note it extends, not repeats, the page.}}</p>
+      </div>
+
+      <div class="diagrams">
+        <div class="diagram-card">
+          <div class="kicker">Diagram 01</div>
+          <h3>{{ARCHIVE_TITLE}}</h3>
+          <a class="figure-frame" href="assets/{{NN}}.png"
+             data-lightbox aria-label="Open {{ARCHIVE_LABEL}} diagram">
+            <img src="assets/{{NN}}.png" alt="{{ARCHIVE_ALT}}" loading="lazy">
+          </a>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 02</div>
+          <h3>{{ARCHIVE_TITLE}}</h3>
+          <a class="figure-frame" href="assets/{{NN}}.png"
+             data-lightbox aria-label="Open {{ARCHIVE_LABEL}} diagram">
+            <img src="assets/{{NN}}.png" alt="{{ARCHIVE_ALT}}" loading="lazy">
+          </a>
+        </div>
+
+        <!-- Forthcoming placeholders for concepts not yet illustrated: -->
+        <div class="diagram-card">
+          <div class="kicker">Diagram 03</div>
+          <h3>{{FORTHCOMING_DIAGRAM}}</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 04</div>
+          <h3>{{FORTHCOMING_DIAGRAM}}</h3>
+          <div class="diagram-frame">Forthcoming</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING [CORE] ============ -->
+  <!--
+    Order: ecosystem FIGURE (figure-standard) → positioning LADDER
+           (this inquiry inside Decision Trace → … → Runtime Society,
+           current node marked .here) → blockquote (declarative stanza;
+           blank &nbsp; span = stanza break) → closing-mark.
+  -->
+  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+
+    <figure class="figure figure-standard" style="margin-bottom: 48px;">
+      <a class="figure-frame" href="assets/{{NN}}.png"
+         data-lightbox aria-label="Open the Chinoba ecosystem diagram">
+        <img src="assets/{{NN}}.png" alt="{{CLOSING_FIG_ALT}}" loading="lazy">
+      </a>
+      <figcaption class="figure-caption">{{TITLE}} is one layer of the Chinoba architecture.</figcaption>
+    </figure>
+
+    <div class="positioning" aria-label="Research positioning within the Chinoba architecture">
+      <span>Decision Trace</span>
+      <span>↓</span>
+      <span>Governance</span>
+      <span>↓</span>
+      <span>Trust</span>
+      <span>↓</span>
+      <span>Coordination</span>
+      <span>↓</span>
+      <span>Runtime Society</span>
+      <!-- Mark THIS page's node with class="here" (e.g. <span class="here">Trust</span>). -->
+    </div>
+
+    <blockquote>
+      <span>{{CLOSING_LINE_1}}</span>
+      <span>{{CLOSING_LINE_2}}</span>
+      <span>{{CLOSING_LINE_3}}</span>
+      <span>&nbsp;</span>
+      <span>{{CLOSING_CHAIN_1 — e.g. X enables Y.}}</span>
+      <span>{{CLOSING_CHAIN_2}}</span>
+      <span>{{CLOSING_CHAIN_3}}</span>
+    </blockquote>
+    <div class="closing-mark">Chinoba.org</div>
+  </section>
+
+  <!-- ============ + RELATED RESEARCH [CORE] ============ -->
+  <section class="research-section" id="related" aria-labelledby="related-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">+ / Related Research</div>
+        <h2 id="related-h">Other Lines of Inquiry</h2>
+        <p class="section-lede">{{RELATED_LEDE — position this page as one layer of one ecosystem.}}</p>
+      </div>
+
+      <div class="related-research">
+        <a href="/research/{{slug}}" data-slug="{{slug}}">
+          <span class="related-label">{{NN}} / Inquiry</span>
+          <span class="related-name">{{Inquiry Name}}</span>
+          <span class="related-status">Available</span>
+        </a>
+        <!-- … 5–7 neighboring inquiries; do not link to self … -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER [CORE] ============ -->
+  <footer class="research-footer">
+    <div class="footer-inner">
+      <div class="footer-text">
+        <p>Chinoba — Intelligence as Relationship</p>
+        <p class="footer-tag">AI is not prediction. It is decision.</p>
+        <p style="margin-top: 18px;">
+          <a href="/">Home</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://deus-ex-machina-ism.com/en/" target="_blank" rel="noopener noreferrer">Blog</a>
+          &nbsp;·&nbsp;
+          <a href="/#books">Books</a>
+        </p>
+      </div>
+      <div class="footer-contact">
+        <span class="contact-label">Contact</span>
+        <a href="mailto:hello@chinoba.org">hello@chinoba.org</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ LIGHTBOX [CORE — keep verbatim] ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button type="button" class="lightbox-close" aria-label="Close preview">Close</button>
+    <img alt="">
+  </div>
+
+  <script>
+    (function () {
+      var lb = document.getElementById('lightbox');
+      if (!lb) return;
+      var lbImg = lb.querySelector('img');
+      var lbClose = lb.querySelector('.lightbox-close');
+
+      function open(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('is-open');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          var img = el.querySelector('img');
+          open(el.getAttribute('href'), img ? img.alt : '');
+        });
+      });
+
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target === lbImg) close();
+      });
+      lbClose.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
+      });
+    })();
+  </script>
+
+</body>
+</html>
