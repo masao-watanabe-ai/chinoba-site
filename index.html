@@ -165,17 +165,47 @@
 
     /* ---------- Research Areas (Lines of Inquiry) ---------- */
     .inquiry-gateway {
-      margin: 56px 0;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      max-width: 960px;
+      margin: 40px auto 36px;
+      padding: 24px 32px;
+      background: var(--bg-elev);
+      border: 1px solid rgba(125, 183, 255, 0.28);
+      border-radius: 10px;
+      box-shadow: 0 4px 24px rgba(125, 183, 255, 0.06);
     }
 
-    .inquiry-gateway img {
-      display: block;
-      width: min(100%, 1200px);
-      height: auto;
-      margin: 0 auto;
-      border-radius: 10px;
-      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+    .inquiry-gateway-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      color: var(--fg);
+    }
+
+    .inquiry-gateway-link {
+      flex-shrink: 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 200ms ease, transform 200ms ease;
+    }
+
+    .inquiry-gateway-link:hover {
+      color: #a8cdff;
+      transform: translateX(3px);
+    }
+
+    @media (max-width: 768px) {
+      .inquiry-gateway {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 14px;
+      }
     }
 
     .inquiry {
@@ -1218,10 +1248,11 @@
     </div>
 
     <div class="inquiry-gateway">
-      <img src="/assets/lines of inquiry.png" alt="Lines of Inquiry — interconnected research themes" loading="lazy" />
+      <span class="inquiry-gateway-title">Choose a Line of Inquiry</span>
+      <a class="inquiry-gateway-link" href="#research-list">Browse Themes →</a>
     </div>
 
-    <ul class="inquiry" role="list">
+    <ul class="inquiry" role="list" id="research-list">
       <li>
         <button type="button" class="inquiry-item is-active"
                 data-slug="decision-trace-model"
