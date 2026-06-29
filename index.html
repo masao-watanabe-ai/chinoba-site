@@ -167,36 +167,62 @@
     .inquiry-gateway {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      max-width: 960px;
+      gap: 48px;
+      max-width: 1400px;
       margin: 40px auto 36px;
-      padding: 24px 32px;
-      background: var(--bg-elev);
-      border: 1px solid rgba(125, 183, 255, 0.28);
-      border-radius: 10px;
-      box-shadow: 0 4px 24px rgba(125, 183, 255, 0.06);
+      padding: 34px 42px;
+      background: #000000;
+      border: 1px solid rgba(231, 185, 63, 0.35);
+      border-radius: 18px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .inquiry-gateway:hover {
+      transform: translateY(-2px);
+      border-color: rgba(240, 201, 90, 0.7);
+      box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.45),
+        0 0 24px rgba(240, 201, 90, 0.15);
+    }
+
+    .inquiry-gateway-door {
+      flex-shrink: 0;
+      height: 120px;
+      width: auto;
+      display: block;
     }
 
     .inquiry-gateway-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      color: var(--fg);
+      font-size: 3rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: #f5f5f5;
+    }
+
+    .inquiry-gateway-divider {
+      flex-shrink: 0;
+      width: 1px;
+      height: 56px;
+      margin: 0 36px 0 auto;
+      background: rgba(255, 255, 255, 0.15);
     }
 
     .inquiry-gateway-link {
       flex-shrink: 0;
-      font-size: 0.95rem;
+      font-size: 2rem;
       font-weight: 500;
-      color: var(--accent);
+      color: #f0c95a;
       text-decoration: none;
-      transition: color 200ms ease, transform 200ms ease;
+      transition: color 0.25s ease, transform 0.25s ease;
     }
 
     .inquiry-gateway-link:hover {
-      color: #a8cdff;
-      transform: translateX(3px);
+      color: #ffd66b;
+      transform: translateX(4px);
     }
 
     @media (max-width: 768px) {
@@ -204,7 +230,20 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 14px;
+        gap: 20px;
+        padding: 24px;
+      }
+
+      .inquiry-gateway-title {
+        font-size: 2rem;
+      }
+
+      .inquiry-gateway-divider {
+        display: none;
+      }
+
+      .inquiry-gateway-link {
+        margin-left: 0;
       }
     }
 
@@ -1248,8 +1287,10 @@
     </div>
 
     <div class="inquiry-gateway">
+      <img class="inquiry-gateway-door" src="assets/door.png" alt="" aria-hidden="true">
       <span class="inquiry-gateway-title">Choose a Line of Inquiry</span>
-      <a class="inquiry-gateway-link" href="#research-list">Browse Themes →</a>
+      <span class="inquiry-gateway-divider" aria-hidden="true"></span>
+      <a class="inquiry-gateway-link" href="#research-list">&gt; Explore</a>
     </div>
 
     <ul class="inquiry" role="list" id="research-list">
