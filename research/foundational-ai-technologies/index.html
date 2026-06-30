@@ -205,6 +205,89 @@
       padding: 2px 0;
     }
 
+    /* ---------- Single-column narrative prose ---------- */
+    .prose {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .prose h3 {
+      font-size: 20px;
+      margin: 0 0 14px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      color: var(--fg);
+    }
+    .prose h3:not(:first-child) {
+      margin-top: 40px;
+    }
+    .prose p {
+      color: var(--fg-mute);
+      font-size: 15.5px;
+      line-height: 1.85;
+      margin: 0 0 16px;
+    }
+    .prose .quote {
+      display: block;
+      margin: 28px 0 12px;
+      padding: 14px 18px;
+      border-left: 2px solid var(--line-strong);
+      color: var(--fg);
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+      letter-spacing: 0.3px;
+      background: rgba(255,255,255,0.015);
+    }
+
+    /* Tighten the gap between a figure and the prose that explains it */
+    .figure + .prose,
+    .prose + .figure {
+      margin-top: clamp(28px, 4vw, 40px);
+    }
+
+    /* ---------- Archive: real diagram images ---------- */
+    .diagram-shot {
+      display: block;
+      margin-top: auto;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      cursor: zoom-in;
+      transition: border-color 200ms ease;
+    }
+    .diagram-shot:hover {
+      border-color: var(--fg-faint);
+    }
+    .diagram-shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* ---------- Explore This Theme ---------- */
+    .theme-links {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .theme-links .theme-lang {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child {
+      margin-top: 0;
+    }
+    .theme-links a {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+
     @media (max-width: 900px) {
       .concept-grid.cols-4 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -268,6 +351,46 @@
     </div>
   </header>
 
+  <!-- ============ EXPLORE THIS THEME ============ -->
+  <section class="research-section" id="explore" aria-labelledby="explore-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Explore</div>
+        <h2 id="explore-h">Explore This Theme</h2>
+        <p class="section-lede">
+          Enter Foundational AI Technologies through visual introductions
+          and long-form texts — exploring the mathematical foundations of
+          AI, the evolution from symbolic systems to generative models, and
+          the emergence of runtime decision architectures.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay">
+          <h3>📺 Watch on YouTube</h3>
+          <p>Visual introductions to the evolution of AI, from rule-based systems to large language models and multi-agent intelligence.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://youtu.be/K82P_GMvoiw" target="_blank" rel="noopener noreferrer">The Evolution of AI and the Challenges Ahead: From Rule-Based Systems to Multi-Agent Intelligence →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://youtu.be/JHh4i5FeQyM" target="_blank" rel="noopener noreferrer">AIの歴史と新たな課題｜シンボリックAIからLLM・マルチエージェントへ →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📚 Related Books</h3>
+          <p>Long-form explorations of the mathematical worldview behind modern AI — from finite rule systems and symbolic reasoning to neural networks, Transformers, continuous spaces, and generative models.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English Edition</div>
+            <a href="https://amzn.to/44zV0ZB" target="_blank" rel="noopener noreferrer">What Kind of Mathematical Worldview Is AI Built Upon? — From Finite Rules to Generative Models →</a>
+            <div class="theme-lang">Japanese Edition</div>
+            <a href="https://amzn.to/44nBjV3" target="_blank" rel="noopener noreferrer">AIはどんな数学観の上に作られているのか — 有限ルールから生成モデルへ →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ 01 OVERVIEW ============ -->
   <section class="research-section" id="overview" aria-labelledby="overview-h">
     <div class="wrap">
@@ -281,12 +404,68 @@
         </p>
       </div>
 
-      <div class="two-col">
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets/02.png"
+           data-lightbox aria-label="Open the seventy-year timeline of AI diagram">
+          <img src="assets/02.png"
+               alt="A seventy-year timeline showing AI developing across symbolic logic, machine learning, deep learning, and large language models."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">AI was not born overnight — it accumulated across seventy years of layered invention.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <h3>AI Is a Stack, Not an Invention</h3>
+        <p>
+          It is tempting to treat artificial intelligence as a single
+          recent breakthrough — a model that appeared, learned to
+          speak, and changed everything. The longer history tells a
+          different story. What we now call AI is the visible surface
+          of seventy years of accumulated technique: symbolic logic,
+          programmable computation, statistical learning, differentiable
+          networks, and finally the generative models of the present
+          moment. Each era did not replace the one before it. It was
+          built on top of it.
+        </p>
+        <p>
+          Read this way, AI is less an object than a stack. Every layer
+          solved a problem the layer beneath it could not, and each new
+          capability opened a new class of question. The diagram above
+          is useful precisely because it resists the idea of a sudden
+          arrival: the things that make today's systems feel intelligent
+          were assembled slowly, and they remain present — quietly doing
+          their work — inside every modern model.
+        </p>
+        <h3>Why It Is No Longer “Just Machine Learning”</h3>
+        <p>
+          For much of the last decade, “AI” and “machine learning” were
+          used interchangeably. That equation no longer holds. A modern
+          system does not merely fit a function to data and predict. It
+          generates language and code, holds and retrieves context,
+          composes multi-step reasoning, coordinates tools and other
+          agents, and increasingly participates in decisions that have
+          consequences in the world. Machine learning is one layer in
+          that arrangement, not the whole of it.
+        </p>
+        <p>
+          This is the shift this page is organized around. Once
+          generation, reasoning, orchestration, and decision-making sit
+          in the same system, the interesting questions stop being about
+          accuracy alone and start being about <em>architecture</em> —
+          how the layers are arranged, where judgment lives, and what is
+          recorded when a decision is made.
+        </p>
+      </div>
+
+      <div class="two-col" style="margin-top: clamp(40px, 6vw, 64px);">
         <div class="col-text">
           <h3>The Stack Beneath the Stack</h3>
           <p>
-            Foundational AI Technologies explores the technical
-            base beneath modern AI systems.
+            Foundational AI Technologies explores the technical base
+            beneath modern AI systems — the working parts that a finished
+            product hides from view. Most of these parts are invisible in
+            ordinary use, yet each one shapes what the system can and
+            cannot be trusted to do.
           </p>
 
           <p>This base includes:</p>
@@ -300,14 +479,28 @@
             <li>creative variation</li>
             <li>externalized decision logic</li>
           </ul>
+
+          <p>
+            None of these is the system on its own. They become a system
+            only when composed — and the way they are composed is the
+            subject of everything that follows.
+          </p>
         </div>
 
         <div class="col-text">
           <h3>Not a Single Technology</h3>
           <p>
-            Modern AI is not one technology. It is an evolving
-            stack — generation, reasoning, variation, selection,
-            and runtime control composed together.
+            Modern AI is not one technology. It is an evolving stack —
+            generation, reasoning, variation, selection, and runtime
+            control composed together. Treating it as a single thing
+            hides exactly the seams where it can be designed, inspected,
+            and made accountable.
+          </p>
+          <p>
+            The remainder of this page reads that stack from the bottom
+            up: first why generation alone is not enough, then the eight
+            surfaces that make up the structure, and finally where the
+            stack is heading as systems begin to act on their own.
           </p>
 
           <h3>Working Statement</h3>
@@ -334,6 +527,39 @@
           AI systems now generate language, code, images, plans,
           and possible worlds — but generation alone is not a
           decision.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/11.png"
+           data-lightbox aria-label="Open the diagram of LLMs as the fourth era of AI">
+          <img src="assets/11.png"
+               alt="The fourth era of AI: a shift from static pattern extraction to dynamic pattern generation by large language models."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The fourth era — from extracting patterns to generating them on demand.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <h3>What Changed in the Fourth Era</h3>
+        <p>
+          Earlier AI systems extracted a fixed pattern from data and then
+          applied it: train once, classify forever. Large language models
+          inverted this. Rather than storing one learned mapping, they
+          generate a fresh response for every input by predicting, token
+          by token, what is most likely to come next. The diagram above
+          frames this as the move from <em>static pattern extraction</em>
+          to <em>dynamic pattern generation</em> — and it is the single
+          change that makes modern AI feel qualitatively different.
+        </p>
+        <p>
+          The gain is enormous range: one system can write, summarize,
+          translate, code, and plan, because all of these are recast as
+          “predict the next plausible continuation.” But the same
+          mechanism carries a quiet warning. A model that always produces
+          the most plausible continuation is optimizing for fluency, not
+          for truth, safety, or fit to a particular situation. Its output
+          is a very good guess. A guess is not yet a decision.
         </p>
       </div>
 
@@ -405,6 +631,59 @@
           </code>
         </div>
       </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/14.png"
+           data-lightbox aria-label="Open the diagram of the context gap between generation and meaning">
+          <img src="assets/14.png"
+               alt="The context gap: a generative model produces a smooth probability curve, but real-world meaning contains sharp discontinuities where a small numeric change flips the correct decision."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">A smooth prediction engine meeting the sharp boundaries of meaning.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <h3>Why a Good Output Is Only a Signal</h3>
+        <p>
+          This figure makes the gap concrete. A generative model lives in
+          a continuous space: it produces smooth, probabilistic estimates
+          of what comes next. The world it acts in does not behave that
+          way. Meaning has <em>discontinuities</em> — boundaries where a
+          tiny change in the number flips the correct interpretation. A
+          risk score of 0.49 and 0.50 are almost identical to the model,
+          yet in a clinical, financial, or safety context one may be
+          acceptable and the other unacceptable. The model cannot see the
+          boundary; it only sees the curve.
+        </p>
+        <p>
+          That is why, in this research, an LLM's output is treated as a
+          <strong>signal</strong> rather than a verdict. The signal is
+          often excellent — fluent, relevant, frequently correct — but it
+          carries no awareness of the boundary it is near, no record of
+          why it was produced, and no guarantee that the most plausible
+          continuation is the right action here. Generation supplies the
+          raw material of a decision. It does not supply the decision.
+        </p>
+        <h3>Why Runtime Architecture Becomes Necessary</h3>
+        <p>
+          If the boundaries that matter live outside the model, then the
+          structures that respect those boundaries must live outside it
+          too. This is the argument for a <strong>runtime</strong>: a
+          layer that receives the model's signal, evaluates it against
+          explicit constraints, selects among alternatives, escalates
+          when it approaches a boundary it should not cross on its own,
+          and records what happened. The flow on the left — input,
+          generation, variation, reasoning, selection, decision runtime,
+          trace — is that layer drawn out in order.
+        </p>
+        <p>
+          Once decision logic is externalized in this way, judgment stops
+          being an emergent property we hope the model has and becomes a
+          designed property of the surrounding system — stable, auditable,
+          and aligned to human intent regardless of which model produces
+          the next signal.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -420,7 +699,20 @@
         </p>
       </div>
 
-      <div class="concept-grid cols-4">
+      <div class="prose">
+        <p>
+          The eight surfaces below can be read as a list, but they are
+          easier to understand as a sequence. Each one entered the field
+          to solve a limitation of the one before it, and each remains in
+          use today. The cards name the surfaces; the diagrams that follow
+          trace how they accumulated — from the symbolic logic of the
+          first era to the multi-agent systems now taking shape — so that
+          the layered stack at the end of this section reads as a history,
+          not just a taxonomy.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4" style="margin-top: clamp(32px, 5vw, 48px);">
         <div class="concept">
           <div class="idx">i</div>
           <h3>Large Language Models</h3>
@@ -470,10 +762,156 @@
         </div>
       </div>
 
+      <!-- ====== How the stack emerged (historical narrative + figures) ====== -->
+      <div class="prose" style="margin-top: clamp(56px, 7vw, 80px);">
+        <h3>How the Stack Emerged</h3>
+        <p>
+          The surfaces above did not appear together. They were laid down
+          over decades, each resolving a wall the previous generation hit.
+          Following that order is the clearest way to see why the modern
+          stack has the shape it does — and why reasoning, learning, and
+          generation are distinct layers rather than a single capability.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/03.png"
+           data-lightbox aria-label="Open the diagram of the first era of AI, symbolic logic">
+          <img src="assets/03.png"
+               alt="The first era of AI: logic circuits, transistors, and symbolic reasoning as the foundation of computation."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The first era — intelligence expressed as explicit logic and symbols.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <p>
+          AI began with logic. The first era encoded intelligence as
+          explicit rules and symbols, running on the logic circuits that
+          also gave us the computer itself. This is the ancestor of the
+          <strong>Reasoning</strong> layer in the stack below. Its strength
+          was transparency — every step was inspectable — and its limit was
+          brittleness: a symbolic system only knows what it was explicitly
+          told. That limit is exactly what the later, learning-based eras
+          set out to overcome, which is why structured reasoning never
+          disappeared but was instead pushed upward into a dedicated layer
+          where outputs can still be made auditable.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/07.png"
+           data-lightbox aria-label="Open the diagram of the move from algorithms to functions">
+          <img src="assets/07.png"
+               alt="The move from rules to formulas to functions, expressing computation as y = f(x)."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">From fixed rules to functions — the abstraction that made learning possible.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <p>
+          The bridge out of pure symbolism was a change in representation:
+          from hand-written rules to <em>functions</em>. Once a computation
+          could be written as <code>y = f(x)</code>, the rules no longer had
+          to be specified in advance — they could be <em>fit</em> to data.
+          This abstraction is quiet but decisive. It is what let computers
+          handle mathematics in a general way, and it is the hinge on which
+          the entire learning half of the stack turns. Without functions
+          there is nothing to learn; with them, the system's behavior
+          becomes something you shape with examples rather than instructions.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/09.png"
+           data-lightbox aria-label="Open the diagram of the second era of AI, machine learning">
+          <img src="assets/09.png"
+               alt="The second era of AI: machine learning, where systems improve by fitting models to data and refining predictions."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The second era — behavior fit to data instead of written by hand.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <p>
+          With functions in place, the second era arrived: machine learning.
+          Instead of encoding answers, engineers supplied data and let the
+          system find the function that fit it, improving as more data
+          arrived. This is the root of the <strong>Learning</strong> layer.
+          It traded the transparency of symbolic logic for adaptability — the
+          system could now handle messy, real-world inputs no one could
+          enumerate by hand — and in doing so it introduced the first version
+          of a problem the rest of the stack still wrestles with: a learned
+          function works, but it cannot easily explain itself.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/10.png"
+           data-lightbox aria-label="Open the diagram of the third era of AI, deep learning">
+          <img src="assets/10.png"
+               alt="The third era of AI: deep learning, enabled by differentiation, deep neural networks, GPUs, and backpropagation."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The third era — depth, differentiation, and learned representation.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <p>
+          Deep learning deepened that same idea rather than replacing it. By
+          stacking many differentiable layers and training them with
+          backpropagation on fast hardware, systems learned their own
+          representations of the world instead of relying on features chosen
+          by people. This is what made perception — vision, speech, language —
+          tractable at scale, and it is the immediate substrate of generative
+          models. The progression from a single fitted function to deep,
+          layered representation is why <strong>Generation</strong> sits at
+          the base of the stack: today's models generate precisely because
+          they learned, in depth, the structure of the data they were trained on.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/12.png"
+           data-lightbox aria-label="Open the diagram of multi-agent systems as the next step in generative AI">
+          <img src="assets/12.png"
+               alt="The next step beyond generative AI: multi-agent systems that plan, coordinate, and act together."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The emerging step — single models giving way to coordinated agents.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <p>
+          The current frontier is what comes after a single capable model:
+          systems in which several generative agents plan, call tools, and
+          coordinate with one another. This is the origin of the
+          <strong>Cognitive Orchestration</strong> layer. Orchestration is
+          not a bigger model — it is the discipline of composing generation,
+          memory, evaluation, and variation into structured operations, and
+          of coordinating multiple actors so their combined behavior stays
+          coherent. It is also where the need for the top of the stack
+          becomes unavoidable: the more autonomously a system acts, the more
+          it needs an externalized place where decisions are selected,
+          bounded, and recorded.
+        </p>
+      </div>
+
       <!-- ====== Foundational AI Technology Stack (layered diagram) ====== -->
       <div class="stack-structure" aria-label="Foundational AI Technology Stack">
         <div class="stack-structure-label">Layer Diagram</div>
         <h3 class="stack-structure-title">Foundational AI Technology Stack</h3>
+
+        <p style="position: relative; max-width: 72ch; margin: 0 0 26px; color: var(--fg-mute); font-size: 14px; line-height: 1.75;">
+          Read top to bottom, the diagram is the path a single request
+          travels. A model generates; the system varies and reasons over
+          what it produced; learning shapes its behavior across feedback;
+          prompts and orchestration arrange the work; and the upper layers
+          turn those signals into a selected, bounded, and recorded
+          decision. Each layer passes its output downward, and the layers
+          beneath it decide what to do with that output.
+        </p>
 
         <ol class="stack-layers" role="list">
           <li class="stack-layer">
@@ -549,6 +987,42 @@
           </li>
         </ol>
       </div>
+
+      <div class="prose" style="margin-top: clamp(32px, 5vw, 48px);">
+        <h3>How the Layers Interact</h3>
+        <p>
+          The layers are drawn as a stack, but they behave as a pipeline
+          with feedback. <strong>Generation</strong> produces raw
+          possibilities. <strong>Variation</strong> keeps that output from
+          collapsing to a single guess, deliberately holding open a space
+          of alternatives so that something remains to choose between.
+          <strong>Reasoning</strong> inspects those alternatives against
+          explicit logic and constraints, which is where an opaque signal
+          can be made inspectable again. <strong>Learning</strong> runs
+          underneath all of this, slowly tuning the system's behavior from
+          the feedback the upper layers generate.
+        </p>
+        <p>
+          <strong>Prompt Systems</strong> and <strong>Cognitive
+          Orchestration</strong> are the control surface: they decide what
+          the model is asked, in what order, with what memory and tools, and
+          how multiple operations or agents are composed into one coherent
+          act. <strong>Selection</strong> is the moment the open space of
+          variation collapses into a single candidate — the point where the
+          system commits. And <strong>Externalized Decision Runtime</strong>
+          is where that commitment is bounded and recorded: it enforces the
+          constraints the model cannot see, escalates to a human when a
+          decision nears a boundary it should not cross alone, and writes a
+          trace of what was decided and why.
+        </p>
+        <p>
+          The arrangement matters more than any single layer. The same
+          generation model behaves very differently depending on what sits
+          above and below it — which is the central claim of this page.
+          Capability is supplied at the bottom of the stack; trust is
+          produced at the top.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -562,6 +1036,19 @@
           Essays that extend this inquiry into orchestration,
           externalized decision-making, creative variation, and
           possible-world logic.
+        </p>
+      </div>
+
+      <div class="prose">
+        <p>
+          Each essay below takes a single layer of the stack and follows it
+          further than this overview can. Where this page sketches the
+          structure, the essays argue it — how cognitive orchestration
+          extends reinforcement learning, why decision logic must be
+          externalized from the model, how creativity is better understood
+          as designable variation, and how AI-generated possible worlds can
+          be connected to traceable selection. Read them as depth probes
+          into the surfaces named above.
         </p>
       </div>
 
@@ -609,6 +1096,19 @@
         <p class="section-lede">
           Knowledge artifacts that compile the surrounding research
           into structured volumes. English editions shown here.
+        </p>
+      </div>
+
+      <div class="prose">
+        <p>
+          Where an essay isolates one idea, these books carry the argument
+          end to end. They develop the move from prediction to decision at
+          book length — establishing the mathematical worldview beneath
+          modern AI, then building the full decision-system architecture
+          that the layers on this page only name. If the essays are depth
+          probes, the books are the connected map: the place where
+          generation, variation, selection, runtime, and trace are treated
+          as a single coherent design rather than separate topics.
         </p>
       </div>
 
@@ -669,11 +1169,28 @@
         <div class="oss-meta">
           <h3>Generation, reasoning, and runtime as components</h3>
           <p>
-            The OSS surface around this inquiry treats foundational
-            AI as something to compose with — generation modules,
-            decision runtimes, traceable structures, relational
-            graphs, and ledgered coordination layers built as
-            concrete artifacts.
+            The OSS surface around this inquiry treats foundational AI as
+            something to compose with — generation modules, decision
+            runtimes, traceable structures, relational graphs, and ledgered
+            coordination layers built as concrete artifacts.
+          </p>
+          <p>
+            These repositories are <strong>experimental implementations</strong>,
+            not products. They exist to test whether the upper layers of the
+            stack — the parts this page argues for — can be built as ordinary
+            software rather than left as theory. When decision logic is
+            externalized, it has to live somewhere: in a runtime that receives
+            a model's signal, in a trace format that records what was decided,
+            in a graph that holds the relationships a decision depends on. Each
+            module is an attempt to make one of those abstractions executable.
+          </p>
+          <p>
+            Read together, they sketch how the diagram on this page becomes
+            running code: the runtime layer as a service, the decision trace as
+            a data structure, orchestration and coordination as components that
+            can be wired up, inspected, and replaced. They are deliberately
+            small and legible — the point is to expose the seams, not to hide
+            them behind a finished system.
           </p>
 
           <a class="oss-link" href="https://github.com/masao-watanabe-ai" target="_blank" rel="noopener">
@@ -701,37 +1218,76 @@
         <div class="section-label">07 / Diagrams</div>
         <h2 id="diagrams-h">Architecture Archive</h2>
         <p class="section-lede">
-          A growing archive of conceptual sketches for the
-          foundational AI stack — generation, variation, reasoning,
-          and decision runtime.
+          A conceptual archive of where the stack is heading — the
+          challenges that appear once AI begins to generate, decide,
+          and act, and the frontiers that follow from them.
         </p>
       </div>
 
-      <div class="diagrams">
+      <div class="prose">
+        <p>
+          The earlier sections trace how the stack was built. This archive
+          looks the other way — at the problems that only become visible
+          once the stack is running. As systems move from prediction to
+          decision and from single models to coordinated agents, the hard
+          questions stop being about accuracy and become questions of
+          trust, governance, autonomy, and meaning. The diagrams below are
+          working sketches of that terrain; each one names a challenge the
+          externalized-decision layer exists to address. Select any to view
+          it in full.
+        </p>
+      </div>
+
+      <div class="diagrams" style="margin-top: clamp(28px, 4vw, 40px);">
         <div class="diagram-card">
           <div class="kicker">Diagram 01</div>
-          <h3>Foundational AI Technology Stack</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <h3>Challenges Enter a New Dimension</h3>
+          <a class="diagram-shot" href="assets/13.png"
+             data-lightbox aria-label="Open the diagram of how AI challenges enter a new dimension">
+            <img src="assets/13.png"
+                 alt="As generative and multi-agent AI evolves, challenges expand from accuracy to trust, safety, society, and governance."
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 02</div>
-          <h3>Generation-to-Decision Architecture</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <h3>The Trust Problem</h3>
+          <a class="diagram-shot" href="assets/16.png"
+             data-lightbox aria-label="Open the diagram of the trust problem in evolved AI">
+            <img src="assets/16.png"
+                 alt="The trust problem: traditional credentials and institutions are no longer sufficient, requiring new mechanisms of transparency, traceability, and verifiability."
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 03</div>
-          <h3>Cognitive Orchestration Model</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <h3>The Governance Problem</h3>
+          <a class="diagram-shot" href="assets/17.png"
+             data-lightbox aria-label="Open the diagram of the governance problem in evolved AI">
+            <img src="assets/17.png"
+                 alt="The governance problem: AI capability advances far faster than the mechanisms needed to govern and coordinate autonomous agents."
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 04</div>
-          <h3>Variation and Selection Flow</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <h3>The Difficulty of Autonomy</h3>
+          <a class="diagram-shot" href="assets/15.png"
+             data-lightbox aria-label="Open the diagram of the difficulty of achieving autonomy">
+            <img src="assets/15.png"
+                 alt="The difficulty of autonomy: when multiple autonomous agents interact, resonance and feedback can amplify behavior into unintended outcomes."
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 05</div>
-          <h3>Possible Worlds and Decision Runtime</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <h3>Four Frontiers</h3>
+          <a class="diagram-shot" href="assets/18.png"
+             data-lightbox aria-label="Open the diagram of the four frontiers for solving these challenges">
+            <img src="assets/18.png"
+                 alt="Four frontiers: meaning understanding, trust architecture, collaboration and co-creation, and social implementation."
+                 loading="lazy">
+          </a>
         </div>
       </div>
     </div>
@@ -740,6 +1296,40 @@
   <!-- ============ 08 CLOSING ============ -->
   <section class="research-section closing" id="closing" aria-labelledby="closing-h">
     <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+
+    <div class="prose" style="text-align: left; margin-bottom: clamp(48px, 8vh, 80px);">
+      <p>
+        Trace the page back through itself and a single argument emerges.
+        AI began as logic, learned to fit functions to data, grew deep
+        enough to generate, and now begins to coordinate and act. At each
+        step the capability grew — but capability, on its own, only ever
+        produces a better signal. A model's output is a plausible guess
+        about what comes next, and the world it acts in is full of
+        boundaries the guess cannot see.
+      </p>
+      <p>
+        What turns that signal into something we can rely on is not a
+        larger model but an arrangement. <strong>Generation</strong>
+        supplies possibilities; <strong>variation</strong> keeps them from
+        collapsing too soon; <strong>reasoning</strong> makes them
+        inspectable; <strong>learning</strong> tunes the system over time;
+        <strong>selection</strong> commits to one; and an
+        <strong>externalized decision runtime</strong> bounds that
+        commitment and records it as a <strong>trace</strong>. Judgment
+        stops being something we hope the model has and becomes a property
+        of the structure around it.
+      </p>
+      <p>
+        This is the shift the page is named for. Read as a prediction
+        engine, AI is impressive and untrustworthy in equal measure. Read
+        as a decision architecture — a stack in which generation is
+        organized into judgment, and judgment leaves a record — it becomes
+        something that can be designed, inspected, governed, and trusted.
+        The challenges in the archive are real, but they are addressable
+        precisely because the decision lives in a place we can build.
+      </p>
+    </div>
+
     <blockquote>
       <span>AI does not become intelligence</span>
       <span>only by generating more possibilities.</span>
@@ -823,6 +1413,50 @@
       </div>
     </div>
   </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button type="button" class="lightbox-close" aria-label="Close preview">Close</button>
+    <img alt="">
+  </div>
+
+  <script>
+    (function () {
+      var lb = document.getElementById('lightbox');
+      if (!lb) return;
+      var lbImg = lb.querySelector('img');
+      var lbClose = lb.querySelector('.lightbox-close');
+
+      function open(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('is-open');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          var img = el.querySelector('img');
+          open(el.getAttribute('href'), img ? img.alt : '');
+        });
+      });
+
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target === lbImg) close();
+      });
+      lbClose.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
+      });
+    })();
+  </script>
 
 </body>
 </html>
