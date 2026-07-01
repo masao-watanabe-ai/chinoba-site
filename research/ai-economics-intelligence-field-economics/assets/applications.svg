@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img"
+     aria-label="Application domains of intelligence field economics: enterprise AI, supply chains, autonomous organizations, public AI, digital platforms, knowledge work, scientific collaboration and AI agents.">
+  <defs>
+    <radialGradient id="ap-glow" cx="50%" cy="0%" r="70%">
+      <stop offset="0" stop-color="#7db7ff" stop-opacity="0.09"/>
+      <stop offset="1" stop-color="#7db7ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="720" fill="#0b0b0b"/>
+  <rect width="1200" height="720" fill="url(#ap-glow)"/>
+  <rect x="0.5" y="0.5" width="1199" height="719" fill="none" stroke="#1f1f1f"/>
+
+  <text x="80" y="90" fill="#6a6a6a" font-family="Courier New, monospace" font-size="18" letter-spacing="4">APPLICATIONS</text>
+
+  <g font-family="Helvetica, Arial, sans-serif" text-anchor="middle" fill="#e8e8e8" font-size="16">
+    <g fill="#111111" stroke="#2a2a2a">
+      <rect x="80"  y="150" width="250" height="150" rx="6"/>
+      <rect x="360" y="150" width="250" height="150" rx="6"/>
+      <rect x="640" y="150" width="250" height="150" rx="6"/>
+      <rect x="920" y="150" width="250" height="150" rx="6"/>
+      <rect x="80"  y="340" width="250" height="150" rx="6"/>
+      <rect x="360" y="340" width="250" height="150" rx="6"/>
+      <rect x="640" y="340" width="250" height="150" rx="6"/>
+      <rect x="920" y="340" width="250" height="150" rx="6"/>
+    </g>
+
+    <text x="205" y="232">Enterprise AI</text>
+    <text x="485" y="232">Supply Chains</text>
+    <text x="765" y="222">Autonomous</text><text x="765" y="246">Organizations</text>
+    <text x="1045" y="232">Public AI</text>
+    <text x="205" y="422">Digital Platforms</text>
+    <text x="485" y="422">Knowledge Work</text>
+    <text x="765" y="412">Scientific</text><text x="765" y="436">Collaboration</text>
+    <text x="1045" y="422">AI Agents</text>
+
+    <g fill="#7db7ff" font-family="Courier New, monospace" font-size="12">
+      <text x="205" y="270">i</text>
+      <text x="485" y="270">ii</text>
+      <text x="765" y="278">iii</text>
+      <text x="1045" y="270">iv</text>
+      <text x="205" y="460">v</text>
+      <text x="485" y="460">vi</text>
+      <text x="765" y="468">vii</text>
+      <text x="1045" y="460">viii</text>
+    </g>
+  </g>
+
+  <text x="600" y="590" text-anchor="middle" fill="#8a8a8a" font-family="Helvetica, Arial, sans-serif" font-size="15">Where trust, knowledge and coordination become measurable economic value</text>
+  <text x="600" y="640" text-anchor="middle" fill="#6a6a6a" font-family="Courier New, monospace" font-size="13" letter-spacing="2">one field — many economies</text>
+</svg>

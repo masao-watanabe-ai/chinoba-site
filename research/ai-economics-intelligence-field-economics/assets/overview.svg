@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img"
+     aria-label="Intelligence as an economic resource: signals become knowledge, trust, coordination and decisions that produce economic value.">
+  <defs>
+    <linearGradient id="ov-glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7db7ff" stop-opacity="0.08"/>
+      <stop offset="0.6" stop-color="#7db7ff" stop-opacity="0"/>
+    </linearGradient>
+    <marker id="ov-arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6" fill="none" stroke="#6a6a6a" stroke-width="1"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="720" fill="#0b0b0b"/>
+  <rect width="1200" height="720" fill="url(#ov-glow)"/>
+  <rect x="0.5" y="0.5" width="1199" height="719" fill="none" stroke="#1f1f1f"/>
+
+  <text x="80" y="96" fill="#6a6a6a" font-family="Courier New, monospace" font-size="18" letter-spacing="4">INTELLIGENCE FIELD ECONOMICS</text>
+  <text x="80" y="150" fill="#f5f5f5" font-family="Georgia, serif" font-size="40">Intelligence as an economic resource</text>
+
+  <!-- input side -->
+  <g font-family="Helvetica, Arial, sans-serif">
+    <rect x="80" y="300" width="220" height="120" rx="6" fill="#111111" stroke="#2a2a2a"/>
+    <text x="190" y="352" text-anchor="middle" fill="#b0b0b0" font-size="16">Data &amp; Signals</text>
+    <text x="190" y="380" text-anchor="middle" fill="#6a6a6a" font-size="13">raw, abundant, cheap</text>
+
+    <!-- core field -->
+    <circle cx="600" cy="360" r="150" fill="none" stroke="#2a2a2a"/>
+    <circle cx="600" cy="360" r="98" fill="none" stroke="#7db7ff" stroke-opacity="0.5"/>
+    <text x="600" y="352" text-anchor="middle" fill="#f5f5f5" font-size="22">Intelligence</text>
+    <text x="600" y="382" text-anchor="middle" fill="#7db7ff" font-size="16">Field</text>
+
+    <text x="600" y="200" text-anchor="middle" fill="#8a8a8a" font-size="14">Knowledge</text>
+    <text x="452" y="300" text-anchor="middle" fill="#8a8a8a" font-size="14">Trust</text>
+    <text x="452" y="430" text-anchor="middle" fill="#8a8a8a" font-size="14">Coordination</text>
+    <text x="600" y="540" text-anchor="middle" fill="#8a8a8a" font-size="14">Decision</text>
+
+    <!-- output side -->
+    <rect x="900" y="300" width="220" height="120" rx="6" fill="#111111" stroke="#2a2a2a"/>
+    <text x="1010" y="352" text-anchor="middle" fill="#f5f5f5" font-size="16">Economic Value</text>
+    <text x="1010" y="380" text-anchor="middle" fill="#6a6a6a" font-size="13">scarce, compounding</text>
+  </g>
+
+  <line x1="300" y1="360" x2="440" y2="360" stroke="#6a6a6a" stroke-width="1" marker-end="url(#ov-arrow)"/>
+  <line x1="760" y1="360" x2="892" y2="360" stroke="#6a6a6a" stroke-width="1" marker-end="url(#ov-arrow)"/>
+
+  <text x="600" y="660" text-anchor="middle" fill="#6a6a6a" font-family="Courier New, monospace" font-size="15" letter-spacing="2">value is created where intelligence circulates, not where data accumulates</text>
+</svg>

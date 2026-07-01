@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img"
+     aria-label="The seven core concepts of intelligence field economics arranged around a shared center: intelligence as capital, knowledge flow, trust, coordination, decision, runtime organizations and the intelligence field.">
+  <defs>
+    <radialGradient id="cn-glow" cx="50%" cy="50%" r="55%">
+      <stop offset="0" stop-color="#7db7ff" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#7db7ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="720" fill="#0b0b0b"/>
+  <rect width="1200" height="720" fill="url(#cn-glow)"/>
+  <rect x="0.5" y="0.5" width="1199" height="719" fill="none" stroke="#1f1f1f"/>
+
+  <text x="80" y="90" fill="#6a6a6a" font-family="Courier New, monospace" font-size="18" letter-spacing="4">CORE CONCEPTS</text>
+
+  <g font-family="Helvetica, Arial, sans-serif" text-anchor="middle">
+    <!-- center -->
+    <circle cx="600" cy="380" r="86" fill="#111111" stroke="#7db7ff" stroke-opacity="0.55"/>
+    <text x="600" y="374" fill="#f5f5f5" font-size="17">Intelligence</text>
+    <text x="600" y="398" fill="#7db7ff" font-size="15">Field</text>
+
+    <!-- six satellites -->
+    <g fill="#111111" stroke="#2a2a2a">
+      <rect x="470" y="150" width="260" height="66" rx="6"/>
+      <rect x="820" y="250" width="260" height="66" rx="6"/>
+      <rect x="820" y="446" width="260" height="66" rx="6"/>
+      <rect x="470" y="546" width="260" height="66" rx="6"/>
+      <rect x="120" y="446" width="260" height="66" rx="6"/>
+      <rect x="120" y="250" width="260" height="66" rx="6"/>
+    </g>
+    <g fill="#e8e8e8" font-size="15">
+      <text x="600" y="189">Intelligence as Capital</text>
+      <text x="950" y="289">Knowledge Flow Economy</text>
+      <text x="950" y="485">Trust Infrastructure</text>
+      <text x="600" y="585">Coordination Economy</text>
+      <text x="250" y="485">Decision Economy</text>
+      <text x="250" y="289">Runtime Organizations</text>
+    </g>
+
+    <g stroke="#2a2a2a">
+      <line x1="600" y1="294" x2="600" y2="216"/>
+      <line x1="672" y1="330" x2="820" y2="283"/>
+      <line x1="672" y1="430" x2="820" y2="479"/>
+      <line x1="600" y1="466" x2="600" y2="546"/>
+      <line x1="528" y1="430" x2="380" y2="479"/>
+      <line x1="528" y1="330" x2="380" y2="283"/>
+    </g>
+  </g>
+
+  <text x="600" y="675" text-anchor="middle" fill="#6a6a6a" font-family="Courier New, monospace" font-size="14" letter-spacing="2">seven concepts, one field — intelligence made economic</text>
+</svg>

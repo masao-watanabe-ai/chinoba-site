@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img"
+     aria-label="Research topics of intelligence field economics arranged as a constellation: knowledge economy, coordination economy, decision markets, trust networks, AI-native enterprises, collective intelligence, runtime organizations and intelligence field economics.">
+  <defs>
+    <radialGradient id="tp-glow" cx="50%" cy="50%" r="60%">
+      <stop offset="0" stop-color="#7db7ff" stop-opacity="0.09"/>
+      <stop offset="1" stop-color="#7db7ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="720" fill="#0b0b0b"/>
+  <rect width="1200" height="720" fill="url(#tp-glow)"/>
+  <rect x="0.5" y="0.5" width="1199" height="719" fill="none" stroke="#1f1f1f"/>
+
+  <text x="80" y="90" fill="#6a6a6a" font-family="Courier New, monospace" font-size="18" letter-spacing="4">RESEARCH TOPICS</text>
+
+  <g stroke="#1f1f1f">
+    <line x1="600" y1="380" x2="230" y2="200"/>
+    <line x1="600" y1="380" x2="600" y2="170"/>
+    <line x1="600" y1="380" x2="970" y2="200"/>
+    <line x1="600" y1="380" x2="1010" y2="380"/>
+    <line x1="600" y1="380" x2="970" y2="560"/>
+    <line x1="600" y1="380" x2="600" y2="600"/>
+    <line x1="600" y1="380" x2="230" y2="560"/>
+    <line x1="600" y1="380" x2="190" y2="380"/>
+  </g>
+
+  <g font-family="Helvetica, Arial, sans-serif" text-anchor="middle">
+    <circle cx="600" cy="380" r="70" fill="#111111" stroke="#7db7ff" stroke-opacity="0.55"/>
+    <text x="600" y="376" fill="#f5f5f5" font-size="14">Intelligence</text>
+    <text x="600" y="396" fill="#7db7ff" font-size="13">Field Econ.</text>
+
+    <g fill="#7db7ff" fill-opacity="0.85">
+      <circle cx="230" cy="200" r="5"/><circle cx="600" cy="170" r="5"/>
+      <circle cx="970" cy="200" r="5"/><circle cx="1010" cy="380" r="5"/>
+      <circle cx="970" cy="560" r="5"/><circle cx="600" cy="600" r="5"/>
+      <circle cx="230" cy="560" r="5"/><circle cx="190" cy="380" r="5"/>
+    </g>
+
+    <g fill="#e8e8e8" font-size="15">
+      <text x="230" y="185">Knowledge Economy</text>
+      <text x="600" y="150">Coordination Economy</text>
+      <text x="970" y="185">Decision Markets</text>
+      <text x="1010" y="352">Trust Networks</text>
+      <text x="970" y="588">AI-native Enterprises</text>
+      <text x="600" y="628">Collective Intelligence</text>
+      <text x="230" y="588">Runtime Organizations</text>
+      <text x="150" y="352" text-anchor="start">Intelligence Field</text>
+      <text x="150" y="372" text-anchor="start">Economics</text>
+    </g>
+  </g>
+</svg>

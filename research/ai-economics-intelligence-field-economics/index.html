@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>AI Economics &amp; Intelligence Field Economics | Chinoba</title>
+  <meta name="description" content="Research on trust, knowledge, coordination and intelligence as economic infrastructure in the AI era.">
+  <meta name="keywords" content="AI Economics, Intelligence Economics, Knowledge Economy, Trust Economy, Coordination Economy, Decision Economy, Knowledge Flow, Runtime Society, Collective Intelligence, Chinoba">
+
+  <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
+  <link rel="stylesheet" href="/assets/research.css">
+
+  <style>
+    /* ---------- Page-specific overrides ---------- */
+    .concept-grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    /* Essay coming-soon variant */
+    .essay.is-coming-soon {
+      cursor: default;
+    }
+    .essay.is-coming-soon:hover {
+      background: var(--bg);
+    }
+    .essay .essay-meta.is-coming-soon {
+      color: var(--fg-faint);
+    }
+    .essay .essay-meta.is-coming-soon::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--fg-faint);
+      margin-right: 8px;
+      vertical-align: middle;
+      transform: translateY(-1px);
+    }
+
+    /* Conceptual diagram variant — vertical token chains rendered as drawn */
+    .two-col .col-text .quote.is-diagram {
+      white-space: pre-line;
+      line-height: 1.95;
+      letter-spacing: 0.4px;
+    }
+
+    /* Research positioning ladder in the closing section */
+    .closing .positioning {
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      line-height: 2.05;
+      margin: 0 0 44px;
+    }
+    .closing .positioning span {
+      display: block;
+    }
+    .closing .positioning .here {
+      color: var(--fg);
+    }
+
+    /* ---------- Inline diagram lead-ins ---------- */
+    .fig-lead {
+      max-width: 760px;
+      margin: clamp(44px, 6vw, 64px) auto 0;
+    }
+    .fig-lead h3 {
+      font-size: 20px;
+      margin: 0 0 12px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      color: var(--fg);
+    }
+    .fig-lead p {
+      color: var(--fg-mute);
+      font-size: 15.5px;
+      line-height: 1.85;
+      margin: 0;
+    }
+    .fig-lead + .figure {
+      margin-top: clamp(20px, 3vw, 28px);
+    }
+
+    /* ---------- Explore This Theme ---------- */
+    .theme-links {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .theme-links .theme-lang {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child {
+      margin-top: 0;
+    }
+    .theme-links a {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+    .theme-links .theme-book {
+      font-size: 13px;
+      color: var(--fg);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+    .theme-links .theme-book-sub {
+      display: block;
+      color: var(--fg-mute);
+      font-size: 12.5px;
+    }
+    .theme-links .theme-book-status {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--fg-faint);
+    }
+
+    /* ---------- Layer diagram (the "Key Components" runtime spine) ---------- */
+    .field-runtime {
+      margin-top: clamp(56px, 7vw, 80px);
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      padding: 28px clamp(20px, 4vw, 40px) 36px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+    .field-runtime::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%);
+      pointer-events: none;
+    }
+    .field-runtime-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 6px;
+      position: relative;
+    }
+    .field-runtime-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--fg);
+      margin: 0 0 22px;
+      letter-spacing: 0.2px;
+      position: relative;
+    }
+    .field-layers {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+    .field-layer {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) auto;
+      align-items: baseline;
+      gap: 18px;
+      padding: 14px 4px;
+      border-bottom: 1px solid var(--line);
+    }
+    .field-layer:last-child {
+      border-bottom: none;
+    }
+    .field-layer .layer-idx {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+    }
+    .field-layer .layer-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .field-layer .layer-name {
+      font-size: 15px;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+      font-weight: 600;
+    }
+    .field-layer .layer-note {
+      font-size: 13px;
+      color: var(--fg-mute);
+      line-height: 1.6;
+    }
+    .field-layer .layer-tag {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+    }
+    .field-arrow {
+      display: flex;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 4px;
+      padding: 4px 0 6px;
+    }
+
+    @media (max-width: 900px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .field-layer {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .field-layer .layer-tag {
+        margin-top: 2px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .concept-grid.cols-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <nav class="topbar" aria-label="Breadcrumb">
+    <div class="breadcrumb">
+      <a href="/">Chinoba</a>
+      <span class="sep">/</span>
+      <a href="/#research">Research</a>
+      <span class="sep">/</span>
+      <span>AI Economics &amp; Intelligence Field Economics</span>
+    </div>
+    <div class="meta-id">07 / Lines of Inquiry</div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Research / AI Economics &amp; Intelligence Field Economics</div>
+      <h1>AI Economics &amp; Intelligence Field Economics</h1>
+      <p class="hero-sub">
+        <span>Trust, Knowledge and Coordination in the AI Era.</span>
+        <span>Artificial intelligence is not only changing productivity.</span>
+        <span>It is transforming the nature of value creation itself.</span>
+      </p>
+      <p class="hero-desc">
+        This research explores intelligence as an economic resource —
+        where trust, knowledge, coordination, and decision-making
+        become the primary drivers of future economies.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============ EXPLORE THIS THEME ============ -->
+  <section class="research-section" id="explore" aria-labelledby="explore-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Explore</div>
+        <h2 id="explore-h">Explore This Theme</h2>
+        <p class="section-lede">
+          Enter AI Economics &amp; Intelligence Field Economics through
+          video and long-form texts — visual introductions and deeper
+          explorations of trust, knowledge circulation, coordination,
+          and intelligence as a productive resource.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay is-coming-soon">
+          <h3>📺 Watch on YouTube</h3>
+          <p>Video introductions to intelligence field economics — how trust, knowledge, and coordination become the primary drivers of value. Not yet available.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <div class="theme-book">
+              AI Economics &amp; Intelligence Field Economics
+              <span class="theme-book-status">Coming Soon</span>
+            </div>
+            <div class="theme-lang">Japanese</div>
+            <div class="theme-book">
+              AIと経済 ― 知能場経済 ―
+              <span class="theme-book-status">Coming Soon</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📚 Related Books</h3>
+          <p>Long-form explorations of intelligence as an economic resource — trust, knowledge circulation, and coordination as the infrastructure of AI-era economies.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English Edition</div>
+            <a href="https://amzn.to/4p3Po3s" target="_blank" rel="noopener noreferrer">Intelligence Field Economics: Trust, Knowledge and Coordination in the AI Era →</a>
+            <div class="theme-lang">Japanese Edition</div>
+            <a href="https://amzn.to/4vKNmro" target="_blank" rel="noopener noreferrer">知能を循環させる経済 ― 知能場経済 ― 信頼・知識・協調が創るAI時代の新しい経済 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 01 OVERVIEW ============ -->
+  <section class="research-section" id="overview" aria-labelledby="overview-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Overview</div>
+        <h2 id="overview-h">Intelligence as a Productive Resource</h2>
+        <p class="section-lede">
+          Intelligence field economics studies how AI transforms
+          economic systems — treating knowledge circulation, trust,
+          coordination, and decision-making as the primary sources of
+          value, rather than treating intelligence as a mere efficiency gain.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets/overview.svg"
+           data-lightbox aria-label="Open the diagram of intelligence as an economic resource">
+          <img src="assets/overview.svg"
+               alt="Data and signals flow into an intelligence field of knowledge, trust, coordination, and decision, which produces scarce, compounding economic value."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Value is created where intelligence circulates, not where data accumulates.</figcaption>
+      </figure>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>From Productivity to Value Creation</h3>
+          <p>
+            AI is usually framed as a productivity story — the same work,
+            done faster and cheaper. That framing is incomplete. As
+            intelligence becomes abundant, the scarce and valuable
+            elements shift: what can be trusted, what knowledge can be
+            circulated, and what coordination can be sustained.
+          </p>
+
+          <code class="quote is-diagram">Knowledge
+↓ Trust
+↓ Coordination
+↓ Decision
+↓ Economic Value</code>
+
+          <p>This research treats the following as first-class economic phenomena:</p>
+          <ul>
+            <li>Intelligence as production</li>
+            <li>Knowledge circulation</li>
+            <li>Trust economy</li>
+            <li>Coordination economy</li>
+            <li>AI-native organizations</li>
+            <li>Human-AI collaboration</li>
+            <li>Collective intelligence</li>
+            <li>Runtime economic systems</li>
+          </ul>
+        </div>
+
+        <div class="col-text">
+          <h3>The Intelligence Field</h3>
+          <p>
+            Intelligence does not sit inside a single model. It is
+            relational — distributed across humans, agents,
+            organizations, and institutions. An economy built on it
+            behaves like a field, not a stockpile: value emerges from
+            circulation and coordination, and compounds through trust.
+          </p>
+          <code class="quote">
+            AI is not only
+            changing productivity.
+            It is changing
+            what value is.
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 WHY IT MATTERS ============ -->
+  <section class="research-section" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / Why It Matters</div>
+        <h2 id="why-h">Why It Matters</h2>
+        <p class="section-lede">
+          When intelligence becomes cheap and abundant, the classical
+          picture of production breaks down. The bottleneck is no longer
+          computation or output — it is trust, coordination, and the
+          ability to turn signals into accountable decisions.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>The Bottleneck Moves</h3>
+          <p>
+            Abundant intelligence does not automatically become value.
+            An AI can produce a correct answer while an organization
+            still stalls — because the answer is not yet trusted,
+            coordinated, or owned by an accountable decision-maker.
+          </p>
+          <ul>
+            <li>Output is abundant; trusted output is scarce.</li>
+            <li>Knowledge is generated faster than it circulates.</li>
+            <li>Coordination cost, not compute cost, becomes the limit.</li>
+            <li>Value accrues to whoever can decide and be accountable.</li>
+          </ul>
+        </div>
+
+        <div class="col-text">
+          <h3>A New Production Function</h3>
+          <p>
+            The old chain treated a model's output as the product. The
+            new chain treats value as the end of a longer process — one
+            that must pass through trust, coordination, and an
+            accountable decision before it becomes economic value.
+          </p>
+          <code class="quote is-diagram">Data → Model → Output
+
+Knowledge → Trust → Coordination → Decision → Value</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 CORE CONCEPTS ============ -->
+  <section class="research-section" id="concepts" aria-labelledby="concepts-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Core Concepts</div>
+        <h2 id="concepts-h">Core Concepts</h2>
+        <p class="section-lede">
+          Seven concepts define how intelligence becomes economic —
+          from intelligence as capital to the intelligence field itself.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Intelligence as Capital</h3>
+          <p>Intelligence — not only labor or capital goods — becomes the compounding factor of production, accumulating and reinvesting like capital.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Knowledge Flow Economy</h3>
+          <p>Value arises from how knowledge circulates, transforms, and becomes actionable across people and agents — not from how much is stored.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Trust Infrastructure</h3>
+          <p>Verified, traceable trust is the settlement layer that lets knowledge and decisions move safely between humans, agents, and institutions.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Coordination Economy</h3>
+          <p>As the cost of coordinating humans and AI collapses, coordination itself becomes a designable, tradable, and value-bearing resource.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Decision Economy</h3>
+          <p>The scarce act is the accountable decision. Markets form around who decides, on what basis, and with what verifiable trace.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Runtime Organizations</h3>
+          <p>Firms become runtimes: rules, roles, and boundaries are adjusted continuously in operation rather than fixed at design time.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Intelligence Field</h3>
+          <p>Intelligence is relational — an economic field emerging across humans, agents, and institutions, not a property held by any single model.</p>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/concepts.svg"
+           data-lightbox aria-label="Open the diagram of the seven core concepts of intelligence field economics">
+          <img src="assets/concepts.svg"
+               alt="Seven core concepts arranged around a central intelligence field: intelligence as capital, knowledge flow economy, trust infrastructure, coordination economy, decision economy, and runtime organizations."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Seven concepts, one field — intelligence made economic.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 04 RELATIONSHIP DIAGRAM ============ -->
+  <section class="research-section" id="relationship" aria-labelledby="relationship-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Relationship Diagram</div>
+        <h2 id="relationship-h">The Value Chain of Intelligence</h2>
+        <p class="section-lede">
+          The concepts are not independent — they form a chain. Knowledge
+          becomes reliable through trust, trust enables coordination,
+          coordination resolves into decision, and decision realizes
+          economic value.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/relationship.svg"
+           data-lightbox aria-label="Open the value chain diagram of intelligence field economics">
+          <img src="assets/relationship.svg"
+               alt="A vertical value chain: knowledge descends into trust, trust into coordination, coordination into decision, and decision into economic value."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Each layer converts what is known into what is realized.</figcaption>
+      </figure>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>One Descending Chain</h3>
+          <p>
+            No single stage produces value on its own. Knowledge without
+            trust is noise; trust without coordination is inert; coordination
+            without decision is talk. Value appears only when the whole
+            chain resolves.
+          </p>
+          <code class="quote is-diagram">Knowledge
+↓ Trust
+↓ Coordination
+↓ Decision
+↓ Economic Value</code>
+        </div>
+        <div class="col-text">
+          <h3>Where Value Leaks</h3>
+          <p>
+            Most economic loss in AI systems is not a modeling failure —
+            it is a broken link in this chain. Knowledge that never
+            circulates, trust that cannot be verified, or coordination
+            that never becomes an accountable decision.
+          </p>
+          <code class="quote">
+            Value is the last
+            layer of a chain —
+            not the output
+            of a model.
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 KEY COMPONENTS ============ -->
+  <section class="research-section" id="components" aria-labelledby="components-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Key Components</div>
+        <h2 id="components-h">Key Components</h2>
+        <p class="section-lede">
+          The economic runtime that turns market and data signals into
+          compounding value — an economy-specialized reading of the
+          Decision Trace Model.
+        </p>
+      </div>
+
+      <div class="field-runtime" aria-label="The economic runtime, from signal to value">
+        <div class="field-runtime-label">Layer Diagram</div>
+        <h3 class="field-runtime-title">The Economic Runtime — Signal → Value</h3>
+
+        <ol class="field-layers" role="list">
+          <li class="field-layer">
+            <span class="layer-idx">L1</span>
+            <span class="layer-body">
+              <span class="layer-name">Signal</span>
+              <span class="layer-note">Market and data signals enter the field — abundant, noisy, and cheap.</span>
+            </span>
+            <span class="layer-tag">input</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L2</span>
+            <span class="layer-body">
+              <span class="layer-name">Knowledge</span>
+              <span class="layer-note">Signals are refined into reusable, circulating knowledge.</span>
+            </span>
+            <span class="layer-tag">knowledge</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L3</span>
+            <span class="layer-body">
+              <span class="layer-name">Trust</span>
+              <span class="layer-note">Knowledge is sourced, verified, and made reliable enough to act on.</span>
+            </span>
+            <span class="layer-tag">trust</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L4</span>
+            <span class="layer-body">
+              <span class="layer-name">Coordination</span>
+              <span class="layer-note">Trusted knowledge aligns humans, agents, and organizations.</span>
+            </span>
+            <span class="layer-tag">coordination</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L5</span>
+            <span class="layer-body">
+              <span class="layer-name">Decision</span>
+              <span class="layer-note">Coordination resolves into a committed, accountable decision.</span>
+            </span>
+            <span class="layer-tag">decision</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L6</span>
+            <span class="layer-body">
+              <span class="layer-name">Runtime</span>
+              <span class="layer-note">Decisions execute inside runtime organizations that adapt in operation.</span>
+            </span>
+            <span class="layer-tag">runtime</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L7</span>
+            <span class="layer-body">
+              <span class="layer-name">Trace</span>
+              <span class="layer-note">Every decision remains traceable, replayable, and accountable.</span>
+            </span>
+            <span class="layer-tag">trace</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L8</span>
+            <span class="layer-body">
+              <span class="layer-name">Value</span>
+              <span class="layer-note">Traceable coordination compounds into durable economic value.</span>
+            </span>
+            <span class="layer-tag">value</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 APPLICATIONS ============ -->
+  <section class="research-section" id="applications" aria-labelledby="applications-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Applications</div>
+        <h2 id="applications-h">Applications</h2>
+        <p class="section-lede">
+          Where intelligence field economics becomes concrete — domains
+          in which trust, knowledge, and coordination turn into
+          measurable economic value.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Enterprise AI</h3>
+          <p>Firms compete less on model access and more on how well they circulate knowledge and coordinate trusted decisions.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Supply Chains</h3>
+          <p>Verified trust and shared knowledge let distributed partners coordinate at lower cost and higher resilience.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Autonomous Organizations</h3>
+          <p>Organizations that run on agents require a coordination and trust economy to allocate work and accountability.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Public AI</h3>
+          <p>Public institutions turn algorithmic decisions into accountable, traceable value under governance and boundary constraints.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Digital Platforms</h3>
+          <p>Platforms become markets for knowledge and coordination, pricing trust and reputation as first-class assets.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Knowledge Work</h3>
+          <p>The unit of value shifts from producing output to circulating, verifying, and deciding on knowledge.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Scientific Collaboration</h3>
+          <p>Research accelerates when knowledge flow and trust networks let distributed teams coordinate and reuse results.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">viii</div>
+          <h3>AI Agents</h3>
+          <p>Agent economies need trust settlement and coordination protocols to transact, delegate, and remain accountable.</p>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/applications.svg"
+           data-lightbox aria-label="Open the diagram of intelligence field economics application domains">
+          <img src="assets/applications.svg"
+               alt="Eight application domains — enterprise AI, supply chains, autonomous organizations, public AI, digital platforms, knowledge work, scientific collaboration, and AI agents."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">One field, many economies — each turning coordination into value.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 07 RESEARCH TOPICS ============ -->
+  <section class="research-section" id="topics" aria-labelledby="topics-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Research Topics</div>
+        <h2 id="topics-h">Research Topics</h2>
+        <p class="section-lede">
+          Open lines of inquiry within intelligence field economics —
+          the questions this research is actively working through.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Knowledge Economy</h3>
+          <p>How the circulation and transformation of knowledge — not its accumulation — creates and captures value.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Coordination Economy</h3>
+          <p>Pricing, designing, and trading coordination as the collapsing cost of aligning humans and AI reshapes markets.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Decision Markets</h3>
+          <p>Structures where accountable decisions — who decides, on what trace — become the scarce, priced good.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Trust Networks</h3>
+          <p>How verifiable trust propagates between agents, humans, and institutions as economic settlement infrastructure.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>AI-native Enterprises</h3>
+          <p>Organizational forms built around intelligence as capital, runtime governance, and continuous coordination.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Collective Intelligence</h3>
+          <p>How distributed agents and people compose intelligence that no individual node holds alone.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Runtime Organizations</h3>
+          <p>Economic behavior of firms whose rules and boundaries adapt continuously rather than at design time.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">viii</div>
+          <h3>Intelligence Field Economics</h3>
+          <p>The unifying frame: intelligence as a relational field, and value as the product of its circulation.</p>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/topics.svg"
+           data-lightbox aria-label="Open the constellation diagram of intelligence field economics research topics">
+          <img src="assets/topics.svg"
+               alt="A constellation of research topics around a central intelligence field economics node: knowledge economy, coordination economy, decision markets, trust networks, AI-native enterprises, collective intelligence, and runtime organizations."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Distinct questions, one field — intelligence made economic.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+
+    <div class="positioning" aria-label="Research positioning within the intelligence field economy">
+      <span>Knowledge</span>
+      <span>↓</span>
+      <span>Trust</span>
+      <span>↓</span>
+      <span>Coordination</span>
+      <span>↓</span>
+      <span>Decision</span>
+      <span>↓</span>
+      <span class="here">Economic Value</span>
+    </div>
+
+    <blockquote>
+      <span>Intelligence is becoming</span>
+      <span>the primary resource of the economy.</span>
+      <span>&nbsp;</span>
+      <span>Value is created where knowledge circulates,</span>
+      <span>where trust is verified,</span>
+      <span>and where coordination becomes decision.</span>
+      <span>&nbsp;</span>
+      <span>The economy of intelligence is a field,</span>
+      <span>not a stock.</span>
+    </blockquote>
+    <div class="closing-mark">Chinoba.org</div>
+  </section>
+
+  <!-- ============ + RELATED RESEARCH ============ -->
+  <section class="research-section" id="related" aria-labelledby="related-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">+ / Related Research</div>
+        <h2 id="related-h">Other Lines of Inquiry</h2>
+        <p class="section-lede">
+          Intelligence field economics draws on neighboring threads in
+          the Chinoba field — the layers whose circulation it turns into value.
+        </p>
+      </div>
+
+      <div class="related-research">
+        <a href="/research/decision-trace-model" data-slug="decision-trace-model">
+          <span class="related-label">01 / Inquiry</span>
+          <span class="related-name">Decision Trace Model</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/runtime-society" data-slug="runtime-society">
+          <span class="related-label">02 / Inquiry</span>
+          <span class="related-name">Runtime Society</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/knowledge-flow" data-slug="knowledge-flow">
+          <span class="related-label">03 / Inquiry</span>
+          <span class="related-name">Knowledge Flow</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/trust-infrastructure" data-slug="trust-infrastructure">
+          <span class="related-label">04 / Inquiry</span>
+          <span class="related-name">Trust Infrastructure</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/ai-coordination" data-slug="ai-coordination">
+          <span class="related-label">05 / Inquiry</span>
+          <span class="related-name">AI Coordination</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/graph-intelligence-relational-systems" data-slug="graph-intelligence-relational-systems">
+          <span class="related-label">13 / Inquiry</span>
+          <span class="related-name">Graph Intelligence &amp; Relational Systems</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/emergent-distributed-intelligence" data-slug="emergent-distributed-intelligence">
+          <span class="related-label">14 / Inquiry</span>
+          <span class="related-name">Emergent &amp; Distributed Intelligence</span>
+          <span class="related-status">Available</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="research-footer">
+    <div class="footer-inner">
+      <div class="footer-text">
+        <p>Chinoba — Intelligence as Relationship</p>
+        <p class="footer-tag">AI is not prediction. It is decision.</p>
+        <p style="margin-top: 18px;">
+          <a href="/">Home</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/chinoba-lab" target="_blank" rel="noopener">GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://deus-ex-machina-ism.com/en/" target="_blank" rel="noopener noreferrer">Blog</a>
+          &nbsp;·&nbsp;
+          <a href="/#books">Books</a>
+        </p>
+      </div>
+      <div class="footer-contact">
+        <span class="contact-label">Contact</span>
+        <a href="mailto:hello@chinoba.org">hello@chinoba.org</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button type="button" class="lightbox-close" aria-label="Close preview">Close</button>
+    <img alt="">
+  </div>
+
+  <script>
+    (function () {
+      var lb = document.getElementById('lightbox');
+      if (!lb) return;
+      var lbImg = lb.querySelector('img');
+      var lbClose = lb.querySelector('.lightbox-close');
+
+      function open(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('is-open');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          var img = el.querySelector('img');
+          open(el.getAttribute('href'), img ? img.alt : '');
+        });
+      });
+
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target === lbImg) close();
+      });
+      lbClose.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
+      });
+    })();
+  </script>
+
+</body>
+</html>
