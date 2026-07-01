@@ -103,6 +103,90 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ---------- Inline diagram lead-ins ---------- */
+    .fig-lead {
+      max-width: 760px;
+      margin: clamp(44px, 6vw, 64px) auto 0;
+    }
+    .fig-lead h3 {
+      font-size: 20px;
+      margin: 0 0 12px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      color: var(--fg);
+    }
+    .fig-lead p {
+      color: var(--fg-mute);
+      font-size: 15.5px;
+      line-height: 1.85;
+      margin: 0;
+    }
+    .fig-lead + .figure {
+      margin-top: clamp(20px, 3vw, 28px);
+    }
+
+    /* ---------- Archive: real diagram images ---------- */
+    .diagram-shot {
+      display: block;
+      margin-top: auto;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      cursor: zoom-in;
+      transition: border-color 200ms ease;
+    }
+    .diagram-shot:hover {
+      border-color: var(--fg-faint);
+    }
+    .diagram-shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* ---------- Explore This Theme ---------- */
+    .theme-links {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .theme-links .theme-lang {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child {
+      margin-top: 0;
+    }
+    .theme-links a {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+    .theme-links .theme-book {
+      font-size: 13px;
+      color: var(--fg);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+    .theme-links .theme-book-sub {
+      display: block;
+      color: var(--fg-mute);
+      font-size: 12.5px;
+    }
+    .theme-links .theme-book-status {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--fg-faint);
+    }
   </style>
 </head>
 
@@ -136,6 +220,54 @@
       </p>
     </div>
   </header>
+
+  <!-- ============ EXPLORE THIS THEME ============ -->
+  <section class="research-section" id="explore" aria-labelledby="explore-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Explore</div>
+        <h2 id="explore-h">Explore This Theme</h2>
+        <p class="section-lede">
+          Enter Physical AI through video and long-form texts — visual
+          introductions and deeper explorations of decision infrastructure,
+          runtime coordination, robotics, IoT, and cyber-physical systems
+          in the age of Physical AI.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay">
+          <h3>📺 Watch on YouTube</h3>
+          <p>Visual introductions to Physical AI, Runtime Society, and why coordination matters more than intelligence in real-world AI systems.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://youtu.be/ThGFarkIkLw" target="_blank" rel="noopener noreferrer">Physical AI Is Coming: Why Coordination Matters More Than Intelligence →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://youtu.be/XgCY-dhTB0Y" target="_blank" rel="noopener noreferrer">Physical AIとは何か？AIは「知能」から「協調」へ ― Runtime SocietyとDecision Trace Modelが描く未来 →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📚 Related Books</h3>
+          <p>Long-form explorations of decision infrastructure for connecting AI, robotics, IoT, and cyber-physical systems to society.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English Edition</div>
+            <div class="theme-book">
+              Decision Infrastructure for the Physical AI Era
+              <span class="theme-book-sub">Connecting AI, Robotics, and IoT to Society</span>
+              <span class="theme-book-status">出版準備中</span>
+            </div>
+            <div class="theme-lang">Japanese Edition</div>
+            <div class="theme-book">
+              Physical AI時代のDecision Infrastructure
+              <span class="theme-book-sub">― AI・ロボット・IoTを社会へ接続する意思決定基盤 ―</span>
+              <span class="theme-book-status">出版準備中</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ 01 OVERVIEW ============ -->
   <section class="research-section" id="overview" aria-labelledby="overview-h">
@@ -205,6 +337,26 @@
           </p>
         </div>
       </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/02.png"
+           data-lightbox aria-label="Open the diagram of AI moving from information space to the physical world">
+          <img src="assets/02.png"
+               alt="AI is moving from information space — where it searches, generates, analyzes, and chats — into the physical world, where it moves, grasps, carries, and executes."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The same intelligence, relocated — from acting on information to acting on the world.</figcaption>
+      </figure>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/04.png"
+           data-lightbox aria-label="Open the diagram showing that a body alone is not intelligence">
+          <img src="assets/04.png"
+               alt="A body is not intelligence: what a physical AI system also requires is judgment, coordination, responsibility, and boundary."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Perception and control are the body. Judgment, coordination, responsibility, and boundary are the decision.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -271,6 +423,26 @@ Trace
           </p>
         </div>
       </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/07.png"
+           data-lightbox aria-label="Open the diagram showing that a signal is not a decision">
+          <img src="assets/07.png"
+               alt="Signal does not equal Decision: the output of a model is a signal, not yet a final decision."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">A model produces a signal. Treating that signal as a decision is where the pipeline fails.</figcaption>
+      </figure>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/08.png"
+           data-lightbox aria-label="Open the diagram of the decision runtime that turns a signal into a decision">
+          <img src="assets/08.png"
+               alt="A decision runtime places an event and its signal inside context, rules, and constraints before a responsible decision is made."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The missing layer — a runtime that resolves a signal into a decision under context and constraint.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -330,10 +502,66 @@ Trace
         </div>
       </div>
 
+      <div class="fig-lead">
+        <h3>Boundary — the guardrail between decision and execution</h3>
+        <p>
+          Of the seven primitives, two are where a collapsed model most
+          often fails. The first is the boundary: the layer that verifies
+          a decision against safety, ethics, compliance, and accountability
+          before it is allowed to reach the physical world.
+        </p>
+      </div>
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/10.png"
+           data-lightbox aria-label="Open the diagram of the boundary between decision and execution">
+          <img src="assets/10.png"
+               alt="The boundary sits between decision and execution, checking each decision against safety, ethics, compliance, and accountability."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The boundary controls what is permissible, not merely what is technically possible.</figcaption>
+      </figure>
+
+      <div class="fig-lead">
+        <h3>Human escalation — where responsibility re-enters</h3>
+        <p>
+          The second is escalation. When a decision is ambiguous, high-risk,
+          or value-laden, control passes back through a human gate — a
+          structural checkpoint for verification, judgment, and accountability,
+          not a fallback bolted on after the fact.
+        </p>
+      </div>
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/12.png"
+           data-lightbox aria-label="Open the diagram of the human gate for AI decisions">
+          <img src="assets/12.png"
+               alt="The human gate: AI proposes, humans verify, judge, and approve before execution, and remain the accountable party."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">AI is a decision-support layer. The accountable decision remains with people.</figcaption>
+      </figure>
+
       <div class="section-head" style="margin-top: clamp(56px, 7vw, 80px); margin-bottom: 28px;">
         <div class="section-label">Physical AI Runtime Flow</div>
         <h2 style="font-size: clamp(20px, 2.4vw, 24px);">Sensor → Trace</h2>
       </div>
+
+      <div class="fig-lead" style="margin-top: 0;">
+        <p>
+          The full runtime composes these primitives into a single path — from
+          an event in the world through signal, runtime, boundary, and human
+          gate to execution, and finally into an immutable ledger. The textual
+          flow below expands the same structure step by step.
+        </p>
+      </div>
+      <figure class="figure figure-wide figure-main" style="margin-top: clamp(20px, 3vw, 28px);">
+        <a class="figure-frame" href="assets/09.png"
+           data-lightbox aria-label="Open the end-to-end Decision Trace Model runtime flow diagram">
+          <img src="assets/09.png"
+               alt="The Decision Trace Model: Event, Signal, Runtime, Boundary, Human Gate, Execution, and Ledger connected as one accountable end-to-end flow."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Not just what was done, but why, how, and who took responsibility — preserved end to end.</figcaption>
+      </figure>
 
       <ol class="flow cols-4" role="list">
         <li class="flow-step" tabindex="0">
@@ -508,25 +736,60 @@ Trace
       <div class="diagrams">
         <div class="diagram-card">
           <div class="kicker">Diagram 01</div>
-          <h3>Physical AI Runtime Architecture</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <h3>Multi-Agent Physical AI Society</h3>
+          <a class="diagram-shot" href="assets/16.png"
+             data-lightbox aria-label="Open the diagram of a multi-agent physical AI society">
+            <img src="assets/16.png"
+                 alt="Robots, drones, vehicles, factories, and cities operating as a multi-agent society that shares information and coordinates toward a common purpose."
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 02</div>
-          <h3>Smart Factory Runtime Flow</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <h3>Coordination Trace</h3>
+          <a class="diagram-shot" href="assets/17.png"
+             data-lightbox aria-label="Open the diagram of the coordination trace across agents">
+            <img src="assets/17.png"
+                 alt="Coordination trace: recording information flow, decision rationale, coordination, and execution history across agents to deliver transparency and verifiability."
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 03</div>
-          <h3>IoT Decision Structure</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <h3>Relational Intelligence Structure</h3>
+          <a class="diagram-shot" href="assets/14.png"
+             data-lightbox aria-label="Open the diagram of intelligence as a structure of relationships">
+            <img src="assets/14.png"
+                 alt="Intelligence does not exist as a single entity: robot, human, sensor, rule, infrastructure, and organization function only through their relationships."
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 04</div>
-          <h3>Human Escalation Architecture</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <h3>Governance &amp; Decision Trace Infrastructure</h3>
+          <a class="diagram-shot" href="assets/18.png"
+             data-lightbox aria-label="Open the diagram of governance infrastructure built on the Decision Trace Model">
+            <img src="assets/18.png"
+                 alt="Governance infrastructure built on the Decision Trace Model: records and structures decisions, governs rules and responsibility, and supports a trustworthy society."
+                 loading="lazy">
+          </a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ 07.5 SYNTHESIS FIGURE ============ -->
+  <section class="research-section" aria-label="Synthesis">
+    <div class="wrap">
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets/19.png"
+           data-lightbox aria-label="Open the diagram showing that the strongest model is not enough without runtime, boundary, governance, traceability, and human judgment">
+          <img src="assets/19.png"
+               alt="A more powerful model is not the same as a usable one: runtime, boundary, governance, traceability, and human judgment are what earn trust in the physical world."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Model performance is not the goal. Runtime, boundary, governance, traceability, and human judgment are.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -609,6 +872,50 @@ Trace
       </div>
     </div>
   </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button type="button" class="lightbox-close" aria-label="Close preview">Close</button>
+    <img alt="">
+  </div>
+
+  <script>
+    (function () {
+      var lb = document.getElementById('lightbox');
+      if (!lb) return;
+      var lbImg = lb.querySelector('img');
+      var lbClose = lb.querySelector('.lightbox-close');
+
+      function open(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('is-open');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          var img = el.querySelector('img');
+          open(el.getAttribute('href'), img ? img.alt : '');
+        });
+      });
+
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target === lbImg) close();
+      });
+      lbClose.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
+      });
+    })();
+  </script>
 
 </body>
 </html>
