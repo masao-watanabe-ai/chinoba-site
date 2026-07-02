@@ -191,6 +191,90 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ---------- Inline diagram lead-ins (template-standard) ---------- */
+    .fig-lead {
+      max-width: 760px;
+      margin: clamp(44px, 6vw, 64px) auto 0;
+    }
+    .fig-lead h3 {
+      font-size: 20px;
+      margin: 0 0 12px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      color: var(--fg);
+    }
+    .fig-lead p {
+      color: var(--fg-mute);
+      font-size: 15.5px;
+      line-height: 1.85;
+      margin: 0;
+    }
+    .fig-lead + .figure {
+      margin-top: clamp(20px, 3vw, 28px);
+    }
+
+    /* ---------- Archive: real diagram images (template-standard) ---------- */
+    .diagram-shot {
+      display: block;
+      margin-top: auto;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      cursor: zoom-in;
+      transition: border-color 200ms ease;
+    }
+    .diagram-shot:hover {
+      border-color: var(--fg-faint);
+    }
+    .diagram-shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* ---------- Explore This Theme (template-standard) ---------- */
+    .theme-links {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .theme-links .theme-lang {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child {
+      margin-top: 0;
+    }
+    .theme-links a {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+    .theme-links .theme-book {
+      font-size: 13px;
+      color: var(--fg);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+    .theme-links .theme-book-sub {
+      display: block;
+      color: var(--fg-mute);
+      font-size: 12.5px;
+    }
+    .theme-links .theme-book-status {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--fg-faint);
+    }
   </style>
 </head>
 
@@ -230,6 +314,57 @@
       </p>
     </div>
   </header>
+
+  <!-- ============ EXPLORE THIS THEME ============ -->
+  <section class="research-section" id="explore" aria-labelledby="explore-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Explore</div>
+        <h2 id="explore-h">Explore This Theme</h2>
+        <p class="section-lede">
+          Explore Public AI and Algorithmic Governance through videos and
+          long-form texts — visual introductions and deeper explorations of
+          accountable AI, public decision systems, institutional governance,
+          human-centered AI, and algorithmic governance in the age of
+          intelligent societies.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay">
+          <h3>📺 Watch on YouTube</h3>
+          <p>Visual introductions to Public AI, Algorithmic Governance, AI accountability, and the future of public decision systems.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://youtu.be/2nkLvESnH0g" target="_blank" rel="noopener noreferrer">Algorithmic Governance Explained | How AI and Algorithms Are Shaping Society →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://youtu.be/eyBwB5TYFiI" target="_blank" rel="noopener noreferrer">Algorithmic Governanceとは何か？ AIは社会をどのように統治するのか【公共AI・アルゴリズム・AIガバナンス】 →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📚 Related Books</h3>
+          <p>Long-form explorations of Public AI, Algorithmic Governance, Decision Trace, institutional accountability, policy boundaries, and responsible AI systems.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English Edition</div>
+            <div class="theme-book">
+              Public AI and Algorithmic Governance
+              <span class="theme-book-sub">Designing Accountable Decision Systems for the AI Era</span>
+              <span class="theme-book-sub">Public Institutions · Decision Trace · Human Review · Policy Boundaries</span>
+              <span class="theme-book-status">Coming Soon</span>
+            </div>
+            <div class="theme-lang">Japanese Edition</div>
+            <div class="theme-book">
+              公共AIとアルゴリズム・ガバナンス
+              <span class="theme-book-sub">AI時代の説明可能な公共意思決定システム</span>
+              <span class="theme-book-sub">Decision Trace・Human Review・Policy Boundary・公共AI</span>
+              <span class="theme-book-status">Coming Soon</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ 01 OVERVIEW ============ -->
   <section class="research-section" id="overview" aria-labelledby="overview-h">
@@ -293,6 +428,26 @@
           </p>
         </div>
       </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/02.png"
+           data-lightbox aria-label="Open the diagram showing that AI is not just a computational tool">
+          <img src="assets/02.png"
+               alt="AI is not just a computational tool: used across search, social media, government, finance, and healthcare, it shapes information, decisions, behavior, and social systems."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Inside public institutions, AI is not a feature. It is a layer that shapes what decisions are even made.</figcaption>
+      </figure>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/07.png"
+           data-lightbox aria-label="Open the diagram of introducing AI to government services">
+          <img src="assets/07.png"
+               alt="Introducing AI to government: citizen data flows into AI, which supports public services across welfare, taxation, healthcare, and disaster management."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Where public AI operates — welfare, taxation, healthcare, disaster response — is where its decisions touch rights.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -373,6 +528,36 @@
           </code>
         </div>
       </div>
+
+      <div class="fig-lead">
+        <h3>From prediction systems to accountable decision systems</h3>
+        <p>
+          Public AI changes not only how governments process information,
+          but how institutions justify public decisions. The architecture
+          below illustrates the transition: rules and systems that were once
+          designed and operated by humans now embed an algorithmic layer —
+          and the final decision, and its accountability, must remain human.
+        </p>
+      </div>
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/05.png"
+           data-lightbox aria-label="Open the diagram showing how social systems are evolving to include an algorithmic layer">
+          <img src="assets/05.png"
+               alt="Social systems are evolving: traditionally Law to System to Human; today an Algorithm layer sits between System and Human, influencing decisions that humans still finalize."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The algorithm becomes part of the system — but the accountable decision stays with people.</figcaption>
+      </figure>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/16.png"
+           data-lightbox aria-label="Open the diagram of the interrelated challenges in algorithmic governance">
+          <img src="assets/16.png"
+               alt="Challenges in algorithmic governance form an interrelated field: bias, privacy, democracy, trust, law, security, and human oversight."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Legitimacy, rights, and trust are not separate concerns — they are an interlocking field a public system must hold together.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -437,6 +622,46 @@
           <p>Loops that carry audit findings, appeals, and outcomes back into policy and runtime configuration over time.</p>
         </div>
       </div>
+
+      <div class="fig-lead">
+        <h3>The layered view, in one picture</h3>
+        <p>
+          Read from top to bottom, algorithmic governance is a chain, not a
+          box: society sets the rules, rules constrain the algorithms, and the
+          algorithms feed — but do not replace — the decision. Each layer is a
+          distinct institutional concern.
+        </p>
+      </div>
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/04.png"
+           data-lightbox aria-label="Open the diagram defining algorithmic governance as Society, Rules, Algorithms, Decision">
+          <img src="assets/04.png"
+               alt="What is algorithmic governance: the study of how algorithms shape the design of social systems, structured as Society, Rules, Algorithms, and Decision."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Algorithmic governance is the design of how algorithms sit inside social systems — between rules and decisions.</figcaption>
+      </figure>
+
+      <div class="fig-lead">
+        <h3>Decision Runtime — where responsibility converges</h3>
+        <p>
+          Decision Runtime is not an AI model. It is the institutional
+          execution layer where policy, human responsibility, and AI
+          recommendations converge before any public action is taken. The
+          public-safety example below shows the pattern: data is analysed into
+          a risk assessment, but the final decision — and the accountability
+          for it — remains with a human.
+        </p>
+      </div>
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/08.png"
+           data-lightbox aria-label="Open the diagram of using data and AI for public safety with a human decision">
+          <img src="assets/08.png"
+               alt="Using data and AI for public safety: crime data feeds an AI risk assessment, but the final decision is made by humans, with AI used only to support judgment."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">AI analyses and assesses; the human decides. In public decisions, the model produces a signal — never the conclusion.</figcaption>
+      </figure>
 
       <!-- ====== Public AI Governance Flow diagram ====== -->
       <div class="governance-flow" aria-label="Public AI Governance Flow">
@@ -509,6 +734,27 @@
           </li>
         </ol>
       </div>
+
+      <div class="fig-lead">
+        <h3>Accountability is reconstructed through traceability</h3>
+        <p>
+          Every significant public decision should remain replayable,
+          inspectable, and reviewable long after execution. The trace is not a
+          log file — it is the institutional memory through which legitimacy is
+          reconstructed. Auditing closes the loop: decision records are
+          examined for fairness, accuracy, and transparency, and findings feed
+          back into the runtime.
+        </p>
+      </div>
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/15.png"
+           data-lightbox aria-label="Open the diagram of the algorithm auditing cycle">
+          <img src="assets/15.png"
+               alt="Algorithm auditing cycle: algorithms are deployed, decision logs are preserved, audits verify fairness, accuracy, and transparency, and improvements feed back in a continuous loop."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Audit → improve → re-evaluate. Traceable decision logs are what make the loop — and accountability — possible.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -657,30 +903,60 @@
       <div class="diagrams">
         <div class="diagram-card">
           <div class="kicker">Diagram 01</div>
-          <h3>Public AI Governance Flow</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <h3>Transparency &amp; Explanation</h3>
+          <a class="diagram-shot" href="assets/12.png"
+             data-lightbox aria-label="Open the diagram of transparency: AI, decision, and explanation">
+            <img src="assets/12.png"
+                 alt="Transparency: AI analyses data, the algorithm generates a decision, and an explanation of the basis and process is given to humans — answering &quot;Why was this decision made?&quot;"
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 02</div>
-          <h3>Policy Boundary Architecture</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <h3>Accountability — Who Is Responsible?</h3>
+          <a class="diagram-shot" href="assets/14.png"
+             data-lightbox aria-label="Open the diagram of accountability across developer, organization, government, and operator">
+            <img src="assets/14.png"
+                 alt="Accountability: developer, organization, government, and operator each carry responsibility for algorithmic decisions, converging on the question of who is accountable."
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 03</div>
-          <h3>Human Review and Appeal Gate</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <h3>Fairness &amp; Algorithmic Bias</h3>
+          <a class="diagram-shot" href="assets/13.png"
+             data-lightbox aria-label="Open the diagram of fairness across data, AI, decision, and people, with the risks of bias">
+            <img src="assets/13.png"
+                 alt="Fairness: data flows through AI to decisions that affect people, while attribute, data, algorithmic, and outcome bias threaten fair results."
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 04</div>
-          <h3>Agent Shutdown / Override Structure</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 05</div>
-          <h3>Decision Trace for Public Accountability</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <h3>Algorithmic Governance — Research Themes</h3>
+          <a class="diagram-shot" href="assets/11.png"
+             data-lightbox aria-label="Open the diagram of algorithmic governance research themes">
+            <img src="assets/11.png"
+                 alt="Research themes of algorithmic governance: decision, transparency, fairness, accountability, auditing, and governance around the design of social systems."
+                 loading="lazy">
+          </a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ 07.5 SYNTHESIS FIGURE ============ -->
+  <section class="research-section" aria-label="Synthesis">
+    <div class="wrap">
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets/18.png"
+           data-lightbox aria-label="Open the diagram showing that governance and trust matter more than model accuracy alone">
+          <img src="assets/18.png"
+               alt="What truly matters: a model's accuracy is not enough — governance, trust, and society are what let AI earn public acceptance. Governance connects AI's value to society."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Even highly accurate AI cannot earn public acceptance without governance and trust. In public systems, that is the whole point.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -769,6 +1045,50 @@
       </div>
     </div>
   </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button type="button" class="lightbox-close" aria-label="Close preview">Close</button>
+    <img alt="">
+  </div>
+
+  <script>
+    (function () {
+      var lb = document.getElementById('lightbox');
+      if (!lb) return;
+      var lbImg = lb.querySelector('img');
+      var lbClose = lb.querySelector('.lightbox-close');
+
+      function open(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('is-open');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          var img = el.querySelector('img');
+          open(el.getAttribute('href'), img ? img.alt : '');
+        });
+      });
+
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target === lbImg) close();
+      });
+      lbClose.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
+      });
+    })();
+  </script>
 
 </body>
 </html>
