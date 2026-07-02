@@ -207,6 +207,90 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ---------- Inline diagram lead-ins (template-standard) ---------- */
+    .fig-lead {
+      max-width: 760px;
+      margin: clamp(44px, 6vw, 64px) auto 0;
+    }
+    .fig-lead h3 {
+      font-size: 20px;
+      margin: 0 0 12px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      color: var(--fg);
+    }
+    .fig-lead p {
+      color: var(--fg-mute);
+      font-size: 15.5px;
+      line-height: 1.85;
+      margin: 0;
+    }
+    .fig-lead + .figure {
+      margin-top: clamp(20px, 3vw, 28px);
+    }
+
+    /* ---------- Archive: real diagram images (template-standard) ---------- */
+    .diagram-shot {
+      display: block;
+      margin-top: auto;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      cursor: zoom-in;
+      transition: border-color 200ms ease;
+    }
+    .diagram-shot:hover {
+      border-color: var(--fg-faint);
+    }
+    .diagram-shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* ---------- Explore This Theme (template-standard) ---------- */
+    .theme-links {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .theme-links .theme-lang {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child {
+      margin-top: 0;
+    }
+    .theme-links a {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+    .theme-links .theme-book {
+      font-size: 13px;
+      color: var(--fg);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+    .theme-links .theme-book-sub {
+      display: block;
+      color: var(--fg-mute);
+      font-size: 12.5px;
+    }
+    .theme-links .theme-book-status {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--fg-faint);
+    }
   </style>
 </head>
 
@@ -300,6 +384,36 @@
           </code>
         </div>
       </div>
+
+      <div class="fig-lead">
+        <h3>What AI Coordination spans</h3>
+        <p>
+          Coordination is not a single tool. It connects humans who define
+          intent, AI agents who reason and act, the tools they call, the
+          workflows they move through, and the organization that carries the
+          result. AI Coordination is the design of that whole — not the
+          deployment of one clever agent inside it.
+        </p>
+      </div>
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/04.png"
+           data-lightbox aria-label="Open the diagram of AI collaboration across human, agents, tools, workflow, and organization">
+          <img src="assets/04.png"
+               alt="AI collaboration as a layered stack: humans define goals, specialized AI agents execute, tools and APIs gather and process information, workflows automate the flow, and the organization realizes the outcome."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">AI Coordination spans human, agent, tool, workflow, and organization — a single accountable whole, not an isolated model.</figcaption>
+      </figure>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/03.png"
+           data-lightbox aria-label="Open the diagram showing that AI becomes useful when multiple agents coordinate">
+          <img src="assets/03.png"
+               alt="Why coordination matters: AI does not become useful simply because it is intelligent; it becomes useful because multiple agents — research, coding, planning, review, execution — coordinate around a shared center."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">AI does not become useful because it is intelligent. It becomes useful when agents coordinate.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -361,6 +475,56 @@
           </code>
         </div>
       </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/02.png"
+           data-lightbox aria-label="Open the diagram showing multiple specialized AI agents converging into coordination">
+          <img src="assets/02.png"
+               alt="AI agents are everywhere: research, coding, planning, review, and execution agents multiply into many concurrent AI agents, and the open problem becomes coordination."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Once agents multiply, the open problem is no longer capability — it is coordination.</figcaption>
+      </figure>
+
+      <div class="fig-lead">
+        <h3>What we inherit from distributed systems</h3>
+        <p>
+          Coordinating many AI agents is not a new class of problem. It is the
+          old problem of distributed systems — reliability, consistency, and
+          fault tolerance across independent actors — re-encountered at the
+          level of reasoning agents. The design principles carry over.
+        </p>
+      </div>
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/05.png"
+           data-lightbox aria-label="Open the diagram of what AI collaboration learns from distributed systems">
+          <img src="assets/05.png"
+               alt="What we learn from distributed systems: the reliability, scalability, and fault-tolerance principles of distributed systems and software engineering carry over into workflow systems and AI collaboration."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Reliability, scalability, and fault tolerance from distributed systems become the ground rules for coordinating agents.</figcaption>
+      </figure>
+
+      <div class="fig-lead">
+        <h3>Five ways coordination breaks down</h3>
+        <p>
+          The coordination problem begins when multiple agents act across
+          shared tools, shared contexts, and shared responsibilities. When it
+          fails, it fails in recognizable ways: deadlock, race conditions,
+          duplicate execution, cascading failure, and diffusion of
+          responsibility. Naming these patterns is the first step toward
+          designing against them.
+        </p>
+      </div>
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/06.png"
+           data-lightbox aria-label="Open the diagram of five typical patterns where collaboration does not go well">
+          <img src="assets/06.png"
+               alt="Five typical patterns where collaboration doesn't go well: deadlock, race condition, duplicate execution, cascading failure, and responsibility diffusion."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Deadlock, race conditions, duplicate execution, cascading failure, responsibility diffusion — the recurring failure modes of uncoordinated agents.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -427,6 +591,27 @@
           <p>Outcomes — including failures — return into intent, signals, agents, and boundaries, so the coordination structure can learn.</p>
         </div>
       </div>
+
+      <div class="fig-lead">
+        <h3>The coordination architecture, in one picture</h3>
+        <p>
+          The same components read as a stacked architecture: agents act,
+          memory retains context, knowledge is shared, workflow sequences the
+          work, decision-making reaches judgment, and governance holds it all
+          accountable. Coordination becomes visible when agents, memory,
+          knowledge, workflow, decision, and governance are placed in a single
+          runtime structure.
+        </p>
+      </div>
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/19.png"
+           data-lightbox aria-label="Open the diagram of the AI collaboration architecture">
+          <img src="assets/19.png"
+               alt="AI collaboration architecture as six connected layers: Agents, Memory, Knowledge, Workflow, Decision Making, and Governance — so that AI works not in isolation but in collaboration with people and other AIs."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Agents, memory, knowledge, workflow, decision-making, and governance — the coordination architecture as one connected stack.</figcaption>
+      </figure>
 
       <!-- ====== AI Coordination Structure (layered diagram) ====== -->
       <div class="field-runtime" aria-label="AI Coordination Structure">
@@ -515,6 +700,59 @@
             <span class="layer-tag">feedback</span>
           </li>
         </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPLORE THIS THEME ============ -->
+  <section class="research-section" id="explore" aria-labelledby="explore-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Explore</div>
+        <h2 id="explore-h">Explore This Theme</h2>
+        <p class="section-lede">
+          AI Coordination is one of the central inquiries of Chinoba. This
+          research explores how autonomous agents, human judgment,
+          organizational workflows, runtime systems, and governance structures
+          can become a single coordinated decision system. Begin with the
+          introductory videos, then continue through the forthcoming books that
+          expand coordination engineering into a complete architectural
+          discipline.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay">
+          <h3>📺 Watch on YouTube</h3>
+          <p>Visual introductions to AI Coordination and coordination engineering for the multi-agent era.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://youtu.be/DfBcWWOB8oc" target="_blank" rel="noopener noreferrer">What Is AI Coordination? Coordination Engineering for the Multi-Agent Era →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://youtu.be/uopdR_jXfss" target="_blank" rel="noopener noreferrer">AI Coordinationとは何か ― マルチエージェント時代の協調工学と5つの協調障害を解説 →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📚 Related Books</h3>
+          <p>Planned long-form explorations of AI Coordination, coordination engineering, multi-agent systems, decision trace, and runtime responsibility.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English Edition</div>
+            <div class="theme-book">
+              AI Coordination
+              <span class="theme-book-sub">Coordination Engineering for the Multi-Agent Era</span>
+              <span class="theme-book-sub">Designing Runtime Structures for Agents, Humans, Boundaries, Decisions, and Governance</span>
+              <span class="theme-book-status">FORTHCOMING</span>
+            </div>
+            <div class="theme-lang">Japanese Edition</div>
+            <div class="theme-book">
+              AI Coordination
+              <span class="theme-book-sub">マルチエージェント時代の協調工学</span>
+              <span class="theme-book-sub">人・AI・Boundary・Decision・Governanceを設計する</span>
+              <span class="theme-book-status">FORTHCOMING</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -677,40 +915,149 @@
         <div class="section-label">07 / Diagrams</div>
         <h2 id="diagrams-h">Architecture Archive</h2>
         <p class="section-lede">
-          A growing archive of architectural sketches for
-          AI coordination — the agent, gate, boundary, and
-          trace pathways through which coordinated action
-          becomes observable.
+          The archive frames coordination failures not as isolated errors, but
+          as design patterns for coordination engineering. Each failure mode
+          reveals a corresponding runtime response — timeout, priority, mutual
+          exclusion, transaction, failover, human gate, approval workflow, and
+          governance. Each row pairs a breakdown pattern with its structural
+          answer: the left column names how coordination fails, the right shows
+          how it is designed against.
         </p>
       </div>
 
       <div class="diagrams">
         <div class="diagram-card">
-          <div class="kicker">Diagram 01</div>
-          <h3>AI Coordination Structure</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <div class="kicker">Failure 01 · Pattern</div>
+          <h3>Deadlock</h3>
+          <a class="diagram-shot" href="assets/07.png"
+             data-lightbox aria-label="Open the diagram of deadlock between two agents holding each other's resources">
+            <img src="assets/07.png"
+                 alt="Deadlock: Agent A holds Resource 1 and waits for Resource 2, while Agent B holds Resource 2 and waits for Resource 1 — neither can proceed and processing stalls permanently."
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
-          <div class="kicker">Diagram 02</div>
-          <h3>Agent Runtime Architecture</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <div class="kicker">Failure 01 · Response</div>
+          <h3>Solutions to Deadlock</h3>
+          <a class="diagram-shot" href="assets/08.png"
+             data-lightbox aria-label="Open the diagram of solutions to deadlock">
+            <img src="assets/08.png"
+                 alt="Solutions to deadlock: timeout, priority assignment, monitoring and intervention, and escalation to humans or higher-level systems."
+                 loading="lazy">
+          </a>
+        </div>
+
+        <div class="diagram-card">
+          <div class="kicker">Failure 02 · Pattern</div>
+          <h3>Race Condition</h3>
+          <a class="diagram-shot" href="assets/09.png"
+             data-lightbox aria-label="Open the diagram of a race condition where agents access the same resource simultaneously">
+            <img src="assets/09.png"
+                 alt="Race condition: multiple agents access the same shared resource at the same time, and overlapping timing causes data inconsistency, update loss, and processing failures."
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
-          <div class="kicker">Diagram 03</div>
-          <h3>Human Gate Coordination Flow</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <div class="kicker">Failure 02 · Response</div>
+          <h3>Solutions to Race Conditions</h3>
+          <a class="diagram-shot" href="assets/10.png"
+             data-lightbox aria-label="Open the diagram of solutions to race conditions">
+            <img src="assets/10.png"
+                 alt="Solutions to race conditions: mutual exclusion (locking), transactions with commit/rollback, leader election, and authorization control."
+                 loading="lazy">
+          </a>
+        </div>
+
+        <div class="diagram-card">
+          <div class="kicker">Failure 03 · Pattern</div>
+          <h3>Duplicate Execution</h3>
+          <a class="diagram-shot" href="assets/11.png"
+             data-lightbox aria-label="Open the diagram of duplicate, redundant execution">
+            <img src="assets/11.png"
+                 alt="Duplicate execution: the same process is run redundantly by multiple agents, wasting tokens and causing increased cost, increased latency, and missed opportunities."
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
-          <div class="kicker">Diagram 04</div>
-          <h3>Tool Execution Boundary</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <div class="kicker">Failure 03 · Response</div>
+          <h3>Solutions to Duplicate Execution</h3>
+          <a class="diagram-shot" href="assets/12.png"
+             data-lightbox aria-label="Open the diagram of solutions to duplicate execution">
+            <img src="assets/12.png"
+                 alt="Solutions to duplicate execution: task management with de-duplication, caching, shared memory, and a scheduler that ensures each task executes once."
+                 loading="lazy">
+          </a>
+        </div>
+
+        <div class="diagram-card">
+          <div class="kicker">Failure 04 · Pattern</div>
+          <h3>Cascading Failure</h3>
+          <a class="diagram-shot" href="assets/13.png"
+             data-lightbox aria-label="Open the diagram of cascading failure spreading across an organization">
+            <img src="assets/13.png"
+                 alt="Cascading failure: one agent's incorrect decision propagates as other agents trust the result, spreading across the organization into service disruptions and loss of trust."
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
-          <div class="kicker">Diagram 05</div>
-          <h3>Feedback and Decision Trace Loop</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <div class="kicker">Failure 04 · Response</div>
+          <h3>Solutions to Cascading Failure</h3>
+          <a class="diagram-shot" href="assets/14.png"
+             data-lightbox aria-label="Open the diagram of solutions to cascading failure">
+            <img src="assets/14.png"
+                 alt="Solutions to cascading failure: fail-safe (fail closed), circuit breaker, adaptive retry with backoff and jitter, and validation agents that verify critical decisions."
+                 loading="lazy">
+          </a>
+        </div>
+
+        <div class="diagram-card">
+          <div class="kicker">Failure 05 · Pattern</div>
+          <h3>Responsibility Diffusion</h3>
+          <a class="diagram-shot" href="assets/15.png"
+             data-lightbox aria-label="Open the diagram of responsibility diffusion across a process">
+            <img src="assets/15.png"
+                 alt="Responsibility diffusion: across planning, investigation, execution, and review, ownership is unclear, so no one takes responsibility and problems are left unresolved."
+                 loading="lazy">
+          </a>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Failure 05 · Response</div>
+          <h3>Solutions for Responsibility</h3>
+          <a class="diagram-shot" href="assets/16.png"
+             data-lightbox aria-label="Open the diagram of solutions for responsibility: roles, approval workflow, decision history, and governance">
+            <img src="assets/16.png"
+                 alt="Solutions for responsibility: clear definition of roles, an approval workflow with human review, a complete decision history, and governance for accountability and reliability."
+                 loading="lazy">
+          </a>
         </div>
       </div>
+
+      <div class="fig-lead">
+        <h3>Human gate and decision trace close the loop</h3>
+        <p>
+          A human gate does not stop automation. It converts machine output
+          into sanctioned organizational action. And decision trace is the
+          memory of coordination — the record of who decided what, with which
+          signals and approvals — that makes responsibility observable after
+          execution. Together they turn the responses above into accountable
+          coordination.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07.5 SYNTHESIS FIGURE ============ -->
+  <section class="research-section" aria-label="Synthesis">
+    <div class="wrap">
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets/20.png"
+           data-lightbox aria-label="Open the diagram of AI collaboration for a better future">
+          <img src="assets/20.png"
+               alt="AI collaboration for a better future: connecting AI, people, organizations, and society — building better AI, enabling better collaboration, better organizations, a better society, and a shared future."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Coordination is not the end state. Its feedback loop reaches outward — into better organizations, a better society, and a shared future.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -807,6 +1154,50 @@
       </div>
     </div>
   </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button type="button" class="lightbox-close" aria-label="Close preview">Close</button>
+    <img alt="">
+  </div>
+
+  <script>
+    (function () {
+      var lb = document.getElementById('lightbox');
+      if (!lb) return;
+      var lbImg = lb.querySelector('img');
+      var lbClose = lb.querySelector('.lightbox-close');
+
+      function open(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('is-open');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          var img = el.querySelector('img');
+          open(el.getAttribute('href'), img ? img.alt : '');
+        });
+      });
+
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target === lbImg) close();
+      });
+      lbClose.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
+      });
+    })();
+  </script>
 
 </body>
 </html>
