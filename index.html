@@ -1215,6 +1215,48 @@
       }
       .watch-intro .watch-desc { max-width: none; }
     }
+
+    /* ---- Further Reading (introductory books) ---- */
+    .further-reading {
+      margin-top: clamp(40px, 6vw, 64px);
+    }
+
+    .further-reading-title {
+      font-size: 20px;
+      margin: 0 0 8px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .further-reading-desc {
+      color: var(--fg-mute);
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 0 0 24px;
+      max-width: 520px;
+    }
+
+    .book-card {
+      text-decoration: none;
+      transition: background 220ms ease;
+    }
+
+    .book-card:hover {
+      background: var(--bg-elev);
+      text-decoration: none;
+    }
+
+    .book-card .arrow {
+      display: inline-block;
+      transition: transform 220ms ease;
+    }
+
+    .book-card:hover .arrow { transform: translateX(3px); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .book-card,
+      .book-card .arrow { transition: none; }
+    }
   </style>
 </head>
 
@@ -1281,6 +1323,29 @@
         <img src="https://img.youtube.com/vi/lj5AuW_aNOU/maxresdefault.jpg" alt="What Is Chinoba? — introduction video thumbnail" loading="lazy">
         <span class="play-button" aria-hidden="true"></span>
       </a>
+    </div>
+
+    <div class="further-reading" aria-labelledby="further-reading-label">
+      <h3 class="further-reading-title" id="further-reading-label">Further Reading</h3>
+      <p class="further-reading-desc">
+        Explore the ideas behind Chinoba through our introductory books.
+      </p>
+
+      <div class="cards">
+        <a class="card book-card" href="https://amzn.to/4y2H8ED" target="_blank" rel="noopener noreferrer"
+           aria-label="Read Intelligence Field Economics on Amazon (opens in a new tab)">
+          <h3>Intelligence Field Economics</h3>
+          <p>Trust, Knowledge and Coordination in the AI Era</p>
+          <span class="meta">Read on Amazon <span class="arrow" aria-hidden="true">→</span></span>
+        </a>
+
+        <a class="card book-card" href="https://amzn.to/4h05jgS" target="_blank" rel="noopener noreferrer"
+           aria-label="知能場をAmazonで読む（新しいタブで開きます）">
+          <h3>知能場</h3>
+          <p>Chinouba — Intelligence as Relationship</p>
+          <span class="meta">Amazonで読む <span class="arrow" aria-hidden="true">→</span></span>
+        </a>
+      </div>
     </div>
   </section>
 
