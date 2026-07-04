@@ -207,6 +207,74 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ---------- Page figures (reuse global .figure / .figure-frame) ---------- */
+    /* Lead-in paragraph that introduces a figure — mirrors body prose */
+    .figure-lede {
+      color: var(--fg-mute);
+      font-size: 15.5px;
+      line-height: 1.85;
+      max-width: 720px;
+      margin: clamp(48px, 6vw, 64px) 0 0;
+    }
+    .figure-lede + .figure-wide {
+      margin-top: 18px;
+    }
+
+    /* Hero cover image — sits beneath the hero copy */
+    .hero .figure {
+      margin: clamp(32px, 5vw, 48px) auto 0;
+    }
+
+    /* ---------- Explore This Theme ---------- */
+    .theme-links {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .theme-links .theme-lang {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child {
+      margin-top: 0;
+    }
+    .theme-links a {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+    /* Coming-soon book titles inside the Explore section */
+    .theme-links .theme-soon {
+      font-size: 13px;
+      color: var(--fg-mute);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+    .theme-links .theme-soon .soon-tag {
+      display: inline-block;
+      margin-left: 8px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+    }
+    .theme-links .theme-soon .soon-tag::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--fg-faint);
+      margin-right: 6px;
+      vertical-align: middle;
+      transform: translateY(-1px);
+    }
   </style>
 </head>
 
@@ -243,8 +311,58 @@
         decision traces,
         and organizational knowledge flow.
       </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/01.png"
+           data-lightbox aria-label="Open Graph Intelligence overview diagram">
+          <img src="/research/graph-intelligence-relational-systems/assets/01.png"
+               alt="What is a GNN, and why can't AI learn human judgment? — a graph of connected nodes above an AI mind, framing a deeper look at structure and the nature of judgment"
+               loading="lazy">
+        </a>
+      </figure>
     </div>
   </header>
+
+  <!-- ============ EXPLORE THIS THEME ============ -->
+  <section class="research-section" id="explore" aria-labelledby="explore-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Explore</div>
+        <h2 id="explore-h">Explore This Theme</h2>
+        <p class="section-lede">
+          Enter Graph Intelligence &amp; Relational Systems through
+          video and long-form texts — visual introductions and
+          deeper explorations of Graph Neural Networks, Decision
+          Trace GNN, relational learning, and graph-based
+          intelligence in the age of AI.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay">
+          <h3>📺 Watch on YouTube</h3>
+          <p>Visual introductions to Graph Intelligence, Graph Neural Networks, Decision Trace GNN, and relational learning in the age of AI.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://youtu.be/c6lH7C_A1mE" target="_blank" rel="noopener noreferrer">Why AI Still Can't Learn Human Decisions | Graph Neural Networks &amp; Decision Trace GNN Explained →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://youtu.be/ThxQW9JjCtU" target="_blank" rel="noopener noreferrer">AIはなぜ人間の判断を学べないのか ― GNNとDecision Trace GNNの可能性 →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📚 Related Books</h3>
+          <p>Long-form explorations of Graph Intelligence, Graph Neural Networks, Decision Trace GNN, relational learning, and graph-based decision intelligence. The books have not yet been published.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English Edition</div>
+            <span class="theme-soon">Graph Intelligence — Relational Learning and Decision Trace GNN in the Age of AI<span class="soon-tag">Coming Soon</span></span>
+            <div class="theme-lang">Japanese Edition</div>
+            <span class="theme-soon">グラフ知能 — AI時代の関係性学習とDecision Trace GNN<span class="soon-tag">Coming Soon</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ 01 OVERVIEW ============ -->
   <section class="research-section" id="overview" aria-labelledby="overview-h">
@@ -309,6 +427,25 @@
           </p>
         </div>
       </div>
+
+      <p class="figure-lede">
+        The relational view made concrete: reality is not a list
+        of isolated things but a web of people, organizations,
+        knowledge, and rules bound together. Notice how meaning
+        gathers at the connections, not the nodes — the same
+        intuition graph intelligence encodes when it treats
+        relationships as the primary object of computation.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/05.png"
+           data-lightbox aria-label="Open Reality is Relationships diagram">
+          <img src="/research/graph-intelligence-relational-systems/assets/05.png"
+               alt="Reality is relationships — the real world is not made of words but of relationships between people, organizations, knowledge, and rules, and this network is what drives it"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 01 — Reality Is Made of Relationships</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -374,6 +511,45 @@
           </code>
         </div>
       </div>
+
+      <p class="figure-lede">
+        Every wave of AI — from machine learning to deep learning
+        to transformers and large language models — has advanced by
+        finding patterns in ever-larger data. That is a genuine
+        achievement, but it is also a ceiling: the real world is not
+        only a distribution of patterns, and much of what an
+        organization needs to reason about lives in structure that
+        pattern-matching alone cannot recover.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/03.png"
+           data-lightbox aria-label="Open AI evolution and its common limit diagram">
+          <img src="/research/graph-intelligence-relational-systems/assets/03.png"
+               alt="AI changed everything, but shares one common point — machine learning, deep learning, transformers, and LLMs all learn patterns from data, yet the real world cannot be explained by patterns alone"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 02 — The Common Limit of Pattern-Based AI</figcaption>
+      </figure>
+
+      <p class="figure-lede">
+        This is the opening for a graph frame. Where language models
+        are powerful with text, graph neural networks are powerful
+        with relationships — representing entities as nodes, their
+        connections as edges, and the whole as a structure that can
+        be reasoned over. The two are complementary, and together
+        they point past the limits of any single larger model.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/02.png"
+           data-lightbox aria-label="Open Why Relationships Matter diagram">
+          <img src="/research/graph-intelligence-relational-systems/assets/02.png"
+               alt="Graph Neural Networks as the next AI beyond LLMs — nodes are entities, edges are relationships, and the graph is structure; GNNs help AI understand relationships, reason in context, and make better decisions"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 03 — Why Relationships Matter</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -389,6 +565,26 @@
           coordination.
         </p>
       </div>
+
+      <p class="figure-lede">
+        Before the layers, the primitives. A graph is only three
+        things — nodes for entities, edges for the connections
+        between them, and the relationships those edges carry as
+        meaning, context, and impact. Read from left to right: the
+        same three primitives that describe a single relationship
+        also describe an entire world of people, organizations,
+        events, and knowledge linked around a shared transaction.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/06.png"
+           data-lightbox aria-label="Open graph primitives diagram">
+          <img src="/research/graph-intelligence-relational-systems/assets/06.png"
+               alt="A graph is nodes, edges, and relationships — the world is naturally represented as a graph, expressed not through isolated elements but through their connections"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 04 — Nodes, Edges, and Relationships</figcaption>
+      </figure>
 
       <div class="concept-grid cols-4">
         <div class="concept">
@@ -522,11 +718,120 @@
     </div>
   </section>
 
-  <!-- ============ 04 RELATED ESSAYS ============ -->
+  <!-- ============ 04 THE MEANING GAP ============ -->
+  <section class="research-section" id="meaning" aria-labelledby="meaning-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / The Meaning Gap</div>
+        <h2 id="meaning-h">From Structure to Judgment</h2>
+        <p class="section-lede">
+          Graph intelligence gives AI a powerful grip on structure.
+          But structure is not yet meaning — and meaning is what
+          human decisions are made of. This is the gap the
+          Decision Trace GNN is designed to close.
+        </p>
+      </div>
+
+      <p class="figure-lede">
+        Once a model can read relationships, a harder question
+        follows: can it read what those relationships mean? A GNN
+        can see that two nodes are connected, but not why the
+        connection was made, what it is for, or what is happening
+        inside the structure. These are the questions that separate
+        pattern from judgment.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/08.png"
+           data-lightbox aria-label="Open Can GNN Learn Meaning diagram">
+          <img src="/research/graph-intelligence-relational-systems/assets/08.png"
+               alt="Can a GNN learn meaning? — GNNs capture relationships, but whether they grasp meaning, context, and purpose (why a connection was made, what it is for, what is happening in the structure) remains an open question"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 05 — Can a GNN Learn Meaning?</figcaption>
+      </figure>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What Graphs Give — and Withhold</h3>
+          <p>
+            A graph neural network learns the structure of
+            relationships: which nodes connect, what patterns recur,
+            how strongly and in what role entities relate. That is a
+            great deal — and for many tasks it is enough.
+          </p>
+          <p>
+            What it does not learn is meaning. The semantics of a
+            connection, its context, its purpose, the background
+            knowledge that tells us what a relationship is <em>about</em>
+            — none of this is present in topology alone.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>Where Meaning Comes From</h3>
+          <p>
+            Meaning is not written into the data from the start. It
+            is born from how we frame the world — the boundary we
+            draw around it, the rules and ontology we impose, and the
+            human judgment that reads the same structure through
+            purpose, values, and context.
+          </p>
+
+          <code class="quote">
+            Meaning does not exist in the data.
+            It is born from how
+            we design the world.
+          </code>
+        </div>
+      </div>
+
+      <p class="figure-lede">
+        The same network of people, organizations, and documents can
+        carry entirely different meanings depending on the frame
+        placed over it. Boundary decides how far the world extends;
+        rules and ontology give it structure; and human judgment
+        supplies purpose. Meaning is a product of that design, not a
+        property of the graph.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/10.png"
+           data-lightbox aria-label="Open Meaning is born from Boundary, Rule, Ontology, and Human diagram">
+          <img src="/research/graph-intelligence-relational-systems/assets/10.png"
+               alt="Meaning is born from Boundary, Rule, Ontology, and Human — the same person can mean patient, customer, or employee depending on the frame, so meaning arises from how we design the world, not from the data itself"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 06 — Meaning Is Born from Boundary, Rule, Ontology, and Human</figcaption>
+      </figure>
+
+      <p class="figure-lede">
+        This is where relational learning meets the Decision Trace
+        Model. When decisions are recorded on a ledger, connected
+        into a graph, and given a boundary that fixes what each
+        judgment meant, a GNN can finally learn from them — not the
+        meaning of words, but the structure of judgment itself.
+        Decision Trace GNN turns past decisions into a substrate for
+        better future ones.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/12.png"
+           data-lightbox aria-label="Open Decision Trace GNN diagram">
+          <img src="/research/graph-intelligence-relational-systems/assets/12.png"
+               alt="Decision Trace GNN — a ledger records the decision process, a graph represents the connections between judgments, a GNN learns relational patterns, and decision learning uses past judgments to support better future decisions"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 07 — Decision Trace GNN: Making Judgment Learnable</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 05 RELATED ESSAYS ============ -->
   <section class="research-section" id="essays" aria-labelledby="essays-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">04 / Related Essays</div>
+        <div class="section-label">05 / Related Essays</div>
         <h2 id="essays-h">Reading Around Graph Intelligence</h2>
         <p class="section-lede">
           Essays that extend this inquiry into GNN-based
@@ -570,11 +875,11 @@
     </div>
   </section>
 
-  <!-- ============ 05 RELATED BOOKS ============ -->
+  <!-- ============ 06 RELATED BOOKS ============ -->
   <section class="research-section" id="books" aria-labelledby="books-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">05 / Related Books</div>
+        <div class="section-label">06 / Related Books</div>
         <h2 id="books-h">Long-form Texts</h2>
         <p class="section-lede">
           Knowledge artifacts that compile the surrounding research
@@ -622,11 +927,11 @@
     </div>
   </section>
 
-  <!-- ============ 06 RELATED OSS ============ -->
+  <!-- ============ 07 RELATED OSS ============ -->
   <section class="research-section" id="oss" aria-labelledby="oss-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">06 / Related OSS</div>
+        <div class="section-label">07 / Related OSS</div>
         <h2 id="oss-h">Related OSS</h2>
         <p class="section-lede">
           Graph-oriented runtime and intelligence components
@@ -664,11 +969,11 @@
     </div>
   </section>
 
-  <!-- ============ 07 DIAGRAMS ============ -->
+  <!-- ============ 08 DIAGRAMS ============ -->
   <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">07 / Diagrams</div>
+        <div class="section-label">08 / Diagrams</div>
         <h2 id="diagrams-h">Architecture Archive</h2>
         <p class="section-lede">
           A growing archive of architectural sketches for
@@ -710,6 +1015,16 @@
   <!-- ============ 08 CLOSING ============ -->
   <section class="research-section closing" id="closing" aria-labelledby="closing-h">
     <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+
+    <figure class="figure figure-wide figure-main">
+      <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/13.png"
+         data-lightbox aria-label="Open How Decision Trace GNN Works diagram">
+        <img src="/research/graph-intelligence-relational-systems/assets/13.png"
+             alt="How Decision Trace GNN works — events, signals, decisions, and boundaries linked as a graph around a judgment, pointing toward the next stage of this inquiry at Chinoba.org"
+             loading="lazy">
+      </a>
+    </figure>
+
     <blockquote>
       <span>Intelligence is not merely computation.</span>
       <span>It is the propagation of meaning,</span>
@@ -790,6 +1105,50 @@
       </div>
     </div>
   </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button type="button" class="lightbox-close" aria-label="Close preview">Close</button>
+    <img alt="">
+  </div>
+
+  <script>
+    (function () {
+      var lb = document.getElementById('lightbox');
+      if (!lb) return;
+      var lbImg = lb.querySelector('img');
+      var lbClose = lb.querySelector('.lightbox-close');
+
+      function open(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('is-open');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          var img = el.querySelector('img');
+          open(el.getAttribute('href'), img ? img.alt : '');
+        });
+      });
+
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target === lbImg) close();
+      });
+      lbClose.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
+      });
+    })();
+  </script>
 
 </body>
 </html>
