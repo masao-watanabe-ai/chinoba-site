@@ -1236,6 +1236,14 @@
       max-width: 520px;
     }
 
+    /* 3-up on desktop, scoped to Further Reading only.
+       Mobile keeps the shared .cards 1-column rule (max-width: 640px). */
+    @media (min-width: 641px) {
+      .further-reading .cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
     .book-card {
       text-decoration: none;
       transition: background 220ms ease;
@@ -1343,6 +1351,20 @@
            aria-label="知能場をAmazonで読む（新しいタブで開きます）">
           <h3>知能場</h3>
           <p>Chinouba — Intelligence as Relationship</p>
+          <span class="meta">Amazonで読む <span class="arrow" aria-hidden="true">→</span></span>
+        </a>
+
+        <a class="card book-card" href="https://amzn.to/4ghHWiI" target="_blank" rel="noopener noreferrer"
+           aria-label="Read Building Intelligence Fields on Amazon (opens in a new tab)">
+          <h3>Building Intelligence Fields</h3>
+          <p>Toward a Society Where Humans, AI, and Organizations Learn and Evolve Together</p>
+          <span class="meta">Read on Amazon <span class="arrow" aria-hidden="true">→</span></span>
+        </a>
+
+        <a class="card book-card" href="https://amzn.to/4gEYp0L" target="_blank" rel="noopener noreferrer"
+           aria-label="知能場をつくるをAmazonで読む（新しいタブで開きます）">
+          <h3>知能場をつくる</h3>
+          <p>人間とAIが共創するオープンソース基盤</p>
           <span class="meta">Amazonで読む <span class="arrow" aria-hidden="true">→</span></span>
         </a>
       </div>
