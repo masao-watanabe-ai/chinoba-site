@@ -179,6 +179,74 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ---------- Page figures (reuse global .figure / .figure-frame) ---------- */
+    /* Lead-in paragraph that introduces a figure — mirrors body prose */
+    .figure-lede {
+      color: var(--fg-mute);
+      font-size: 15.5px;
+      line-height: 1.85;
+      max-width: 720px;
+      margin: clamp(48px, 6vw, 64px) 0 0;
+    }
+    .figure-lede + .figure-wide {
+      margin-top: 18px;
+    }
+
+    /* Hero cover image — sits beneath the hero copy */
+    .hero .figure {
+      margin: clamp(32px, 5vw, 48px) auto 0;
+    }
+
+    /* ---------- Explore This Theme ---------- */
+    .theme-links {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .theme-links .theme-lang {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child {
+      margin-top: 0;
+    }
+    .theme-links a {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+    /* Coming-soon book titles inside the Explore section */
+    .theme-links .theme-soon {
+      font-size: 13px;
+      color: var(--fg-mute);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+    .theme-links .theme-soon .soon-tag {
+      display: inline-block;
+      margin-left: 8px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+    }
+    .theme-links .theme-soon .soon-tag::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--fg-faint);
+      margin-right: 6px;
+      vertical-align: middle;
+      transform: translateY(-1px);
+    }
   </style>
 </head>
 
@@ -212,8 +280,58 @@
         memory, and infrastructure layers
         must also evolve.
       </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/ai-infrastructure-hardware/assets/01.png"
+           data-lightbox aria-label="Open AI is changing again — LLM to Multi-Agent AI diagram">
+          <img src="/research/ai-infrastructure-hardware/assets/01.png"
+               alt="AI is changing again — the shift from LLMs to multi-agent AI, with planner, researcher, coder, analyst, and other agents surrounding a next-architecture chip, means the architecture of AI chips must change"
+               loading="lazy">
+        </a>
+      </figure>
     </div>
   </header>
+
+  <!-- ============ EXPLORE THIS THEME ============ -->
+  <section class="research-section" id="explore" aria-labelledby="explore-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Explore</div>
+        <h2 id="explore-h">Explore This Theme</h2>
+        <p class="section-lede">
+          Enter AI Infrastructure &amp; Hardware through video and
+          long-form texts — visual introductions and deeper
+          explorations of semiconductor architecture,
+          communication-centric computing, chiplet technologies,
+          and distributed intelligence for the AI era.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay">
+          <h3>📺 Watch on YouTube</h3>
+          <p>Visual introductions to next-generation AI hardware, semiconductor architecture, and distributed intelligence.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://youtu.be/eg7CQSnDIRk" target="_blank" rel="noopener noreferrer">How AI Is Changing Semiconductor Architecture — From LLMs to Multi-Agent Intelligence →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://youtu.be/bVal1-yb1y8" target="_blank" rel="noopener noreferrer">AIは半導体をどう変えるのか？ ― マルチエージェント時代の次世代AIアーキテクチャ ― →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📚 Related Books</h3>
+          <p>Long-form explorations of semiconductor architecture, communication-centric computing, distributed AI, and hardware infrastructure for the next generation of intelligent systems. The books have not yet been published.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English Edition</div>
+            <span class="theme-soon">AI Infrastructure &amp; Hardware — Designing Semiconductor Architecture for the Multi-Agent Era —<span class="soon-tag">Coming Soon</span></span>
+            <div class="theme-lang">Japanese Edition</div>
+            <span class="theme-soon">AIインフラストラクチャと半導体アーキテクチャ — マルチエージェント時代の知能基盤設計 —<span class="soon-tag">Coming Soon</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ 01 OVERVIEW ============ -->
   <section class="research-section" id="overview" aria-labelledby="overview-h">
@@ -341,6 +459,44 @@
           </p>
         </div>
       </div>
+
+      <p class="figure-lede">
+        For the LLM era, the design goal was singular — raw
+        computational performance. A large model turned input into
+        output, GPUs executed massive matrix operations, and the
+        winner was whoever could deliver more FLOPS. In that world,
+        compute was effectively everything.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/ai-infrastructure-hardware/assets/02.png"
+           data-lightbox aria-label="Open The LLM Era: compute was everything diagram">
+          <img src="/research/ai-infrastructure-hardware/assets/02.png"
+               alt="The LLM era — a single large model turns input into output, GPUs execute massive matrix operations, and performance is determined by FLOPS; in this era compute was everything"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 01 — The Compute-Centric Era: Compute Was Everything</figcaption>
+      </figure>
+
+      <p class="figure-lede">
+        That single dimension is no longer enough. GPUs alone cannot
+        carry multi-agent, runtime-based workloads: they need CPUs
+        for control, high-capacity low-latency memory, and
+        high-speed low-latency networks. The limit of compute-centric
+        design is that these pieces must now be conceived as one
+        integrated system, not a faster accelerator bolted onto
+        everything else.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/ai-infrastructure-hardware/assets/06.png"
+           data-lightbox aria-label="Open New Hardware Requirements: GPUs alone are not enough diagram">
+          <img src="/research/ai-infrastructure-hardware/assets/06.png"
+               alt="New hardware requirements — GPUs alone are not enough; CPU, GPU, memory, and network must be designed together as one integrated system delivering high performance, low latency, scalability, and energy efficiency"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 02 — Beyond GPUs: Hardware as an Integrated System</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -458,11 +614,321 @@
     </div>
   </section>
 
-  <!-- ============ 04 RELATED ESSAYS ============ -->
+  <!-- ============ 04 COMMUNICATION-CENTRIC COMPUTING ============ -->
+  <section class="research-section" id="communication" aria-labelledby="communication-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Communication-Centric Computing</div>
+        <h2 id="communication-h">From Compute-Centric to Communication-Centric</h2>
+        <p class="section-lede">
+          The center of gravity in hardware is moving away from the
+          processor core. When many agents work together, what
+          decides performance is no longer how fast a chip computes,
+          but how well chips connect, share state, and coordinate.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>A New Sequence</h3>
+          <p>
+            Compute-centric design optimized one thing: the speed of
+            computation inside a chip. Communication-centric design
+            optimizes the flow between chips — and it follows a
+            different sequence.
+          </p>
+
+          <code class="quote">
+            Computation → Communication → Coordination
+          </code>
+
+          <p>
+            <strong>Computation</strong> still matters, but it is the
+            easy, well-solved part. <strong>Communication</strong> —
+            moving data and state between processors — is where power
+            and time are now spent. And <strong>coordination</strong>
+            — many agents aligning on shared state and intent — is the
+            behavior all of this hardware now exists to support.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>Devices That Connect</h3>
+          <p>
+            Intra-chip computation is relatively simple and efficient.
+            Inter-chip communication is complex and far more costly —
+            typically 10–100× the power and latency of the compute it
+            connects. That asymmetry is what flips the design priority.
+          </p>
+
+          <code class="quote">
+            Semiconductors are evolving from
+            "devices that compute"
+            to "devices that connect."
+          </code>
+
+          <p>
+            The leading role of semiconductors in the coming
+            generation is connectivity, not raw computing power. The
+            chip becomes infrastructure for linking intelligences
+            together, not just an engine for faster arithmetic.
+          </p>
+        </div>
+      </div>
+
+      <p class="figure-lede">
+        The whole shift on one canvas. The processor's job moves from
+        <em>compute</em> to <em>connect</em> to <em>coordinate</em>;
+        agents surround a high-speed network fabric through which
+        data, state, and intent flow; and the competitive edge passes
+        from computing performance to connectivity performance. This
+        is the picture of communication-centric computing.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/ai-infrastructure-hardware/assets/09.png"
+           data-lightbox aria-label="Open Communication-Centric Computing diagram">
+          <img src="/research/ai-infrastructure-hardware/assets/09.png"
+               alt="Communication-centric computing — the flow moves from compute to connect to coordinate, agents surround a high-speed network fabric through which data, state, and intent flow, and semiconductors evolve from devices that compute into devices that connect, making connectivity rather than computing power the source of competitiveness"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 03 — Communication-Centric Computing</figcaption>
+      </figure>
+
+      <p class="figure-lede">
+        Why the priority flips is a matter of cost. Computation inside
+        a chip is cheap and well understood; communication between
+        chips is the hidden expense, consuming on the order of 10–100×
+        the power and time. Optimizing that communication — not adding
+        more raw compute — is the key to next-generation performance.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/ai-infrastructure-hardware/assets/07.png"
+           data-lightbox aria-label="Open Why Communication Matters: the hidden cost diagram">
+          <img src="/research/ai-infrastructure-hardware/assets/07.png"
+               alt="Why communication matters — computation is easy while communication is expensive; inter-chip communication can cost 10 to 100 times the power and latency of compute, making communication the hidden cost and the bottleneck for the next generation of AI"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 04 — Communication Is the Hidden Cost</figcaption>
+      </figure>
+
+      <p class="figure-lede">
+        The same story told as a moving bottleneck. As soon as many
+        agents run together, the constraint slides off the compute
+        core and onto communication, then onto shared state, then
+        onto control. Each arrow marks where the next generation of
+        hardware has to earn its performance.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/ai-infrastructure-hardware/assets/04.png"
+           data-lightbox aria-label="Open The Workload Changes: bottleneck shift diagram">
+          <img src="/research/ai-infrastructure-hardware/assets/04.png"
+               alt="The workload changes — with many agents collaborating, the bottleneck shifts from compute to communication, then to state management, then to control"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 05 — The Bottleneck Shifts: Compute → Communication → State → Control</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 05 MEMORY & CHIPLET ARCHITECTURE ============ -->
+  <section class="research-section" id="memory-chiplet" aria-labelledby="memory-chiplet-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Memory &amp; Chiplet Architecture</div>
+        <h2 id="memory-chiplet-h">The Memory Wall and the Chiplet Answer</h2>
+        <p class="section-lede">
+          Once communication dominates cost, two hardware problems
+          come to the front: getting data to the compute fast enough,
+          and connecting many specialized dies without paying the
+          full price of moving bits between them.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>The Memory Wall</h3>
+          <p>
+            In agentic workloads the processor is rarely the
+            bottleneck — feeding it is. Compute has outrun the ability
+            of memory to supply data, so what matters is not peak
+            FLOPS but memory bandwidth and the cost of every byte
+            moved.
+          </p>
+          <ul>
+            <li><strong>HBM</strong> — stacks DRAM in 3D to deliver very high bandwidth at lower power per bit.</li>
+            <li><strong>Near memory</strong> — places compute beside the data to cut the distance it has to travel.</li>
+            <li><strong>Data movement</strong> — the real energy and latency budget; minimizing it is the design goal.</li>
+          </ul>
+
+          <code class="quote">
+            The bottleneck is not computation.
+            It is moving data to computation.
+          </code>
+        </div>
+
+        <div class="col-text">
+          <h3>Why Chiplets</h3>
+          <p>
+            A single monolithic die cannot keep scaling. Chiplet
+            architecture breaks one large chip into smaller functional
+            dies and reconnects them at high density — trading the
+            limits of one piece of silicon for a system of cooperating
+            ones.
+          </p>
+          <ul>
+            <li><strong>Chiplets</strong> — smaller functional units, improving flexibility, scalability, and cost efficiency.</li>
+            <li><strong>Interposer</strong> — connects multiple dies at high density for high-bandwidth, low-latency links.</li>
+            <li><strong>HBM</strong> — stacked memory placed right beside compute on the same package.</li>
+            <li><strong>Optical interconnect</strong> — moves data between chips at high speed and low power using light.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="figure-lede">
+        The new performance question is not "how fast is the core?"
+        but "how fast can we reach the data, and how much does the
+        trip cost?" Latency, bandwidth, and synchronization become
+        the metrics that decide whether a fleet of agents runs as one
+        coherent system or falls out of step.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/ai-infrastructure-hardware/assets/08.png"
+           data-lightbox aria-label="Open The New Bottleneck: latency, bandwidth, synchronization diagram">
+          <img src="/research/ai-infrastructure-hardware/assets/08.png"
+               alt="The new bottleneck — what matters from now on is low latency for faster response, high bandwidth to move large amounts of data in parallel, and synchronization to keep the states and timing of collaborating agents consistent"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 06 — The New Bottleneck: Latency, Bandwidth, Synchronization</figcaption>
+      </figure>
+
+      <p class="figure-lede">
+        These pressures converge on a single answer at the silicon
+        level. Optical interconnect, chiplets, HBM, and the interposer
+        are not four separate trends — they are one architecture,
+        built so that communication and memory access stop being the
+        thing that holds the system back.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/ai-infrastructure-hardware/assets/10.png"
+           data-lightbox aria-label="Open Optical Interconnect, Chiplets, HBM, and Interposer diagram">
+          <img src="/research/ai-infrastructure-hardware/assets/10.png"
+               alt="This leads to optical interconnect, chiplets, HBM, and the interposer — light-based links remove the inter-chip bottleneck, chiplets divide large chips into smaller functional units, HBM stacks DRAM in 3D for high bandwidth, and the interposer connects multiple chips at high density; together they build a communication-centric semiconductor architecture"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 07 — Chiplet Architecture: Optical Interconnect · Chiplets · HBM · Interposer</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 06 DISTRIBUTED INTELLIGENCE ============ -->
+  <section class="research-section" id="distributed" aria-labelledby="distributed-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Distributed Intelligence</div>
+        <h2 id="distributed-h">From One Large Model to an Intelligence Network</h2>
+        <p class="section-lede">
+          All of these hardware shifts point the same direction. AI is
+          not heading toward a single, ever-larger model — it is
+          heading toward many intelligences that connect, share state,
+          and coordinate. The infrastructure is being built for that
+          destination.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>The Line of Evolution</h3>
+          <code class="quote">
+            LLM → Multi-Agent → Distributed Intelligence
+          </code>
+          <p>
+            A large language model is a single mind. A multi-agent
+            system is several minds working in sequence. Distributed
+            intelligence is a network of minds — scalable, efficient,
+            resilient, and creative because capability lives in the
+            connections between agents, not inside any one of them.
+          </p>
+
+          <p>
+            The AI of tomorrow is not a single model, but an
+            intelligence network — and a network needs connective
+            infrastructure far more than it needs a faster core.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>Hardware for Coordination</h3>
+          <p>
+            This is why the semiconductor is being redefined. Its job
+            is no longer to build the fastest possible CPU, but to
+            connect intelligences to one another — to let agents
+            communicate, share state, and coordinate at scale.
+          </p>
+
+          <code class="quote">
+            The chip is becoming infrastructure
+            for connecting intelligence,
+            not an engine for faster arithmetic.
+          </code>
+
+          <p>
+            Hardware and coordination become the same design problem:
+            the physical layer exists to keep a distributed system of
+            agents aligned, consistent, and able to act together.
+          </p>
+        </div>
+      </div>
+
+      <p class="figure-lede">
+        The trajectory in one frame — from LLM to multi-agent to
+        distributed intelligence. On the right, an intelligence
+        network shares knowledge, state, and intent in real time,
+        maintaining trust and adapting as the environment changes. The
+        future of AI is built on connections of intelligence, and the
+        hardware beneath it is being reshaped to carry them.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/ai-infrastructure-hardware/assets/11.png"
+           data-lightbox aria-label="Open The Next Generation: distributed intelligence diagram">
+          <img src="/research/ai-infrastructure-hardware/assets/11.png"
+               alt="The next generation — AI evolves from LLM to multi-agent to distributed intelligence; agents connected around shared knowledge, state, and intent collaborate, share, trust, and adapt, making the future of AI an intelligence network rather than a single model"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 08 — LLM → Multi-Agent → Distributed Intelligence</figcaption>
+      </figure>
+
+      <p class="figure-lede">
+        Made concrete: AI is no longer one giant computer but a
+        distributed system, where agents communicate, share state, and
+        take on roles. Collaboration, persistence, flexibility, and
+        goal alignment are properties of the network — and each one is
+        a demand placed directly on the interconnect, memory, and
+        synchronization layers of the hardware.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/ai-infrastructure-hardware/assets/05.png"
+           data-lightbox aria-label="Open AI as a Distributed System diagram">
+          <img src="/research/ai-infrastructure-hardware/assets/05.png"
+               alt="AI is no longer just computation — it is a distributed system where agents communicate with each other, share state, and take on roles, held together by collaboration, persistence, flexibility, and goal alignment"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 09 — AI as a Distributed System</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 07 RELATED ESSAYS ============ -->
   <section class="research-section" id="essays" aria-labelledby="essays-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">04 / Related Essays</div>
+        <div class="section-label">07 / Related Essays</div>
         <h2 id="essays-h">Reading Around AI Infrastructure</h2>
         <p class="section-lede">
           Essays that extend this inquiry into semiconductors,
@@ -494,11 +960,11 @@
     </div>
   </section>
 
-  <!-- ============ 05 RELATED BOOKS ============ -->
+  <!-- ============ 08 RELATED BOOKS ============ -->
   <section class="research-section" id="books" aria-labelledby="books-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">05 / Related Books</div>
+        <div class="section-label">08 / Related Books</div>
         <h2 id="books-h">Long-form Texts</h2>
         <p class="section-lede">
           Knowledge artifacts that compile the surrounding research
@@ -534,11 +1000,11 @@
     </div>
   </section>
 
-  <!-- ============ 06 RELATED OSS ============ -->
+  <!-- ============ 09 RELATED OSS ============ -->
   <section class="research-section" id="oss" aria-labelledby="oss-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">06 / Related OSS</div>
+        <div class="section-label">09 / Related OSS</div>
         <h2 id="oss-h">Related OSS</h2>
         <p class="section-lede">
           Software and runtime components for building
@@ -575,11 +1041,11 @@
     </div>
   </section>
 
-  <!-- ============ 07 DIAGRAMS ============ -->
+  <!-- ============ 10 DIAGRAMS ============ -->
   <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">07 / Diagrams</div>
+        <div class="section-label">10 / Diagrams</div>
         <h2 id="diagrams-h">Architecture Archive</h2>
         <p class="section-lede">
           A growing archive of architectural sketches for
@@ -620,6 +1086,17 @@
   <!-- ============ 08 CLOSING ============ -->
   <section class="research-section closing" id="closing" aria-labelledby="closing-h">
     <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+
+    <figure class="figure figure-wide figure-main">
+      <a class="figure-frame" href="/research/ai-infrastructure-hardware/assets/12.png"
+         data-lightbox aria-label="Open Beyond Computation: the future of AI infrastructure diagram">
+        <img src="/research/ai-infrastructure-hardware/assets/12.png"
+             alt="Beyond computation — the future of AI infrastructure moves from connection to coordination to decision; AI is no longer just about computation but becomes a system that connects, coordinates, and makes decisions, shaping the next generation of intelligence"
+             loading="lazy">
+      </a>
+      <figcaption class="figure-caption">Fig. 10 — Beyond Computation: Connection, Coordination, Decision</figcaption>
+    </figure>
+
     <blockquote>
       <span>AI infrastructure is no longer a background layer.</span>
       <span>It is becoming the physical foundation</span>
@@ -700,6 +1177,50 @@
       </div>
     </div>
   </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button type="button" class="lightbox-close" aria-label="Close preview">Close</button>
+    <img alt="">
+  </div>
+
+  <script>
+    (function () {
+      var lb = document.getElementById('lightbox');
+      if (!lb) return;
+      var lbImg = lb.querySelector('img');
+      var lbClose = lb.querySelector('.lightbox-close');
+
+      function open(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('is-open');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          var img = el.querySelector('img');
+          open(el.getAttribute('href'), img ? img.alt : '');
+        });
+      });
+
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target === lbImg) close();
+      });
+      lbClose.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
+      });
+    })();
+  </script>
 
 </body>
 </html>
