@@ -207,6 +207,91 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ---------- Page figures (reuse global .figure / .figure-frame) ---------- */
+    /* Lead-in paragraph that introduces a figure — mirrors body prose */
+    .figure-lede {
+      color: var(--fg-mute);
+      font-size: 15.5px;
+      line-height: 1.85;
+      max-width: 720px;
+      margin: clamp(48px, 6vw, 64px) 0 0;
+    }
+    .figure-lede + .figure-wide {
+      margin-top: 18px;
+    }
+
+    /* Hero cover image — sits beneath the hero copy */
+    .hero .figure {
+      margin: clamp(32px, 5vw, 48px) auto 0;
+    }
+
+    /* Compact grid of supporting illustrations (3-up, collapses on small screens) */
+    .figure-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: clamp(40px, 5vw, 56px);
+    }
+    .figure-grid .figure-caption {
+      margin-top: 12px;
+    }
+    @media (max-width: 760px) {
+      .figure-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    /* Architecture archive — image fills the card frame */
+    .diagram-card .figure-frame {
+      margin-top: auto;
+    }
+
+    /* ---------- Explore This Theme ---------- */
+    .theme-links {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .theme-links .theme-lang {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child {
+      margin-top: 0;
+    }
+    .theme-links a {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+    .theme-links .theme-book {
+      font-size: 13px;
+      color: var(--fg);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+    .theme-links .theme-book-sub {
+      display: block;
+      color: var(--fg-mute);
+      font-size: 12.5px;
+    }
+    .theme-links .theme-book-status {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--fg-faint);
+    }
   </style>
 </head>
 
@@ -244,8 +329,67 @@
         trust structures,
         and runtime coordination systems.
       </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/emergent-distributed-intelligence/assets/01.png"
+           data-lightbox aria-label="Open Emergent Intelligence overview diagram">
+          <img src="/research/emergent-distributed-intelligence/assets/01.png"
+               alt="Intelligence is not inside AI — emergent intelligence, the future beyond large models; intelligence may not exist within a single model but emerge from the connections between us"
+               loading="lazy">
+        </a>
+      </figure>
     </div>
   </header>
+
+  <!-- ============ EXPLORE THIS THEME ============ -->
+  <section class="research-section" id="explore" aria-labelledby="explore-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Explore</div>
+        <h2 id="explore-h">Explore This Theme</h2>
+        <p class="section-lede">
+          Enter Emergent &amp; Distributed Intelligence through video and
+          long-form texts — visual introductions and deeper explorations of
+          emergent intelligence, human-AI coordination, collective
+          intelligence, and distributed cognition in the age of AI.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay">
+          <h3>📺 Watch on YouTube</h3>
+          <p>Visual introductions to Emergent Intelligence and Distributed Intelligence — why the future of AI lies beyond the single model.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://youtu.be/qpJLptUKNC4" target="_blank" rel="noopener noreferrer">What Is Emergent Intelligence? The Future of AI Beyond Models →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://youtu.be/KsRuww2HP4w" target="_blank" rel="noopener noreferrer">創発知能（Emergent Intelligence）とは何か？ AIは「モデル」から「関係性」の時代 →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📚 Related Books</h3>
+          <p>Long-form explorations of emergent intelligence, human-AI coordination, collective intelligence, and distributed cognition as the foundation of intelligence beyond the model.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English Edition</div>
+            <div class="theme-book">
+              Emergent Intelligence
+              <span class="theme-book-sub">Designing Intelligence Through Relationships</span>
+              <span class="theme-book-sub">Human–AI Coordination · Collective Intelligence · Distributed Cognition</span>
+              <span class="theme-book-status">Coming Soon</span>
+            </div>
+            <div class="theme-lang">Japanese Edition</div>
+            <div class="theme-book">
+              創発知能
+              <span class="theme-book-sub">関係性が知能を生み出す</span>
+              <span class="theme-book-sub">Human–AI Coordination・集合知・分散知能</span>
+              <span class="theme-book-status">Coming Soon</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ 01 OVERVIEW ============ -->
   <section class="research-section" id="overview" aria-labelledby="overview-h">
@@ -312,6 +456,23 @@
           </p>
         </div>
       </div>
+
+      <p class="figure-lede">
+        The same question drawn as a choice: is intelligence the
+        property of a single mind or model, or of the relationships
+        between many? A field view answers with the second — and treats
+        the network of minds as where intelligence actually lives.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/emergent-distributed-intelligence/assets/05.png"
+           data-lightbox aria-label="Open Where Does Intelligence Exist diagram">
+          <img src="/research/emergent-distributed-intelligence/assets/05.png"
+               alt="Where does intelligence exist — an individual, a single mind and a single model, or a relationship, a network of minds and a field of relationships"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 01 — Where Intelligence Exists</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -367,6 +528,43 @@
             intelligence fields.
           </code>
         </div>
+      </div>
+
+      <p class="figure-lede">
+        The shift in three movements — the model-centric view that scaled
+        intelligence by adding parameters, the question of whether scale
+        alone is enough, and the relational view in which intelligence
+        arises between agents, humans, and knowledge.
+      </p>
+
+      <div class="figure-grid">
+        <figure class="figure">
+          <a class="figure-frame" href="/research/emergent-distributed-intelligence/assets/02.png"
+             data-lightbox aria-label="Open Traditional View diagram">
+            <img src="/research/emergent-distributed-intelligence/assets/02.png"
+                 alt="The traditional view — a larger model with more parameters yields higher intelligence, scaling intelligence inside a single system"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 02 — The Model-Centric View</figcaption>
+        </figure>
+        <figure class="figure">
+          <a class="figure-frame" href="/research/emergent-distributed-intelligence/assets/03.png"
+             data-lightbox aria-label="Open But Is That Enough diagram">
+            <img src="/research/emergent-distributed-intelligence/assets/03.png"
+                 alt="But is that enough — LLM, data, and parameters are settled, yet intelligence remains an open question not determined by model performance alone"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 03 — Is Scale Enough?</figcaption>
+        </figure>
+        <figure class="figure">
+          <a class="figure-frame" href="/research/emergent-distributed-intelligence/assets/04.png"
+             data-lightbox aria-label="Open A Different Perspective diagram">
+            <img src="/research/emergent-distributed-intelligence/assets/04.png"
+                 alt="A different perspective — from AI agent to multi-agent to human plus AI, a new form of emergent intelligence begins to arise through collaboration"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 04 — Toward a Relational View</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -432,6 +630,46 @@
           <h3>Emergent Intelligence Field</h3>
           <p>The whole — a continuous field of relationships, coordination, and meaning that no single participant fully contains.</p>
         </div>
+      </div>
+
+      <p class="figure-lede">
+        These eight layers do not describe something new. Distributed
+        intelligence is the oldest pattern there is — it runs an ant
+        colony, a swarm of bees, and a flock of birds long before any
+        model existed. Local actors follow simple rules, exchange signals,
+        and produce collective behavior no individual could plan. Human
+        society works the same way: research, organizations, and economies
+        grow through connection, not through any single mind.
+      </p>
+
+      <div class="figure-grid">
+        <figure class="figure">
+          <a class="figure-frame" href="/research/emergent-distributed-intelligence/assets/06.png"
+             data-lightbox aria-label="Open Nature Already Shows the Answer diagram">
+            <img src="/research/emergent-distributed-intelligence/assets/06.png"
+                 alt="Nature already shows the answer — ant colonies, bee colonies, bird flocking, the internet, and society display advanced intelligence without central command"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 05 — Emergence Without a Center</figcaption>
+        </figure>
+        <figure class="figure">
+          <a class="figure-frame" href="/research/emergent-distributed-intelligence/assets/09.png"
+             data-lightbox aria-label="Open Swarm Intelligence diagram">
+            <img src="/research/emergent-distributed-intelligence/assets/09.png"
+                 alt="Swarm intelligence — local rules and coordination produce optimal behavior, as ants find the shortest path through pheromones and bees choose food sources through the waggle dance"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 06 — From Local Rules to Optimal Behavior</figcaption>
+        </figure>
+        <figure class="figure">
+          <a class="figure-frame" href="/research/emergent-distributed-intelligence/assets/10.png"
+             data-lightbox aria-label="Open Human Society Works the Same Way diagram">
+            <img src="/research/emergent-distributed-intelligence/assets/10.png"
+                 alt="Human society works the same way — researchers, organizations, and economies grow through connection, and society as a whole becomes more intelligent when people connect"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 07 — The Same Pattern in Human Society</figcaption>
+        </figure>
       </div>
 
       <!-- ====== Emergent Distributed Intelligence Structure (layered diagram) ====== -->
@@ -650,6 +888,23 @@
           <li>view-core-v2</li>
         </ul>
       </div>
+
+      <p class="figure-lede">
+        AI itself is moving along the same arc these primitives describe —
+        from a single model toward multiple agents, cooperation, and
+        shared decisions. The runtime is what carries that shift from
+        massive models to collaborative intelligence.
+      </p>
+
+      <figure class="figure figure-wide figure-field">
+        <a class="figure-frame" href="/research/emergent-distributed-intelligence/assets/11.png"
+           data-lightbox aria-label="Open AI Is Also Changing diagram">
+          <img src="/research/emergent-distributed-intelligence/assets/11.png"
+               alt="AI is also changing — evolving from a single model to multiple agents, cooperation, and decision, moving from massive models toward collaborative intelligence"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 08 — From Models to Collaborative Intelligence</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -670,27 +925,57 @@
         <div class="diagram-card">
           <div class="kicker">Diagram 01</div>
           <h3>Intelligence Field Structure</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <p style="font-size:13px;color:var(--fg-mute);line-height:1.6;margin:0 0 14px;">Human, AI, knowledge, trust, decision, and feedback converging into a single continuous intelligence field.</p>
+          <a class="figure-frame" href="/research/emergent-distributed-intelligence/assets/13.png"
+             data-lightbox aria-label="Open Intelligence Field diagram">
+            <img src="/research/emergent-distributed-intelligence/assets/13.png"
+                 alt="Intelligence field — human, AI, knowledge, trust, decision, and feedback combining into a network of intelligence that connects and amplifies human potential"
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 02</div>
           <h3>Distributed Agent Network</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <p style="font-size:13px;color:var(--fg-mute);line-height:1.6;margin:0 0 14px;">Interaction among many local actors giving rise to properties that no single participant holds.</p>
+          <a class="figure-frame" href="/research/emergent-distributed-intelligence/assets/07.png"
+             data-lightbox aria-label="Open Emergence diagram">
+            <img src="/research/emergent-distributed-intelligence/assets/07.png"
+                 alt="Emergence — interaction produces new properties and collective intelligence, as something greater is born from the connections between distributed actors"
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 03</div>
           <h3>Human-AI Collective System</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <p style="font-size:13px;color:var(--fg-mute);line-height:1.6;margin:0 0 14px;">Knowledge, communication, and feedback circulating among people until intelligence emerges.</p>
+          <a class="figure-frame" href="/research/emergent-distributed-intelligence/assets/08.png"
+             data-lightbox aria-label="Open Intelligence Emerges diagram">
+            <img src="/research/emergent-distributed-intelligence/assets/08.png"
+                 alt="Intelligence emerges — knowledge plus communication plus feedback equals intelligence, born as knowledge is shared and feedback creates a cycle"
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 04</div>
           <h3>Trust and Knowledge Propagation</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <p style="font-size:13px;color:var(--fg-mute);line-height:1.6;margin:0 0 14px;">Relationships of knowledge, trust, communication, feedback, and coordination carrying intelligence across the field.</p>
+          <a class="figure-frame" href="/research/emergent-distributed-intelligence/assets/12.png"
+             data-lightbox aria-label="Open Intelligence as Relationship diagram">
+            <img src="/research/emergent-distributed-intelligence/assets/12.png"
+                 alt="Intelligence as relationship — what matters is not the size of the model but the relationships it creates: knowledge flow, trust, communication, feedback, and coordination"
+                 loading="lazy">
+          </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 05</div>
           <h3>Runtime Coordination Field</h3>
-          <div class="diagram-frame">Forthcoming</div>
+          <p style="font-size:13px;color:var(--fg-mute);line-height:1.6;margin:0 0 14px;">Designing intelligence by designing the relationships between agents, humans, and knowledge — not only larger models.</p>
+          <a class="figure-frame" href="/research/emergent-distributed-intelligence/assets/14.png"
+             data-lightbox aria-label="Open Designing Intelligence diagram">
+            <img src="/research/emergent-distributed-intelligence/assets/14.png"
+                 alt="Designing intelligence — moving from building better models to building better relationships across trust, communication, feedback, coordination, learning, and purpose"
+                 loading="lazy">
+          </a>
         </div>
       </div>
     </div>
@@ -699,6 +984,16 @@
   <!-- ============ 08 CLOSING ============ -->
   <section class="research-section closing" id="closing" aria-labelledby="closing-h">
     <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+
+    <figure class="figure figure-wide figure-main">
+      <a class="figure-frame" href="/research/emergent-distributed-intelligence/assets/15.png"
+         data-lightbox aria-label="Open The Future of AI diagram">
+        <img src="/research/emergent-distributed-intelligence/assets/15.png"
+             alt="The future of AI — communication, relationship, and emergence give rise to intelligence; intelligence is not something we create but something we are born into, and the future of AI lies in designing for relationships"
+             loading="lazy">
+      </a>
+    </figure>
+
     <blockquote>
       <span>Intelligence does not always begin</span>
       <span>inside a single mind,</span>
@@ -787,6 +1082,50 @@
       </div>
     </div>
   </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button type="button" class="lightbox-close" aria-label="Close preview">Close</button>
+    <img alt="">
+  </div>
+
+  <script>
+    (function () {
+      var lb = document.getElementById('lightbox');
+      if (!lb) return;
+      var lbImg = lb.querySelector('img');
+      var lbClose = lb.querySelector('.lightbox-close');
+
+      function open(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('is-open');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          var img = el.querySelector('img');
+          open(el.getAttribute('href'), img ? img.alt : '');
+        });
+      });
+
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target === lbImg) close();
+      });
+      lbClose.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
+      });
+    })();
+  </script>
 
 </body>
 </html>
