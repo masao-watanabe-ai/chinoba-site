@@ -165,6 +165,96 @@
       color: var(--fg-faint);
     }
 
+    /* ---------- Page figures (reuse global .figure / .figure-frame) ---------- */
+    /* Lead-in paragraph that introduces a figure — mirrors body prose */
+    .figure-lede {
+      color: var(--fg-mute);
+      font-size: 15.5px;
+      line-height: 1.85;
+      max-width: 720px;
+      margin: clamp(48px, 6vw, 64px) 0 0;
+    }
+    .figure-lede + .figure-wide {
+      margin-top: 18px;
+    }
+
+    /* Hero cover image — sits beneath the hero copy */
+    .hero .figure {
+      margin: clamp(32px, 5vw, 48px) auto 0;
+    }
+
+    /* Compact grid of supporting illustrations (3-up, collapses on small screens) */
+    .figure-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: clamp(40px, 5vw, 56px);
+    }
+    .figure-grid .figure-caption {
+      margin-top: 12px;
+    }
+    @media (max-width: 760px) {
+      .figure-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    /* ---------- Explore This Theme ---------- */
+    .theme-links {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .theme-links .theme-lang {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child {
+      margin-top: 0;
+    }
+    .theme-links a {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+
+    /* ---------- Related Books — text-only + coming-soon variants ---------- */
+    /* Books without a local cover collapse to a single column */
+    .book.no-cover {
+      grid-template-columns: 1fr;
+    }
+    /* Forthcoming case-study volumes — no link, muted marker */
+    .book.is-coming-soon .book-title {
+      color: var(--fg);
+    }
+    .book-status {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 10px;
+    }
+    .book-status::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--fg-faint);
+      margin-right: 8px;
+      vertical-align: middle;
+      transform: translateY(-1px);
+    }
+
     @media (max-width: 900px) {
       .concept-grid.cols-4 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -217,8 +307,58 @@
         organizational context,
         and executable decision structures.
       </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/case-study/assets/01.png"
+           data-lightbox aria-label="Open Case Studies cover diagram">
+          <img src="/research/case-study/assets/01.png"
+               alt="The Future of AI Is Architecture — Case Studies of Chinoba Research: how AI, humans, organizations, and society work together"
+               loading="lazy">
+        </a>
+      </figure>
     </div>
   </header>
+
+  <!-- ============ EXPLORE THIS THEME ============ -->
+  <section class="research-section" id="explore" aria-labelledby="explore-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Explore</div>
+        <h2 id="explore-h">Explore This Theme</h2>
+        <p class="section-lede">
+          Enter Case Studies through videos and books exploring how
+          Human–AI Coordination, Runtime Architecture, Decision Trace,
+          Governance, and Multi-Agent Systems become practical systems.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay">
+          <h3>📺 Watch on YouTube</h3>
+          <p>Visual introductions to Chinoba Case Studies and practical Human–AI Coordination architectures.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://youtu.be/IkJti1QLQyI" target="_blank" rel="noopener noreferrer">The Future of AI Is Not Larger Models — It Is Better Relationships →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://youtu.be/Xc0YFAvDoT0" target="_blank" rel="noopener noreferrer">AIの未来は「モデル」ではなく「関係性」へ ─ 知能場が描く次世代AIアーキテクチャ →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📚 Related Books</h3>
+          <p>Recommended reading. These books provide the architectural foundation behind many of the ideas introduced throughout these case studies. Full volumes are listed below.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English Edition</div>
+            <a href="https://amzn.to/3RjPK9w" target="_blank" rel="noopener noreferrer">Enterprise AI Gateway: Runtime Architecture, Multi-Agent Governance, and Human-in-the-Loop AI Operations →</a>
+            <a href="https://amzn.to/4vK3ysS" target="_blank" rel="noopener noreferrer">Decision Trace Model Practical Implementation Guide →</a>
+            <div class="theme-lang">Japanese Edition</div>
+            <a href="https://amzn.to/4fmmlom" target="_blank" rel="noopener noreferrer">AI運用基盤アーキテクチャ — Enterprise AI GatewayとDecisionOpsの実践 →</a>
+            <a href="https://amzn.to/4wQ6KDF" target="_blank" rel="noopener noreferrer">Decision Trace Model 実践導入ガイド →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ 01 OVERVIEW ============ -->
   <section class="research-section" id="overview" aria-labelledby="overview-h">
@@ -303,6 +443,24 @@
           </p>
         </div>
       </div>
+
+      <p class="figure-lede">
+        Every case study on this page is read through the same three
+        movements — first the current problems a domain is stuck on,
+        then the Chinoba architecture applied to it, and finally what
+        becomes possible once decisions are traceable, accountable,
+        and improvable. Different domains, one pattern.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/case-study/assets/14.png"
+           data-lightbox aria-label="Open the Common Pattern diagram">
+          <img src="/research/case-study/assets/14.png"
+               alt="The Common Pattern — every case study follows the same structure: current problems, Chinoba architecture, and what becomes possible"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 01 — How Every Case Study Is Read</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -370,6 +528,45 @@
           </p>
         </div>
       </div>
+
+      <p class="figure-lede">
+        The gap in three movements — AI is now everywhere and can
+        generate, search, analyze, and code; yet many enterprise
+        projects still stall at proof-of-concept because the problem
+        is no longer only the model; and the real challenge turns out
+        to be coordination, supervision, and trust — the structure
+        around the model, not the model itself.
+      </p>
+
+      <div class="figure-grid">
+        <figure class="figure">
+          <a class="figure-frame" href="/research/case-study/assets/02.png"
+             data-lightbox aria-label="Open AI Is Everywhere diagram">
+            <img src="/research/case-study/assets/02.png"
+                 alt="AI is everywhere — today AI can generate, search, analyze, design, and code, and almost every organization is adopting it"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 02 — AI Is Everywhere</figcaption>
+        </figure>
+        <figure class="figure">
+          <a class="figure-frame" href="/research/case-study/assets/03.png"
+             data-lightbox aria-label="Open Projects Stop at PoC diagram">
+            <img src="/research/case-study/assets/03.png"
+                 alt="Yet many AI projects stop at PoC — accuracy keeps improving, but enterprise projects never reach production, and the problem is no longer only the model"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 03 — Yet Projects Stall at PoC</figcaption>
+        </figure>
+        <figure class="figure">
+          <a class="figure-frame" href="/research/case-study/assets/04.png"
+             data-lightbox aria-label="Open The Real Challenge diagram">
+            <img src="/research/case-study/assets/04.png"
+                 alt="The real challenge — how do AIs cooperate, how do humans supervise, how is knowledge inherited, how are decisions explained, how is trust maintained"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 04 — The Real Challenge</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -435,6 +632,100 @@
           <p>The seven surfaces are not separate problems. They share a single underlying runtime structure — the layer this page exists to study.</p>
         </div>
       </div>
+
+      <p class="figure-lede">
+        These domains do not stand alone. Each case study sits inside a
+        wider ecosystem of research areas — graph intelligence,
+        governance, physical AI, public AI, infrastructure, and
+        emergent intelligence — that reinforce one another. No single
+        area is the answer; together they build an AI ecosystem.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/case-study/assets/13.png"
+           data-lightbox aria-label="Open Beyond Individual AI diagram">
+          <img src="/research/case-study/assets/13.png"
+               alt="Beyond individual AI — graph intelligence, AI economics, governance, physical AI, public AI, infrastructure, and emergent intelligence together build a resilient AI ecosystem"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 05 — Beyond Individual AI</figcaption>
+      </figure>
+
+      <p class="figure-lede">
+        What a case study actually looks like, domain by domain. Each
+        of the figures below reads left-to-right as the same runtime
+        chain — input, reasoning, decision, action, trace — grounded in
+        concrete examples from the field. Read them as instances of one
+        structure, not six separate stories.
+      </p>
+
+      <div class="figure-grid">
+        <figure class="figure">
+          <a class="figure-frame" href="/research/case-study/assets/07.png"
+             data-lightbox aria-label="Open Decision Trace Model case examples">
+            <img src="/research/case-study/assets/07.png"
+                 alt="Decision Trace Model case examples — input, reasoning, decision, action, and trace applied across healthcare, manufacturing, and finance"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 06 — Decision Trace Model</figcaption>
+        </figure>
+        <figure class="figure">
+          <a class="figure-frame" href="/research/case-study/assets/09.png"
+             data-lightbox aria-label="Open Knowledge Flow case examples">
+            <img src="/research/case-study/assets/09.png"
+                 alt="Knowledge Flow case examples — create, connect, share, apply, and evolve across knowledge transfer, enterprise learning, and education"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 07 — Knowledge Flow</figcaption>
+        </figure>
+        <figure class="figure">
+          <a class="figure-frame" href="/research/case-study/assets/10.png"
+             data-lightbox aria-label="Open Trust Infrastructure case examples">
+            <img src="/research/case-study/assets/10.png"
+                 alt="Trust Infrastructure case examples — establish trust, trace decisions, verify integrity, measure reputation, and maintain trust across supply chain, healthcare, and AI reputation"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 08 — Trust Infrastructure</figcaption>
+        </figure>
+      </div>
+
+      <div class="figure-grid">
+        <figure class="figure">
+          <a class="figure-frame" href="/research/case-study/assets/11.png"
+             data-lightbox aria-label="Open AI Coordination case examples">
+            <img src="/research/case-study/assets/11.png"
+                 alt="AI Coordination case examples — perceive, reason, coordinate, act, and learn across hospitals, airports, and enterprise copilots"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 09 — AI Coordination</figcaption>
+        </figure>
+        <figure class="figure">
+          <a class="figure-frame" href="/research/case-study/assets/12.png"
+             data-lightbox aria-label="Open Multi-Agent Systems case examples">
+            <img src="/research/case-study/assets/12.png"
+                 alt="Multi-Agent Systems case examples — goal, assemble agents, communicate, collaborate, execute, and learn across research, customer support, and logistics"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 10 — Multi-Agent Systems</figcaption>
+        </figure>
+        <figure class="figure">
+          <a class="figure-frame" href="/research/case-study/assets/08.png"
+             data-lightbox aria-label="Open Runtime Society case examples">
+            <img src="/research/case-study/assets/08.png"
+                 alt="Runtime Society case examples — people, organizations, and AI systems cooperating in real time across smart city, disaster response, and energy management"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 11 — Runtime Society</figcaption>
+        </figure>
+      </div>
+
+      <p class="figure-lede">
+        Strip away the domain labels and the same layered runtime
+        remains underneath every example above — signal entering,
+        context and risk applied, boundaries and human gates enforced,
+        coordination and execution, and finally a decision trace. The
+        diagram below is that shared structure, made explicit.
+      </p>
 
       <!-- ====== Case Study Runtime Structure (layered diagram) ====== -->
       <div class="field-runtime" aria-label="Case Study Runtime Structure">
@@ -596,46 +887,72 @@
         <div class="section-label">05 / Related Books</div>
         <h2 id="books-h">Long-form Texts</h2>
         <p class="section-lede">
-          Knowledge artifacts that compile the surrounding research
-          into structured volumes. English editions shown here.
+          Recommended reading. These books provide the architectural
+          foundation behind many of the ideas introduced throughout
+          these case studies — runtime architecture, multi-agent
+          governance, and decision-grade implementation. English and
+          Japanese editions are shown, followed by the forthcoming
+          Case Study series.
         </p>
       </div>
 
       <div class="books-list">
-        <div class="book">
+        <div class="book no-cover">
           <div class="book-body">
-            <div class="book-title">AI is not prediction. It is decision.</div>
-            <div class="book-subtitle">— Decision Trace Model Practical Guide —</div>
-            <p>A practical guide for designing AI as a decision system rather than a predictive output engine — the foundation that every case study in this page builds on.</p>
-            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener noreferrer">Available on Kindle →</a>
+            <div class="book-status">English Edition</div>
+            <div class="book-title">Enterprise AI Gateway</div>
+            <div class="book-subtitle">— Runtime Architecture, Multi-Agent Governance, and Human-in-the-Loop AI Operations —</div>
+            <p>The runtime architecture behind these case studies — how enterprise AI is gated, governed, and coordinated so that model output becomes safe, accountable operational action.</p>
+            <a class="book-link" href="https://amzn.to/3RjPK9w" target="_blank" rel="noopener noreferrer">Available on Kindle →</a>
           </div>
-          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
-            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
-          </a>
         </div>
 
-        <div class="book">
+        <div class="book no-cover">
           <div class="book-body">
-            <div class="book-title">Intelligence Field</div>
-            <div class="book-subtitle">— Intelligence as Relationship —</div>
-            <p>A new perspective on AI, relational intelligence, and social intelligence fields — the context against which case studies become legible.</p>
-            <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener noreferrer">Available on Kindle →</a>
+            <div class="book-status">English Edition</div>
+            <div class="book-title">Decision Trace Model Practical Implementation Guide</div>
+            <div class="book-subtitle">— A Practical Guide to Connecting AI-Powered Judgment to Real-World Organizational Implementation —</div>
+            <p>How AI-powered judgment is connected to real organizational implementation — the decision-trace structures that every domain in this page relies on to stay reviewable and reproducible.</p>
+            <a class="book-link" href="https://amzn.to/4vK3ysS" target="_blank" rel="noopener noreferrer">Available on Kindle →</a>
           </div>
-          <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
-            <img src="/assets/book_pic/en/02.jpg" alt="" loading="lazy">
-          </a>
         </div>
 
-        <div class="book">
+        <div class="book no-cover is-coming-soon">
           <div class="book-body">
-            <div class="book-title">Intelligence Field Economics</div>
-            <div class="book-subtitle">— Chinōba Keizai —</div>
-            <p>Trust, knowledge, and coordination in the AI era — the economic and organizational frame that real-world runtimes operate within.</p>
-            <a class="book-link" href="https://amzn.to/49HvoNp" target="_blank" rel="noopener noreferrer">Available on Kindle →</a>
+            <div class="book-status">Coming Soon</div>
+            <div class="book-title">Case Studies for Human–AI Coordination</div>
+            <div class="book-subtitle">— Practical Architectures for Runtime Society —</div>
+            <p>The forthcoming Case Study series — practical architectures for a runtime society where humans and AI coordinate across real-world domains.</p>
           </div>
-          <a class="book-cover" href="https://amzn.to/49HvoNp" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
-            <img src="/assets/book_pic/en/04.jpg" alt="" loading="lazy">
-          </a>
+        </div>
+
+        <div class="book no-cover">
+          <div class="book-body">
+            <div class="book-status">Japanese Edition</div>
+            <div class="book-title">AI運用基盤アーキテクチャ</div>
+            <div class="book-subtitle">— Enterprise AI GatewayとDecisionOpsの実践 —</div>
+            <p>Enterprise AI Gateway と DecisionOps の実践 — AIの出力を安全で説明可能な運用へと接続する運用基盤アーキテクチャ。</p>
+            <a class="book-link" href="https://amzn.to/4fmmlom" target="_blank" rel="noopener noreferrer">Available on Kindle →</a>
+          </div>
+        </div>
+
+        <div class="book no-cover">
+          <div class="book-body">
+            <div class="book-status">Japanese Edition</div>
+            <div class="book-title">Decision Trace Model 実践導入ガイド</div>
+            <div class="book-subtitle">— 製造・医療・リテール・マルチエージェントで学ぶAI意思決定システム —</div>
+            <p>製造・医療・リテール・マルチエージェントの事例で学ぶ、AI意思決定システムの実践導入ガイド。</p>
+            <a class="book-link" href="https://amzn.to/4wQ6KDF" target="_blank" rel="noopener noreferrer">Available on Kindle →</a>
+          </div>
+        </div>
+
+        <div class="book no-cover is-coming-soon">
+          <div class="book-body">
+            <div class="book-status">近日刊行予定</div>
+            <div class="book-title">ケーススタディシリーズ</div>
+            <div class="book-subtitle">— 人とAIが協調する実践アーキテクチャ —</div>
+            <p>人とAIが協調する実践アーキテクチャを扱う、ケーススタディシリーズを準備中です。</p>
+          </div>
         </div>
       </div>
     </div>
@@ -644,6 +961,16 @@
   <!-- ============ 06 CLOSING ============ -->
   <section class="research-section closing" id="closing" aria-labelledby="closing-h">
     <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+
+    <figure class="figure figure-wide figure-main">
+      <a class="figure-frame" href="/research/case-study/assets/16.png"
+         data-lightbox aria-label="Open Welcome to the Future diagram">
+        <img src="/research/case-study/assets/16.png"
+             alt="Welcome to the future — the future of AI is not larger models but better architecture, better coordination, and better relationships between people, organizations, and society"
+             loading="lazy">
+      </a>
+    </figure>
+
     <blockquote>
       <span>What matters is not the accuracy of the model,</span>
       <span>but how the model is connected to the real.</span>
@@ -664,6 +991,21 @@
           Chinoba field.
         </p>
       </div>
+
+      <p class="figure-lede">
+        One vision, many domains, one AI ecosystem. Each line of
+        inquiry below is another entry point into the same ecosystem
+        these case studies belong to.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/case-study/assets/17.png"
+           data-lightbox aria-label="Open Explore the Complete Case Studies diagram">
+          <img src="/research/case-study/assets/17.png"
+               alt="Explore the complete case studies — Decision Trace Model, Runtime Society, Knowledge Flow, Trust Infrastructure, AI Coordination and more, at chinoba.org"
+               loading="lazy">
+        </a>
+      </figure>
 
       <div class="related-research">
         <a href="/research/decision-trace-model" data-slug="decision-trace-model">
@@ -712,6 +1054,50 @@
       </div>
     </div>
   </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button type="button" class="lightbox-close" aria-label="Close preview">Close</button>
+    <img alt="">
+  </div>
+
+  <script>
+    (function () {
+      var lb = document.getElementById('lightbox');
+      if (!lb) return;
+      var lbImg = lb.querySelector('img');
+      var lbClose = lb.querySelector('.lightbox-close');
+
+      function open(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('is-open');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          var img = el.querySelector('img');
+          open(el.getAttribute('href'), img ? img.alt : '');
+        });
+      });
+
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target === lbImg) close();
+      });
+      lbClose.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
+      });
+    })();
+  </script>
 
 </body>
 </html>
