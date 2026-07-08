@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Philosophy of AI — Chinoba</title>
-  <meta name="description" content="A research archive on the philosophy of AI — structures of intelligence, meaning, coordination, discontinuity, and the architecture of civilization-scale decision systems.">
+  <meta name="description" content="The philosophical entry point to Chinoba's Architecture of Intelligence — how life, meaning, decision, knowledge, and trust connect, and how architectures like Decision Trace, Knowledge Flow, Trust Infrastructure, and Runtime Society emerge from a single philosophy of intelligence.">
 
   <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
   <link rel="stylesheet" href="/assets/research.css">
@@ -38,53 +38,7 @@
       transform: translateY(-1px);
     }
 
-    /* Diagram placeholders */
-    .diagrams {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-    .diagram-card {
-      background: var(--bg);
-      padding: 26px 24px 28px;
-      display: flex;
-      flex-direction: column;
-      min-height: 220px;
-    }
-    .diagram-card .kicker {
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--fg-faint);
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-    .diagram-card h3 {
-      font-size: 16px;
-      margin: 0 0 14px;
-      font-weight: 600;
-      color: var(--fg);
-      letter-spacing: 0.2px;
-    }
-    .diagram-frame {
-      flex: 1;
-      border: 1px dashed var(--line-strong);
-      border-radius: 8px;
-      background:
-        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
-        var(--bg-elev);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--fg-faint);
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      min-height: 110px;
-    }
-
-    /* ---------- Philosophy of AI Structure (CSS-based layered diagram) ---------- */
+    /* ---------- Architecture of Intelligence (CSS-based layered diagram) ---------- */
     .phil-structure {
       margin-top: clamp(56px, 7vw, 80px);
       border: 1px solid var(--line);
@@ -186,12 +140,100 @@
       padding: 4px 0 6px;
     }
 
+    /* ---------- Page figures (reuse global .figure / .figure-frame) ---------- */
+    /* Lead-in paragraph that introduces a figure — mirrors body prose */
+    .figure-lede {
+      color: var(--fg-mute);
+      font-size: 15.5px;
+      line-height: 1.85;
+      max-width: 720px;
+      margin: clamp(48px, 6vw, 64px) 0 0;
+    }
+    .figure-lede + .figure-wide {
+      margin-top: 18px;
+    }
+
+    /* Hero cover image — sits beneath the hero copy */
+    .hero .figure {
+      margin: clamp(32px, 5vw, 48px) auto 0;
+    }
+
+    /* Compact grid of supporting illustrations (3-up, collapses on small screens) */
+    .figure-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: clamp(40px, 5vw, 56px);
+    }
+    .figure-grid.cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 820px;
+    }
+    .figure-grid .figure-caption {
+      margin-top: 12px;
+    }
+    @media (max-width: 760px) {
+      .figure-grid,
+      .figure-grid.cols-2 {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    /* ---------- Explore This Theme ---------- */
+    .theme-links {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .theme-links .theme-lang {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child {
+      margin-top: 0;
+    }
+    .theme-links a {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+    .theme-links .theme-item {
+      font-size: 13px;
+      color: var(--fg);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
+    }
+    .theme-links .theme-item .theme-soon {
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-left: 6px;
+    }
+    .theme-links .theme-item .theme-sub {
+      color: var(--fg-mute);
+      font-weight: 400;
+    }
+    .theme-links .theme-note {
+      display: block;
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--fg-faint);
+      line-height: 1.6;
+    }
+
     @media (max-width: 900px) {
       .concept-grid.cols-4 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .diagrams {
-        grid-template-columns: 1fr;
       }
       .phil-layer {
         grid-template-columns: 1fr;
@@ -230,278 +272,709 @@
       <div class="eyebrow">Research / Philosophy of AI</div>
       <h1>Philosophy of AI</h1>
       <p class="hero-sub">
-        <span>AI is not only a technical system.</span>
-        <span>It is a structure that reshapes meaning,</span>
-        <span>society,</span>
-        <span>judgment,</span>
-        <span>and human coordination.</span>
+        <span>Before it is a technology,</span>
+        <span>Chinoba is a philosophy of intelligence.</span>
       </p>
       <p class="hero-desc">
-        As AI evolves beyond prediction engines,
-        questions emerge about meaning,
-        structure,
-        discontinuity,
-        intelligence,
-        governance,
-        culture,
-        collective systems,
-        and civilization-scale coordination.
+        This is the entry point to that philosophy. It asks what
+        intelligence, meaning, decision, knowledge, and trust really are —
+        and shows how Chinoba's architectures, from Decision Trace to
+        Runtime Society, emerge from the same underlying Architecture of
+        Intelligence.
       </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/philosophy-of-ai/assets/01.png"
+           data-lightbox aria-label="Open the cover diagram — What Is Decision?">
+          <img src="/research/philosophy-of-ai/assets/01.png"
+               alt="What Is Decision? — an AI philosophy connecting Life, the origin of existence; Meaning, the context that gives value; and Intelligence, the power to choose and act"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 01 — Life, Meaning, Intelligence: the arc this page follows</figcaption>
+      </figure>
     </div>
   </header>
+
+  <!-- ============ EXPLORE THIS THEME ============ -->
+  <section class="research-section" id="explore" aria-labelledby="explore-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Explore</div>
+        <h2 id="explore-h">Explore This Theme</h2>
+        <p class="section-lede">
+          Begin exploring the philosophical foundations of intelligence
+          through visual introductions and long-form research. Discover
+          how life, meaning, decision, knowledge, and trust connect into
+          the Architecture of Intelligence.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay">
+          <h3>📺 Watch on YouTube</h3>
+          <p>Visual introductions to the philosophy of intelligence.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://youtu.be/N-5uBB77yck" target="_blank" rel="noopener noreferrer">What Is Decision? — Connecting Life, Meaning, and Intelligence | AI Philosophy →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://youtu.be/GbkFMyqnO7c" target="_blank" rel="noopener noreferrer">Decisionとは何か ― 生命・意味・知能をつなぐAI Philosophy →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📚 Related Books</h3>
+          <p>Long-form companions to this inquiry. These volumes are in preparation and are not yet published.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English Edition</div>
+            <div class="theme-item">AI Philosophy <span class="theme-sub">— Life, Meaning, and the Architecture of Intelligence</span><span class="theme-soon">Coming Soon</span><span class="theme-note">A philosophical foundation for Decision, Knowledge, Trust, Runtime Society, and Human–AI Coordination.</span></div>
+            <div class="theme-lang">Japanese Edition</div>
+            <div class="theme-item">AI Philosophy <span class="theme-sub">— 生命・意味・知能のアーキテクチャ</span><span class="theme-soon">近日刊行予定</span><span class="theme-note">判断・知識・信頼・Runtime Society・人とAIの協調をつなぐ思想体系。</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ 01 OVERVIEW ============ -->
   <section class="research-section" id="overview" aria-labelledby="overview-h">
     <div class="wrap">
       <div class="section-head">
         <div class="section-label">01 / Overview</div>
-        <h2 id="overview-h">Overview</h2>
+        <h2 id="overview-h">A Philosophy of Intelligence</h2>
         <p class="section-lede">
-          A philosophical inquiry into the structures through
-          which intelligence emerges, coordinates, and shapes
-          civilization.
+          This page is the philosophical foundation of the Chinoba research
+          ecosystem. Before any architecture or research theme, Chinoba
+          begins with a question about intelligence itself — what it is,
+          where it lives, and how it connects to meaning, decision, and the
+          world.
         </p>
       </div>
 
+      <p class="figure-lede">
+        Chinoba begins with a different question. Not <em>how do we build a
+        more intelligent model?</em>, but <em>how does intelligence emerge
+        at all?</em> Its premise is that intelligence is not a property
+        contained within a model, but a phenomenon that arises through
+        relationships, meaning, and the continuous act of decision.
+        Everything else in the Chinoba research ecosystem follows from this
+        one premise.
+      </p>
+
       <div class="two-col">
         <div class="col-text">
-          <h3>Beyond Consciousness Debates</h3>
+          <h3>Philosophy First, Architecture Second</h3>
           <p>
-            The philosophy of AI is not limited to consciousness
-            or speculative AGI debates.
+            It is tempting to treat AI as a stack of technologies. Chinoba
+            takes the opposite path. It starts from a philosophy of
+            intelligence and lets the architectures follow from it.
+          </p>
+          <p>
+            Read in that order, the research themes across the ecosystem —
+            Decision Trace, Knowledge Flow, Trust Infrastructure, Human–AI
+            Coordination, Runtime Society, and Emergent Intelligence — stop
+            looking like separate topics. Each emerges naturally from one
+            Architecture of Intelligence, and each becomes its own line of
+            research: a different expression of a single idea about what
+            intelligence is and how it becomes real in the world.
           </p>
 
-          <p>It also concerns:</p>
-          <ul>
-            <li>structures of coordination</li>
-            <li>how meaning emerges</li>
-            <li>how systems shape culture</li>
-            <li>how information becomes actionable</li>
-            <li>the relationship between intelligence and society</li>
-            <li>the architecture of decision-making</li>
-          </ul>
-
           <code class="quote">
-            AI changes not only computation.
-            It changes the structure of civilization.
+            The architectures are not the starting point.
+            They are what the philosophy makes necessary.
           </code>
         </div>
 
         <div class="col-text">
-          <h3>A Structural View</h3>
+          <h3>What This Page Holds</h3>
           <p>
-            This inquiry treats AI as a structural force —
-            a system that reshapes how meaning is formed,
-            how judgment is distributed, and how collectives
-            coordinate.
+            This page is a research essay, not documentation. It moves
+            through the core questions in order — intelligence, meaning,
+            decision, and the living roots beneath them — and only then
+            arrives at architecture.
           </p>
 
           <h3>Working Statement</h3>
           <code class="quote">
-            Intelligence is not only an internal property of agents.
-            It is also a property of the structures
-            in which agents act.
+            Intelligence is not a property held inside a model.
+            It is a relationship — between meaning, decision,
+            and the world that decisions reach into.
           </code>
 
           <p>
-            From this angle, the philosophy of AI is closer
-            to the philosophy of civilization than to a
-            philosophy of machines.
+            By the end, the diagrams should have revealed one structure:
+            the Architecture of Intelligence, within which Decision Trace
+            is a single, important layer.
           </p>
         </div>
       </div>
+
+      <p class="figure-lede">
+        So the purpose of this page is not only to define intelligence. It
+        is to show how a specific <em>Architecture of Intelligence</em>
+        emerges, almost of necessity, from a philosophy of life, meaning,
+        relationship, and decision. The hierarchy is deliberate: the
+        philosophy asks the fundamental questions, the Architecture of
+        Intelligence provides the conceptual framework, and each research
+        theme explores one aspect of that framework. Read this way, the
+        individual research pages are not independent topics but chapters
+        within a single body of research — and this page is where that
+        research begins.
+      </p>
     </div>
   </section>
 
-  <!-- ============ 02 WHY IT MATTERS ============ -->
-  <section class="research-section" id="why" aria-labelledby="why-h">
+  <!-- ============ 02 WHAT IS INTELLIGENCE ============ -->
+  <section class="research-section" id="intelligence" aria-labelledby="intelligence-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">02 / Why It Matters</div>
-        <h2 id="why-h">Why It Matters</h2>
+        <div class="section-label">02 / What Is Intelligence?</div>
+        <h2 id="intelligence-h">Intelligence as Relationship</h2>
         <p class="section-lede">
-          Modern AI systems do not only generate predictions —
-          they increasingly shape the conditions under which
-          society itself operates.
+          The usual question — <em>can a machine become intelligent?</em> —
+          quietly assumes intelligence is something a single system can
+          possess. Chinoba asks a different question.
         </p>
       </div>
 
       <div class="two-col">
         <div class="col-text">
-          <h3>What AI Increasingly Influences</h3>
-          <p>Modern AI systems increasingly influence:</p>
-          <ul>
-            <li>communication</li>
-            <li>governance</li>
-            <li>attention</li>
-            <li>trust</li>
-            <li>social coordination</li>
-            <li>organizational behavior</li>
-            <li>collective intelligence</li>
-          </ul>
+          <p>
+            Instead of asking whether an isolated model can be intelligent,
+            we ask what conditions allow intelligence to appear at all.
+            Framed that way, intelligence stops looking like a property of
+            a node and starts looking like a property of the relationships
+            between nodes — humans, agents, context, and history.
+          </p>
+
+          <code class="quote">
+            Not: can AI be intelligent?
+            But: what relationships let intelligence emerge?
+          </code>
 
           <p>
-            These are not peripheral effects. They are the
-            substrate through which a civilization perceives,
-            decides, and remembers itself.
+            This is why larger models are not, by themselves, the answer.
+            A more capable model still sits inside a relationship it did
+            not design. Intelligence lives in that surrounding structure as
+            much as in the model.
           </p>
         </div>
 
         <div class="col-text">
-          <h3>From AGI to Relational Intelligence</h3>
-          <p>Traditional AI discourse often asks:</p>
-
-          <code class="quote">
-            Can AI become intelligent?
-          </code>
-
-          <p>But a deeper question may be:</p>
-
-          <code class="quote">
-            What structures allow intelligence to emerge,
-            coordinate,
-            and sustain society?
-          </code>
-
+          <h3>Nothing Stands Alone</h3>
           <p>
-            The future of AI may depend less on isolated
-            superintelligence, and more on relational
-            intelligence, coordination, and societal
-            architecture.
+            The relational view is old. Long before machine learning, it
+            was expressed in the idea that meaning is never a fixed,
+            isolated thing — it arises only within situations and
+            relationships.
+          </p>
+          <p>
+            The figure alongside draws on that tradition: nothing carries
+            its meaning in isolation; everything exists in relationship.
+            The same holds for intelligence. Read this as the philosophical
+            root of every architecture that follows.
           </p>
         </div>
+      </div>
+
+      <p class="figure-lede">
+        A single idea underlies the whole page. Meaning — and with it,
+        intelligence — is not a self-contained object to be stored or
+        scaled. It appears between things, in the space of situations and
+        relationships. Hold onto this image; each later architecture is a
+        way of building structure into that space.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/philosophy-of-ai/assets/16.png"
+           data-lightbox aria-label="Open the diagram — everything exists in relationship">
+          <img src="/research/philosophy-of-ai/assets/16.png"
+               alt="Everything exists in relationship — meaning is not a fixed entity; it arises within situations and relationships, in mutual dependence and ceaseless flow"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 02 — Meaning Arises in Relationship, Not in Isolation</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 03 MEANING BEFORE PREDICTION ============ -->
+  <section class="research-section" id="meaning" aria-labelledby="meaning-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Meaning</div>
+        <h2 id="meaning-h">Meaning Before Prediction</h2>
+        <p class="section-lede">
+          A model that predicts well still predicts over <em>information</em>.
+          But information is not yet meaning — and only meaning makes a
+          prediction worth acting on.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <p>
+            Information exists outside us: facts, signals, data. Meaning is
+            something else. It is born within relationships and experience,
+            when information is placed against purpose, context, and value.
+          </p>
+          <p>
+            This is why prediction alone is never enough. A forecast is
+            information about the future; a decision requires knowing what
+            that forecast <em>means</em> here, for this purpose, with this
+            responsibility attached.
+          </p>
+
+          <code class="quote">
+            Information exists outside.
+            Meaning is born within relationships.
+          </code>
+        </div>
+
+        <div class="col-text">
+          <h3>Same Information, Different Meaning</h3>
+          <p>
+            If meaning lived in the data, everyone with the same data would
+            reach the same conclusion. They do not. Perspective, values,
+            purpose, and timeframe change what identical information means —
+            and therefore what decision it supports.
+          </p>
+          <p>
+            For AI, this is the crux. A system that only optimizes
+            prediction has skipped the step where information becomes
+            meaningful. Chinoba treats that step as primary, not
+            incidental.
+          </p>
+        </div>
+      </div>
+
+      <p class="figure-lede">
+        The first figure below traces the movement Chinoba cares about —
+        information arrives from outside, becomes meaning within
+        relationships and context, and only then supports a decision. The
+        second shows why this cannot be automated away: given the same
+        information, two people bring different perspective, experience,
+        and purpose, and reach different conclusions. Meaning is where that
+        difference lives.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/philosophy-of-ai/assets/05.png"
+           data-lightbox aria-label="Open the diagram — information is not meaning">
+          <img src="/research/philosophy-of-ai/assets/05.png"
+               alt="Information is not meaning — information is facts and data that exist outside; meaning is born within relationships and experience; decision chooses the future based on meaning"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 03 — Information → Meaning → Decision</figcaption>
+      </figure>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="/research/philosophy-of-ai/assets/04.png"
+           data-lightbox aria-label="Open the diagram — same information, different decisions">
+          <img src="/research/philosophy-of-ai/assets/04.png"
+               alt="Same information, different decisions — even with identical information, perspective, experience, values, purpose, background, emotion, and timeframe lead to different conclusions"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 04 — Why Meaning Cannot Be Read Off the Data</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 04 DECISION ============ -->
+  <section class="research-section" id="decision" aria-labelledby="decision-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Decision</div>
+        <h2 id="decision-h">Decision: The Bridge From Meaning to Action</h2>
+        <p class="section-lede">
+          Meaning by itself changes nothing. Decision is the moment meaning
+          becomes commitment — where interpretation turns into a path taken
+          into the future.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <p>
+            A decision is not merely a branch point — not simply yes/no,
+            A/B, execute/stop. Those are the visible surface. Underneath sit
+            purpose, value, context, responsibility, and a commitment to a
+            future that does not yet exist.
+          </p>
+          <p>
+            In Chinoba's frame, decision is the generation of meaning made
+            binding. It emerges where three things meet: the state of the
+            external world, the state within — knowledge, memory, values —
+            and purpose. When they come together, a decision is born, and
+            with it a direction, an action, and a future.
+          </p>
+
+          <code class="quote">
+            Decision is not choosing.
+            It is the creation of meaning and the opening of a future.
+          </code>
+        </div>
+
+        <div class="col-text">
+          <h3>Decision Closes a Loop</h3>
+          <p>
+            Decision is also not a single event. It sits in a cycle:
+            information becomes meaning, meaning becomes action, action
+            produces results, and results become learning that reshapes the
+            next decision.
+          </p>
+          <p>
+            This loop is why Chinoba treats decision as the center of
+            intelligence rather than one step among many. It is where the
+            world, the self, and purpose are continuously re-connected —
+            and it is exactly this loop that the later architectures are
+            built to support and record.
+          </p>
+        </div>
+      </div>
+
+      <p class="figure-lede">
+        The first figure shows the anatomy of a decision — the external
+        world, the inner state, and purpose overlapping to generate
+        meaning. Read it as the claim that a decision is never just a
+        choice between options; it is where those three fields produce
+        something new. The second figure sets that moment in motion:
+        information, meaning, action, and learning form an ongoing cycle,
+        and it is this cycle — not any single output — that behaves like an
+        intelligent system.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/philosophy-of-ai/assets/09.png"
+           data-lightbox aria-label="Open the diagram — what is decision">
+          <img src="/research/philosophy-of-ai/assets/09.png"
+               alt="What is decision — the external world, the inner state (knowledge, emotion, memory, belief, values), and purpose come together to generate meaning; decision gives direction, action, connection, and transforms the future"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 05 — Decision as the Generation of Meaning</figcaption>
+      </figure>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="/research/philosophy-of-ai/assets/19.png"
+           data-lightbox aria-label="Open the diagram — the decision cycle">
+          <img src="/research/philosophy-of-ai/assets/19.png"
+               alt="What is decision — a process that transforms information into meaning, meaning into action, and action back into learning: an ongoing cycle that creates an intelligent system"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 06 — Information → Meaning → Action → Learning, and Again</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 05 THE LIVING ROOTS ============ -->
+  <section class="research-section" id="life" aria-labelledby="life-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Living Roots</div>
+        <h2 id="life-h">Where the Relational View Comes From</h2>
+        <p class="section-lede">
+          Chinoba's idea of intelligence is grounded in a much older
+          question — what is life? The relational, meaning-making,
+          self-sustaining view of intelligence borrows directly from how
+          living systems work.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <p>
+            Life does not merely process information. It takes in
+            information, creates meaning within context, acts on it, and
+            maintains itself — an open system that sustains order while
+            relating to a changing world. That is already a description of
+            intelligence.
+          </p>
+          <p>
+            Seen this way, intelligence is not a break from life but a
+            continuation of it. The same loop — receive, mean, decide, act,
+            learn — runs beneath a cell, a person, and a well-designed AI
+            system.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>A Short Lineage</h3>
+          <p>
+            Three thinkers mark the path Chinoba draws on. Paul Nurse:
+            life is the management and use of information to sustain order.
+            Terrence Deacon: meaning arises from absence — from what is not
+            yet here — which is what gives rise to purpose. Francisco
+            Varela: life is <em>autopoietic</em>, self-generating, holding
+            its identity while continuously exchanging with the world.
+          </p>
+          <p>
+            Together they describe a system that senses, means, decides,
+            and renews itself — the template Chinoba carries into the age
+            of AI.
+          </p>
+        </div>
+      </div>
+
+      <p class="figure-lede">
+        The three figures below stand behind the philosophy. Read left to
+        right as a single claim built in three moves: intelligence is the
+        <em>use</em> of information to maintain a system (Nurse); meaning is
+        generated, not found, and begins in what is absent (Deacon); and a
+        living system is self-generating, keeping its identity while
+        remaining open to the world (Varela). Chinoba treats AI as
+        something that must join this kind of system, not replace it.
+      </p>
+
+      <div class="figure-grid">
+        <figure class="figure">
+          <a class="figure-frame" href="/research/philosophy-of-ai/assets/13.png"
+             data-lightbox aria-label="Open the Paul Nurse diagram">
+            <img src="/research/philosophy-of-ai/assets/13.png"
+                 alt="Paul Nurse — life manages information; the essence of life is not information itself but the use of information to maintain order, preserve oneself, and continue interacting with the environment"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 07 — Nurse: Life Uses Information</figcaption>
+        </figure>
+        <figure class="figure">
+          <a class="figure-frame" href="/research/philosophy-of-ai/assets/14.png"
+             data-lightbox aria-label="Open the Terrence Deacon diagram">
+            <img src="/research/philosophy-of-ai/assets/14.png"
+                 alt="Terrence Deacon — meaning arises from absence; from what is not there or not yet realized, purpose is born, driving the move from absence to meaning to purpose to action"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 08 — Deacon: Meaning From Absence</figcaption>
+        </figure>
+        <figure class="figure">
+          <a class="figure-frame" href="/research/philosophy-of-ai/assets/15.png"
+             data-lightbox aria-label="Open the Francisco Varela diagram">
+            <img src="/research/philosophy-of-ai/assets/15.png"
+                 alt="Francisco Varela — life is self-generating; through autopoiesis a system generates and sustains itself, maintaining its organization while relating to and co-creating with the world"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 09 — Varela: Life Is Self-Generating</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- ============ 03 CORE STRUCTURE ============ -->
-  <section class="research-section" id="core" aria-labelledby="core-h">
+  <!-- ============ 06 ARCHITECTURE OF INTELLIGENCE ============ -->
+  <section class="research-section" id="architecture" aria-labelledby="architecture-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">03 / Core Structure</div>
-        <h2 id="core-h">Core Structure</h2>
+        <div class="section-label">06 / Architecture of Intelligence</div>
+        <h2 id="architecture-h">From Philosophy to Architecture</h2>
         <p class="section-lede">
-          Eight conceptual layers through which the philosophy of
-          AI moves — from meaning and judgment to civilization-scale
-          systems.
+          Once intelligence is understood as a relationship organized around
+          decision, a set of architectures becomes necessary — not as
+          separate inventions, but as the structure the philosophy demands.
         </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Architecture Emerges From Philosophy</h3>
+          <p>
+            The research themes below are usually encountered one at a time,
+            as if they were independent topics. They are not. Each is a
+            perspective on a single Architecture of Intelligence — the
+            structure that a philosophy of life, meaning, relationship, and
+            decision makes necessary.
+          </p>
+          <p>
+            Change the vantage point and a different theme comes into
+            focus, but the architecture beneath them does not change. This
+            is why the themes reinforce rather than compete with one
+            another: they are describing the same thing from different
+            sides.
+          </p>
+
+          <code class="quote">
+            Not six technologies.
+            One architecture, seen from six angles.
+          </code>
+        </div>
+
+        <div class="col-text">
+          <h3>Themes as Perspectives</h3>
+          <p>
+            Seen from different angles, the same architecture appears under
+            different names — each answering one question about how
+            intelligence works:
+          </p>
+          <ul>
+            <li><strong>Decision Trace Model</strong> — explains decision structures: how a decision is formed, recorded, and made traceable.</li>
+            <li><strong>Knowledge Flow</strong> — explains how knowledge moves, is shared, and evolves.</li>
+            <li><strong>Trust Infrastructure</strong> — explains how reliable cooperation becomes possible.</li>
+            <li><strong>Human–AI Coordination</strong> — explains collaborative intelligence.</li>
+            <li><strong>Runtime Society</strong> — explains intelligence operating within society.</li>
+            <li><strong>Emergent Intelligence</strong> — explains intelligence arising from relationships.</li>
+          </ul>
+        </div>
       </div>
 
       <div class="concept-grid cols-4">
         <div class="concept">
           <div class="idx">i</div>
-          <h3>Meaning Structures</h3>
-          <p>How meaning is produced, propagated, and stabilized — the substrate beneath any intelligent act.</p>
+          <h3>Intelligence as Relationship</h3>
+          <p>The root claim — intelligence lives between humans, agents, context, and history, not inside any single model.</p>
         </div>
 
         <div class="concept">
           <div class="idx">ii</div>
-          <h3>Intelligence Fields</h3>
-          <p>Intelligence considered not as a property of a node, but as a field across agents, contexts, and history.</p>
+          <h3>Meaning</h3>
+          <p>The turn from information to significance — where data becomes something worth acting on, against purpose and context.</p>
         </div>
 
         <div class="concept">
           <div class="idx">iii</div>
-          <h3>Decision Structures</h3>
-          <p>The forms through which judgment is composed, distributed, and held accountable across humans and systems.</p>
+          <h3>Decision</h3>
+          <p>The bridge from meaning to action — meaning made binding, opening a future and closing the learning loop.</p>
         </div>
 
         <div class="concept">
           <div class="idx">iv</div>
-          <h3>Social Coordination</h3>
-          <p>How groups, institutions, and AI systems align attention, trust, and action under shared conditions.</p>
+          <h3>Knowledge Flow</h3>
+          <p>How meaning moves — created, connected, shared, applied, and evolved across people, agents, and time.</p>
         </div>
 
         <div class="concept">
           <div class="idx">v</div>
-          <h3>Information Structuring</h3>
-          <p>How raw information becomes legible, navigable, and actionable — the architecture beneath every decision.</p>
+          <h3>Trust</h3>
+          <p>The condition for any relationship — decisions that can be understood, and therefore trusted, across humans and AI.</p>
         </div>
 
         <div class="concept">
           <div class="idx">vi</div>
-          <h3>Human-AI Relationships</h3>
-          <p>The shifting relational geometry between humans and AI — neither tool, nor peer, but a structural counterpart.</p>
+          <h3>Human–AI Coordination</h3>
+          <p>The relational geometry between people and systems — neither tool nor peer, but structural counterparts in one loop.</p>
         </div>
 
         <div class="concept">
           <div class="idx">vii</div>
-          <h3>Discontinuity &amp; Judgment</h3>
-          <p>The discontinuities — meaning gaps, value shifts, irreducible choices — that smooth computation cannot represent.</p>
+          <h3>Runtime Society</h3>
+          <p>Many agents, people, and institutions deciding together in real time — coordination, boundaries, and escalation at runtime.</p>
         </div>
 
         <div class="concept">
           <div class="idx">viii</div>
-          <h3>Civilization-Scale Systems</h3>
-          <p>AI as part of the long architecture of civilization — alongside writing, institutions, law, and infrastructure.</p>
+          <h3>Emergent Intelligence</h3>
+          <p>What appears when the layers compose — an intelligence field larger than any participant, human or machine.</p>
         </div>
       </div>
 
-      <!-- ====== Philosophy of AI Structure (layered diagram) ====== -->
-      <div class="phil-structure" aria-label="Philosophy of AI Structure">
+      <p class="figure-lede">
+        Three questions carry the philosophy into architecture. Can AI
+        actually decide — hold purpose, create meaning, choose action — or
+        only generate and process? Can we understand its decisions, given
+        that understanding is what makes trust possible? And if
+        explanation is not enough, what would it take to <em>trace</em> a
+        decision end to end? The figures below pose these questions in
+        turn; the architectures are Chinoba's answers.
+      </p>
+
+      <div class="figure-grid">
+        <figure class="figure">
+          <a class="figure-frame" href="/research/philosophy-of-ai/assets/18.png"
+             data-lightbox aria-label="Open the diagram — can AI make decisions">
+            <img src="/research/philosophy-of-ai/assets/18.png"
+                 alt="Can AI make decisions — AI can process information and generate answers, but can it have purpose, create meaning, and choose action? The question behind Human–AI Coordination"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 10 — Human–AI Coordination: Can AI Decide?</figcaption>
+        </figure>
+        <figure class="figure">
+          <a class="figure-frame" href="/research/philosophy-of-ai/assets/20.png"
+             data-lightbox aria-label="Open the diagram — can we understand AI decisions">
+            <img src="/research/philosophy-of-ai/assets/20.png"
+                 alt="Can we understand AI decisions — decisions that cannot be understood cannot lead to trust, and trust is the foundation of any relationship: the question behind Trust Infrastructure"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 11 — Trust: Understanding Comes First</figcaption>
+        </figure>
+        <figure class="figure">
+          <a class="figure-frame" href="/research/philosophy-of-ai/assets/21.png"
+             data-lightbox aria-label="Open the diagram — from explainability to traceability">
+            <img src="/research/philosophy-of-ai/assets/21.png"
+                 alt="From explainability to traceability — it is not enough to explain a decision; why it was made, what information was used, how it was interpreted and executed, and what log remains: this is Decision Trace"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 12 — Decision Trace: From Explaining to Tracing</figcaption>
+        </figure>
+      </div>
+
+      <p class="figure-lede">
+        These architectures are not a flat list. They stack. Each layer
+        below rests on the one beneath it — life grounds meaning, meaning
+        grounds decision, and decision is what the upper layers coordinate,
+        record, and trust. Decision Trace lives here as one layer among
+        several: the structure that makes the decision loop traceable, so
+        that trust, coordination, and a runtime society become possible at
+        all.
+      </p>
+
+      <!-- ====== The Architecture of Intelligence (layered diagram) ====== -->
+      <div class="phil-structure" aria-label="The Architecture of Intelligence">
         <div class="phil-structure-label">Layer Diagram</div>
-        <h3 class="phil-structure-title">Philosophy of AI Structure</h3>
+        <h3 class="phil-structure-title">The Architecture of Intelligence</h3>
 
         <ol class="phil-layers" role="list">
           <li class="phil-layer">
             <span class="layer-idx">L1</span>
             <span class="layer-body">
-              <span class="layer-name">Meaning</span>
-              <span class="layer-note">The ground layer — how meaning is formed, carried, and recognized across agents.</span>
+              <span class="layer-name">Life</span>
+              <span class="layer-note">The ground — a system that receives information, sustains order, and relates to a changing world.</span>
             </span>
-            <span class="layer-tag">meaning</span>
+            <span class="layer-tag">life</span>
           </li>
           <li class="phil-arrow" aria-hidden="true">↓</li>
           <li class="phil-layer">
             <span class="layer-idx">L2</span>
             <span class="layer-body">
-              <span class="layer-name">Information Structuring</span>
-              <span class="layer-note">The transformation of raw information into structures that judgment can act on.</span>
+              <span class="layer-name">Meaning</span>
+              <span class="layer-note">Information placed against purpose and context becomes significance worth acting on.</span>
             </span>
-            <span class="layer-tag">structure</span>
+            <span class="layer-tag">meaning</span>
           </li>
           <li class="phil-arrow" aria-hidden="true">↓</li>
           <li class="phil-layer">
             <span class="layer-idx">L3</span>
             <span class="layer-body">
-              <span class="layer-name">Intelligence Fields</span>
-              <span class="layer-note">Intelligence as relational — distributed across humans, agents, and shared context.</span>
-            </span>
-            <span class="layer-tag">field</span>
-          </li>
-          <li class="phil-arrow" aria-hidden="true">↓</li>
-          <li class="phil-layer">
-            <span class="layer-idx">L4</span>
-            <span class="layer-body">
-              <span class="layer-name">Discontinuity &amp; Judgment</span>
-              <span class="layer-note">The non-smooth: meaning gaps, value shifts, and irreducible decisions that resist approximation.</span>
-            </span>
-            <span class="layer-tag">judgment</span>
-          </li>
-          <li class="phil-arrow" aria-hidden="true">↓</li>
-          <li class="phil-layer">
-            <span class="layer-idx">L5</span>
-            <span class="layer-body">
-              <span class="layer-name">Decision Structures</span>
-              <span class="layer-note">The forms in which judgment is composed, traced, and held accountable across systems.</span>
+              <span class="layer-name">Decision</span>
+              <span class="layer-note">Meaning made binding — the generation of a path into the future, and the center of the loop.</span>
             </span>
             <span class="layer-tag">decision</span>
           </li>
           <li class="phil-arrow" aria-hidden="true">↓</li>
           <li class="phil-layer">
+            <span class="layer-idx">L4</span>
+            <span class="layer-body">
+              <span class="layer-name">Decision Trace</span>
+              <span class="layer-note">The architecture that makes the decision loop traceable — event, signal, meaning, decision, execution, log.</span>
+            </span>
+            <span class="layer-tag">trace</span>
+          </li>
+          <li class="phil-arrow" aria-hidden="true">↓</li>
+          <li class="phil-layer">
+            <span class="layer-idx">L5</span>
+            <span class="layer-body">
+              <span class="layer-name">Knowledge Flow</span>
+              <span class="layer-note">How meaning is created, connected, shared, applied, and evolved across people and agents.</span>
+            </span>
+            <span class="layer-tag">knowledge</span>
+          </li>
+          <li class="phil-arrow" aria-hidden="true">↓</li>
+          <li class="phil-layer">
             <span class="layer-idx">L6</span>
             <span class="layer-body">
-              <span class="layer-name">Human-AI Relationships</span>
-              <span class="layer-note">The relational geometry between humans and AI — neither tool nor peer, but structural counterpart.</span>
+              <span class="layer-name">Trust Infrastructure</span>
+              <span class="layer-note">Decisions that can be understood can be trusted — the foundation of any human–AI relationship.</span>
             </span>
-            <span class="layer-tag">relation</span>
+            <span class="layer-tag">trust</span>
           </li>
           <li class="phil-arrow" aria-hidden="true">↓</li>
           <li class="phil-layer">
             <span class="layer-idx">L7</span>
             <span class="layer-body">
-              <span class="layer-name">Social Coordination</span>
-              <span class="layer-note">How groups, institutions, and AI systems align attention, trust, and action.</span>
+              <span class="layer-name">Human–AI Coordination &amp; Runtime Society</span>
+              <span class="layer-note">Many agents, people, and institutions deciding together in real time, within boundaries and escalation.</span>
             </span>
             <span class="layer-tag">society</span>
           </li>
@@ -509,79 +982,79 @@
           <li class="phil-layer">
             <span class="layer-idx">L8</span>
             <span class="layer-body">
-              <span class="layer-name">Civilization-Scale Systems</span>
-              <span class="layer-note">AI as part of the long architecture of civilization — alongside writing, law, and infrastructure.</span>
+              <span class="layer-name">Emergent Intelligence</span>
+              <span class="layer-note">The intelligence field that appears when the layers compose — larger than any single participant.</span>
             </span>
-            <span class="layer-tag">civilization</span>
+            <span class="layer-tag">emergence</span>
           </li>
         </ol>
       </div>
     </div>
   </section>
 
-  <!-- ============ 04 RELATED ESSAYS ============ -->
+  <!-- ============ 07 RELATED ESSAYS ============ -->
   <section class="research-section" id="essays" aria-labelledby="essays-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">04 / Related Essays</div>
-        <h2 id="essays-h">Reading Around the Philosophy of AI</h2>
+        <div class="section-label">07 / Related Essays</div>
+        <h2 id="essays-h">Reading Around the Philosophy of Intelligence</h2>
         <p class="section-lede">
-          Essays that extend this inquiry into structure,
-          intelligence fields, information design, and the
-          discontinuities at the edge of computation.
+          Essays that extend this inquiry into meaning, relational
+          intelligence, information structure, and the discontinuities at
+          the edge of computation.
         </p>
       </div>
 
       <div class="essays">
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/from-recognition-to-meaning/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Meaning &amp; Interpretation</div>
+          <h3>The Duel on the Potted Planet — From Recognition to Meaning</h3>
+          <p>The world exists before we recognize it, but it becomes a universe when we give it meaning. An exploration of perception, interpretation, and the human capacity to transform reality into meaning.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/ai-intelligence-field-social-architecture/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Intelligence Field</div>
+          <h3>Should AI Pursue Superintelligence? — Intelligence Field and the Redesign of Social Conditions</h3>
+          <p>A philosophical exploration of the Intelligence Field, collective intelligence, and social coordination beyond isolated AGI.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/structuring-information-for-decision-making/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Information Structuring</div>
+          <h3>Structure Changes the World — Making Information Actionable</h3>
+          <p>Why structuring information is essential before it can become meaning, judgment, and decision.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/abstraction-understands-structure-drives-the-world/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Abstraction &amp; Structure</div>
+          <h3>Abstraction Understands the World, Structure Drives the World</h3>
+          <p>How abstraction enables understanding, while structure enables coordination, decision-making, and civilization-scale systems.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="https://deus-ex-machina-ism.com/en/ai-discontinuity-judgment-not-smooth-computation/" target="_blank" rel="noopener noreferrer">
+          <div class="kicker">Discontinuity</div>
+          <h3>Smooth Computation Cannot Fully Represent Judgment — AI and the Problem of Discontinuity</h3>
+          <p>An exploration of discontinuity, judgment, meaning gaps, and the limits of continuous approximation in AI.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
         <a class="essay" href="https://deus-ex-machina-ism.com/en/structure-to-culture-bauhaus-to-ai-design/" target="_blank" rel="noopener noreferrer">
           <div class="kicker">Structure &amp; Culture</div>
           <h3>Structure Creates Culture — From Bauhaus to Design in the AI Era</h3>
           <p>How structural design shapes culture, interaction, and collective intelligence.</p>
           <div class="essay-meta is-available">Available Now</div>
         </a>
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/ai-intelligence-field-social-architecture/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">Intelligence Field</div>
-          <h3>Should AI Pursue Superintelligence? — Intelligence Field and the Redesign of Social Conditions</h3>
-          <p>A philosophical exploration of Intelligence Field, collective intelligence, and social coordination beyond isolated AGI.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/structuring-information-for-decision-making/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">Information Structuring</div>
-          <h3>Structure Changes the World — Making Information Actionable</h3>
-          <p>Why structuring information is essential for judgment, coordination, and decision-making systems.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/abstraction-understands-structure-drives-the-world/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">Abstraction &amp; Structure</div>
-          <h3>Abstraction Understands the World, Structure Drives the World</h3>
-          <p>An exploration of how abstraction enables understanding, while structure enables coordination, decision-making, and civilization-scale systems.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/ai-discontinuity-judgment-not-smooth-computation/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">Discontinuity</div>
-          <h3>Smooth Computation Cannot Fully Represent Judgment — AI and the Problem of Discontinuity</h3>
-          <p>An exploration of discontinuity, judgment, meaning gaps, and the limitations of continuous approximation in AI.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/from-recognition-to-meaning/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">Meaning &amp; Interpretation</div>
-          <h3>The Duel on the Potted Planet — From Recognition to Meaning</h3>
-          <p>The world exists before we recognize it, but it becomes a universe when we give it meaning. An exploration of perception, interpretation, imagination, and the human capacity to transform reality into meaning.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
       </div>
     </div>
   </section>
 
-  <!-- ============ 05 RELATED BOOKS ============ -->
+  <!-- ============ 08 RELATED BOOKS ============ -->
   <section class="research-section" id="books" aria-labelledby="books-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">05 / Related Books</div>
+        <div class="section-label">08 / Related Books</div>
         <h2 id="books-h">Long-form Texts</h2>
         <p class="section-lede">
-          Knowledge artifacts that compile the surrounding research
-          into structured volumes. English editions shown here.
+          Knowledge artifacts that compile the surrounding research into
+          structured volumes. English editions shown here.
         </p>
       </div>
 
@@ -625,16 +1098,15 @@
     </div>
   </section>
 
-  <!-- ============ 06 RELATED OSS ============ -->
+  <!-- ============ 09 RELATED OSS ============ -->
   <section class="research-section" id="oss" aria-labelledby="oss-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">06 / Related OSS</div>
+        <div class="section-label">09 / Related OSS</div>
         <h2 id="oss-h">Related OSS</h2>
         <p class="section-lede">
-          Experimental runtime and intelligence infrastructures
-          exploring relational AI, decision systems, and
-          collective coordination.
+          Experimental runtime and intelligence infrastructures exploring
+          relational AI, decision systems, and collective coordination.
         </p>
       </div>
 
@@ -642,11 +1114,10 @@
         <div class="oss-meta">
           <h3>Runtime &amp; intelligence infrastructure</h3>
           <p>
-            The OSS surface around this inquiry treats the
-            philosophy of AI as something to build with, not
-            only to discuss — decision runtimes, traceable
-            structures, relational graphs, and ledgered
-            coordination layers as concrete artifacts.
+            The OSS surface around this inquiry treats the philosophy of
+            intelligence as something to build with, not only to discuss —
+            decision runtimes, traceable structures, relational graphs, and
+            ledgered coordination layers as concrete artifacts.
           </p>
 
           <a class="oss-link" href="https://github.com/chinoba-lab" target="_blank" rel="noopener">
@@ -667,73 +1138,93 @@
     </div>
   </section>
 
-  <!-- ============ 07 DIAGRAMS ============ -->
-  <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
+  <!-- ============ 10 CLOSING ============ -->
+  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+
+    <figure class="figure figure-wide figure-main">
+      <a class="figure-frame" href="/research/philosophy-of-ai/assets/23.png"
+         data-lightbox aria-label="Open the closing diagram — what is intelligence">
+        <img src="/research/philosophy-of-ai/assets/23.png"
+             alt="What is intelligence — human, environment, AI, action, and learning revolve around decision; the Decision Trace Model records this cycle, and together they form the Intelligence Field"
+             loading="lazy">
+      </a>
+      <figcaption class="figure-caption">Fig. 13 — The Intelligence Field: All Layers, One Structure</figcaption>
+    </figure>
+
+    <blockquote>
+      <span>Chinoba is, first, a philosophy of intelligence.</span>
+      <span>Intelligence is the power to create meaning within relationships,</span>
+      <span>to make decisions, to act, and to keep learning.</span>
+      <span>Decision Trace, Knowledge Flow, Trust Infrastructure,</span>
+      <span>Human–AI Coordination, Runtime Society, and Emergent Intelligence</span>
+      <span>are not separate systems — they are one Architecture of Intelligence,</span>
+      <span>and together with AI we co-design a better Intelligence Field.</span>
+    </blockquote>
+    <div class="closing-mark">Chinoba.org</div>
+  </section>
+
+  <!-- ============ ECOSYSTEM SYNTHESIS ============ -->
+  <section class="research-section" id="ecosystem" aria-labelledby="ecosystem-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">07 / Diagrams</div>
-        <h2 id="diagrams-h">Architecture Archive</h2>
+        <div class="section-label">Synthesis</div>
+        <h2 id="ecosystem-h">One Philosophy.<br>Many Architectures.<br>One Research Ecosystem.</h2>
         <p class="section-lede">
-          A growing archive of conceptual sketches for the
-          philosophy of AI — meaning, judgment, coordination,
-          and civilization-scale architecture.
+          The philosophy described on this page does not stay abstract. It
+          unfolds into a set of complementary research themes — each a
+          different view of the same Architecture of Intelligence.
         </p>
       </div>
 
-      <div class="diagrams">
-        <div class="diagram-card">
-          <div class="kicker">Diagram 01</div>
-          <h3>Intelligence Field Structure</h3>
-          <div class="diagram-frame">Forthcoming</div>
+      <div class="two-col">
+        <div class="col-text">
+          <p>
+            Read on its own, each theme studies one aspect of intelligence.
+            Decision structures. The movement of knowledge. The conditions
+            for trust. The shape of collaboration. Intelligence at the scale
+            of society. Intelligence emerging from relationships.
+          </p>
+          <p>
+            None of them is the whole picture, and none is meant to be. They
+            are chapters of one inquiry, written from different starting
+            points.
+          </p>
         </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 02</div>
-          <h3>Meaning Propagation Architecture</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 03</div>
-          <h3>Decision and Discontinuity</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 04</div>
-          <h3>Civilization Coordination Layer</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 05</div>
-          <h3>Human-AI Relational Systems</h3>
-          <div class="diagram-frame">Forthcoming</div>
+
+        <div class="col-text">
+          <p>
+            Read together, they describe how intelligence is
+            <em>created</em>, <em>coordinated</em>, <em>trusted</em>, and
+            how it <em>continuously evolves</em> across humans, AI systems,
+            organizations, and society.
+          </p>
+
+          <code class="quote">
+            The philosophy is the foundation.
+            The research themes are how it is explored.
+          </code>
+
+          <p>
+            With that foundation in place, the individual lines of inquiry
+            below are where the work continues.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 08 CLOSING ============ -->
-  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
-    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
-    <blockquote>
-      <span>AI is not merely a machine for prediction.</span>
-      <span>It is becoming part of the structure</span>
-      <span>through which meaning,</span>
-      <span>coordination,</span>
-      <span>judgment,</span>
-      <span>and civilization itself</span>
-      <span>are organized.</span>
-    </blockquote>
-    <div class="closing-mark">Chinoba.org</div>
-  </section>
-
-  <!-- ============ 09 RELATED RESEARCH ============ -->
+  <!-- ============ RELATED RESEARCH ============ -->
   <section class="research-section" id="related" aria-labelledby="related-h">
     <div class="wrap">
       <div class="section-head">
         <div class="section-label">+ / Related Research</div>
-        <h2 id="related-h">Other Lines of Inquiry</h2>
+        <h2 id="related-h">Explore the Research Themes</h2>
         <p class="section-lede">
-          The philosophy of AI connects outward to neighboring
-          threads across the Chinoba field.
+          Now that the philosophical foundation is in place, each
+          architecture named above opens into its own line of inquiry.
+          These are the doorways into the wider Chinoba research
+          ecosystem.
         </p>
       </div>
 
@@ -758,14 +1249,14 @@
           <span class="related-name">Trust Infrastructure</span>
           <span class="related-status">Forthcoming</span>
         </a>
+        <a href="/#research" data-slug="knowledge-flow">
+          <span class="related-label">05 / Inquiry</span>
+          <span class="related-name">Knowledge Flow</span>
+          <span class="related-status">Forthcoming</span>
+        </a>
         <a href="/research/graph-intelligence-relational-systems" data-slug="graph-intelligence-relational-systems">
           <span class="related-label">13 / Inquiry</span>
           <span class="related-name">Graph Intelligence &amp; Relational Systems</span>
-          <span class="related-status">Available</span>
-        </a>
-        <a href="/research/public-ai-algorithmic-governance" data-slug="public-ai-algorithmic-governance">
-          <span class="related-label">10 / Inquiry</span>
-          <span class="related-name">Public AI &amp; Algorithmic Governance</span>
           <span class="related-status">Available</span>
         </a>
       </div>
@@ -794,6 +1285,50 @@
       </div>
     </div>
   </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button type="button" class="lightbox-close" aria-label="Close preview">Close</button>
+    <img alt="">
+  </div>
+
+  <script>
+    (function () {
+      var lb = document.getElementById('lightbox');
+      if (!lb) return;
+      var lbImg = lb.querySelector('img');
+      var lbClose = lb.querySelector('.lightbox-close');
+
+      function open(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('is-open');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          var img = el.querySelector('img');
+          open(el.getAttribute('href'), img ? img.alt : '');
+        });
+      });
+
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target === lbImg) close();
+      });
+      lbClose.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
+      });
+    })();
+  </script>
 
 </body>
 </html>
