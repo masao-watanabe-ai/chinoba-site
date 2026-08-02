@@ -2,7 +2,7 @@
   "library_title": "Knowledge Artifacts / Library",
   "library_subtitle": "The research, compiled.",
   "library_description": "Books and long-form artifacts produced from the Lines of Inquiry — organized by theme, available in English and Japanese editions.",
-  "total_books": 24,
+  "total_books": 27,
   "themes": [
     {
       "theme_id": "theme_01",
@@ -160,9 +160,48 @@
           "theme": "Trust and Knowledge Infrastructure",
           "theme_id": "theme_02",
           "index": 4
+        },
+        {
+          "book_id": "knowledge_flow_practical_guide_en",
+          "language": "en",
+          "title": "KNOWLEDGE FLOW PRACTICAL GUIDE: Transform Enterprise Knowledge into AI-Ready Knowledge Infrastructure",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "asin": "B0H92KN4ZK",
+          "amazon_url": "https://amzn.to/4bW7NcW",
+          "order": 5,
+          "theme": "Trust and Knowledge Infrastructure",
+          "theme_id": "theme_02",
+          "index": 5
+        },
+        {
+          "book_id": "knowledge_flow_practical_guide_ja",
+          "language": "ja",
+          "title": "Knowledge Flow実践ガイド: 企業知識をAIが利用できる知識基盤へ変換する",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "asin": "B0H8WMVWPZ",
+          "amazon_url": "https://amzn.to/3RKsRwg",
+          "order": 6,
+          "theme": "Trust and Knowledge Infrastructure",
+          "theme_id": "theme_02",
+          "index": 6
+        },
+        {
+          "book_id": "trust_infrastructure_practical_guide_ja",
+          "language": "ja",
+          "title": "Trust Infrastructure実践ガイド: Decision Trace・Knowledge Flow・Trust EngineによるAI時代の信頼基盤設計",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "asin": "B0HC6793LS",
+          "amazon_url": "https://amzn.to/3TCKdf2",
+          "order": 7,
+          "theme": "Trust and Knowledge Infrastructure",
+          "theme_id": "theme_02",
+          "index": 7
         }
       ],
-      "book_count": 4
+      "book_count": 7
     },
     {
       "theme_id": "theme_03",
