@@ -59,6 +59,13 @@
       transform: translateY(-2px) scale(1.01);
       box-shadow: 0 2px 4px rgba(0,0,0,.55), 0 10px 24px rgba(0,0,0,.42);
     }
+    .book-cover.no-cover {
+      aspect-ratio: 2 / 3;
+      border-radius: 3px;
+      background: var(--bg-elev);
+      box-shadow: 0 1px 2px rgba(0,0,0,.5), 0 6px 18px rgba(0,0,0,.35);
+    }
+    .book-cover.no-cover img { display: none; }
 
     @media (max-width: 720px) {
       .book { grid-template-columns: 1fr; gap: 22px; }
@@ -175,6 +182,9 @@
         img.src = book.cover_image || ("/assets/books/" + book.asin + ".jpg");
         img.alt = "";
         img.loading = "lazy";
+        img.onerror = function () {
+          coverLink.classList.add("no-cover");
+        };
         coverLink.appendChild(img);
 
         row.appendChild(body);

@@ -2,13 +2,26 @@
   "library_title": "Knowledge Artifacts / Library",
   "library_subtitle": "The research, compiled.",
   "library_description": "Books and long-form artifacts produced from the Lines of Inquiry — organized by theme, available in English and Japanese editions.",
-  "total_books": 27,
+  "total_books": 30,
   "themes": [
     {
       "theme_id": "theme_01",
       "theme_name": "Decision Systems",
       "order": 1,
       "books": [
+        {
+          "book_id": "semantic_digital_twin_practical_guide_ja",
+          "language": "ja",
+          "title": "Physical AIを支えるSemantic Digital Twin実践ガイド: Chinoba PFで構築するOntology・Knowledge Graph・DSL・Decision Trace",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "asin": "B0HB5DWDWB",
+          "amazon_url": "https://amzn.to/3TH1Hag",
+          "order": 0,
+          "theme": "Decision Systems",
+          "theme_id": "theme_01",
+          "index": 0
+        },
         {
           "book_id": "dtm_practical_implementation_guide_en",
           "language": "en",
@@ -82,7 +95,7 @@
           "index": 4
         }
       ],
-      "book_count": 4
+      "book_count": 5
     },
     {
       "theme_id": "theme_02",
@@ -194,7 +207,7 @@
           "author": "Masao Watanabe",
           "format": "Kindle",
           "asin": "B0HC6793LS",
-          "amazon_url": "https://amzn.to/3TCKdf2",
+          "amazon_url": "https://amzn.to/4z7CYMj",
           "order": 7,
           "theme": "Trust and Knowledge Infrastructure",
           "theme_id": "theme_02",
@@ -208,6 +221,19 @@
       "theme_name": "Governance and Coordination",
       "order": 3,
       "books": [
+        {
+          "book_id": "runtime_ai_governance_practical_guide_ja",
+          "language": "ja",
+          "title": "Runtime AI Governance 実践ガイド: Knowledge Flow・Trust Engine・Decision Traceによる動的AIガバナンス設計",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "asin": "B0HCT65JBC",
+          "amazon_url": "https://amzn.to/4z7FkuL",
+          "order": 0,
+          "theme": "Governance and Coordination",
+          "theme_id": "theme_03",
+          "index": 0
+        },
         {
           "book_id": "ai_governance_boundary_design_en",
           "language": "en",
@@ -281,7 +307,7 @@
           "index": 4
         }
       ],
-      "book_count": 4
+      "book_count": 5
     },
     {
       "theme_id": "theme_04",
@@ -369,6 +395,19 @@
       "order": 5,
       "books": [
         {
+          "book_id": "chinoba_economics_practical_guide_ja",
+          "language": "ja",
+          "title": "Relationship Economy AI時代の経済圏設計 Chinoba Economics 実践ガイド: 知識・意思決定・信頼が価値を生み出す新しい経済学",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "asin": "B0HCTFPHXQ",
+          "amazon_url": "https://www.amazon.co.jp/dp/B0HCTFPHXQ",
+          "order": 0,
+          "theme": "Intelligence as Relationship",
+          "theme_id": "theme_05",
+          "index": 0
+        },
+        {
           "book_id": "intelligence_field_en",
           "language": "en",
           "title": "INTELLIGENCE FIELD",
@@ -441,7 +480,7 @@
           "index": 4
         }
       ],
-      "book_count": 4
+      "book_count": 5
     },
     {
       "theme_id": "theme_06",
