@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>AI Coordination — Chinoba</title>
-  <meta name="description" content="A research archive on AI Coordination — how AI agents, humans, organizations, and external systems can coordinate actions, decisions, boundaries, and responsibilities through runtime structures.">
+  <title>AI Coordination — AI Coordination Engineering — Chinoba</title>
+  <meta name="description" content="AI Coordination Engineering: how goal, role, permission, context, knowledge, risk, trust, and boundary combine into an Autonomy Control runtime where autonomy is not assigned but generated at runtime — and preserved as Decision Trace.">
+  <meta name="keywords" content="AI Coordination Engineering, Multi-Agent Systems, Autonomy Control, Delegation Contract, Trust Infrastructure, Decision Trace, Runtime Society">
 
   <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
   <link rel="stylesheet" href="/assets/research.css">
@@ -15,76 +16,123 @@
     .concept-grid.cols-4 {
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
-
-    /* Essay coming-soon variant */
-    .essay.is-coming-soon {
-      cursor: default;
-    }
-    .essay.is-coming-soon:hover {
-      background: var(--bg);
-    }
-    .essay .essay-meta.is-coming-soon {
-      color: var(--fg-faint);
-    }
-    .essay .essay-meta.is-coming-soon::before {
-      content: "";
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--fg-faint);
-      margin-right: 8px;
-      vertical-align: middle;
-      transform: translateY(-1px);
+    .concept-grid.cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    /* Diagram placeholders */
-    .diagrams {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
+    @media (max-width: 900px) {
+      .concept-grid.cols-4,
+      .concept-grid.cols-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
-    .diagram-card {
-      background: var(--bg);
-      padding: 26px 24px 28px;
+    @media (max-width: 640px) {
+      .concept-grid.cols-4,
+      .concept-grid.cols-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---------- Explore / Featured Resources ---------- */
+    .theme-links {
+      margin-top: 20px;
       display: flex;
       flex-direction: column;
-      min-height: 220px;
+      gap: 6px;
     }
-    .diagram-card .kicker {
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--fg-faint);
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-    .diagram-card h3 {
-      font-size: 16px;
-      margin: 0 0 14px;
-      font-weight: 600;
-      color: var(--fg);
-      letter-spacing: 0.2px;
-    }
-    .diagram-frame {
-      flex: 1;
-      border: 1px dashed var(--line-strong);
-      border-radius: 8px;
-      background:
-        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
-        var(--bg-elev);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--fg-faint);
+    .theme-links .theme-lang {
       font-size: 11px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      min-height: 110px;
+      color: var(--fg-faint);
+      margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child {
+      margin-top: 0;
+    }
+    .theme-links a {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      line-height: 1.55;
     }
 
-    /* ---------- AI Coordination Structure (CSS layered diagram) ---------- */
+    /* ---------- Featured Publication ---------- */
+    .featured-badge {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+    .featured-pub {
+      border: 1px solid var(--line-strong);
+      background: var(--bg-elev);
+      padding: clamp(28px, 4vw, 40px) clamp(20px, 4vw, 40px) clamp(32px, 4vw, 44px);
+      border-radius: 4px;
+    }
+    .book.no-cover {
+      grid-template-columns: 1fr;
+    }
+    .book-asin {
+      display: block;
+      margin-top: 10px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: var(--fg-faint);
+    }
+
+    /* Conceptual diagram variant — vertical token chains rendered as drawn */
+    .two-col .col-text .quote.is-diagram,
+    .oss-meta .quote.is-diagram {
+      white-space: pre-line;
+      line-height: 1.95;
+      letter-spacing: 0.4px;
+    }
+
+    /* Research positioning ladder in the closing section */
+    .closing .positioning {
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      line-height: 2.05;
+      margin: 0 0 44px;
+    }
+    .closing .positioning span {
+      display: block;
+    }
+    .closing .positioning .here {
+      color: var(--fg);
+    }
+    .closing-cta {
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--fg-faint);
+    }
+    .closing-cta a {
+      color: var(--accent);
+    }
+
+    /* Quote box styling */
+    .quote {
+      display: block;
+      margin: 22px 0 6px;
+      padding: 14px 18px;
+      border-left: 2px solid var(--line-strong);
+      color: var(--fg);
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+      letter-spacing: 0.3px;
+      background: rgba(255,255,255,0.015);
+    }
+
+    /* ---------- AI Coordination Runtime (layer diagram) ---------- */
     .field-runtime {
       margin-top: clamp(56px, 7vw, 80px);
       border: 1px solid var(--line);
@@ -187,12 +235,6 @@
     }
 
     @media (max-width: 900px) {
-      .concept-grid.cols-4 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .diagrams {
-        grid-template-columns: 1fr;
-      }
       .field-layer {
         grid-template-columns: 1fr;
         gap: 4px;
@@ -200,96 +242,6 @@
       .field-layer .layer-tag {
         margin-top: 2px;
       }
-    }
-
-    @media (max-width: 640px) {
-      .concept-grid.cols-4 {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ---------- Inline diagram lead-ins (template-standard) ---------- */
-    .fig-lead {
-      max-width: 760px;
-      margin: clamp(44px, 6vw, 64px) auto 0;
-    }
-    .fig-lead h3 {
-      font-size: 20px;
-      margin: 0 0 12px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      color: var(--fg);
-    }
-    .fig-lead p {
-      color: var(--fg-mute);
-      font-size: 15.5px;
-      line-height: 1.85;
-      margin: 0;
-    }
-    .fig-lead + .figure {
-      margin-top: clamp(20px, 3vw, 28px);
-    }
-
-    /* ---------- Archive: real diagram images (template-standard) ---------- */
-    .diagram-shot {
-      display: block;
-      margin-top: auto;
-      border: 1px solid var(--line-strong);
-      border-radius: 8px;
-      overflow: hidden;
-      background: #fff;
-      cursor: zoom-in;
-      transition: border-color 200ms ease;
-    }
-    .diagram-shot:hover {
-      border-color: var(--fg-faint);
-    }
-    .diagram-shot img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    /* ---------- Explore This Theme (template-standard) ---------- */
-    .theme-links {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .theme-links .theme-lang {
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--fg-faint);
-      margin-top: 12px;
-    }
-    .theme-links .theme-lang:first-child {
-      margin-top: 0;
-    }
-    .theme-links a {
-      font-size: 13px;
-      color: var(--accent);
-      letter-spacing: 0.3px;
-      line-height: 1.55;
-    }
-    .theme-links .theme-book {
-      font-size: 13px;
-      color: var(--fg);
-      letter-spacing: 0.3px;
-      line-height: 1.55;
-    }
-    .theme-links .theme-book-sub {
-      display: block;
-      color: var(--fg-mute);
-      font-size: 12.5px;
-    }
-    .theme-links .theme-book-status {
-      display: inline-block;
-      margin-top: 5px;
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      color: var(--fg-faint);
     }
   </style>
 </head>
@@ -311,797 +263,131 @@
   <!-- ============ HERO ============ -->
   <header class="hero">
     <div class="hero-inner">
-      <div class="eyebrow">Research / AI Coordination</div>
+      <div class="eyebrow">Research / AI Coordination — AI Coordination Engineering</div>
       <h1>AI Coordination</h1>
       <p class="hero-sub">
-        <span>AI does not become useful only by acting.</span>
-        <span>It becomes useful when actions are coordinated.</span>
+        <span>AI no longer only answers.</span>
+        <span>It retrieves knowledge, generates candidates,</span>
+        <span>judges, calls tools, and acts on external systems.</span>
+        <span>Lining up several capable AIs does not, by itself,</span>
+        <span>produce a more intelligent or better-coordinated system.</span>
       </p>
       <p class="hero-desc">
-        AI Coordination explores how AI agents,
-        humans,
-        organizations,
-        and external systems can coordinate actions,
-        decisions,
-        boundaries,
-        and responsibilities through runtime structures.
+        AI Coordination is the design discipline that aligns the goals,
+        roles, context, authority, responsibility, and outcomes of
+        multiple AI agents, humans, knowledge, tools, organizations, and
+        physical systems into one accountable whole. The central claim of
+        this research is simple to state and hard to engineer: autonomy
+        is not assigned. Autonomy is generated at runtime — decision by
+        decision, from goal, role, permission, context, knowledge, risk,
+        trust, and boundary, resolved into a judgment to act, ask, or
+        stop, and preserved as a Decision Trace an organization can
+        verify afterward.
       </p>
     </div>
   </header>
 
-  <!-- ============ EXPLORE THIS THEME ============ -->
-  <section class="research-section" id="explore" aria-labelledby="explore-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">Explore</div>
-        <h2 id="explore-h">Explore This Theme</h2>
-        <p class="section-lede">
-          AI Coordination is one of the central inquiries of Chinoba. This
-          research explores how autonomous agents, human judgment,
-          organizational workflows, runtime systems, and governance structures
-          can become a single coordinated decision system. Begin with the
-          introductory videos, then continue through the forthcoming books that
-          expand coordination engineering into a complete architectural
-          discipline.
-        </p>
-      </div>
-
-      <div class="essays">
-        <div class="essay">
-          <h3>📺 Watch on YouTube</h3>
-          <p>Visual introductions to AI Coordination and coordination engineering for the multi-agent era.</p>
-          <div class="theme-links">
-            <div class="theme-lang">English</div>
-            <a href="https://youtu.be/DfBcWWOB8oc" target="_blank" rel="noopener noreferrer">What Is AI Coordination? Coordination Engineering for the Multi-Agent Era →</a>
-            <div class="theme-lang">Japanese</div>
-            <a href="https://youtu.be/uopdR_jXfss" target="_blank" rel="noopener noreferrer">AI Coordinationとは何か ― マルチエージェント時代の協調工学と5つの協調障害を解説 →</a>
-          </div>
-        </div>
-
-        <div class="essay">
-          <h3>📚 Related Books</h3>
-          <p>Planned long-form explorations of AI Coordination, coordination engineering, multi-agent systems, decision trace, and runtime responsibility.</p>
-          <div class="theme-links">
-            <div class="theme-lang">English Edition</div>
-            <div class="theme-book">
-              AI Coordination
-              <span class="theme-book-sub">Coordination Engineering for the Multi-Agent Era</span>
-              <span class="theme-book-sub">Designing Runtime Structures for Agents, Humans, Boundaries, Decisions, and Governance</span>
-              <span class="theme-book-status">FORTHCOMING</span>
-            </div>
-            <div class="theme-lang">Japanese Edition</div>
-            <div class="theme-book">
-              AI Coordination
-              <span class="theme-book-sub">マルチエージェント時代の協調工学</span>
-              <span class="theme-book-sub">人・AI・Boundary・Decision・Governanceを設計する</span>
-              <span class="theme-book-status">FORTHCOMING</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 01 OVERVIEW ============ -->
-  <section class="research-section" id="overview" aria-labelledby="overview-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">01 / Overview</div>
-        <h2 id="overview-h">Overview</h2>
-        <p class="section-lede">
-          AI Coordination refers to the design of systems
-          that coordinate agents, humans, workflows,
-          tools, and runtimes — turning isolated execution
-          into structured, accountable action.
-        </p>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>What AI Coordination Spans</h3>
-          <p>
-            AI Coordination refers to the design of systems
-            that coordinate:
-          </p>
-          <ul>
-            <li>AI agents</li>
-            <li>human reviewers</li>
-            <li>organizational workflows</li>
-            <li>external tools</li>
-            <li>decision runtimes</li>
-            <li>boundaries</li>
-            <li>escalation paths</li>
-            <li>execution systems</li>
-            <li>feedback loops</li>
-          </ul>
-        </div>
-
-        <div class="col-text">
-          <h3>From Autonomy to Coordination</h3>
-          <p>
-            The problem is not only how to make AI autonomous.
-          </p>
-          <p>
-            The deeper problem is how to make AI coordination
-            safe,
-            traceable,
-            and meaningful inside real systems.
-          </p>
-
-          <code class="quote">
-            Coordination is the layer
-            where agents,
-            humans,
-            and systems
-            become a single accountable whole.
-          </code>
-        </div>
-      </div>
-
-      <div class="fig-lead">
-        <h3>What AI Coordination spans</h3>
-        <p>
-          Coordination is not a single tool. It connects humans who define
-          intent, AI agents who reason and act, the tools they call, the
-          workflows they move through, and the organization that carries the
-          result. AI Coordination is the design of that whole — not the
-          deployment of one clever agent inside it.
-        </p>
-      </div>
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/04.png"
-           data-lightbox aria-label="Open the diagram of AI collaboration across human, agents, tools, workflow, and organization">
-          <img src="assets/04.png"
-               alt="AI collaboration as a layered stack: humans define goals, specialized AI agents execute, tools and APIs gather and process information, workflows automate the flow, and the organization realizes the outcome."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">AI Coordination spans human, agent, tool, workflow, and organization — a single accountable whole, not an isolated model.</figcaption>
-      </figure>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/03.png"
-           data-lightbox aria-label="Open the diagram showing that AI becomes useful when multiple agents coordinate">
-          <img src="assets/03.png"
-               alt="Why coordination matters: AI does not become useful simply because it is intelligent; it becomes useful because multiple agents — research, coding, planning, review, execution — coordinate around a shared center."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">AI does not become useful because it is intelligent. It becomes useful when agents coordinate.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 02 WHY IT MATTERS ============ -->
-  <section class="research-section" id="why" aria-labelledby="why-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">02 / Why It Matters</div>
-        <h2 id="why-h">Why It Matters</h2>
-        <p class="section-lede">
-          As AI systems become agentic, the gap between
-          single-task automation and coordinated action
-          becomes the central design problem.
-        </p>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>What Agentic AI Begins to Do</h3>
-          <p>As AI systems become agentic, they begin to:</p>
-          <ul>
-            <li>search</li>
-            <li>reason</li>
-            <li>plan</li>
-            <li>call tools</li>
-            <li>communicate with other agents</li>
-            <li>trigger workflows</li>
-            <li>affect external systems</li>
-            <li>participate in organizational decisions</li>
-          </ul>
-
-          <p>
-            Traditional automation assumes a simple loop:
-          </p>
-          <code class="quote">
-            Task → Execution → Result
-          </code>
-        </div>
-
-        <div class="col-text">
-          <h3>What Coordination Requires</h3>
-          <p>But AI coordination requires a longer chain:</p>
-          <code class="quote">
-            Intent
-            ↓ Signal
-            ↓ Context
-            ↓ Agent Coordination
-            ↓ Boundary
-            ↓ Human Gate
-            ↓ Execution
-            ↓ Trace
-            ↓ Feedback
-          </code>
-
-          <code class="quote">
-            The future of AI depends not only on
-            better agents,
-            but on better coordination architectures.
-          </code>
-        </div>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/02.png"
-           data-lightbox aria-label="Open the diagram showing multiple specialized AI agents converging into coordination">
-          <img src="assets/02.png"
-               alt="AI agents are everywhere: research, coding, planning, review, and execution agents multiply into many concurrent AI agents, and the open problem becomes coordination."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Once agents multiply, the open problem is no longer capability — it is coordination.</figcaption>
-      </figure>
-
-      <div class="fig-lead">
-        <h3>What we inherit from distributed systems</h3>
-        <p>
-          Coordinating many AI agents is not a new class of problem. It is the
-          old problem of distributed systems — reliability, consistency, and
-          fault tolerance across independent actors — re-encountered at the
-          level of reasoning agents. The design principles carry over.
-        </p>
-      </div>
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/05.png"
-           data-lightbox aria-label="Open the diagram of what AI collaboration learns from distributed systems">
-          <img src="assets/05.png"
-               alt="What we learn from distributed systems: the reliability, scalability, and fault-tolerance principles of distributed systems and software engineering carry over into workflow systems and AI collaboration."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Reliability, scalability, and fault tolerance from distributed systems become the ground rules for coordinating agents.</figcaption>
-      </figure>
-
-      <div class="fig-lead">
-        <h3>Five ways coordination breaks down</h3>
-        <p>
-          The coordination problem begins when multiple agents act across
-          shared tools, shared contexts, and shared responsibilities. When it
-          fails, it fails in recognizable ways: deadlock, race conditions,
-          duplicate execution, cascading failure, and diffusion of
-          responsibility. Naming these patterns is the first step toward
-          designing against them.
-        </p>
-      </div>
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/06.png"
-           data-lightbox aria-label="Open the diagram of five typical patterns where collaboration does not go well">
-          <img src="assets/06.png"
-               alt="Five typical patterns where collaboration doesn't go well: deadlock, race condition, duplicate execution, cascading failure, and responsibility diffusion."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Deadlock, race conditions, duplicate execution, cascading failure, responsibility diffusion — the recurring failure modes of uncoordinated agents.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 03 CORE STRUCTURE ============ -->
-  <section class="research-section" id="core" aria-labelledby="core-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">03 / Core Structure</div>
-        <h2 id="core-h">Core Structure</h2>
-        <p class="section-lede">
-          Eight structural components that together compose
-          an AI coordination system — from the formation
-          of intent, through agents and boundaries, to
-          execution, traceability, and feedback.
-        </p>
-      </div>
-
-      <div class="concept-grid cols-4">
-        <div class="concept">
-          <div class="idx">i</div>
-          <h3>Intent Layer</h3>
-          <p>The frame where goals, constraints, and stakeholder intent enter the system — the source of meaning for everything downstream.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">ii</div>
-          <h3>Agent Layer</h3>
-          <p>AI agents that reason, plan, and act — bounded participants in a larger coordinated process, not isolated solvers.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">iii</div>
-          <h3>Coordination Runtime</h3>
-          <p>The shared substrate where agents, humans, tools, and workflows are routed, negotiated, and sequenced into coherent action.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">iv</div>
-          <h3>Boundary System</h3>
-          <p>Sanctioned scope, policy, and safety constraints — the rules that decide what coordinated action is allowed to do.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">v</div>
-          <h3>Human Gate</h3>
-          <p>The point where a human approves, refuses, or escalates — turning machine output into accountable, sanctioned action.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">vi</div>
-          <h3>Tool / API Execution</h3>
-          <p>The outward edge — where coordinated decisions reach external systems, tools, APIs, and the physical world.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">vii</div>
-          <h3>Decision Trace</h3>
-          <p>A structured record of what was decided, by whom, with which signals, boundaries, and approvals — the memory of coordination.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">viii</div>
-          <h3>Feedback Loop</h3>
-          <p>Outcomes — including failures — return into intent, signals, agents, and boundaries, so the coordination structure can learn.</p>
-        </div>
-      </div>
-
-      <div class="fig-lead">
-        <h3>The coordination architecture, in one picture</h3>
-        <p>
-          The same components read as a stacked architecture: agents act,
-          memory retains context, knowledge is shared, workflow sequences the
-          work, decision-making reaches judgment, and governance holds it all
-          accountable. Coordination becomes visible when agents, memory,
-          knowledge, workflow, decision, and governance are placed in a single
-          runtime structure.
-        </p>
-      </div>
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/19.png"
-           data-lightbox aria-label="Open the diagram of the AI collaboration architecture">
-          <img src="assets/19.png"
-               alt="AI collaboration architecture as six connected layers: Agents, Memory, Knowledge, Workflow, Decision Making, and Governance — so that AI works not in isolation but in collaboration with people and other AIs."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Agents, memory, knowledge, workflow, decision-making, and governance — the coordination architecture as one connected stack.</figcaption>
-      </figure>
-
-      <!-- ====== AI Coordination Structure (layered diagram) ====== -->
-      <div class="field-runtime" aria-label="AI Coordination Structure">
-        <div class="field-runtime-label">Layer Diagram</div>
-        <h3 class="field-runtime-title">AI Coordination Structure</h3>
-
-        <ol class="field-layers" role="list">
-          <li class="field-layer">
-            <span class="layer-idx">L1</span>
-            <span class="layer-body">
-              <span class="layer-name">Intent</span>
-              <span class="layer-note">Goals, constraints, and stakeholder intent enter the system — the source of meaning for downstream coordination.</span>
-            </span>
-            <span class="layer-tag">intent</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L2</span>
-            <span class="layer-body">
-              <span class="layer-name">Signal</span>
-              <span class="layer-note">Models, sensors, agents, and humans contribute candidate signals — the raw material from which context is built.</span>
-            </span>
-            <span class="layer-tag">signal</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L3</span>
-            <span class="layer-body">
-              <span class="layer-name">Context</span>
-              <span class="layer-note">Signals are interpreted against situation, history, and shared state — turning data into actionable context.</span>
-            </span>
-            <span class="layer-tag">context</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L4</span>
-            <span class="layer-body">
-              <span class="layer-name">Agent Coordination</span>
-              <span class="layer-note">Multiple agents negotiate, route, and divide work — coordination as a structured runtime, not free-form interaction.</span>
-            </span>
-            <span class="layer-tag">agents</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L5</span>
-            <span class="layer-body">
-              <span class="layer-name">Boundary</span>
-              <span class="layer-note">Sanctioned scope, policy, and safety constraints are checked before coordinated action can proceed.</span>
-            </span>
-            <span class="layer-tag">boundary</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L6</span>
-            <span class="layer-body">
-              <span class="layer-name">Human Gate</span>
-              <span class="layer-note">A human approves, refuses, or escalates — keeping accountability and judgment at the center of coordination.</span>
-            </span>
-            <span class="layer-tag">gate</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L7</span>
-            <span class="layer-body">
-              <span class="layer-name">Execution</span>
-              <span class="layer-note">Tools, APIs, and external systems are invoked — the outward edge where coordinated decisions reach the world.</span>
-            </span>
-            <span class="layer-tag">execution</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L8</span>
-            <span class="layer-body">
-              <span class="layer-name">Trace</span>
-              <span class="layer-note">The coordinated decision is recorded with its signals, boundaries, reviewers, and outcomes — the memory of coordination.</span>
-            </span>
-            <span class="layer-tag">trace</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L9</span>
-            <span class="layer-body">
-              <span class="layer-name">Feedback</span>
-              <span class="layer-note">Outcomes — including failures — return into intent, signals, agents, and boundaries, so coordination can learn over time.</span>
-            </span>
-            <span class="layer-tag">feedback</span>
-          </li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 04 RELATED ESSAYS ============ -->
-  <section class="research-section" id="essays" aria-labelledby="essays-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">04 / Related Essays</div>
-        <h2 id="essays-h">Reading Around AI Coordination</h2>
-        <p class="section-lede">
-          Forthcoming essays that extend this inquiry into
-          multi-agent coordination, human gates, and the
-          runtime structures that make agentic systems
-          accountable.
-        </p>
-      </div>
-
-      <div class="essays">
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/agent-orchestration-lead/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">Foundations</div>
-          <h3>Agent Orchestration Lead</h3>
-          <p>A new role emerging in the AI era: coordinating multiple AI agents, boundaries, escalation, and runtime governance across organizations.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/synapse-insights-ai-agent-organizational-intelligence/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">Multi-Agent</div>
-          <h3>Synapse Insights and AI Agent Monitoring</h3>
-          <p>Why organizational intelligence, monitoring, and coordination structures become necessary as AI agents begin operating collectively.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/agent-safety-from-execution-to-decision-system/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">Human Gate</div>
-          <h3>Safety Design in the Age of Agents</h3>
-          <p>From autonomous execution engines to controllable decision systems with boundaries, escalation, and human governance.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/multi-agent-coordination/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">Multi-Agent</div>
-          <h3>Multi-Agent Coordination: How to Connect AI Agents to Society</h3>
-          <p>How AI agents connect to organizations, governance structures, human systems, and real-world coordination beyond isolated automation.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
-        <a class="essay is-coming-soon" href="#" aria-disabled="true">
-          <div class="kicker">Runtime</div>
-          <h3>Coordination Runtime for Agentic Systems</h3>
-          <p>How runtime layers can coordinate agents, tools, workflows, and decision traces.</p>
-          <div class="essay-meta is-coming-soon">Coming Soon</div>
-        </a>
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/mesh-networks-as-coordination-runtime/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">Distributed Coordination</div>
-          <h3>Drones, Mesh Networks, and Runtime OS — What the Ukraine War Reveals About the Future of Distributed Coordination Systems</h3>
-          <p>An exploration of how drone swarms, mesh networks, electronic warfare, and distributed coordination systems emerging in the Ukraine War foreshadow Runtime OS, Runtime Society, and large-scale agent coordination architectures.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 05 RELATED BOOKS ============ -->
-  <section class="research-section" id="books" aria-labelledby="books-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">05 / Related Books</div>
-        <h2 id="books-h">Long-form Texts</h2>
-        <p class="section-lede">
-          Knowledge artifacts that compile the surrounding research
-          into structured volumes. English editions shown here.
-        </p>
-      </div>
-
-      <div class="books-list">
-        <div class="book">
-          <div class="book-body">
-            <div class="book-title">AI is not prediction. It is decision.</div>
-            <div class="book-subtitle">— Decision Trace Model —</div>
-            <p>A frame for treating AI as a decision system — the substrate from which coordinated, traceable agent behavior can be built.</p>
-            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
-          </div>
-          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
-          </a>
-        </div>
-
-        <div class="book">
-          <div class="book-body">
-            <div class="book-title">Intelligence as Relationship</div>
-            <div class="book-subtitle">— Intelligence Field —</div>
-            <p>A foundational text on relational intelligence — the conceptual ground from which coordination across agents, humans, and systems inherits its meaning.</p>
-            <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener">Available on Kindle →</a>
-          </div>
-          <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-            <img src="/assets/book_pic/en/02.jpg" alt="" loading="lazy">
-          </a>
-        </div>
-
-        <div class="book">
-          <div class="book-body">
-            <div class="book-title">Decision Trace Model Practical Guide</div>
-            <div class="book-subtitle">— Designing AI as a Decision System —</div>
-            <p>A practical guide for engineers and architects building coordinated, traceable AI systems — from boundaries and gates to runtime traces.</p>
-            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
-          </div>
-          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 06 RELATED OSS ============ -->
-  <section class="research-section" id="oss" aria-labelledby="oss-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">06 / Related OSS</div>
-        <h2 id="oss-h">Related OSS</h2>
-        <p class="section-lede">
-          Runtime,
-          interaction,
-          trace,
-          and orchestration components
-          for building coordinated AI systems.
-        </p>
-      </div>
-
-      <div class="oss-block">
-        <div class="oss-meta">
-          <h3>Components for coordinated AI</h3>
-          <p>
-            The OSS ecosystem provides primitives that compose
-            the AI coordination stack: decision runtimes,
-            interaction loops, decision-trace memory, ledger
-            and graph substrates, and view layers for
-            inspecting agent behavior and runtime state.
-          </p>
-
-          <a class="oss-link" href="https://github.com/chinoba-lab" target="_blank" rel="noopener">
-            GitHub — chinoba-lab →
-          </a>
-        </div>
-
-        <ul class="oss-tags" aria-label="Related OSS modules">
-          <li>decision-runtime-core</li>
-          <li>interaction-core-v2</li>
-          <li>decision-trace-model-v2</li>
-          <li>ledger-core-k2</li>
-          <li>view-core-v2</li>
-          <li>decision-trace-gnn</li>
-          <li>Synapse-Insights</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 07 DIAGRAMS ============ -->
-  <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">07 / Diagrams</div>
-        <h2 id="diagrams-h">Architecture Archive</h2>
-        <p class="section-lede">
-          The archive frames coordination failures not as isolated errors, but
-          as design patterns for coordination engineering. Each failure mode
-          reveals a corresponding runtime response — timeout, priority, mutual
-          exclusion, transaction, failover, human gate, approval workflow, and
-          governance. Each row pairs a breakdown pattern with its structural
-          answer: the left column names how coordination fails, the right shows
-          how it is designed against.
-        </p>
-      </div>
-
-      <div class="diagrams">
-        <div class="diagram-card">
-          <div class="kicker">Failure 01 · Pattern</div>
-          <h3>Deadlock</h3>
-          <a class="diagram-shot" href="assets/07.png"
-             data-lightbox aria-label="Open the diagram of deadlock between two agents holding each other's resources">
-            <img src="assets/07.png"
-                 alt="Deadlock: Agent A holds Resource 1 and waits for Resource 2, while Agent B holds Resource 2 and waits for Resource 1 — neither can proceed and processing stalls permanently."
-                 loading="lazy">
-          </a>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Failure 01 · Response</div>
-          <h3>Solutions to Deadlock</h3>
-          <a class="diagram-shot" href="assets/08.png"
-             data-lightbox aria-label="Open the diagram of solutions to deadlock">
-            <img src="assets/08.png"
-                 alt="Solutions to deadlock: timeout, priority assignment, monitoring and intervention, and escalation to humans or higher-level systems."
-                 loading="lazy">
-          </a>
-        </div>
-
-        <div class="diagram-card">
-          <div class="kicker">Failure 02 · Pattern</div>
-          <h3>Race Condition</h3>
-          <a class="diagram-shot" href="assets/09.png"
-             data-lightbox aria-label="Open the diagram of a race condition where agents access the same resource simultaneously">
-            <img src="assets/09.png"
-                 alt="Race condition: multiple agents access the same shared resource at the same time, and overlapping timing causes data inconsistency, update loss, and processing failures."
-                 loading="lazy">
-          </a>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Failure 02 · Response</div>
-          <h3>Solutions to Race Conditions</h3>
-          <a class="diagram-shot" href="assets/10.png"
-             data-lightbox aria-label="Open the diagram of solutions to race conditions">
-            <img src="assets/10.png"
-                 alt="Solutions to race conditions: mutual exclusion (locking), transactions with commit/rollback, leader election, and authorization control."
-                 loading="lazy">
-          </a>
-        </div>
-
-        <div class="diagram-card">
-          <div class="kicker">Failure 03 · Pattern</div>
-          <h3>Duplicate Execution</h3>
-          <a class="diagram-shot" href="assets/11.png"
-             data-lightbox aria-label="Open the diagram of duplicate, redundant execution">
-            <img src="assets/11.png"
-                 alt="Duplicate execution: the same process is run redundantly by multiple agents, wasting tokens and causing increased cost, increased latency, and missed opportunities."
-                 loading="lazy">
-          </a>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Failure 03 · Response</div>
-          <h3>Solutions to Duplicate Execution</h3>
-          <a class="diagram-shot" href="assets/12.png"
-             data-lightbox aria-label="Open the diagram of solutions to duplicate execution">
-            <img src="assets/12.png"
-                 alt="Solutions to duplicate execution: task management with de-duplication, caching, shared memory, and a scheduler that ensures each task executes once."
-                 loading="lazy">
-          </a>
-        </div>
-
-        <div class="diagram-card">
-          <div class="kicker">Failure 04 · Pattern</div>
-          <h3>Cascading Failure</h3>
-          <a class="diagram-shot" href="assets/13.png"
-             data-lightbox aria-label="Open the diagram of cascading failure spreading across an organization">
-            <img src="assets/13.png"
-                 alt="Cascading failure: one agent's incorrect decision propagates as other agents trust the result, spreading across the organization into service disruptions and loss of trust."
-                 loading="lazy">
-          </a>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Failure 04 · Response</div>
-          <h3>Solutions to Cascading Failure</h3>
-          <a class="diagram-shot" href="assets/14.png"
-             data-lightbox aria-label="Open the diagram of solutions to cascading failure">
-            <img src="assets/14.png"
-                 alt="Solutions to cascading failure: fail-safe (fail closed), circuit breaker, adaptive retry with backoff and jitter, and validation agents that verify critical decisions."
-                 loading="lazy">
-          </a>
-        </div>
-
-        <div class="diagram-card">
-          <div class="kicker">Failure 05 · Pattern</div>
-          <h3>Responsibility Diffusion</h3>
-          <a class="diagram-shot" href="assets/15.png"
-             data-lightbox aria-label="Open the diagram of responsibility diffusion across a process">
-            <img src="assets/15.png"
-                 alt="Responsibility diffusion: across planning, investigation, execution, and review, ownership is unclear, so no one takes responsibility and problems are left unresolved."
-                 loading="lazy">
-          </a>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Failure 05 · Response</div>
-          <h3>Solutions for Responsibility</h3>
-          <a class="diagram-shot" href="assets/16.png"
-             data-lightbox aria-label="Open the diagram of solutions for responsibility: roles, approval workflow, decision history, and governance">
-            <img src="assets/16.png"
-                 alt="Solutions for responsibility: clear definition of roles, an approval workflow with human review, a complete decision history, and governance for accountability and reliability."
-                 loading="lazy">
-          </a>
-        </div>
-      </div>
-
-      <div class="fig-lead">
-        <h3>Human gate and decision trace close the loop</h3>
-        <p>
-          A human gate does not stop automation. It converts machine output
-          into sanctioned organizational action. And decision trace is the
-          memory of coordination — the record of who decided what, with which
-          signals and approvals — that makes responsibility observable after
-          execution. Together they turn the responses above into accountable
-          coordination.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 07.5 SYNTHESIS FIGURE ============ -->
-  <section class="research-section" aria-label="Synthesis">
+  <!-- ============ OPENING FIGURE ============ -->
+  <section class="research-section" aria-label="From answering to acting">
     <div class="wrap">
       <figure class="figure figure-wide figure-main">
-        <a class="figure-frame" href="assets/20.png"
-           data-lightbox aria-label="Open the diagram of AI collaboration for a better future">
-          <img src="assets/20.png"
-               alt="AI collaboration for a better future: connecting AI, people, organizations, and society — building better AI, enabling better collaboration, better organizations, a better society, and a shared future."
+        <a class="figure-frame" href="assets2/02.png"
+           data-lightbox aria-label="Open the diagram of AI evolving from answering to acting">
+          <img src="assets2/02.png"
+               alt="Diagram titled 'AI Has Evolved from Answering to Acting,' contrasting generative AI that only answers with an AI agent that searches, reasons, plans, uses tools, acts, and coordinates."
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">Coordination is not the end state. Its feedback loop reaches outward — into better organizations, a better society, and a shared future.</figcaption>
+        <figcaption class="figure-caption">The challenge of AI is no longer only the correctness of its answers. It is how far we allow it to act — and how that acting is coordinated.</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- ============ 07.6 RELATED RESOURCES ============ -->
+  <!-- ============ FEATURED PUBLICATION ============ -->
+  <section class="research-section" id="featured-book" aria-labelledby="featured-book-h">
+    <div class="wrap">
+      <h2 id="featured-book-h" class="visually-hidden" style="position:absolute;left:-9999px;">Featured Publication</h2>
+      <span class="featured-badge">Featured Publication</span>
+      <div class="featured-pub">
+        <div class="books-list">
+          <div class="book">
+            <div class="book-body">
+              <div class="book-title">AI Coordination Engineering: A Practical Guide</div>
+              <div class="book-subtitle">Designing Coordination, Autonomy, and Trust in the Multi-Agent Era</div>
+              <p>
+                The practical guide behind this page's architecture. It
+                works through why coordination is not communication, how
+                deadlock, race conditions, duplicate execution, and
+                cascading failure grow more dangerous once AI judgment and
+                external execution are involved, how an Autonomy Control
+                Plane resolves Goal, Role, Permission, Context, Knowledge,
+                Risk, Trust, and Boundary into Act, Ask, or Stop, how
+                Delegation Contracts carry authority between agents, and
+                how Decision Trace closes the loop back into coordination.
+              </p>
+              <a class="book-link" href="https://amzn.to/4if6eL9" target="_blank" rel="noopener noreferrer">View on Amazon →</a>
+              <span class="book-asin">ASIN B0HFLQTP1F · Kindle · Masao Watanabe</span>
+            </div>
+            <a class="book-cover" href="https://amzn.to/4if6eL9" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
+              <img src="/assets/books/B0HFLQTP1F.jpg" alt="" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED RESOURCES ============ -->
   <section class="research-section" id="resources" aria-labelledby="resources-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">Resources</div>
-        <h2 id="resources-h">Related Resources</h2>
+        <div class="section-label">Featured Resources</div>
+        <h2 id="resources-h">Start Here — the New Practical Guide, Books, Video, and Blog</h2>
         <p class="section-lede">
-          Further ways into AI Coordination — a video
-          introduction, the companion practical guide, and the
-          blog article behind this page's argument, in English
-          and Japanese.
+          The practical guide above leads this line of inquiry. Below it
+          are the neighboring Chinoba books, videos, and essays on
+          Multi-Agent Systems, Autonomy Control, Trust Infrastructure,
+          Decision Trace, and Runtime Society that this page draws on.
         </p>
       </div>
 
       <div class="essays">
         <div class="essay">
-          <h3>📺 YouTube</h3>
-          <p>A video introduction to governing multi-agent systems and autonomy control at runtime.</p>
+          <h3>📚 More Books</h3>
+          <p>Neighboring practical guides on the governance, trust, knowledge, and runtime layers that AI Coordination Engineering connects.</p>
           <div class="theme-links">
             <div class="theme-lang">English</div>
-            <a href="https://youtu.be/zbTTusglf9k" target="_blank" rel="noopener noreferrer">Autonomy Control for AI Coordination — Governing Multi-Agent Systems at Runtime →</a>
-            <div class="theme-lang">Japanese</div>
-            <a href="https://youtu.be/pY2yjDuMtKs" target="_blank" rel="noopener noreferrer">AIエージェントの自律性をどう制御するか ― Autonomy Control PlaneとマルチAI協調の未来 →</a>
+            <a href="https://amzn.to/4431TCv" target="_blank" rel="noopener noreferrer">Multi-Agent Coordination: Governance, Resonance and Runtime Society →</a>
+            <a href="https://amzn.to/4wwTXVS" target="_blank" rel="noopener noreferrer">Runtime AI Governance: Practical Guide →</a>
+            <a href="https://amzn.to/3SF97KP" target="_blank" rel="noopener noreferrer">Trust Infrastructure: Practical Guide →</a>
+            <a href="https://amzn.to/4bW7NcW" target="_blank" rel="noopener noreferrer">Knowledge Flow Practical Guide →</a>
+            <a href="https://www.amazon.com/dp/B0H4FLWCV5" target="_blank" rel="noopener noreferrer">Runtime Society: The Social Operating System for the AI Era →</a>
           </div>
         </div>
 
         <div class="essay">
-          <h3>📚 Books</h3>
-          <p>The practical guide to designing coordination, autonomy, and trust for the multi-agent era. Available in Japanese only.</p>
+          <h3>📺 Watch on YouTube</h3>
+          <p>Visual introductions to AI Coordination, autonomy control, and the shift from autonomous agents to coordinated runtime systems.</p>
           <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://youtu.be/DfBcWWOB8oc" target="_blank" rel="noopener noreferrer">What Is AI Coordination? Coordination Engineering for the Multi-Agent Era →</a>
+            <a href="https://youtu.be/zbTTusglf9k" target="_blank" rel="noopener noreferrer">Autonomy Control for AI Coordination — Governing Multi-Agent Systems at Runtime →</a>
+            <a href="https://youtu.be/FUM03wm1m38" target="_blank" rel="noopener noreferrer">Multi-Agent Coordination Explained | Beyond AI Agents to Runtime Society →</a>
             <div class="theme-lang">Japanese</div>
-            <a href="https://amzn.to/4hYdJG7" target="_blank" rel="noopener noreferrer">AI Coordination Engineering 実践ガイド: マルチエージェント時代の協調・自律性・信頼を設計する →</a>
+            <a href="https://youtu.be/uopdR_jXfss" target="_blank" rel="noopener noreferrer">AI Coordinationとは何か ― マルチエージェント時代の協調工学と5つの協調障害を解説 →</a>
+            <a href="https://youtu.be/pY2yjDuMtKs" target="_blank" rel="noopener noreferrer">AIエージェントの自律性をどう制御するか ― Autonomy Control PlaneとマルチAI協調の未来 →</a>
+            <a href="https://youtu.be/W49ZSEUFkek" target="_blank" rel="noopener noreferrer">マルチエージェント協調設計 ― 共鳴・ガバナンス・Runtime Society →</a>
           </div>
         </div>
 
         <div class="essay">
-          <h3>📰 Blog Articles</h3>
-          <p>The essay behind this page's argument, on coordination as the runtime layer for multi-agent systems.</p>
+          <h3>📰 From the Blog</h3>
+          <p>The long-form essays behind this page's argument, on coordination, orchestration, and agent safety as runtime infrastructure.</p>
           <div class="theme-links">
             <div class="theme-lang">English</div>
             <a href="https://deus-ex-machina-ism.com/en/ai-coordination/" target="_blank" rel="noopener noreferrer">AI Coordination →</a>
+            <a href="https://deus-ex-machina-ism.com/en/agent-orchestration-lead/" target="_blank" rel="noopener noreferrer">Agent Orchestration Lead →</a>
+            <a href="https://deus-ex-machina-ism.com/en/agent-safety-from-execution-to-decision-system/" target="_blank" rel="noopener noreferrer">Safety Design in the Age of Agents →</a>
+            <a href="https://deus-ex-machina-ism.com/en/multi-agent-coordination/" target="_blank" rel="noopener noreferrer">Multi-Agent Coordination: How to Connect AI Agents to Society →</a>
             <div class="theme-lang">Japanese</div>
             <a href="https://deus-ex-machina-ism.com/ai-coordination/" target="_blank" rel="noopener noreferrer">AI Coordination →</a>
           </div>
@@ -1110,34 +396,630 @@
     </div>
   </section>
 
-  <!-- ============ 08 CLOSING ============ -->
-  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
-    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
-    <blockquote>
-      <span>AI coordination is not</span>
-      <span>simply automation.</span>
-      <span>It is the design of relationships</span>
-      <span>between agents,</span>
-      <span>humans,</span>
-      <span>tools,</span>
-      <span>boundaries,</span>
-      <span>execution,</span>
-      <span>and traceable responsibility.</span>
-    </blockquote>
-    <div class="closing-mark">Chinoba.org</div>
+  <!-- ============ 01 COORDINATION IS NOT COMMUNICATION ============ -->
+  <section class="research-section" id="not-communication" aria-labelledby="not-communication-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Coordination Is Not Communication</div>
+        <h2 id="not-communication-h">Coordination Is Not Communication</h2>
+        <p class="section-lede">
+          A research agent can report "research complete," a policy agent
+          can report "verified," and a review agent can report "approval
+          possible" — every message delivered correctly, none of it
+          malformed — and the resulting action can still be wrong. That
+          is not a communications failure. It is a coordination failure,
+          and no amount of message-broker reliability, retries, or
+          encryption prevents it.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What Coordination Requires Beyond Messages</h3>
+          <p>
+            The ability to send and receive messages is necessary for
+            coordination. It is not sufficient. Coordination additionally
+            requires:
+          </p>
+          <code class="quote is-diagram">Common Purpose
+↓ Division of Roles
+↓ Situational Awareness
+↓ Decision-Making
+↓ Authority and Responsibility
+↓ Learning from Outcomes</code>
+        </div>
+
+        <div class="col-text">
+          <h3>Local Optimization Is Not Global Alignment</h3>
+          <p>
+            Adding smart agents does not automatically create a smart
+            system. Each agent can perform well when evaluated on its
+            own — and the overall system can still fail, because local
+            optimization is not the same thing as global alignment. The
+            recurring causes are goal conflict, context inconsistency,
+            authority conflict, the propagation of incorrect knowledge as
+            if it were verified fact, and coordination cost that eats the
+            gains coordination was meant to produce.
+          </p>
+          <code class="quote">
+            Every agent can be right on its own terms
+            and the system can still be wrong.
+            Majority vote settles a tally.
+            It does not settle correctness, authority, or safety.
+          </code>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/05.png"
+           data-lightbox aria-label="Open the diagram of errors flowing through an AI coordination network">
+          <img src="assets2/05.png"
+               alt="Diagram titled 'In AI Coordination, Errors Also Flow Through the Network,' showing a planner agent's wrong assumption passed to a coordinator agent, becoming wrong delegation to sales, contract, and payment agents, and resulting in coordinated failure."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">A wrong assumption does not stay with the agent that made it — it travels through delegation and becomes a coordinated failure shared by every agent that trusted it.</figcaption>
+      </figure>
+    </div>
   </section>
 
-  <!-- ============ 09 RELATED RESEARCH ============ -->
+  <!-- ============ 02 FAILURE MODES OF MULTI-AGENT SYSTEMS ============ -->
+  <section class="research-section" id="failure-modes" aria-labelledby="failure-modes-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / Failure Modes of Multi-Agent Systems</div>
+        <h2 id="failure-modes-h">Failure Modes of Multi-Agent Systems</h2>
+        <p class="section-lede">
+          Distributed systems already named these failure modes. What
+          changes when the actors are AI agents is not the name of the
+          failure — it is how much worse each one becomes once judgment,
+          delegated authority, propagated knowledge, and external
+          execution are combined with it.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-3">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Deadlock</h3>
+          <p>Two agents each wait on a resource, approval, or answer the other holds. Among AI agents the stall can go unnoticed longer, because each side keeps generating plausible status updates instead of failing loudly. Timeouts, dependency graphs, and a supervisor agent empowered to break the cycle make the wait visible and end it.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Race Conditions</h3>
+          <p>Two agents read the same account, contract, or plan and each proposes an update; one decision is silently overwritten, and because both used coherent reasoning, neither looks wrong on its own. Mutual exclusion, optimistic locking, and a coordination policy for resolving conflicting decisions — not only conflicting writes — contain it.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Duplicate Execution</h3>
+          <p>An agent times out and retries a search, order, or email that had already succeeded. Because many AI actions are irreversible outside the system, duplication is not only wasted cost. Idempotency keys, a task ledger recording what has already been attempted, and semantic deduplication of near-identical requests are the containment.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Irreversible Actions and Compensation</h3>
+          <p>A sent email, a signed contract, or a physical command cannot be undone by a database rollback. The Saga pattern's compensating action is the available substitute, and the more consequential the action, the more it belongs behind a pre-commit Human Gate rather than an automatic retry.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Cascading Failure</h3>
+          <p>One agent's incorrect conclusion becomes another agent's trusted input, and a single bad decision compounds as it is reused downstream. Fail-safe and fail-closed defaults, circuit breakers that stop calling a degraded agent, and bulkheads that contain a failure to one part of the system keep one error from becoming an organization-wide one.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Retry, Recovery, and Rollback</h3>
+          <p>A naive retry repeats the same flawed reasoning under the same flawed conditions and returns the same wrong answer, more confidently. Exponential backoff, adaptive retry that switches the agent, model, or tool, and checkpoints that allow a genuine rollback turn a retry into recovery instead of repetition.</p>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/10.png"
+           data-lightbox aria-label="Open the diagram combining pre-execution verification with post-execution recovery">
+          <img src="assets2/10.png"
+               alt="Diagram titled 'Combine Pre-Execution Verification with Post-Execution Recovery,' showing planner, policy check, risk check, and execution feeding action, monitor, detect, stop or rollback, and learn, alongside the notes 'common knowledge leads to common error' and 'irreversible action cannot roll back.'"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Pre-execution checks and post-execution recovery are complementary, not redundant — one prevents what it can foresee, the other contains what it cannot.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 03 AUTONOMY CONTROL ============ -->
+  <section class="research-section" id="autonomy-control" aria-labelledby="autonomy-control-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Autonomy Control: Policy, Risk, Trust, and Boundary</div>
+        <h2 id="autonomy-control-h">Autonomy Control: Policy, Risk, Trust, and Boundary</h2>
+        <p class="section-lede">
+          Autonomy is not one number. It has dimensions — an agent can be
+          highly autonomous in planning and tightly constrained in
+          action — and what an agent is technically capable of doing is
+          not the same as what it is authorized to do in this situation,
+          for this goal, under this permission.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Six Dimensions of Autonomy</h3>
+          <p>Autonomy is decomposed along at least six axes, each independently adjustable:</p>
+          <code class="quote is-diagram">Goal Autonomy
+Planning Autonomy
+Decision Autonomy
+Action Autonomy
+Coordination Autonomy
+Learning Autonomy</code>
+        </div>
+
+        <div class="col-text">
+          <h3>Capability Is Not Authority</h3>
+          <p>
+            An agent may be technically capable of sending the email,
+            approving the refund, or committing the change — capability
+            is what it can do. Whether it may do so here, now, for this
+            requester and this stated purpose, is authority. Confusing
+            the two is how a correct action becomes an unauthorized one.
+          </p>
+          <code class="quote">
+            Autonomy is not a reward for age
+            or a property fixed to a model.
+            It is a range that widens when goal, role,
+            permission, context, knowledge, risk, trust,
+            and boundary support it — and narrows
+            the moment they do not.
+          </code>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/12.png"
+           data-lightbox aria-label="Open the diagram of the Autonomy Control Plane">
+          <img src="assets2/12.png"
+               alt="Diagram titled 'Integrated Autonomy Management: Autonomy Control Plane,' showing Goal, Role, Permission, Context, Knowledge, Risk, Trust, and Boundary feeding a central control plane that resolves to Act, Ask, or Stop between AI agents and external systems."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Autonomy is not fixed to an AI agent. It is determined at runtime, by a control plane that resolves eight inputs into exactly one of three outcomes.</figcaption>
+      </figure>
+
+      <div class="concept-grid cols-3">
+        <div class="concept">
+          <div class="idx">Act</div>
+          <h3>Act</h3>
+          <p>The agent executes within a defined scope — goal, role, permission, context, knowledge, risk, trust, and boundary all clear their thresholds, so no escalation is required.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">Ask</div>
+          <h3>Ask</h3>
+          <p>The agent presents its candidates, evidence, and unresolved questions to a human rather than deciding alone, because something about goal, risk, or trust does not clear on its own.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">Stop</div>
+          <h3>Stop</h3>
+          <p>Execution is refused outright. Proceeding would cross a Boundary — and no amount of accumulated trust or operational efficiency reopens that door.</p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Boundary: What Trust Cannot Buy</h3>
+          <p>
+            A Boundary is not a policy exception waiting to be argued
+            down. It marks the limits that protect safety, privacy, human
+            rights, and critical assets — limits that hold regardless of
+            how capable, efficient, or previously reliable the agent
+            asking to cross them has been.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Human Gate as a Control Point</h3>
+          <p>
+            A Human Gate is not a rubber-stamp approval click. It is the
+            point where an agent must present its candidate actions, the
+            evidence and reasoning behind them, what remains unresolved,
+            the likely impact if wrong, and the deadline by which a
+            decision is needed — so a human is deciding on the same
+            grounds the agent used, not on trust alone.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 KNOWLEDGE, CONTEXT, AND SHARED MEANING ============ -->
+  <section class="research-section" id="knowledge-context" aria-labelledby="knowledge-context-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Knowledge, Context, and Shared Meaning</div>
+        <h2 id="knowledge-context-h">Knowledge, Context, and Shared Meaning</h2>
+        <p class="section-lede">
+          Coordination assumes agents can act on a shared understanding of
+          what is true, current, and applicable. That assumption fails
+          quietly whenever knowledge is fragmented, stale, out of scope,
+          or interpreted with a different meaning by each agent that
+          touches it.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What Knowledge Flow Carries</h3>
+          <p>Delivering the right knowledge to the right agent means carrying more than content:</p>
+          <ul>
+            <li>source — where it came from</li>
+            <li>freshness — until when it can be used</li>
+            <li>meaning — whether it can be interpreted the same way by every consumer</li>
+            <li>relationship — how it binds to this target and this context</li>
+            <li>provenance — how it was produced and by what authority</li>
+          </ul>
+        </div>
+
+        <div class="col-text">
+          <h3>Shared Memory Is Not Automatically Safe</h3>
+          <p>
+            A shared memory is not a solved problem simply because it
+            exists. Old task state, another agent's unrelated context, or
+            a stale conclusion left in shared memory can pollute a new
+            decision as convincingly as fabricated information. What to
+            share and what to isolate — context scope and context
+            boundary — has to be a deliberate design choice, not a
+            default.
+          </p>
+          <code class="quote">
+            If knowledge quality is low,
+            autonomy must also be reduced.
+          </code>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Ontology and Knowledge Graph</h3>
+          <p>
+            An ontology is a semantic contract — a common vocabulary that
+            lets agents agree on what an entity, relation, or event means
+            before they argue about what to do with it. A knowledge graph
+            connects entities, relationships, events, roles, and
+            capabilities, so the context an agent needs is not
+            re-derived from scratch but shared as structure.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Dynamic Task Assignment</h3>
+          <p>
+            Assigning the right work to the right agent draws on an
+            Agent Registry and Capability Profile — what an agent can do,
+            what knowledge and tools it can currently reach, its past
+            performance, its cost and response time, and its current
+            trust for this kind of task. Assignment is a runtime decision,
+            not a static org chart.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 DELEGATION, RESPONSIBILITY, AND TRUST ============ -->
+  <section class="research-section" id="delegation" aria-labelledby="delegation-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Delegation, Responsibility, and Trust</div>
+        <h2 id="delegation-h">Delegation, Responsibility, and Trust</h2>
+        <p class="section-lede">
+          Asking another agent to do something is not the same as
+          granting it authority to do so. Treating every request between
+          AI agents as a message rather than a Runtime Artifact is how
+          authority quietly leaks — through redelegation, escalation, and
+          a confused deputy acting on borrowed permission it should never
+          have held.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>A Delegation Contract, Not a Message</h3>
+          <p>
+            A Delegation Contract makes authority explicit and bounded —
+            at minimum:
+          </p>
+          <code class="quote is-diagram">Delegation Contract
+├── Purpose
+├── Scope
+├── Authority
+├── Constraints
+├── Expiration
+├── Responsibility
+└── Expected Outcome</code>
+        </div>
+
+        <div class="col-text">
+          <h3>Where Delegated Authority Breaks</h3>
+          <p>
+            Redelegation without a carried-forward contract is how
+            privilege quietly escalates. The confused deputy problem is
+            an agent using authority it was lent for one purpose to
+            serve another. A delegation must be traceable end to end, and
+            it must be revocable — suspended or withdrawn — the moment
+            its purpose, scope, or the trust behind it no longer holds.
+          </p>
+          <code class="quote">
+            Trust is not a fixed score assigned once.
+            It is an expectation about future behavior —
+            for this purpose, this role, this context,
+            this counterpart, and this impact.
+          </code>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/15.png"
+           data-lightbox aria-label="Open the diagram of AI-to-AI requests treated as delegation contracts">
+          <img src="assets2/15.png"
+               alt="Diagram titled 'Treat Requests Between AI Agents as Delegation Contracts,' showing a planner agent issuing a delegation contract with purpose, scope, authority, constraints, expiration, and responsibility to an execution agent, and blocking an unauthorized redelegation of authority."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">A delegation contract binds authority to a purpose and an expiration — and explicitly blocks the redelegation that would let autonomy escalate unnoticed.</figcaption>
+      </figure>
+
+      <p style="max-width:760px; color:var(--fg-mute); font-size:15.5px; line-height:1.85; margin-top:clamp(40px,5vw,56px);">
+        A joint decision made by several agents and a human reviewer does
+        not dissolve responsibility across all of them equally. Even a
+        coordinated judgment needs a human Accountable Owner — someone
+        whose responsibility does not diffuse away simply because the
+        decision was distributed.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 06 DECISION TRACE AND THE AI COORDINATION RUNTIME ============ -->
+  <section class="research-section" id="runtime" aria-labelledby="runtime-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Decision Trace and the AI Coordination Runtime</div>
+        <h2 id="runtime-h">Decision Trace and the AI Coordination Runtime</h2>
+        <p class="section-lede">
+          The mechanisms above — coordination, autonomy control,
+          knowledge, delegation — are not independent modules. They are
+          layers of a single runtime that every coordinated AI decision
+          passes through, and a loop that every such decision traverses.
+        </p>
+      </div>
+
+      <div class="field-runtime" aria-label="AI Coordination Runtime — Layer Architecture">
+        <div class="field-runtime-label">Layer Diagram</div>
+        <h3 class="field-runtime-title">The AI Coordination Runtime</h3>
+
+        <ol class="field-layers" role="list">
+          <li class="field-layer">
+            <span class="layer-idx">L1</span>
+            <span class="layer-body">
+              <span class="layer-name">Agent Layer</span>
+              <span class="layer-note">The actors that generate candidates — reasoning, planning, and proposing action within their assigned role.</span>
+            </span>
+            <span class="layer-tag">agents</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L2</span>
+            <span class="layer-body">
+              <span class="layer-name">Knowledge Layer</span>
+              <span class="layer-note">Context is supplied with meaning, freshness, and provenance — not raw retrieval, but knowledge fit to decide on.</span>
+            </span>
+            <span class="layer-tag">knowledge</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L3</span>
+            <span class="layer-body">
+              <span class="layer-name">Coordination Layer</span>
+              <span class="layer-note">Tasks, dependencies, and delegation contracts are aligned across agents before any candidate is authorized.</span>
+            </span>
+            <span class="layer-tag">coordination</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L4</span>
+            <span class="layer-body">
+              <span class="layer-name">Autonomy Control Layer</span>
+              <span class="layer-note">Goal, role, permission, context, knowledge, risk, trust, and boundary are evaluated and resolved into Act, Ask, or Stop.</span>
+            </span>
+            <span class="layer-tag">act / ask / stop</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L5</span>
+            <span class="layer-body">
+              <span class="layer-name">Execution Layer</span>
+              <span class="layer-note">Only authorized effects are reflected externally — tools, APIs, and physical systems are invoked within scope.</span>
+            </span>
+            <span class="layer-tag">execute</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L6</span>
+            <span class="layer-body">
+              <span class="layer-name">Trace Layer</span>
+              <span class="layer-note">Decisions and results are connected causally — what was known, chosen, authorized, done, and what followed.</span>
+            </span>
+            <span class="layer-tag">trace</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L7</span>
+            <span class="layer-body">
+              <span class="layer-name">Feedback Layer</span>
+              <span class="layer-note">Outcomes return into knowledge, trust, and coordination, so the next round of coordination starts better informed.</span>
+            </span>
+            <span class="layer-tag">feedback</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="two-col" style="margin-top:clamp(48px,6vw,64px);">
+        <div class="col-text">
+          <h3>The Runtime Loop</h3>
+          <code class="quote is-diagram">Observe
+↓ Resolve Context and Knowledge
+↓ Generate Candidates
+↓ Evaluate Policy, Risk, Trust, and Boundary
+↓ Authorize: Act / Ask / Stop
+↓ Execute
+↓ Trace Outcome
+↓ Learn and Re-coordinate</code>
+        </div>
+        <div class="col-text">
+          <h3>What a Decision Trace Preserves</h3>
+          <p>
+            A Decision Trace is not a copy of a model's internal chain of
+            thought, and it is not an operations log. It is the
+            structured record an organization needs to verify, after the
+            fact, what a decision was based on and who was answerable
+            for it:
+          </p>
+          <ul>
+            <li>observation and context</li>
+            <li>knowledge and provenance</li>
+            <li>alternatives considered</li>
+            <li>applied policy</li>
+            <li>risk and trust</li>
+            <li>the autonomy decision — act, ask, or stop, and why</li>
+            <li>human approval, where one was sought</li>
+            <li>action and outcome</li>
+            <li>recovery, where one was needed</li>
+          </ul>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/16.png"
+           data-lightbox aria-label="Open the diagram of autonomy generated at runtime through the coordination loop">
+          <img src="assets2/16.png"
+               alt="Diagram titled 'Autonomy Is Not \"Given\"; It Is \"Generated\" at Runtime,' showing a loop of Observe, Evaluate, Trust, Authorize, Act, Trace, and Learn connecting AI agents to a control plane and external systems."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Autonomy is not assigned to an agent once. It is generated every time the loop runs — observed, evaluated, authorized, acted, traced, and learned from again.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 07 APPLICATIONS AND EVOLUTION ============ -->
+  <section class="research-section" id="applications" aria-labelledby="applications-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Applications and Evolution</div>
+        <h2 id="applications-h">Applications and Evolution</h2>
+        <p class="section-lede">
+          In each case below, what determines the outcome is not raw
+          model capability. It is whether conflicting goals, stale or
+          wrong knowledge, insufficient authority, and irreversible
+          actions were anticipated — and whether recovery was designed in
+          before, not after, the failure.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay">
+          <div class="kicker">Enterprise Operations</div>
+          <h3>Enterprise Operations</h3>
+          <p>Research, proposal, approval, and execution treated as one coordination loop across sales, legal, and finance agents with separated goals and roles — where a stale price list or an unapproved contract exception is caught by policy and a human gate before it reaches a customer, not after.</p>
+        </div>
+        <div class="essay">
+          <div class="kicker">Software Development Agents</div>
+          <h3>Software Development Agents</h3>
+          <p>Planning, coding, review, test, and security agents with change generation kept separate from change application — where authority to touch a repository is staged, and an automatic fix still routes through human approval before it merges.</p>
+        </div>
+        <div class="essay">
+          <div class="kicker">Customer Support and Contract Management</div>
+          <h3>Customer Support and Contract Management</h3>
+          <p>Support, knowledge, policy, and legal agents integrated around a case rather than a single answer — where contractual commitments and exception conditions are bounded in advance, and misdelivery has a defined recovery path rather than an assumption that responses are always final.</p>
+        </div>
+        <div class="essay">
+          <div class="kicker">Manufacturing, Logistics, and Physical AI</div>
+          <h3>Manufacturing, Logistics, and Physical AI</h3>
+          <p>Equipment and safety agents coordinating from demand forecast to purchase order and physical action — where fail-safe defaults and human gates sit in front of irreversible physical actions, because a Semantic Digital Twin can inform a decision but cannot undo a machine command already sent.</p>
+        </div>
+        <div class="essay">
+          <div class="kicker">Cross-Organization AI Coordination</div>
+          <h3>Cross-Organization AI Coordination</h3>
+          <p>Agents from different organizations, under different policies and different trust baselines, delegating work across a boundary — where federated identity, a disclosure scope, and a cross-organization decision trace are what let a failure be traced back to the party responsible for it.</p>
+        </div>
+      </div>
+
+      <p style="max-width:760px; color:var(--fg-mute); font-size:15.5px; line-height:1.85; margin-top:clamp(40px,5vw,56px);">
+        Beyond individual deployments, this research is oriented toward
+        an AI Coordination Maturity Model — from independent AI use,
+        through fixed workflows and role-divided coordination, toward
+        trust-aware, dynamically coordinated systems — and toward what a
+        Runtime Organization and a Runtime Society could become once
+        coordination, autonomy control, and decision trace are treated as
+        infrastructure rather than as features of individual agents.
+        These are directions this research is exploring, not
+        capabilities already deployed.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section class="research-section closing" id="closing" aria-labelledby="closing-h">
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+    <figure class="figure figure-standard" style="margin-bottom: 48px;">
+      <a class="figure-frame" href="assets/20.png"
+         data-lightbox aria-label="Open the diagram of AI collaboration connecting agents, people, organizations, and society">
+        <img src="assets/20.png"
+             alt="Diagram titled 'AI collaboration for a better future,' connecting AI, people, organizations, and society toward better AI, better collaboration, better organizations, a better society, and a shared future."
+             loading="lazy">
+      </a>
+      <figcaption class="figure-caption">AI Coordination is one layer of the Chinoba runtime-society architecture — its feedback loop reaches outward, into organizations and society.</figcaption>
+    </figure>
+    <div class="positioning" aria-label="Research positioning within the Chinoba architecture">
+      <span>Knowledge Flow</span>
+      <span>↓</span>
+      <span>Decision Trace</span>
+      <span>↓</span>
+      <span>Governance</span>
+      <span>↓</span>
+      <span>Trust</span>
+      <span>↓</span>
+      <span class="here">Coordination</span>
+      <span>↓</span>
+      <span>Runtime Society</span>
+    </div>
+    <blockquote>
+      <span>AI Coordination Engineering is not about</span>
+      <span>increasing how much AI agents do.</span>
+      <span>It is about designing so that the action taken</span>
+      <span>is the action that was needed —</span>
+      <span>with the evidence and the authority behind it,</span>
+      <span>inside boundaries that must not be crossed.</span>
+      <span>&nbsp;</span>
+      <span>When something fails, the design should still show</span>
+      <span>where the judgment branched,</span>
+      <span>how far the consequence reached,</span>
+      <span>and who must recover which state.</span>
+      <span>&nbsp;</span>
+      <span>Chinoba studies how Knowledge Flow, Trust Infrastructure,</span>
+      <span>Autonomy Control, Delegation Contract, and Decision Trace</span>
+      <span>connect into that structure.</span>
+    </blockquote>
+    <div class="closing-mark">Chinoba.org</div>
+    <p class="closing-cta">
+      <a href="https://amzn.to/4if6eL9" target="_blank" rel="noopener noreferrer">New Book →</a>
+      &nbsp;·&nbsp;
+      <a href="#resources">Featured Resources →</a>
+      &nbsp;·&nbsp;
+      <a href="https://deus-ex-machina-ism.com/en/ai-coordination/" target="_blank" rel="noopener noreferrer">Blog →</a>
+    </p>
+  </section>
+
+  <!-- ============ + RELATED RESEARCH ============ -->
   <section class="research-section" id="related" aria-labelledby="related-h">
     <div class="wrap">
       <div class="section-head">
         <div class="section-label">+ / Related Research</div>
         <h2 id="related-h">Other Lines of Inquiry</h2>
         <p class="section-lede">
-          AI Coordination connects outward to neighboring
-          threads across the Chinoba field — from decision
-          traces and multi-agent systems to runtime society,
-          trust infrastructure, and emergent intelligence.
+          AI Coordination is not a standalone topic but one layer in a
+          single research architecture — Knowledge Flow and Decision
+          Trace feed it, Governance and Trust Infrastructure bound it,
+          Multi-Agent Systems is where its mechanisms operate, and
+          Runtime Society is where the whole sequence resolves.
         </p>
       </div>
 
@@ -1147,14 +1029,14 @@
           <span class="related-name">Decision Trace Model</span>
           <span class="related-status">Available</span>
         </a>
-        <a href="/#research" data-slug="multi-agent-systems">
-          <span class="related-label">06 / Inquiry</span>
-          <span class="related-name">Multi-Agent Systems</span>
-          <span class="related-status">Forthcoming</span>
-        </a>
         <a href="/research/runtime-society" data-slug="runtime-society">
           <span class="related-label">02 / Inquiry</span>
           <span class="related-name">Runtime Society</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/knowledge-flow" data-slug="knowledge-flow">
+          <span class="related-label">03 / Inquiry</span>
+          <span class="related-name">Knowledge Flow</span>
           <span class="related-status">Available</span>
         </a>
         <a href="/research/trust-infrastructure" data-slug="trust-infrastructure">
@@ -1162,9 +1044,9 @@
           <span class="related-name">Trust Infrastructure</span>
           <span class="related-status">Available</span>
         </a>
-        <a href="/research/knowledge-flow" data-slug="knowledge-flow">
-          <span class="related-label">03 / Inquiry</span>
-          <span class="related-name">Knowledge Flow</span>
+        <a href="/research/multi-agent-systems" data-slug="multi-agent-systems">
+          <span class="related-label">06 / Inquiry</span>
+          <span class="related-name">Multi-Agent Systems</span>
           <span class="related-status">Available</span>
         </a>
         <a href="/research/governance-boundary-systems" data-slug="governance-boundary-systems">
