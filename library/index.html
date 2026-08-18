@@ -180,7 +180,7 @@
 
         var img = document.createElement("img");
         img.src = book.cover_image || ("/assets/books/" + book.asin + ".jpg");
-        img.alt = "";
+        img.alt = book.title ? ("Cover of " + book.title + " by " + (book.author || "Masao Watanabe")) : "";
         img.loading = "lazy";
         img.onerror = function () {
           coverLink.classList.add("no-cover");

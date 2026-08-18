@@ -2,13 +2,28 @@
   "library_title": "Knowledge Artifacts / Library",
   "library_subtitle": "The research, compiled.",
   "library_description": "Books and long-form artifacts produced from the Lines of Inquiry — organized by theme, available in English and Japanese editions.",
-  "total_books": 30,
+  "total_books": 35,
   "themes": [
     {
       "theme_id": "theme_01",
       "theme_name": "Decision Systems",
       "order": 1,
       "books": [
+        {
+          "book_id": "semantic_digital_twin_practical_guide_en",
+          "language": "en",
+          "title": "A Practical Guide to Semantic Digital Twin for Physical AI",
+          "subtitle": "Building with Chinoba PF Ontology, Knowledge Graph, DSL, and Decision Trace",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "asin": "B0HFH4QXYS",
+          "amazon_url": "https://amzn.to/4xRg6Q2",
+          "cover_image": "/assets/books/B0HFH4QXYS.jpg",
+          "order": -1,
+          "theme": "Decision Systems",
+          "theme_id": "theme_01",
+          "index": -1
+        },
         {
           "book_id": "semantic_digital_twin_practical_guide_ja",
           "language": "ja",
@@ -95,13 +110,28 @@
           "index": 4
         }
       ],
-      "book_count": 5
+      "book_count": 6
     },
     {
       "theme_id": "theme_02",
       "theme_name": "Trust and Knowledge Infrastructure",
       "order": 2,
       "books": [
+        {
+          "book_id": "trust_infrastructure_practical_guide_en",
+          "language": "en",
+          "title": "Trust Infrastructure: Practical Guide",
+          "subtitle": "AI-Era Trust Infrastructure Design with Decision Trace, Knowledge Flow, and Trust Engine",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "asin": "B0HFJNX2DM",
+          "amazon_url": "https://amzn.to/3SF97KP",
+          "cover_image": "/assets/books/B0HFJNX2DM.jpg",
+          "order": -1,
+          "theme": "Trust and Knowledge Infrastructure",
+          "theme_id": "theme_02",
+          "index": -1
+        },
         {
           "book_id": "trust_infrastructure_ai_age_en",
           "language": "en",
@@ -214,13 +244,43 @@
           "index": 7
         }
       ],
-      "book_count": 7
+      "book_count": 8
     },
     {
       "theme_id": "theme_03",
       "theme_name": "Governance and Coordination",
       "order": 3,
       "books": [
+        {
+          "book_id": "runtime_ai_governance_practical_guide_en",
+          "language": "en",
+          "title": "Runtime AI Governance: Practical Guide",
+          "subtitle": "Dynamic AI Governance Design through Knowledge Flow, Trust Engine, and Decision Trace",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "asin": "B0HFFBL7TV",
+          "amazon_url": "https://amzn.to/4wwTXVS",
+          "cover_image": "/assets/books/B0HFFBL7TV.jpg",
+          "order": -1,
+          "theme": "Governance and Coordination",
+          "theme_id": "theme_03",
+          "index": -1
+        },
+        {
+          "book_id": "ai_coordination_engineering_practical_guide_en",
+          "language": "en",
+          "title": "AI Coordination Engineering: A Practical Guide",
+          "subtitle": "Designing Coordination, Autonomy, and Trust in the Multi-Agent Era",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "asin": "B0HFLQTP1F",
+          "amazon_url": "https://amzn.to/4x4TRps",
+          "cover_image": "/assets/books/B0HFLQTP1F.jpg",
+          "order": -1,
+          "theme": "Governance and Coordination",
+          "theme_id": "theme_03",
+          "index": -1
+        },
         {
           "book_id": "runtime_ai_governance_practical_guide_ja",
           "language": "ja",
@@ -307,7 +367,7 @@
           "index": 4
         }
       ],
-      "book_count": 5
+      "book_count": 7
     },
     {
       "theme_id": "theme_04",
@@ -395,6 +455,21 @@
       "order": 5,
       "books": [
         {
+          "book_id": "relationship_economy_practical_guide_en",
+          "language": "en",
+          "title": "Relationship Economy: Designing the Economy of the AI Era",
+          "subtitle": "Chinoba Economics: A Practical Guide — A New Economics Where Knowledge, Decisions, and Trust Create Value",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "asin": "B0HFH4SWKS",
+          "amazon_url": "https://amzn.to/45S631b",
+          "cover_image": "/assets/books/B0HFH4SWKS.jpg",
+          "order": -1,
+          "theme": "Intelligence as Relationship",
+          "theme_id": "theme_05",
+          "index": -1
+        },
+        {
           "book_id": "chinoba_economics_practical_guide_ja",
           "language": "ja",
           "title": "Relationship Economy AI時代の経済圏設計 Chinoba Economics 実践ガイド: 知識・意思決定・信頼が価値を生み出す新しい経済学",
@@ -480,7 +555,7 @@
           "index": 4
         }
       ],
-      "book_count": 5
+      "book_count": 6
     },
     {
       "theme_id": "theme_06",
