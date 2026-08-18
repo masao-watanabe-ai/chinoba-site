@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Governance &amp; Boundary Systems — Chinoba</title>
-  <meta name="description" content="A research archive on Governance &amp; Boundary Systems — why modern AI requires governability rather than capability, and how governance becomes executable Decision Infrastructure through boundaries, authority, runtime decisions, traceability, and human responsibility.">
+  <title>Governance &amp; Boundary Systems — Runtime AI Governance — Chinoba</title>
+  <meta name="description" content="Runtime AI Governance: how Knowledge Flow, a multi-dimensional Trust Engine, Boundary, Human Gate, Autonomy Control, and Decision Trace govern not just which AI model is approved, but what it is allowed to know, decide, and do at the moment it acts.">
+  <meta name="keywords" content="Runtime AI Governance, Knowledge Flow, Trust Engine, Decision Trace, Autonomy Control, Human Gate, Boundary, Governed Retrieval, AI Governance">
 
   <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
   <link rel="stylesheet" href="/assets/research.css">
@@ -14,6 +15,22 @@
     /* ---------- Page-specific overrides ---------- */
     .concept-grid.cols-4 {
       grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .concept-grid.cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    @media (max-width: 900px) {
+      .concept-grid.cols-4,
+      .concept-grid.cols-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 640px) {
+      .concept-grid.cols-4,
+      .concept-grid.cols-3 {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* Essay coming-soon variant */
@@ -38,7 +55,7 @@
       transform: translateY(-1px);
     }
 
-    /* ---------- Explore This Theme ---------- */
+    /* ---------- Explore / Featured Resources ---------- */
     .theme-links {
       margin-top: 20px;
       display: flex;
@@ -60,6 +77,35 @@
       color: var(--accent);
       letter-spacing: 0.3px;
       line-height: 1.55;
+    }
+
+    /* ---------- Featured Publication ---------- */
+    .featured-badge {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+    .featured-pub {
+      border: 1px solid var(--line-strong);
+      background: var(--bg-elev);
+      padding: clamp(28px, 4vw, 40px) clamp(20px, 4vw, 40px) clamp(32px, 4vw, 44px);
+      border-radius: 4px;
+    }
+    .book.no-cover {
+      grid-template-columns: 1fr;
+    }
+    .book-asin {
+      display: block;
+      margin-top: 10px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: var(--fg-faint);
     }
 
     /* Conceptual diagram variant — vertical token chains rendered as drawn */
@@ -86,9 +132,17 @@
     .closing .positioning .here {
       color: var(--fg);
     }
+    .closing-cta {
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--fg-faint);
+    }
+    .closing-cta a {
+      color: var(--accent);
+    }
 
-    /* Quote box styling reused inside the OSS section */
-    .oss-meta .quote {
+    /* Quote box styling */
+    .quote {
       display: block;
       margin: 22px 0 6px;
       padding: 14px 18px;
@@ -100,53 +154,7 @@
       background: rgba(255,255,255,0.015);
     }
 
-    /* Diagram placeholders */
-    .diagrams {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-    .diagram-card {
-      background: var(--bg);
-      padding: 26px 24px 28px;
-      display: flex;
-      flex-direction: column;
-      min-height: 220px;
-    }
-    .diagram-card .kicker {
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--fg-faint);
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-    .diagram-card h3 {
-      font-size: 16px;
-      margin: 0 0 14px;
-      font-weight: 600;
-      color: var(--fg);
-      letter-spacing: 0.2px;
-    }
-    .diagram-frame {
-      flex: 1;
-      border: 1px dashed var(--line-strong);
-      border-radius: 8px;
-      background:
-        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
-        var(--bg-elev);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--fg-faint);
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      min-height: 110px;
-    }
-
-    /* ---------- Governance Boundary Runtime Structure ---------- */
+    /* ---------- Runtime Governance Loop ---------- */
     .field-runtime {
       margin-top: clamp(56px, 7vw, 80px);
       border: 1px solid var(--line);
@@ -249,24 +257,12 @@
     }
 
     @media (max-width: 900px) {
-      .concept-grid.cols-4 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .diagrams {
-        grid-template-columns: 1fr;
-      }
       .field-layer {
         grid-template-columns: 1fr;
         gap: 4px;
       }
       .field-layer .layer-tag {
         margin-top: 2px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .concept-grid.cols-4 {
-        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -289,1119 +285,105 @@
   <!-- ============ HERO ============ -->
   <header class="hero">
     <div class="hero-inner">
-      <div class="eyebrow">Research / Governance &amp; Boundary Systems</div>
+      <div class="eyebrow">Research / Governance &amp; Boundary Systems — Runtime AI Governance</div>
       <h1>Governance &amp; Boundary Systems</h1>
       <p class="hero-sub">
-        <span>The central challenge is no longer capability.</span>
-        <span>It is governability —</span>
-        <span>whether a system can be authorized,</span>
-        <span>supervised, audited,</span>
-        <span>and stopped.</span>
+        <span>Enterprise AI no longer only answers.</span>
+        <span>It references internal knowledge, judges situations,</span>
+        <span>calls tools, coordinates with other AI, and acts.</span>
+        <span>A fluent, convincing answer is not the same thing</span>
+        <span>as a correct decision or an authorized action.</span>
       </p>
       <p class="hero-desc">
-        Modern AI systems do not become trustworthy by becoming
-        more capable. They become trustworthy by becoming governable.
-        Governance &amp; Boundary Systems studies how capability is
-        turned into governability — through governance, and through
-        the boundaries, authority, runtime decisions, traceability,
-        and human responsibility that make governance executable
-        rather than merely written.
+        What matters is no longer only how capable a model is. It is what
+        the system knew at the specific moment it decided, whether that
+        knowledge was valid and authoritative for the situation at hand,
+        and how much it was permitted to do on its own. Runtime AI
+        Governance is the discipline of evaluating knowledge, context,
+        policy, risk, trust, boundary, permission, and autonomy at the
+        moment a decision is made — not only once, before a model is
+        approved for use.
       </p>
     </div>
   </header>
 
-  <!-- ============ EXPLORE THIS THEME ============ -->
-  <section class="research-section" id="explore" aria-labelledby="explore-h">
+  <!-- ============ FEATURED PUBLICATION ============ -->
+  <section class="research-section" id="featured-book" aria-labelledby="featured-book-h">
     <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">Explore</div>
-        <h2 id="explore-h">Explore This Theme</h2>
-        <p class="section-lede">
-          Enter Governance &amp; Boundary Systems through video and
-          long-form texts — visual introductions and deeper explorations
-          of governability, boundary design, decision infrastructure,
-          human authority, and trustworthy AI systems.
-        </p>
-      </div>
-
-      <div class="essays">
-        <div class="essay">
-          <h3>📺 Watch on YouTube</h3>
-          <p>Visual introductions to Governance &amp; Boundary Systems and the architectural foundations of trustworthy AI.</p>
-          <div class="theme-links">
-            <div class="theme-lang">English</div>
-            <a href="https://youtu.be/Gh8p_NSDaR4" target="_blank" rel="noopener noreferrer">AI Governance and Boundary Design — Designing Trustworthy AI Systems →</a>
-            <div class="theme-lang">Japanese</div>
-            <a href="https://youtu.be/YGyT3eOupD0" target="_blank" rel="noopener noreferrer">AIガバナンスと境界設計 ― 信頼できるAIシステムを設計する →</a>
-          </div>
-        </div>
-
-        <div class="essay">
-          <h3>📚 Related Books</h3>
-          <p>Long-form explorations of governability, boundary design, decision infrastructure, human authority, and runtime governance.</p>
-          <div class="theme-links">
-            <div class="theme-lang">English Edition</div>
-            <a href="https://amzn.to/4wAo3Zh" target="_blank" rel="noopener noreferrer">AI Governance and Boundary Design: Designing Safe Human-AI Systems →</a>
-            <div class="theme-lang">Japanese Edition</div>
-            <a href="https://amzn.to/3SBhvL1" target="_blank" rel="noopener noreferrer">AIガバナンスと境界設計: 人間とAIの安全なシステムを設計する →</a>
+      <h2 id="featured-book-h" class="visually-hidden" style="position:absolute;left:-9999px;">Featured Publication</h2>
+      <span class="featured-badge">Featured Publication</span>
+      <div class="featured-pub">
+        <div class="books-list">
+          <div class="book no-cover">
+            <div class="book-body">
+              <div class="book-title">Runtime AI Governance: Practical Guide</div>
+              <div class="book-subtitle">Dynamic AI Governance Design through Knowledge Flow, Trust Engine, and Decision Trace</div>
+              <p>
+                The practical guide behind this page's architecture. It
+                works through how Knowledge Flow, a multi-dimensional Trust
+                Engine, Boundary, Human Gate, Autonomy Control, and Decision
+                Trace combine into a single runtime loop — one that governs
+                not only which model is approved for use, but what it is
+                allowed to know, decide, and do at the moment it acts.
+              </p>
+              <a class="book-link" href="https://amzn.to/4bUauMj" target="_blank" rel="noopener noreferrer">View on Amazon →</a>
+              <span class="book-asin">ASIN B0HFFBL7TV · Kindle · Masao Watanabe</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 01 OVERVIEW ============ -->
-  <section class="research-section" id="overview" aria-labelledby="overview-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">01 / Overview</div>
-        <h2 id="overview-h">Overview</h2>
-        <p class="section-lede">
-          Governance &amp; Boundary Systems refers to the structures
-          that decide what AI may do, what it must not do,
-          when it must stop, when humans must review,
-          and how responsibility, escalation, and audit
-          are assigned across a decision system. They exist
-          because capability, on its own, is not governability.
-        </p>
-      </div>
-
-      <figure class="figure figure-wide figure-main">
-        <a class="figure-frame" href="assets/01.png"
-           data-lightbox aria-label="Open AI Governance and Boundary Design title diagram">
-          <img src="assets/01.png"
-               alt="AI Governance and Boundary Design — designing safe human–AI systems through fairness, safety, security, human oversight, and accountability"
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">The book this page is built on — designing safe human–AI systems.</figcaption>
-      </figure>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>From Capability to Boundary Systems</h3>
-          <p>
-            A capable system can act. A governable system can be
-            authorized to act, observed while acting, and stopped
-            when it should not. The distance between the two is the
-            subject of this inquiry, and it resolves into a single
-            descending chain:
-          </p>
-
-          <code class="quote is-diagram">Capability
-↓ Governability
-↓ Governance
-↓ Boundary Systems</code>
-
-          <p>
-            Capability raises the question. Governance is the
-            practice that answers it. But the practice is only
-            possible when the system has a particular architectural
-            property — governability — and it is governability, not
-            governance, that this inquiry treats as primary.
-          </p>
-
-          <code class="quote">
-            Governability is the architectural property
-            that makes governance executable.
-
-            It is the capacity of a system to remain
-            observable, controllable, accountable,
-            and revisable while operating autonomously.
-          </code>
-
-          <p>
-            Where that property holds, governance has something to
-            act on, and boundary systems are where it is made
-            executable — the structures that define:
-          </p>
-          <ul>
-            <li>what AI can do</li>
-            <li>what AI cannot do</li>
-            <li>when AI must stop</li>
-            <li>when humans must review</li>
-            <li>who has authority</li>
-            <li>how responsibility is assigned</li>
-            <li>how exceptions are escalated</li>
-            <li>how decisions are audited</li>
-          </ul>
-        </div>
-
-        <div class="col-text">
-          <h3>From Written Policy to Operational Boundary</h3>
-          <p>
-            AI governance is not only a written policy.
-          </p>
-          <p>
-            It must be implemented as runtime governance — an
-            operational boundary system inside the decision runtime,
-            where every signal, action, and exception passes through
-            structures that are executable, observable, and
-            accountable. A policy that cannot be enforced at the
-            moment of action is a record, not a boundary.
-          </p>
-
-          <code class="quote">
-            Governance becomes real
-            only when its boundaries
-            can be enforced at runtime.
-          </code>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 02 THE GOVERNANCE GAP ============ -->
-  <section class="research-section" id="gap" aria-labelledby="gap-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">02 / The Governance Gap</div>
-        <h2 id="gap-h">The Governance Gap</h2>
-        <p class="section-lede">
-          AI capability advances on an exponential curve. The
-          institutions, norms, and review structures meant to
-          govern it advance far more slowly. The widening distance
-          between the two is the Governance Gap — and it is the
-          condition this entire field exists to address.
-        </p>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/11.png"
-           data-lightbox aria-label="Open the Governance Gap diagram">
-          <img src="assets/11.png"
-               alt="The Governance Gap shown as a chasm between what organizations pursue — more capability, performance, automation, innovation — and what is missing: clear policies, accountability, transparency, oversight, and risk awareness"
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">What organizations pursue, set against what governance is missing.</figcaption>
-      </figure>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>Two Curves on Different Clocks</h3>
-          <p>
-            Capability compounds. Each generation of models, agents,
-            and autonomous systems extends what AI can do, often
-            within months. Governance moves on the clock of
-            institutions: policy, law, oversight, and accountability
-            mature over years.
-          </p>
-          <p>
-            When a fast curve outruns a slow one, the space between
-            them does not stay empty. It fills with systems that are
-            deployed faster than they can be supervised.
-          </p>
-
-          <code class="quote is-diagram">Capability
-↑ rapid, exponential growth
-
-— — — — — — — — —
-
-Governance
-↑ slow, institutional growth
-↓
-Governance Gap</code>
-        </div>
-
-        <div class="col-text">
-          <h3>What the Gap Produces</h3>
-          <p>
-            Powerful AI without governability becomes difficult to
-            supervise, difficult to audit, difficult to stop, and
-            difficult to trust. Capability alone offers no answer to
-            the questions that matter most once a system is acting in
-            the world:
-          </p>
-          <ul>
-            <li>who authorized this action</li>
-            <li>who can observe it as it happens</li>
-            <li>who can halt it before harm</li>
-            <li>who is accountable when it fails</li>
-          </ul>
-          <p>
-            Governance &amp; Boundary Systems exist to close this gap —
-            not by slowing capability, but by giving capability a
-            governable form.
-          </p>
-
-          <code class="quote">
-            The gap closes
-            when governance becomes
-            as fast and executable
-            as the systems it governs.
-          </code>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 03 CAPABILITY VS GOVERNABILITY ============ -->
-  <section class="research-section" id="governability" aria-labelledby="governability-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">03 / Capability vs Governability</div>
-        <h2 id="governability-h">Capability vs Governability</h2>
-        <p class="section-lede">
-          Governability is not a measure of how much a system can do.
-          It is a design property: the degree to which a system's
-          actions can be authorized, attributed, observed, and
-          revoked. Capability and governability are distinct axes,
-          and a system can be strong on one while empty on the other.
-        </p>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/24.png"
-           data-lightbox aria-label="Open the governable system diagram">
-          <img src="assets/24.png"
-               alt="A governable system shown as five properties: visibility, traceability, accountability, controllability, and adaptability"
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Governability as a design property — five things a governable system must hold.</figcaption>
-      </figure>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>Two Different Questions</h3>
-          <p>
-            Capability and governability answer different questions
-            about the same system. Conflating them is how powerful
-            systems end up ungoverned.
-          </p>
-          <p><strong>Capability asks:</strong></p>
-          <code class="quote">
-            Can AI perform?
-          </code>
-          <p><strong>Governability asks:</strong></p>
-          <code class="quote is-diagram">Should AI perform?
-Who authorizes it?
-Who is responsible?
-Who can stop it?</code>
-        </div>
-
-        <div class="col-text">
-          <h3>Governability as a Design Property</h3>
-          <p>
-            Capability, left to itself, produces automation. But
-            automation without governability is precisely the
-            condition that erodes trust. Governability is what
-            converts raw automation into a system that institutions,
-            users, and society can rely on.
-          </p>
-
-          <code class="quote is-diagram">Capability
-↓ Automation
-↓ Governability
-↓ Trust</code>
-
-          <p>
-            Trust is not granted to the most capable system. It is
-            granted to the system whose behavior can be authorized,
-            traced, and stopped — the governable one. Runtime trust is
-            earned in the same place governance is enforced: at the
-            moment of action.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 04 WHY IT MATTERS ============ -->
-  <section class="research-section" id="why" aria-labelledby="why-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">04 / Why It Matters</div>
-        <h2 id="why-h">Why It Matters</h2>
-        <p class="section-lede">
-          AI is no longer confined to producing outputs that humans
-          review before acting. It increasingly influences decisions,
-          coordinates organizations, executes workflows, operates
-          physical systems, and interacts directly with society.
-          As the locus of action shifts to the system, the governing
-          question shifts with it.
-        </p>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/07.png"
-           data-lightbox aria-label="Open the AI across sectors diagram">
-          <img src="assets/07.png"
-               alt="A central AI hub connecting to healthcare, finance, government, manufacturing, and infrastructure"
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">AI is entering every sector — the reach that makes governability urgent.</figcaption>
-      </figure>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>Where AI Now Operates</h3>
-          <p>AI systems now routinely:</p>
-          <ul>
-            <li>influence decisions</li>
-            <li>coordinate organizations</li>
-            <li>execute workflows</li>
-            <li>operate physical systems</li>
-            <li>interact with society</li>
-          </ul>
-
-          <p>
-            Traditional governance assumed a human stood between every
-            decision and its consequence:
-          </p>
-          <code class="quote">
-            Policy → Compliance → Review
-          </code>
-          <p>
-            That assumption no longer holds when the system itself is
-            the actor. Review after the fact cannot govern an action
-            that has already executed.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>The Question Changes</h3>
-          <p>
-            For a decade, the defining question of AI was a question
-            of capability. As systems begin to act, that question is
-            no longer the one that determines whether a system can be
-            deployed responsibly.
-          </p>
-          <code class="quote is-diagram">Not
-"What can AI do?"
-
-but
-"How can AI remain governable?"</code>
-
-          <p>
-            The practical form of that question is concrete: how does
-            the system know when to stop, when to escalate, and when
-            human authority must decide? AI-era governance answers it
-            with an executable chain that lives inside the decision
-            runtime itself — the subject of the sections that follow.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 05 DECISION INFRASTRUCTURE ============ -->
-  <section class="research-section" id="infrastructure" aria-labelledby="infrastructure-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">05 / Decision Infrastructure</div>
-        <h2 id="infrastructure-h">Decision Infrastructure</h2>
-        <p class="section-lede">
-          Decision Infrastructure is the architectural center of this
-          page. It is not something governance contains; it is the
-          runtime architecture that governance is composed into — the
-          layer through which every decision passes, and through which
-          governance becomes executable rather than written.
-        </p>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/18.png"
-           data-lightbox aria-label="Open the Decision Infrastructure layer diagram">
-          <img src="assets/18.png"
-               alt="Decision Infrastructure as the missing middle layer between the Signal layer, where AI generates information, and the Action layer, where humans decide and act"
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">The missing middle layer — between signal and action.</figcaption>
-      </figure>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>Composed of Governance Components</h3>
-          <p>
-            It is tempting to say that governance contains a decision
-            infrastructure. The relationship runs the other way.
-            Decision Infrastructure is the runtime architecture, and
-            the familiar elements of governance are its components —
-            each one an executable primitive in a single structure:
-          </p>
-          <code class="quote is-diagram">Decision Infrastructure
-├── Boundary
-├── Human Gate
-├── Permission
-├── Trace
-├── Audit
-├── Trust
-└── Feedback</code>
-          <p>
-            These are not separate tools bolted onto a model. They are
-            the parts of one runtime that every governed action must
-            traverse — and it is their composition, not any one of
-            them alone, that makes a system governable.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>Governance Is Not Documentation</h3>
-          <p>
-            A policy describes intent. Decision Infrastructure enforces
-            it. The shift from one to the other is the shift from
-            governance that is read to governance that runs.
-          </p>
-          <p>
-            When governance is executable, a boundary is not a clause
-            an operator is expected to remember — it is a condition the
-            runtime checks before the action proceeds. Authority is not
-            an org chart — it is a gate. An audit is not an annual
-            event — it is a continuous function over the trace.
-          </p>
-
-          <code class="quote">
-            Governance is not documentation.
-            Governance becomes executable
-            Decision Infrastructure.
-          </code>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 06 CORE STRUCTURE ============ -->
-  <section class="research-section" id="core" aria-labelledby="core-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">06 / Core Structure</div>
-        <h2 id="core-h">Core Structure</h2>
-        <p class="section-lede">
-          Decision Infrastructure is composed of eight structural
-          components. Read in isolation they look like separate
-          governance elements; read together they are the parts of a
-          single runtime — from policy and risk, through human
-          authority and escalation, to execution permission, audit
-          trails, and feedback.
-        </p>
-      </div>
-
-      <div class="concept-grid cols-4">
-        <div class="concept">
-          <div class="idx">i</div>
-          <h3>Policy Boundary</h3>
-          <p>The sanctioned scope of an AI system — what is permitted, what is forbidden, and under which conditions an action may be considered at all.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">ii</div>
-          <h3>Risk Evaluation</h3>
-          <p>A structured assessment of impact, reversibility, and exposure — turning each candidate action into a graded decision rather than a flat yes or no.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">iii</div>
-          <h3>Human Authority</h3>
-          <p>Who is allowed to decide, override, and bear responsibility — authority as an explicit structural role, not implicit oversight.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">iv</div>
-          <h3>Escalation Rule</h3>
-          <p>How exceptions, high-impact actions, and contested cases are routed upward — escalation as a designed pathway, not an emergency reaction.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">v</div>
-          <h3>Stop / Override Mechanism</h3>
-          <p>The runtime capacity to halt, pause, or reverse an AI action — the explicit power to say no, exposed as a first-class operation.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">vi</div>
-          <h3>Execution Permission</h3>
-          <p>The structural gate where decisions become actions — permission granted only after boundaries, risk, and human authority have been resolved.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">vii</div>
-          <h3>Audit Trail</h3>
-          <p>A structured record of what was decided, by whom, on what signals, under which boundaries — memory in a form that can be reviewed.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">viii</div>
-          <h3>Feedback and Revision</h3>
-          <p>Outcomes return into policy, risk, and gates — governance treated as a living system that learns from incidents, audits, and edge cases.</p>
-        </div>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>Where Boundaries Come From</h3>
-          <p>
-            A boundary is not an arbitrary restriction dropped onto a
-            system. In the runtime structure below, the boundary does
-            not appear first — it is preceded by need, goal, and
-            constraint. That ordering is deliberate. A boundary is the
-            executable consequence of what a decision is for.
-          </p>
-          <code class="quote">
-            Boundaries are not imposed in isolation.
-            They emerge from shared goals, constraints,
-            organizational intent, and the meaning
-            attached to decisions.
-
-            Governance therefore begins
-            before the boundary itself.
-          </code>
-        </div>
-        <div class="col-text">
-          <h3>Continuity with the Decision Trace Model</h3>
-          <p>
-            This is the point where Governance meets the Decision
-            Trace Model. The same Need → Goal → Constraint chain that
-            a decision trace records is what gives a boundary its
-            justification: each boundary inherits its meaning from the
-            need it serves and the constraint it honors.
-          </p>
-          <p>
-            Read this way, the structure that follows is not a list of
-            controls. It is a single decision tracing its own path from
-            signal to feedback — with governance present at every step
-            rather than appended at the end.
-          </p>
-        </div>
-      </div>
-
-      <!-- ====== Decision Infrastructure Runtime Structure (layered diagram) ====== -->
-      <div class="field-runtime" aria-label="Decision Infrastructure Runtime Structure">
-        <div class="field-runtime-label">Layer Diagram</div>
-        <h3 class="field-runtime-title">Decision Infrastructure — Runtime Structure</h3>
-
-        <ol class="field-layers" role="list">
-          <li class="field-layer">
-            <span class="layer-idx">L1</span>
-            <span class="layer-body">
-              <span class="layer-name">Signal</span>
-              <span class="layer-note">Inputs, intents, and AI-generated proposals enter the system — the raw material that governance must evaluate.</span>
-            </span>
-            <span class="layer-tag">signal</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L2</span>
-            <span class="layer-body">
-              <span class="layer-name">Context</span>
-              <span class="layer-note">Each signal is situated in domain, stakeholders, history, and constraints — context turns a signal into something evaluable.</span>
-            </span>
-            <span class="layer-tag">context</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L3</span>
-            <span class="layer-body">
-              <span class="layer-name">Need</span>
-              <span class="layer-note">What the situation actually requires is named — separating the underlying need from the first action that comes to mind.</span>
-            </span>
-            <span class="layer-tag">need</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L4</span>
-            <span class="layer-body">
-              <span class="layer-name">Goal</span>
-              <span class="layer-note">The need is resolved into an explicit objective — the intended outcome against which any action can be judged.</span>
-            </span>
-            <span class="layer-tag">goal</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L5</span>
-            <span class="layer-body">
-              <span class="layer-name">Constraint</span>
-              <span class="layer-note">The non-negotiable conditions the action must hold within — legal, ethical, operational, and contextual limits on how the goal may be pursued.</span>
-            </span>
-            <span class="layer-tag">constraint</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L6</span>
-            <span class="layer-body">
-              <span class="layer-name">Boundary</span>
-              <span class="layer-note">The candidate action is tested against policy and sanctioned scope — the structural filter on what may proceed at all.</span>
-            </span>
-            <span class="layer-tag">boundary</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L7</span>
-            <span class="layer-body">
-              <span class="layer-name">Risk</span>
-              <span class="layer-note">Impact, reversibility, and exposure are graded — turning a permitted action into a decision with a known risk profile.</span>
-            </span>
-            <span class="layer-tag">risk</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L8</span>
-            <span class="layer-body">
-              <span class="layer-name">Human Gate</span>
-              <span class="layer-note">High-impact or contested actions are routed to a human with the authority and accountability to approve, refuse, or escalate.</span>
-            </span>
-            <span class="layer-tag">gate</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L9</span>
-            <span class="layer-body">
-              <span class="layer-name">Permission</span>
-              <span class="layer-note">Only after constraints, boundaries, risk, and authority are resolved does the action receive structural permission to proceed.</span>
-            </span>
-            <span class="layer-tag">permit</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L10</span>
-            <span class="layer-body">
-              <span class="layer-name">Execution</span>
-              <span class="layer-note">The decision becomes an action in the world — the single point where everything upstream is committed to effect.</span>
-            </span>
-            <span class="layer-tag">execute</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L11</span>
-            <span class="layer-body">
-              <span class="layer-name">Trace</span>
-              <span class="layer-note">The decision is recorded as a structured trace — signals, boundaries, evaluations, approvals, and outcomes preserved as memory.</span>
-            </span>
-            <span class="layer-tag">trace</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L12</span>
-            <span class="layer-body">
-              <span class="layer-name">Audit</span>
-              <span class="layer-note">Traces are reviewed against rules, expectations, and obligations — audit as a continuous structural function, not an annual event.</span>
-            </span>
-            <span class="layer-tag">audit</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L13</span>
-            <span class="layer-body">
-              <span class="layer-name">Feedback</span>
-              <span class="layer-note">Audit findings return into policy, risk models, and gates — governance evolves as a living system rather than a fixed document.</span>
-            </span>
-            <span class="layer-tag">feedback</span>
-          </li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 07 BOUNDARY TYPES ============ -->
-  <section class="research-section" id="boundary-types" aria-labelledby="boundary-types-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">07 / Boundary Types</div>
-        <h2 id="boundary-types-h">Boundary Types</h2>
-        <p class="section-lede">
-          A boundary is not a single kind of limit. Governable systems
-          enforce several distinct classes of boundary at once, each
-          answering a different question and operating at a different
-          layer of Decision Infrastructure. Naming them separately is
-          what keeps governance precise.
-        </p>
-      </div>
-
-      <div class="concept-grid cols-4">
-        <div class="concept">
-          <div class="idx">i</div>
-          <h3>Policy Boundary</h3>
-          <p>The sanctioned scope of the system — what is permitted, what is forbidden, and under which conditions an action may be considered at all.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">ii</div>
-          <h3>Ethical Boundary</h3>
-          <p>The limits that hold regardless of permission or efficiency — the actions a system must not take even when it technically could.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">iii</div>
-          <h3>Operational Boundary</h3>
-          <p>The conditions under which the system is competent to act — domains, volumes, and contexts within which its behavior remains reliable.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">iv</div>
-          <h3>Authority Boundary</h3>
-          <p>The line between what the system may decide on its own and what requires a human to authorize it — runtime authority, resolved at the moment of decision rather than assumed from an org chart.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">v</div>
-          <h3>Execution Boundary</h3>
-          <p>The gate between decision and action — the point at which a resolved decision is allowed, or refused, the power to take effect.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">vi</div>
-          <h3>Runtime Boundary</h3>
-          <p>Limits enforced live, while the system acts — dynamic constraints, rate and scope checks, and revocable trust evaluated at the moment of action.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">vii</div>
-          <h3>Emergency Boundary</h3>
-          <p>The hard stop — the capacity to halt, contain, or reverse the system immediately when normal boundaries are breached or fail. It is what makes runtime accountability more than a promise.</p>
-        </div>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/22.png"
-           data-lightbox aria-label="Open the boundaries diagram">
-          <img src="assets/22.png"
-               alt="A central boundaries node surrounded by the factors that determine where a boundary is needed: uncertainty, impact, novelty, context, human override, execution, and ethics"
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Boundaries are not restrictions — they are what makes AI trustworthy.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 04 RELATED ESSAYS ============ -->
-  <section class="research-section" id="essays" aria-labelledby="essays-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">08 / Related Essays</div>
-        <h2 id="essays-h">Reading Around Governance &amp; Boundary Systems</h2>
-        <p class="section-lede">
-          Essays that extend this inquiry from the Governance Gap and
-          governability, through Decision Infrastructure and runtime
-          governance, to the boundaries, gates, and progressive trust
-          that turn written policy into executable AI safety.
-        </p>
-      </div>
-
-      <div class="essays">
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/claude-mythos-runtime-society/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">Super-Advanced Agents</div>
-          <h3>Is Perfect Defense Possible in the Age of Super-Advanced Agents? — Claude Mythos and Runtime Society</h3>
-          <p>An exploration of why absolute security may become impossible in the era of super-advanced AI agents, and why future societies may require runtime governance, adaptive boundaries, constitutional coordination, and trace-based defense structures instead of static protection models.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/ai-boundary-design-stopping-conditions/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">Foundations</div>
-          <h3>Boundary Design: The Seven Boundaries That Safely Stop AI</h3>
-          <p>What AI systems need is not merely capability, but explicit stopping conditions, escalation structures, and runtime-enforced safety boundaries.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/progressive-trust-scores-as-contracts-revocable-boundaries/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">Shutdown</div>
-          <h3>Designing Progressive Trust Scores as Contracts</h3>
-          <p>Treating trust not as a learned outcome, but as a revocable boundary enforced through runtime contracts, escalation, and governance structures.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/boundary-design-failure-implicit-boundaries-safety/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">Human Gate</div>
-          <h3>A Design That Does Not Define Boundaries Will Inevitably Fail</h3>
-          <p>Implicit boundaries create accidents, and the cost of articulation becomes the true cost of AI safety and governance.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/ai-customer-support-design-patterns/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">Runtime</div>
-          <h3>Five Design Patterns for Successful AI Customer Support</h3>
-          <p>The key is not the model itself, but how boundary design, escalation, and runtime governance are structured within customer support systems.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
-        <div class="essay is-coming-soon">
-          <div class="kicker">The Governance Gap</div>
-          <h3>The Governance Gap: When Capability Outruns Oversight</h3>
-          <p>Why an exponential capability curve and an institutional governance curve cannot meet on their own — and what it takes to close the space between them before deployment outpaces supervision.</p>
-          <div class="essay-meta is-coming-soon">Forthcoming</div>
-        </div>
-        <div class="essay is-coming-soon">
-          <div class="kicker">Capability is not Governability</div>
-          <h3>Capability is not Governability</h3>
-          <p>Governability as a design property distinct from capability — the difference between a system that can act and a system that can be authorized, observed, and stopped.</p>
-          <div class="essay-meta is-coming-soon">Forthcoming</div>
-        </div>
-        <div class="essay is-coming-soon">
-          <div class="kicker">Decision Infrastructure</div>
-          <h3>Decision Infrastructure: Governance That Runs</h3>
-          <p>How governance stops being documentation and becomes a runtime layer — evaluation, authority, permission, execution, trace, and audit as executable stages every action must traverse.</p>
-          <div class="essay-meta is-coming-soon">Forthcoming</div>
-        </div>
-        <div class="essay is-coming-soon">
-          <div class="kicker">Runtime Governance</div>
-          <h3>Runtime Governance: Enforcing Boundaries at the Moment of Action</h3>
-          <p>Why governance enforced after the fact cannot govern an agent that has already acted, and what it means to move the locus of control into the runtime itself.</p>
-          <div class="essay-meta is-coming-soon">Forthcoming</div>
-        </div>
-        <div class="essay is-coming-soon">
-          <div class="kicker">Progressive Trust</div>
-          <h3>Progressive Trust: Authority That Can Be Earned and Revoked</h3>
-          <p>Trust modeled not as a fixed grant but as a revocable boundary — expanded as a system proves reliable, withdrawn the moment it does not.</p>
-          <div class="essay-meta is-coming-soon">Forthcoming</div>
-        </div>
-        <div class="essay is-coming-soon">
-          <div class="kicker">Constitutional vs Runtime</div>
-          <h3>Constitutional AI vs Runtime Governance</h3>
-          <p>Where principles trained into a model end and where enforced boundaries must begin — two complementary layers of governance, and why neither is sufficient alone.</p>
-          <div class="essay-meta is-coming-soon">Forthcoming</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 09 RELATED BOOKS ============ -->
-  <section class="research-section" id="books" aria-labelledby="books-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">09 / Related Books</div>
-        <h2 id="books-h">Long-form Texts</h2>
-        <p class="section-lede">
-          This page is grounded in one book and surrounded by others.
-          Governance &amp; Boundary Systems does not stand alone — it
-          connects to the decision, trust, runtime, and intelligence
-          research that gives its terms their meaning. English editions
-          shown here.
-        </p>
-      </div>
-
-      <div class="books-list">
-        <div class="book">
-          <div class="book-body">
-            <div class="section-label">This Inquiry</div>
-            <div class="book-title">AI Governance and Boundary Design</div>
-            <div class="book-subtitle">— Governability as Runtime Architecture —</div>
-            <p>The book this page is built on. It develops the argument that capability is not governability, that the Governance Gap must be closed with Decision Infrastructure, and that boundaries, authority, and audit become trustworthy only when they are executable at runtime.</p>
-            <a class="book-link" href="https://www.amazon.co.jp/stores/Masao-Watanabe/author/B0H3ZXSYRD" target="_blank" rel="noopener noreferrer">Author Library →</a>
-          </div>
-        </div>
-
-        <div class="book">
-          <div class="book-body">
-            <div class="section-label">Neighboring Research — Decision Trace Model</div>
-            <div class="book-title">AI is not prediction. It is decision.</div>
-            <div class="book-subtitle">— Decision Trace Model —</div>
-            <p>The substrate beneath governance. Treating AI as a decision system is what makes traces, gates, and boundaries possible at all — the runtime layer this page calls Decision Infrastructure is, structurally, a Decision Trace Model under governance.</p>
-            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
-          </div>
-          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
-          </a>
-        </div>
-
-        <div class="book">
-          <div class="book-body">
-            <div class="section-label">Neighboring Research — Trust Infrastructure</div>
-            <div class="book-title">The Trust Infrastructure in the Age of AI</div>
-            <div class="book-subtitle">— Trace, Reputation, and Coordination —</div>
-            <p>Governance answers who may act; trust infrastructure answers why their action can be relied upon. Progressive trust, reputation, and verification are the connective tissue between a governed decision and a society willing to accept it.</p>
-            <a class="book-link" href="https://amzn.to/4eQaCOB" target="_blank" rel="noopener noreferrer">Available on Kindle →</a>
-          </div>
-        </div>
-
-        <div class="book">
-          <div class="book-body">
-            <div class="section-label">Neighboring Research — Runtime Society</div>
-            <div class="book-title">Runtime Society</div>
-            <div class="book-subtitle">— Rules Adjusted at the Moment of Action —</div>
-            <p>A society where rules, coordination, and authority are negotiated at runtime rather than fixed in advance. Runtime governance is the per-system form of the same idea this book develops at the scale of institutions.</p>
-            <a class="book-link" href="https://www.amazon.co.jp/stores/Masao-Watanabe/author/B0H3ZXSYRD" target="_blank" rel="noopener noreferrer">Author Library →</a>
-          </div>
-        </div>
-
-        <div class="book">
-          <div class="book-body">
-            <div class="section-label">Neighboring Research — Intelligence Field</div>
-            <div class="book-title">Intelligence as Relationship</div>
-            <div class="book-subtitle">— Intelligence Field —</div>
-            <p>The conceptual ground beneath the whole field. Authority, responsibility, and boundary are relational by nature — they exist between a system and those it acts upon, and this text is where that grounding is set out.</p>
-            <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener">Available on Kindle →</a>
-          </div>
-          <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-            <img src="/assets/book_pic/en/02.jpg" alt="" loading="lazy">
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 06 RELATED OSS ============ -->
-  <section class="research-section" id="oss" aria-labelledby="oss-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">10 / Related OSS</div>
-        <h2 id="oss-h">Related OSS</h2>
-        <p class="section-lede">
-          These repositories are not independent projects. Each is one
-          executable governance primitive, and stacked in order they
-          form a single Runtime Governance Stack — the same runtime
-          structure described above, expressed as code.
-        </p>
-      </div>
-
-      <div class="oss-block">
-        <div class="oss-meta">
-          <h3>Layers of a Runtime Governance Stack</h3>
-          <p>
-            No one component is governance. Governance emerges from how
-            they compose. A decision runtime carries the action; a
-            boundary runtime decides whether it may proceed; a human
-            gate routes authority; a trace runtime preserves what was
-            decided; an audit runtime makes that record reviewable; a
-            view runtime makes every boundary, gate, and escalation
-            observable as it happens.
-          </p>
-
-          <code class="quote is-diagram">Decision Runtime
-↓ Boundary Runtime
-↓ Human Gate
-↓ Trace Runtime
-↓ Audit Runtime
-↓ View Runtime</code>
-
-          <a class="oss-link" href="https://github.com/chinoba-lab" target="_blank" rel="noopener">
-            GitHub — chinoba-lab →
-          </a>
-        </div>
-
-        <ul class="oss-tags" aria-label="Governance primitives">
-          <li>decision-runtime-core</li>
-          <li>boundary-engine</li>
-          <li>policy-engine</li>
-          <li>human-gate</li>
-          <li>decision-trace-model-v2</li>
-          <li>ledger-core</li>
-          <li>audit-runtime</li>
-          <li>view-core</li>
-        </ul>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/26.png"
-           data-lightbox aria-label="Open the AI to infrastructure to governance to trust diagram">
-          <img src="assets/26.png"
-               alt="A vertical stack showing value progressing from AI, through Decision Infrastructure, to Governance, to Trust"
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Stacked in order, the primitives turn raw AI into infrastructure, governance, and trust.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 07 DIAGRAMS ============ -->
-  <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">11 / Diagrams</div>
-        <h2 id="diagrams-h">Architecture Archive</h2>
-        <p class="section-lede">
-          A growing archive of architectural sketches that extend the
-          page rather than repeat it — the gate, boundary, and runtime
-          pathways through which AI behavior becomes accountable. Pieces
-          already drawn appear here; the escalation, stop, and audit
-          mechanisms remain forthcoming.
-        </p>
-      </div>
-
-      <div class="diagrams">
-        <div class="diagram-card">
-          <div class="kicker">Diagram 01</div>
-          <h3>Human Gate</h3>
-          <a class="figure-frame" href="assets/23.png"
-             data-lightbox aria-label="Open the Human Gate diagram">
-            <img src="assets/23.png"
-                 alt="The Human Gate: AI proposes fast, scalable actions; humans review and approve or reject; approved actions become accountable execution"
-                 loading="lazy">
-          </a>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 02</div>
-          <h3>Runtime Governance</h3>
-          <a class="figure-frame" href="assets/17.png"
-             data-lightbox aria-label="Open the Runtime Governance diagram">
-            <img src="assets/17.png"
-                 alt="Governance inserted as a runtime layer between the Signal and Decision stages, ahead of Action"
-                 loading="lazy">
-          </a>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 03</div>
-          <h3>Boundary Design</h3>
-          <a class="figure-frame" href="assets/21.png"
-             data-lightbox aria-label="Open the Boundary Design diagram">
-            <img src="assets/21.png"
-                 alt="Boundary Design making responsibilities explicit — humans set goals and take accountability, AI generates signals and executes within constraints, separated by a clear boundary"
-                 loading="lazy">
-          </a>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 04</div>
-          <h3>When Governance Is Absent</h3>
-          <a class="figure-frame" href="assets/20.png"
-             data-lightbox aria-label="Open the ungoverned AI diagram">
-            <img src="assets/20.png"
-                 alt="Without governance, AI becomes unpredictable, unaccountable, and uncontrollable — illustrated as high risk"
-                 loading="lazy">
-          </a>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 05</div>
-          <h3>Escalation</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 06</div>
-          <h3>Stop / Override</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 07</div>
-          <h3>Audit Loop</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 08</div>
-          <h3>Progressive Trust</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 07.6 RELATED RESOURCES ============ -->
+  <!-- ============ FEATURED RESOURCES ============ -->
   <section class="research-section" id="resources" aria-labelledby="resources-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">Resources</div>
-        <h2 id="resources-h">Related Resources</h2>
+        <div class="section-label">Featured Resources</div>
+        <h2 id="resources-h">Start Here — the New Practical Guide, Books, Video, and Blog</h2>
         <p class="section-lede">
-          Further ways into Governance Boundary Systems — a video
-          introduction, the companion practical guide, and the
-          blog article behind this page's argument, in English
-          and Japanese.
+          The practical guide above leads this line of inquiry. Below it
+          are the neighboring Chinoba books, videos, and the essay that
+          build the Runtime AI Governance argument used throughout this
+          page.
         </p>
       </div>
 
       <div class="essays">
         <div class="essay">
-          <h3>📺 YouTube</h3>
-          <p>A video introduction to building trustworthy AI through governance boundaries and knowledge flow.</p>
+          <h3>📚 More Books</h3>
+          <p>Neighboring practical guides on the knowledge, trust, and autonomy layers this page draws together.</p>
+          <div class="theme-links">
+            <div class="theme-lang">Japanese Edition</div>
+            <a href="https://amzn.to/4z1sluu" target="_blank" rel="noopener noreferrer">Runtime AI Governance 実践ガイド: Knowledge Flow・Trust Engine・Decision Traceによる動的AIガバナンス設計 →</a>
+            <div class="theme-lang">English</div>
+            <a href="https://amzn.to/4wAo3Zh" target="_blank" rel="noopener noreferrer">AI Governance and Boundary Design: Designing Safe Human-AI Systems →</a>
+            <a href="https://amzn.to/4x2Ytwg" target="_blank" rel="noopener noreferrer">Knowledge Flow Practical Guide: Transform Enterprise Knowledge into AI-Ready Knowledge Infrastructure →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://amzn.to/3SBhvL1" target="_blank" rel="noopener noreferrer">AIガバナンスと境界設計: 人間とAIの安全なシステムを設計する →</a>
+            <a href="https://amzn.to/3RIgot7" target="_blank" rel="noopener noreferrer">Trust Infrastructure実践ガイド: Decision Trace・Knowledge Flow・Trust EngineによるAI時代の信頼基盤設計 →</a>
+            <a href="https://amzn.to/4hYdJG7" target="_blank" rel="noopener noreferrer">AI Coordination Engineering 実践ガイド: マルチエージェント時代の協調・自律性・信頼を設計する →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📺 Watch on YouTube</h3>
+          <p>Visual introductions to runtime governance, knowledge flow, and autonomy control.</p>
           <div class="theme-links">
             <div class="theme-lang">English</div>
             <a href="https://youtu.be/zWfKsRuyn5U" target="_blank" rel="noopener noreferrer">Beyond Model Governance: Building Trustworthy AI Through Knowledge Flow →</a>
+            <a href="https://youtu.be/Gh8p_NSDaR4" target="_blank" rel="noopener noreferrer">AI Governance and Boundary Design — Designing Trustworthy AI Systems →</a>
+            <a href="https://youtu.be/zbTTusglf9k" target="_blank" rel="noopener noreferrer">Autonomy Control for AI Coordination — Governing Multi-Agent Systems at Runtime →</a>
             <div class="theme-lang">Japanese</div>
             <a href="https://youtu.be/fE-fTfHTI7U" target="_blank" rel="noopener noreferrer">AIガバナンスを変えるKnowledge Flow――モデル管理から知識・判断・自律性の統治へ →</a>
+            <a href="https://youtu.be/YGyT3eOupD0" target="_blank" rel="noopener noreferrer">AIガバナンスと境界設計 ― 信頼できるAIシステムを設計する →</a>
+            <a href="https://youtu.be/pY2yjDuMtKs" target="_blank" rel="noopener noreferrer">AIエージェントの自律性をどう制御するか ― Autonomy Control PlaneとマルチAI協調の未来 →</a>
           </div>
         </div>
 
         <div class="essay">
-          <h3>📚 Books</h3>
-          <p>The practical guide to designing dynamic AI governance through Knowledge Flow, Trust Engine, and Decision Trace. Available in Japanese only.</p>
-          <div class="theme-links">
-            <div class="theme-lang">Japanese</div>
-            <a href="https://amzn.to/4z1sluu" target="_blank" rel="noopener noreferrer">Runtime AI Governance 実践ガイド: Knowledge Flow・Trust Engine・Decision Traceによる動的AIガバナンス設計 →</a>
-          </div>
-        </div>
-
-        <div class="essay">
-          <h3>📰 Blog Articles</h3>
-          <p>The essay behind this page's argument, on governance boundary systems as runtime infrastructure.</p>
+          <h3>📰 From the Blog</h3>
+          <p>The long-form essay behind this page's argument, on governance boundary systems as runtime infrastructure.</p>
           <div class="theme-links">
             <div class="theme-lang">English</div>
             <a href="https://deus-ex-machina-ism.com/en/governance-boundary-systems/" target="_blank" rel="noopener noreferrer">Governance Boundary Systems →</a>
@@ -1413,7 +395,693 @@ but
     </div>
   </section>
 
-  <!-- ============ 08 CLOSING ============ -->
+  <!-- ============ 01 FROM GOVERNING MODELS TO GOVERNING DECISIONS ============ -->
+  <section class="research-section" id="runtime-shift" aria-labelledby="runtime-shift-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / From Governing Models to Governing Decisions</div>
+        <h2 id="runtime-shift-h">From Governing Models to Governing Decisions at Runtime</h2>
+        <p class="section-lede">
+          Model Governance is real and necessary work — selecting a model,
+          evaluating its performance, tracking its version, securing it,
+          testing it for bias, and protecting the privacy of what it
+          touches. None of that disappears. But the same model, pointed at
+          different knowledge, a different business context, a different
+          policy, and a different permission and risk profile, can produce
+          a different decision that is equally justified. Governing the
+          model is not the same as governing the decision it just made.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What Model Governance Covers</h3>
+          <p>
+            Model Governance answers a narrow, important set of questions,
+            settled before and between deployments rather than at the
+            moment of use:
+          </p>
+          <ul>
+            <li>model selection</li>
+            <li>performance evaluation</li>
+            <li>version control</li>
+            <li>security</li>
+            <li>bias testing</li>
+            <li>privacy protection</li>
+          </ul>
+          <p>
+            These questions are answered well in advance of any single
+            decision. They say nothing about whether the specific document
+            an AI just retrieved is authoritative, whether the context it
+            is operating in still matches its training assumptions, or
+            whether it currently holds permission to act.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>Retrieval Is Not Authority</h3>
+          <p>
+            A document surfaced by retrieval-augmented generation is not
+            automatically knowledge an AI may decide on. It may be:
+          </p>
+          <ul>
+            <li>expired</li>
+            <li>out of scope for this situation</li>
+            <li>beyond the requester's permission</li>
+            <li>in conflict with a newer or more authoritative source</li>
+            <li>stale relative to the decision being made</li>
+          </ul>
+          <p>
+            A static, pre-deployment review is necessary. It is not a
+            substitute for control at the moment an AI actually decides
+            and acts.
+          </p>
+          <code class="quote">
+            A model is approved once.
+            A decision must be governed
+            every time it is made.
+          </code>
+        </div>
+      </div>
+
+      <p style="max-width:760px; color:var(--fg-mute); font-size:15.5px; line-height:1.85; margin-top:clamp(40px,5vw,56px);">
+        Runtime AI Governance does not replace one-time model approval. It
+        adds the layer that approval cannot provide: a runtime check on
+        each candidate decision and each candidate action, evaluated
+        against the knowledge, context, policy, and permission that hold
+        right now.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 02 THE FIVE DOMAINS OF AI GOVERNANCE ============ -->
+  <section class="research-section" id="five-domains" aria-labelledby="five-domains-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / The Five Domains of AI Governance</div>
+        <h2 id="five-domains-h">The Five Domains of AI Governance</h2>
+        <p class="section-lede">
+          AI governance is not one activity. It is at least five related
+          but distinct domains, each with its own object of concern, its
+          own owner, and its own lifecycle. Naming them separately keeps
+          the work precise; connecting them into one process is what
+          makes the work effective.
+        </p>
+      </div>
+
+      <div class="concept-grid">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Model Governance</h3>
+          <p>Selection, evaluation, versioning, security, bias, and privacy of the model itself — settled before and between deployments.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Data Governance</h3>
+          <p>Ownership, quality, lineage, and protection of the raw data a system is trained and operated on.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Knowledge Governance</h3>
+          <p>The meaning, authority, validity, scope, and provenance of the knowledge a decision is actually based on — not the data itself, but what the data is allowed to mean and how long that meaning holds.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Decision Governance</h3>
+          <p>Candidates, applied policy, risk, trust, human approval, and the stated reason a particular option was chosen over the alternatives.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Runtime Governance</h3>
+          <p>Context, permission, boundary, autonomy, action, and observation, evaluated live — at the moment the system actually does something.</p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Different Objects, Different Lifecycles</h3>
+          <p>
+            Each domain answers a different question, owned by different
+            people, on a different clock:
+          </p>
+          <code class="quote is-diagram">Model      — is it fit to run?
+Data       — is it clean and owned?
+Knowledge  — is it valid and authoritative?
+Decision   — was the right option chosen?
+Runtime    — was it done within permission?</code>
+        </div>
+
+        <div class="col-text">
+          <h3>One Process, Not Five Checklists</h3>
+          <p>
+            Treated as five independent checklists, these domains produce
+            five separate reports and no shared truth. Treated as one
+            process, each domain hands its output to the next: data
+            becomes knowledge, knowledge informs a decision, and a
+            decision is only real once it is permitted, bounded, and
+            enacted at runtime.
+          </p>
+          <code class="quote">
+            Five domains, one decision.
+            Knowledge Governance decides
+            what a system is allowed to know.
+            Decision Governance decides
+            what it is allowed to choose.
+            Runtime Governance decides
+            what it is allowed to do, now.
+          </code>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/19.png"
+           data-lightbox aria-label="Open the diagram of five connected governance domains">
+          <img src="assets2/19.png"
+               alt="Diagram stacking five governance layers — Model, Data, Knowledge, Decision, and Runtime Governance — unified by a connecting Knowledge Flow, under the heading 'AI Governance is becoming a system.'"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Runtime AI Governance does not replace model governance — it adds decision- and action-level oversight on top of it, unified end to end by one knowledge flow.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 03 KNOWLEDGE FLOW AND GOVERNED RETRIEVAL ============ -->
+  <section class="research-section" id="knowledge-flow" aria-labelledby="knowledge-flow-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Knowledge Flow and Governed Retrieval</div>
+        <h2 id="knowledge-flow-h">Knowledge Flow and Governed Retrieval</h2>
+        <p class="section-lede">
+          Knowledge Flow is not information collection or search. It is the
+          circulation that delivers knowledge an AI can actually decide
+          on, and then improves that knowledge from what the decision
+          produced. Search returns text. Knowledge Flow returns something
+          that has already been checked for who owns it, whether it still
+          holds, and whether it applies here.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What a Governed Knowledge Unit Carries</h3>
+          <p>Beyond content, each unit of knowledge carries:</p>
+          <ul>
+            <li>source and owner</li>
+            <li>authority</li>
+            <li>validity period</li>
+            <li>scope of application</li>
+            <li>confidentiality</li>
+            <li>provenance</li>
+          </ul>
+          <p>
+            Structuring goes further than chunking text for retrieval.
+            Semantic chunking extracts entities, relations, rules,
+            constraints, events, and states — the units an ontology and a
+            knowledge graph can hold as the organization's own vocabulary,
+            not a generic one.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>From RAG to Governed Retrieval</h3>
+          <p>
+            Retrieval-augmented generation was built to answer one
+            question: is this passage relevant? Governed Retrieval asks
+            more, before a passage is allowed near a decision:
+          </p>
+          <ul>
+            <li>authority — who may this knowledge speak for?</li>
+            <li>validity — has it expired or been revoked?</li>
+            <li>freshness — is a newer version available?</li>
+            <li>permission — may this requester see it?</li>
+            <li>context — does it apply to this situation?</li>
+            <li>conflict — does it contradict another source?</li>
+            <li>decision applicability — is it fit for this decision?</li>
+          </ul>
+          <code class="quote">
+            A search result is not a fact.
+            A model's summary is not a policy.
+            Both must be evaluated
+            before either is allowed to govern a decision.
+          </code>
+        </div>
+      </div>
+
+      <p style="max-width:760px; color:var(--fg-mute); font-size:15.5px; line-height:1.85; margin-top:clamp(40px,5vw,56px);">
+        Time, expiry, revocation, versioning, scope, and the handling of
+        conflicts and exceptions are not edge cases bolted onto Knowledge
+        Flow — they are the mechanism by which it stays trustworthy.
+        Outcomes then return: a decision that succeeded, failed, or
+        surfaced a gap feeds back into the knowledge graph, closing the
+        loop between what an AI knew and what it should know next time.
+      </p>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/06.png"
+           data-lightbox aria-label="Open the comparison of RAG and Governed Retrieval">
+          <img src="assets2/06.png"
+               alt="Side-by-side comparison titled 'RAG Alone Is Not AI Governance,' contrasting a RAG pipeline of query, similar documents, and LLM answer with a Knowledge Flow pipeline of valid knowledge, context, policy, authority, and trust that produces a governed decision."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Retrieval finds relevant text; Governed Retrieval must additionally check that text's authority, currency, and trustworthiness before it can support a decision.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 04 TRUST ENGINE, BOUNDARY, AND HUMAN GATE ============ -->
+  <section class="research-section" id="trust-boundary" aria-labelledby="trust-boundary-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Trust Engine, Boundary, and Human Gate</div>
+        <h2 id="trust-boundary-h">Trust Engine, Boundary, and Human Gate</h2>
+        <p class="section-lede">
+          Trust is not a fixed score, and it is not simply a probability
+          of success. It is a bounded, revisable expectation — that in the
+          current context, for this goal, this role, and this task, a
+          particular result can be relied on. Bounded, because it holds
+          only under stated conditions. Revisable, because new evidence
+          changes it.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Capability</h3>
+          <p>Can the system actually perform this task, at this level of difficulty, given its demonstrated track record?</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Knowledge</h3>
+          <p>Does it hold knowledge that is valid, authoritative, and in scope for the situation in front of it?</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Intent</h3>
+          <p>Is the goal it is pursuing the goal it was actually given, without drift or substitution?</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Compliance</h3>
+          <p>Has it operated inside policy and regulation in comparable past situations?</p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Explainability</h3>
+          <p>Can its reasoning and evidence be reconstructed well enough for a human to evaluate?</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Coordination</h3>
+          <p>Does it work with other AI and with humans in ways that stay predictable and accountable?</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Impact</h3>
+          <p>How large, reversible, and consequential is the outcome if this particular judgment is wrong?</p>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets3/09.png"
+           data-lightbox aria-label="Open the diagram of the seven Trust Engine factors">
+          <img src="assets3/09.png"
+               alt="Radial diagram titled 'Seven Factors Evaluated by the Trust Engine,' showing Capability, Knowledge, Intent, Compliance, Explainability, Coordination, and Impact arranged around a central Trust Engine node."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The Trust Engine treats trust as a composite of seven independent factors, not a single score.</figcaption>
+      </figure>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Evidence Is Not Trust</h3>
+          <p>
+            A track record, a benchmark score, or a certification is
+            evidence offered in support of trust. It is not trust itself,
+            and it does not update automatically as context changes.
+          </p>
+          <p>
+            High trust, however earned, does not replace Permission, and
+            it does not authorize crossing a Boundary. Trust can expand
+            what is offered for approval. It cannot substitute for the
+            approval, and it cannot dissolve a limit.
+          </p>
+          <code class="quote">
+            Boundaries protect what optimization
+            must never be allowed to trade away:
+            life and safety, human rights, personal data,
+            critical assets, and social infrastructure.
+            No trust score buys an exception.
+          </code>
+        </div>
+
+        <div class="col-text">
+          <h3>Human Gate as a Control Point</h3>
+          <p>
+            A Human Gate is not a formality or an approval button clicked
+            out of habit. It is a control point that presents:
+          </p>
+          <ul>
+            <li>the evidence behind the recommendation</li>
+            <li>the candidate options considered</li>
+            <li>the assessed risk</li>
+            <li>the potential impact</li>
+            <li>the deadline by which a decision is needed</li>
+          </ul>
+          <p>
+            And it gives the human a real range of responses — approve,
+            reject, modify, or dispute — rather than a single button that
+            only ever means yes.
+          </p>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets3/19.png"
+           data-lightbox aria-label="Open the diagram of the absolute boundary around the Trust Engine">
+          <img src="assets3/19.png"
+               alt="Diagram titled 'Trust Must Not Be Left to Expectations,' showing an absolute boundary ring — life, safety, human rights, privacy, and critical infrastructure — enclosing a Trust Engine that governs dynamic autonomy."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Beneath the Trust Engine's dynamic evaluation sits a fixed boundary that no trust score or policy exception can override.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 05 DYNAMIC AUTONOMY CONTROL ============ -->
+  <section class="research-section" id="autonomy-control" aria-labelledby="autonomy-control-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Dynamic Autonomy Control: Act, Ask, Stop</div>
+        <h2 id="autonomy-control-h">Dynamic Autonomy Control: Act, Ask, Stop</h2>
+        <p class="section-lede">
+          How much an AI is allowed to do on its own is not a fixed
+          property of the system. It is a runtime judgment, re-evaluated
+          for the situation currently in front of it, and it resolves into
+          exactly three possible states.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-3">
+        <div class="concept">
+          <div class="idx">Act</div>
+          <h3>Act</h3>
+          <p>The AI executes within a defined scope — no escalation required, because knowledge, permission, risk, and trust all clear their thresholds.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">Ask</div>
+          <h3>Ask</h3>
+          <p>The AI presents its evidence and its candidate options and escalates the decision to a human — because something about the situation does not clear on its own.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">Stop</div>
+          <h3>Stop</h3>
+          <p>Execution is refused. The action is halted or quarantined, because proceeding would cross a Boundary or exceed what can currently be trusted.</p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What Autonomy Control Evaluates</h3>
+          <p>At minimum, each decision re-evaluates:</p>
+          <ul>
+            <li>goal</li>
+            <li>role</li>
+            <li>permission</li>
+            <li>context</li>
+            <li>knowledge</li>
+            <li>risk</li>
+            <li>trust</li>
+            <li>boundary</li>
+          </ul>
+        </div>
+
+        <div class="col-text">
+          <h3>Autonomy Contracts as Well as Expands</h3>
+          <p>
+            It is tempting to treat autonomy as something that only grows
+            as an AI matures. It does not. Autonomy Control must contract
+            it in response to:
+          </p>
+          <ul>
+            <li>insufficient knowledge</li>
+            <li>contextual uncertainty</li>
+            <li>an incident</li>
+            <li>declining trust</li>
+            <li>rising risk</li>
+          </ul>
+          <code class="quote">
+            Autonomy is not a reward for age.
+            It is a range that widens when conditions
+            support it, and narrows the moment they do not.
+          </code>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets3/21.png"
+           data-lightbox aria-label="Open the matrix mapping trust and impact to autonomy responses">
+          <img src="assets3/21.png"
+               alt="2x2 matrix titled 'How the Trust Engine Transforms Enterprise Operations,' mapping trust level and impact to four responses: autonomous execution, human-AI collaboration, human gate, and reduce autonomy."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Autonomy control is a live response, not a fixed permission — the same system shifts between acting, asking, and stopping as trust and impact change.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 06 DECISION TRACE AND FEEDBACK ============ -->
+  <section class="research-section" id="decision-trace" aria-labelledby="decision-trace-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Decision Trace and Feedback</div>
+        <h2 id="decision-trace-h">Decision Trace and Feedback</h2>
+        <p class="section-lede">
+          A Decision Trace is not an operation log, and it is not a saved
+          copy of a model's internal chain of thought. It is the
+          structured evidence an organization needs to verify a decision
+          after the fact and to improve the system that made it.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What a Trace Preserves</h3>
+          <ul>
+            <li>observation and context</li>
+            <li>knowledge and provenance</li>
+            <li>alternatives considered</li>
+            <li>applied policy and boundary</li>
+            <li>risk and trust evaluation</li>
+            <li>human involvement and authorization</li>
+            <li>the selected decision and action</li>
+            <li>the outcome</li>
+            <li>feedback into knowledge, policy, trust, and autonomy conditions</li>
+          </ul>
+        </div>
+
+        <div class="col-text">
+          <h3>Outcomes Alone Do Not Grade a Decision</h3>
+          <p>
+            A good outcome does not prove a good decision, and a bad
+            outcome does not prove a bad one. Without a trace, these stay
+            indistinguishable:
+          </p>
+          <ul>
+            <li>a lucky success</li>
+            <li>a principled failure, correctly executed</li>
+            <li>a decision built on stale knowledge</li>
+            <li>a decision made with insufficient context</li>
+            <li>a decision made in the absence of any applicable policy</li>
+            <li>a decision skewed by a drifting trust evaluation</li>
+          </ul>
+          <code class="quote">
+            Improvement requires telling these apart.
+            A trace is what makes the difference visible.
+          </code>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets3/14.png"
+           data-lightbox aria-label="Open the worked example of a Decision Trace log">
+          <img src="assets3/14.png"
+               alt="Timestamped log diagram titled 'Decision Trace Provides Evidence for Future Expectations,' recording context, knowledge, options, policy or constraint, decision, action, and outcome."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">A trace is only useful for governance if it captures the context, options, and constraints that explain why a decision was made, not only what happened.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 07 RUNTIME GOVERNANCE LOOP ============ -->
+  <section class="research-section" id="runtime-loop" aria-labelledby="runtime-loop-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Runtime Governance Loop</div>
+        <h2 id="runtime-loop-h">Runtime Governance Loop</h2>
+        <p class="section-lede">
+          The domains and mechanisms above are not independent modules.
+          They are stages in a single loop that every governed AI decision
+          traverses — from the knowledge it draws on, through evaluation
+          and permission, to the action it takes and what that action
+          teaches the system next.
+        </p>
+      </div>
+
+      <div class="field-runtime" aria-label="Runtime Governance Loop">
+        <div class="field-runtime-label">Loop Diagram</div>
+        <h3 class="field-runtime-title">Runtime AI Governance — the Loop</h3>
+
+        <ol class="field-layers" role="list">
+          <li class="field-layer">
+            <span class="layer-idx">L1</span>
+            <span class="layer-body">
+              <span class="layer-name">Knowledge Flow</span>
+              <span class="layer-note">Governed knowledge — sourced, authoritative, scoped, and current — is delivered toward the decision.</span>
+            </span>
+            <span class="layer-tag">knowledge</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L2</span>
+            <span class="layer-body">
+              <span class="layer-name">Context Resolution</span>
+              <span class="layer-note">The situation is read — actors, task, history, and stakes — so the knowledge above can be judged fit or unfit for this moment.</span>
+            </span>
+            <span class="layer-tag">context</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L3</span>
+            <span class="layer-body">
+              <span class="layer-name">Trust Evaluation</span>
+              <span class="layer-note">Capability, knowledge, intent, compliance, explainability, coordination, and impact are weighed for this context, goal, role, and task.</span>
+            </span>
+            <span class="layer-tag">trust</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L4</span>
+            <span class="layer-body">
+              <span class="layer-name">Policy / Permission / Boundary</span>
+              <span class="layer-note">The candidate decision is checked against applicable policy, the requester's permission, and boundaries that no trust score can cross.</span>
+            </span>
+            <span class="layer-tag">boundary</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L5</span>
+            <span class="layer-body">
+              <span class="layer-name">Autonomy Control</span>
+              <span class="layer-note">The outcome resolves to exactly one of three states: Act within scope, Ask a human, or Stop the action entirely.</span>
+            </span>
+            <span class="layer-tag">act / ask / stop</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L6</span>
+            <span class="layer-body">
+              <span class="layer-name">Decision and Action</span>
+              <span class="layer-note">What was resolved above is committed to effect — by the AI directly, or by a human it has informed.</span>
+            </span>
+            <span class="layer-tag">execute</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L7</span>
+            <span class="layer-body">
+              <span class="layer-name">Decision Trace</span>
+              <span class="layer-note">Knowledge, context, trust evaluation, applied boundary, human involvement, and outcome are preserved as structured, reviewable evidence.</span>
+            </span>
+            <span class="layer-tag">trace</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L8</span>
+            <span class="layer-body">
+              <span class="layer-name">Feedback</span>
+              <span class="layer-note">The trace returns into knowledge, policy, trust, and autonomy conditions — closing the loop rather than ending at execution.</span>
+            </span>
+            <span class="layer-tag">feedback</span>
+          </li>
+        </ol>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets3/18.png"
+           data-lightbox aria-label="Open the Runtime AI Governance feedback loop diagram">
+          <img src="assets3/18.png"
+               alt="Circular diagram titled 'The Future of AI Governance Is a Feedback Loop,' cycling through knowledge, context understanding, decision, action, outcome, decision trace, trust update, and autonomy control around a Dynamic AI Governance center."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Runtime governance is a closed loop, not a one-time checkpoint — outcomes feed back through Decision Trace and trust update to continually recalibrate Autonomy Control.</figcaption>
+      </figure>
+
+      <p style="max-width:760px; color:var(--fg-mute); font-size:15.5px; line-height:1.85; margin-top:clamp(40px,5vw,56px);">
+        Runtime Governance does not promise to eliminate every error. What
+        it does is refuse to hide uncertainty, missing knowledge, conflict,
+        and exception behind a confident answer. It makes explicit how far
+        an AI can be trusted to act on its own, where control must return
+        to a human, and what, specifically, should be improved next.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 08 APPLICATION EXAMPLES ============ -->
+  <section class="research-section" id="applications" aria-labelledby="applications-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">08 / Application Examples</div>
+        <h2 id="applications-h">Application Examples</h2>
+        <p class="section-lede">
+          In each case below, the deciding factor is not how capable the
+          underlying model is. It is whether the knowledge it drew on was
+          still valid, whether the applied policy matched the situation,
+          whether a boundary or a human gate intervened where it should
+          have, and whether the whole path was left as a trace.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay">
+          <div class="kicker">Contract Review AI</div>
+          <h3>Contract Review AI</h3>
+          <p>The clause an AI cites is only useful if it is the current template, cleared for this contract type and jurisdiction, and not superseded by a later legal update. Runtime governance checks the clause's validity and scope before it is allowed to shape a recommendation, and routes unusual terms to a Human Gate rather than resolving them silently.</p>
+        </div>
+        <div class="essay">
+          <div class="kicker">Manufacturing Equipment / Physical AI</div>
+          <h3>Manufacturing Equipment / Physical AI</h3>
+          <p>An anomaly reading means something different on a machine mid-changeover than on one running steady state. Runtime governance binds the reading to current equipment context and operating policy, keeps irreversible actions inside a tight Boundary, and escalates to a human whenever a stop-or-continue call carries physical consequence.</p>
+        </div>
+        <div class="essay">
+          <div class="kicker">Customer Service and Sales Support AI</div>
+          <h3>Customer Service and Sales Support AI</h3>
+          <p>A discount, a refund, or a commitment that binds the company needs current policy and an account-specific permission check, not a plausible-sounding answer. Runtime governance keeps standard requests inside Act, routes exceptions and high-value commitments to Ask, and leaves every promise made to a customer as a traceable decision.</p>
+        </div>
+        <div class="essay">
+          <div class="kicker">Multi-Agent Coordination</div>
+          <h3>Multi-Agent Coordination</h3>
+          <p>When one AI asks another to act on its behalf, that request is not a message — it is a Runtime Artifact carrying its own purpose, scope, permission, expiry, and rules for re-delegation, with accountability and a trace that survive the handoff. Coordination without that structure is delegation with no way to say who was responsible when it failed.</p>
+        </div>
+      </div>
+
+      <code class="quote is-diagram">Delegation Artifact
+├── Purpose
+├── Scope
+├── Permission
+├── Expiry
+├── Re-delegation rule
+├── Accountability
+└── Trace</code>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
   <section class="research-section closing" id="closing" aria-labelledby="closing-h">
     <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
     <figure class="figure figure-standard" style="margin-bottom: 48px;">
@@ -1423,9 +1091,11 @@ but
              alt="Chinoba — Runtime Society and Coordination Systems, with governance and boundaries shown as one layer among coordination, trust, knowledge, and multi-agent coordination"
              loading="lazy">
       </a>
-      <figcaption class="figure-caption">Governance is one layer of the Chinoba runtime-society architecture.</figcaption>
+      <figcaption class="figure-caption">Runtime AI Governance is one layer of the Chinoba runtime-society architecture.</figcaption>
     </figure>
     <div class="positioning" aria-label="Research positioning within the Chinoba architecture">
+      <span>Knowledge Flow</span>
+      <span>↓</span>
       <span>Decision Trace</span>
       <span>↓</span>
       <span class="here">Governance</span>
@@ -1437,19 +1107,31 @@ but
       <span>Runtime Society</span>
     </div>
     <blockquote>
-      <span>AI capability alone cannot create trustworthy systems.</span>
-      <span>Governability emerges when decisions, boundaries, authority,</span>
-      <span>trust, and accountability become executable parts</span>
-      <span>of the runtime itself.</span>
+      <span>AI governance is no longer only about managing a model.</span>
+      <span>It is about continuously governing the conditions</span>
+      <span>under which that model actually decides.</span>
       <span>&nbsp;</span>
-      <span>Governance enables trust.</span>
-      <span>Trust enables coordination.</span>
-      <span>Coordination enables Runtime Society.</span>
+      <span>What matters is not only whether an AI is capable —</span>
+      <span>it is what it knew, in this situation, at this moment,</span>
+      <span>whether it was permitted to use that knowledge,</span>
+      <span>and how far it was allowed to act on its own.</span>
+      <span>&nbsp;</span>
+      <span>Chinoba studies how Knowledge Flow, a Trust Engine,</span>
+      <span>Boundary, Autonomy Control, and Decision Trace connect</span>
+      <span>into a Runtime AI Governance that can be explained,</span>
+      <span>checked against its outcomes, and continually improved.</span>
     </blockquote>
     <div class="closing-mark">Chinoba.org</div>
+    <p class="closing-cta">
+      <a href="https://amzn.to/4bUauMj" target="_blank" rel="noopener noreferrer">New Book →</a>
+      &nbsp;·&nbsp;
+      <a href="https://youtu.be/zWfKsRuyn5U" target="_blank" rel="noopener noreferrer">YouTube →</a>
+      &nbsp;·&nbsp;
+      <a href="https://deus-ex-machina-ism.com/en/governance-boundary-systems/" target="_blank" rel="noopener noreferrer">Blog →</a>
+    </p>
   </section>
 
-  <!-- ============ 09 RELATED RESEARCH ============ -->
+  <!-- ============ RELATED RESEARCH ============ -->
   <section class="research-section" id="related" aria-labelledby="related-h">
     <div class="wrap">
       <div class="section-head">
@@ -1457,23 +1139,28 @@ but
         <h2 id="related-h">Other Lines of Inquiry</h2>
         <p class="section-lede">
           Governance &amp; Boundary Systems is not a standalone topic but
-          one layer in a single research architecture — the Decision
-          Trace Model gives it a substrate, Trust Infrastructure and AI
-          Coordination build on its output, and Runtime Society is where
-          the whole sequence resolves. The neighboring threads below
-          read as one continuous inquiry.
+          one layer in a single research architecture — Knowledge Flow
+          feeds it, the Decision Trace Model gives it a substrate, Trust
+          Infrastructure and AI Coordination build on its output, and
+          Runtime Society is where the whole sequence resolves. The
+          neighboring threads below read as one continuous inquiry.
         </p>
       </div>
 
       <div class="related-research">
+        <a href="/research/knowledge-flow" data-slug="knowledge-flow">
+          <span class="related-label">03 / Inquiry</span>
+          <span class="related-name">Knowledge Flow</span>
+          <span class="related-status">Available</span>
+        </a>
         <a href="/research/decision-trace-model" data-slug="decision-trace-model">
           <span class="related-label">01 / Inquiry</span>
           <span class="related-name">Decision Trace Model</span>
           <span class="related-status">Available</span>
         </a>
-        <a href="/research/public-ai-algorithmic-governance" data-slug="public-ai-algorithmic-governance">
-          <span class="related-label">10 / Inquiry</span>
-          <span class="related-name">Public AI &amp; Algorithmic Governance</span>
+        <a href="/research/trust-infrastructure" data-slug="trust-infrastructure">
+          <span class="related-label">04 / Inquiry</span>
+          <span class="related-name">Trust Infrastructure</span>
           <span class="related-status">Available</span>
         </a>
         <a href="/research/ai-coordination" data-slug="ai-coordination">
@@ -1486,14 +1173,14 @@ but
           <span class="related-name">Multi-Agent Systems</span>
           <span class="related-status">Available</span>
         </a>
-        <a href="/research/trust-infrastructure" data-slug="trust-infrastructure">
-          <span class="related-label">04 / Inquiry</span>
-          <span class="related-name">Trust Infrastructure</span>
-          <span class="related-status">Available</span>
-        </a>
         <a href="/research/runtime-society" data-slug="runtime-society">
           <span class="related-label">02 / Inquiry</span>
           <span class="related-name">Runtime Society</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/public-ai-algorithmic-governance" data-slug="public-ai-algorithmic-governance">
+          <span class="related-label">10 / Inquiry</span>
+          <span class="related-name">Public AI &amp; Algorithmic Governance</span>
           <span class="related-status">Available</span>
         </a>
         <a href="/research/physical-ai-cyber-physical-systems" data-slug="physical-ai-cyber-physical-systems">
