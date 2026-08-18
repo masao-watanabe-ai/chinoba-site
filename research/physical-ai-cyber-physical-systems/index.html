@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Physical AI &amp; Cyber-Physical Systems: Semantic &amp; Somatic Digital Twin — Chinoba</title>
-  <meta name="description" content="How Physical AI moves from perception to accountable action — Semantic Digital Twin, Somatic Digital Twin, and Chinoba PF's Ontology, Knowledge Graph, DSL, and Decision Trace, connecting robots, machines, and vehicles to safe, traceable decisions.">
+  <title>Physical AI &amp; Cyber-Physical Systems: Semantic Digital Twin — Chinoba</title>
+  <meta name="description" content="How Physical AI moves from perception to accountable action — Semantic Digital Twin, and Chinoba PF's Ontology, Knowledge Graph, DSL, and Decision Trace, connecting robots, machines, and vehicles to safe, traceable decisions.">
 
   <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
   <link rel="stylesheet" href="/assets/research.css">
@@ -32,23 +32,6 @@
       white-space: pre-line;
       line-height: 1.95;
       letter-spacing: 0.4px;
-    }
-
-    /* A quote block used outside a two-col context (Somatic / Semantic contrast) */
-    .quote.section-quote {
-      display: block;
-      max-width: 640px;
-      margin: 28px auto 0;
-      padding: 14px 18px;
-      border-left: 2px solid var(--line-strong);
-      color: var(--fg);
-      font-family: "Courier New", monospace;
-      font-size: 14px;
-      letter-spacing: 0.3px;
-      background: rgba(255,255,255,0.015);
-      white-space: pre-line;
-      line-height: 1.95;
-      text-align: left;
     }
 
     /* ---------- Explore This Theme / Featured Resources ---------- */
@@ -402,9 +385,9 @@
           </ul>
           <p>
             Chinoba treats these four requirements as architecture, not
-            afterthoughts — expressed through the Semantic Digital Twin, the
-            Somatic Digital Twin, Chinoba PF's Ontology, Knowledge Graph, DSL,
-            and Decision Trace, described below.
+            afterthoughts — expressed through the Semantic Digital Twin,
+            Chinoba PF's Ontology, Knowledge Graph, DSL, and Decision Trace,
+            described below.
           </p>
         </div>
       </div>
@@ -430,8 +413,7 @@
         <p class="section-lede">
           The new English practical guide leads this line of inquiry. Below it
           are the Chinoba books, videos, and essays that build the Semantic
-          Digital Twin and Somatic Digital Twin picture used throughout this
-          page.
+          Digital Twin picture used throughout this page.
         </p>
       </div>
 
@@ -601,9 +583,11 @@ a decision to act.</code>
         <h2 id="semantic-twin-h">Semantic Digital Twin</h2>
         <p class="section-lede">
           A Semantic Digital Twin is not a 3D model of a physical asset, and
-          not a copy of its telemetry. It is the layer that gives that state
-          meaning — connecting entities, relationships, context, knowledge,
-          and decision options into a form a runtime can reason over.
+          not a copy of its telemetry. It is the single layer that gives a
+          physical asset meaning — its structure, relationships, and context,
+          together with its current state, its capability, its operational
+          constraints, and how all of that changes over time — in a form a
+          decision runtime can reason over.
         </p>
       </div>
 
@@ -642,6 +626,46 @@ a decision to act.</code>
           <div class="idx">v</div>
           <h3>Decision Context</h3>
           <p>Goals, candidate actions, applicable boundaries, and the explanation a decision will need to carry.</p>
+        </div>
+      </div>
+
+      <div class="fig-lead">
+        <h3>One Model, Not Two</h3>
+        <p>
+          The same Semantic Digital Twin also carries the acting body's own
+          physical state — its condition, its capability, and its operating
+          health — as another dimension of the same model, not a separate
+          twin tracked on the side. A decision runtime needs both what a
+          situation means and what the body can actually do right now, read
+          from one consistent source.
+        </p>
+      </div>
+
+      <div class="concept-grid" style="margin-top: clamp(48px, 6vw, 64px);">
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Physical Condition</h3>
+          <p>Temperature, vibration, load, battery, wear, position, posture, and general health.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Capability Envelope</h3>
+          <p>What the asset can safely do right now, given its current condition — not its nameplate specification.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">viii</div>
+          <h3>Operational Condition</h3>
+          <p>Connectivity, sensor freshness, calibration status, and any active fault state.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ix</div>
+          <h3>Environmental Coupling</h3>
+          <p>Location, nearby people and equipment, and weather or site conditions the body operates within.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">x</div>
+          <h3>Change Over Time</h3>
+          <p>Observed history, maintenance events, degradation, recovery, and anomaly signals.</p>
         </div>
       </div>
 
@@ -685,100 +709,11 @@ Decision Trace explains it.</code>
     </div>
   </section>
 
-  <!-- ============ 04 SOMATIC DIGITAL TWIN ============ -->
-  <section class="research-section" id="somatic-twin" aria-labelledby="somatic-twin-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">04 / The Body Layer</div>
-        <h2 id="somatic-twin-h">Somatic Digital Twin</h2>
-        <p class="section-lede">
-          Alongside the Semantic Digital Twin, Chinoba treats the body state
-          of a physical agent — a robot, a piece of equipment, a vehicle, any
-          actor with a physical form — as a distinct, time-tracked model in
-          its own right: the Somatic Digital Twin.
-        </p>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>What the Somatic Digital Twin Tracks</h3>
-          <p>
-            Where a Semantic Digital Twin asks what a situation means, the
-            Somatic Digital Twin asks a narrower, more immediate question:
-            what state is this body in right now, and what can it safely do?
-            It follows a machine's physical condition and operating health
-            across time rather than at a single instant.
-          </p>
-        </div>
-        <div class="col-text">
-          <h3>Why It Is Modeled Separately</h3>
-          <p>
-            Body state changes on its own timeline — batteries drain, joints
-            wear, sensors drift out of calibration — independent of what a
-            task or a rulebook says should happen. Modeling it as its own
-            layer keeps "is this asset actually capable right now" separate
-            from "is this action allowed," so neither question quietly
-            substitutes for the other.
-          </p>
-        </div>
-      </div>
-
-      <div class="concept-grid" style="margin-top: clamp(48px, 6vw, 64px);">
-        <div class="concept">
-          <div class="idx">i</div>
-          <h3>Physical Condition</h3>
-          <p>Temperature, vibration, load, battery, wear, position, posture, and general health.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">ii</div>
-          <h3>Capability Envelope</h3>
-          <p>What the asset can safely do right now, given its current condition — not its nameplate specification.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">iii</div>
-          <h3>Operational Condition</h3>
-          <p>Connectivity, sensor freshness, calibration status, and any active fault state.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">iv</div>
-          <h3>Environmental Coupling</h3>
-          <p>Location, nearby people and equipment, and weather or site conditions the body operates within.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">v</div>
-          <h3>Change Over Time</h3>
-          <p>Observed history, maintenance events, degradation, recovery, and anomaly signals.</p>
-        </div>
-      </div>
-
-      <div class="fig-lead">
-        <h3>Somatic and Semantic Digital Twin, Together</h3>
-        <p>
-          Neither twin is sufficient alone. The Somatic Digital Twin describes
-          the body — its state, its capability envelope, its health, its
-          limits. The Semantic Digital Twin describes what that state means —
-          what it relates to, and under which rules, goals, and
-          authorizations it should be interpreted. Physical AI needs both to
-          move from "we can see the machine" to "we can decide, safely,
-          whether this action should happen now."
-        </p>
-      </div>
-      <code class="quote section-quote">Somatic Digital Twin
-  the body: condition, capability, health
-
-Semantic Digital Twin
-  the meaning: relationships, rules, authority
-
-Together
-  perception becomes an accountable decision to act</code>
-    </div>
-  </section>
-
-  <!-- ============ 05 INTEGRATED ARCHITECTURE ============ -->
+  <!-- ============ 04 INTEGRATED ARCHITECTURE ============ -->
   <section class="research-section" id="architecture" aria-labelledby="architecture-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">05 / The Architecture</div>
+        <div class="section-label">04 / The Architecture</div>
         <h2 id="architecture-h">From Physical State to Accountable Action</h2>
         <p class="section-lede">
           This is the architecture the rest of the page has been building
@@ -826,9 +761,9 @@ Together
           </p>
           <p>
             Feedback from that outcome runs in two directions: it updates the
-            Somatic and Semantic Digital Twins' picture of current operating
-            reality, and it updates the policies, thresholds, and trust
-            levels that shape future decisions.
+            Semantic Digital Twin's picture of current operating reality, and
+            it updates the policies, thresholds, and trust levels that shape
+            future decisions.
           </p>
           <code class="quote">Capability answers
 what an asset can do.
@@ -863,23 +798,14 @@ what it may do now.</code>
           <li class="field-layer">
             <span class="layer-idx">L3</span>
             <span class="layer-body">
-              <span class="layer-name">Somatic Digital Twin</span>
-              <span class="layer-note">The acting body's own state — physical condition, capability envelope, and operational health — tracked as it changes over time.</span>
-            </span>
-            <span class="layer-tag">body</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L4</span>
-            <span class="layer-body">
               <span class="layer-name">Semantic Digital Twin</span>
-              <span class="layer-note">Entities, relationships, context, and applicable knowledge give the observation and the body state a meaning the runtime can reason over.</span>
+              <span class="layer-note">Entities, relationships, context, and applicable knowledge — together with the acting body's own physical condition, capability envelope, and operational health — give the observation a meaning the runtime can reason over.</span>
             </span>
             <span class="layer-tag">meaning</span>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
           <li class="field-layer">
-            <span class="layer-idx">L5</span>
+            <span class="layer-idx">L4</span>
             <span class="layer-body">
               <span class="layer-name">Ontology / Knowledge Graph / DSL</span>
               <span class="layer-note">Chinoba PF structures that meaning as a shared vocabulary, a live world model, and executable rules a runtime can evaluate.</span>
@@ -888,7 +814,7 @@ what it may do now.</code>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
           <li class="field-layer">
-            <span class="layer-idx">L6</span>
+            <span class="layer-idx">L5</span>
             <span class="layer-body">
               <span class="layer-name">Decision Runtime</span>
               <span class="layer-note">Knowledge, current context, goals, and policy combine to form a candidate action under uncertainty.</span>
@@ -897,7 +823,7 @@ what it may do now.</code>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
           <li class="field-layer">
-            <span class="layer-idx">L7</span>
+            <span class="layer-idx">L6</span>
             <span class="layer-body">
               <span class="layer-name">Policy, Trust &amp; Human Gate</span>
               <span class="layer-note">The candidate is checked against safety policy and trust thresholds; ambiguous or high-stakes cases route to a human for Execution Authorization.</span>
@@ -906,7 +832,7 @@ what it may do now.</code>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
           <li class="field-layer">
-            <span class="layer-idx">L8</span>
+            <span class="layer-idx">L7</span>
             <span class="layer-body">
               <span class="layer-name">Physical Action Adapter</span>
               <span class="layer-note">An authorized decision becomes a command to the robot, machine, or vehicle — independent interlocks and emergency stops remain outside this path.</span>
@@ -915,10 +841,10 @@ what it may do now.</code>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
           <li class="field-layer">
-            <span class="layer-idx">L9</span>
+            <span class="layer-idx">L8</span>
             <span class="layer-body">
               <span class="layer-name">Decision Trace &amp; Feedback</span>
-              <span class="layer-note">Observation, context, rule, decision, and outcome are preserved together, then fed back into the Digital Twins and future policy.</span>
+              <span class="layer-note">Observation, context, rule, decision, and outcome are preserved together, then fed back into the Semantic Digital Twin and future policy.</span>
             </span>
             <span class="layer-tag">trace</span>
           </li>
@@ -946,18 +872,17 @@ what it may do now.</code>
     </div>
   </section>
 
-  <!-- ============ 06 APPLICATIONS ============ -->
+  <!-- ============ 05 APPLICATIONS ============ -->
   <section class="research-section" id="applications" aria-labelledby="applications-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">06 / Applications</div>
+        <div class="section-label">05 / Applications</div>
         <h2 id="applications-h">Applications Across Physical Domains</h2>
         <p class="section-lede">
           The same architecture applies wherever AI acts through a physical
           body — only the entities, rules, and stakes change. In every case,
-          value comes from combining what the Somatic Digital Twin knows
-          about the asset with what the Semantic Digital Twin knows about the
-          situation, and preserving both in a Decision Trace.
+          value comes from what the Semantic Digital Twin knows about the
+          asset and the situation together, preserved in a Decision Trace.
         </p>
       </div>
 
@@ -986,17 +911,16 @@ what it may do now.</code>
     </div>
   </section>
 
-  <!-- ============ 07 RELATED OSS ============ -->
+  <!-- ============ 06 RELATED OSS ============ -->
   <section class="research-section" id="oss" aria-labelledby="oss-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">07 / Related OSS</div>
+        <div class="section-label">06 / Related OSS</div>
         <h2 id="oss-h">Related OSS</h2>
         <p class="section-lede">
           Runtime-oriented building blocks for Physical AI — decision
           execution, traceable action, graph-based world models, and signal
-          analytics across sensor networks and the Somatic and Semantic
-          Digital Twins.
+          analytics across sensor networks and the Semantic Digital Twin.
         </p>
       </div>
 
@@ -1025,11 +949,11 @@ what it may do now.</code>
     </div>
   </section>
 
-  <!-- ============ 08 DIAGRAMS ============ -->
+  <!-- ============ 07 DIAGRAMS ============ -->
   <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">08 / Diagrams</div>
+        <div class="section-label">07 / Diagrams</div>
         <h2 id="diagrams-h">Architecture Archive</h2>
         <p class="section-lede">
           A growing archive of architectural sketches for Physical AI, the
@@ -1140,8 +1064,6 @@ what it may do now.</code>
       <span>↓</span>
       <span>Semantic Digital Twin</span>
       <span>↓</span>
-      <span>Somatic Digital Twin</span>
-      <span>↓</span>
       <span class="here">Physical AI</span>
       <span>↓</span>
       <span>Runtime Society</span>
@@ -1152,7 +1074,7 @@ what it may do now.</code>
       <span>binding that state to meaning, constraint, and responsibility,</span>
       <span>and leaving every action as a record that can be learned from.</span>
       <span>&nbsp;</span>
-      <span>Somatic Digital Twin. Semantic Digital Twin.</span>
+      <span>Semantic Digital Twin.</span>
       <span>Knowledge Flow. Trust Infrastructure. Decision Trace.</span>
       <span>This is the architecture Chinoba is building toward.</span>
     </blockquote>
