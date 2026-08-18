@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Physical AI &amp; Cyber-Physical Systems — Chinoba</title>
-  <meta name="description" content="Decision structures for AI systems operating in the physical world — runtime coordination, boundaries, human escalation, and traceable action across robotics, autonomous systems, IoT, and smart factories.">
+  <title>Physical AI &amp; Cyber-Physical Systems: Semantic &amp; Somatic Digital Twin — Chinoba</title>
+  <meta name="description" content="How Physical AI moves from perception to accountable action — Semantic Digital Twin, Somatic Digital Twin, and Chinoba PF's Ontology, Knowledge Graph, DSL, and Decision Trace, connecting robots, machines, and vehicles to safe, traceable decisions.">
 
   <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
   <link rel="stylesheet" href="/assets/research.css">
@@ -16,137 +16,42 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
-    .flow.cols-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .flow.cols-4 .flow-step + .flow-step {
-      margin-left: 1px;
-    }
-
-    .flow.cols-4 .flow-step:nth-child(4n + 1) {
-      margin-left: 0;
-    }
-
-    .flow.cols-4 .flow-step .step-desc {
-      opacity: 1;
-    }
-
-    /* Diagram placeholders */
-    .diagrams {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-
-    .diagram-card {
-      background: var(--bg);
-      padding: 26px 24px 28px;
-      display: flex;
-      flex-direction: column;
-      min-height: 220px;
-    }
-
-    .diagram-card .kicker {
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--fg-faint);
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    .diagram-card h3 {
-      font-size: 16px;
-      margin: 0 0 14px;
-      font-weight: 600;
-      color: var(--fg);
-      letter-spacing: 0.2px;
-    }
-
-    .diagram-frame {
-      flex: 1;
-      border: 1px dashed var(--line-strong);
-      border-radius: 8px;
-      background:
-        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
-        var(--bg-elev);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--fg-faint);
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      min-height: 110px;
-    }
-
     @media (max-width: 900px) {
       .concept-grid.cols-4 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-      .flow.cols-4 {
-        grid-template-columns: 1fr;
-      }
-      .flow.cols-4 .flow-step + .flow-step {
-        margin-left: 0;
-        margin-top: 1px;
-      }
-      .diagrams {
-        grid-template-columns: 1fr;
-      }
     }
-
     @media (max-width: 640px) {
       .concept-grid.cols-4 {
         grid-template-columns: 1fr;
       }
     }
 
-    /* ---------- Inline diagram lead-ins ---------- */
-    .fig-lead {
-      max-width: 760px;
-      margin: clamp(44px, 6vw, 64px) auto 0;
+    /* Conceptual diagram variant — vertical token chains rendered as drawn */
+    .two-col .col-text .quote.is-diagram {
+      white-space: pre-line;
+      line-height: 1.95;
+      letter-spacing: 0.4px;
     }
-    .fig-lead h3 {
-      font-size: 20px;
-      margin: 0 0 12px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
+
+    /* A quote block used outside a two-col context (Somatic / Semantic contrast) */
+    .quote.section-quote {
+      display: block;
+      max-width: 640px;
+      margin: 28px auto 0;
+      padding: 14px 18px;
+      border-left: 2px solid var(--line-strong);
       color: var(--fg);
-    }
-    .fig-lead p {
-      color: var(--fg-mute);
-      font-size: 15.5px;
-      line-height: 1.85;
-      margin: 0;
-    }
-    .fig-lead + .figure {
-      margin-top: clamp(20px, 3vw, 28px);
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+      letter-spacing: 0.3px;
+      background: rgba(255,255,255,0.015);
+      white-space: pre-line;
+      line-height: 1.95;
+      text-align: left;
     }
 
-    /* ---------- Archive: real diagram images ---------- */
-    .diagram-shot {
-      display: block;
-      margin-top: auto;
-      border: 1px solid var(--line-strong);
-      border-radius: 8px;
-      overflow: hidden;
-      background: #fff;
-      cursor: zoom-in;
-      transition: border-color 200ms ease;
-    }
-    .diagram-shot:hover {
-      border-color: var(--fg-faint);
-    }
-    .diagram-shot img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    /* ---------- Explore This Theme ---------- */
+    /* ---------- Explore This Theme / Featured Resources ---------- */
     .theme-links {
       margin-top: 20px;
       display: flex;
@@ -169,23 +74,229 @@
       letter-spacing: 0.3px;
       line-height: 1.55;
     }
-    .theme-links .theme-book {
-      font-size: 13px;
-      color: var(--fg);
-      letter-spacing: 0.3px;
-      line-height: 1.55;
-    }
-    .theme-links .theme-book-sub {
-      display: block;
-      color: var(--fg-mute);
-      font-size: 12.5px;
-    }
-    .theme-links .theme-book-status {
+
+    /* ---------- Featured Publication ---------- */
+    .featured-badge {
       display: inline-block;
-      margin-top: 5px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+    .book.no-cover {
+      grid-template-columns: 1fr;
+    }
+    .book-asin {
+      display: block;
+      margin-top: 10px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: var(--fg-faint);
+    }
+
+    /* ---------- Fig lead-ins ---------- */
+    .fig-lead {
+      max-width: 760px;
+      margin: clamp(44px, 6vw, 64px) auto 0;
+    }
+    .fig-lead h3 {
+      font-size: 20px;
+      margin: 0 0 12px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      color: var(--fg);
+    }
+    .fig-lead p {
+      color: var(--fg-mute);
+      font-size: 15.5px;
+      line-height: 1.85;
+      margin: 0;
+    }
+    .fig-lead + .figure {
+      margin-top: clamp(20px, 3vw, 28px);
+    }
+
+    /* ---------- Diagrams Archive ---------- */
+    .diagrams {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .diagram-card {
+      background: var(--bg);
+      padding: 26px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+    .diagram-card .kicker {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .diagram-card h3 {
+      font-size: 16px;
+      margin: 0 0 14px;
+      font-weight: 600;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+    }
+    .diagram-shot {
+      display: block;
+      margin-top: auto;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      cursor: zoom-in;
+      transition: border-color 200ms ease;
+    }
+    .diagram-shot:hover {
+      border-color: var(--fg-faint);
+    }
+    .diagram-shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 900px) {
+      .diagrams {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---------- Integrated Architecture — layer diagram ---------- */
+    .field-runtime {
+      margin-top: clamp(56px, 7vw, 80px);
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      padding: 28px clamp(20px, 4vw, 40px) 36px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+    .field-runtime::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%);
+      pointer-events: none;
+    }
+    .field-runtime-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 6px;
+      position: relative;
+    }
+    .field-runtime-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--fg);
+      margin: 0 0 22px;
+      letter-spacing: 0.2px;
+      position: relative;
+    }
+    .field-layers {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+    .field-layer {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) auto;
+      align-items: baseline;
+      gap: 18px;
+      padding: 14px 4px;
+      border-bottom: 1px solid var(--line);
+    }
+    .field-layer:last-child {
+      border-bottom: none;
+    }
+    .field-layer .layer-idx {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+    }
+    .field-layer .layer-body {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .field-layer .layer-name {
+      font-size: 15px;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+      font-weight: 600;
+    }
+    .field-layer .layer-note {
+      font-size: 13px;
+      color: var(--fg-mute);
+      line-height: 1.6;
+    }
+    .field-layer .layer-tag {
       font-size: 11px;
       letter-spacing: 1.5px;
       color: var(--fg-faint);
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+    }
+    .field-arrow {
+      display: flex;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-size: 11px;
+      letter-spacing: 4px;
+      padding: 4px 0 6px;
+    }
+    @media (max-width: 900px) {
+      .field-layer {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .field-layer .layer-tag {
+        margin-top: 2px;
+      }
+    }
+
+    /* ---------- Closing positioning ladder + condensed CTA ---------- */
+    .closing .positioning {
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      line-height: 2.05;
+      margin: 0 0 44px;
+    }
+    .closing .positioning span {
+      display: block;
+    }
+    .closing .positioning .here {
+      color: var(--fg);
+    }
+    .closing-cta {
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--fg-faint);
+    }
+    .closing-cta a {
+      color: var(--accent);
     }
   </style>
 </head>
@@ -210,153 +321,181 @@
       <div class="eyebrow">Research / Physical AI &amp; Cyber-Physical Systems</div>
       <h1>Physical AI &amp; Cyber-Physical Systems</h1>
       <p class="hero-sub">
-        <span>Physical AI is not only embodied intelligence.</span>
-        <span>It is runtime-based decision-making in the real world.</span>
+        <span>Physical AI is not only a model that senses and moves.</span>
+        <span>It is a runtime that turns physical state into accountable action.</span>
       </p>
       <p class="hero-desc">
-        As AI moves from information spaces into physical
-        environments, decision structures, boundaries,
-        human escalation, and runtime coordination become critical.
+        As AI moves beyond generating text and images into observing, deciding, and
+        acting through robots, machines, vehicles, and drones, a basic loop repeats
+        everywhere it operates: observation, understanding, decision, action, and
+        feedback. Every pass through that loop carries physical consequence —
+        safety, authority, responsibility, and the ability to explain what happened
+        and why. Chinoba treats Physical AI not as a single model but as an
+        execution substrate that binds meaning, state, knowledge, policy, execution
+        authority, and Decision Trace into one accountable system.
       </p>
     </div>
   </header>
-
-  <!-- ============ EXPLORE THIS THEME ============ -->
-  <section class="research-section" id="explore" aria-labelledby="explore-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">Explore</div>
-        <h2 id="explore-h">Explore This Theme</h2>
-        <p class="section-lede">
-          Enter Physical AI through video and long-form texts — visual
-          introductions and deeper explorations of decision infrastructure,
-          runtime coordination, robotics, IoT, and cyber-physical systems
-          in the age of Physical AI.
-        </p>
-      </div>
-
-      <div class="essays">
-        <div class="essay">
-          <h3>📺 Watch on YouTube</h3>
-          <p>Visual introductions to Physical AI, Runtime Society, and why coordination matters more than intelligence in real-world AI systems.</p>
-          <div class="theme-links">
-            <div class="theme-lang">English</div>
-            <a href="https://youtu.be/ThGFarkIkLw" target="_blank" rel="noopener noreferrer">Physical AI Is Coming: Why Coordination Matters More Than Intelligence →</a>
-            <div class="theme-lang">Japanese</div>
-            <a href="https://youtu.be/XgCY-dhTB0Y" target="_blank" rel="noopener noreferrer">Physical AIとは何か？AIは「知能」から「協調」へ ― Runtime SocietyとDecision Trace Modelが描く未来 →</a>
-          </div>
-        </div>
-
-        <div class="essay">
-          <h3>📚 Related Books</h3>
-          <p>Long-form explorations of decision infrastructure for connecting AI, robotics, IoT, and cyber-physical systems to society.</p>
-          <div class="theme-links">
-            <div class="theme-lang">English Edition</div>
-            <div class="theme-book">
-              Decision Infrastructure for the Physical AI Era
-              <span class="theme-book-sub">Connecting AI, Robotics, and IoT to Society</span>
-              <span class="theme-book-status">出版準備中</span>
-            </div>
-            <div class="theme-lang">Japanese Edition</div>
-            <div class="theme-book">
-              Physical AI時代のDecision Infrastructure
-              <span class="theme-book-sub">― AI・ロボット・IoTを社会へ接続する意思決定基盤 ―</span>
-              <span class="theme-book-status">出版準備中</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ============ 01 OVERVIEW ============ -->
   <section class="research-section" id="overview" aria-labelledby="overview-h">
     <div class="wrap">
       <div class="section-head">
         <div class="section-label">01 / Overview</div>
-        <h2 id="overview-h">Decision Systems in the Physical World</h2>
+        <h2 id="overview-h">Beyond Generation: AI That Observes, Decides, and Acts</h2>
         <p class="section-lede">
-          Physical AI spans robotics, autonomous systems,
-          smart factories, IoT, sensor networks, and the
-          coordination between digital and physical worlds.
+          Physical AI spans robots, industrial equipment, vehicles, drones, and
+          sensor networks — any system where intelligence produces movement or
+          force in the world rather than only text or pixels. Recognizing an
+          object or predicting a value is not the same as deciding to act on it.
+          This inquiry is about the structure that has to exist between the two.
         </p>
       </div>
 
-      <div class="two-col">
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/02.png"
+           data-lightbox aria-label="Open the diagram of AI moving from generative AI to physical AI">
+          <img src="assets2/02.png"
+               alt="AI progressing from Generative AI to AI Agents to Physical AI, connected to robots, autonomous vehicles, drones, smart factories, and infrastructure — AI is moving from language to action."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The same intelligence, relocated — from generating language to acting through robots, vehicles, drones, and infrastructure.</figcaption>
+      </figure>
+
+      <div class="two-col" style="margin-top: clamp(48px, 6vw, 64px);">
         <div class="col-text">
+          <h3>The Physical AI Loop</h3>
           <p>
-            The category we call <em>Physical AI</em> includes a wide
-            surface of systems — robotics, autonomous vehicles,
-            smart factories, IoT networks, sensor fabrics, and
-            cyber-physical coordination across distributed
-            infrastructure.
+            Whatever the platform — a mobile robot, a production line, a delivery
+            vehicle, a drone — the same basic loop repeats: the system perceives
+            its environment, forms an understanding of the situation, decides
+            what to do, acts on the physical world, and receives feedback that
+            updates the next cycle.
           </p>
+          <code class="quote is-diagram">Observation
+  ↓ Understanding
+  ↓ Decision
+  ↓ Action
+  ↓ Feedback</code>
           <p>
-            These systems are commonly framed as a perception
-            problem and a control problem. That framing
-            is incomplete.
-          </p>
-
-          <code class="quote">Physical AI is not merely perception and control.</code>
-
-          <p>
-            The real challenge is how AI systems make decisions
-            <em>safely</em> under uncertainty in physical
-            environments — where actions are irreversible,
-            responsibility is real, and ambiguity is the default
-            condition of the signal.
-          </p>
-
-          <h3>Why This Inquiry</h3>
-          <p>
-            Physical environments are not data lakes. They contain
-            partial observations, weak signals, latency, conflicting
-            sensors, and human presence. A decision made by an AI
-            system here is not an output — it is an event that
-            changes the world.
+            Each stage looks simple in a diagram. In practice, each is where
+            physical-world AI most often fails — not because perception is
+            weak, but because the steps between perception and action are
+            collapsed into a single inference call.
           </p>
         </div>
 
         <div class="col-text">
-          <h3>Within Scope</h3>
-          <ul>
-            <li>Physical AI &amp; embodied systems</li>
-            <li>Robotics &amp; autonomous platforms</li>
-            <li>Smart factories &amp; industrial AI</li>
-            <li>IoT &amp; sensor networks</li>
-            <li>Cyber-physical coordination</li>
-            <li>Edge runtime &amp; distributed execution</li>
-            <li>Human-machine boundary design</li>
-          </ul>
-
-          <h3>Working Question</h3>
+          <h3>Why the Physical World Changes the Requirements</h3>
           <p>
-            How should decision structure — not just model
-            architecture — be designed for AI systems that act
-            inside the physical world?
+            Actions taken in physical space are frequently irreversible,
+            safety-relevant, and operationally consequential. A system that
+            moves a robot arm, opens a valve, or re-routes a vehicle needs more
+            than an accurate model — it needs permission, context, and a record
+            of why it acted.
+          </p>
+          <ul>
+            <li>Safety — the action must not endanger people or equipment</li>
+            <li>Authority — someone or something must be entitled to authorize it</li>
+            <li>Responsibility — a party remains accountable for the outcome</li>
+            <li>Auditability — the decision must be reconstructable after the fact</li>
+          </ul>
+          <p>
+            Chinoba treats these four requirements as architecture, not
+            afterthoughts — expressed through the Semantic Digital Twin, the
+            Somatic Digital Twin, Chinoba PF's Ontology, Knowledge Graph, DSL,
+            and Decision Trace, described below.
           </p>
         </div>
       </div>
 
       <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/02.png"
-           data-lightbox aria-label="Open the diagram of AI moving from information space to the physical world">
-          <img src="assets/02.png"
-               alt="AI is moving from information space — where it searches, generates, analyzes, and chats — into the physical world, where it moves, grasps, carries, and executes."
+        <a class="figure-frame" href="assets2/03.png"
+           data-lightbox aria-label="Open the diagram of Physical AI as perceive, understand, decide, and act">
+          <img src="assets2/03.png"
+               alt="Physical AI shown as a loop of Perceive, Understand, Decide, and Act, connecting sensors and a robotic arm — Physical AI connects intelligence with the physical world."
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">The same intelligence, relocated — from acting on information to acting on the world.</figcaption>
+        <figcaption class="figure-caption">Chinoba adds a fifth stage to this loop — feedback that updates the next decision.</figcaption>
       </figure>
+    </div>
+  </section>
 
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/04.png"
-           data-lightbox aria-label="Open the diagram showing that a body alone is not intelligence">
-          <img src="assets/04.png"
-               alt="A body is not intelligence: what a physical AI system also requires is judgment, coordination, responsibility, and boundary."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Perception and control are the body. Judgment, coordination, responsibility, and boundary are the decision.</figcaption>
-      </figure>
+  <!-- ============ FEATURED RESOURCES ============ -->
+  <section class="research-section" id="resources" aria-labelledby="resources-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Featured Resources</div>
+        <h2 id="resources-h">Start Here — the New Practical Guide, Books, Video, and Essays</h2>
+        <p class="section-lede">
+          The new English practical guide leads this line of inquiry. Below it
+          are the Chinoba books, videos, and essays that build the Semantic
+          Digital Twin and Somatic Digital Twin picture used throughout this
+          page.
+        </p>
+      </div>
+
+      <div style="margin-bottom: 56px;">
+        <span class="featured-badge">Featured Publication</span>
+        <div class="books-list">
+          <div class="book no-cover">
+            <div class="book-body">
+              <div class="book-title">A Practical Guide to Semantic Digital Twin for Physical AI</div>
+              <div class="book-subtitle">Building with Chinoba PF Ontology, Knowledge Graph, DSL, and Decision Trace</div>
+              <p>
+                The English practical guide behind this page's architecture —
+                how Ontology, Knowledge Graph, DSL, and Decision Trace combine
+                inside Chinoba PF to build the Semantic Digital Twin that lets
+                Physical AI understand the real world and act on it safely.
+              </p>
+              <a class="book-link" href="https://amzn.to/3UFiJWv" target="_blank" rel="noopener">View on Amazon →</a>
+              <span class="book-asin">ASIN B0HFH4QXYS · Kindle · Masao Watanabe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="essays">
+        <div class="essay">
+          <h3>📚 More Books</h3>
+          <p>Neighboring practical guides that build the Ontology, Knowledge Graph, DSL, Decision Trace, and Trust Infrastructure this page draws on.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://www.amazon.com/dp/B0H3N162S9" target="_blank" rel="noopener">Decision Trace Model Practical Implementation Guide →</a>
+            <a href="https://amzn.to/4bW7NcW" target="_blank" rel="noopener">Knowledge Flow Practical Guide →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://amzn.to/4q6LMxU" target="_blank" rel="noopener">Physical AIを支えるSemantic Digital Twin実践ガイド →</a>
+            <a href="https://amzn.to/4z7CYMj" target="_blank" rel="noopener">Trust Infrastructure実践ガイド →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📺 Watch on YouTube</h3>
+          <p>Visual introductions to Physical AI and the Semantic Digital Twin that lets it reason about the real world.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://youtu.be/ThGFarkIkLw" target="_blank" rel="noopener noreferrer">Physical AI Is Coming: Why Coordination Matters More Than Intelligence →</a>
+            <a href="https://youtu.be/XeVLoLkCx10" target="_blank" rel="noopener noreferrer">Semantic Digital Twin for Physical AI →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://youtu.be/XgCY-dhTB0Y" target="_blank" rel="noopener noreferrer">Physical AIとは何か？AIは「知能」から「協調」へ →</a>
+            <a href="https://youtu.be/B-A7ABauvWc" target="_blank" rel="noopener noreferrer">Physical AIを支えるSemantic Digital Twin →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📰 From the Blog</h3>
+          <p>Long-form essays behind this page's argument — Physical AI, the Decision Trace Model, and the sensor-to-decision boundary.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://deus-ex-machina-ism.com/en/physical-ai-cyber-physical-systems/" target="_blank" rel="noopener noreferrer">Physical AI &amp; Cyber-Physical Systems →</a>
+            <a href="https://deus-ex-machina-ism.com/en/physical-ai-dtm-intelligence-field/" target="_blank" rel="noopener noreferrer">Physical AI Beyond Embodied Intelligence →</a>
+            <a href="https://deus-ex-machina-ism.com/en/iot-decision-system-decision-trace-model-multi-agent/" target="_blank" rel="noopener noreferrer">IoT: From Detection Systems to Decision Systems →</a>
+            <a href="https://deus-ex-machina-ism.com/en/sensor-data-iot/" target="_blank" rel="noopener noreferrer">Sensor Data &amp; IoT Technologies →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://deus-ex-machina-ism.com/physical-ai-cyber-physical-systems/" target="_blank" rel="noopener noreferrer">Physical AI &amp; Cyber-Physical Systems →</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -365,333 +504,499 @@
     <div class="wrap">
       <div class="section-head">
         <div class="section-label">02 / Why It Matters</div>
-        <h2 id="why-h">From Input → Output to Runtime → Trace</h2>
+        <h2 id="why-h">Why Physical AI Needs More Than Perception and Control</h2>
         <p class="section-lede">
-          Traditional AI architectures collapse perception, model,
-          and output into a single chain. Physical environments
-          demand more layers.
+          A sensor reading or an object-detection result is not, by itself,
+          something a system can safely act on. The same detection can call for
+          entirely different responses depending on where it occurs, what task
+          is underway, which equipment is involved, how dangerous the situation
+          is, who is authorized to act, and how current the information is.
         </p>
       </div>
 
       <div class="two-col">
         <div class="col-text">
-          <p>Physical environments contain:</p>
-          <ul>
-            <li>ambiguity</li>
-            <li>weak signals</li>
-            <li>incomplete sensor data</li>
-            <li>latency</li>
-            <li>safety risks</li>
-            <li>real-world responsibility</li>
-            <li>human interaction</li>
-          </ul>
-
-          <p>The classical pipeline is insufficient:</p>
-
-          <code class="quote">Input → Model → Output</code>
-
+          <h3>Recognition Is Not Understanding</h3>
           <p>
-            It does not represent boundary, escalation, coordination,
-            or trace. It treats decision as a side effect of
-            inference, not as a layer with its own structure.
+            "Worker," "forklift," and "pallet" are labels a vision model can
+            produce reliably. None of them says whether the worker is
+            authorized to be there, whether the forklift is mid-task, or
+            whether the pallet is load-bearing. Meaning comes from connecting
+            the detection to role, relationship, context, and rule — not from
+            the detection itself.
+          </p>
+          <p>
+            Generative and perception models are good at exactly this:
+            interpreting ambiguity, proposing alternatives, and forming
+            hypotheses. What they produce is a <em>candidate action</em>, not
+            an authorized one.
           </p>
         </div>
 
         <div class="col-text">
-          <h3>What Physical AI Actually Requires</h3>
-          <code class="quote">
-Sensor
-  ↓
-Signal
-  ↓
-Context
-  ↓
-Decision Runtime
-  ↓
-Boundary
-  ↓
-Human Gate
-  ↓
-Execution
-  ↓
-Trace
-          </code>
+          <h3>Candidates Must Pass Through Knowledge and Boundary</h3>
           <p>
-            Each stage is a distinct architectural concern. Each
-            stage is also where physical-world AI fails when it is
-            collapsed into the model.
+            A candidate action becomes an executable decision only after it
+            passes through what Chinoba calls the boundary layer: applicable
+            knowledge and rules, the current context, safety policy, and —
+            where required — a Human Gate and explicit Execution
+            Authorization.
+          </p>
+          <code class="quote">Candidate action
+is not
+a decision to act.</code>
+          <p>
+            Wiring a model's output directly to an equipment command, without
+            this layer, is the single most common failure mode in physical AI
+            systems — and the one this research line exists to close.
           </p>
         </div>
       </div>
 
+      <div class="fig-lead">
+        <h3>Recognition ≠ Understanding</h3>
+        <p>
+          Object detection identifies a worker, a forklift, and a pallet.
+          Understanding requires knowing their role, their relationship, the
+          governing rules, and the current constraints — the layer recognition
+          alone cannot supply.
+        </p>
+      </div>
       <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/07.png"
-           data-lightbox aria-label="Open the diagram showing that a signal is not a decision">
-          <img src="assets/07.png"
-               alt="Signal does not equal Decision: the output of a model is a signal, not yet a final decision."
+        <a class="figure-frame" href="assets2/05.png"
+           data-lightbox aria-label="Open the diagram showing recognition does not equal understanding">
+          <img src="assets2/05.png"
+               alt="Object detection labels of Worker, Forklift, and Pallet contrasted with a meaning graph of Role, Relationship, Context, Rules, and Constraints — Recognition does not equal Understanding; what Physical AI lacks is meaning."
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">A model produces a signal. Treating that signal as a decision is where the pipeline fails.</figcaption>
+        <figcaption class="figure-caption">What Physical AI is missing is not better recognition — it is meaning.</figcaption>
       </figure>
 
+      <div class="fig-lead">
+        <h3>From Candidate to Validated Action</h3>
+        <p>
+          Generative AI contributes flexibility — interpreting ambiguity and
+          proposing alternatives. Structured knowledge contributes safety and
+          consistency — defining meaning, applying rules, validating actions,
+          and controlling boundaries. Physical AI needs both, in that order.
+        </p>
+      </div>
       <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/08.png"
-           data-lightbox aria-label="Open the diagram of the decision runtime that turns a signal into a decision">
-          <img src="assets/08.png"
-               alt="A decision runtime places an event and its signal inside context, rules, and constraints before a responsible decision is made."
+        <a class="figure-frame" href="assets2/14.png"
+           data-lightbox aria-label="Open the diagram of generative AI and structured knowledge producing a validated action">
+          <img src="assets2/14.png"
+               alt="Generative AI produces an Action Candidate; Ontology, DSL, and Policy validate it; together they produce a Validated Action — flexibility multiplied by safety and consistency."
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">The missing layer — a runtime that resolves a signal into a decision under context and constraint.</figcaption>
+        <figcaption class="figure-caption">A candidate action becomes a validated action only after knowledge and policy have checked it.</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- ============ 03 CORE STRUCTURE ============ -->
-  <section class="research-section" id="core" aria-labelledby="core-h">
+  <!-- ============ 03 SEMANTIC DIGITAL TWIN ============ -->
+  <section class="research-section" id="semantic-twin" aria-labelledby="semantic-twin-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">03 / Core Structure</div>
-        <h2 id="core-h">Runtime Primitives for the Physical World</h2>
+        <div class="section-label">03 / The Meaning Layer</div>
+        <h2 id="semantic-twin-h">Semantic Digital Twin</h2>
         <p class="section-lede">
-          Seven primitives that compose the decision layer for
-          AI systems operating in physical environments.
+          A Semantic Digital Twin is not a 3D model of a physical asset, and
+          not a copy of its telemetry. It is the layer that gives that state
+          meaning — connecting entities, relationships, context, knowledge,
+          and decision options into a form a runtime can reason over.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/10.png"
+           data-lightbox aria-label="Open the diagram comparing a traditional digital twin to a semantic digital twin">
+          <img src="assets2/10.png"
+               alt="A Traditional Digital Twin of shape, position, temperature, and machine status evolving into a Semantic Digital Twin of meaning, role, relationship, rules, constraints, and decision conditions connected to workers, robots, and decision-makers."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">From state replication to meaningful world representation.</figcaption>
+      </figure>
+
+      <div class="concept-grid" style="margin-top: clamp(48px, 6vw, 64px);">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Entities</h3>
+          <p>Equipment, robots, workers, areas, materials, and tasks — the things a decision can be about.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Relationships</h3>
+          <p>Location, ownership, dependency, authorization, and containment — how those things connect to one another.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>States &amp; Context</h3>
+          <p>Operating state, time, environment, task progress, and confidence — the situation as it stands right now.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Knowledge &amp; Rules</h3>
+          <p>Specifications, procedures, safety policies, and constraints that apply to the situation.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Decision Context</h3>
+          <p>Goals, candidate actions, applicable boundaries, and the explanation a decision will need to carry.</p>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top: clamp(48px, 6vw, 64px);">
+        <div class="col-text">
+          <h3>Chinoba PF: Ontology and Knowledge Graph</h3>
+          <p>
+            Ontology defines what exists in the physical environment and how
+            those things relate — factory, production line, equipment,
+            worker, safety zone — giving Physical AI a shared vocabulary
+            instead of ad hoc labels.
+          </p>
+          <p>
+            The Knowledge Graph instantiates that vocabulary as a live,
+            queryable model: which press is running which recipe, which
+            worker is in which zone, which past incident applies. It is a
+            dynamic representation of the physical world as it changes, not a
+            static database.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Chinoba PF: DSL and Decision Trace</h3>
+          <p>
+            The DSL turns encoded knowledge into executable conditions — a
+            temperature threshold crossed while a worker is inside a safety
+            zone requires the equipment to stop and a manager to be notified,
+            with human approval required to restart. This is how meaning
+            becomes something a runtime can enforce, not just describe.
+          </p>
+          <p>
+            Decision Trace records which entities, relationships, rules, and
+            context produced a given decision — so every action the Semantic
+            Digital Twin informs remains explainable after the fact.
+          </p>
+          <code class="quote">Ontology names it.
+Knowledge Graph tracks it.
+DSL enforces it.
+Decision Trace explains it.</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 SOMATIC DIGITAL TWIN ============ -->
+  <section class="research-section" id="somatic-twin" aria-labelledby="somatic-twin-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / The Body Layer</div>
+        <h2 id="somatic-twin-h">Somatic Digital Twin</h2>
+        <p class="section-lede">
+          Alongside the Semantic Digital Twin, Chinoba treats the body state
+          of a physical agent — a robot, a piece of equipment, a vehicle, any
+          actor with a physical form — as a distinct, time-tracked model in
+          its own right: the Somatic Digital Twin.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What the Somatic Digital Twin Tracks</h3>
+          <p>
+            Where a Semantic Digital Twin asks what a situation means, the
+            Somatic Digital Twin asks a narrower, more immediate question:
+            what state is this body in right now, and what can it safely do?
+            It follows a machine's physical condition and operating health
+            across time rather than at a single instant.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Why It Is Modeled Separately</h3>
+          <p>
+            Body state changes on its own timeline — batteries drain, joints
+            wear, sensors drift out of calibration — independent of what a
+            task or a rulebook says should happen. Modeling it as its own
+            layer keeps "is this asset actually capable right now" separate
+            from "is this action allowed," so neither question quietly
+            substitutes for the other.
+          </p>
+        </div>
+      </div>
+
+      <div class="concept-grid" style="margin-top: clamp(48px, 6vw, 64px);">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Physical Condition</h3>
+          <p>Temperature, vibration, load, battery, wear, position, posture, and general health.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Capability Envelope</h3>
+          <p>What the asset can safely do right now, given its current condition — not its nameplate specification.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Operational Condition</h3>
+          <p>Connectivity, sensor freshness, calibration status, and any active fault state.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Environmental Coupling</h3>
+          <p>Location, nearby people and equipment, and weather or site conditions the body operates within.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Change Over Time</h3>
+          <p>Observed history, maintenance events, degradation, recovery, and anomaly signals.</p>
+        </div>
+      </div>
+
+      <div class="fig-lead">
+        <h3>Somatic and Semantic Digital Twin, Together</h3>
+        <p>
+          Neither twin is sufficient alone. The Somatic Digital Twin describes
+          the body — its state, its capability envelope, its health, its
+          limits. The Semantic Digital Twin describes what that state means —
+          what it relates to, and under which rules, goals, and
+          authorizations it should be interpreted. Physical AI needs both to
+          move from "we can see the machine" to "we can decide, safely,
+          whether this action should happen now."
+        </p>
+      </div>
+      <code class="quote section-quote">Somatic Digital Twin
+  the body: condition, capability, health
+
+Semantic Digital Twin
+  the meaning: relationships, rules, authority
+
+Together
+  perception becomes an accountable decision to act</code>
+    </div>
+  </section>
+
+  <!-- ============ 05 INTEGRATED ARCHITECTURE ============ -->
+  <section class="research-section" id="architecture" aria-labelledby="architecture-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / The Architecture</div>
+        <h2 id="architecture-h">From Physical State to Accountable Action</h2>
+        <p class="section-lede">
+          This is the architecture the rest of the page has been building
+          toward — the path from a raw physical event to an action a person,
+          auditor, or reviewer could later verify as reasonable, authorized,
+          and correctly executed.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets2/12.png"
+           data-lightbox aria-label="Open the complete knowledge flow diagram from documents to physical action">
+          <img src="assets2/12.png"
+               alt="The Complete Knowledge Flow: Documents feed Ingestion, Knowledge Extraction, Ontology, and Knowledge Graph, compiled into DSL and a Decision Runtime that produces Physical Action across robots, machines, vehicles, and drones."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Knowledge does not stop at the knowledge graph — it becomes a rule, then a decision, then a physical action.</figcaption>
+      </figure>
+
+      <div class="two-col" style="margin-top: clamp(48px, 6vw, 64px);">
+        <div class="col-text">
+          <h3>Independent Safety Boundaries</h3>
+          <p>
+            Interlocks, emergency stops, and hard safety limits sit outside
+            this decision pipeline by design. Physical AI proposes and
+            requests; it does not have the authority to disable or override
+            the mechanisms that exist specifically to contain it when
+            something goes wrong.
+          </p>
+          <p>
+            Capability and permission are not the same thing. A robot arm
+            being physically able to move into a space is not the same as it
+            being authorized to move there right now, under the current
+            rules, with the current people present.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Traceable by Construction</h3>
+          <p>
+            Every decision in this pipeline should be reconstructable end to
+            end — from the original observation and the context that
+            surrounded it, through the rules that were applied and the
+            authority that approved it, to the execution itself and its
+            outcome.
+          </p>
+          <p>
+            Feedback from that outcome runs in two directions: it updates the
+            Somatic and Semantic Digital Twins' picture of current operating
+            reality, and it updates the policies, thresholds, and trust
+            levels that shape future decisions.
+          </p>
+          <code class="quote">Capability answers
+what an asset can do.
+Authorization answers
+what it may do now.</code>
+        </div>
+      </div>
+
+      <div class="field-runtime" aria-label="Physical AI runtime structure, from physical world to decision trace">
+        <div class="field-runtime-label">Layer Diagram</div>
+        <h3 class="field-runtime-title">Physical AI — Runtime Structure</h3>
+
+        <ol class="field-layers" role="list">
+          <li class="field-layer">
+            <span class="layer-idx">L1</span>
+            <span class="layer-body">
+              <span class="layer-name">Physical World</span>
+              <span class="layer-note">Equipment, robots, vehicles, drones, workers, and material — the environment Physical AI observes and eventually acts on.</span>
+            </span>
+            <span class="layer-tag">world</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L2</span>
+            <span class="layer-body">
+              <span class="layer-name">Sensors &amp; Perception</span>
+              <span class="layer-note">Cameras, lidar, IMUs, and industrial telemetry produce raw signals; detection and recognition turn them into labeled observations.</span>
+            </span>
+            <span class="layer-tag">perceive</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L3</span>
+            <span class="layer-body">
+              <span class="layer-name">Somatic Digital Twin</span>
+              <span class="layer-note">The acting body's own state — physical condition, capability envelope, and operational health — tracked as it changes over time.</span>
+            </span>
+            <span class="layer-tag">body</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L4</span>
+            <span class="layer-body">
+              <span class="layer-name">Semantic Digital Twin</span>
+              <span class="layer-note">Entities, relationships, context, and applicable knowledge give the observation and the body state a meaning the runtime can reason over.</span>
+            </span>
+            <span class="layer-tag">meaning</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L5</span>
+            <span class="layer-body">
+              <span class="layer-name">Ontology / Knowledge Graph / DSL</span>
+              <span class="layer-note">Chinoba PF structures that meaning as a shared vocabulary, a live world model, and executable rules a runtime can evaluate.</span>
+            </span>
+            <span class="layer-tag">chinoba pf</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L6</span>
+            <span class="layer-body">
+              <span class="layer-name">Decision Runtime</span>
+              <span class="layer-note">Knowledge, current context, goals, and policy combine to form a candidate action under uncertainty.</span>
+            </span>
+            <span class="layer-tag">decide</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L7</span>
+            <span class="layer-body">
+              <span class="layer-name">Policy, Trust &amp; Human Gate</span>
+              <span class="layer-note">The candidate is checked against safety policy and trust thresholds; ambiguous or high-stakes cases route to a human for Execution Authorization.</span>
+            </span>
+            <span class="layer-tag">authorize</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L8</span>
+            <span class="layer-body">
+              <span class="layer-name">Physical Action Adapter</span>
+              <span class="layer-note">An authorized decision becomes a command to the robot, machine, or vehicle — independent interlocks and emergency stops remain outside this path.</span>
+            </span>
+            <span class="layer-tag">act</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">L9</span>
+            <span class="layer-body">
+              <span class="layer-name">Decision Trace &amp; Feedback</span>
+              <span class="layer-note">Observation, context, rule, decision, and outcome are preserved together, then fed back into the Digital Twins and future policy.</span>
+            </span>
+            <span class="layer-tag">trace</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="fig-lead">
+        <h3>Decision Trace Closes the Loop</h3>
+        <p>
+          An observation, the context it was read against, the rule that was
+          applied, the decision that followed, and the reason behind it —
+          recorded together, then reviewed, so the next decision improves on
+          the last.
+        </p>
+      </div>
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/15.png"
+           data-lightbox aria-label="Open the diagram of decision trace recording the reason behind an action">
+          <img src="assets2/15.png"
+               alt="Decision Trace records Observation, Context, Applied Rule, Decision, and Reason for a temperature event, and an Action to Decision Trace to Review to Knowledge Update to Better Action loop — physical actions must be explainable."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Action, decision trace, review, and knowledge update form a loop, not a dead end.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 06 APPLICATIONS ============ -->
+  <section class="research-section" id="applications" aria-labelledby="applications-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Applications</div>
+        <h2 id="applications-h">Applications Across Physical Domains</h2>
+        <p class="section-lede">
+          The same architecture applies wherever AI acts through a physical
+          body — only the entities, rules, and stakes change. In every case,
+          value comes from combining what the Somatic Digital Twin knows
+          about the asset with what the Semantic Digital Twin knows about the
+          situation, and preserving both in a Decision Trace.
         </p>
       </div>
 
       <div class="concept-grid cols-4">
         <div class="concept">
           <div class="idx">i</div>
-          <h3>Sensor Layer</h3>
-          <p>Cameras, lidar, IMUs, edge devices, industrial telemetry. The substrate of physical observation — noisy, partial, and continuous.</p>
+          <h3>Manufacturing</h3>
+          <p>Equipment condition and process context meet safety rules and quality constraints, so an authorized adjustment — not just a suggested one — reaches the press or the line.</p>
         </div>
-
         <div class="concept">
           <div class="idx">ii</div>
-          <h3>Context Formation</h3>
-          <p>Sensor signals are not context. Context is constructed across time, history, location, intent, and adjacent systems.</p>
+          <h3>Logistics</h3>
+          <p>A robot's battery, load, and location combine with aisle state and access authority to produce a route decision a warehouse can trust and later review.</p>
         </div>
-
         <div class="concept">
           <div class="idx">iii</div>
-          <h3>Runtime Decision Layer</h3>
-          <p>The orchestration layer where signals are interpreted into actions under uncertainty — the Decision OS of the physical system.</p>
+          <h3>Maintenance</h3>
+          <p>Degradation signals meet asset knowledge and maintenance history, turning a raw anomaly into an accountable intervention with a documented reason.</p>
         </div>
-
         <div class="concept">
           <div class="idx">iv</div>
-          <h3>Boundary Systems</h3>
-          <p>Safety envelopes, operational limits, regulatory constraints. Boundaries prevent unsafe autonomous execution at the edge.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">v</div>
-          <h3>Human Escalation</h3>
-          <p>When ambiguity exceeds threshold, control returns to a person. Escalation is architectural, not a fallback.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">vi</div>
-          <h3>Multi-Agent Coordination</h3>
-          <p>Robots, machines, sensors, and humans operate as a distributed runtime — negotiation, handoff, and shared state.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">vii</div>
-          <h3>Decision Trace</h3>
-          <p>Every action in the physical world remains traceable, replayable, and accountable. Trace is the memory of the system.</p>
-        </div>
-      </div>
-
-      <div class="fig-lead">
-        <h3>Boundary — the guardrail between decision and execution</h3>
-        <p>
-          Of the seven primitives, two are where a collapsed model most
-          often fails. The first is the boundary: the layer that verifies
-          a decision against safety, ethics, compliance, and accountability
-          before it is allowed to reach the physical world.
-        </p>
-      </div>
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/10.png"
-           data-lightbox aria-label="Open the diagram of the boundary between decision and execution">
-          <img src="assets/10.png"
-               alt="The boundary sits between decision and execution, checking each decision against safety, ethics, compliance, and accountability."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">The boundary controls what is permissible, not merely what is technically possible.</figcaption>
-      </figure>
-
-      <div class="fig-lead">
-        <h3>Human escalation — where responsibility re-enters</h3>
-        <p>
-          The second is escalation. When a decision is ambiguous, high-risk,
-          or value-laden, control passes back through a human gate — a
-          structural checkpoint for verification, judgment, and accountability,
-          not a fallback bolted on after the fact.
-        </p>
-      </div>
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/12.png"
-           data-lightbox aria-label="Open the diagram of the human gate for AI decisions">
-          <img src="assets/12.png"
-               alt="The human gate: AI proposes, humans verify, judge, and approve before execution, and remain the accountable party."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">AI is a decision-support layer. The accountable decision remains with people.</figcaption>
-      </figure>
-
-      <div class="section-head" style="margin-top: clamp(56px, 7vw, 80px); margin-bottom: 28px;">
-        <div class="section-label">Physical AI Runtime Flow</div>
-        <h2 style="font-size: clamp(20px, 2.4vw, 24px);">Sensor → Trace</h2>
-      </div>
-
-      <div class="fig-lead" style="margin-top: 0;">
-        <p>
-          The full runtime composes these primitives into a single path — from
-          an event in the world through signal, runtime, boundary, and human
-          gate to execution, and finally into an immutable ledger. The textual
-          flow below expands the same structure step by step.
-        </p>
-      </div>
-      <figure class="figure figure-wide figure-main" style="margin-top: clamp(20px, 3vw, 28px);">
-        <a class="figure-frame" href="assets/09.png"
-           data-lightbox aria-label="Open the end-to-end Decision Trace Model runtime flow diagram">
-          <img src="assets/09.png"
-               alt="The Decision Trace Model: Event, Signal, Runtime, Boundary, Human Gate, Execution, and Ledger connected as one accountable end-to-end flow."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Not just what was done, but why, how, and who took responsibility — preserved end to end.</figcaption>
-      </figure>
-
-      <ol class="flow cols-4" role="list">
-        <li class="flow-step" tabindex="0">
-          <span class="step-num">01</span>
-          <span class="step-name">Sensor</span>
-          <p class="step-desc">The physical world is observed through continuous, partial signals.</p>
-        </li>
-        <li class="flow-step" tabindex="0">
-          <span class="step-num">02</span>
-          <span class="step-name">Signal</span>
-          <p class="step-desc">Raw observations become interpretable signals — features, anomalies, events.</p>
-        </li>
-        <li class="flow-step" tabindex="0">
-          <span class="step-num">03</span>
-          <span class="step-name">Context</span>
-          <p class="step-desc">Signals are placed against history, location, and adjacent state.</p>
-        </li>
-        <li class="flow-step" tabindex="0">
-          <span class="step-num">04</span>
-          <span class="step-name">Decision Runtime</span>
-          <p class="step-desc">The runtime forms a candidate action under uncertainty.</p>
-        </li>
-        <li class="flow-step" tabindex="0">
-          <span class="step-num">05</span>
-          <span class="step-name">Boundary</span>
-          <p class="step-desc">Safety envelopes, regulations, and operational limits are checked.</p>
-        </li>
-        <li class="flow-step" tabindex="0">
-          <span class="step-num">06</span>
-          <span class="step-name">Human Gate</span>
-          <p class="step-desc">Critical or ambiguous decisions are escalated to a person.</p>
-        </li>
-        <li class="flow-step" tabindex="0">
-          <span class="step-num">07</span>
-          <span class="step-name">Execution</span>
-          <p class="step-desc">The decision becomes a physical action in the world.</p>
-        </li>
-        <li class="flow-step" tabindex="0">
-          <span class="step-num">08</span>
-          <span class="step-name">Trace</span>
-          <p class="step-desc">The full path is preserved as a structured, replayable record.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ============ 04 RELATED ESSAYS ============ -->
-  <section class="research-section" id="essays" aria-labelledby="essays-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">04 / Related Essays</div>
-        <h2 id="essays-h">Reading Around Physical AI</h2>
-        <p class="section-lede">
-          Essays that extend this inquiry into IoT, embodied
-          intelligence, and the sensor-decision boundary.
-        </p>
-      </div>
-
-      <div class="essays">
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/iot-decision-system-decision-trace-model-multi-agent/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">IoT / Decision Systems</div>
-          <h3>IoT from Detection Systems to Decision Systems</h3>
-          <p>How IoT architectures are shifting from detection pipelines into runtime-based decision systems coordinated across multiple agents.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/physical-ai-dtm-intelligence-field/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">Physical AI</div>
-          <h3>Physical AI Beyond Embodied Intelligence — DTM and Intelligence Field Perspectives —</h3>
-          <p>A rethinking of Physical AI through the lens of Decision Trace Model and the Intelligence Field — beyond perception and control.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
-        <a class="essay" href="https://deus-ex-machina-ism.com/en/sensor-data-iot/" target="_blank" rel="noopener noreferrer">
-          <div class="kicker">Sensor / IoT</div>
-          <h3>Sensor Data &amp; IoT Technologies</h3>
-          <p>A field-level overview of sensor data, IoT technologies, and their role inside cyber-physical decision infrastructure.</p>
-          <div class="essay-meta is-available">Available Now</div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 05 RELATED BOOKS ============ -->
-  <section class="research-section" id="books" aria-labelledby="books-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">05 / Related Books</div>
-        <h2 id="books-h">Long-form Texts</h2>
-        <p class="section-lede">
-          Knowledge artifacts that compile the surrounding research
-          into structured volumes. English editions shown here.
-        </p>
-      </div>
-
-      <div class="books-list">
-        <div class="book">
-          <div class="book-body">
-            <div class="book-title">AI is not prediction. It is decision.</div>
-            <div class="book-subtitle">— Decision Trace Model Practical Guide —</div>
-            <p>A practical guide for designing AI as a decision system rather than a predictive output engine.</p>
-            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
-          </div>
-          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
-          </a>
-        </div>
-
-        <div class="book">
-          <div class="book-body">
-            <div class="book-title">Intelligence Field</div>
-            <div class="book-subtitle">— Intelligence as Relationship —</div>
-            <p>A new perspective on AI, relational intelligence, and social intelligence fields — extended toward physical-world coordination.</p>
-            <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener">Available on Kindle →</a>
-          </div>
-          <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-            <img src="/assets/book_pic/en/02.jpg" alt="" loading="lazy">
-          </a>
+          <h3>Mobility &amp; Infrastructure</h3>
+          <p>Environmental conditions and operational boundaries govern autonomous movement, with human escalation available whenever confidence or authority runs out.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 06 RELATED OSS ============ -->
+  <!-- ============ 07 RELATED OSS ============ -->
   <section class="research-section" id="oss" aria-labelledby="oss-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">06 / Related OSS</div>
+        <div class="section-label">07 / Related OSS</div>
         <h2 id="oss-h">Related OSS</h2>
         <p class="section-lede">
-          Runtime-oriented architectures for physical-world
-          AI systems — decision execution, trace, and coordination.
+          Runtime-oriented building blocks for Physical AI — decision
+          execution, traceable action, graph-based world models, and signal
+          analytics across sensor networks and the Somatic and Semantic
+          Digital Twins.
         </p>
       </div>
 
@@ -699,10 +1004,9 @@ Trace
         <div class="oss-meta">
           <h3>Modular runtime components</h3>
           <p>
-            The OSS ecosystem provides primitives for Physical AI:
-            decision runtimes, interaction loops, traceable execution,
-            graph-based decision modeling, and signal analytics
-            across sensor networks.
+            The OSS ecosystem provides primitives for Physical AI: decision
+            runtimes, interaction loops, traceable execution, graph-based
+            decision modeling, and signal analytics across sensor networks.
           </p>
 
           <a class="oss-link" href="https://github.com/chinoba-lab" target="_blank" rel="noopener">
@@ -721,56 +1025,97 @@ Trace
     </div>
   </section>
 
-  <!-- ============ 07 DIAGRAMS ============ -->
+  <!-- ============ 08 DIAGRAMS ============ -->
   <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">07 / Diagrams</div>
+        <div class="section-label">08 / Diagrams</div>
         <h2 id="diagrams-h">Architecture Archive</h2>
         <p class="section-lede">
-          A growing archive of architectural sketches for
-          Physical AI runtime structures.
+          A growing archive of architectural sketches for Physical AI, the
+          Semantic Digital Twin, and the Chinoba PF knowledge stack that
+          extend the page rather than repeat it.
         </p>
       </div>
 
       <div class="diagrams">
         <div class="diagram-card">
           <div class="kicker">Diagram 01</div>
-          <h3>Multi-Agent Physical AI Society</h3>
-          <a class="diagram-shot" href="assets/16.png"
-             data-lightbox aria-label="Open the diagram of a multi-agent physical AI society">
-            <img src="assets/16.png"
-                 alt="Robots, drones, vehicles, factories, and cities operating as a multi-agent society that shares information and coordinates toward a common purpose."
+          <h3>Structured Knowledge, Visualized</h3>
+          <a class="diagram-shot" href="assets2/01.png"
+             data-lightbox aria-label="Open the structured knowledge for Physical AI title diagram">
+            <img src="assets2/01.png"
+                 alt="A title graphic reading Structured Knowledge for Physical AI: How Ontologies and DSLs Transform Real-World Intelligence, over a robot working on a factory line."
                  loading="lazy">
           </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 02</div>
-          <h3>Coordination Trace</h3>
-          <a class="diagram-shot" href="assets/17.png"
-             data-lightbox aria-label="Open the diagram of the coordination trace across agents">
-            <img src="assets/17.png"
-                 alt="Coordination trace: recording information flow, decision rationale, coordination, and execution history across agents to deliver transparency and verifiability."
+          <h3>Perception Technologies Are Not Enough</h3>
+          <a class="diagram-shot" href="assets2/04.png"
+             data-lightbox aria-label="Open the diagram of Physical AI technologies asking if perception is enough to act safely">
+            <img src="assets2/04.png"
+                 alt="Physical AI shown at the center of cameras, sensors, robotics, foundation models, reinforcement learning, and simulation, asking whether this is enough to act safely."
                  loading="lazy">
           </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 03</div>
-          <h3>Relational Intelligence Structure</h3>
-          <a class="diagram-shot" href="assets/14.png"
-             data-lightbox aria-label="Open the diagram of intelligence as a structure of relationships">
-            <img src="assets/14.png"
-                 alt="Intelligence does not exist as a single entity: robot, human, sensor, rule, infrastructure, and organization function only through their relationships."
+          <h3>Three Layers Physical AI Needs</h3>
+          <a class="diagram-shot" href="assets2/06.png"
+             data-lightbox aria-label="Open the diagram of the three layers Physical AI needs">
+            <img src="assets2/06.png"
+                 alt="The three layers Physical AI needs: Perception to recognize the real world, Semantic Understanding to grasp meaning, relationships, and state, and Decision and Action."
                  loading="lazy">
           </a>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 04</div>
-          <h3>Governance &amp; Decision Trace Infrastructure</h3>
-          <a class="diagram-shot" href="assets/18.png"
-             data-lightbox aria-label="Open the diagram of governance infrastructure built on the Decision Trace Model">
-            <img src="assets/18.png"
-                 alt="Governance infrastructure built on the Decision Trace Model: records and structures decisions, governs rules and responsibility, and supports a trustworthy society."
+          <h3>Ontology: What Exists and How It Relates</h3>
+          <a class="diagram-shot" href="assets2/07.png"
+             data-lightbox aria-label="Open the diagram of ontology giving structure to the world">
+            <img src="assets2/07.png"
+                 alt="An ontology diagram connecting Factory, Production Line, Process, Product, Equipment, Quality Rule, Worker, and Safety Zone — Ontology defines what exists and how it is related."
+                 loading="lazy">
+          </a>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 05</div>
+          <h3>Context Turns a Reading Into Meaning</h3>
+          <a class="diagram-shot" href="assets2/08.png"
+             data-lightbox aria-label="Open the diagram giving meaning to an 85 degree sensor reading">
+            <img src="assets2/08.png"
+                 alt="A sensor reading of 85 degrees Celsius connected through ontology and context to equipment, material, allowed range, current value, and a possible-anomaly result."
+                 loading="lazy">
+          </a>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 06</div>
+          <h3>Knowledge Graph as a Dynamic World Model</h3>
+          <a class="diagram-shot" href="assets2/09.png"
+             data-lightbox aria-label="Open the diagram of knowledge graphs as a dynamic world model">
+            <img src="assets2/09.png"
+                 alt="A knowledge graph connecting worker, maintenance, product, production line, press, and sensor nodes to process, past incident, and safety zone — Knowledge Graph equals Dynamic World Model."
+                 loading="lazy">
+          </a>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 07</div>
+          <h3>DSL: Knowledge Into Executable Rules</h3>
+          <a class="diagram-shot" href="assets2/11.png"
+             data-lightbox aria-label="Open the diagram of DSL making knowledge executable">
+            <img src="assets2/11.png"
+                 alt="A DSL rule reading WHEN temperature exceeds limit AND worker is in safety zone THEN stop equipment and notify manager, REQUIRE human approval to restart, linked to conditions, actions, human gate, and escalation."
+                 loading="lazy">
+          </a>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 08</div>
+          <h3>Knowledge + Context + Policy = Decision</h3>
+          <a class="diagram-shot" href="assets2/13.png"
+             data-lightbox aria-label="Open the diagram of knowledge and context combining into a decision">
+            <img src="assets2/13.png"
+                 alt="Machine state, worker position, production goal, available resources, and risk level combining with knowledge, current context, goal, policy, and boundary to equal a decision."
                  loading="lazy">
           </a>
         </div>
@@ -778,94 +1123,61 @@ Trace
     </div>
   </section>
 
-  <!-- ============ 07.5 SYNTHESIS FIGURE ============ -->
-  <section class="research-section" aria-label="Synthesis">
-    <div class="wrap">
-      <figure class="figure figure-wide figure-main">
-        <a class="figure-frame" href="assets/19.png"
-           data-lightbox aria-label="Open the diagram showing that the strongest model is not enough without runtime, boundary, governance, traceability, and human judgment">
-          <img src="assets/19.png"
-               alt="A more powerful model is not the same as a usable one: runtime, boundary, governance, traceability, and human judgment are what earn trust in the physical world."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Model performance is not the goal. Runtime, boundary, governance, traceability, and human judgment are.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ RELATED RESOURCES ============ -->
-  <section class="research-section" id="resources" aria-labelledby="resources-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">Resources</div>
-        <h2 id="resources-h">Related Resources</h2>
-        <p class="section-lede">
-          Further ways into Physical AI &amp; Cyber-Physical Systems — a video
-          introduction, the companion practical guide, and the
-          blog article behind this page's argument, in English
-          and Japanese.
-        </p>
-      </div>
-
-      <div class="essays">
-        <div class="essay">
-          <h3>📺 YouTube</h3>
-          <p>A video introduction to the semantic digital twin that lets Physical AI understand the real world and make safe decisions.</p>
-          <div class="theme-links">
-            <div class="theme-lang">English</div>
-            <a href="https://youtu.be/XeVLoLkCx10" target="_blank" rel="noopener noreferrer">Semantic Digital Twin for Physical AI →</a>
-            <div class="theme-lang">Japanese</div>
-            <a href="https://youtu.be/B-A7ABauvWc" target="_blank" rel="noopener noreferrer">Physical AIを支えるSemantic Digital Twin｜現実世界を理解し、安全に判断・行動するための意味基盤 →</a>
-          </div>
-        </div>
-
-        <div class="essay">
-          <h3>📚 Books</h3>
-          <p>The practical guide to building the ontology, knowledge graph, DSL, and decision trace that ground Physical AI in the physical world. Available in Japanese only.</p>
-          <div class="theme-links">
-            <div class="theme-lang">Japanese</div>
-            <a href="https://amzn.to/4q6LMxU" target="_blank" rel="noopener noreferrer">Physical AIを支えるSemantic Digital Twin実践ガイド: Chinoba PFで構築するOntology・Knowledge Graph・DSL・Decision Trace →</a>
-          </div>
-        </div>
-
-        <div class="essay">
-          <h3>📰 Blog Articles</h3>
-          <p>The essay behind this page's argument, on Physical AI and cyber-physical systems.</p>
-          <div class="theme-links">
-            <div class="theme-lang">English</div>
-            <a href="https://deus-ex-machina-ism.com/en/physical-ai-cyber-physical-systems/" target="_blank" rel="noopener noreferrer">Physical AI &amp; Cyber-Physical Systems →</a>
-            <div class="theme-lang">Japanese</div>
-            <a href="https://deus-ex-machina-ism.com/physical-ai-cyber-physical-systems/" target="_blank" rel="noopener noreferrer">Physical AI &amp; Cyber-Physical Systems →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 08 CLOSING ============ -->
+  <!-- ============ CLOSING ============ -->
   <section class="research-section closing" id="closing" aria-labelledby="closing-h">
     <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+    <figure class="figure figure-standard" style="margin-bottom: 48px;">
+      <a class="figure-frame" href="assets2/16.png"
+         data-lightbox aria-label="Open the summary diagram of ontology, knowledge graph, DSL, and decision trace">
+        <img src="assets2/16.png"
+             alt="A summary chain of Ontology as world meaning, Knowledge Graph as dynamic context, DSL as executable rules, and Decision Trace as explainable actions, next to a robotic arm — Physical AI is powered by more than models."
+             loading="lazy">
+      </a>
+      <figcaption class="figure-caption">Physical AI is powered by more than models. It requires structured knowledge to understand the real world.</figcaption>
+    </figure>
+    <div class="positioning" aria-label="Research positioning within the Chinoba architecture">
+      <span>Decision Trace</span>
+      <span>↓</span>
+      <span>Semantic Digital Twin</span>
+      <span>↓</span>
+      <span>Somatic Digital Twin</span>
+      <span>↓</span>
+      <span class="here">Physical AI</span>
+      <span>↓</span>
+      <span>Runtime Society</span>
+    </div>
     <blockquote>
-      <span>Physical AI is not merely embodied intelligence.</span>
-      <span>It is the emergence of</span>
-      <span>runtime coordination,</span>
-      <span>decision boundaries,</span>
-      <span>human escalation,</span>
-      <span>and traceable action</span>
-      <span>inside the physical world.</span>
+      <span>Physical AI is not only giving AI a body.</span>
+      <span>It is understanding the state of the physical world,</span>
+      <span>binding that state to meaning, constraint, and responsibility,</span>
+      <span>and leaving every action as a record that can be learned from.</span>
+      <span>&nbsp;</span>
+      <span>Somatic Digital Twin. Semantic Digital Twin.</span>
+      <span>Knowledge Flow. Trust Infrastructure. Decision Trace.</span>
+      <span>This is the architecture Chinoba is building toward.</span>
     </blockquote>
     <div class="closing-mark">Chinoba.org</div>
+    <p class="closing-cta">
+      <a href="https://amzn.to/3UFiJWv" target="_blank" rel="noopener">New Book →</a>
+      &nbsp;·&nbsp;
+      <a href="https://youtu.be/XeVLoLkCx10" target="_blank" rel="noopener noreferrer">YouTube →</a>
+      &nbsp;·&nbsp;
+      <a href="https://deus-ex-machina-ism.com/en/physical-ai-cyber-physical-systems/" target="_blank" rel="noopener noreferrer">Blog →</a>
+    </p>
   </section>
 
-  <!-- ============ 09 RELATED RESEARCH ============ -->
+  <!-- ============ RELATED RESEARCH ============ -->
   <section class="research-section" id="related" aria-labelledby="related-h">
     <div class="wrap">
       <div class="section-head">
         <div class="section-label">+ / Related Research</div>
         <h2 id="related-h">Other Lines of Inquiry</h2>
         <p class="section-lede">
-          Physical AI connects outward to neighboring threads in
-          the Chinoba field.
+          Physical AI is not a standalone topic but one layer in a single
+          research architecture — Decision Trace and Knowledge Flow give it a
+          substrate, Trust Infrastructure and Governance give it boundaries,
+          and AI Coordination, Multi-Agent Systems, and Runtime Society are
+          where multiple physical agents resolve into one accountable whole.
         </p>
       </div>
 
@@ -875,25 +1187,35 @@ Trace
           <span class="related-name">Decision Trace Model</span>
           <span class="related-status">Available</span>
         </a>
-        <a href="/#research" data-slug="runtime-society">
+        <a href="/research/knowledge-flow" data-slug="knowledge-flow">
           <span class="related-label">02 / Inquiry</span>
-          <span class="related-name">Runtime Society</span>
-          <span class="related-status">Forthcoming</span>
+          <span class="related-name">Knowledge Flow</span>
+          <span class="related-status">Available</span>
         </a>
-        <a href="/#research" data-slug="ai-coordination">
+        <a href="/research/trust-infrastructure" data-slug="trust-infrastructure">
+          <span class="related-label">03 / Inquiry</span>
+          <span class="related-name">Trust Infrastructure</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/governance-boundary-systems" data-slug="governance-boundary-systems">
+          <span class="related-label">04 / Inquiry</span>
+          <span class="related-name">Governance &amp; Boundary Systems</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/ai-coordination" data-slug="ai-coordination">
           <span class="related-label">05 / Inquiry</span>
           <span class="related-name">AI Coordination</span>
-          <span class="related-status">Forthcoming</span>
+          <span class="related-status">Available</span>
         </a>
-        <a href="/#research" data-slug="multi-agent-systems">
+        <a href="/research/multi-agent-systems" data-slug="multi-agent-systems">
           <span class="related-label">06 / Inquiry</span>
           <span class="related-name">Multi-Agent Systems</span>
-          <span class="related-status">Forthcoming</span>
+          <span class="related-status">Available</span>
         </a>
-        <a href="/#research" data-slug="trust-infrastructure">
-          <span class="related-label">04 / Inquiry</span>
-          <span class="related-name">Trust Infrastructure</span>
-          <span class="related-status">Forthcoming</span>
+        <a href="/research/runtime-society" data-slug="runtime-society">
+          <span class="related-label">07 / Inquiry</span>
+          <span class="related-name">Runtime Society</span>
+          <span class="related-status">Available</span>
         </a>
       </div>
     </div>
