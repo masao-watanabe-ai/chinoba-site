@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>AI Economics &amp; Intelligence Field Economics | Chinoba</title>
-  <meta name="description" content="Research on trust, knowledge, coordination and intelligence as economic infrastructure in the AI era.">
-  <meta name="keywords" content="AI Economics, Intelligence Economics, Knowledge Economy, Trust Economy, Coordination Economy, Decision Economy, Knowledge Flow, Runtime Society, Collective Intelligence, Chinoba">
+  <title>Relationship Economy &amp; Chinoba Economics — Chinoba</title>
+  <meta name="description" content="How Knowledge Flow, Decision, and Trust circulate into Relationship Capital in the AI era — Chinoba Economics, a research framework for value creation, featuring the new practical guide.">
+  <meta name="keywords" content="Relationship Economy, Chinoba Economics, Knowledge Flow, State Understanding, Community Graph, Decision Trace, Trust Infrastructure, Runtime Society, Operational AI, AI Economics">
 
   <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
   <link rel="stylesheet" href="/assets/research.css">
@@ -16,27 +16,21 @@
     .concept-grid.cols-4 {
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
+    .concept-grid.cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 
-    /* Essay coming-soon variant */
-    .essay.is-coming-soon {
-      cursor: default;
+    @media (max-width: 900px) {
+      .concept-grid.cols-4,
+      .concept-grid.cols-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
-    .essay.is-coming-soon:hover {
-      background: var(--bg);
-    }
-    .essay .essay-meta.is-coming-soon {
-      color: var(--fg-faint);
-    }
-    .essay .essay-meta.is-coming-soon::before {
-      content: "";
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--fg-faint);
-      margin-right: 8px;
-      vertical-align: middle;
-      transform: translateY(-1px);
+    @media (max-width: 640px) {
+      .concept-grid.cols-4,
+      .concept-grid.cols-3 {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* Conceptual diagram variant — vertical token chains rendered as drawn */
@@ -46,46 +40,7 @@
       letter-spacing: 0.4px;
     }
 
-    /* Research positioning ladder in the closing section */
-    .closing .positioning {
-      font-family: "Courier New", monospace;
-      font-size: 12px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--fg-faint);
-      line-height: 2.05;
-      margin: 0 0 44px;
-    }
-    .closing .positioning span {
-      display: block;
-    }
-    .closing .positioning .here {
-      color: var(--fg);
-    }
-
-    /* ---------- Inline diagram lead-ins ---------- */
-    .fig-lead {
-      max-width: 760px;
-      margin: clamp(44px, 6vw, 64px) auto 0;
-    }
-    .fig-lead h3 {
-      font-size: 20px;
-      margin: 0 0 12px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      color: var(--fg);
-    }
-    .fig-lead p {
-      color: var(--fg-mute);
-      font-size: 15.5px;
-      line-height: 1.85;
-      margin: 0;
-    }
-    .fig-lead + .figure {
-      margin-top: clamp(20px, 3vw, 28px);
-    }
-
-    /* ---------- Explore This Theme ---------- */
+    /* ---------- Explore This Theme / Featured Resources ---------- */
     .theme-links {
       margin-top: 20px;
       display: flex;
@@ -108,28 +63,61 @@
       letter-spacing: 0.3px;
       line-height: 1.55;
     }
-    .theme-links .theme-book {
-      font-size: 13px;
-      color: var(--fg);
-      letter-spacing: 0.3px;
-      line-height: 1.55;
-    }
-    .theme-links .theme-book-sub {
-      display: block;
-      color: var(--fg-mute);
-      font-size: 12.5px;
-    }
-    .theme-links .theme-book-status {
+
+    /* ---------- Featured Publication ---------- */
+    .featured-badge {
       display: inline-block;
-      margin-top: 5px;
       font-size: 11px;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+    .featured-pub {
+      border: 1px solid var(--line-strong);
+      background: var(--bg-elev);
+      padding: clamp(28px, 4vw, 40px) clamp(20px, 4vw, 40px) clamp(32px, 4vw, 44px);
+      border-radius: 4px;
+    }
+    .book.no-cover {
+      grid-template-columns: 1fr;
+    }
+    .book-asin {
+      display: block;
+      margin-top: 10px;
+      font-size: 11px;
+      letter-spacing: 1px;
       color: var(--fg-faint);
     }
 
-    /* ---------- Layer diagram (the "Key Components" runtime spine) ---------- */
+    /* ---------- Fig lead-ins ---------- */
+    .fig-lead {
+      max-width: 760px;
+      margin: clamp(44px, 6vw, 64px) auto 0;
+    }
+    .fig-lead h3 {
+      font-size: 20px;
+      margin: 0 0 12px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      color: var(--fg);
+    }
+    .fig-lead p {
+      color: var(--fg-mute);
+      font-size: 15.5px;
+      line-height: 1.85;
+      margin: 0;
+    }
+    .fig-lead + .figure {
+      margin-top: clamp(20px, 3vw, 28px);
+    }
+
+    /* ---------- Layer diagram (the Relationship Economy Cycle) ---------- */
     .field-runtime {
-      margin-top: clamp(56px, 7vw, 80px);
+      margin-top: clamp(48px, 6vw, 64px);
       border: 1px solid var(--line);
       background: var(--bg-elev);
       padding: 28px clamp(20px, 4vw, 40px) 36px;
@@ -217,11 +205,22 @@
       letter-spacing: 4px;
       padding: 4px 0 6px;
     }
+    .field-loop {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--line-strong);
+      color: var(--fg-mute);
+      font-size: 13px;
+      line-height: 1.7;
+      position: relative;
+    }
+    .field-loop strong {
+      color: var(--fg);
+      font-family: "Courier New", monospace;
+      letter-spacing: 0.5px;
+    }
 
     @media (max-width: 900px) {
-      .concept-grid.cols-4 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
       .field-layer {
         grid-template-columns: 1fr;
         gap: 4px;
@@ -231,10 +230,50 @@
       }
     }
 
-    @media (max-width: 640px) {
-      .concept-grid.cols-4 {
-        grid-template-columns: 1fr;
-      }
+    /* ---------- Capital caveat block ---------- */
+    .capital-note {
+      max-width: 820px;
+      margin: clamp(40px, 5vw, 56px) auto 0;
+      padding: 22px clamp(20px, 3vw, 28px);
+      border-left: 2px solid var(--line-strong);
+      background: rgba(255,255,255,0.015);
+    }
+    .capital-note h3 {
+      font-size: 16px;
+      margin: 0 0 10px;
+      color: var(--fg);
+      font-weight: 600;
+    }
+    .capital-note p {
+      color: var(--fg-mute);
+      font-size: 14px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* ---------- Closing positioning ladder + condensed CTA ---------- */
+    .closing .positioning {
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      line-height: 2.05;
+      margin: 0 0 44px;
+    }
+    .closing .positioning span {
+      display: block;
+    }
+    .closing .positioning .here {
+      color: var(--fg);
+    }
+    .closing-cta {
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--fg-faint);
+    }
+    .closing-cta a {
+      color: var(--accent);
     }
   </style>
 </head>
@@ -248,7 +287,7 @@
       <span class="sep">/</span>
       <a href="/#research">Research</a>
       <span class="sep">/</span>
-      <span>AI Economics &amp; Intelligence Field Economics</span>
+      <span>Relationship Economy &amp; Chinoba Economics</span>
     </div>
     <div class="meta-id">07 / Lines of Inquiry</div>
   </nav>
@@ -256,677 +295,96 @@
   <!-- ============ HERO ============ -->
   <header class="hero">
     <div class="hero-inner">
-      <div class="eyebrow">Research / AI Economics &amp; Intelligence Field Economics</div>
-      <h1>AI Economics &amp; Intelligence Field Economics</h1>
+      <div class="eyebrow">Research / Relationship Economy &amp; Chinoba Economics</div>
+      <h1>Relationship Economy &amp; Chinoba Economics</h1>
       <p class="hero-sub">
-        <span>Trust, Knowledge and Coordination in the AI Era.</span>
-        <span>Artificial intelligence is not only changing productivity.</span>
-        <span>It is transforming the nature of value creation itself.</span>
+        <span>AI is no longer only a tool that analyzes and generates.</span>
+        <span>It references knowledge, reads a situation, weighs options,</span>
+        <span>coordinates with people and other AI, and acts within a granted authority.</span>
       </p>
       <p class="hero-desc">
-        This research explores intelligence as an economic resource —
-        where trust, knowledge, coordination, and decision-making
-        become the primary drivers of future economies.
+        A single transaction can no longer explain where that value comes from.
+        Chinoba Economics reads AI-era value creation as a circulation — Knowledge
+        Flow, State Understanding, Decision, Outcome, Trust, and Relationship
+        returning as new knowledge — rather than a series of one-off exchanges.
+        This page presents that circulation as a research framework for
+        understanding value creation in the AI era, not as a settled law of
+        economics.
       </p>
     </div>
   </header>
 
-  <!-- ============ EXPLORE THIS THEME ============ -->
-  <section class="research-section" id="explore" aria-labelledby="explore-h">
+  <!-- ============ FEATURED PUBLICATION ============ -->
+  <section class="research-section" id="featured-book" aria-labelledby="featured-book-h">
+    <div class="wrap">
+      <h2 id="featured-book-h" class="visually-hidden" style="position:absolute;left:-9999px;">Featured Publication</h2>
+      <span class="featured-badge">Featured Publication</span>
+      <div class="featured-pub">
+        <div class="books-list">
+          <div class="book no-cover">
+            <div class="book-body">
+              <div class="book-title">Relationship Economy: Designing the Economy of the AI Era — Chinoba Economics: A Practical Guide</div>
+              <div class="book-subtitle">A New Economics Where Knowledge, Decisions, and Trust Create Value</div>
+              <p>
+                The practical guide behind this page's argument — how Knowledge
+                Flow, Decision, and Trust circulate into Relationship Capital, and
+                how an organization, region, or community can design its own
+                economic sphere around that circulation instead of around
+                transactions alone.
+              </p>
+              <a class="book-link" href="https://amzn.to/4bUU9XC" target="_blank" rel="noopener noreferrer">View on Amazon →</a>
+              <span class="book-asin">ASIN B0HFH4SWKS · Kindle · Masao Watanabe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED RESOURCES ============ -->
+  <section class="research-section" id="resources" aria-labelledby="resources-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">Explore</div>
-        <h2 id="explore-h">Explore This Theme</h2>
+        <div class="section-label">Featured Resources</div>
+        <h2 id="resources-h">Start Here — Books, Video, and the Blog Behind This Page</h2>
         <p class="section-lede">
-          Enter AI Economics &amp; Intelligence Field Economics through
-          video and long-form texts — visual introductions and deeper
-          explorations of trust, knowledge circulation, coordination,
-          and intelligence as a productive resource.
+          The new practical guide above leads this line of inquiry. Below it are
+          the neighboring Chinoba books, videos, and the essay that build the
+          Relationship Economy argument used throughout this page.
         </p>
       </div>
 
       <div class="essays">
         <div class="essay">
-          <h3>📺 Watch on YouTube</h3>
-          <p>Video introductions exploring how AI transforms economic systems through knowledge, trust, coordination, and Intelligence Field Economics.</p>
+          <h3>📚 More Books</h3>
+          <p>Neighboring practical guides on the knowledge, decision, and trust circulation this page draws on.</p>
           <div class="theme-links">
             <div class="theme-lang">English</div>
+            <a href="https://amzn.to/4p3Po3s" target="_blank" rel="noopener noreferrer">Intelligence Field Economics: Trust, Knowledge and Coordination in the AI Era →</a>
+            <a href="https://amzn.to/4bW7NcW" target="_blank" rel="noopener noreferrer">Knowledge Flow Practical Guide: Transform Enterprise Knowledge into AI-Ready Knowledge →</a>
+            <a href="https://www.amazon.com/dp/B0H3H3NJFR" target="_blank" rel="noopener noreferrer">The Trust Infrastructure in the Age of AI →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://www.amazon.co.jp/dp/B0HCTFPHXQ" target="_blank" rel="noopener noreferrer">Relationship Economy AI時代の経済圏設計 Chinoba Economics 実践ガイド（日本語版）→</a>
+            <a href="https://amzn.to/4vKNmro" target="_blank" rel="noopener noreferrer">知能を循環させる経済 ― 知能場経済 ― 信頼・知識・協調が創るAI時代の新しい経済 →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📺 Watch on YouTube</h3>
+          <p>Video introductions to the shift from a transaction-centered economy to a relationship-centered one.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://youtu.be/7Pvx4XNBE6o" target="_blank" rel="noopener noreferrer">The Relationship Economy: How AI Is Transforming Value, Trust, and Business →</a>
             <a href="https://youtu.be/IcGcdkCunlE" target="_blank" rel="noopener noreferrer">What Is AI Economics? Intelligence Field Economics for the Age of AI →</a>
             <div class="theme-lang">Japanese</div>
+            <a href="https://youtu.be/zxeuUexe3Tk" target="_blank" rel="noopener noreferrer">AI時代の経済は「取引」から「関係性」へ｜Relationship EconomyとChinoba Economics →</a>
             <a href="https://youtu.be/g1fut1R-NsU" target="_blank" rel="noopener noreferrer">AI経済学とは何か ― 知能場経済が切り拓くAI時代の新しい経済学 →</a>
           </div>
         </div>
 
         <div class="essay">
-          <h3>📚 Related Books</h3>
-          <p>Long-form explorations of intelligence as an economic resource — trust, knowledge circulation, and coordination as the infrastructure of AI-era economies.</p>
-          <div class="theme-links">
-            <div class="theme-lang">English Edition</div>
-            <a href="https://amzn.to/4p3Po3s" target="_blank" rel="noopener noreferrer">Intelligence Field Economics: Trust, Knowledge and Coordination in the AI Era →</a>
-            <div class="theme-lang">Japanese Edition</div>
-            <a href="https://amzn.to/4vKNmro" target="_blank" rel="noopener noreferrer">知能を循環させる経済 ― 知能場経済 ― 信頼・知識・協調が創るAI時代の新しい経済 →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 01 OVERVIEW ============ -->
-  <section class="research-section" id="overview" aria-labelledby="overview-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">01 / Overview</div>
-        <h2 id="overview-h">Intelligence as a Productive Resource</h2>
-        <p class="section-lede">
-          Intelligence field economics studies how AI transforms
-          economic systems — treating knowledge circulation, trust,
-          coordination, and decision-making as the primary sources of
-          value, rather than treating intelligence as a mere efficiency gain.
-        </p>
-      </div>
-
-      <figure class="figure figure-wide figure-main">
-        <a class="figure-frame" href="assets/overview.svg"
-           data-lightbox aria-label="Open the diagram of intelligence as an economic resource">
-          <img src="assets/overview.svg"
-               alt="Data and signals flow into an intelligence field of knowledge, trust, coordination, and decision, which produces scarce, compounding economic value."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Value is created where intelligence circulates, not where data accumulates.</figcaption>
-      </figure>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>From Productivity to Value Creation</h3>
-          <p>
-            AI is usually framed as a productivity story — the same work,
-            done faster and cheaper. That framing is incomplete. As
-            intelligence becomes abundant, the scarce and valuable
-            elements shift: what can be trusted, what knowledge can be
-            circulated, and what coordination can be sustained.
-          </p>
-
-          <code class="quote is-diagram">Knowledge
-↓ Trust
-↓ Coordination
-↓ Decision
-↓ Economic Value</code>
-
-          <p>This research treats the following as first-class economic phenomena:</p>
-          <ul>
-            <li>Intelligence as production</li>
-            <li>Knowledge circulation</li>
-            <li>Trust economy</li>
-            <li>Coordination economy</li>
-            <li>AI-native organizations</li>
-            <li>Human-AI collaboration</li>
-            <li>Collective intelligence</li>
-            <li>Runtime economic systems</li>
-          </ul>
-        </div>
-
-        <div class="col-text">
-          <h3>The Intelligence Field</h3>
-          <p>
-            Intelligence does not sit inside a single model. It is
-            relational — distributed across humans, agents,
-            organizations, and institutions. An economy built on it
-            behaves like a field, not a stockpile: value emerges from
-            circulation and coordination, and compounds through trust.
-          </p>
-          <code class="quote">
-            AI is not only
-            changing productivity.
-            It is changing
-            what value is.
-          </code>
-        </div>
-      </div>
-
-      <div class="fig-lead">
-        <h3>AI as an Economic Actor</h3>
-        <p>
-          Earlier economies were organized around land, labor, and
-          information. In the AI economy a new layer joins them:
-          humans set purpose, AI learns and optimizes, agents act, and
-          their interaction composes into collective intelligence.
-        </p>
-      </div>
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/04.png"
-           data-lightbox aria-label="Open the diagram of the AI economy">
-          <img src="assets2/04.png"
-               alt="A vertical progression — human, AI, agent, collective intelligence — showing how humans define purpose and values, AI learns and optimizes, agents execute tasks autonomously, and collective intelligence connects people, AI, and agents into a new economic actor."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Human, AI, and agent compose into collective intelligence — a new economic actor.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 02 WHY IT MATTERS ============ -->
-  <section class="research-section" id="why" aria-labelledby="why-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">02 / Why It Matters</div>
-        <h2 id="why-h">Why It Matters</h2>
-        <p class="section-lede">
-          When intelligence becomes cheap and abundant, the classical
-          picture of production breaks down. The bottleneck is no longer
-          computation or output — it is trust, coordination, and the
-          ability to turn signals into accountable decisions.
-        </p>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>The Bottleneck Moves</h3>
-          <p>
-            Abundant intelligence does not automatically become value.
-            An AI can produce a correct answer while an organization
-            still stalls — because the answer is not yet trusted,
-            coordinated, or owned by an accountable decision-maker.
-          </p>
-          <ul>
-            <li>Output is abundant; trusted output is scarce.</li>
-            <li>Knowledge is generated faster than it circulates.</li>
-            <li>Coordination cost, not compute cost, becomes the limit.</li>
-            <li>Value accrues to whoever can decide and be accountable.</li>
-          </ul>
-        </div>
-
-        <div class="col-text">
-          <h3>A New Production Function</h3>
-          <p>
-            The old chain treated a model's output as the product. The
-            new chain treats value as the end of a longer process — one
-            that must pass through trust, coordination, and an
-            accountable decision before it becomes economic value.
-          </p>
-          <code class="quote is-diagram">Data → Model → Output
-
-Knowledge → Trust → Coordination → Decision → Value</code>
-        </div>
-      </div>
-
-      <div class="fig-lead">
-        <h3>Beyond the Price Signal</h3>
-        <p>
-          A classical market coordinates through a single signal: price.
-          AI reads many more — demand, reputation, trust, events, supply
-          activity — and turns them into recommendations and decisions.
-          The market stops being a price mechanism and becomes a
-          coordination system.
-        </p>
-      </div>
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/07.png"
-           data-lightbox aria-label="Open the diagram of how AI expands market signals beyond price">
-          <img src="assets2/07.png"
-               alt="An AI hub connected to many signals — needs and concerns, reviews and feedback, brand trust, events, supplier activity, weather, social trends, news, and economic indicators — feeding a chain from demand through prediction, recommendation, trust, priority, and negotiation to behavior."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Signals beyond price now move the market.</figcaption>
-      </figure>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/18.png"
-           data-lightbox aria-label="Open the diagram contrasting the price economy with the intelligence field economy">
-          <img src="assets2/18.png"
-               alt="Two columns compared: the price economy running from price to exchange to market, and the intelligence field economy running from trust to knowledge to coordination to intelligence fields — showing the economic core shifting from price to trust, knowledge, and coordination."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">The economic core shifts from price to trust, knowledge, and coordination.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 03 CORE CONCEPTS ============ -->
-  <section class="research-section" id="concepts" aria-labelledby="concepts-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">03 / Core Concepts</div>
-        <h2 id="concepts-h">Core Concepts</h2>
-        <p class="section-lede">
-          Seven concepts define how intelligence becomes economic —
-          from intelligence as capital to the intelligence field itself.
-        </p>
-      </div>
-
-      <div class="concept-grid cols-4">
-        <div class="concept">
-          <div class="idx">i</div>
-          <h3>Intelligence as Capital</h3>
-          <p>Intelligence — not only labor or capital goods — becomes the compounding factor of production, accumulating and reinvesting like capital.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">ii</div>
-          <h3>Knowledge Flow Economy</h3>
-          <p>Value arises from how knowledge circulates, transforms, and becomes actionable across people and agents — not from how much is stored.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">iii</div>
-          <h3>Trust Infrastructure</h3>
-          <p>Verified, traceable trust is the settlement layer that lets knowledge and decisions move safely between humans, agents, and institutions.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">iv</div>
-          <h3>Coordination Economy</h3>
-          <p>As the cost of coordinating humans and AI collapses, coordination itself becomes a designable, tradable, and value-bearing resource.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">v</div>
-          <h3>Decision Economy</h3>
-          <p>The scarce act is the accountable decision. Markets form around who decides, on what basis, and with what verifiable trace.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">vi</div>
-          <h3>Runtime Organizations</h3>
-          <p>Firms become runtimes: rules, roles, and boundaries are adjusted continuously in operation rather than fixed at design time.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">vii</div>
-          <h3>Intelligence Field</h3>
-          <p>Intelligence is relational — an economic field emerging across humans, agents, and institutions, not a property held by any single model.</p>
-        </div>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/concepts.svg"
-           data-lightbox aria-label="Open the diagram of the seven core concepts of intelligence field economics">
-          <img src="assets/concepts.svg"
-               alt="Seven core concepts arranged around a central intelligence field: intelligence as capital, knowledge flow economy, trust infrastructure, coordination economy, decision economy, and runtime organizations."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Seven concepts, one field — intelligence made economic.</figcaption>
-      </figure>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/16.png"
-           data-lightbox aria-label="Open the diagram of the new economic infrastructure">
-          <img src="assets2/16.png"
-               alt="Five foundational pillars of the AI-era economy shown as columns — trust, knowledge, coordination, governance, and traceability — each described as a foundation that together drives sustainable prosperity."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Trust, knowledge, coordination, governance, and traceability — the social foundation of the AI era.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 04 RELATIONSHIP DIAGRAM ============ -->
-  <section class="research-section" id="relationship" aria-labelledby="relationship-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">04 / Relationship Diagram</div>
-        <h2 id="relationship-h">The Value Chain of Intelligence</h2>
-        <p class="section-lede">
-          The concepts are not independent — they form a chain. Knowledge
-          becomes reliable through trust, trust enables coordination,
-          coordination resolves into decision, and decision realizes
-          economic value.
-        </p>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/relationship.svg"
-           data-lightbox aria-label="Open the value chain diagram of intelligence field economics">
-          <img src="assets/relationship.svg"
-               alt="A vertical value chain: knowledge descends into trust, trust into coordination, coordination into decision, and decision into economic value."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Each layer converts what is known into what is realized.</figcaption>
-      </figure>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>One Descending Chain</h3>
-          <p>
-            No single stage produces value on its own. Knowledge without
-            trust is noise; trust without coordination is inert; coordination
-            without decision is talk. Value appears only when the whole
-            chain resolves.
-          </p>
-          <code class="quote is-diagram">Knowledge
-↓ Trust
-↓ Coordination
-↓ Decision
-↓ Economic Value</code>
-        </div>
-        <div class="col-text">
-          <h3>Where Value Leaks</h3>
-          <p>
-            Most economic loss in AI systems is not a modeling failure —
-            it is a broken link in this chain. Knowledge that never
-            circulates, trust that cannot be verified, or coordination
-            that never becomes an accountable decision.
-          </p>
-          <code class="quote">
-            Value is the last
-            layer of a chain —
-            not the output
-            of a model.
-          </code>
-        </div>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/17.png"
-           data-lightbox aria-label="Open the diagram of intelligence field economics as value creation">
-          <img src="assets2/17.png"
-               alt="Three overlapping circles — knowledge, trust, and coordination — feeding into a single value-creation box, illustrating intelligence field economics as the mechanism by which the knowledge cycle, the foundation of trust, and the power of coordination together create value."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Knowledge, trust, and coordination converge into value creation.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 05 KEY COMPONENTS ============ -->
-  <section class="research-section" id="components" aria-labelledby="components-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">05 / Key Components</div>
-        <h2 id="components-h">Key Components</h2>
-        <p class="section-lede">
-          The economic runtime that turns market and data signals into
-          compounding value — an economy-specialized reading of the
-          Decision Trace Model.
-        </p>
-      </div>
-
-      <div class="field-runtime" aria-label="The economic runtime, from signal to value">
-        <div class="field-runtime-label">Layer Diagram</div>
-        <h3 class="field-runtime-title">The Economic Runtime — Signal → Value</h3>
-
-        <ol class="field-layers" role="list">
-          <li class="field-layer">
-            <span class="layer-idx">L1</span>
-            <span class="layer-body">
-              <span class="layer-name">Signal</span>
-              <span class="layer-note">Market and data signals enter the field — abundant, noisy, and cheap.</span>
-            </span>
-            <span class="layer-tag">input</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L2</span>
-            <span class="layer-body">
-              <span class="layer-name">Knowledge</span>
-              <span class="layer-note">Signals are refined into reusable, circulating knowledge.</span>
-            </span>
-            <span class="layer-tag">knowledge</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L3</span>
-            <span class="layer-body">
-              <span class="layer-name">Trust</span>
-              <span class="layer-note">Knowledge is sourced, verified, and made reliable enough to act on.</span>
-            </span>
-            <span class="layer-tag">trust</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L4</span>
-            <span class="layer-body">
-              <span class="layer-name">Coordination</span>
-              <span class="layer-note">Trusted knowledge aligns humans, agents, and organizations.</span>
-            </span>
-            <span class="layer-tag">coordination</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L5</span>
-            <span class="layer-body">
-              <span class="layer-name">Decision</span>
-              <span class="layer-note">Coordination resolves into a committed, accountable decision.</span>
-            </span>
-            <span class="layer-tag">decision</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L6</span>
-            <span class="layer-body">
-              <span class="layer-name">Runtime</span>
-              <span class="layer-note">Decisions execute inside runtime organizations that adapt in operation.</span>
-            </span>
-            <span class="layer-tag">runtime</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L7</span>
-            <span class="layer-body">
-              <span class="layer-name">Trace</span>
-              <span class="layer-note">Every decision remains traceable, replayable, and accountable.</span>
-            </span>
-            <span class="layer-tag">trace</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L8</span>
-            <span class="layer-body">
-              <span class="layer-name">Value</span>
-              <span class="layer-note">Traceable coordination compounds into durable economic value.</span>
-            </span>
-            <span class="layer-tag">value</span>
-          </li>
-        </ol>
-      </div>
-
-      <div class="fig-lead">
-        <h3>What Cannot Be Seen Cannot Be Trusted</h3>
-        <p>
-          The runtime only compounds value if its decisions remain
-          legible. Capturing the signal, the rationale, and the
-          execution — and keeping the record consistent — is what turns
-          an accountable decision into trust, and trust back into value.
-        </p>
-      </div>
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/14.png"
-           data-lightbox aria-label="Open the diagram of why traceability matters">
-          <img src="assets2/14.png"
-               alt="A chain from signal to decision to execution to trace to trust, encircling a shield: capturing the signal, the rationale for the decision, transparency in execution, and consistency of records together build trust."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Traceability turns execution into trust — the L7 layer of the runtime.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 06 APPLICATIONS ============ -->
-  <section class="research-section" id="applications" aria-labelledby="applications-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">06 / Applications</div>
-        <h2 id="applications-h">Applications</h2>
-        <p class="section-lede">
-          Where intelligence field economics becomes concrete — domains
-          in which trust, knowledge, and coordination turn into
-          measurable economic value.
-        </p>
-      </div>
-
-      <div class="concept-grid cols-4">
-        <div class="concept">
-          <div class="idx">i</div>
-          <h3>Enterprise AI</h3>
-          <p>Firms compete less on model access and more on how well they circulate knowledge and coordinate trusted decisions.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">ii</div>
-          <h3>Supply Chains</h3>
-          <p>Verified trust and shared knowledge let distributed partners coordinate at lower cost and higher resilience.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">iii</div>
-          <h3>Autonomous Organizations</h3>
-          <p>Organizations that run on agents require a coordination and trust economy to allocate work and accountability.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">iv</div>
-          <h3>Public AI</h3>
-          <p>Public institutions turn algorithmic decisions into accountable, traceable value under governance and boundary constraints.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">v</div>
-          <h3>Digital Platforms</h3>
-          <p>Platforms become markets for knowledge and coordination, pricing trust and reputation as first-class assets.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">vi</div>
-          <h3>Knowledge Work</h3>
-          <p>The unit of value shifts from producing output to circulating, verifying, and deciding on knowledge.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">vii</div>
-          <h3>Scientific Collaboration</h3>
-          <p>Research accelerates when knowledge flow and trust networks let distributed teams coordinate and reuse results.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">viii</div>
-          <h3>AI Agents</h3>
-          <p>Agent economies need trust settlement and coordination protocols to transact, delegate, and remain accountable.</p>
-        </div>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/applications.svg"
-           data-lightbox aria-label="Open the diagram of intelligence field economics application domains">
-          <img src="assets/applications.svg"
-               alt="Eight application domains — enterprise AI, supply chains, autonomous organizations, public AI, digital platforms, knowledge work, scientific collaboration, and AI agents."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">One field, many economies — each turning coordination into value.</figcaption>
-      </figure>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/13.png"
-           data-lightbox aria-label="Open the diagram of the agent economy">
-          <img src="assets2/13.png"
-               alt="A flow from people to AI agents to negotiation to execution to markets, with AI agents at the center receiving requests and goals, negotiating and agreeing, executing and collaborating on tasks, and exchanging value to form markets."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Agents negotiate, execute, and settle value — new players in the market.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 07 RESEARCH TOPICS ============ -->
-  <section class="research-section" id="topics" aria-labelledby="topics-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">07 / Research Topics</div>
-        <h2 id="topics-h">Research Topics</h2>
-        <p class="section-lede">
-          Open lines of inquiry within intelligence field economics —
-          the questions this research is actively working through.
-        </p>
-      </div>
-
-      <div class="concept-grid cols-4">
-        <div class="concept">
-          <div class="idx">i</div>
-          <h3>Knowledge Economy</h3>
-          <p>How the circulation and transformation of knowledge — not its accumulation — creates and captures value.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">ii</div>
-          <h3>Coordination Economy</h3>
-          <p>Pricing, designing, and trading coordination as the collapsing cost of aligning humans and AI reshapes markets.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">iii</div>
-          <h3>Decision Markets</h3>
-          <p>Structures where accountable decisions — who decides, on what trace — become the scarce, priced good.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">iv</div>
-          <h3>Trust Networks</h3>
-          <p>How verifiable trust propagates between agents, humans, and institutions as economic settlement infrastructure.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">v</div>
-          <h3>AI-native Enterprises</h3>
-          <p>Organizational forms built around intelligence as capital, runtime governance, and continuous coordination.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">vi</div>
-          <h3>Collective Intelligence</h3>
-          <p>How distributed agents and people compose intelligence that no individual node holds alone.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">vii</div>
-          <h3>Runtime Organizations</h3>
-          <p>Economic behavior of firms whose rules and boundaries adapt continuously rather than at design time.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">viii</div>
-          <h3>Intelligence Field Economics</h3>
-          <p>The unifying frame: intelligence as a relational field, and value as the product of its circulation.</p>
-        </div>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/topics.svg"
-           data-lightbox aria-label="Open the constellation diagram of intelligence field economics research topics">
-          <img src="assets/topics.svg"
-               alt="A constellation of research topics around a central intelligence field economics node: knowledge economy, coordination economy, decision markets, trust networks, AI-native enterprises, collective intelligence, and runtime organizations."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Distinct questions, one field — intelligence made economic.</figcaption>
-      </figure>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/19.png"
-           data-lightbox aria-label="Open the diagram of Chinoba's connected research themes">
-          <img src="assets2/19.png"
-               alt="Six connected Chinoba research themes shown as cards — AI economics, knowledge flow, decision trace, trust infrastructure, human-AI coordination, and intelligence fields — building a foundation where knowledge, trust, and coordination are the source of value."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">These questions connect to the wider Chinoba field of inquiry.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ RELATED RESOURCES ============ -->
-  <section class="research-section" id="resources" aria-labelledby="resources-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">Resources</div>
-        <h2 id="resources-h">Related Resources</h2>
-        <p class="section-lede">
-          Further ways into AI Economics &amp; Intelligence Field Economics — a video
-          introduction, the companion practical guide, and the
-          blog article behind this page's argument, in English
-          and Japanese.
-        </p>
-      </div>
-
-      <div class="essays">
-        <div class="essay">
-          <h3>📺 YouTube</h3>
-          <p>A video introduction to how AI is transforming value, trust, and business into a relationship-based economy.</p>
-          <div class="theme-links">
-            <div class="theme-lang">English</div>
-            <a href="https://youtu.be/7Pvx4XNBE6o" target="_blank" rel="noopener noreferrer">The Relationship Economy: How AI Is Transforming Value, Trust, and Business →</a>
-            <div class="theme-lang">Japanese</div>
-            <a href="https://youtu.be/zxeuUexe3Tk" target="_blank" rel="noopener noreferrer">AI時代の経済は「取引」から「関係性」へ｜Relationship EconomyとChinoba Economics →</a>
-          </div>
-        </div>
-
-        <div class="essay">
-          <h3>📚 Books</h3>
-          <p>The practical guide to designing an economic sphere for the AI era, where knowledge, decisions, and trust create value. Available in Japanese only.</p>
-          <div class="theme-links">
-            <div class="theme-lang">Japanese</div>
-            <a href="https://amzn.to/45lxgJf" target="_blank" rel="noopener noreferrer">Relationship Economy AI時代の経済圏設計 Chinoba Economics 実践ガイド: 知識・意思決定・信頼が価値を生み出す新しい経済学 →</a>
-          </div>
-        </div>
-
-        <div class="essay">
-          <h3>📰 Blog Articles</h3>
-          <p>The essay behind this page's argument, on AI economics and intelligence field economics.</p>
+          <h3>📰 From the Blog</h3>
+          <p>The long-form essay behind this page's argument, on AI economics and intelligence field economics.</p>
           <div class="theme-links">
             <div class="theme-lang">English</div>
             <a href="https://deus-ex-machina-ism.com/en/ai-economics-intelligence-field-economics/" target="_blank" rel="noopener noreferrer">AI Economics &amp; Intelligence Field Economics →</a>
@@ -938,43 +396,536 @@ Knowledge → Trust → Coordination → Decision → Value</code>
     </div>
   </section>
 
+  <!-- ============ 01 OVERVIEW ============ -->
+  <section class="research-section" id="overview" aria-labelledby="overview-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Overview</div>
+        <h2 id="overview-h">AI Becomes an Economic Actor</h2>
+        <p class="section-lede">
+          For most of the digital economy, humans acted and companies
+          responded. AI is beginning to sit between them — referencing
+          knowledge, forming an understanding of the situation, comparing
+          candidate decisions, coordinating with other AI, and acting inside a
+          defined authority. That shift is what this research treats as
+          Chinoba Economics: a way of reading AI-era value creation as a
+          circulation, not a settled law.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets3/05.png"
+           data-lightbox aria-label="Open the diagram of AI becoming an economic actor">
+          <img src="assets3/05.png"
+               alt="Two panels contrasting a traditional economy, where a human acts directly on a company, with the AI era, where a human directs an AI that coordinates with other AI and in turn acts on the company, forming a human, AI, and company loop."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The central actors of the economy are shifting from humans and companies to humans, AI, and companies.</figcaption>
+      </figure>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>From Tool to Participant</h3>
+          <p>
+            A tool executes an instruction and returns a result. A participant
+            references what is known, understands the current situation,
+            weighs candidate actions against constraints and policy, and
+            coordinates its own execution with the people and other AI around
+            it. Once AI operates this way, the value it helps create can no
+            longer be read off a single exchange.
+          </p>
+          <code class="quote is-diagram">Knowledge Flow
+↓ State Understanding
+↓ Decision
+↓ Action / Coordination
+↓ Outcome → Trust → Relationship</code>
+        </div>
+
+        <div class="col-text">
+          <h3>A Research Framework, Not a Law</h3>
+          <p>
+            Chinoba Economics does not claim to replace accounting, price
+            theory, or contract law. It offers a lens for the part those
+            frameworks were never built to see: how knowledge, decisions, and
+            trust circulate between the people, organizations, and AI that
+            take part in a transaction, before and after it happens.
+          </p>
+          <code class="quote">
+            Value is not
+            only what changed hands.
+            It is what
+            circulates afterward.
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 FROM TRANSACTION TO RELATIONSHIP ============ -->
+  <section class="research-section" id="transaction-to-relationship" aria-labelledby="ttr-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / From Transaction to Relationship</div>
+        <h2 id="ttr-h">From Transaction Economy to Relationship Economy</h2>
+        <p class="section-lede">
+          Transactions remain essential — accounting, contracts, pricing, and
+          settlement all depend on them. But a transaction alone rarely shows
+          which knowledge supported a decision, whose contribution led to the
+          outcome, or how that outcome changed trust and the next
+          collaboration. As AI takes part across knowledge, decision, and
+          execution, the unit of value creation widens from the transaction
+          itself to the ongoing cycle of relationship and learning around it.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets3/06.png"
+           data-lightbox aria-label="Open the diagram contrasting a one-time transaction with an ongoing relationship cycle">
+          <img src="assets3/06.png"
+               alt="A one-time transaction shown as customer, purchase, and company, beside a relationship cycle of continued use, trust, community, and learning circulating around a handshake — enterprise value shifts from transaction to relationship."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Enterprise value shifts from a single transaction to a circulating relationship.</figcaption>
+      </figure>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>The Transaction Does Not Disappear</h3>
+          <p>
+            Relationship Economy does not argue against buying, selling, or
+            pricing. It argues that a transaction is best understood as one
+            visible event inside a longer cycle — the moment where knowledge,
+            decision, and action are provisionally settled, not the whole
+            story of where the value came from.
+          </p>
+          <code class="quote is-diagram">Knowledge → Decision → Action
+↓
+Outcome → Trust → Relationship
+↓
+New Knowledge</code>
+        </div>
+        <div class="col-text">
+          <h3>Repositioning the Transaction</h3>
+          <p>
+            Once AI agents participate across the knowledge, judgment, and
+            execution stages, a purchase or a contract becomes one traceable
+            event in a chain that started before it and continues after it.
+            Relationship Economy repositions the transaction inside that
+            chain rather than treating it as the chain's only visible part.
+          </p>
+          <code class="quote">
+            A transaction is
+            a moment in a relationship,
+            not the whole
+            of the relationship.
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 THE RELATIONSHIP ECONOMY CYCLE ============ -->
+  <section class="research-section" id="cycle" aria-labelledby="cycle-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / The Relationship Economy Cycle</div>
+        <h2 id="cycle-h">The Relationship Economy Cycle</h2>
+        <p class="section-lede">
+          This cycle is the page's central model. Value does not end at
+          outcome — it passes through trust and relationship and returns as
+          knowledge the next decision can use.
+        </p>
+      </div>
+
+      <div class="field-runtime" aria-label="The Relationship Economy cycle, from knowledge flow to new knowledge">
+        <div class="field-runtime-label">Cycle Diagram</div>
+        <h3 class="field-runtime-title">Knowledge Flow → State Understanding → Decision → Action → Outcome → Trust → Relationship → New Knowledge</h3>
+
+        <ol class="field-layers" role="list">
+          <li class="field-layer">
+            <span class="layer-idx">01</span>
+            <span class="layer-body">
+              <span class="layer-name">Knowledge Flow</span>
+              <span class="layer-note">Knowledge distributed across an organization, a region, or a community is made usable while its source, meaning, and freshness stay attached to it.</span>
+            </span>
+            <span class="layer-tag">knowledge</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">02</span>
+            <span class="layer-body">
+              <span class="layer-name">State Understanding</span>
+              <span class="layer-note">Reads the present state — not only fixed attributes, but purpose, intent, constraints, context, role, and capability.</span>
+            </span>
+            <span class="layer-tag">state</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">03</span>
+            <span class="layer-body">
+              <span class="layer-name">Decision</span>
+              <span class="layer-note">Chooses among candidate options by weighing rationale, constraints, policy, and expected impact.</span>
+            </span>
+            <span class="layer-tag">decide</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">04</span>
+            <span class="layer-body">
+              <span class="layer-name">Action / Coordination</span>
+              <span class="layer-note">People, AI, and organizations coordinate and execute according to their assigned roles and granted authority.</span>
+            </span>
+            <span class="layer-tag">act</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">05</span>
+            <span class="layer-body">
+              <span class="layer-name">Outcome</span>
+              <span class="layer-note">Observes whether the intended change actually occurred — not merely that the execution finished.</span>
+            </span>
+            <span class="layer-tag">outcome</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">06</span>
+            <span class="layer-body">
+              <span class="layer-name">Trust</span>
+              <span class="layer-note">An expectation about the future, updated by the situation, the stated purpose, the rationale given, and the outcome delivered.</span>
+            </span>
+            <span class="layer-tag">trust</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">07</span>
+            <span class="layer-body">
+              <span class="layer-name">Relationship</span>
+              <span class="layer-note">Continuously formed, repaired, or ended through mutual understanding, collaboration, explanation, correction, and the return of value.</span>
+            </span>
+            <span class="layer-tag">relationship</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">08</span>
+            <span class="layer-body">
+              <span class="layer-name">New Knowledge &amp; Value Creation</span>
+              <span class="layer-note">Outcomes and the Decision Trace behind them return as knowledge, sharpening the judgment available to the next decision.</span>
+            </span>
+            <span class="layer-tag">value</span>
+          </li>
+        </ol>
+
+        <p class="field-loop">↻ <strong>New Knowledge</strong> re-enters Knowledge Flow — the cycle does not end at value creation, it restarts there.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 THE FOUNDATIONS OF CHINOBA ECONOMICS ============ -->
+  <section class="research-section" id="foundations" aria-labelledby="foundations-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / The Foundations</div>
+        <h2 id="foundations-h">The Foundations of Chinoba Economics</h2>
+        <p class="section-lede">
+          These seven foundations are not independent products sitting side
+          by side. Each implements one part of the Relationship Economy
+          Cycle, and each depends on the others to function — a Decision
+          Trace is only as good as the Knowledge Flow and Community Graph
+          behind it; Trust Infrastructure and Runtime Society only matter
+          once real decisions are being made and acted on.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Knowledge Flow</h3>
+          <p>Makes knowledge distributed across an organization or community usable, while preserving where it came from, what it means, and how current it is.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>State Understanding</h3>
+          <p>Reads the present situation of a person, organization, or AI — purpose, intent, constraints, context, role, and capability — not only fixed attributes.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Community Graph</h3>
+          <p>Represents the relationships among people, organizations, AI, places, events, documents, and knowledge as one connected structure.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Decision Trace Model</h3>
+          <p>Connects purpose, rationale, candidates, constraints, policy, choice, execution, and outcome, turning a judgment into a reusable asset.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Trust Infrastructure</h3>
+          <p>Sets the conditions for collaboration through identity, policy, boundary, human gate, explainability, and audit.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Runtime Society</h3>
+          <p>The operating environment in which people and AI collaborate, negotiate, decide, and act together under defined roles, authority, and rules.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Operational AI</h3>
+          <p>AI that carries a decision through to execution inside that runtime, rather than stopping at a recommendation.</p>
+        </div>
+      </div>
+
+      <div class="fig-lead">
+        <h3>One Infrastructure, Not Seven Tools</h3>
+        <p>
+          AI's own role shifts across these foundations — from a tool applied
+          to one task, to the infrastructure that connects Knowledge Flow,
+          Decision, Trust, Community, and Relationship into a single
+          operating layer.
+        </p>
+      </div>
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets3/12.png"
+           data-lightbox aria-label="Open the diagram of AI connecting Knowledge Flow, Decision, Trust, Community, and Relationship">
+          <img src="assets3/12.png"
+               alt="AI shown as a connecting hub at the center of Knowledge Flow, Decision, Trust, Community, and Relationship, each a spoke of one infrastructure rather than five separate tools."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">AI moves from a standalone tool to the infrastructure connecting Knowledge Flow, Decision, Trust, Community, and Relationship.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 05 FOUR FORMS OF CAPITAL ============ -->
+  <section class="research-section" id="capital" aria-labelledby="capital-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Four Forms of Capital</div>
+        <h2 id="capital-h">Four Forms of Capital in the AI Era</h2>
+        <p class="section-lede">
+          Chinoba Economics reads four concepts as a way of noticing what the
+          Relationship Economy Cycle accumulates — not as new line items to
+          replace balance-sheet capital, but as a way of asking what is
+          building up, or eroding, alongside every transaction.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Knowledge Capital</h3>
+          <p>The liquidity, freshness, and traceable provenance of what an organization or community knows — not the size of its archive.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Decision Capital</h3>
+          <p>The reusability of past decisions — rationale, constraints, and outcomes preserved well enough to make the next decision faster and better justified.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Trust Capital</h3>
+          <p>The accumulated — and sometimes damaged — expectation that a person, organization, or AI will act as it has represented, repaired through explanation and consistency.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Relationship Capital</h3>
+          <p>The depth and reciprocity of ongoing relationships across people, organizations, and AI, sustained by mutual understanding and fair return.</p>
+        </div>
+      </div>
+
+      <div class="capital-note">
+        <h3>Concepts, Not Scores</h3>
+        <p>
+          None of these four are proposed as a single number to optimize.
+          Knowledge, decisions, trust, and relationships are only partly
+          measurable, and reducing them to a score risks the things that make
+          them valuable in the first place — consent, fairness, purpose
+          limitation, the right to contest a judgment, and the ability to
+          exit a relationship. Chinoba Economics treats them as concepts to
+          reason with, not metrics to maximize.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 RUNTIME SOCIETY AND GOVERNANCE ============ -->
+  <section class="research-section" id="runtime-society" aria-labelledby="runtime-society-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Runtime Society and Governance</div>
+        <h2 id="runtime-society-h">Runtime Society and Governance</h2>
+        <p class="section-lede">
+          Once AI agents take part in the Relationship Economy Cycle, they do
+          so as limited economic actors — operating within a defined role,
+          authority, policy, and boundary — not as independent legal or moral
+          agents. What an AI can technically do and what it is permitted to
+          do in a given situation are different questions, and keeping them
+          different is the basis of Runtime Society governance.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets3/09.png"
+           data-lightbox aria-label="Open the diagram of value emerging through relationships among human, AI, enterprise, community, knowledge, and government">
+          <img src="assets3/09.png"
+               alt="Human, AI, Enterprise, Community, Knowledge, and Government arranged as connected nodes around a central Relationship node, illustrating that value emerges through the relationships between them."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Value emerges through the relationships between human, AI, enterprise, community, knowledge, and government.</figcaption>
+      </figure>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Capability Is Not Authority</h3>
+          <p>
+            An AI agent that can technically place an order, approve a claim,
+            or renegotiate a contract is not thereby entitled to. Authority
+            has to be granted for a specific role, in a specific context,
+            under a specific policy — the same distinction Chinoba applies
+            across every runtime, not a special rule for economic activity.
+          </p>
+          <code class="quote is-diagram">Capability
+↓ what it can do
+Authority
+↓ what it may do, here, now</code>
+        </div>
+        <div class="col-text">
+          <h3>The Human Role Is Not Only Approval</h3>
+          <p>
+            Humans are not reduced to a final approval click. People design
+            the purpose, boundaries, roles, and responsibilities the runtime
+            operates under; resolve conflicts the system cannot settle on its
+            own; and update the institution itself as conditions change.
+            Governance here means keeping privacy, fairness, explainability,
+            the right to contest a decision, the ability to exit, and
+            protection against excessive surveillance or manipulation as
+            conditions of value creation, not costs weighed against it.
+          </p>
+          <code class="quote">
+            Efficiency decides
+            what is possible.
+            Governance decides
+            what is allowed.
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 ECONOMIC SPHERES AND APPLICATIONS ============ -->
+  <section class="research-section" id="applications" aria-labelledby="applications-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Economic Spheres and Applications</div>
+        <h2 id="applications-h">Economic Spheres and Applications</h2>
+        <p class="section-lede">
+          The same cycle reads differently across economic spheres — what
+          changes is which knowledge flows, whose state is being understood,
+          and whose trust and relationship are at stake. These are not simply
+          places AI gets applied; they are where Knowledge Flow, State
+          Understanding, Decision Trace, Trust, and Relationship become
+          concrete enough to govern.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-3">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Regional Economic Sphere</h3>
+          <p>Local knowledge about residents, businesses, and resources flows into decisions on services and investment, where trust and relationship determine whether a community keeps returning value locally.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Sports Economic Sphere</h3>
+          <p>Understanding fans, athletes, and sponsors as ongoing relationships — not single ticket or merchandise transactions — turns loyalty and trust into a traceable, governable asset for a club or league.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Enterprise Economic Sphere</h3>
+          <p>Decision Trace across knowledge work makes an organization's judgment reusable, while Trust Infrastructure governs how far an AI agent's authority extends inside an approval chain.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Manufacturing Economy</h3>
+          <p>Knowledge about equipment state and process context feeds decisions on the line, where outcome and trust — not just throughput — determine whether a partner or supplier relationship continues.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Public Economic Sphere</h3>
+          <p>Public institutions turning algorithmic decisions into accountable, contestable outcomes need Decision Trace and Trust Infrastructure at least as much as private enterprise does — arguably more.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Creator Economy</h3>
+          <p>A creator's value depends less on any single sale than on an audience relationship built from shared knowledge, consistent trust, and outcomes an AI-assisted workflow can help sustain, not replace.</p>
+        </div>
+      </div>
+
+      <div class="fig-lead">
+        <h3>One Identity, Many Spheres</h3>
+        <p>
+          A single relationship-based identity can connect several economic
+          spheres at once — retail, finance, travel, and sports — turning
+          what would be many separate transactions into one continuing
+          relationship the platform can understand and act on.
+        </p>
+      </div>
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets3/08.png"
+           data-lightbox aria-label="Open the diagram of one identity connecting shopping, travel, banking, and sports into a long-term relationship">
+          <img src="assets3/08.png"
+               alt="Shopping, travel, banking, cards, securities, sports, and mobile services connected to one identity, converging on a long-term relationship rather than a single purchase."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">One identity, many economic spheres — resolving into a single long-term relationship.</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- ============ CLOSING ============ -->
   <section class="research-section closing" id="closing" aria-labelledby="closing-h">
     <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
 
-    <div class="positioning" aria-label="Research positioning within the intelligence field economy">
-      <span>Knowledge</span>
-      <span>↓</span>
-      <span>Trust</span>
-      <span>↓</span>
-      <span>Coordination</span>
-      <span>↓</span>
-      <span>Decision</span>
-      <span>↓</span>
-      <span class="here">Economic Value</span>
-    </div>
-
-    <figure class="figure figure-wide figure-standard" style="margin-bottom: clamp(40px, 6vw, 56px);">
-      <a class="figure-frame" href="assets2/20.png"
-         data-lightbox aria-label="Open the closing diagram of intelligence as the foundation of future economies">
-        <img src="assets2/20.png"
-             alt="A closing image: intelligence is no longer only computation — it becomes trust, then coordination, then the foundation of future economies, shown as trust, coordination, and value-creation nodes around people on a globe."
+    <figure class="figure figure-standard" style="margin-bottom: 48px;">
+      <a class="figure-frame" href="assets3/13.png"
+         data-lightbox aria-label="Open the Chinoba Economics circular diagram of knowledge, relationship, decision, community, value, and trust">
+        <img src="assets3/13.png"
+             alt="Six concepts — Knowledge, Relationship, Decision, Community, Value, and Trust — arranged in a circle around the words Chinoba Economics, each connected to its neighbors."
              loading="lazy">
       </a>
+      <figcaption class="figure-caption">Chinoba Economics: knowledge, relationship, decision, community, value, and trust as one circulating architecture.</figcaption>
     </figure>
 
+    <div class="positioning" aria-label="Research positioning within the Chinoba architecture">
+      <span>Knowledge Flow</span>
+      <span>↓</span>
+      <span>Decision Trace</span>
+      <span>↓</span>
+      <span>Trust Infrastructure</span>
+      <span>↓</span>
+      <span>Runtime Society</span>
+      <span>↓</span>
+      <span class="here">Relationship Economy</span>
+    </div>
+
     <blockquote>
-      <span>Intelligence is becoming</span>
-      <span>the primary resource of the economy.</span>
+      <span>Relationship Economy does not argue that transactions disappear.</span>
+      <span>It makes visible how knowledge, decisions, action, outcome,</span>
+      <span>trust, and relationship connect — and how each cycle</span>
+      <span>returns as the next round's knowledge.</span>
       <span>&nbsp;</span>
-      <span>Value is created where knowledge circulates,</span>
-      <span>where trust is verified,</span>
-      <span>and where coordination becomes decision.</span>
+      <span>When AI participates deeply in economic life,</span>
+      <span>efficiency alone is not enough.</span>
+      <span>The conditions for collaboration, responsibility, explanation,</span>
+      <span>recoverability, and fair return must be designed alongside it.</span>
       <span>&nbsp;</span>
-      <span>The economy of intelligence is a field,</span>
-      <span>not a stock.</span>
+      <span>Chinoba Economics is the search for that implementable structure.</span>
     </blockquote>
     <div class="closing-mark">Chinoba.org</div>
+    <p class="closing-cta">
+      <a href="https://amzn.to/4bUU9XC" target="_blank" rel="noopener noreferrer">New Book →</a>
+      &nbsp;·&nbsp;
+      <a href="#resources">Featured Resources →</a>
+    </p>
   </section>
 
   <!-- ============ + RELATED RESEARCH ============ -->
@@ -984,8 +935,10 @@ Knowledge → Trust → Coordination → Decision → Value</code>
         <div class="section-label">+ / Related Research</div>
         <h2 id="related-h">Other Lines of Inquiry</h2>
         <p class="section-lede">
-          Intelligence field economics draws on neighboring threads in
-          the Chinoba field — the layers whose circulation it turns into value.
+          Relationship Economy is one layer of one architecture — Knowledge
+          Flow and the Community Graph feed it, Decision Trace and Trust
+          Infrastructure give it a record and a boundary, and Runtime Society
+          and AI Coordination are where its cycle is actually run.
         </p>
       </div>
 
@@ -995,34 +948,34 @@ Knowledge → Trust → Coordination → Decision → Value</code>
           <span class="related-name">Decision Trace Model</span>
           <span class="related-status">Available</span>
         </a>
-        <a href="/research/runtime-society" data-slug="runtime-society">
-          <span class="related-label">02 / Inquiry</span>
-          <span class="related-name">Runtime Society</span>
-          <span class="related-status">Available</span>
-        </a>
         <a href="/research/knowledge-flow" data-slug="knowledge-flow">
-          <span class="related-label">03 / Inquiry</span>
+          <span class="related-label">02 / Inquiry</span>
           <span class="related-name">Knowledge Flow</span>
           <span class="related-status">Available</span>
         </a>
         <a href="/research/trust-infrastructure" data-slug="trust-infrastructure">
-          <span class="related-label">04 / Inquiry</span>
+          <span class="related-label">03 / Inquiry</span>
           <span class="related-name">Trust Infrastructure</span>
           <span class="related-status">Available</span>
         </a>
-        <a href="/research/ai-coordination" data-slug="ai-coordination">
+        <a href="/research/runtime-society" data-slug="runtime-society">
+          <span class="related-label">04 / Inquiry</span>
+          <span class="related-name">Runtime Society</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/governance-boundary-systems" data-slug="governance-boundary-systems">
           <span class="related-label">05 / Inquiry</span>
+          <span class="related-name">Governance &amp; Boundary Systems</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/ai-coordination" data-slug="ai-coordination">
+          <span class="related-label">06 / Inquiry</span>
           <span class="related-name">AI Coordination</span>
           <span class="related-status">Available</span>
         </a>
         <a href="/research/graph-intelligence-relational-systems" data-slug="graph-intelligence-relational-systems">
-          <span class="related-label">13 / Inquiry</span>
+          <span class="related-label">07 / Inquiry</span>
           <span class="related-name">Graph Intelligence &amp; Relational Systems</span>
-          <span class="related-status">Available</span>
-        </a>
-        <a href="/research/emergent-distributed-intelligence" data-slug="emergent-distributed-intelligence">
-          <span class="related-label">14 / Inquiry</span>
-          <span class="related-name">Emergent &amp; Distributed Intelligence</span>
           <span class="related-status">Available</span>
         </a>
       </div>
