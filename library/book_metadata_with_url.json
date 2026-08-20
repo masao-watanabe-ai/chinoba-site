@@ -2,7 +2,7 @@
   "library_title": "Knowledge Artifacts / Library",
   "library_subtitle": "The research, compiled.",
   "library_description": "Books and long-form artifacts produced from the Lines of Inquiry — organized by theme, available in English and Japanese editions.",
-  "total_books": 35,
+  "total_books": 39,
   "themes": [
     {
       "theme_id": "theme_01",
@@ -252,6 +252,47 @@
       "order": 3,
       "books": [
         {
+          "book_id": "runtime_os_implementation_guide_en",
+          "language": "en",
+          "title": "Runtime OS Implementation Guide",
+          "subtitle": "A Practical Architecture Integrating AI Agents, Human Gates, and Decision Traces",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "asin": "B0HFVC88DB",
+          "amazon_url": "https://amzn.to/4x6u7Jp",
+          "cover_image": "/assets/books/B0HFVC88DB.jpg",
+          "category": [
+            "Runtime OS",
+            "AI Governance",
+            "Decision Runtime"
+          ],
+          "order": -1,
+          "theme": "Governance and Coordination",
+          "theme_id": "theme_03",
+          "index": -1
+        },
+        {
+          "book_id": "practical_multi_agent_systems_en",
+          "language": "en",
+          "title": "Practical Multi-Agent Systems",
+          "subtitle": "Integrating OpenAI Agents SDK, Claude Agent SDK, AutoGen, and LangGraph with Chinoba Decision Runtime Implementation Guide",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "asin": "B0HFVVWTCJ",
+          "amazon_url": "https://amzn.to/3U8dazL",
+          "cover_image": "/assets/books/B0HFVVWTCJ.jpg",
+          "category": [
+            "Multi-Agent Systems",
+            "AI Agents",
+            "Agent Frameworks",
+            "Decision Runtime"
+          ],
+          "order": -1,
+          "theme": "Governance and Coordination",
+          "theme_id": "theme_03",
+          "index": -1
+        },
+        {
           "book_id": "runtime_ai_governance_practical_guide_en",
           "language": "en",
           "title": "Runtime AI Governance: Practical Guide",
@@ -276,6 +317,46 @@
           "asin": "B0HFLQTP1F",
           "amazon_url": "https://amzn.to/4x4TRps",
           "cover_image": "/assets/books/B0HFLQTP1F.jpg",
+          "order": -1,
+          "theme": "Governance and Coordination",
+          "theme_id": "theme_03",
+          "index": -1
+        },
+        {
+          "book_id": "runtime_os_implementation_guide_ja",
+          "language": "ja",
+          "title": "Runtime OS実践ガイド",
+          "subtitle": "AI Agent • Human Gate • Decision Traceを統合する実装アーキテクチャ",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "asin": "B0HFV8W78W",
+          "amazon_url": "https://amzn.to/4ztE8lu",
+          "cover_image": "/assets/books/B0HFV8W78W.jpg",
+          "category": [
+            "Runtime OS",
+            "AI Governance",
+            "Multi-Agent Systems"
+          ],
+          "order": -1,
+          "theme": "Governance and Coordination",
+          "theme_id": "theme_03",
+          "index": -1
+        },
+        {
+          "book_id": "practical_multi_agent_systems_ja",
+          "language": "ja",
+          "title": "実践 Multi-Agent Systems",
+          "subtitle": "OpenAI Agents SDK・Claude Agent SDK・AutoGen・LangGraphを統合するChinoba Decision Runtime実装ガイド",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "asin": "B0HFVWH5BB",
+          "amazon_url": "https://amzn.to/4ik721e",
+          "cover_image": "/assets/books/B0HFVWH5BB.jpg",
+          "category": [
+            "Multi-Agent Systems",
+            "AI Agents",
+            "Chinoba Decision Runtime"
+          ],
           "order": -1,
           "theme": "Governance and Coordination",
           "theme_id": "theme_03",
@@ -367,7 +448,7 @@
           "index": 4
         }
       ],
-      "book_count": 7
+      "book_count": 11
     },
     {
       "theme_id": "theme_04",
