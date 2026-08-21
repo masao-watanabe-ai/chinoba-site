@@ -396,11 +396,108 @@
     </div>
   </section>
 
-  <!-- ============ 01 COORDINATION IS NOT COMMUNICATION ============ -->
+  <!-- ============ 01 MULTI-AGENT SYSTEMS BRIDGE ============ -->
+  <section class="research-section" id="multi-agent-bridge" aria-labelledby="multi-agent-bridge-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Multi-Agent Systems — Where the Coordination Problem Begins</div>
+        <h2 id="multi-agent-bridge-h">Multi-Agent Systems — Where the Coordination Problem Begins</h2>
+        <p class="section-lede">
+          A single AI Agent can reason, call tools, and execute a task
+          within its own scope. Enterprise systems increasingly
+          distribute that capability instead — across a research Agent,
+          a pricing Agent, a contract Agent, a risk Agent — into a
+          Multi-Agent System. That system is where the coordination
+          problem this page addresses actually begins.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>From Specialized Agents to a Coordination Problem</h3>
+          <code class="quote is-diagram">Single Agent
+↓ Specialized Agents
+↓ Multi-Agent System
+↓ Coordination Problem
+↓ AI Coordination
+↓ Accountable Action</code>
+          <p>
+            Specialization solves a real problem — narrower scope,
+            reusable roles, parallel execution, separated expertise. It
+            does not, by itself, decide who owns the goal, which Agent
+            acts next, what context is shared, or when a human must
+            intervene. Adding Agents multiplies capability; it does not,
+            on its own, produce coordination.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>Two Different Contributions</h3>
+          <code class="quote">
+            Multi-Agent Systems
+            = the architecture of distributed,
+            specialized capability
+
+            AI Coordination
+            = the discipline that aligns that
+            capability into accountable action
+          </code>
+          <p>
+            Multi-Agent Systems provide distributed capability. AI
+            Coordination is what makes distributed capability
+            governable — the subject of the sections that follow.
+          </p>
+        </div>
+      </div>
+
+      <p style="max-width:760px; color:var(--fg-mute); font-size:15.5px; line-height:1.85; margin-top:clamp(32px,4vw,44px);">
+        A compact enterprise example makes this concrete: a customer
+        request passed through a research agent, a pricing agent, a
+        contract agent, and a risk agent before reaching approval.
+      </p>
+
+      <code class="quote is-diagram" style="max-width:420px;">Customer Request
+↓ research-agent
+↓ pricing-agent
+↓ contract-agent
+↓ risk-agent
+↓ approval</code>
+
+      <p style="max-width:760px; color:var(--fg-mute); font-size:15.5px; line-height:1.85; margin-top:clamp(24px,3vw,32px);">
+        Each Agent in that chain can be individually competent —
+        accurate research, defensible pricing, careful contract review —
+        and the handoff between them can still fail, because competence
+        at one step says nothing about goal, role, context, knowledge,
+        authority, responsibility, risk, trust, or boundary at the next.
+        That is not a framework problem. It is the AI Coordination
+        problem the rest of this page works through in detail. Such
+        systems are commonly implemented with Agent Frameworks —
+        OpenAI Agents SDK, Claude Agent SDK, AutoGen, LangGraph — which
+        help implement Agents and workflows but do not by themselves
+        resolve the coordination problem addressed here.
+      </p>
+
+      <code class="quote is-diagram">Multiple Agents ≠ Coordinated System
+Communication ≠ Coordination
+Coordination ≠ Decision Authority
+Agent Consensus ≠ Organizational Decision</code>
+
+      <p class="closing-cta" style="margin-top:28px;">
+        Explore how specialized Agents, OpenAI Agents SDK, Claude Agent
+        SDK, AutoGen, LangGraph, and the Chinoba Decision Runtime fit
+        together in practical Multi-Agent architectures.
+      </p>
+      <p class="closing-cta" style="margin-top:8px;">
+        <a class="book-link" href="/research/multi-agent-systems/">Explore Multi-Agent Systems →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 02 COORDINATION IS NOT COMMUNICATION ============ -->
   <section class="research-section" id="not-communication" aria-labelledby="not-communication-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">01 / Coordination Is Not Communication</div>
+        <div class="section-label">02 / Coordination Is Not Communication</div>
         <h2 id="not-communication-h">Coordination Is Not Communication</h2>
         <p class="section-lede">
           A research agent can report "research complete," a policy agent
@@ -462,11 +559,11 @@
     </div>
   </section>
 
-  <!-- ============ 02 FAILURE MODES OF MULTI-AGENT SYSTEMS ============ -->
+  <!-- ============ 03 FAILURE MODES OF MULTI-AGENT SYSTEMS ============ -->
   <section class="research-section" id="failure-modes" aria-labelledby="failure-modes-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">02 / Failure Modes of Multi-Agent Systems</div>
+        <div class="section-label">03 / Failure Modes of Multi-Agent Systems</div>
         <h2 id="failure-modes-h">Failure Modes of Multi-Agent Systems</h2>
         <p class="section-lede">
           Distributed systems already named these failure modes. What
@@ -522,11 +619,11 @@
     </div>
   </section>
 
-  <!-- ============ 03 AUTONOMY CONTROL ============ -->
+  <!-- ============ 04 AUTONOMY CONTROL ============ -->
   <section class="research-section" id="autonomy-control" aria-labelledby="autonomy-control-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">03 / Autonomy Control: Policy, Risk, Trust, and Boundary</div>
+        <div class="section-label">04 / Autonomy Control: Policy, Risk, Trust, and Boundary</div>
         <h2 id="autonomy-control-h">Autonomy Control: Policy, Risk, Trust, and Boundary</h2>
         <p class="section-lede">
           Autonomy is not one number. It has dimensions — an agent can be
@@ -623,11 +720,11 @@ Learning Autonomy</code>
     </div>
   </section>
 
-  <!-- ============ 04 KNOWLEDGE, CONTEXT, AND SHARED MEANING ============ -->
+  <!-- ============ 05 KNOWLEDGE, CONTEXT, AND SHARED MEANING ============ -->
   <section class="research-section" id="knowledge-context" aria-labelledby="knowledge-context-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">04 / Knowledge, Context, and Shared Meaning</div>
+        <div class="section-label">05 / Knowledge, Context, and Shared Meaning</div>
         <h2 id="knowledge-context-h">Knowledge, Context, and Shared Meaning</h2>
         <p class="section-lede">
           Coordination assumes agents can act on a shared understanding of
@@ -696,11 +793,11 @@ Learning Autonomy</code>
     </div>
   </section>
 
-  <!-- ============ 05 DELEGATION, RESPONSIBILITY, AND TRUST ============ -->
+  <!-- ============ 06 DELEGATION, RESPONSIBILITY, AND TRUST ============ -->
   <section class="research-section" id="delegation" aria-labelledby="delegation-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">05 / Delegation, Responsibility, and Trust</div>
+        <div class="section-label">06 / Delegation, Responsibility, and Trust</div>
         <h2 id="delegation-h">Delegation, Responsibility, and Trust</h2>
         <p class="section-lede">
           Asking another agent to do something is not the same as
@@ -768,11 +865,11 @@ Learning Autonomy</code>
     </div>
   </section>
 
-  <!-- ============ 06 DECISION TRACE AND THE AI COORDINATION RUNTIME ============ -->
+  <!-- ============ 07 DECISION TRACE AND THE AI COORDINATION RUNTIME ============ -->
   <section class="research-section" id="runtime" aria-labelledby="runtime-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">06 / Decision Trace and the AI Coordination Runtime</div>
+        <div class="section-label">07 / Decision Trace and the AI Coordination Runtime</div>
         <h2 id="runtime-h">Decision Trace and the AI Coordination Runtime</h2>
         <p class="section-lede">
           The mechanisms above — coordination, autonomy control,
@@ -899,11 +996,11 @@ Learning Autonomy</code>
     </div>
   </section>
 
-  <!-- ============ 07 APPLICATIONS AND EVOLUTION ============ -->
+  <!-- ============ 08 APPLICATIONS AND EVOLUTION ============ -->
   <section class="research-section" id="applications" aria-labelledby="applications-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">07 / Applications and Evolution</div>
+        <div class="section-label">08 / Applications and Evolution</div>
         <h2 id="applications-h">Applications and Evolution</h2>
         <p class="section-lede">
           In each case below, what determines the outcome is not raw
