@@ -2,7 +2,7 @@
   "library_title": "Knowledge Artifacts / Library",
   "library_subtitle": "The research, compiled.",
   "library_description": "Books and long-form artifacts produced from the Lines of Inquiry — organized by theme, available in English and Japanese editions.",
-  "total_books": 39,
+  "total_books": 45,
   "themes": [
     {
       "theme_id": "theme_01",
@@ -242,9 +242,45 @@
           "theme": "Trust and Knowledge Infrastructure",
           "theme_id": "theme_02",
           "index": 7
+        },
+        {
+          "book_id": "synapse_insights_en",
+          "language": "en",
+          "title": "SYNAPSE INSIGHTS From Analytics to Runtime for Observing Organizational Intelligence",
+          "subtitle": "Reading the Flow of Conversations, Activities, Knowledge, Trust, and Decisions",
+          "description": "A book on observing organizational intelligence, from analytics to runtime, through the flow of conversations, activities, knowledge, trust, and decisions.",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "price": "$4.99 USD",
+          "asin": "B0HJB81KND",
+          "submitted_date": "2026-09-10",
+          "amazon_url": "https://amzn.to/4j6O52w",
+          "cover_image": "/assets/books/B0HJB81KND.jpg",
+          "order": 8,
+          "theme": "Trust and Knowledge Infrastructure",
+          "theme_id": "theme_02",
+          "index": 8
+        },
+        {
+          "book_id": "synapse_insights_ja",
+          "language": "ja",
+          "title": "Synapse Insights 組織知能を観測するAnalyticsからRuntimeへ",
+          "subtitle": "会話・活動・知識・信頼・意思決定の流れを読む",
+          "description": "会話・活動・知識・信頼・意思決定の流れから組織知能を観測し、AnalyticsからRuntimeへと発展させる一冊。",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "price": "¥980 JPY",
+          "asin": "B0HJBFFM2R",
+          "submitted_date": "2026-09-10",
+          "amazon_url": "https://amzn.to/4xvZWLk",
+          "cover_image": "/assets/books/B0HJBFFM2R.jpg",
+          "order": 9,
+          "theme": "Trust and Knowledge Infrastructure",
+          "theme_id": "theme_02",
+          "index": 9
         }
       ],
-      "book_count": 8
+      "book_count": 10
     },
     {
       "theme_id": "theme_03",
@@ -446,9 +482,45 @@
           "theme": "Governance and Coordination",
           "theme_id": "theme_03",
           "index": 4
+        },
+        {
+          "book_id": "multi_agent_systems_mcp_openapi_a2a_en",
+          "language": "en",
+          "title": "Building Multi-Agent Systems with MCP, OpenAPI, and A2A",
+          "subtitle": "Connecting, Coordinating, and Implementing Human-in-the-Loop for Enterprise AI Agents",
+          "description": "A practical guide to connecting, coordinating, and implementing Human-in-the-Loop AI agents using MCP, OpenAPI, and A2A.",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "price": "$4.99 USD",
+          "asin": "B0HJFTY47Q",
+          "submitted_date": "2026-09-11",
+          "amazon_url": "https://amzn.to/4rj3DT8",
+          "cover_image": "/assets/books/B0HJFTY47Q.jpg",
+          "order": 5,
+          "theme": "Governance and Coordination",
+          "theme_id": "theme_03",
+          "index": 5
+        },
+        {
+          "book_id": "multi_agent_system_mcp_openapi_a2a_ja",
+          "language": "ja",
+          "title": "MCP・OpenAPI・A2Aでつくる Multi-Agent System",
+          "subtitle": "業務AIエージェントの接続・協調・Human-in-the-loop実装",
+          "description": "MCP・OpenAPI・A2Aを用いてAI Agentの接続・協調・Human-in-the-loopを実装する実践ガイド。",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "price": "¥980 JPY",
+          "asin": "B0HJFRSXS1",
+          "submitted_date": "2026-09-11",
+          "amazon_url": "https://amzn.to/4h3CiPW",
+          "cover_image": "/assets/books/B0HJFRSXS1.jpg",
+          "order": 6,
+          "theme": "Governance and Coordination",
+          "theme_id": "theme_03",
+          "index": 6
         }
       ],
-      "book_count": 11
+      "book_count": 13
     },
     {
       "theme_id": "theme_04",
@@ -678,9 +750,45 @@
           "theme": "Building Intelligence Fields",
           "theme_id": "theme_06",
           "index": 2
+        },
+        {
+          "book_id": "rapid_prototyping_generative_ai_en",
+          "language": "en",
+          "title": "Rapid Prototyping in the Age of Generative AI",
+          "subtitle": "Learning with Streamlit, Building with Docker AI Business Systems",
+          "description": "A practical guide to validating AI business systems with Streamlit and growing them into production-grade systems with Docker.",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "price": "$4.99 USD",
+          "asin": "B0HJNQBFYW",
+          "submitted_date": "2026-09-13",
+          "amazon_url": "https://amzn.to/3UU6UvW",
+          "cover_image": "/assets/books/B0HJNQBFYW.jpg",
+          "order": 3,
+          "theme": "Building Intelligence Fields",
+          "theme_id": "theme_06",
+          "index": 3
+        },
+        {
+          "book_id": "rapid_prototyping_generative_ai_ja",
+          "language": "ja",
+          "title": "生成AI時代のラピッドプロトタイピング",
+          "subtitle": "Streamlitで学び、Dockerで育てる AI業務システム",
+          "description": "StreamlitでAI業務システムを検証し、Dockerで本番品質へ育てるための実践ガイド。",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "price": "¥980 JPY",
+          "asin": "B0HJNMMSSD",
+          "submitted_date": "2026-09-13",
+          "amazon_url": "https://amzn.to/4iPxjoL",
+          "cover_image": "/assets/books/B0HJNMMSSD.jpg",
+          "order": 4,
+          "theme": "Building Intelligence Fields",
+          "theme_id": "theme_06",
+          "index": 4
         }
       ],
-      "book_count": 2
+      "book_count": 4
     },
     {
       "theme_id": "theme_07",
