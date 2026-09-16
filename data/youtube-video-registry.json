@@ -1,0 +1,982 @@
+{
+  "channel": {
+    "handle": "@chinobaresearch",
+    "channelId": "UCN9bCGioO2W6wzgVmmpmOzg"
+  },
+  "lastFullSyncAt": "2026-09-16",
+  "totalChannelVideos": 88,
+  "videos": [
+    {
+      "videoId": "JKML-USzwsI",
+      "title": "From Prompt to Working App: A Beginner’s Guide to AI App Prototyping",
+      "url": "https://www.youtube.com/watch?v=JKML-USzwsI",
+      "uploadDate": "20260913",
+      "language": "en",
+      "pages": [
+        "research/case-study/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "eJpdd3urN6g",
+      "title": "プロンプトから「動くもの」をつくる具体化・制約・コンテキストを体験する、はじめてのAIアプリ開発講座",
+      "url": "https://www.youtube.com/watch?v=eJpdd3urN6g",
+      "uploadDate": "20260913",
+      "language": "ja",
+      "pages": [
+        "research/case-study/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "LmRRGZVgIgo",
+      "title": "How AI Agents Act on the External World | MCP, A2A, Geiger, and Runtime OS",
+      "url": "https://www.youtube.com/watch?v=LmRRGZVgIgo",
+      "uploadDate": "20260910",
+      "language": "en",
+      "pages": [
+        "research/multi-agent-systems/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "Xbox6hwPpUE",
+      "title": "AI Agentはどこから外界へ作用するのか｜MCP・A2A・Geiger・Runtime OS",
+      "url": "https://www.youtube.com/watch?v=Xbox6hwPpUE",
+      "uploadDate": "20260910",
+      "language": "ja",
+      "pages": [
+        "research/multi-agent-systems/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "70mDjXUd3jY",
+      "title": "From Optimization to Exploration: Creativity, Autonomy, and Decision Trace in the Age of AI",
+      "url": "https://www.youtube.com/watch?v=70mDjXUd3jY",
+      "uploadDate": "20260906",
+      "language": "en",
+      "pages": [
+        "research/decision-trace-model/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "WemlNp9jQcY",
+      "title": "全体最適と創造性 ― AI時代に「安全に逸脱できる自由」を設計する",
+      "url": "https://www.youtube.com/watch?v=WemlNp9jQcY",
+      "uploadDate": "20260905",
+      "language": "ja",
+      "pages": [
+        "research/decision-trace-model/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "U8rqb8JR97E",
+      "title": "数学はランダムを作れるのか？― 確率・生成AI・Decisionをつなぐ12分の基礎",
+      "url": "https://www.youtube.com/watch?v=U8rqb8JR97E",
+      "uploadDate": "20260904",
+      "language": "ja",
+      "pages": [
+        "research/decision-trace-model/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "dymuyrjav3I",
+      "title": "Can Mathematics Create Randomness? From Probability to Decision in Generative AI",
+      "url": "https://www.youtube.com/watch?v=dymuyrjav3I",
+      "uploadDate": "20260904",
+      "language": "en",
+      "pages": [
+        "research/decision-trace-model/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "NlInIkHVJyc",
+      "title": "Semantic Digital Twin with Omniverse and Isaac SimConnecting 3D Simulation to Operational Meaning",
+      "url": "https://www.youtube.com/watch?v=NlInIkHVJyc",
+      "uploadDate": "20260901",
+      "language": "en",
+      "pages": [
+        "research/physical-ai-cyber-physical-systems/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "ZT8nt-dkIHQ",
+      "title": "Omniverse・Isaac Sim・Semantic Digital Twin工場・倉庫の3Dシミュレーションを、現場の意味・判断・学習へつなぐ",
+      "url": "https://www.youtube.com/watch?v=ZT8nt-dkIHQ",
+      "uploadDate": "20260901",
+      "language": "ja",
+      "pages": [
+        "research/physical-ai-cyber-physical-systems/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "bArT4U5ztEg",
+      "title": "Redefining Rapid Prototyping in the Age of Generative AI— From Building Faster to Learning Faster",
+      "url": "https://www.youtube.com/watch?v=bArT4U5ztEg",
+      "uploadDate": "20260830",
+      "language": "en",
+      "pages": [
+        "research/case-study/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "OR2dHYp3_GA",
+      "title": "生成AI時代のラピッドプロトタイピング―「速く作る」から「速く学び、確かに決める」へ",
+      "url": "https://www.youtube.com/watch?v=OR2dHYp3_GA",
+      "uploadDate": "20260829",
+      "language": "ja",
+      "pages": [
+        "research/case-study/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "NiKQhsfM-tg",
+      "title": "Can Trust Alone Deliver Global Optimization? | Intelligence Fields, Coordination, Global Adaptation",
+      "url": "https://www.youtube.com/watch?v=NiKQhsfM-tg",
+      "uploadDate": "20260828",
+      "language": "en",
+      "pages": [
+        "research/ai-coordination/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "lEzrwPZc7KQ",
+      "title": "Trustだけで全体最適は実現できるのか──知能場をGlobal Adaptationへ導くCoordinationとDecision Trace",
+      "url": "https://www.youtube.com/watch?v=lEzrwPZc7KQ",
+      "uploadDate": "20260827",
+      "language": "ja",
+      "pages": [
+        "research/ai-coordination/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "16ErV_kj1DM",
+      "title": "Agent Frameworkを比較しても意味がない理由｜OpenAI・Claude・AutoGen・LangGraphの本当の役割",
+      "url": "https://www.youtube.com/watch?v=16ErV_kj1DM",
+      "uploadDate": "20260826",
+      "pages": [
+        "research/multi-agent-systems/",
+        "research/runtime-society/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "8RaL_HeCuxM",
+      "title": "Runtime OSとは何か？｜OpenAI・Claude・AutoGen・LangGraphとの本当の違い",
+      "url": "https://www.youtube.com/watch?v=8RaL_HeCuxM",
+      "uploadDate": "20260826",
+      "pages": [
+        "research/multi-agent-systems/",
+        "research/runtime-society/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "HGLQ94scWyg",
+      "title": "Runtime OS vs Agent Frameworks: Governing AI Decisions, Authority, and Execution",
+      "url": "https://www.youtube.com/watch?v=HGLQ94scWyg",
+      "uploadDate": "20260826",
+      "pages": [
+        "research/multi-agent-systems/",
+        "research/runtime-society/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "Mt--edHVZV8",
+      "title": "How to Safely Connect AI Agents to Business Operations | Chinoba Decision Runtime Edge",
+      "url": "https://www.youtube.com/watch?v=Mt--edHVZV8",
+      "uploadDate": "20260826",
+      "pages": [
+        "research/multi-agent-systems/",
+        "research/runtime-society/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "VjB5hOl2TLM",
+      "title": "Runtime OS Architecture｜Centralized・Edge・Federatedで実現するAI意思決定基盤",
+      "url": "https://www.youtube.com/watch?v=VjB5hOl2TLM",
+      "uploadDate": "20260826",
+      "pages": [
+        "research/multi-agent-systems/",
+        "research/runtime-society/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "fga8NT-uPzo",
+      "title": "Which AI Agent Framework Should You Choose? OpenAI, Claude, AutoGen, or LangGraph?",
+      "url": "https://www.youtube.com/watch?v=fga8NT-uPzo",
+      "uploadDate": "20260826",
+      "pages": [
+        "research/multi-agent-systems/",
+        "research/runtime-society/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "orHqezZWovs",
+      "title": "Runtime OS Architecture: Centralized, Edge & Federated AI Decision Systems",
+      "url": "https://www.youtube.com/watch?v=orHqezZWovs",
+      "uploadDate": "20260826",
+      "pages": [
+        "research/multi-agent-systems/",
+        "research/runtime-society/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "gu4bL-ptyJc",
+      "title": "That’s the Way of the World: AI, Uncertainty, Trust, and Adaptation",
+      "url": "https://www.youtube.com/watch?v=gu4bL-ptyJc",
+      "uploadDate": "20260825",
+      "language": "en",
+      "pages": [
+        "research/philosophy-of-ai/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "szEJY5VXsnA",
+      "title": "AIは世界の一部になる｜予測・意思決定・Trust、そしてOptimizationからAdaptationへ",
+      "url": "https://www.youtube.com/watch?v=szEJY5VXsnA",
+      "uploadDate": "20260824",
+      "language": "ja",
+      "pages": [
+        "research/philosophy-of-ai/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "6qZ9FQ1d3Eg",
+      "title": "AI Agentを企業業務へ安全につなぐ ― Chinoba Decision Runtime Edge（CDR Edge）とは",
+      "url": "https://www.youtube.com/watch?v=6qZ9FQ1d3Eg",
+      "uploadDate": "20260821",
+      "language": "ja",
+      "pages": [
+        "research/multi-agent-systems/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "7Pvx4XNBE6o",
+      "title": "The Relationship Economy: How AI Is Transforming Value, Trust, and Business",
+      "url": "https://www.youtube.com/watch?v=7Pvx4XNBE6o",
+      "uploadDate": "20260816",
+      "pages": [
+        "research/ai-economics-intelligence-field-economics/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "B-A7ABauvWc",
+      "title": "Physical AIを支えるSemantic Digital Twin｜現実世界を理解し、安全に判断・行動するための意味基盤",
+      "url": "https://www.youtube.com/watch?v=B-A7ABauvWc",
+      "uploadDate": "20260816",
+      "pages": [
+        "research/physical-ai-cyber-physical-systems/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "FuuJLaAEP2g",
+      "title": "AI社会を支えるTrust Infrastructureとは？｜人・AI・組織が安心して協調するための新しい基盤",
+      "url": "https://www.youtube.com/watch?v=FuuJLaAEP2g",
+      "uploadDate": "20260816",
+      "pages": [
+        "research/trust-infrastructure/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "GYLMhOPhcdA",
+      "title": "Knowledge Flow: Transforming Enterprise Knowledge into AI-Ready Knowledge Infrastructure",
+      "url": "https://www.youtube.com/watch?v=GYLMhOPhcdA",
+      "uploadDate": "20260816",
+      "pages": [
+        "research/knowledge-flow/",
+        "research/trust-infrastructure/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "XeVLoLkCx10",
+      "title": "Semantic Digital Twin for Physical AI",
+      "url": "https://www.youtube.com/watch?v=XeVLoLkCx10",
+      "uploadDate": "20260816",
+      "pages": [
+        "research/knowledge-flow/",
+        "research/physical-ai-cyber-physical-systems/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "fE-fTfHTI7U",
+      "title": "AIガバナンスを変えるKnowledge Flow――モデル管理から知識・判断・自律性の統治へ",
+      "url": "https://www.youtube.com/watch?v=fE-fTfHTI7U",
+      "uploadDate": "20260816",
+      "pages": [
+        "research/governance-boundary-systems/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "jPCHPxM4FKo",
+      "title": "Knowledge Flow実践ガイド — 企業知識をAIが利用できる知識基盤へ変換する",
+      "url": "https://www.youtube.com/watch?v=jPCHPxM4FKo",
+      "uploadDate": "20260816",
+      "pages": [
+        "research/knowledge-flow/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "mgc6s6NRNAE",
+      "title": "Trust Infrastructure: Building the Foundation for Human–AI Collaboration",
+      "url": "https://www.youtube.com/watch?v=mgc6s6NRNAE",
+      "uploadDate": "20260816",
+      "pages": [
+        "research/trust-infrastructure/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "pY2yjDuMtKs",
+      "title": "AIエージェントの自律性をどう制御するか ― Autonomy Control PlaneとマルチAI協調の未来",
+      "url": "https://www.youtube.com/watch?v=pY2yjDuMtKs",
+      "uploadDate": "20260816",
+      "pages": [
+        "research/ai-coordination/",
+        "research/governance-boundary-systems/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "zWfKsRuyn5U",
+      "title": "Beyond Model Governance: Building Trustworthy AI Through Knowledge Flow",
+      "url": "https://www.youtube.com/watch?v=zWfKsRuyn5U",
+      "uploadDate": "20260816",
+      "pages": [
+        "research/governance-boundary-systems/",
+        "research/knowledge-flow/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "zbTTusglf9k",
+      "title": "Autonomy Control for AI Coordination — Governing Multi-Agent Systems at Runtime",
+      "url": "https://www.youtube.com/watch?v=zbTTusglf9k",
+      "uploadDate": "20260816",
+      "pages": [
+        "research/ai-coordination/",
+        "research/governance-boundary-systems/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "zxeuUexe3Tk",
+      "title": "AI時代の経済は「取引」から「関係性」へ｜Relationship EconomyとChinoba Economics",
+      "url": "https://www.youtube.com/watch?v=zxeuUexe3Tk",
+      "uploadDate": "20260816",
+      "pages": [
+        "research/ai-economics-intelligence-field-economics/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "BUXZwezuvsA",
+      "title": "Transcendental Functions and Generative Intelligence",
+      "url": "https://www.youtube.com/watch?v=BUXZwezuvsA",
+      "uploadDate": "20260808",
+      "language": "en",
+      "pages": [
+        "research/decision-trace-model/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "w961QUft-ic",
+      "title": "超越関数としての知能 ― 静的な構造から、生成し続けるプロセスへ - 古典数学からAI時代のDecision Trace Modelまで",
+      "url": "https://www.youtube.com/watch?v=w961QUft-ic",
+      "uploadDate": "20260807",
+      "language": "ja",
+      "pages": [
+        "research/decision-trace-model/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "0GjebENeG6U",
+      "title": "What Is Chinoba? Building Unified Intelligence Through Trust | Intelligence as Relationship",
+      "url": "https://www.youtube.com/watch?v=0GjebENeG6U",
+      "uploadDate": "20260802",
+      "language": "en",
+      "pages": [
+        "research/trust-infrastructure/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "1I0_XtmoBqU",
+      "title": "Chinobaとは何か――人・AI・知識・組織をTrustで結ぶ新しい知能基盤",
+      "url": "https://www.youtube.com/watch?v=1I0_XtmoBqU",
+      "uploadDate": "20260801",
+      "language": "ja",
+      "pages": [
+        "research/trust-infrastructure/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "Yf7wLUnCZd0",
+      "title": "AI Governance Beyond Rules: How the Trust Engine Dynamically Controls AI Autonomy",
+      "url": "https://www.youtube.com/watch?v=Yf7wLUnCZd0",
+      "uploadDate": "20260729",
+      "language": "en",
+      "pages": [
+        "research/governance-boundary-systems/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "JycFG3EmQBY",
+      "title": "AIガバナンスは「禁止」から「信頼の動的制御」へ｜Trust EngineとTrust Infrastructure",
+      "url": "https://www.youtube.com/watch?v=JycFG3EmQBY",
+      "uploadDate": "20260728",
+      "language": "ja",
+      "pages": [
+        "research/governance-boundary-systems/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "ydAuTqknPHs",
+      "title": "Runtime OS: The Missing Infrastructure for Autonomous AI | Beyond AI Agents",
+      "url": "https://www.youtube.com/watch?v=ydAuTqknPHs",
+      "uploadDate": "20260725",
+      "language": "en",
+      "pages": [
+        "research/runtime-society/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "C78OZPmA2Cw",
+      "title": "Runtime OSとは？ AIエージェント・マルチエージェント時代に必要な新しいAI基盤",
+      "url": "https://www.youtube.com/watch?v=C78OZPmA2Cw",
+      "uploadDate": "20260724",
+      "language": "ja",
+      "pages": [
+        "research/runtime-society/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "LprtLubpAGQ",
+      "title": "Intelligence Field — Intelligence Emerges Through Relationships | A New Philosophy for AI",
+      "url": "https://www.youtube.com/watch?v=LprtLubpAGQ",
+      "uploadDate": "20260723",
+      "language": "en",
+      "pages": [
+        "research/philosophy-of-ai/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "5JxoVBsn44Q",
+      "title": "Intelligence Field ― 知能は、関係性の中で創発する | AI・人・社会をつなぐ新しい知能観",
+      "url": "https://www.youtube.com/watch?v=5JxoVBsn44Q",
+      "uploadDate": "20260722",
+      "language": "ja",
+      "pages": [
+        "research/philosophy-of-ai/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "i0b3nZiAdEQ",
+      "title": "AI Quality Engineering: Applying Manufacturing Quality Principles to AI Systems",
+      "url": "https://www.youtube.com/watch?v=i0b3nZiAdEQ",
+      "uploadDate": "20260717",
+      "language": "en",
+      "pages": [
+        "research/governance-boundary-systems/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "1kVIUsTBTRk",
+      "title": "Decision Trace Model Explained | The Missing Layer Between AI and Real-World Decisions",
+      "url": "https://www.youtube.com/watch?v=1kVIUsTBTRk",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/decision-trace-model/",
+        "research/trust-infrastructure/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "2nkLvESnH0g",
+      "title": "Algorithmic Governance Explained | How AI and Algorithms Are Shaping Society",
+      "url": "https://www.youtube.com/watch?v=2nkLvESnH0g",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/public-ai-algorithmic-governance/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "DfBcWWOB8oc",
+      "title": "What Is AI Coordination? Coordination Engineering for the Multi-Agent Era",
+      "url": "https://www.youtube.com/watch?v=DfBcWWOB8oc",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/ai-coordination/",
+        "research/trust-infrastructure/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "FUM03wm1m38",
+      "title": "Multi-Agent Coordination Explained | Beyond AI Agents to Runtime Society",
+      "url": "https://www.youtube.com/watch?v=FUM03wm1m38",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/ai-coordination/",
+        "research/multi-agent-systems/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "GbkFMyqnO7c",
+      "title": "Decisionとは何か ― 生命・意味・知能をつなぐAI Philosophy",
+      "url": "https://www.youtube.com/watch?v=GbkFMyqnO7c",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/philosophy-of-ai/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "Gh8p_NSDaR4",
+      "title": "AI Governance and Boundary Design — Designing Trustworthy AI Systems",
+      "url": "https://www.youtube.com/watch?v=Gh8p_NSDaR4",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/governance-boundary-systems/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "IcGcdkCunlE",
+      "title": "What Is AI Economics? Intelligence Field Economics for the Age of AI",
+      "url": "https://www.youtube.com/watch?v=IcGcdkCunlE",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/ai-economics-intelligence-field-economics/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "IkJti1QLQyI",
+      "title": "The Future of AI Is Not Larger Models — It Is Better Relationships",
+      "url": "https://www.youtube.com/watch?v=IkJti1QLQyI",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/case-study/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "JHh4i5FeQyM",
+      "title": "AIの歴史と新たな課題｜シンボリックAIからLLM・マルチエージェントへ",
+      "url": "https://www.youtube.com/watch?v=JHh4i5FeQyM",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/foundational-ai-technologies/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "K82P_GMvoiw",
+      "title": "The Evolution of AI and the Challenges Ahead: From Rule-Based Systems to Multi-Agent Intelligence",
+      "url": "https://www.youtube.com/watch?v=K82P_GMvoiw",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/foundational-ai-technologies/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "KsRuww2HP4w",
+      "title": "創発知能（Emergent Intelligence）とは何か？｜AIは「モデル」から「関係性」の時代",
+      "url": "https://www.youtube.com/watch?v=KsRuww2HP4w",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/emergent-distributed-intelligence/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "LmfNIp5EkqU",
+      "title": "Runtime OSとは何か？ AI時代の実行基盤を解説｜AIを安全に動かすためのOS",
+      "url": "https://www.youtube.com/watch?v=LmfNIp5EkqU",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/runtime-society/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "N-5uBB77yck",
+      "title": "What Is Decision? — Connecting Life, Meaning, and Intelligence | AI Philosophy",
+      "url": "https://www.youtube.com/watch?v=N-5uBB77yck",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/philosophy-of-ai/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "ThGFarkIkLw",
+      "title": "Physical AI Is Coming: Why Coordination Matters More Than Intelligence",
+      "url": "https://www.youtube.com/watch?v=ThGFarkIkLw",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/physical-ai-cyber-physical-systems/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "ThxQW9JjCtU",
+      "title": "AIはなぜ人間の判断を学べないのか ― GNNとDecision Trace GNNの可能性",
+      "url": "https://www.youtube.com/watch?v=ThxQW9JjCtU",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/graph-intelligence-relational-systems/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "W49ZSEUFkek",
+      "title": "マルチエージェント協調設計 ― 共鳴・ガバナンス・Runtime Society",
+      "url": "https://www.youtube.com/watch?v=W49ZSEUFkek",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/ai-coordination/",
+        "research/multi-agent-systems/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "Xc0YFAvDoT0",
+      "title": "AIの未来は「モデル」ではなく「関係性」へ ─ 知能場が描く次世代AIアーキテクチャ",
+      "url": "https://www.youtube.com/watch?v=Xc0YFAvDoT0",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/case-study/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "XgCY-dhTB0Y",
+      "title": "Physical AIとは何か？AIは「知能」から「協調」へ ― Runtime SocietyとDecision Trace Modelが描く未来",
+      "url": "https://www.youtube.com/watch?v=XgCY-dhTB0Y",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/physical-ai-cyber-physical-systems/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "YGyT3eOupD0",
+      "title": "AIガバナンスと境界設計 ― 信頼できるAIシステムを設計する",
+      "url": "https://www.youtube.com/watch?v=YGyT3eOupD0",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/governance-boundary-systems/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "bVal1-yb1y8",
+      "title": "AIは半導体をどう変えるのか？ ― マルチエージェント時代の次世代AIアーキテクチャ ―",
+      "url": "https://www.youtube.com/watch?v=bVal1-yb1y8",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/ai-infrastructure-hardware/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "c6lH7C_A1mE",
+      "title": "Why AI Still Can't Learn Human Decisions | Graph Neural Networks & Decision Trace GNN Explained",
+      "url": "https://www.youtube.com/watch?v=c6lH7C_A1mE",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/graph-intelligence-relational-systems/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "eg7CQSnDIRk",
+      "title": "How AI Is Changing Semiconductor Architecture — From LLMs to Multi-Agent Intelligence",
+      "url": "https://www.youtube.com/watch?v=eg7CQSnDIRk",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/ai-infrastructure-hardware/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "eyBwB5TYFiI",
+      "title": "Algorithmic Governanceとは何か？｜AIは社会をどのように統治するのか【公共AI・アルゴリズム・AIガバナンス】",
+      "url": "https://www.youtube.com/watch?v=eyBwB5TYFiI",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/public-ai-algorithmic-governance/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "g1fut1R-NsU",
+      "title": "AI経済学とは何か ― 知能場経済が切り拓くAI時代の新しい経済学",
+      "url": "https://www.youtube.com/watch?v=g1fut1R-NsU",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/ai-economics-intelligence-field-economics/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "qpJLptUKNC4",
+      "title": "What Is Emergent Intelligence? | The Future of AI Beyond Models",
+      "url": "https://www.youtube.com/watch?v=qpJLptUKNC4",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/emergent-distributed-intelligence/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "r1DlvPI338w",
+      "title": "Knowledge Infrastructure: Why Knowledge Must Flow in the Age of AI",
+      "url": "https://www.youtube.com/watch?v=r1DlvPI338w",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/knowledge-flow/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "uopdR_jXfss",
+      "title": "AI Coordinationとは何か ― マルチエージェント時代の協調工学と5つの協調障害を解説",
+      "url": "https://www.youtube.com/watch?v=uopdR_jXfss",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/ai-coordination/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "vj5KGALPKE4",
+      "title": "Runtime OS: The Missing Operating System for the AI Era | Human-AI Coordination Explained",
+      "url": "https://www.youtube.com/watch?v=vj5KGALPKE4",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/runtime-society/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "w9v0ktZfEVs",
+      "title": "Trust Infrastructure ― AI時代の信用基盤｜なぜ知識よりも信頼が重要になるのか",
+      "url": "https://www.youtube.com/watch?v=w9v0ktZfEVs",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/trust-infrastructure/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "yqVjlaT27R8",
+      "title": "Decision Trace Modelとは何か？ AIは予測ではなく意思決定である｜AI時代の新しい意思決定基盤",
+      "url": "https://www.youtube.com/watch?v=yqVjlaT27R8",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/decision-trace-model/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "z_veFYQFnXE",
+      "title": "Knowledge Infrastructure — AI時代の知識基盤｜Knowledge Flowが未来の知性をつくる",
+      "url": "https://www.youtube.com/watch?v=z_veFYQFnXE",
+      "uploadDate": "20260716",
+      "pages": [
+        "research/knowledge-flow/"
+      ],
+      "status": "existing"
+    },
+    {
+      "videoId": "TXZ3cUjO6tA",
+      "title": "AI品質工学とは何か？AIの未来は「モデル」ではなく「品質」を設計する時代へ",
+      "url": "https://www.youtube.com/watch?v=TXZ3cUjO6tA",
+      "uploadDate": "20260716",
+      "language": "ja",
+      "pages": [
+        "research/governance-boundary-systems/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "53K2qiWmOxE",
+      "title": "Dissipative Intelligence Field: Why Intelligence Emerges from Change, Not Stability",
+      "url": "https://www.youtube.com/watch?v=53K2qiWmOxE",
+      "uploadDate": "20260715",
+      "language": "en",
+      "pages": [
+        "research/emergent-distributed-intelligence/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "A6wvIQcL17k",
+      "title": "知能は変化の中から生まれる ― Dissipative Intelligence Fieldが描くAIと社会の未来",
+      "url": "https://www.youtube.com/watch?v=A6wvIQcL17k",
+      "uploadDate": "20260714",
+      "language": "ja",
+      "pages": [
+        "research/emergent-distributed-intelligence/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "kUs4c0-47v0",
+      "title": "Why AI Needs Context: Bridging the Gap Between Answers and Trusted Decisions",
+      "url": "https://www.youtube.com/watch?v=kUs4c0-47v0",
+      "uploadDate": "20260713",
+      "language": "en",
+      "pages": [
+        "research/case-study/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "8EwEcsyYuBk",
+      "title": "【Chinoba Case Study #01】なぜAIは正しい答えを出しても使えないのか？ コンテキストギャップとContext Infrastructure",
+      "url": "https://www.youtube.com/watch?v=8EwEcsyYuBk",
+      "uploadDate": "20260712",
+      "language": "ja",
+      "pages": [
+        "research/case-study/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "ARiGSZO_nCE",
+      "title": "Why Wittgenstein Matters Again in the Age of AI | From Language Games to the Intelligence Field",
+      "url": "https://www.youtube.com/watch?v=ARiGSZO_nCE",
+      "uploadDate": "20260711",
+      "language": "en",
+      "pages": [
+        "research/philosophy-of-ai/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "zxwrgBqPDH0",
+      "title": "AI時代に再び重要になるヴィトゲンシュタイン ― 言語ゲームから知能場（Intelligence Field）へ",
+      "url": "https://www.youtube.com/watch?v=zxwrgBqPDH0",
+      "uploadDate": "20260710",
+      "language": "ja",
+      "pages": [
+        "research/philosophy-of-ai/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "lj5AuW_aNOU",
+      "title": "What Is Chinoba? Building Intelligence Fields for the AI Era",
+      "url": "https://www.youtube.com/watch?v=lj5AuW_aNOU",
+      "uploadDate": "20260627",
+      "language": "en",
+      "pages": [
+        "research/case-study/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "sGBA7i_LHdQ",
+      "title": "Chinobaとは何か ― AI時代の知能・信頼・意思決定を探究する研究プロジェクト",
+      "url": "https://www.youtube.com/watch?v=sGBA7i_LHdQ",
+      "uploadDate": "20260627",
+      "language": "ja",
+      "pages": [
+        "research/case-study/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    },
+    {
+      "videoId": "Afvon5qT51A",
+      "title": "Trust Infrastructure — The Foundation of Trust in the AI Era",
+      "url": "https://www.youtube.com/watch?v=Afvon5qT51A",
+      "uploadDate": "20260623",
+      "language": "en",
+      "pages": [
+        "research/trust-infrastructure/"
+      ],
+      "status": "added",
+      "addedAt": "2026-09-16"
+    }
+  ]
+}
