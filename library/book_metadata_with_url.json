@@ -2,7 +2,7 @@
   "library_title": "Knowledge Artifacts / Library",
   "library_subtitle": "The research, compiled.",
   "library_description": "Books and long-form artifacts produced from the Lines of Inquiry — organized by theme, available in English and Japanese editions.",
-  "total_books": 45,
+  "total_books": 47,
   "themes": [
     {
       "theme_id": "theme_01",
@@ -117,6 +117,48 @@
       "theme_name": "Trust and Knowledge Infrastructure",
       "order": 2,
       "books": [
+        {
+          "book_id": "semantic_chunk_en",
+          "language": "en",
+          "title": "Semantic Chunk",
+          "subtitle": "Building from Evidence-Grounded Semantic Units: Transforming Documents, Tables, and Business Data into Explainable, Executable Knowledge",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "asin": "B0HKCMPZ63",
+          "amazon_url": "https://amzn.to/4dqFhAW",
+          "cover_image": "/assets/books/B0HKCMPZ63.jpg",
+          "category": [
+            "Knowledge Flow",
+            "Semantic Chunk",
+            "Knowledge Graph",
+            "Explainable AI"
+          ],
+          "order": -1,
+          "theme": "Trust and Knowledge Infrastructure",
+          "theme_id": "theme_02",
+          "index": -1
+        },
+        {
+          "book_id": "semantic_chunk_ja",
+          "language": "ja",
+          "title": "Semantic Chunk",
+          "subtitle": "根拠ある意味単位からつくる: 文書・表・業務データを、説明可能で実行可能な知識へ",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "asin": "B0HKCDLDHY",
+          "amazon_url": "https://amzn.to/4yO0iOi",
+          "cover_image": "/assets/books/B0HKCDLDHY.jpg",
+          "category": [
+            "Knowledge Flow",
+            "Semantic Chunk",
+            "Knowledge Graph",
+            "Explainable AI"
+          ],
+          "order": -1,
+          "theme": "Trust and Knowledge Infrastructure",
+          "theme_id": "theme_02",
+          "index": -1
+        },
         {
           "book_id": "trust_infrastructure_practical_guide_en",
           "language": "en",
@@ -280,7 +322,7 @@
           "index": 9
         }
       ],
-      "book_count": 10
+      "book_count": 12
     },
     {
       "theme_id": "theme_03",
