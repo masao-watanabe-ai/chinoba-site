@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 898" width="1200" height="898" role="img" aria-labelledby="t d" font-family="Arial, Helvetica, sans-serif">
+<title id="t">Short-term efficiency optimization versus long-term relationship value</title>
+<desc id="d">Two columns compare the same AI system under two objectives across six dimensions: objective, signal, trust, contribution, learning and exit. Efficiency optimization maximizes volume and assumes trust; relationship value improves durable decisions and earns calibrated trust.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9ca3af"/></marker></defs>
+<rect width="1200" height="898" fill="#0b0b0b"/>
+<text x="48" y="52" fill="#6a6a6a" font-size="15" letter-spacing="3">SAME AI, DIFFERENT OBJECTIVE</text>
+<rect x="40" y="80" width="520" height="778" rx="12" fill="#120f0e" stroke="#7c3f2a" stroke-width="2"/>
+<rect x="640" y="80" width="520" height="778" rx="12" fill="#0d1311" stroke="#2f6b4f" stroke-width="2"/>
+<text x="300" y="124" text-anchor="middle" fill="#fb923c" font-size="24" font-weight="700">Short-term efficiency</text>
+<text x="300" y="150" text-anchor="middle" fill="#b0b0b0" font-size="16">optimize the interaction</text>
+<text x="900" y="124" text-anchor="middle" fill="#4ade80" font-size="24" font-weight="700">Long-term relationship value</text>
+<text x="900" y="150" text-anchor="middle" fill="#b0b0b0" font-size="16">optimize the field</text>
+<path d="M566 482 L634 482" fill="none" stroke="#9ca3af" stroke-width="2.5" marker-end="url(#a)"/>
+<path d="M64 176H536" stroke="#262626"/>
+<text x="64" y="202" font-size="14" letter-spacing="2" fill="#8a8a8a">OBJECTIVE</text>
+<text x="64" y="232" font-size="20" fill="#e5e5e5">Maximize volume, speed,</text>
+<text x="64" y="258" font-size="20" fill="#e5e5e5">and conversion</text>
+<path d="M664 176H1136" stroke="#262626"/>
+<text x="664" y="202" font-size="14" letter-spacing="2" fill="#8a8a8a">OBJECTIVE</text>
+<text x="664" y="232" font-size="20" fill="#e5e5e5">Improve decisions that</text>
+<text x="664" y="258" font-size="20" fill="#e5e5e5">hold up over time</text>
+<path d="M64 278H536" stroke="#262626"/>
+<text x="64" y="304" font-size="14" letter-spacing="2" fill="#8a8a8a">SIGNAL</text>
+<text x="64" y="334" font-size="20" fill="#e5e5e5">Clicks, throughput,</text>
+<text x="64" y="360" font-size="20" fill="#e5e5e5">time on task</text>
+<path d="M664 278H1136" stroke="#262626"/>
+<text x="664" y="304" font-size="14" letter-spacing="2" fill="#8a8a8a">SIGNAL</text>
+<text x="664" y="334" font-size="20" fill="#e5e5e5">Outcomes, corrections,</text>
+<text x="664" y="360" font-size="20" fill="#e5e5e5">continued participation</text>
+<path d="M64 380H536" stroke="#262626"/>
+<text x="64" y="406" font-size="14" letter-spacing="2" fill="#8a8a8a">TRUST</text>
+<text x="64" y="436" font-size="20" fill="#e5e5e5">Assumed from usage and</text>
+<text x="64" y="462" font-size="20" fill="#e5e5e5">purchase counts</text>
+<path d="M664 380H1136" stroke="#262626"/>
+<text x="664" y="406" font-size="14" letter-spacing="2" fill="#8a8a8a">TRUST</text>
+<text x="664" y="436" font-size="20" fill="#e5e5e5">Earned, calibrated by</text>
+<text x="664" y="462" font-size="20" fill="#e5e5e5">outcome, and recoverable</text>
+<path d="M64 482H536" stroke="#262626"/>
+<text x="64" y="508" font-size="14" letter-spacing="2" fill="#8a8a8a">CONTRIBUTION</text>
+<text x="64" y="538" font-size="20" fill="#e5e5e5">Extracted, often unpaid,</text>
+<text x="64" y="564" font-size="20" fill="#e5e5e5">rarely attributed</text>
+<path d="M664 482H1136" stroke="#262626"/>
+<text x="664" y="508" font-size="14" letter-spacing="2" fill="#8a8a8a">CONTRIBUTION</text>
+<text x="664" y="538" font-size="20" fill="#e5e5e5">Attributed, consented,</text>
+<text x="664" y="564" font-size="20" fill="#e5e5e5">and returned</text>
+<path d="M64 584H536" stroke="#262626"/>
+<text x="64" y="610" font-size="14" letter-spacing="2" fill="#8a8a8a">LEARNING</text>
+<text x="64" y="640" font-size="20" fill="#e5e5e5">Repeats what already</text>
+<text x="64" y="666" font-size="20" fill="#e5e5e5">scored well</text>
+<path d="M664 584H1136" stroke="#262626"/>
+<text x="664" y="610" font-size="14" letter-spacing="2" fill="#8a8a8a">LEARNING</text>
+<text x="664" y="640" font-size="20" fill="#e5e5e5">Learns from rejection,</text>
+<text x="664" y="666" font-size="20" fill="#e5e5e5">override, and appeal</text>
+<path d="M64 686H536" stroke="#262626"/>
+<text x="64" y="712" font-size="14" letter-spacing="2" fill="#8a8a8a">EXIT</text>
+<text x="64" y="742" font-size="20" fill="#e5e5e5">Costly, so participation</text>
+<text x="64" y="768" font-size="20" fill="#e5e5e5">only looks voluntary</text>
+<path d="M664 686H1136" stroke="#262626"/>
+<text x="664" y="712" font-size="14" letter-spacing="2" fill="#8a8a8a">EXIT</text>
+<text x="664" y="742" font-size="20" fill="#e5e5e5">A real option that keeps</text>
+<text x="664" y="768" font-size="20" fill="#e5e5e5">the field honest</text>
+<text x="300" y="822" text-anchor="middle" fill="#fb923c" font-size="17">Fast and measurable, but trust is spent, not built</text>
+<text x="900" y="822" text-anchor="middle" fill="#4ade80" font-size="17">Slower to measure, and it compounds</text>
+</svg>

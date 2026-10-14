@@ -4,14 +4,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Relationship Economy &amp; Chinoba Economics — Chinoba</title>
-  <meta name="description" content="How Knowledge Flow, Decision, and Trust circulate into Relationship Capital in the AI era — Chinoba Economics, a research framework for value creation, featuring the new practical guide.">
-  <meta name="keywords" content="Relationship Economy, Chinoba Economics, Knowledge Flow, State Understanding, Community Graph, Decision Trace, Trust Infrastructure, Runtime Society, Operational AI, AI Economics">
+  <title>AI Economics &amp; Intelligence Field Economics — Chinoba</title>
+  <meta name="description" content="AI economics beyond models and productivity: how knowledge, trust, evidence, incentives, and institutions form intelligence fields that turn human and machine capability into shared value.">
+  <meta name="keywords" content="AI Economics, Intelligence Field Economics, Relationship Economics, trust, evidence, reputation, reciprocity, coordination cost, learning rate, distributed collaboration, AI governance, Chinoba">
+
+  <link rel="canonical" href="https://chinoba.org/research/ai-economics-intelligence-field-economics/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Chinoba">
+  <meta property="og:title" content="AI Economics &amp; Intelligence Field Economics">
+  <meta property="og:description" content="The economics of AI will be shaped by the intelligence fields we create — the relationships, trust, evidence, incentives, and institutions through which human and machine capabilities become collective value.">
+  <meta property="og:url" content="https://chinoba.org/research/ai-economics-intelligence-field-economics/">
+  <meta property="og:image" content="https://chinoba.org/research/ai-economics-intelligence-field-economics/assets/intelligence-field-economics-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AI Economics and Intelligence Field Economics: people, AI systems, organizations, knowledge, and community connected around a central intelligence field.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Economics &amp; Intelligence Field Economics">
+  <meta name="twitter:description" content="The economics of AI will be shaped by the intelligence fields we create — the relationships, trust, evidence, incentives, and institutions through which human and machine capabilities become collective value.">
+  <meta name="twitter:image" content="https://chinoba.org/research/ai-economics-intelligence-field-economics/assets/intelligence-field-economics-og.png">
 
   <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
   <link rel="stylesheet" href="/assets/research.css">
 
   <style>
+    /* ---------- Page-specific overrides ---------- */
     /* ---------- Page-specific overrides ---------- */
     .concept-grid.cols-4 {
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -275,6 +291,182 @@
     .closing-cta a {
       color: var(--accent);
     }
+
+    .concept-grid.cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @media (max-width: 900px) {
+      .concept-grid.cols-3 > .concept:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    }
+    @media (max-width: 640px) {
+      .concept-grid.cols-2 { grid-template-columns: 1fr; }
+    }
+    .concept .why {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--line-strong);
+      font-size: 12.5px;
+      color: var(--fg-dim);
+    }
+    .concept .why strong { color: var(--fg-mute); font-weight: 600; }
+
+    /* Central proposition in the hero */
+    .hero-thesis {
+      max-width: 760px;
+      margin: clamp(28px, 4vw, 40px) 0 0;
+      padding: 16px 20px;
+      border-left: 2px solid var(--accent);
+      color: var(--fg);
+      font-size: 16px;
+      line-height: 1.75;
+      background: rgba(125, 183, 255, 0.04);
+    }
+
+    /* ---------- Tables ---------- */
+    .table-wrap {
+      margin-top: clamp(40px, 5vw, 56px);
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .fig-lead + .scroll-hint + .table-wrap { margin-top: 24px; }
+    .two-col + .concept-grid,
+    .concept-grid + .two-col,
+    .table-wrap + .two-col,
+    .table-note + .two-col,
+    .figure + .two-col,
+    .figure + .capital-note { margin-top: clamp(40px, 5vw, 56px); }
+    .compare-table {
+      margin-top: 0;
+      border: 1px solid var(--line);
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14px;
+    }
+    .compare-table th,
+    .compare-table td {
+      border: 1px solid var(--line);
+      padding: 12px 16px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .compare-table thead th {
+      background: var(--bg-elev);
+      color: var(--fg);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .compare-table tbody th {
+      color: var(--fg);
+      font-weight: 600;
+      background: var(--bg-elev);
+      min-width: 140px;
+    }
+    .compare-table tbody td {
+      color: var(--fg-mute);
+      min-width: 180px;
+    }
+    .table-note {
+      margin: 14px 0 0;
+      font-size: 13px;
+      color: var(--fg-faint);
+      line-height: 1.7;
+      max-width: 760px;
+    }
+    .scroll-hint { display: none; }
+    /* ---------- Practical patterns ---------- */
+    .pattern-list { display: flex; flex-direction: column; gap: 16px; }
+    .pattern {
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      border-radius: 4px;
+      padding: 24px clamp(18px, 3vw, 30px) 26px;
+    }
+    .pattern .pattern-idx {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      margin-bottom: 8px;
+    }
+    .pattern h3 { font-size: 19px; margin: 0 0 16px; font-weight: 600; color: var(--fg); }
+    .pattern dl {
+      margin: 0;
+      display: grid;
+      grid-template-columns: 200px minmax(0, 1fr);
+      gap: 0 24px;
+    }
+    .pattern dt,
+    .pattern dd { padding: 10px 0; border-top: 1px solid var(--line); }
+    .pattern dt {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      padding-top: 13px;
+    }
+    .pattern dd { margin: 0; color: var(--fg-mute); font-size: 14.5px; line-height: 1.75; }
+
+    @media (max-width: 900px) {
+      .figure-frame[href$=".svg"]::after {
+        content: "Tap to enlarge · scroll to pan";
+        display: block;
+        padding: 8px 12px;
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--fg-faint);
+        border-top: 1px solid var(--line);
+      }
+    }
+    @media (max-width: 720px) {
+      .compare-table { width: auto; min-width: 100%; }
+      .compare-table tbody th { min-width: 150px; }
+      .compare-table tbody td { min-width: 230px; }
+      .scroll-hint {
+        display: block;
+        margin: clamp(40px, 5vw, 56px) 0 8px;
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--fg-faint);
+      }
+      .fig-lead + .scroll-hint { margin-top: 20px; }
+      .scroll-hint + .table-wrap { margin-top: 0; }
+      .pattern dl { grid-template-columns: 1fr; }
+      .pattern dt { border-top: 1px solid var(--line); padding: 12px 0 0; }
+      .pattern dd { border-top: none; padding: 4px 0 12px; }
+      .lightbox.is-open {
+        overflow: auto;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 64px 12px 24px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .lightbox img {
+        max-width: none;
+        max-height: none;
+        width: 1000px;
+        flex: none;
+      }
+      .lightbox .lightbox-close {
+        position: fixed;
+        top: 14px;
+        right: 14px;
+        background: #0b0b0b;
+        z-index: 101;
+      }
+    }
+    @media (max-width: 640px) {
+      section.closing { padding-left: 18px; padding-right: 18px; }
+      .closing blockquote span { display: inline; }
+      .closing blockquote span.gap { display: block; height: 1em; }
+    }
+    @media (max-width: 520px) {
+      .topbar { flex-wrap: wrap; gap: 8px 16px; }
+    }
   </style>
 </head>
 
@@ -287,7 +479,7 @@
       <span class="sep">/</span>
       <a href="/#research">Research</a>
       <span class="sep">/</span>
-      <span>Relationship Economy &amp; Chinoba Economics</span>
+      <span>AI Economics &amp; Intelligence Field Economics</span>
     </div>
     <div class="meta-id">07 / Lines of Inquiry</div>
   </nav>
@@ -295,21 +487,29 @@
   <!-- ============ HERO ============ -->
   <header class="hero">
     <div class="hero-inner">
-      <div class="eyebrow">Research / Relationship Economy &amp; Chinoba Economics</div>
-      <h1>Relationship Economy &amp; Chinoba Economics</h1>
+      <div class="eyebrow">Research / AI Economics — Intelligence Field Economics</div>
+      <h1>AI Economics &amp; Intelligence Field Economics</h1>
       <p class="hero-sub">
-        <span>AI is no longer only a tool that analyzes and generates.</span>
-        <span>It references knowledge, reads a situation, weighs options,</span>
-        <span>coordinates with people and other AI, and acts within a granted authority.</span>
+        <span>The usual story of AI economics</span>
+        <span>is about models, compute, and cost.</span>
+        <span>It is true, and it is incomplete.</span>
       </p>
       <p class="hero-desc">
-        A single transaction can no longer explain where that value comes from.
-        Chinoba Economics reads AI-era value creation as a circulation — Knowledge
-        Flow, State Understanding, Decision, Outcome, Trust, and Relationship
-        returning as new knowledge — rather than a series of one-off exchanges.
-        This page presents that circulation as a research framework for
-        understanding value creation in the AI era, not as a settled law of
-        economics.
+        As this page uses the term, AI Economics is not only the study of AI
+        vendors, market size, or automation savings. It is the design of the
+        relationships through which people, AI systems, organizations, and
+        institutions share knowledge, build trust, coordinate action, and
+        learn from the results. Intelligence Field Economics treats
+        intelligence not as something an actor owns, but as a relational
+        capability that arises between many actors. This page offers that view
+        as a research framework, not as a settled law of economics.
+      </p>
+      <p class="hero-thesis">
+        The economics of AI will not be determined only by who owns the most
+        capable models. It will be shaped by the intelligence fields we
+        create: the relationships, trust, evidence, incentives, and
+        institutions through which human and machine capabilities become
+        collective value.
       </p>
     </div>
   </header>
@@ -350,7 +550,7 @@
         <p class="section-lede">
           The new practical guide above leads this line of inquiry. Below it are
           the neighboring Chinoba books, videos, and the essay that build the
-          Relationship Economy argument used throughout this page.
+          argument used throughout this page.
         </p>
       </div>
 
@@ -396,488 +596,758 @@
     </div>
   </section>
 
-  <!-- ============ 01 OVERVIEW ============ -->
-  <section class="research-section" id="overview" aria-labelledby="overview-h">
+  <section class="research-section" id="productivity" aria-labelledby="productivity-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">01 / Overview</div>
-        <h2 id="overview-h">AI Becomes an Economic Actor</h2>
+        <div class="section-label">01 / Why Productivity Is Not the Whole Story</div>
+        <h2 id="productivity-h">Why Productivity Is Not the Whole Story</h2>
         <p class="section-lede">
-          For most of the digital economy, humans acted and companies
-          responded. AI is beginning to sit between them — referencing
-          knowledge, forming an understanding of the situation, comparing
-          candidate decisions, coordinating with other AI, and acting inside a
-          defined authority. That shift is what this research treats as
-          Chinoba Economics: a way of reading AI-era value creation as a
-          circulation, not a settled law.
+          Productivity gains are real, and they are easy to count: faster drafts, fewer manual steps, lower unit costs. What they do not show is whether an organization is deciding better, trusting wisely, and learning faster than before — or simply producing more of everything, including errors, noise, and unreviewed commitments.
         </p>
       </div>
-
-      <figure class="figure figure-wide figure-main">
-        <a class="figure-frame" href="assets3/05.png"
-           data-lightbox aria-label="Open the diagram of AI becoming an economic actor">
-          <img src="assets3/05.png"
-               alt="Two panels contrasting a traditional economy, where a human acts directly on a company, with the AI era, where a human directs an AI that coordinates with other AI and in turn acts on the company, forming a human, AI, and company loop."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">The central actors of the economy are shifting from humans and companies to humans, AI, and companies.</figcaption>
-      </figure>
 
       <div class="two-col">
         <div class="col-text">
-          <h3>From Tool to Participant</h3>
+          <h3>When Output Grows Faster Than Judgment</h3>
           <p>
-            A tool executes an instruction and returns a result. A participant
-            references what is known, understands the current situation,
-            weighs candidate actions against constraints and policy, and
-            coordinates its own execution with the people and other AI around
-            it. Once AI operates this way, the value it helps create can no
-            longer be read off a single exchange.
+            When producing text, analysis, or code becomes cheap, the scarce resource moves. It is no longer the ability to produce an answer but the ability to decide which answers deserve to be acted on, by whom, on what basis, and with what recourse if they are wrong. Abundant information consumes attention, and when meaning saturates, it becomes harder rather than easier to know what to rely on.
           </p>
-          <code class="quote is-diagram">Knowledge Flow
-↓ State Understanding
-↓ Decision
-↓ Action / Coordination
-↓ Outcome → Trust → Relationship</code>
-        </div>
-
-        <div class="col-text">
-          <h3>A Research Framework, Not a Law</h3>
           <p>
-            Chinoba Economics does not claim to replace accounting, price
-            theory, or contract law. It offers a lens for the part those
-            frameworks were never built to see: how knowledge, decisions, and
-            trust circulate between the people, organizations, and AI that
-            take part in a transaction, before and after it happens.
+            An organization that measures only output can look more productive while its verification burden, rework, and hidden risk quietly rise.
           </p>
-          <code class="quote">
-            Value is not
-            only what changed hands.
-            It is what
-            circulates afterward.
-          </code>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 02 FROM TRANSACTION TO RELATIONSHIP ============ -->
-  <section class="research-section" id="transaction-to-relationship" aria-labelledby="ttr-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">02 / From Transaction to Relationship</div>
-        <h2 id="ttr-h">From Transaction Economy to Relationship Economy</h2>
-        <p class="section-lede">
-          Transactions remain essential — accounting, contracts, pricing, and
-          settlement all depend on them. But a transaction alone rarely shows
-          which knowledge supported a decision, whose contribution led to the
-          outcome, or how that outcome changed trust and the next
-          collaboration. As AI takes part across knowledge, decision, and
-          execution, the unit of value creation widens from the transaction
-          itself to the ongoing cycle of relationship and learning around it.
-        </p>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets3/06.png"
-           data-lightbox aria-label="Open the diagram contrasting a one-time transaction with an ongoing relationship cycle">
-          <img src="assets3/06.png"
-               alt="A one-time transaction shown as customer, purchase, and company, beside a relationship cycle of continued use, trust, community, and learning circulating around a handshake — enterprise value shifts from transaction to relationship."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Enterprise value shifts from a single transaction to a circulating relationship.</figcaption>
-      </figure>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>The Transaction Does Not Disappear</h3>
-          <p>
-            Relationship Economy does not argue against buying, selling, or
-            pricing. It argues that a transaction is best understood as one
-            visible event inside a longer cycle — the moment where knowledge,
-            decision, and action are provisionally settled, not the whole
-            story of where the value came from.
-          </p>
-          <code class="quote is-diagram">Knowledge → Decision → Action
-↓
-Outcome → Trust → Relationship
-↓
-New Knowledge</code>
+          <code class="quote">More output is not
+more judgment.</code>
         </div>
         <div class="col-text">
-          <h3>Repositioning the Transaction</h3>
+          <h3>A Second Ledger</h3>
           <p>
-            Once AI agents participate across the knowledge, judgment, and
-            execution stages, a purchase or a contract becomes one traceable
-            event in a chain that started before it and continues after it.
-            Relationship Economy repositions the transaction inside that
-            chain rather than treating it as the chain's only visible part.
+            Productivity accounting records what was produced and what it cost. A second ledger asks what the same activity did to the field around it: whether decisions improved, whether coordination got cheaper or only faster, whether people trusted the result for good reasons, who carried the risk, and who received the gain.
           </p>
-          <code class="quote">
-            A transaction is
-            a moment in a relationship,
-            not the whole
-            of the relationship.
-          </code>
+          <code class="quote is-diagram">Output → was the decision better?
+Speed → how fast does the field learn?
+Automation → did coordination get cheaper?
+Usage → is trust justified?
+Savings → who received them?</code>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ============ 03 THE RELATIONSHIP ECONOMY CYCLE ============ -->
-  <section class="research-section" id="cycle" aria-labelledby="cycle-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">03 / The Relationship Economy Cycle</div>
-        <h2 id="cycle-h">The Relationship Economy Cycle</h2>
-        <p class="section-lede">
-          This cycle is the page's central model. Value does not end at
-          outcome — it passes through trust and relationship and returns as
-          knowledge the next decision can use.
-        </p>
-      </div>
-
-      <div class="field-runtime" aria-label="The Relationship Economy cycle, from knowledge flow to new knowledge">
-        <div class="field-runtime-label">Cycle Diagram</div>
-        <h3 class="field-runtime-title">Knowledge Flow → State Understanding → Decision → Action → Outcome → Trust → Relationship → New Knowledge</h3>
-
-        <ol class="field-layers" role="list">
-          <li class="field-layer">
-            <span class="layer-idx">01</span>
-            <span class="layer-body">
-              <span class="layer-name">Knowledge Flow</span>
-              <span class="layer-note">Knowledge distributed across an organization, a region, or a community is made usable while its source, meaning, and freshness stay attached to it.</span>
-            </span>
-            <span class="layer-tag">knowledge</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">02</span>
-            <span class="layer-body">
-              <span class="layer-name">State Understanding</span>
-              <span class="layer-note">Reads the present state — not only fixed attributes, but purpose, intent, constraints, context, role, and capability.</span>
-            </span>
-            <span class="layer-tag">state</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">03</span>
-            <span class="layer-body">
-              <span class="layer-name">Decision</span>
-              <span class="layer-note">Chooses among candidate options by weighing rationale, constraints, policy, and expected impact.</span>
-            </span>
-            <span class="layer-tag">decide</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">04</span>
-            <span class="layer-body">
-              <span class="layer-name">Action / Coordination</span>
-              <span class="layer-note">People, AI, and organizations coordinate and execute according to their assigned roles and granted authority.</span>
-            </span>
-            <span class="layer-tag">act</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">05</span>
-            <span class="layer-body">
-              <span class="layer-name">Outcome</span>
-              <span class="layer-note">Observes whether the intended change actually occurred — not merely that the execution finished.</span>
-            </span>
-            <span class="layer-tag">outcome</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">06</span>
-            <span class="layer-body">
-              <span class="layer-name">Trust</span>
-              <span class="layer-note">An expectation about the future, updated by the situation, the stated purpose, the rationale given, and the outcome delivered.</span>
-            </span>
-            <span class="layer-tag">trust</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">07</span>
-            <span class="layer-body">
-              <span class="layer-name">Relationship</span>
-              <span class="layer-note">Continuously formed, repaired, or ended through mutual understanding, collaboration, explanation, correction, and the return of value.</span>
-            </span>
-            <span class="layer-tag">relationship</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">08</span>
-            <span class="layer-body">
-              <span class="layer-name">New Knowledge &amp; Value Creation</span>
-              <span class="layer-note">Outcomes and the Decision Trace behind them return as knowledge, sharpening the judgment available to the next decision.</span>
-            </span>
-            <span class="layer-tag">value</span>
-          </li>
-        </ol>
-
-        <p class="field-loop">↻ <strong>New Knowledge</strong> re-enters Knowledge Flow — the cycle does not end at value creation, it restarts there.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 04 THE FOUNDATIONS OF CHINOBA ECONOMICS ============ -->
-  <section class="research-section" id="foundations" aria-labelledby="foundations-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">04 / The Foundations</div>
-        <h2 id="foundations-h">The Foundations of Chinoba Economics</h2>
-        <p class="section-lede">
-          These seven foundations are not independent products sitting side
-          by side. Each implements one part of the Relationship Economy
-          Cycle, and each depends on the others to function — a Decision
-          Trace is only as good as the Knowledge Flow and Community Graph
-          behind it; Trust Infrastructure and Runtime Society only matter
-          once real decisions are being made and acted on.
-        </p>
-      </div>
-
-      <div class="concept-grid cols-4">
+      <div class="concept-grid cols-3">
         <div class="concept">
           <div class="idx">i</div>
-          <h3>Knowledge Flow</h3>
-          <p>Makes knowledge distributed across an organization or community usable, while preserving where it came from, what it means, and how current it is.</p>
+          <h3>Decision Quality</h3>
+          <p>Did decisions improve once AI was involved, judged by outcomes rather than by the volume or fluency of what was produced?</p>
         </div>
         <div class="concept">
           <div class="idx">ii</div>
-          <h3>State Understanding</h3>
-          <p>Reads the present situation of a person, organization, or AI — purpose, intent, constraints, context, role, and capability — not only fixed attributes.</p>
+          <h3>Coordination Cost</h3>
+          <p>Does shared work cost less to align — fewer handoffs, clearer roles, less re-explaining — or has speed simply moved the burden onto reviewers?</p>
         </div>
         <div class="concept">
           <div class="idx">iii</div>
-          <h3>Community Graph</h3>
-          <p>Represents the relationships among people, organizations, AI, places, events, documents, and knowledge as one connected structure.</p>
+          <h3>Learning Rate</h3>
+          <p>How quickly, and how verifiably, does the organization turn outcomes, rejections, and corrections into better next decisions?</p>
         </div>
         <div class="concept">
           <div class="idx">iv</div>
-          <h3>Decision Trace Model</h3>
-          <p>Connects purpose, rationale, candidates, constraints, policy, choice, execution, and outcome, turning a judgment into a reusable asset.</p>
+          <h3>Trust</h3>
+          <p>Is reliance on AI, and on each other, justified by evidence and track record, or only by habit?</p>
         </div>
         <div class="concept">
           <div class="idx">v</div>
-          <h3>Trust Infrastructure</h3>
-          <p>Sets the conditions for collaboration through identity, policy, boundary, human gate, explainability, and audit.</p>
+          <h3>Responsibility</h3>
+          <p>When something goes wrong, can the field say who decided, on what grounds, under whose authority, and who answers for it?</p>
         </div>
         <div class="concept">
           <div class="idx">vi</div>
-          <h3>Runtime Society</h3>
-          <p>The operating environment in which people and AI collaborate, negotiate, decide, and act together under defined roles, authority, and rules.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">vii</div>
-          <h3>Operational AI</h3>
-          <p>AI that carries a decision through to execution inside that runtime, rather than stopping at a recommendation.</p>
-        </div>
-      </div>
-
-      <div class="fig-lead">
-        <h3>One Infrastructure, Not Seven Tools</h3>
-        <p>
-          AI's own role shifts across these foundations — from a tool applied
-          to one task, to the infrastructure that connects Knowledge Flow,
-          Decision, Trust, Community, and Relationship into a single
-          operating layer.
-        </p>
-      </div>
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets3/12.png"
-           data-lightbox aria-label="Open the diagram of AI connecting Knowledge Flow, Decision, Trust, Community, and Relationship">
-          <img src="assets3/12.png"
-               alt="AI shown as a connecting hub at the center of Knowledge Flow, Decision, Trust, Community, and Relationship, each a spoke of one infrastructure rather than five separate tools."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">AI moves from a standalone tool to the infrastructure connecting Knowledge Flow, Decision, Trust, Community, and Relationship.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 05 FOUR FORMS OF CAPITAL ============ -->
-  <section class="research-section" id="capital" aria-labelledby="capital-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">05 / Four Forms of Capital</div>
-        <h2 id="capital-h">Four Forms of Capital in the AI Era</h2>
-        <p class="section-lede">
-          Chinoba Economics reads four concepts as a way of noticing what the
-          Relationship Economy Cycle accumulates — not as new line items to
-          replace balance-sheet capital, but as a way of asking what is
-          building up, or eroding, alongside every transaction.
-        </p>
-      </div>
-
-      <div class="concept-grid cols-4">
-        <div class="concept">
-          <div class="idx">i</div>
-          <h3>Knowledge Capital</h3>
-          <p>The liquidity, freshness, and traceable provenance of what an organization or community knows — not the size of its archive.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">ii</div>
-          <h3>Decision Capital</h3>
-          <p>The reusability of past decisions — rationale, constraints, and outcomes preserved well enough to make the next decision faster and better justified.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">iii</div>
-          <h3>Trust Capital</h3>
-          <p>The accumulated — and sometimes damaged — expectation that a person, organization, or AI will act as it has represented, repaired through explanation and consistency.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">iv</div>
-          <h3>Relationship Capital</h3>
-          <p>The depth and reciprocity of ongoing relationships across people, organizations, and AI, sustained by mutual understanding and fair return.</p>
+          <h3>Distribution</h3>
+          <p>Who contributed to the gain, who captured it, and who absorbed the cost, the risk, and the displaced effort?</p>
         </div>
       </div>
 
       <div class="capital-note">
-        <h3>Concepts, Not Scores</h3>
+        <h3>Productivity Still Counts</h3>
         <p>
-          None of these four are proposed as a single number to optimize.
-          Knowledge, decisions, trust, and relationships are only partly
-          measurable, and reducing them to a score risks the things that make
-          them valuable in the first place — consent, fairness, purpose
-          limitation, the right to contest a judgment, and the ability to
-          exit a relationship. Chinoba Economics treats them as concepts to
-          reason with, not metrics to maximize.
+          None of this argues against efficiency. Productivity is a necessary condition of a healthy economy and an honest measure of one dimension of it. The claim is narrower: it cannot be the only dimension, because an AI system can raise it while the qualities that make output worth having — sound judgment, justified trust, fair return — are neglected or consumed.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ============ 06 RUNTIME SOCIETY AND GOVERNANCE ============ -->
-  <section class="research-section" id="runtime-society" aria-labelledby="runtime-society-h">
+  <section class="research-section" id="individual" aria-labelledby="individual-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">06 / Runtime Society and Governance</div>
-        <h2 id="runtime-society-h">Runtime Society and Governance</h2>
+        <div class="section-label">02 / From Individual Intelligence to Intelligence Fields</div>
+        <h2 id="individual-h">From Individual Intelligence to Intelligence Fields</h2>
         <p class="section-lede">
-          Once AI agents take part in the Relationship Economy Cycle, they do
-          so as limited economic actors — operating within a defined role,
-          authority, policy, and boundary — not as independent legal or moral
-          agents. What an AI can technically do and what it is permitted to
-          do in a given situation are different questions, and keeping them
-          different is the basis of Runtime Society governance.
+          Much of the AI conversation assumes one actor, one intelligence, and one center: a stronger model, a better assistant, a more capable expert. Real work is not like that. It is multi-actor, multi-context, and multi-value, and judgment is produced through coordination as much as through calculation.
         </p>
       </div>
 
       <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets3/09.png"
-           data-lightbox aria-label="Open the diagram of value emerging through relationships among human, AI, enterprise, community, knowledge, and government">
-          <img src="assets3/09.png"
-               alt="Human, AI, Enterprise, Community, Knowledge, and Government arranged as connected nodes around a central Relationship node, illustrating that value emerges through the relationships between them."
+        <a class="figure-frame" href="assets/intelligence-field-map.svg"
+           data-lightbox aria-label="Open the diagram of the intelligence field">
+          <img src="assets/intelligence-field-map.svg"
+               alt="Five nodes — people, AI systems, organizations and institutions, data and knowledge, and environment and community — surround a central intelligence field and are linked by relationships such as delegation, authority, provenance, context, and norms."
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">Value emerges through the relationships between human, AI, enterprise, community, knowledge, and government.</figcaption>
+        <figcaption class="figure-caption">Intelligence is not located in any one node. It emerges in the relationships between them.</figcaption>
       </figure>
+      <p class="scroll-hint" aria-hidden="true">Swipe the table sideways →</p>
+      <div class="table-wrap" role="region" aria-label="Individual-intelligence view compared with intelligence-field view, scrollable" tabindex="0">
+        <table class="compare-table is-wrap" aria-label="Individual-intelligence view compared with intelligence-field view">
+          <thead>
+            <tr><th scope="col">Dimension</th><th scope="col">Individual / single-model view</th><th scope="col">Intelligence-field view</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Where intelligence lives</th><td>Inside an actor: a brain, a model, a team.</td><td>Between actors: in the relationships, flows, and feedback that connect them.</td></tr>
+            <tr><th scope="row">Unit of analysis</th><td>The capable individual or system.</td><td>The field: people, AI, data, institutions, and environment together.</td></tr>
+            <tr><th scope="row">Source of advantage</th><td>Owning or reaching the strongest capability.</td><td>The quality of the connections that let capability be used well.</td></tr>
+            <tr><th scope="row">Role of knowledge</th><td>A stock to accumulate and store.</td><td>A flow that must circulate, with source, context, and freshness attached.</td></tr>
+            <tr><th scope="row">Role of AI</th><td>A tool that executes tasks for a user.</td><td>A participant with a defined role and authority, inside relationships with others.</td></tr>
+            <tr><th scope="row">Typical failure</th><td>Capable parts that cannot work together; answers that fit no one’s context.</td><td>Noise, dependence, and error that propagate through the connections.</td></tr>
+            <tr><th scope="row">What to measure</th><td>Accuracy, speed, and cost per task.</td><td>Decision quality, coordination cost, learning rate, calibrated trust, and distribution.</td></tr>
+          </tbody>
+        </table>
+      </div>
 
       <div class="two-col">
         <div class="col-text">
-          <h3>Capability Is Not Authority</h3>
+          <h3>Intelligence Emerges; It Is Not Possessed</h3>
           <p>
-            An AI agent that can technically place an order, approve a claim,
-            or renegotiate a contract is not thereby entitled to. Authority
-            has to be granted for a specific role, in a specific context,
-            under a specific policy — the same distinction Chinoba applies
-            across every runtime, not a special rule for economic activity.
+            New meaning, judgment, and knowledge arise from conversation, correction, disagreement, shared failure, and relearning. None of this happens inside one head or one model. Collective intelligence is therefore not a majority vote, and it does not grow with information volume alone. It depends on how knowledge flows, who trusts whom, which signals carry weight, which boundaries exist, and which failures are shared rather than hidden.
           </p>
-          <code class="quote is-diagram">Capability
-↓ what it can do
-Authority
-↓ what it may do, here, now</code>
+          <p>
+            Seen this way, intelligence is a field property: something a community of people, AI, data, institutions, and environment can have, and can lose, through the way it is connected.
+          </p>
         </div>
         <div class="col-text">
-          <h3>The Human Role Is Not Only Approval</h3>
+          <h3>The Question Changes</h3>
           <p>
-            Humans are not reduced to a final approval click. People design
-            the purpose, boundaries, roles, and responsibilities the runtime
-            operates under; resolve conflicts the system cannot settle on its
-            own; and update the institution itself as conditions change.
-            Governance here means keeping privacy, fairness, explainability,
-            the right to contest a decision, the ability to exit, and
-            protection against excessive surveillance or manipulation as
-            conditions of value creation, not costs weighed against it.
+            If intelligence is relational, the economic question is not how strong a single model can become. It is what field we build around it. The same model inside a field with good records, clear roles, and honest feedback is worth more than inside one without them, and a field can make modest capabilities useful while a poor field wastes strong ones.
           </p>
-          <code class="quote">
-            Efficiency decides
-            what is possible.
-            Governance decides
-            what is allowed.
-          </code>
+          <code class="quote is-diagram">Not the strongest intelligence,
+but the best intelligence field.</code>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 07 ECONOMIC SPHERES AND APPLICATIONS ============ -->
-  <section class="research-section" id="applications" aria-labelledby="applications-h">
+  <section class="research-section" id="assets" aria-labelledby="assets-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">07 / Economic Spheres and Applications</div>
-        <h2 id="applications-h">Economic Spheres and Applications</h2>
+        <div class="section-label">03 / The Assets of an Intelligence Field</div>
+        <h2 id="assets-h">The Assets of an Intelligence Field</h2>
         <p class="section-lede">
-          The same cycle reads differently across economic spheres — what
-          changes is which knowledge flows, whose state is being understood,
-          and whose trust and relationship are at stake. These are not simply
-          places AI gets applied; they are where Knowledge Flow, State
-          Understanding, Decision Trace, Trust, and Relationship become
-          concrete enough to govern.
+          A field accumulates things that can be built up, spent down, or quietly eroded. They are not balance-sheet items, and they are not scores. They are the conditions under which the same model, the same people, and the same budget produce better or worse outcomes.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Knowledge</h3>
+          <p>What participants know, held so it can be found, reused, and corrected, with its source and freshness attached.</p>
+          <p class="why"><strong>Economic role.</strong> Reuse turns one participant’s experience into the capability of many. Knowledge without provenance only adds search cost.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Context</h3>
+          <p>The purpose, constraints, roles, and local conditions that give knowledge its meaning in a particular situation.</p>
+          <p class="why"><strong>Economic role.</strong> The same answer is right in one setting and costly in another. Context makes knowledge applicable, not merely correct.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Trust</h3>
+          <p>A calibrated expectation of what an actor will do in a given role, updated by outcomes rather than assumed.</p>
+          <p class="why"><strong>Economic role.</strong> Lowers the cost of verifying, supervising, and renegotiating, and decides how much authority can safely be delegated.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Evidence</h3>
+          <p>The grounds a claim or decision rests on: sources, observations, reasoning, and results.</p>
+          <p class="why"><strong>Economic role.</strong> Makes claims checkable and disputes resolvable, which lets reliance extend beyond people who already know each other.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Reputation</h3>
+          <p>The accumulated, context-specific record of an actor’s contributions and outcomes.</p>
+          <p class="why"><strong>Economic role.</strong> Acts as future coordination potential: it tells others whom to involve and for what. It can also be gamed, so how it formed must be verifiable.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Coordination Capacity</h3>
+          <p>The ability to align roles, hand off work, surface conflict, and negotiate differing goals.</p>
+          <p class="why"><strong>Economic role.</strong> Decides whether more capability yields more joint action or only more friction. It is the main limit on what a field can attempt together.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Feedback</h3>
+          <p>Outcomes, rejections, overrides, and appeals flowing back to the people and systems that acted.</p>
+          <p class="why"><strong>Economic role.</strong> Sets the learning rate. Without it, a field keeps repeating whatever happened to look successful.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">viii</div>
+          <h3>Institutional Memory</h3>
+          <p>Decisions, rationales, rules, and their history, kept so that learning outlasts individuals and models.</p>
+          <p class="why"><strong>Economic role.</strong> Prevents the same failures from being rediscovered, and lets another person or another model take over a role without starting from zero.</p>
+        </div>
+      </div>
+
+      <div class="fig-lead">
+        <h3>How the Assets Circulate</h3>
+        <p>These assets are not independent. Knowledge acquires evidence; evidence supports calibrated trust; trust makes incentives and value exchange workable; governance bounds that exchange; and learning returns the outcomes to knowledge. Skip a step and the loop still turns — it simply extracts value instead of compounding it.</p>
+      </div>
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/value-creation-loop.svg"
+           data-lightbox aria-label="Open the value creation loop diagram">
+          <img src="assets/value-creation-loop.svg"
+               alt="A loop of six steps — knowledge, evidence, trust, incentives, governance, and learning — around a center labeled collective value, with learning returning to knowledge."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The value creation loop: knowledge, evidence, trust, incentives, governance, and learning.</figcaption>
+      </figure>
+
+      <div class="capital-note">
+        <h3>Assets, Not Scores</h3>
+        <p>
+          None of these eight is proposed as a single number to maximize. Knowledge, trust, and reputation are only partly measurable, and reducing them to a score risks the very things that make them valuable: consent, fairness, purpose limitation, the right to contest a judgment, and the ability to leave. They are concepts to reason with, and each can be examined separately and in context.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="research-section" id="relationship" aria-labelledby="relationship-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Relationship Economics in AI Systems</div>
+        <h2 id="relationship-h">Relationship Economics in AI Systems</h2>
+        <p class="section-lede">
+          A transaction records that value changed hands. A relationship carries what made that exchange possible and what it makes possible next. Relationship Economics asks what AI does to that continuity: whether it helps participants understand one another, remember, repair, and cooperate again, or optimizes each interaction while the relationship underneath wears thin.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Why Relationships Create Value</h3>
+          <p>
+            Continuing relationships lower the cost of searching and verifying: past decisions and outcomes remain as evidence, so only what has changed needs rechecking. They carry shared context, which shortens explanation, though context must be refreshed or it hardens into “how we always did it.” They make knowledge reusable, because a problem solved once and recorded with its conditions becomes the next participant’s starting point. And they let trust be updated by outcomes instead of assumed.
+          </p>
+          <h3>Reciprocity, Reputation, Responsibility</h3>
+          <p>
+            Reciprocity does not mean equal money in every exchange. It means value is not absorbed in one direction indefinitely. Recognition, access, and voice are real forms of return, but they cannot stand in for pay where work is specialized or continuing.
+          </p>
+          <p>
+            Reputation records what a participant has contributed and delivered, and is trustworthy only if how it formed can be inspected. Responsibility must follow action: an AI that acts while no one answers for it is an exposure, not a relationship.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Interaction Is Not Trust</h3>
+          <p>
+            Systems are easy to tune for interaction: more clicks, longer sessions, higher conversion, more points redeemed. These are measurable and move quickly. Trust forms differently — through promises kept, reasons that can be explained, problems disclosed and corrected, and outcomes that match what was expected.
+          </p>
+          <p>
+            A system can raise every interaction metric while lowering participants’ ability to rely on it. An assistant tuned to hold attention can make disengagement harder, and a reward tuned to usage can push behavior through expiry pressure instead of real benefit. Optimizing interaction cannot, by itself, optimize trust, and it may spend it.
+          </p>
+          <code class="quote is-diagram">Engagement is what they did.
+Trust is what they can rely on.</code>
+          <h3>Exit Keeps the Field Honest</h3>
+          <p>
+            That a relationship continues is not evidence that it benefits everyone in it. When leaving means losing access, history, or standing, consent is thin and the field drifts toward capture. A real option to exit, with contributions and earned standing portable enough to matter, keeps rules, rewards, and recommendations answerable to the people they affect.
+          </p>
+        </div>
+      </div>
+
+      <div class="fig-lead">
+        <h3>Same AI, Different Objective</h3>
+        <p>The contrast is not between fast and slow, or between technology and people. It is between two objectives given to the same system: improve this interaction, or improve the field in which interactions keep happening.</p>
+      </div>
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/efficiency-vs-relationship.svg"
+           data-lightbox aria-label="Open the comparison of efficiency optimization and relationship value">
+          <img src="assets/efficiency-vs-relationship.svg"
+               alt="Two columns compare short-term efficiency optimization with long-term relationship value across objective, signal, trust, contribution, learning, and exit."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Short-term efficiency optimization compared with long-term relationship value.</figcaption>
+      </figure>
+
+      <div class="fig-lead">
+        <h3>When AI Strengthens a Relationship — and When It Erodes One</h3>
+        <p>The same capability can point either way. What decides the direction is the objective it is given, the boundaries around it, and who can see and correct what it does.</p>
+      </div>
+      <p class="scroll-hint" aria-hidden="true">Swipe the table sideways →</p>
+      <div class="table-wrap" role="region" aria-label="How AI can strengthen or erode a relationship, scrollable" tabindex="0">
+        <table class="compare-table is-wrap" aria-label="How AI can strengthen or erode a relationship">
+          <thead>
+            <tr><th scope="col">Dimension</th><th scope="col">AI strengthens the relationship when it…</th><th scope="col">AI erodes the relationship when it…</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Continuity</th><td>carries context and commitments across handoffs so people need not re-explain.</td><td>records behavior for one side’s leverage while the other side cannot see or correct it.</td></tr>
+            <tr><th scope="row">Explanation</th><td>gives reasons a participant can inspect and challenge.</td><td>produces fluent justifications that do not match the real basis of the decision.</td></tr>
+            <tr><th scope="row">Reputation</th><td>helps record real contribution and outcomes, with how the record formed made visible.</td><td>generates, inflates, or ranks reputation in ways no one can verify or contest.</td></tr>
+            <tr><th scope="row">Reciprocity</th><td>surfaces unrecognized contributions so return can be assigned.</td><td>turns participation into unpaid labor and calls it engagement.</td></tr>
+            <tr><th scope="row">Repair</th><td>helps disclose a failure early, trace its cause, and verify that something changed.</td><td>hides failures, or lets a single incident harden into permanent distrust.</td></tr>
+            <tr><th scope="row">Exit</th><td>keeps contributions, history, and standing portable.</td><td>raises switching costs as dependence grows.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fig-lead">
+        <h3>Trust as Infrastructure</h3>
+        <p>Trust works like infrastructure: mostly invisible while it holds, expensive when it fails. It lowers the cost of every later act of cooperation, which is why it is worth designing deliberately rather than hoping it follows from usage.</p>
+      </div>
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/09.png"
+           data-lightbox aria-label="Open the diagram of trust as economic infrastructure">
+          <img src="assets2/09.png"
+               alt="A diagram in which trust leads to reputation, collaboration, and opportunity, presenting trust as an economic asset that lowers hidden transaction costs and enables cooperation."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Trust becomes an economic asset: it lowers hidden costs and opens later cooperation.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="research-section" id="incentives" aria-labelledby="incentives-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Incentives, Boundaries, and Distribution</div>
+        <h2 id="incentives-h">Incentives, Boundaries, and Distribution</h2>
+        <p class="section-lede">
+          Whether a field compounds or extracts depends less on its models than on who creates the value, who captures it, and who bears the risk. Those are design questions, and they must be answered in rules, records, and boundaries, not only in goodwill.
         </p>
       </div>
 
       <div class="concept-grid cols-3">
         <div class="concept">
           <div class="idx">i</div>
-          <h3>Regional Economic Sphere</h3>
-          <p>Local knowledge about residents, businesses, and resources flows into decisions on services and investment, where trust and relationship determine whether a community keeps returning value locally.</p>
+          <h3>Who creates the value?</h3>
+          <p>Contributors include people, organizations, communities, and AI agents acting in a granted role. Contribution runs in many directions — knowledge, work, data, judgment, problem reports, time — which makes attribution hard. A field that cannot say whose knowledge improved an outcome cannot reward it, or notice when return has gone missing.</p>
         </div>
         <div class="concept">
           <div class="idx">ii</div>
-          <h3>Sports Economic Sphere</h3>
-          <p>Understanding fans, athletes, and sponsors as ongoing relationships — not single ticket or merchandise transactions — turns loyalty and trust into a traceable, governable asset for a club or league.</p>
+          <h3>Who captures it?</h3>
+          <p>If gains concentrate with whoever operates the platform or the model while data providers, frontline workers, and community participants receive nothing back, the relationship cannot last. Capture is not only monetary: it includes access, decision rights, and the power to set the terms.</p>
         </div>
         <div class="concept">
           <div class="idx">iii</div>
-          <h3>Enterprise Economic Sphere</h3>
-          <p>Decision Trace across knowledge work makes an organization's judgment reusable, while Trust Infrastructure governs how far an AI agent's authority extends inside an approval chain.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">iv</div>
-          <h3>Manufacturing Economy</h3>
-          <p>Knowledge about equipment state and process context feeds decisions on the line, where outcome and trust — not just throughput — determine whether a partner or supplier relationship continues.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">v</div>
-          <h3>Public Economic Sphere</h3>
-          <p>Public institutions turning algorithmic decisions into accountable, contestable outcomes need Decision Trace and Trust Infrastructure at least as much as private enterprise does — arguably more.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">vi</div>
-          <h3>Creator Economy</h3>
-          <p>A creator's value depends less on any single sale than on an audience relationship built from shared knowledge, consistent trust, and outcomes an AI-assisted workflow can help sustain, not replace.</p>
+          <h3>Who bears the risk?</h3>
+          <p>Errors travel fast when many agents rely on the same knowledge. Privacy costs, review burden, and displaced effort tend to land on participants with the least say. A fair field names those costs and assigns them before an incident, not after.</p>
         </div>
       </div>
 
       <div class="fig-lead">
-        <h3>One Identity, Many Spheres</h3>
-        <p>
-          A single relationship-based identity can connect several economic
-          spheres at once — retail, finance, travel, and sports — turning
-          what would be many separate transactions into one continuing
-          relationship the platform can understand and act on.
-        </p>
+        <h3>Participation and Value Exchange</h3>
+        <p>The loop of contribution, evidence, reputation, and reward only holds if responsibility is recorded above it and participant rights run beneath it.</p>
       </div>
       <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets3/08.png"
-           data-lightbox aria-label="Open the diagram of one identity connecting shopping, travel, banking, and sports into a long-term relationship">
-          <img src="assets3/08.png"
-               alt="Shopping, travel, banking, cards, securities, sports, and mobile services connected to one identity, converging on a long-term relationship rather than a single purchase."
+        <a class="figure-frame" href="assets/participation-value-exchange.svg"
+           data-lightbox aria-label="Open the participation and value exchange diagram">
+          <img src="assets/participation-value-exchange.svg"
+               alt="A chain from contribution to evidence to reputation to reward, with reciprocity returning value to contributors, responsibility recorded above every step, and consent, appeal, and exit available beneath every step."
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">One identity, many economic spheres — resolving into a single long-term relationship.</figcaption>
+        <figcaption class="figure-caption">Contribution, evidence, reputation, and reward, bounded by responsibility and by consent, appeal, and exit.</figcaption>
       </figure>
+
+      <div class="fig-lead">
+        <h3>Boundaries That Make Participation Safe</h3>
+        <p>A boundary here is a promise to participants made in a form that can be checked. Each row is a question a field should be able to answer, and what it looks like when it cannot.</p>
+      </div>
+      <p class="scroll-hint" aria-hidden="true">Swipe the table sideways →</p>
+      <div class="table-wrap" role="region" aria-label="Boundary design questions and failure signs, scrollable" tabindex="0">
+        <table class="compare-table is-wrap" aria-label="Boundary design questions and failure signs">
+          <thead>
+            <tr><th scope="col">Boundary</th><th scope="col">Design question</th><th scope="col">What failure looks like</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Data attribution</th><td>Can every contribution be traced to who provided it, and under what terms?</td><td>Contributions are absorbed anonymously and later used as if freely given.</td></tr>
+            <tr><th scope="row">Access</th><td>Who may see or use which knowledge, for which purpose, and who decides?</td><td>Access follows convenience: whoever can reach the data uses it.</td></tr>
+            <tr><th scope="row">Consent</th><td>Is use limited to the purposes the contributor agreed to, and is reuse a new decision?</td><td>Consent is bundled with participation, so refusing means leaving.</td></tr>
+            <tr><th scope="row">Transparency</th><td>Can a participant see why a recommendation, ranking, or reward came out as it did?</td><td>Reasons are produced after the fact and do not match the real basis.</td></tr>
+            <tr><th scope="row">Reuse conditions</th><td>What may be done with knowledge, models, and reputations derived from contributions?</td><td>Value is built on contributions whose providers have no claim and no visibility.</td></tr>
+            <tr><th scope="row">Exit and appeal</th><td>Can a participant correct records, contest a judgment, and leave with standing intact?</td><td>Appeal exists on paper, but no one is empowered to change the outcome.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Rewards Teach Behavior</h3>
+          <p>
+            Whatever a field pays for, it gets more of. Rewarding the number of posts, answers, or tasks teaches participants to produce volume. Rewarding speed teaches them to skip checking. Rewarding raw usage teaches them to generate usage. AI sharpens the problem, because agents can optimize a reward faster, and at greater scale, than any person.
+          </p>
+          <p>
+            Reward design therefore needs signals tied to outcomes that were later verified, corrections that were made, contributions that were reused, and effects on people who did not take part. Measures remain proxies. A score people learn to chase stops measuring what it was for, so its purpose, period, and expiry should be explicit, and it should never be used to offset a boundary.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Concentration and Distribution</h3>
+          <p>
+            Central platforms reduce search and coordination costs, set shared standards, and enforce rules consistently. They also tend toward lock-in, data dominance, and concentrated decision authority, because network effects reward size rather than health. Distributed collaboration keeps data and judgment close to the context that gives them meaning and spreads dependence, but it brings its own costs: harder coordination, uneven capability, and slower convergence.
+          </p>
+          <p>
+            The practical design is rarely either pole. Shared contracts for identity, consent status, provenance, and authorized decisions can be common, while data stays under each party’s control and a coordinating party exists without holding all the authority.
+          </p>
+          <code class="quote is-diagram">Reward the outcome that lasted,
+not the activity that was easy to count.</code>
+        </div>
+      </div>
+
+      <p class="scroll-hint" aria-hidden="true">Swipe the table sideways →</p>
+      <div class="table-wrap" role="region" aria-label="Concentrated platform compared with bounded, distributed field, scrollable" tabindex="0">
+        <table class="compare-table is-wrap" aria-label="Concentrated platform compared with bounded, distributed field">
+          <thead>
+            <tr><th scope="col">Question</th><th scope="col">Concentrated platform</th><th scope="col">Bounded, distributed field</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Coordination</th><td>Efficient and consistent; one party sets the standards.</td><td>Slower to align; standards must be negotiated and maintained jointly.</td></tr>
+            <tr><th scope="row">Local context</th><td>Flattened into common categories; local meaning is easily lost.</td><td>Kept near its source, so judgment stays tied to the situation.</td></tr>
+            <tr><th scope="row">Data</th><td>Pooled for convenience; contributors rarely keep control.</td><td>Held by each party; only limited, consented information is shared.</td></tr>
+            <tr><th scope="row">Value capture</th><td>Tends to accumulate with the operator.</td><td>Can be shared with participants, but only if return is designed and checked.</td></tr>
+            <tr><th scope="row">Resilience</th><td>Single points of failure; errors propagate widely.</td><td>More diversity and substitutability, with the risk of fragmentation.</td></tr>
+            <tr><th scope="row">Typical failure</th><td>Lock-in, opaque ranking, and extraction.</td><td>Uneven capability, weak enforcement, and stalled coordination.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Neither column is a recommendation. They name what each choice costs, so a field can decide deliberately what to centralize and what to leave local.</p>
+    </div>
+  </section>
+
+  <section class="research-section" id="model" aria-labelledby="model-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / A Reference Model for Intelligence Field Economics</div>
+        <h2 id="model-h">A Reference Model for Intelligence Field Economics</h2>
+        <p class="section-lede">
+          The model below is a reading aid, not a standard. Seven layers describe what a field needs for value to be created, exchanged, bounded, and learned from. Each depends on the others, and none is optional once AI acts inside the field.
+        </p>
+      </div>
+
+      <div class="field-runtime" aria-label="The reference model of an intelligence field, from participants to feedback and learning">
+        <div class="field-runtime-label">Reference Model</div>
+        <h3 class="field-runtime-title">Participants → Knowledge &amp; Context → Interaction &amp; Coordination → Evidence &amp; Trust → Incentives &amp; Value Exchange → Governance &amp; Boundaries → Feedback &amp; Learning</h3>
+
+        <ol class="field-layers" role="list">
+          <li class="field-layer">
+            <span class="layer-idx">01</span>
+            <span class="layer-body">
+              <span class="layer-name">Participants</span>
+              <span class="layer-note">People, AI systems, and organizations, each with an identity, a role, and an authority that is granted rather than assumed.</span>
+            </span>
+            <span class="layer-tag">participants</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">02</span>
+            <span class="layer-body">
+              <span class="layer-name">Knowledge &amp; Context</span>
+              <span class="layer-note">Sources, decisions, and rules, kept with provenance, freshness, and the purposes and conditions under which they apply.</span>
+            </span>
+            <span class="layer-tag">knowledge</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">03</span>
+            <span class="layer-body">
+              <span class="layer-name">Interaction &amp; Coordination</span>
+              <span class="layer-note">Roles assigned, work handed off, conflicts surfaced, and goals negotiated, with humans doing more than approving at the end.</span>
+            </span>
+            <span class="layer-tag">coordinate</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">04</span>
+            <span class="layer-body">
+              <span class="layer-name">Evidence &amp; Trust</span>
+              <span class="layer-note">Claims travel with their basis; expectations are calibrated by outcomes and can be repaired after failure.</span>
+            </span>
+            <span class="layer-tag">evidence</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">05</span>
+            <span class="layer-body">
+              <span class="layer-name">Incentives &amp; Value Exchange</span>
+              <span class="layer-note">Contribution attributed, reward and cost distributed, reciprocity sustained, and the signals that steer behavior chosen deliberately.</span>
+            </span>
+            <span class="layer-tag">exchange</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">06</span>
+            <span class="layer-body">
+              <span class="layer-name">Governance &amp; Boundaries</span>
+              <span class="layer-note">Consent, purpose limits, access, authority, transparency, appeal, and exit, evaluated where decisions are made.</span>
+            </span>
+            <span class="layer-tag">boundary</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">07</span>
+            <span class="layer-body">
+              <span class="layer-name">Feedback &amp; Learning</span>
+              <span class="layer-note">Outcomes, rejections, overrides, and appeals return to knowledge, trust, incentives, and rules.</span>
+            </span>
+            <span class="layer-tag">learn</span>
+          </li>
+        </ol>
+
+        <p class="field-loop">↻ <strong>Feedback &amp; Learning</strong> re-enters Knowledge &amp; Context. Governance and learning are not a final stage; they are the conditions under which every earlier layer stays trustworthy.</p>
+      </div>
+
+      <div class="fig-lead">
+        <h3>Price Becomes One Signal Among Many</h3>
+        <p>In a price-coordinated market, one signal did most of the coordinating. AI adds recommendation, ranking, priority, negotiation, and trust to the signals that move behavior. Whoever designs those signals shapes outcomes, and the more powerful the coordination, the larger the failure when it goes wrong. Signal design is therefore an economic decision, not a technical detail.</p>
+      </div>
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/07.png"
+           data-lightbox aria-label="Open the diagram of signals beyond price">
+          <img src="assets2/07.png"
+               alt="A diagram showing demand, prediction, recommendation, trust, priority, negotiation, and behavior as signals beyond price that move a market, with AI integrating and interpreting many signals."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Signals beyond price move the market, and each one is designed.</figcaption>
+      </figure>
+
+      <div class="fig-lead">
+        <h3>Seven Design Variables</h3>
+        <p>Across the layers, seven variables repeatedly decide whether a field compounds or extracts. They are things to design and observe, not targets to maximize.</p>
+      </div>
+      <p class="scroll-hint" aria-hidden="true">Swipe the table sideways →</p>
+      <div class="table-wrap" role="region" aria-label="Seven design variables of an intelligence field, scrollable" tabindex="0">
+        <table class="compare-table is-wrap" aria-label="Seven design variables of an intelligence field">
+          <thead>
+            <tr><th scope="col">Variable</th><th scope="col">What it governs</th><th scope="col">If neglected</th><th scope="col">What to observe</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Attention</th><td>What participants are shown and asked to notice; the signals that steer behavior.</td><td>Important signals are buried and false ones amplified; whoever sets the feed sets the field.</td><td>Whether surfaced items serve participants’ goals; who can inspect and adjust ranking.</td></tr>
+            <tr><th scope="row">Trust</th><td>How much authority and reliance a participant or AI receives in a given role.</td><td>Reliance by habit: over-delegation, or blanket refusal.</td><td>The gap between expected and actual outcomes by role and context; recovery after failure.</td></tr>
+            <tr><th scope="row">Evidence</th><td>The grounds on which claims and decisions are accepted.</td><td>Fluent but unverifiable output; circular citation among agents.</td><td>Share of decisions whose basis can be reproduced; completeness of provenance.</td></tr>
+            <tr><th scope="row">Reputation</th><td>The record that tells others whom to involve and for what.</td><td>Gaming, permanent stigma, and advantage for the already known.</td><td>How reputations formed; who is rated on thin data; use of correction and appeal.</td></tr>
+            <tr><th scope="row">Reciprocity</th><td>Whether value returns to those who created it.</td><td>Participation turns into unpaid labor, and contributors withdraw.</td><td>Benefit and cost by participant; concentration of return; continued contribution.</td></tr>
+            <tr><th scope="row">Coordination Cost</th><td>The effort to align roles, share context, and resolve conflict.</td><td>Faster individual work but slower collective work; review burden shifts onto a few.</td><td>Handoffs, re-explanation, time to resolve conflict, reviewer load.</td></tr>
+            <tr><th scope="row">Learning Rate</th><td>How quickly and verifiably outcomes improve later decisions.</td><td>Repeated incidents; improvement that cannot be shown.</td><td>Time from outcome to rule or knowledge change; repeat incidents; adoption of corrections.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="research-section" id="prove" aria-labelledby="prove-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / What an AI Economy Must Prove</div>
+        <h2 id="prove-h">What an AI Economy Must Prove</h2>
+        <p class="section-lede">
+          An AI economy earns legitimacy by being able to show, not merely claim, certain things. The table lists seven questions, what an honest answer would require, and what it looks like when the answer is missing.
+        </p>
+      </div>
+
+      <p class="scroll-hint" aria-hidden="true">Swipe the table sideways →</p>
+      <div class="table-wrap" role="region" aria-label="What an AI economy must be able to prove, scrollable" tabindex="0">
+        <table class="compare-table is-wrap" aria-label="What an AI economy must be able to prove">
+          <thead>
+            <tr><th scope="col">Question</th><th scope="col">What an honest answer requires</th><th scope="col">Warning sign</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Who contributed to the value?</th><td>Attribution of knowledge, work, data, and judgment, including contributions by AI agents and who operates them.</td><td>Gains are visible; the contributors behind them are not.</td></tr>
+            <tr><th scope="row">On what evidence was the decision made?</th><td>A decision record linking sources, context, alternatives considered, constraints, who decided, and the outcome.</td><td>The explanation given afterwards differs from the actual basis.</td></tr>
+            <tr><th scope="row">How are trust and reputation formed and corrected?</th><td>Context-specific, versioned assessments with stated dimensions and uncertainty, calibrated against outcomes, with a route to correction.</td><td>One score ranks people; newcomers with little data are rated low by default.</td></tr>
+            <tr><th scope="row">Can participants consent, exit, and appeal?</th><td>Purpose-limited consent, portable contributions and standing, and an appeal that can change the outcome and the record.</td><td>Consent is bundled with access; appeal exists but cannot alter anything.</td></tr>
+            <tr><th scope="row">Do rewards encourage the long-term behavior wanted?</th><td>Reward signals tied to verified outcomes, reuse, and correction, reviewed for gaming and for effects on non-participants.</td><td>Volume rises while quality, trust, or participation quietly falls.</td></tr>
+            <tr><th scope="row">Who bears the externalities, risks, and losses?</th><td>Costs and risks named by actor, with owners, limits, rollback, and compensation agreed before an incident.</td><td>Privacy costs, review burden, and errors land on those with the least say.</td></tr>
+            <tr><th scope="row">Do learning outcomes return to participants and organizations?</th><td>Improvements to knowledge, rules, and capability shared back and open to correction, not only retained by the operator.</td><td>The operator’s systems improve while participants see no change in their field.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">These are properties of a field, not of a model. A strong model can sit inside a field that fails every row, and a modest one inside a field that passes. A field that cannot answer a row is not necessarily wrong; it cannot yet demonstrate that it is right.</p>
+    </div>
+  </section>
+
+  <section class="research-section" id="patterns" aria-labelledby="patterns-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">08 / Practical Patterns</div>
+        <h2 id="patterns-h">Practical Patterns</h2>
+        <p class="section-lede">
+          The patterns below are generalized illustrations of how the framework reads in different settings. They are not descriptions of any particular organization’s deployment, and none implies a result, a scale, or a market outcome.
+        </p>
+      </div>
+
+      <div class="pattern-list">
+        <article class="pattern">
+          <div class="pattern-idx">Pattern 01</div>
+          <h3>Expert Communities</h3>
+          <dl>
+            <dt>Value exchange</dt>
+            <dd>Members contribute answers, reviews, and judgment; they receive recognition, access, and opportunities to be consulted.</dd>
+            <dt>Basis of trust</dt>
+            <dd>A verifiable track record in specific domains, with sources cited and outcomes followed up — not follower counts.</dd>
+            <dt>Role of AI</dt>
+            <dd>Routes questions to suitable members, drafts summaries that keep their sources, flags stale or conflicting answers, and surfaces overlooked contributors.</dd>
+            <dt>Boundaries &amp; governance</dt>
+            <dd>Attribution and consent for reuse of answers; named editors; appeal against ratings; the ability to take contributions elsewhere.</dd>
+            <dt>Distortions to avoid</dt>
+            <dd>Volume-driven rewards; AI summaries that erase authorship; reputation concentrated among early members.</dd>
+          </dl>
+        </article>
+        <article class="pattern">
+          <div class="pattern-idx">Pattern 02</div>
+          <h3>Internal Knowledge Networks</h3>
+          <dl>
+            <dt>Value exchange</dt>
+            <dd>Employees share decisions, rationale, and lessons; the organization returns saved time, recognition, and a say in how that knowledge is used.</dd>
+            <dt>Basis of trust</dt>
+            <dd>Provenance and ownership for each document; decision records that show what was chosen and why.</dd>
+            <dt>Role of AI</dt>
+            <dd>Connects questions to sources and past decisions, proposes options with evidence, and records where human choices differ from its proposals.</dd>
+            <dt>Boundaries &amp; governance</dt>
+            <dd>Role-based access, purpose limits, human gates for consequential actions, and a rule that knowledge sharing is not performance surveillance.</dd>
+            <dt>Distortions to avoid</dt>
+            <dd>Treating contribution counts as performance; stale knowledge presented as current; extracting expertise without return.</dd>
+          </dl>
+        </article>
+        <article class="pattern">
+          <div class="pattern-idx">Pattern 03</div>
+          <h3>Customer Co-creation</h3>
+          <dl>
+            <dt>Value exchange</dt>
+            <dd>Customers contribute problem reports, ideas, and usage insight; they receive better products, influence, and fair return where value is created.</dd>
+            <dt>Basis of trust</dt>
+            <dd>A visible link between a contribution and what changed, and honest handling of failures and corrections.</dd>
+            <dt>Role of AI</dt>
+            <dd>Clusters feedback, finds recurring causes, drafts options for review, and tells contributors what happened to their input.</dd>
+            <dt>Boundaries &amp; governance</dt>
+            <dd>Clear consent for use of feedback; a way to opt out of analysis; no hidden steering toward purchase.</dd>
+            <dt>Distortions to avoid</dt>
+            <dd>Feedback harvested as free labor; manipulation presented as personalization; lock-in.</dd>
+          </dl>
+        </article>
+        <article class="pattern">
+          <div class="pattern-idx">Pattern 04</div>
+          <h3>AI-assisted Point and Reward Ecosystems</h3>
+          <dl>
+            <dt>Value exchange</dt>
+            <dd>Participants earn credits for actions that benefit the wider group — choosing less crowded options, taking part, sharing useful knowledge — and spend them across partners.</dd>
+            <dt>Basis of trust</dt>
+            <dd>Transparent earning and expiry rules, an explanation of why an offer was shown, and redemption that is honored.</dd>
+            <dt>Role of AI</dt>
+            <dd>Reads the participant’s current situation, proposes options that consider group-level effects as well as individual ones, and explains why.</dd>
+            <dt>Boundaries &amp; governance</dt>
+            <dd>Data minimization; consent for cross-partner use; inferences kept apart from stated facts; disclosure of paid influence on ranking; exit with balances preserved or fairly settled.</dd>
+            <dt>Distortions to avoid</dt>
+            <dd>Expiry pressure and nudging that exploit vulnerability; rewards that favor the largest partner; surveillance justified as personalization.</dd>
+          </dl>
+        </article>
+        <article class="pattern">
+          <div class="pattern-idx">Pattern 05</div>
+          <h3>Research and Design Collaboration</h3>
+          <dl>
+            <dt>Value exchange</dt>
+            <dd>Participants contribute data, methods, critique, and design work; they receive credit, shared results, and access to the common record.</dd>
+            <dt>Basis of trust</dt>
+            <dd>Reproducible methods, versioned artifacts, and recorded reviews, including disagreements.</dd>
+            <dt>Role of AI</dt>
+            <dd>Searches prior work, proposes alternatives, checks designs against recorded constraints, and keeps the decision record.</dd>
+            <dt>Boundaries &amp; governance</dt>
+            <dd>Contribution and licensing terms agreed up front; confidentiality zones; named responsibility for sign-off.</dd>
+            <dt>Distortions to avoid</dt>
+            <dd>Credit flattened into “the team and the model”; unreproducible AI-generated claims accepted by repetition; a dominant partner setting all terms.</dd>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="research-section" id="adoption" aria-labelledby="adoption-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">09 / Adoption Sequence</div>
+        <h2 id="adoption-h">Adoption Sequence</h2>
+        <p class="section-lede">
+          A field is not installed; it is grown. The sequence below starts small, keeps AI’s authority narrow while evidence accumulates, and widens scope only when outcomes, distribution, and participants’ own experience justify it.
+        </p>
+      </div>
+
+      <div class="field-runtime" aria-label="The adoption sequence, from identifying where value arises to improving distribution and governance">
+        <div class="field-runtime-label">Adoption Sequence</div>
+        <h3 class="field-runtime-title">Identify → Define → Design evidence → Set boundaries → Run small → Observe → Improve</h3>
+
+        <ol class="field-layers" role="list">
+          <li class="field-layer">
+            <span class="layer-idx">01</span>
+            <span class="layer-body">
+              <span class="layer-name">Identify where value arises</span>
+              <span class="layer-note">Find the relationships and acts that already produce value: a handoff, a consultation, a recurring decision. Name the decisions that are out of scope and the lines that must not be crossed.</span>
+            </span>
+            <span class="layer-tag">identify</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">02</span>
+            <span class="layer-body">
+              <span class="layer-name">Define participants and contributions</span>
+              <span class="layer-note">Who takes part, in which roles, and what counts as a contribution, including contributions by AI agents and by people not paid for them today.</span>
+            </span>
+            <span class="layer-tag">define</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">03</span>
+            <span class="layer-body">
+              <span class="layer-name">Design evidence and trust</span>
+              <span class="layer-note">Decide what claims must carry, what a decision record contains, and how expectations will be calibrated, corrected, and recovered after failure.</span>
+            </span>
+            <span class="layer-tag">evidence</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">04</span>
+            <span class="layer-body">
+              <span class="layer-name">Set boundaries for authority, consent, and exit</span>
+              <span class="layer-note">Specify what AI may recommend, decide, and execute; what needs a human gate; what participants consent to; and how they appeal and leave.</span>
+            </span>
+            <span class="layer-tag">boundary</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">05</span>
+            <span class="layer-body">
+              <span class="layer-name">Run in a limited community</span>
+              <span class="layer-note">Begin with a bounded group and reversible actions. AI recommends before it acts, and where humans agree or differ is recorded.</span>
+            </span>
+            <span class="layer-tag">pilot</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">06</span>
+            <span class="layer-body">
+              <span class="layer-name">Observe incentives and externalities</span>
+              <span class="layer-note">Watch what behavior the rewards produce, who benefits and who pays, what is being gamed, and who is missing from the data.</span>
+            </span>
+            <span class="layer-tag">observe</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">07</span>
+            <span class="layer-body">
+              <span class="layer-name">Improve distribution and governance</span>
+              <span class="layer-note">Adjust rewards, rules, and authority. Widen scope only where outcomes and participant experience justify it, and stop where they do not.</span>
+            </span>
+            <span class="layer-tag">improve</span>
+          </li>
+        </ol>
+
+        <p class="field-loop">↻ Return to <strong>step 01</strong> with what was learned. The sequence repeats at each new scale.</p>
+      </div>
+
+      <div class="capital-note">
+        <h3>Conditions to Reconsider</h3>
+        <p>
+          Treat the following as signs to pause or redesign, not as noise to be tuned away: decision grounds can no longer be reproduced even as knowledge grows; participants cannot correct or exit despite a rich record; more automation brings more incidents or appeals; human gates become formalities; authority concentrates in a few agents or operators; and benefits concentrate while costs spread.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -887,12 +1357,12 @@ Authority
 
     <figure class="figure figure-standard" style="margin-bottom: 48px;">
       <a class="figure-frame" href="assets3/13.png"
-         data-lightbox aria-label="Open the Chinoba Economics circular diagram of knowledge, relationship, decision, community, value, and trust">
+         data-lightbox aria-label="Open the circular diagram of knowledge, relationship, decision, community, value, and trust">
         <img src="assets3/13.png"
              alt="Six concepts — Knowledge, Relationship, Decision, Community, Value, and Trust — arranged in a circle around the words Chinoba Economics, each connected to its neighbors."
              loading="lazy">
       </a>
-      <figcaption class="figure-caption">Chinoba Economics: knowledge, relationship, decision, community, value, and trust as one circulating architecture.</figcaption>
+      <figcaption class="figure-caption">Knowledge, relationship, decision, community, value, and trust as one circulating architecture.</figcaption>
     </figure>
 
     <div class="positioning" aria-label="Research positioning within the Chinoba architecture">
@@ -904,25 +1374,24 @@ Authority
       <span>↓</span>
       <span>Runtime Society</span>
       <span>↓</span>
-      <span class="here">Relationship Economy</span>
+      <span>Relationship Economy</span>
+      <span>↓</span>
+      <span class="here">Intelligence Field Economics</span>
     </div>
 
     <blockquote>
-      <span>Relationship Economy does not argue that transactions disappear.</span>
-      <span>It makes visible how knowledge, decisions, action, outcome,</span>
-      <span>trust, and relationship connect — and how each cycle</span>
-      <span>returns as the next round's knowledge.</span>
-      <span>&nbsp;</span>
-      <span>When AI participates deeply in economic life,</span>
-      <span>efficiency alone is not enough.</span>
-      <span>The conditions for collaboration, responsibility, explanation,</span>
-      <span>recoverability, and fair return must be designed alongside it.</span>
-      <span>&nbsp;</span>
-      <span>Chinoba Economics is the search for that implementable structure.</span>
+      <span>The maturity of Intelligence Field Economics</span>
+      <span>is not the maximum extraction of value by AI.</span>
+      <span>It is a field in which participants can keep making</span>
+      <span>better decisions, collaborating, and learning —</span>
+      <span>and in which the value that results</span>
+      <span>is distributed fairly and can be explained.</span>
+      <span class="gap">&nbsp;</span>
+      <span>The field matters more than the model.</span>
     </blockquote>
     <div class="closing-mark">Chinoba.org</div>
     <p class="closing-cta">
-      <a href="https://amzn.to/4bUU9XC" target="_blank" rel="noopener noreferrer">New Book →</a>
+      <a href="#featured-book">Featured Publication →</a>
       &nbsp;·&nbsp;
       <a href="#resources">Featured Resources →</a>
     </p>
@@ -935,7 +1404,7 @@ Authority
         <div class="section-label">+ / Related Research</div>
         <h2 id="related-h">Other Lines of Inquiry</h2>
         <p class="section-lede">
-          Relationship Economy is one layer of one architecture — Knowledge
+          Intelligence Field Economics is one layer of one architecture — Knowledge
           Flow and the Community Graph feed it, Decision Trace and Trust
           Infrastructure give it a record and a boundary, and Runtime Society
           and AI Coordination are where its cycle is actually run.

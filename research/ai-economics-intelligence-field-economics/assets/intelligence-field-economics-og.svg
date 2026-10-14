@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Arial, Helvetica, sans-serif">
+<defs><radialGradient id="g" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#60a5fa" stop-opacity="0.22"/><stop offset="1" stop-color="#60a5fa" stop-opacity="0"/></radialGradient></defs>
+<rect width="1200" height="630" fill="#0b0b0b"/>
+<circle cx="900" cy="315" r="270" fill="url(#g)"/>
+<g stroke="#3b4252" stroke-width="2" fill="none">
+<path d="M900 315L900 150"/><path d="M900 315L1056 262"/><path d="M900 315L997 448"/><path d="M900 315L803 448"/><path d="M900 315L744 262"/>
+<path d="M900 150L1056 262L997 448L803 448L744 262Z" stroke-dasharray="6 6"/>
+</g>
+<circle cx="900" cy="315" r="62" fill="#0f172a" stroke="#60a5fa" stroke-width="3"/>
+<g fill="#111" stroke-width="3">
+<circle cx="900" cy="150" r="26" stroke="#60a5fa"/>
+<circle cx="1056" cy="262" r="26" stroke="#a78bfa"/>
+<circle cx="997" cy="448" r="26" stroke="#fb923c"/>
+<circle cx="803" cy="448" r="26" stroke="#4ade80"/>
+<circle cx="744" cy="262" r="26" stroke="#2dd4bf"/>
+</g>
+<text x="900" y="321" text-anchor="middle" fill="#f5f5f5" font-size="18" font-weight="700">FIELD</text>
+<text x="70" y="96" fill="#6a6a6a" font-size="18" letter-spacing="4">CHINOBA / RESEARCH</text>
+<text x="70" y="226" fill="#f5f5f5" font-size="68" font-weight="700">AI Economics</text>
+<text x="70" y="304" fill="#93c5fd" font-size="46" font-weight="700">Intelligence Field</text>
+<text x="70" y="358" fill="#93c5fd" font-size="46" font-weight="700">Economics</text>
+<text x="70" y="430" fill="#b0b0b0" font-size="24">Knowledge, trust, evidence, and incentives</text>
+<text x="70" y="466" fill="#b0b0b0" font-size="24">become collective value.</text>
+<text x="70" y="568" fill="#6a6a6a" font-size="20" letter-spacing="3">CHINOBA.ORG</text>
+</svg>

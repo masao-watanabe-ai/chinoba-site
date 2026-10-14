@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-labelledby="t d" font-family="Arial, Helvetica, sans-serif">
+<title id="t">Participation and value exchange</title>
+<desc id="d">A contribution is supported by evidence, builds context-specific reputation, and earns reward. Reward returns to sustain further contribution. Responsibility is recorded above every step, and consent, appeal and exit are available beneath every step.</desc>
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9ca3af"/></marker>
+</defs>
+<rect width="1200" height="800" fill="#0b0b0b"/>
+<text x="48" y="52" fill="#6a6a6a" font-size="15" letter-spacing="3">PARTICIPATION &amp; VALUE EXCHANGE</text>
+
+<!-- responsibility bar -->
+<rect x="30" y="78" width="1140" height="64" rx="10" fill="#1a1010" stroke="#f87171" stroke-width="2"/>
+<text x="600" y="106" text-anchor="middle" fill="#fca5a5" font-size="21" font-weight="700">Responsibility</text>
+<text x="600" y="130" text-anchor="middle" fill="#d4d4d4" font-size="16">owner, approver, and accountable party are recorded separately, so &#8220;the AI did it&#8221; is never an answer</text>
+<g stroke="#f87171" stroke-width="2" stroke-dasharray="4 5">
+<path d="M150 142V196"/><path d="M450 142V196"/><path d="M750 142V196"/><path d="M1050 142V196"/>
+</g>
+
+<!-- chain -->
+<g fill="none" stroke="#9ca3af" stroke-width="2.5" marker-end="url(#ar)">
+<path d="M270 262H328"/><path d="M570 262H628"/><path d="M870 262H928"/>
+</g>
+<g>
+<rect x="30" y="196" width="240" height="132" rx="10" fill="#111" stroke="#4ade80" stroke-width="2"/>
+<text x="150" y="234" text-anchor="middle" fill="#f5f5f5" font-size="23" font-weight="700">Contribution</text>
+<text x="150" y="266" text-anchor="middle" fill="#b0b0b0" font-size="16">knowledge, work,</text>
+<text x="150" y="288" text-anchor="middle" fill="#b0b0b0" font-size="16">data, judgment</text>
+
+<rect x="330" y="196" width="240" height="132" rx="10" fill="#111" stroke="#60a5fa" stroke-width="2"/>
+<text x="450" y="234" text-anchor="middle" fill="#f5f5f5" font-size="23" font-weight="700">Evidence</text>
+<text x="450" y="266" text-anchor="middle" fill="#b0b0b0" font-size="16">provenance, context,</text>
+<text x="450" y="288" text-anchor="middle" fill="#b0b0b0" font-size="16">observed outcome</text>
+
+<rect x="630" y="196" width="240" height="132" rx="10" fill="#111" stroke="#a78bfa" stroke-width="2"/>
+<text x="750" y="234" text-anchor="middle" fill="#f5f5f5" font-size="23" font-weight="700">Reputation</text>
+<text x="750" y="266" text-anchor="middle" fill="#b0b0b0" font-size="16">context-specific,</text>
+<text x="750" y="288" text-anchor="middle" fill="#b0b0b0" font-size="16">expiring, correctable</text>
+
+<rect x="930" y="196" width="240" height="132" rx="10" fill="#111" stroke="#fb923c" stroke-width="2"/>
+<text x="1050" y="234" text-anchor="middle" fill="#f5f5f5" font-size="23" font-weight="700">Reward</text>
+<text x="1050" y="266" text-anchor="middle" fill="#b0b0b0" font-size="16">money, access, voice,</text>
+<text x="1050" y="288" text-anchor="middle" fill="#b0b0b0" font-size="16">recognition, opportunity</text>
+</g>
+
+<!-- reciprocity return -->
+<path d="M1050 328 V378 Q1050 408 1020 408 H180 Q150 408 150 378 V332" fill="none" stroke="#4ade80" stroke-width="2.5" marker-end="url(#ar)"/>
+<text x="600" y="396" text-anchor="middle" fill="#86efac" font-size="17" font-weight="700">Reciprocity</text>
+<text x="600" y="436" text-anchor="middle" fill="#b0b0b0" font-size="16">value returns to those who created it, so contribution can continue</text>
+
+<!-- participant rights -->
+<rect x="30" y="480" width="1140" height="270" rx="12" fill="#0c1413" stroke="#2dd4bf" stroke-width="2"/>
+<text x="60" y="518" fill="#5eead4" font-size="15" letter-spacing="3">PARTICIPANT RIGHTS &#8212; HOLD AT EVERY STEP</text>
+<g>
+<rect x="60" y="540" width="340" height="170" rx="10" fill="#111" stroke="#1f2937" stroke-width="1.5"/>
+<text x="84" y="578" fill="#f5f5f5" font-size="22" font-weight="700">Consent</text>
+<text x="84" y="612" fill="#b0b0b0" font-size="17">Contributions are used only</text>
+<text x="84" y="636" fill="#b0b0b0" font-size="17">for the purposes agreed, and</text>
+<text x="84" y="660" fill="#b0b0b0" font-size="17">reuse is a new decision.</text>
+
+<rect x="430" y="540" width="340" height="170" rx="10" fill="#111" stroke="#1f2937" stroke-width="1.5"/>
+<text x="454" y="578" fill="#f5f5f5" font-size="22" font-weight="700">Appeal</text>
+<text x="454" y="612" fill="#b0b0b0" font-size="17">Evidence, reputation, and</text>
+<text x="454" y="636" fill="#b0b0b0" font-size="17">reward can each be contested,</text>
+<text x="454" y="660" fill="#b0b0b0" font-size="17">corrected, and re-reviewed.</text>
+
+<rect x="800" y="540" width="340" height="170" rx="10" fill="#111" stroke="#1f2937" stroke-width="1.5"/>
+<text x="824" y="578" fill="#f5f5f5" font-size="22" font-weight="700">Exit</text>
+<text x="824" y="612" fill="#b0b0b0" font-size="17">Leaving does not erase earned</text>
+<text x="824" y="636" fill="#b0b0b0" font-size="17">standing or strand what was</text>
+<text x="824" y="660" fill="#b0b0b0" font-size="17">contributed.</text>
+</g>
+<text x="600" y="782" text-anchor="middle" fill="#9ca3af" font-size="17">An exchange is complete only when the contributor can see it, contest it, and leave it.</text>
+</svg>
