@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Physical AI &amp; Cyber-Physical Systems: Semantic Digital Twin — Chinoba</title>
-  <meta name="description" content="How Physical AI moves from perception to accountable action — Semantic Digital Twin, and Chinoba PF's Ontology, Knowledge Graph, DSL, and Decision Trace, connecting robots, machines, and vehicles to safe, traceable decisions.">
+  <title>Physical AI &amp; Cyber-Physical Systems: The Governed Loop from Sensing to Action — Chinoba</title>
+  <meta name="description" content="Physical AI is defined not by whether an AI can act in the real world, but by whether perception, decision, execution, safety, and learning form a traceable, governed cyber-physical loop — from semantic state and authorization boundaries to safe, reversible action.">
 
   <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
   <link rel="stylesheet" href="/assets/research.css">
@@ -281,6 +281,113 @@
     .closing-cta a {
       color: var(--accent);
     }
+    /* ---------- Tables, prose and small-screen figures ---------- */
+    .concept-grid.cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    @media (max-width: 900px) {
+      .concept-grid.cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .concept-grid.cols-3 { grid-template-columns: 1fr; }
+    }
+    .table-wrap {
+      margin-top: clamp(28px, 4vw, 40px);
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .compare-table {
+      margin-top: 0;
+      border: 1px solid var(--line);
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14px;
+    }
+    .compare-table th,
+    .compare-table td {
+      border: 1px solid var(--line);
+      padding: 12px 16px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .compare-table thead th {
+      background: var(--bg-elev);
+      color: var(--fg);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      white-space: normal;
+    }
+    .compare-table tbody th {
+      color: var(--fg);
+      font-weight: 600;
+      background: var(--bg-elev);
+      white-space: normal;
+      min-width: 140px;
+    }
+    .compare-table tbody td {
+      color: var(--fg-mute);
+      min-width: 180px;
+    }
+    .table-note {
+      margin: 14px 0 0;
+      font-size: 13px;
+      color: var(--fg-faint);
+      line-height: 1.7;
+      max-width: 760px;
+    }
+    .table-wrap + .figure,
+    .table-wrap + .fig-lead,
+    .table-wrap + .two-col,
+    .table-wrap + .concept-grid,
+    .figure + .table-wrap {
+      margin-top: clamp(40px, 5vw, 56px);
+    }
+    @media (max-width: 720px) {
+      .compare-table { width: auto; min-width: 100%; }
+      .compare-table tbody th { min-width: 150px; }
+      .compare-table tbody td { min-width: 230px; }
+    }
+    @media (max-width: 520px) {
+      .topbar {
+        flex-wrap: wrap;
+        gap: 8px 16px;
+      }
+    }
+    .field-group {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      padding: 22px 4px 6px;
+      border-top: 1px dashed var(--line-strong);
+      margin-top: 10px;
+      position: relative;
+    }
+    @media (max-width: 720px) {
+      .lightbox.is-open {
+        overflow: auto;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 64px 12px 24px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .lightbox img {
+        max-width: none;
+        max-height: none;
+        width: 1000px;
+        flex: none;
+      }
+      .lightbox .lightbox-close {
+        position: fixed;
+        top: 14px;
+        right: 14px;
+        background: #0b0b0b;
+        z-index: 101;
+      }
+    }
   </style>
 </head>
 
@@ -304,112 +411,29 @@
       <div class="eyebrow">Research / Physical AI &amp; Cyber-Physical Systems</div>
       <h1>Physical AI &amp; Cyber-Physical Systems</h1>
       <p class="hero-sub">
-        <span>Physical AI is not only a model that senses and moves.</span>
-        <span>It is a runtime that turns physical state into accountable action.</span>
+        <span>Physical AI is not defined by whether an AI can act in the real world.</span>
+        <span>It is defined by whether perception, decision, execution, safety, and learning can be connected as a traceable and governed cyber-physical loop.</span>
       </p>
       <p class="hero-desc">
-        As AI moves beyond generating text and images into observing, deciding, and
-        acting through robots, machines, vehicles, and drones, a basic loop repeats
-        everywhere it operates: observation, understanding, decision, action, and
-        feedback. Every pass through that loop carries physical consequence —
-        safety, authority, responsibility, and the ability to explain what happened
-        and why. Chinoba treats Physical AI not as a single model but as an
-        execution substrate that binds meaning, state, knowledge, policy, execution
-        authority, and Decision Trace into one accountable system.
+        A robot that moves is not yet Physical AI in any sense worth building on.
+        What matters is the loop around the motion: observations that may be
+        wrong, a state estimate that may be stale, a decision that someone must be
+        entitled to make, an action that changes the world, and a result that
+        flows back into the system. Chinoba treats Physical AI not as a model, and
+        not as a body, but as a governed feedback loop with the physical world —
+        one that is designed for uncertainty, bounded by safety, supervised by
+        people, and recorded well enough to be learned from.
       </p>
     </div>
   </header>
 
-  <!-- ============ 01 OVERVIEW ============ -->
-  <section class="research-section" id="overview" aria-labelledby="overview-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">01 / Overview</div>
-        <h2 id="overview-h">Beyond Generation: AI That Observes, Decides, and Acts</h2>
-        <p class="section-lede">
-          Physical AI spans robots, industrial equipment, vehicles, drones, and
-          sensor networks — any system where intelligence produces movement or
-          force in the world rather than only text or pixels. Recognizing an
-          object or predicting a value is not the same as deciding to act on it.
-          This inquiry is about the structure that has to exist between the two.
-        </p>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/02.png"
-           data-lightbox aria-label="Open the diagram of AI moving from generative AI to physical AI">
-          <img src="assets2/02.png"
-               alt="AI progressing from Generative AI to AI Agents to Physical AI, connected to robots, autonomous vehicles, drones, smart factories, and infrastructure — AI is moving from language to action."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">The same intelligence, relocated — from generating language to acting through robots, vehicles, drones, and infrastructure.</figcaption>
-      </figure>
-
-      <div class="two-col" style="margin-top: clamp(48px, 6vw, 64px);">
-        <div class="col-text">
-          <h3>The Physical AI Loop</h3>
-          <p>
-            Whatever the platform — a mobile robot, a production line, a delivery
-            vehicle, a drone — the same basic loop repeats: the system perceives
-            its environment, forms an understanding of the situation, decides
-            what to do, acts on the physical world, and receives feedback that
-            updates the next cycle.
-          </p>
-          <code class="quote is-diagram">Observation
-  ↓ Understanding
-  ↓ Decision
-  ↓ Action
-  ↓ Feedback</code>
-          <p>
-            Each stage looks simple in a diagram. In practice, each is where
-            physical-world AI most often fails — not because perception is
-            weak, but because the steps between perception and action are
-            collapsed into a single inference call.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>Why the Physical World Changes the Requirements</h3>
-          <p>
-            Actions taken in physical space are frequently irreversible,
-            safety-relevant, and operationally consequential. A system that
-            moves a robot arm, opens a valve, or re-routes a vehicle needs more
-            than an accurate model — it needs permission, context, and a record
-            of why it acted.
-          </p>
-          <ul>
-            <li>Safety — the action must not endanger people or equipment</li>
-            <li>Authority — someone or something must be entitled to authorize it</li>
-            <li>Responsibility — a party remains accountable for the outcome</li>
-            <li>Auditability — the decision must be reconstructable after the fact</li>
-          </ul>
-          <p>
-            Chinoba treats these four requirements as architecture, not
-            afterthoughts — expressed through the Semantic Digital Twin,
-            Chinoba PF's Ontology, Knowledge Graph, DSL, and Decision Trace,
-            described below.
-          </p>
-        </div>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/03.png"
-           data-lightbox aria-label="Open the diagram of Physical AI as perceive, understand, decide, and act">
-          <img src="assets2/03.png"
-               alt="Physical AI shown as a loop of Perceive, Understand, Decide, and Act, connecting sensors and a robotic arm — Physical AI connects intelligence with the physical world."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Chinoba adds a fifth stage to this loop — feedback that updates the next decision.</figcaption>
-      </figure>
-    </div>
-  </section>
 
   <!-- ============ FEATURED RESOURCES ============ -->
   <section class="research-section" id="resources" aria-labelledby="resources-h">
     <div class="wrap">
       <div class="section-head">
         <div class="section-label">Featured Resources</div>
-        <h2 id="resources-h">Start Here — the New Practical Guide, Books, Video, and Essays</h2>
+        <h2 id="resources-h">Start Here — the Practical Guide, Books, Video, and Essays</h2>
         <p class="section-lede">
           The new English practical guide leads this line of inquiry. Below it
           are the Chinoba books, videos, and essays that build the Semantic
@@ -483,386 +507,526 @@
     </div>
   </section>
 
-  <!-- ============ 02 WHY IT MATTERS ============ -->
+  <!-- ============ 01 SCOPE ============ -->
   <section class="research-section" id="why" aria-labelledby="why-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">02 / Why It Matters</div>
-        <h2 id="why-h">Why Physical AI Needs More Than Perception and Control</h2>
+        <div class="section-label">01 / Scope</div>
+        <h2 id="why-h">Why Physical AI Is More Than Robotics</h2>
         <p class="section-lede">
-          A sensor reading or an object-detection result is not, by itself,
-          something a system can safely act on. The same detection can call for
-          entirely different responses depending on where it occurs, what task
-          is underway, which equipment is involved, how dangerous the situation
-          is, who is authorized to act, and how current the information is.
-        </p>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>Recognition Is Not Understanding</h3>
-          <p>
-            "Worker," "forklift," and "pallet" are labels a vision model can
-            produce reliably. None of them says whether the worker is
-            authorized to be there, whether the forklift is mid-task, or
-            whether the pallet is load-bearing. Meaning comes from connecting
-            the detection to role, relationship, context, and rule — not from
-            the detection itself.
-          </p>
-          <p>
-            Generative and perception models are good at exactly this:
-            interpreting ambiguity, proposing alternatives, and forming
-            hypotheses. What they produce is a <em>candidate action</em>, not
-            an authorized one.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>Candidates Must Pass Through Knowledge and Boundary</h3>
-          <p>
-            A candidate action becomes an executable decision only after it
-            passes through what Chinoba calls the boundary layer: applicable
-            knowledge and rules, the current context, safety policy, and —
-            where required — a Human Gate and explicit Execution
-            Authorization.
-          </p>
-          <code class="quote">Candidate action
-is not
-a decision to act.</code>
-          <p>
-            Wiring a model's output directly to an equipment command, without
-            this layer, is the single most common failure mode in physical AI
-            systems — and the one this research line exists to close.
-          </p>
-        </div>
-      </div>
-
-      <div class="fig-lead">
-        <h3>Recognition ≠ Understanding</h3>
-        <p>
-          Object detection identifies a worker, a forklift, and a pallet.
-          Understanding requires knowing their role, their relationship, the
-          governing rules, and the current constraints — the layer recognition
-          alone cannot supply.
+          Robotics gives AI a body. IoT gives it senses. Digital twins give it a model of the plant. Generative AI gives it language and flexible reasoning. Control systems give it dependable motion. Physical AI is none of these alone — it is the decision that sits among them and acts on matter, and the discipline of making that decision safe to take.
         </p>
       </div>
       <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/05.png"
-           data-lightbox aria-label="Open the diagram showing recognition does not equal understanding">
-          <img src="assets2/05.png"
-               alt="Object detection labels of Worker, Forklift, and Pallet contrasted with a meaning graph of Role, Relationship, Context, Rules, and Constraints — Recognition does not equal Understanding; what Physical AI lacks is meaning."
+        <a class="figure-frame" href="assets2/02.png"
+           data-lightbox aria-label="Open the diagram of AI moving from generative AI to physical AI">
+          <img src="assets2/02.png"
+               alt="AI progressing from Generative AI to AI Agents to Physical AI, connected to robots, autonomous vehicles, drones, smart factories, and infrastructure — AI is moving from language to action."
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">What Physical AI is missing is not better recognition — it is meaning.</figcaption>
+        <figcaption class="figure-caption">The same intelligence, relocated — from generating language to acting on the physical world.</figcaption>
       </figure>
+      <div class="table-wrap">
+      <table class="compare-table is-wrap" aria-label="How neighboring fields relate to Physical AI">
+        <thead>
+          <tr><th scope="col">Field</th><th scope="col">What it contributes</th><th scope="col">What it does not settle by itself</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Robotics</th>
+            <td>Embodiment: sensing, manipulation, and movement.</td>
+            <td>Whether a given motion is authorized, or why this action was chosen over another.</td>
+          </tr>
+          <tr>
+            <th scope="row">IoT &amp; telemetry</th>
+            <td>Continuous observation of equipment and environment.</td>
+            <td>What a reading means in context, and what, if anything, should be done about it.</td>
+          </tr>
+          <tr>
+            <th scope="row">Digital twin</th>
+            <td>A synchronized model for monitoring and simulation.</td>
+            <td>Operational meaning, constraints, and who may act on the information.</td>
+          </tr>
+          <tr>
+            <th scope="row">Generative AI &amp; LLMs</th>
+            <td>Interpretation, dialogue, plan drafting, and reading exceptions in plain language.</td>
+            <td>Guaranteed correctness, real-time response, or enforcement of safety limits.</td>
+          </tr>
+          <tr>
+            <th scope="row">Control &amp; safety systems</th>
+            <td>Deterministic, verified behavior inside a defined envelope.</td>
+            <td>Interpreting a novel situation, or choosing between competing goals.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="two-col" style="margin-top: clamp(40px, 5vw, 56px);">
+        <div class="col-text">
+          <h3>A Decision That Acts on Matter</h3>
+          <p>
+            The defining feature is not the body but the consequence. A language model that errs produces a wrong paragraph that can be edited. A system that errs while moving a load, opening a valve, or re-routing a vehicle produces an effect that may be partly or wholly irreversible.
+          </p>
+          <p>
+            Physical AI is therefore best described as <em>decision-making whose output is a change in the physical world</em> — together with everything needed to make that change appropriate.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>A Loop, Not a Pipeline</h3>
+          <p>
+            Observation, inference, and action all alter the environment they depend on, and the altered environment is what the system observes next. Physical AI is a closed loop. Mistakes compound through it, and learning flows through it.
+          </p>
+          <code class="quote is-diagram">A model can be wrong
+and be corrected.
+An action can be wrong
+and stay done.</code>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="fig-lead">
-        <h3>From Candidate to Validated Action</h3>
-        <p>
-          Generative AI contributes flexibility — interpreting ambiguity and
-          proposing alternatives. Structured knowledge contributes safety and
-          consistency — defining meaning, applying rules, validating actions,
-          and controlling boundaries. Physical AI needs both, in that order.
+  <!-- ============ 02 THE LOOP ============ -->
+  <section class="research-section" id="loop" aria-labelledby="loop-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / The Loop</div>
+        <h2 id="loop-h">The Cyber-Physical Loop</h2>
+        <p class="section-lede">
+          Eight stages connect a sensor to a consequence and back again. Each one contributes its own error, delay, or ambiguity — and each one is a place where responsibility must be made explicit rather than assumed.
         </p>
       </div>
-      <figure class="figure figure-wide figure-standard">
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets/cps-loop.svg"
+           data-lightbox aria-label="Open the cyber-physical loop diagram">
+          <img src="assets/cps-loop.svg"
+               alt="The Cyber-Physical Loop: Sense, Interpret, Estimate State, Decide, Authorize, Act, Observe, Learn, arranged as a closed loop through the physical world, with the human supervisor and decision trace spanning every stage."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Sense → Interpret → Estimate State → Decide → Authorize → Act → Observe → Learn.</figcaption>
+      </figure>
+      <div class="table-wrap">
+      <table class="compare-table is-wrap" aria-label="The eight stages of the cyber-physical loop">
+        <thead>
+          <tr><th scope="col">Stage</th><th scope="col">What happens</th><th scope="col">Where uncertainty, delay, or people enter</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1 · Sense</th>
+            <td>Sensors, cameras, logs, and equipment signals capture the world.</td>
+            <td>Sensor error, calibration drift, sampling delay, missing or out-of-order data.</td>
+          </tr>
+          <tr>
+            <th scope="row">2 · Interpret</th>
+            <td>Raw signals become detections, events, and descriptions.</td>
+            <td>Model error, ambiguity, inputs unlike anything seen in training.</td>
+          </tr>
+          <tr>
+            <th scope="row">3 · Estimate State</th>
+            <td>Interpretations are fused into a current picture of entities and conditions.</td>
+            <td>Stale or conflicting sources; confidence must be carried forward, not discarded.</td>
+          </tr>
+          <tr>
+            <th scope="row">4 · Decide</th>
+            <td>Candidate actions are generated, compared, and ranked.</td>
+            <td>AI reasoning is useful here and fallible here; it proposes but does not command.</td>
+          </tr>
+          <tr>
+            <th scope="row">5 · Authorize</th>
+            <td>Policy, scope, and approval determine whether an action may proceed.</td>
+            <td>Human approval is designed in for high-consequence cases; ambiguity routes to a person.</td>
+          </tr>
+          <tr>
+            <th scope="row">6 · Act</th>
+            <td>An authorized command reaches an actuator, a vehicle, or a work order.</td>
+            <td>Command latency, actuator limits, and the independent safety controller that can refuse.</td>
+          </tr>
+          <tr>
+            <th scope="row">7 · Observe</th>
+            <td>The effect on the world is measured.</td>
+            <td>Did the world respond as expected? Delayed or partial effects can mislead.</td>
+          </tr>
+          <tr>
+            <th scope="row">8 · Learn</th>
+            <td>Outcomes update state models, thresholds, and procedures.</td>
+            <td>Changes to policy are reviewed by people before they take effect.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="two-col" style="margin-top: clamp(40px, 5vw, 56px);">
+        <div class="col-text">
+          <h3>Uncertainty Is a Design Input</h3>
+          <p>
+            The physical world does not arrive as clean data. Plan for these conditions from the start rather than patching for them later:
+          </p>
+          <ul>
+            <li>Sensor error and calibration drift</li>
+            <li>Latency between event, observation, and action</li>
+            <li>Missing, duplicated, or out-of-order data</li>
+            <li>Environmental change the model has not seen</li>
+            <li>Equipment faults and anomalous behavior</li>
+            <li>People who intervene, deliberately or not</li>
+          </ul>
+        </div>
+        <div class="col-text">
+          <h3>The Loop Has to Close</h3>
+          <p>
+            A one-way pipeline from sensor to actuator can only be as good as its first guess. Closing the loop means checking whether the action had the intended effect, recording the gap, and using that gap to correct the next estimate.
+          </p>
+          <p>
+            It also means that stopping is a valid outcome of every stage. A loop that can only continue is not under control.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 MEANING ============ -->
+  <section class="research-section" id="semantic" aria-labelledby="semantic-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Meaning</div>
+        <h2 id="semantic-h">From Raw Signals to Semantic State</h2>
+        <p class="section-lede">
+          A temperature value, a video frame, or a log line is evidence about the world, not a statement of it. Before anything is decided, raw data has to be tied to an entity, a time, a source, and the rules that apply — in short, turned into state that a decision can lean on.
+        </p>
+      </div>
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets/raw-to-semantic.svg"
+           data-lightbox aria-label="Open the diagram of raw signals becoming semantic state and an execution decision">
+          <img src="assets/raw-to-semantic.svg"
+               alt="A chain from Raw Signals through Normalize and Identify, Semantic State, Judgment, to an Execution Decision, illustrated with a generic temperature example and the six elements a semantic chunk of physical state carries."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Raw signals are normalized, identified, bound to meaning, and judged before any decision to act.</figcaption>
+      </figure>
+      <div class="concept-grid cols-3" style="margin-top: clamp(40px, 5vw, 56px);">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>State</h3>
+          <p>What is believed to be true now: the entity, its condition, and its operating mode.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Context</h3>
+          <p>Where it is, which task is underway, who and what is nearby, and which relationships matter.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Time &amp; Validity</h3>
+          <p>When it was observed, how fresh it is, and until when it can be relied on.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Evidence</h3>
+          <p>Which sources support it, how strong they are, and how to retrieve them again.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Constraints &amp; Authority</h3>
+          <p>The rules, limits, and permissions attached to this state — and who owns them.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Confidence &amp; Open Items</h3>
+          <p>What is uncertain, conflicting, or unresolved. Unknowns are kept visible, not smoothed over.</p>
+        </div>
+      </div>
+      <div class="two-col" style="margin-top: clamp(40px, 5vw, 56px);">
+        <div class="col-text">
+          <h3>The Semantic Chunk, Extended</h3>
+          <p>
+            In document work, a Semantic Chunk is a unit of meaning tied to its evidence, rather than a slice of text cut for search. The same idea carries into the physical world: the unit is no longer a passage but an event, a state, a work step, or a constraint, each linked to the sources that justify it.
+          </p>
+          <p>
+            What makes it useful is the linkage. A chunk says what holds, for which entity, over which interval, on what authority, and with what degree of confidence — so a later decision can be checked against it.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Why Raw Data Should Not Go Straight to Judgment</h3>
+          <p>
+            Handing a model a stream of readings invites it to supply the missing context by guessing. The guess may be plausible and still wrong: another machine, an outdated rule, a sensor that has been silently offline.
+          </p>
+          <p>
+            A semantic state layer puts the missing context in as data, marks what is unknown, and lets the downstream gate refuse to proceed when the state is not good enough to act on.
+          </p>
+        </div>
+      </div>
+      <div class="fig-lead">
+        <h3>Context Turns a Reading Into Meaning</h3>
+        <p>
+          The same number can be routine or urgent. It becomes one or the other only when it is placed against the equipment, material, allowed range, and rule that apply to it.
+        </p>
+      </div>
+      <figure class="figure figure-standard">
+        <a class="figure-frame" href="assets2/08.png"
+           data-lightbox aria-label="Open the diagram giving meaning to an 85 degree sensor reading">
+          <img src="assets2/08.png"
+               alt="A sensor reading of 85 degrees Celsius connected through ontology and context to equipment, material, allowed range, current value, and a possible-anomaly result."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">One reading, read against its context, becomes a possible anomaly.</figcaption>
+      </figure>
+      <div class="fig-lead">
+        <h3>A Semantic Digital Twin Holds the Chunks Together</h3>
+        <p>
+          A Semantic Digital Twin is where this state lives as a coherent whole: entities, relationships, current condition, capability, constraints, and change over time — not a copy of telemetry, and not a 3D model alone.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 BOUNDARY ============ -->
+  <section class="research-section" id="boundary" aria-labelledby="boundary-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Boundary</div>
+        <h2 id="boundary-h">The Boundary Between AI Reasoning and Control</h2>
+        <p class="section-lede">
+          LLMs and other AI models are good at the parts of a physical operation that are ambiguous and open-ended. They are the wrong place to keep the parts that must never be ambiguous. The design task is to draw that line deliberately, and to make the line something an AI cannot move.
+        </p>
+      </div>
+      <div class="two-col" style="margin-top: clamp(40px, 5vw, 56px);">
+        <div class="col-text">
+          <h3>What AI Reasoning Is Good For</h3>
+          <ul>
+            <li>Describing the situation in plain language</li>
+            <li>Generating and ranking candidate actions</li>
+            <li>Supporting planning and replanning</li>
+            <li>Interpreting an anomaly that fits no known pattern</li>
+            <li>Dialogue — asking for missing context, explaining a recommendation</li>
+          </ul>
+          <p>
+            These are contributions to judgment. They produce candidates, never authorizations.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>What Deterministic Control Must Keep</h3>
+          <ul>
+            <li>Real-time control loops with bounded response time</li>
+            <li>Safety PLCs, interlocks, and emergency stops</li>
+            <li>Rule engines evaluating hard limits and policy</li>
+            <li>Rejecting commands outside the safe envelope</li>
+            <li>Moving to a safe state when anything is uncertain</li>
+          </ul>
+          <p>
+            These stay verifiable and keep working when a model is slow, wrong, or unavailable.
+          </p>
+        </div>
+      </div>
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets/authority-boundary.svg"
+           data-lightbox aria-label="Open the authority boundary diagram">
+          <img src="assets/authority-boundary.svg"
+               alt="Authority boundary: AI reasoning proposes, the policy and authorization gate permits, denies, or escalates, the safety controller enforces deterministically, and the human supervisor approves, stops, or overrides, with only the safety controller connected to the physical process."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Capability to propose is kept separate from authority to act.</figcaption>
+      </figure>
+      <div class="table-wrap">
+      <table class="compare-table is-wrap" aria-label="AI reasoning compared with deterministic control">
+        <thead>
+          <tr><th scope="col">Concern</th><th scope="col">AI reasoning</th><th scope="col">Deterministic control</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Time scale</th>
+            <td>Seconds to minutes; response time varies.</td>
+            <td>Milliseconds; response time is bounded and tested.</td>
+          </tr>
+          <tr>
+            <th scope="row">Novel situations</th>
+            <td>Can generalize, and can also be confidently wrong.</td>
+            <td>Does not generalize; behaves as specified or stops.</td>
+          </tr>
+          <tr>
+            <th scope="row">Verifiability</th>
+            <td>Behavior is sampled and evaluated statistically.</td>
+            <td>Behavior can be analyzed against a specification.</td>
+          </tr>
+          <tr>
+            <th scope="row">Role in authority</th>
+            <td>Proposes; cannot approve its own proposal.</td>
+            <td>Enforces limits; cannot be disabled by a proposal.</td>
+          </tr>
+          <tr>
+            <th scope="row">When it is unavailable</th>
+            <td>Operation degrades to a simpler, safer mode.</td>
+            <td>Safe state is reached without it.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="fig-lead">
+        <h3>A Candidate Is Not a Decision</h3>
+        <p>
+          A proposal from a model becomes a validated action only after knowledge, context, and policy have checked it — and a validated action still needs limited, expiring authorization before it reaches the safety controller.
+        </p>
+      </div>
+      <figure class="figure figure-standard">
         <a class="figure-frame" href="assets2/14.png"
            data-lightbox aria-label="Open the diagram of generative AI and structured knowledge producing a validated action">
           <img src="assets2/14.png"
                alt="Generative AI produces an Action Candidate; Ontology, DSL, and Policy validate it; together they produce a Validated Action — flexibility multiplied by safety and consistency."
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">A candidate action becomes a validated action only after knowledge and policy have checked it.</figcaption>
+        <figcaption class="figure-caption">Flexibility from generation, consistency from validation, in that order.</figcaption>
       </figure>
-    </div>
-  </section>
-
-  <!-- ============ 03 SEMANTIC DIGITAL TWIN ============ -->
-  <section class="research-section" id="semantic-twin" aria-labelledby="semantic-twin-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">03 / The Meaning Layer</div>
-        <h2 id="semantic-twin-h">Semantic Digital Twin</h2>
-        <p class="section-lede">
-          A Semantic Digital Twin is not a 3D model of a physical asset, and
-          not a copy of its telemetry. It is the single layer that gives a
-          physical asset meaning — its structure, relationships, and context,
-          together with its current state, its capability, its operational
-          constraints, and how all of that changes over time — in a form a
-          decision runtime can reason over.
-        </p>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/10.png"
-           data-lightbox aria-label="Open the diagram comparing a traditional digital twin to a semantic digital twin">
-          <img src="assets2/10.png"
-               alt="A Traditional Digital Twin of shape, position, temperature, and machine status evolving into a Semantic Digital Twin of meaning, role, relationship, rules, constraints, and decision conditions connected to workers, robots, and decision-makers."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">From state replication to meaningful world representation.</figcaption>
-      </figure>
-
-      <div class="concept-grid" style="margin-top: clamp(48px, 6vw, 64px);">
-        <div class="concept">
-          <div class="idx">i</div>
-          <h3>Entities</h3>
-          <p>Equipment, robots, workers, areas, materials, and tasks — the things a decision can be about.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">ii</div>
-          <h3>Relationships</h3>
-          <p>Location, ownership, dependency, authorization, and containment — how those things connect to one another.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">iii</div>
-          <h3>States &amp; Context</h3>
-          <p>Operating state, time, environment, task progress, and confidence — the situation as it stands right now.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">iv</div>
-          <h3>Knowledge &amp; Rules</h3>
-          <p>Specifications, procedures, safety policies, and constraints that apply to the situation.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">v</div>
-          <h3>Decision Context</h3>
-          <p>Goals, candidate actions, applicable boundaries, and the explanation a decision will need to carry.</p>
-        </div>
-      </div>
-
-      <div class="fig-lead">
-        <h3>One Model, Not Two</h3>
-        <p>
-          The same Semantic Digital Twin also carries the acting body's own
-          physical state — its condition, its capability, and its operating
-          health — as another dimension of the same model, not a separate
-          twin tracked on the side. A decision runtime needs both what a
-          situation means and what the body can actually do right now, read
-          from one consistent source.
-        </p>
-      </div>
-
-      <div class="concept-grid" style="margin-top: clamp(48px, 6vw, 64px);">
-        <div class="concept">
-          <div class="idx">vi</div>
-          <h3>Physical Condition</h3>
-          <p>Temperature, vibration, load, battery, wear, position, posture, and general health.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">vii</div>
-          <h3>Capability Envelope</h3>
-          <p>What the asset can safely do right now, given its current condition — not its nameplate specification.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">viii</div>
-          <h3>Operational Condition</h3>
-          <p>Connectivity, sensor freshness, calibration status, and any active fault state.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">ix</div>
-          <h3>Environmental Coupling</h3>
-          <p>Location, nearby people and equipment, and weather or site conditions the body operates within.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">x</div>
-          <h3>Change Over Time</h3>
-          <p>Observed history, maintenance events, degradation, recovery, and anomaly signals.</p>
-        </div>
-      </div>
-
-      <div class="two-col" style="margin-top: clamp(48px, 6vw, 64px);">
+      <div class="two-col" style="margin-top: clamp(40px, 5vw, 56px);">
         <div class="col-text">
-          <h3>Chinoba PF: Ontology and Knowledge Graph</h3>
+          <h3>Humans Are Not the Exception Handler</h3>
           <p>
-            Ontology defines what exists in the physical environment and how
-            those things relate — factory, production line, equipment,
-            worker, safety zone — giving Physical AI a shared vocabulary
-            instead of ad hoc labels.
+            It is tempting to describe a person as whatever the automation cannot handle. That framing makes people the last resort and gives them the least information at the worst moment.
           </p>
           <p>
-            The Knowledge Graph instantiates that vocabulary as a live,
-            queryable model: which press is running which recipe, which
-            worker is in which zone, which past incident applies. It is a
-            dynamic representation of the physical world as it changes, not a
-            static database.
+            A person in a Physical AI system sets the purpose, supervises the operation, judges what counts as dangerous, intervenes, and answers for the outcome. The design should give them the state, the evidence, and the time to do that.
           </p>
         </div>
         <div class="col-text">
-          <h3>Chinoba PF: DSL and Decision Trace</h3>
-          <p>
-            The DSL turns encoded knowledge into executable conditions — a
-            temperature threshold crossed while a worker is inside a safety
-            zone requires the equipment to stop and a manager to be notified,
-            with human approval required to restart. This is how meaning
-            becomes something a runtime can enforce, not just describe.
-          </p>
-          <p>
-            Decision Trace records which entities, relationships, rules, and
-            context produced a given decision — so every action the Semantic
-            Digital Twin informs remains explainable after the fact.
-          </p>
-          <code class="quote">Ontology names it.
-Knowledge Graph tracks it.
-DSL enforces it.
-Decision Trace explains it.</code>
+          <h3>Designing the Human Role</h3>
+          <ul>
+            <li>Objectives and risk limits are set by people, in advance</li>
+            <li>High-consequence actions pass a human gate by design</li>
+            <li>Stop and override paths are always available and tested</li>
+            <li>Responsibility is named per action, not left implicit</li>
+            <li>Every intervention is recorded and reviewed</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 04 INTEGRATED ARCHITECTURE ============ -->
+  <!-- ============ 05 ARCHITECTURE ============ -->
   <section class="research-section" id="architecture" aria-labelledby="architecture-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">04 / The Architecture</div>
-        <h2 id="architecture-h">From Physical State to Accountable Action</h2>
+        <div class="section-label">05 / Architecture</div>
+        <h2 id="architecture-h">A Reference Architecture</h2>
         <p class="section-lede">
-          This is the architecture the rest of the page has been building
-          toward — the path from a raw physical event to an action a person,
-          auditor, or reviewer could later verify as reasonable, authorized,
-          and correctly executed.
+          This is a pattern, not a product: six layers carry a signal toward action, and three cross-cutting responsibilities — supervision, evidence, and learning — attend every layer. What matters is who may talk to whom, and what has no direct path at all.
         </p>
       </div>
-
-      <figure class="figure figure-wide figure-main">
-        <a class="figure-frame" href="assets2/12.png"
-           data-lightbox aria-label="Open the complete knowledge flow diagram from documents to physical action">
-          <img src="assets2/12.png"
-               alt="The Complete Knowledge Flow: Documents feed Ingestion, Knowledge Extraction, Ontology, and Knowledge Graph, compiled into DSL and a Decision Runtime that produces Physical Action across robots, machines, vehicles, and drones."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Knowledge does not stop at the knowledge graph — it becomes a rule, then a decision, then a physical action.</figcaption>
-      </figure>
-
-      <div class="two-col" style="margin-top: clamp(48px, 6vw, 64px);">
-        <div class="col-text">
-          <h3>Independent Safety Boundaries</h3>
-          <p>
-            Interlocks, emergency stops, and hard safety limits sit outside
-            this decision pipeline by design. Physical AI proposes and
-            requests; it does not have the authority to disable or override
-            the mechanisms that exist specifically to contain it when
-            something goes wrong.
-          </p>
-          <p>
-            Capability and permission are not the same thing. A robot arm
-            being physically able to move into a space is not the same as it
-            being authorized to move there right now, under the current
-            rules, with the current people present.
-          </p>
-        </div>
-        <div class="col-text">
-          <h3>Traceable by Construction</h3>
-          <p>
-            Every decision in this pipeline should be reconstructable end to
-            end — from the original observation and the context that
-            surrounded it, through the rules that were applied and the
-            authority that approved it, to the execution itself and its
-            outcome.
-          </p>
-          <p>
-            Feedback from that outcome runs in two directions: it updates the
-            Semantic Digital Twin's picture of current operating reality, and
-            it updates the policies, thresholds, and trust levels that shape
-            future decisions.
-          </p>
-          <code class="quote">Capability answers
-what an asset can do.
-Authorization answers
-what it may do now.</code>
-        </div>
-      </div>
-
-      <div class="field-runtime" aria-label="Physical AI runtime structure, from physical world to decision trace">
+      <div class="field-runtime" aria-label="Reference architecture for governed Physical AI">
         <div class="field-runtime-label">Layer Diagram</div>
-        <h3 class="field-runtime-title">Physical AI — Runtime Structure</h3>
+        <h3 class="field-runtime-title">Physical AI — Reference Architecture</h3>
 
         <ol class="field-layers" role="list">
           <li class="field-layer">
             <span class="layer-idx">L1</span>
             <span class="layer-body">
-              <span class="layer-name">Physical World</span>
-              <span class="layer-note">Equipment, robots, vehicles, drones, workers, and material — the environment Physical AI observes and eventually acts on.</span>
+              <span class="layer-name">Sensors &amp; Edge Devices</span>
+              <span class="layer-note">Cameras, lidar, IMUs, equipment telemetry, and local pre-processing close to the machine.</span>
             </span>
-            <span class="layer-tag">world</span>
+            <span class="layer-tag">sense</span>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
+
           <li class="field-layer">
             <span class="layer-idx">L2</span>
             <span class="layer-body">
-              <span class="layer-name">Sensors &amp; Perception</span>
-              <span class="layer-note">Cameras, lidar, IMUs, and industrial telemetry produce raw signals; detection and recognition turn them into labeled observations.</span>
+              <span class="layer-name">Event / Streaming Layer</span>
+              <span class="layer-note">Timestamps, orders, and delivers signals as events; keeps quality flags and detects gaps.</span>
             </span>
-            <span class="layer-tag">perceive</span>
+            <span class="layer-tag">transport</span>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
+
           <li class="field-layer">
             <span class="layer-idx">L3</span>
             <span class="layer-body">
-              <span class="layer-name">Semantic Digital Twin</span>
-              <span class="layer-note">Entities, relationships, context, and applicable knowledge — together with the acting body's own physical condition, capability envelope, and operational health — give the observation a meaning the runtime can reason over.</span>
+              <span class="layer-name">Semantic State &amp; Knowledge Layer</span>
+              <span class="layer-note">Resolves identity, binds observations to entities, context, time, and evidence, and holds applicable rules and constraints.</span>
             </span>
             <span class="layer-tag">meaning</span>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
+
           <li class="field-layer">
             <span class="layer-idx">L4</span>
             <span class="layer-body">
-              <span class="layer-name">Ontology / Knowledge Graph / DSL</span>
-              <span class="layer-note">Chinoba PF structures that meaning as a shared vocabulary, a live world model, and executable rules a runtime can evaluate.</span>
+              <span class="layer-name">AI Reasoning / Planning Layer</span>
+              <span class="layer-note">Describes the situation, generates and ranks candidates, supports planning, and interprets exceptions. Proposes only.</span>
             </span>
-            <span class="layer-tag">chinoba pf</span>
+            <span class="layer-tag">propose</span>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
+
           <li class="field-layer">
             <span class="layer-idx">L5</span>
             <span class="layer-body">
-              <span class="layer-name">Decision Runtime</span>
-              <span class="layer-note">Knowledge, current context, goals, and policy combine to form a candidate action under uncertainty.</span>
-            </span>
-            <span class="layer-tag">decide</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L6</span>
-            <span class="layer-body">
-              <span class="layer-name">Policy, Trust &amp; Human Gate</span>
-              <span class="layer-note">The candidate is checked against safety policy and trust thresholds; ambiguous or high-stakes cases route to a human for Execution Authorization.</span>
+              <span class="layer-name">Policy &amp; Authorization Gate</span>
+              <span class="layer-note">Evaluates a candidate against policy, scope, and state quality; returns permit, deny, or escalate; issues limited, expiring authorization.</span>
             </span>
             <span class="layer-tag">authorize</span>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
+
           <li class="field-layer">
-            <span class="layer-idx">L7</span>
+            <span class="layer-idx">L6</span>
             <span class="layer-body">
-              <span class="layer-name">Physical Action Adapter</span>
-              <span class="layer-note">An authorized decision becomes a command to the robot, machine, or vehicle — independent interlocks and emergency stops remain outside this path.</span>
+              <span class="layer-name">Safety Controller / Execution Boundary</span>
+              <span class="layer-note">Deterministic control, interlocks, and limits. The only path to the actuators, independent of the reasoning layer.</span>
             </span>
             <span class="layer-tag">act</span>
           </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
+
+        </ol>
+        <div class="field-group" aria-hidden="true">Cross-cutting responsibilities</div>
+        <ol class="field-layers" role="list">
           <li class="field-layer">
-            <span class="layer-idx">L8</span>
+            <span class="layer-idx">X1</span>
             <span class="layer-body">
-              <span class="layer-name">Decision Trace &amp; Feedback</span>
-              <span class="layer-note">Observation, context, rule, decision, and outcome are preserved together, then fed back into the Semantic Digital Twin and future policy.</span>
+              <span class="layer-name">Human Supervisor</span>
+              <span class="layer-note">Sets objectives, approves escalations, can stop or override at any point, and holds responsibility.</span>
+            </span>
+            <span class="layer-tag">supervise</span>
+          </li>
+
+          <li class="field-layer">
+            <span class="layer-idx">X2</span>
+            <span class="layer-body">
+              <span class="layer-name">Evidence &amp; Decision Trace</span>
+              <span class="layer-note">Records observation, state, rationale, authority, action, and outcome together, written at the gate and boundary rather than by the reasoner.</span>
             </span>
             <span class="layer-tag">trace</span>
           </li>
+
+          <li class="field-layer">
+            <span class="layer-idx">X3</span>
+            <span class="layer-body">
+              <span class="layer-name">Feedback / Continuous Learning</span>
+              <span class="layer-note">Compares outcomes with expectations; proposes changes to models, thresholds, and procedures, subject to human review.</span>
+            </span>
+            <span class="layer-tag">learn</span>
+          </li>
+
         </ol>
       </div>
-
+      <div class="two-col" style="margin-top: clamp(40px, 5vw, 56px);">
+        <div class="col-text">
+          <h3>Three Structural Rules</h3>
+          <ul>
+            <li><strong>One-way authority.</strong> The reasoning layer has no direct path to an actuator; everything passes the gate and the safety controller.</li>
+            <li><strong>Independent safety.</strong> The safety controller does not depend on the model, the network, or the semantic layer being available.</li>
+            <li><strong>Trace at the boundary.</strong> Evidence is written where decisions are authorized and executed, so it cannot be edited by what it records.</li>
+          </ul>
+        </div>
+        <div class="col-text">
+          <h3>What the Layers Exchange</h3>
+          <p>
+            Upward, signals gain meaning: events become state, state becomes context for a proposal. Downward, authority narrows: a proposal becomes a permit, a permit becomes a bounded command, a command is checked against hard limits.
+          </p>
+          <code class="quote is-diagram">Meaning flows up.
+Authority flows down,
+and narrows as it goes.</code>
+        </div>
+      </div>
       <div class="fig-lead">
         <h3>Decision Trace Closes the Loop</h3>
         <p>
-          An observation, the context it was read against, the rule that was
-          applied, the decision that followed, and the reason behind it —
-          recorded together, then reviewed, so the next decision improves on
-          the last.
+          The observation, the context it was read against, the rule applied, the decision taken, and the reason — recorded together and reviewed, so that the next decision can improve on the last.
         </p>
       </div>
-      <figure class="figure figure-wide figure-standard">
+      <figure class="figure figure-standard">
         <a class="figure-frame" href="assets2/15.png"
            data-lightbox aria-label="Open the diagram of decision trace recording the reason behind an action">
           <img src="assets2/15.png"
@@ -874,50 +1038,219 @@ what it may do now.</code>
     </div>
   </section>
 
-  <!-- ============ 05 APPLICATIONS ============ -->
-  <section class="research-section" id="applications" aria-labelledby="applications-h">
+  <!-- ============ 06 PROOF ============ -->
+  <section class="research-section" id="proof" aria-labelledby="proof-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">05 / Applications</div>
-        <h2 id="applications-h">Applications Across Physical Domains</h2>
+        <div class="section-label">06 / Proof</div>
+        <h2 id="proof-h">What Must Be Proven Before Acting</h2>
         <p class="section-lede">
-          The same architecture applies wherever AI acts through a physical
-          body — only the entities, rules, and stakes change. In every case,
-          value comes from what the Semantic Digital Twin knows about the
-          asset and the situation together, preserved in a Decision Trace.
+          Between an observation and an action lies a list of things that should be demonstrable, not merely likely. If one cannot be shown, the action does not proceed at its current level of autonomy — it moves toward a person, or does not happen.
         </p>
       </div>
-
-      <div class="concept-grid cols-4">
-        <div class="concept">
-          <div class="idx">i</div>
-          <h3>Manufacturing</h3>
-          <p>Equipment condition and process context meet safety rules and quality constraints, so an authorized adjustment — not just a suggested one — reaches the press or the line.</p>
+      <div class="table-wrap">
+      <table class="compare-table is-wrap" aria-label="What must be proven before a Physical AI system acts">
+        <thead>
+          <tr><th scope="col">Requirement</th><th scope="col">The question</th><th scope="col">What must be demonstrable</th><th scope="col">If it cannot be shown</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Observation reliability</th>
+            <td>Can the input be trusted?</td>
+            <td>Source health, calibration, freshness, and agreement between independent sources.</td>
+            <td>Treat the state as unknown; request another source or a person.</td>
+          </tr>
+          <tr>
+            <th scope="row">State-estimate uncertainty</th>
+            <td>How sure is the picture?</td>
+            <td>A stated confidence, with conflicts and gaps recorded in the state itself.</td>
+            <td>Lower autonomy to recommend-only; do not act on a guess.</td>
+          </tr>
+          <tr>
+            <th scope="row">Impact scope</th>
+            <td>What could this change?</td>
+            <td>Affected entities, people, and downstream processes identified before execution.</td>
+            <td>Narrow the action, or escalate for wider review.</td>
+          </tr>
+          <tr>
+            <th scope="row">Authority &amp; approval</th>
+            <td>Who may allow this?</td>
+            <td>A current policy, a named approver where required, and an authorization with limited scope and expiry.</td>
+            <td>Deny; do not substitute capability for permission.</td>
+          </tr>
+          <tr>
+            <th scope="row">Safety constraints &amp; stop conditions</th>
+            <td>What bounds it? When does it halt?</td>
+            <td>Hard limits enforced outside the AI path, and explicit conditions that trigger a stop or safe state.</td>
+            <td>Do not execute; remain in the safe state.</td>
+          </tr>
+          <tr>
+            <th scope="row">Reversibility &amp; rollback</th>
+            <td>Can it be undone?</td>
+            <td>A tested way to restore the prior state, or an explicit decision that none is needed.</td>
+            <td>Require human approval for each instance.</td>
+          </tr>
+          <tr>
+            <th scope="row">Human intervention path</th>
+            <td>Can a person step in?</td>
+            <td>A reachable stop and override, with enough state shown to judge.</td>
+            <td>Do not automate; keep the person in the loop.</td>
+          </tr>
+          <tr>
+            <th scope="row">Post-execution verification &amp; evidence</th>
+            <td>Did it work, and can we show why?</td>
+            <td>A check of the physical result against intent, and a trace linking observation to outcome.</td>
+            <td>Flag as unverified; revoke the authorization and review.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="fig-lead">
+        <h3>Autonomy Is Scoped by Consequence</h3>
+        <p>
+          The range in which an AI may act on its own should be set not by how capable the model is, but by the impact of an action, how reversible it is, how dangerous it could be, and how well its result can be verified. Capability argues for a larger range; consequence decides it.
+        </p>
+      </div>
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets/autonomy-levels.svg"
+           data-lightbox aria-label="Open the autonomy levels diagram">
+          <img src="assets/autonomy-levels.svg"
+               alt="A matrix of four autonomy levels — Observe, Recommend, Assist, Execute — showing what the AI does, what the human does, the consequence limit, reversibility, and the gate required at each level."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Observe, Recommend, Assist, Execute — matched to consequence, reversibility, and the human approval each requires.</figcaption>
+      </figure>
+      <div class="two-col" style="margin-top: clamp(40px, 5vw, 56px);">
+        <div class="col-text">
+          <h3>Reading the Four Levels</h3>
+          <ul>
+            <li><strong>Observe</strong> — the AI reports state and flags anomalies; nothing is proposed.</li>
+            <li><strong>Recommend</strong> — the AI proposes with evidence; a person decides and acts.</li>
+            <li><strong>Assist</strong> — the AI prepares the action; a person approves each one.</li>
+            <li><strong>Execute</strong> — the AI acts within pre-approved limits, under a safety controller and an authorization that expires.</li>
+          </ul>
         </div>
-        <div class="concept">
-          <div class="idx">ii</div>
-          <h3>Logistics</h3>
-          <p>A robot's battery, load, and location combine with aisle state and access authority to produce a route decision a warehouse can trust and later review.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">iii</div>
-          <h3>Maintenance</h3>
-          <p>Degradation signals meet asset knowledge and maintenance history, turning a raw anomaly into an accountable intervention with a documented reason.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">iv</div>
-          <h3>Mobility &amp; Infrastructure</h3>
-          <p>Environmental conditions and operational boundaries govern autonomous movement, with human escalation available whenever confidence or authority runs out.</p>
+        <div class="col-text">
+          <h3>Moving an Action Between Levels</h3>
+          <p>
+            An action’s level is a property of the action and its context, not of the system. The same model might execute a low-consequence, reversible step and merely recommend a high-consequence one.
+          </p>
+          <p>
+            When a check fails — stale state, an expired authorization, a gap in the evidence — the action moves toward the person. Movement toward more autonomy is earned by evidence over time, never granted by default.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 06 RELATED OSS ============ -->
+  <!-- ============ 07 PATTERNS ============ -->
+  <section class="research-section" id="patterns" aria-labelledby="patterns-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Patterns</div>
+        <h2 id="patterns-h">Practical Patterns</h2>
+        <p class="section-lede">
+          Five generalized design patterns show how the same structure applies across domains. They are illustrative patterns, not descriptions of particular companies, products, or deployments, and the boundaries will differ with each site’s risk assessment.
+        </p>
+      </div>
+      <div class="table-wrap">
+      <table class="compare-table is-wrap" aria-label="Generalized Physical AI design patterns">
+        <thead>
+          <tr><th scope="col">Pattern</th><th scope="col">AI supports</th><th scope="col">May run automatically</th><th scope="col">A person approves</th><th scope="col">Evidence kept</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Equipment maintenance support</th>
+            <td>Correlates vibration, temperature, and history; explains likely causes; drafts a work order.</td>
+            <td>Collecting additional readings; raising a low-priority notice.</td>
+            <td>Scheduling a shutdown, changing an operating setpoint, or releasing equipment after repair.</td>
+            <td>Signals used, rules and history consulted, confidence, approver, and the repair outcome.</td>
+          </tr>
+          <tr>
+            <th scope="row">Field work support</th>
+            <td>Retrieves the applicable procedure, checks it against current state, and answers questions on site.</td>
+            <td>Displaying the current procedure; logging completed steps.</td>
+            <td>Deviating from a procedure; any step that touches energized or hazardous equipment.</td>
+            <td>Procedure version, steps performed, who confirmed each, and deviations.</td>
+          </tr>
+          <tr>
+            <th scope="row">Quality inspection</th>
+            <td>Flags suspected defects and ranks them by likely severity.</td>
+            <td>Routing clearly conforming items; tagging uncertain items for review.</td>
+            <td>Rejecting or reworking a borderline lot; changing inspection thresholds.</td>
+            <td>Images and measurements, model version, confidence, reviewer decision.</td>
+          </tr>
+          <tr>
+            <th scope="row">Logistics &amp; inventory</th>
+            <td>Predicts congestion, proposes routes and replenishment, reconciles counts.</td>
+            <td>Re-routing within pre-set aisles and priorities; routine replenishment orders within limits.</td>
+            <td>Changing priorities across a fleet; handling exceptions that involve people or hazardous goods.</td>
+            <td>Orders and routes, state at decision time, the policy applied, and exceptions.</td>
+          </tr>
+          <tr>
+            <th scope="row">Energy optimization</th>
+            <td>Forecasts load, proposes schedules and setpoints, explains trade-offs.</td>
+            <td>Small setpoint changes inside a safe band that can be reverted immediately.</td>
+            <td>Changes that affect comfort, safety systems, or contractual commitments; anything outside the band.</td>
+            <td>Forecast, setpoint history, constraints checked, and measured results.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="table-note">These are generalized patterns for discussion. What may run automatically in a given setting depends on the hazards, the regulations, and the evidence gathered for that site.</p>
+    </div>
+  </section>
+
+  <!-- ============ 08 ADOPTION ============ -->
+  <section class="research-section" id="adoption" aria-labelledby="adoption-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">08 / Adoption</div>
+        <h2 id="adoption-h">Adoption Sequence</h2>
+        <p class="section-lede">
+          Autonomy is extended step by step, and each step has an exit criterion that evidence — not enthusiasm — has to meet. A step can be repeated or reversed if the evidence weakens.
+        </p>
+      </div>
+      <div class="concept-grid cols-3" style="margin-top: clamp(40px, 5vw, 56px);">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Make It Observable</h3>
+          <p>Instrument the process; establish identity, time, and data quality. <em>Exit: the current state can be described, with confidence, without guessing.</em></p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Advisory Mode</h3>
+          <p>AI explains and recommends where consequence is low; people act. <em>Exit: recommendations are accurate and explanations are useful to the people who read them.</em></p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Shadow Mode</h3>
+          <p>AI decides silently alongside people; its decisions are compared with theirs and with outcomes, never executed. <em>Exit: the gap is understood, including its failure cases.</em></p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Limited Automation</h3>
+          <p>Selected low-consequence, reversible actions run automatically, with expiring authorization. <em>Exit: no unexplained incidents; rollback has been exercised.</em></p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Operation Within Safety Boundaries</h3>
+          <p>Wider scope, always inside independent safety controls, human gates, and tested stop paths. <em>Exit: interventions are rare, fast, and well-recorded.</em></p>
+        </div>
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Continuous Evaluation</h3>
+          <p>Monitor drift, review traces, update rules and thresholds under human approval. <em>Exit: none — the loop keeps running, and scope can narrow as readily as widen.</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 09 RELATED OSS ============ -->
   <section class="research-section" id="oss" aria-labelledby="oss-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">06 / Related OSS</div>
+        <div class="section-label">09 / Related OSS</div>
         <h2 id="oss-h">Related OSS</h2>
         <p class="section-lede">
           Runtime-oriented building blocks for Physical AI — decision
@@ -951,37 +1284,37 @@ what it may do now.</code>
     </div>
   </section>
 
-  <!-- ============ 07 DIAGRAMS ============ -->
+  <!-- ============ 10 DIAGRAMS ============ -->
   <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">07 / Diagrams</div>
+        <div class="section-label">10 / Diagrams</div>
         <h2 id="diagrams-h">Architecture Archive</h2>
         <p class="section-lede">
-          A growing archive of architectural sketches for Physical AI, the
-          Semantic Digital Twin, and the Chinoba PF knowledge stack that
-          extend the page rather than repeat it.
+          Supporting sketches for Physical AI, the Semantic Digital Twin, and the
+          Chinoba PF knowledge stack. They extend the argument above rather than
+          repeat it.
         </p>
       </div>
 
       <div class="diagrams">
         <div class="diagram-card">
           <div class="kicker">Diagram 01</div>
-          <h3>Structured Knowledge, Visualized</h3>
-          <a class="diagram-shot" href="assets2/01.png"
-             data-lightbox aria-label="Open the structured knowledge for Physical AI title diagram">
-            <img src="assets2/01.png"
-                 alt="A title graphic reading Structured Knowledge for Physical AI: How Ontologies and DSLs Transform Real-World Intelligence, over a robot working on a factory line."
-                 loading="lazy">
-          </a>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 02</div>
           <h3>Perception Technologies Are Not Enough</h3>
           <a class="diagram-shot" href="assets2/04.png"
              data-lightbox aria-label="Open the diagram of Physical AI technologies asking if perception is enough to act safely">
             <img src="assets2/04.png"
                  alt="Physical AI shown at the center of cameras, sensors, robotics, foundation models, reinforcement learning, and simulation, asking whether this is enough to act safely."
+                 loading="lazy">
+          </a>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 02</div>
+          <h3>Recognition Is Not Understanding</h3>
+          <a class="diagram-shot" href="assets2/05.png"
+             data-lightbox aria-label="Open the diagram showing recognition does not equal understanding">
+            <img src="assets2/05.png"
+                 alt="Object detection labels of Worker, Forklift, and Pallet contrasted with a meaning graph of Role, Relationship, Context, Rules, and Constraints — Recognition does not equal Understanding; what Physical AI lacks is meaning."
                  loading="lazy">
           </a>
         </div>
@@ -1007,16 +1340,6 @@ what it may do now.</code>
         </div>
         <div class="diagram-card">
           <div class="kicker">Diagram 05</div>
-          <h3>Context Turns a Reading Into Meaning</h3>
-          <a class="diagram-shot" href="assets2/08.png"
-             data-lightbox aria-label="Open the diagram giving meaning to an 85 degree sensor reading">
-            <img src="assets2/08.png"
-                 alt="A sensor reading of 85 degrees Celsius connected through ontology and context to equipment, material, allowed range, current value, and a possible-anomaly result."
-                 loading="lazy">
-          </a>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 06</div>
           <h3>Knowledge Graph as a Dynamic World Model</h3>
           <a class="diagram-shot" href="assets2/09.png"
              data-lightbox aria-label="Open the diagram of knowledge graphs as a dynamic world model">
@@ -1026,12 +1349,22 @@ what it may do now.</code>
           </a>
         </div>
         <div class="diagram-card">
-          <div class="kicker">Diagram 07</div>
+          <div class="kicker">Diagram 06</div>
           <h3>DSL: Knowledge Into Executable Rules</h3>
           <a class="diagram-shot" href="assets2/11.png"
              data-lightbox aria-label="Open the diagram of DSL making knowledge executable">
             <img src="assets2/11.png"
                  alt="A DSL rule reading WHEN temperature exceeds limit AND worker is in safety zone THEN stop equipment and notify manager, REQUIRE human approval to restart, linked to conditions, actions, human gate, and escalation."
+                 loading="lazy">
+          </a>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 07</div>
+          <h3>Knowledge Flow: Documents to Physical Action</h3>
+          <a class="diagram-shot" href="assets2/12.png"
+             data-lightbox aria-label="Open the complete knowledge flow diagram from documents to physical action">
+            <img src="assets2/12.png"
+                 alt="The Complete Knowledge Flow: Documents feed Ingestion, Knowledge Extraction, Ontology, and Knowledge Graph, compiled into DSL and a Decision Runtime that produces Physical Action across robots, machines, vehicles, and drones."
                  loading="lazy">
           </a>
         </div>
@@ -1045,6 +1378,26 @@ what it may do now.</code>
                  loading="lazy">
           </a>
         </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 09</div>
+          <h3>What Is Boundary?</h3>
+          <a class="diagram-shot" href="assets/10.png"
+             data-lightbox aria-label="Open the diagram: What Is Boundary?">
+            <img src="assets/10.png"
+                 alt="What Is Boundary — the guardrails between decision and execution, linking safety, compliance, ethics, and accountability."
+                 loading="lazy">
+          </a>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 10</div>
+          <h3>Human Gate</h3>
+          <a class="diagram-shot" href="assets/12.png"
+             data-lightbox aria-label="Open the diagram: Human Gate">
+            <img src="assets/12.png"
+                 alt="Human Gate — AI analyzes and proposes, a human gate verifies and approves, then execution acts in the real world, with accountability remaining with people."
+                 loading="lazy">
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -1052,15 +1405,6 @@ what it may do now.</code>
   <!-- ============ CLOSING ============ -->
   <section class="research-section closing" id="closing" aria-labelledby="closing-h">
     <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
-    <figure class="figure figure-standard" style="margin-bottom: 48px;">
-      <a class="figure-frame" href="assets2/16.png"
-         data-lightbox aria-label="Open the summary diagram of ontology, knowledge graph, DSL, and decision trace">
-        <img src="assets2/16.png"
-             alt="A summary chain of Ontology as world meaning, Knowledge Graph as dynamic context, DSL as executable rules, and Decision Trace as explainable actions, next to a robotic arm — Physical AI is powered by more than models."
-             loading="lazy">
-      </a>
-      <figcaption class="figure-caption">Physical AI is powered by more than models. It requires structured knowledge to understand the real world.</figcaption>
-    </figure>
     <div class="positioning" aria-label="Research positioning within the Chinoba architecture">
       <span>Decision Trace</span>
       <span>↓</span>
@@ -1071,14 +1415,13 @@ what it may do now.</code>
       <span>Runtime Society</span>
     </div>
     <blockquote>
-      <span>Physical AI is not only giving AI a body.</span>
-      <span>It is understanding the state of the physical world,</span>
-      <span>binding that state to meaning, constraint, and responsibility,</span>
-      <span>and leaving every action as a record that can be learned from.</span>
+      <span>The maturity of Physical AI</span>
+      <span>is not the maximization of autonomy.</span>
+      <span>It is making action on the real world</span>
+      <span>safe, explainable, and reversible.</span>
       <span>&nbsp;</span>
-      <span>Semantic Digital Twin.</span>
-      <span>Knowledge Flow. Trust Infrastructure. Decision Trace.</span>
-      <span>This is the architecture Chinoba is building toward.</span>
+      <span>Perceive with doubt. Decide with evidence.</span>
+      <span>Act within boundaries. Learn from every trace.</span>
     </blockquote>
     <div class="closing-mark">Chinoba.org</div>
     <p class="closing-cta">

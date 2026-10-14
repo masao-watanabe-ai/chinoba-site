@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 852" width="1200" height="852" role="img" aria-labelledby="t d" font-family="Arial, Helvetica, sans-serif">
+<title id="t">Scoping Autonomy by Consequence</title><desc id="d">Four autonomy levels — Observe, Recommend, Assist, Execute — matched to consequence, reversibility and verifiability, with the human approval each level requires.</desc>
+<defs><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#60a5fa"/></marker><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#4ade80"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#fb923c"/></marker><marker id="ap" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f87171"/></marker><marker id="ak" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#94a3b8"/></marker></defs>
+<rect width="1200" height="852" fill="#0b1220"/>
+<text x="600" y="46" font-size="28" fill="#f8fafc" font-weight="bold" text-anchor="middle" >Autonomy Is Scoped by Consequence, Not by Capability</text>
+<text x="600" y="76" font-size="17" fill="#94a3b8" font-weight="normal" text-anchor="middle" >The more severe, irreversible or hard to verify an action, the further left it stays</text>
+<rect x="210" y="110" width="235" height="56" rx="12" fill="#4ade80" stroke="#4ade80" stroke-width="2"/>
+<text x="327.5" y="146" font-size="22" fill="#0b1220" font-weight="bold" text-anchor="middle" >Observe</text>
+<rect x="455" y="110" width="235" height="56" rx="12" fill="#60a5fa" stroke="#60a5fa" stroke-width="2"/>
+<text x="572.5" y="146" font-size="22" fill="#0b1220" font-weight="bold" text-anchor="middle" >Recommend</text>
+<rect x="700" y="110" width="235" height="56" rx="12" fill="#fb923c" stroke="#fb923c" stroke-width="2"/>
+<text x="817.5" y="146" font-size="22" fill="#0b1220" font-weight="bold" text-anchor="middle" >Assist</text>
+<rect x="945" y="110" width="235" height="56" rx="12" fill="#f87171" stroke="#f87171" stroke-width="2"/>
+<text x="1062.5" y="146" font-size="22" fill="#0b1220" font-weight="bold" text-anchor="middle" >Execute</text>
+<rect x="30" y="182" width="170" height="104" rx="12" fill="#1b2230" stroke="#94a3b8" stroke-width="2"/>
+<text x="115.0" y="240.0" font-size="17" fill="#f8fafc" font-weight="bold" text-anchor="middle" >AI does</text>
+<rect x="210" y="182" width="235" height="104" rx="8" fill="#0f2a1c" stroke="#4ade80" stroke-width="2"/>
+<text x="327.5" y="228.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Detects, correlates,</text>
+<text x="327.5" y="250.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >explains state</text>
+<rect x="455" y="182" width="235" height="104" rx="8" fill="#12213f" stroke="#60a5fa" stroke-width="2"/>
+<text x="572.5" y="228.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Proposes ranked options</text>
+<text x="572.5" y="250.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >with rationale</text>
+<rect x="700" y="182" width="235" height="104" rx="8" fill="#2d1b0c" stroke="#fb923c" stroke-width="2"/>
+<text x="817.5" y="228.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Prepares the action,</text>
+<text x="817.5" y="250.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >drafts work orders</text>
+<rect x="945" y="182" width="235" height="104" rx="8" fill="#2f1315" stroke="#f87171" stroke-width="2"/>
+<text x="1062.5" y="228.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Carries out a</text>
+<text x="1062.5" y="250.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >pre-approved action</text>
+<rect x="30" y="296" width="170" height="104" rx="12" fill="#1b2230" stroke="#94a3b8" stroke-width="2"/>
+<text x="115.0" y="354.0" font-size="17" fill="#f8fafc" font-weight="bold" text-anchor="middle" >Human does</text>
+<rect x="210" y="296" width="235" height="104" rx="8" fill="#0f2a1c" stroke="#4ade80" stroke-width="2"/>
+<text x="327.5" y="342.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Reads, asks, decides</text>
+<text x="327.5" y="364.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >what to look at</text>
+<rect x="455" y="296" width="235" height="104" rx="8" fill="#12213f" stroke="#60a5fa" stroke-width="2"/>
+<text x="572.5" y="342.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Decides and acts</text>
+<text x="572.5" y="364.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >on their own</text>
+<rect x="700" y="296" width="235" height="104" rx="8" fill="#2d1b0c" stroke="#fb923c" stroke-width="2"/>
+<text x="817.5" y="342.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Reviews and approves</text>
+<text x="817.5" y="364.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >each action</text>
+<rect x="945" y="296" width="235" height="104" rx="8" fill="#2f1315" stroke="#f87171" stroke-width="2"/>
+<text x="1062.5" y="342.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Sets scope in advance;</text>
+<text x="1062.5" y="364.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >monitors, can stop</text>
+<rect x="30" y="410" width="170" height="84" rx="12" fill="#1b2230" stroke="#94a3b8" stroke-width="2"/>
+<text x="115.0" y="458.0" font-size="17" fill="#f8fafc" font-weight="bold" text-anchor="middle" >Consequence</text>
+<rect x="210" y="410" width="235" height="84" rx="8" fill="#0f2a1c" stroke="#4ade80" stroke-width="2"/>
+<text x="327.5" y="457.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >None on the process</text>
+<rect x="455" y="410" width="235" height="84" rx="8" fill="#12213f" stroke="#60a5fa" stroke-width="2"/>
+<text x="572.5" y="457.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Low · advisory</text>
+<rect x="700" y="410" width="235" height="84" rx="8" fill="#2d1b0c" stroke="#fb923c" stroke-width="2"/>
+<text x="817.5" y="457.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Medium · bounded</text>
+<rect x="945" y="410" width="235" height="84" rx="8" fill="#2f1315" stroke="#f87171" stroke-width="2"/>
+<text x="1062.5" y="446.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Only low severity,</text>
+<text x="1062.5" y="468.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >small blast radius</text>
+<rect x="30" y="504" width="170" height="84" rx="12" fill="#1b2230" stroke="#94a3b8" stroke-width="2"/>
+<text x="115.0" y="552.0" font-size="17" fill="#f8fafc" font-weight="bold" text-anchor="middle" >Reversibility</text>
+<rect x="210" y="504" width="235" height="84" rx="8" fill="#0f2a1c" stroke="#4ade80" stroke-width="2"/>
+<text x="327.5" y="551.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Not applicable</text>
+<rect x="455" y="504" width="235" height="84" rx="8" fill="#12213f" stroke="#60a5fa" stroke-width="2"/>
+<text x="572.5" y="551.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Not applicable</text>
+<rect x="700" y="504" width="235" height="84" rx="8" fill="#2d1b0c" stroke="#fb923c" stroke-width="2"/>
+<text x="817.5" y="540.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Reversible or</text>
+<text x="817.5" y="562.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >easily compensated</text>
+<rect x="945" y="504" width="235" height="84" rx="8" fill="#2f1315" stroke="#f87171" stroke-width="2"/>
+<text x="1062.5" y="540.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Reversible, with</text>
+<text x="1062.5" y="562.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >verified rollback</text>
+<rect x="30" y="598" width="170" height="84" rx="12" fill="#1b2230" stroke="#94a3b8" stroke-width="2"/>
+<text x="115.0" y="646.0" font-size="17" fill="#f8fafc" font-weight="bold" text-anchor="middle" >Required gate</text>
+<rect x="210" y="598" width="235" height="84" rx="8" fill="#0f2a1c" stroke="#4ade80" stroke-width="2"/>
+<text x="327.5" y="645.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Data access policy</text>
+<rect x="455" y="598" width="235" height="84" rx="8" fill="#12213f" stroke="#60a5fa" stroke-width="2"/>
+<text x="572.5" y="634.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Evidence shown</text>
+<text x="572.5" y="656.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >with each proposal</text>
+<rect x="700" y="598" width="235" height="84" rx="8" fill="#2d1b0c" stroke="#fb923c" stroke-width="2"/>
+<text x="817.5" y="634.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Explicit approval</text>
+<text x="817.5" y="656.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >+ trace entry</text>
+<rect x="945" y="598" width="235" height="84" rx="8" fill="#2f1315" stroke="#f87171" stroke-width="2"/>
+<text x="1062.5" y="634.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >Authorization with expiry,</text>
+<text x="1062.5" y="656.0" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle" >safety controller, auto-stop</text>
+<line x1="210" y1="714" x2="1170" y2="714" stroke="#94a3b8" stroke-width="3" marker-end="url(#ak)"/>
+<text x="210" y="746" font-size="15" fill="#94a3b8" font-weight="normal" text-anchor="start" >Less autonomy · lower risk</text>
+<text x="1170" y="746" font-size="15" fill="#94a3b8" font-weight="normal" text-anchor="end" >More autonomy · only when proven</text>
+<rect x="30" y="766" width="1140" height="70" rx="12" fill="#0b1220" stroke="#94a3b8" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="600" y="792" font-size="17" fill="#f8fafc" font-weight="bold" text-anchor="middle" >Four tests decide where an action may sit:  impact scope  ·  reversibility  ·  hazard level  ·  verifiability</text>
+<text x="600" y="818" font-size="15" fill="#94a3b8" font-weight="normal" text-anchor="middle" >A failed test moves the action one level toward the human — never the other way.</text>
+</svg>
