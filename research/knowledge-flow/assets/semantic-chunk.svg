@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-labelledby="t d" font-family="Arial, Helvetica, sans-serif">
+<title id="t">Anatomy of a Semantic Chunk</title><desc id="d">A Semantic Chunk binds seven elements together: content or claim, source and provenance, time and freshness, subject and scope, relations, constraints and uncertainty, and an access boundary. It links to other chunks, evidence, and entities or policies.</desc>
+<defs><marker id="ablue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#60a5fa"/></marker><marker id="agreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#4ade80"/></marker><marker id="aorange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#fb923c"/></marker><marker id="apurple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker><marker id="ared" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f87171"/></marker><marker id="agray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#94a3b8"/></marker></defs>
+<rect width="1200" height="800" fill="#0b1220"/>
+<text x="600" y="46" font-size="30" fill="#f8fafc" font-weight="bold" text-anchor="middle">Anatomy of a Semantic Chunk</text>
+<text x="600" y="78" font-size="17" fill="#94a3b8" font-weight="normal" text-anchor="middle">A reusable unit of knowledge, not a fragment of text</text>
+<rect x="20" y="110" width="1160" height="676" rx="14" fill="none" stroke="#f87171" stroke-width="2" stroke-dasharray="10 8"/>
+<text x="40" y="138" font-size="15" fill="#f87171" font-weight="bold" text-anchor="start">ACCESS BOUNDARY — who may retrieve, view and use the unit travels with it</text>
+<rect x="50" y="160" width="300" height="130" rx="12" fill="#12213f" stroke="#60a5fa" stroke-width="2"/>
+<text x="200.0" y="195" font-size="21" fill="#60a5fa" font-weight="bold" text-anchor="middle">1  Content / Claim</text>
+<text x="200.0" y="229" font-size="16" fill="#cbd5e1" font-weight="normal" text-anchor="middle">the statement itself, kept</text>
+<text x="200.0" y="253" font-size="16" fill="#cbd5e1" font-weight="normal" text-anchor="middle">separate from its summary</text>
+<rect x="50" y="316" width="300" height="130" rx="12" fill="#12213f" stroke="#60a5fa" stroke-width="2"/>
+<text x="200.0" y="351" font-size="21" fill="#60a5fa" font-weight="bold" text-anchor="middle">2  Source / Provenance</text>
+<text x="200.0" y="385" font-size="16" fill="#cbd5e1" font-weight="normal" text-anchor="middle">document, section, record;</text>
+<text x="200.0" y="409" font-size="16" fill="#cbd5e1" font-weight="normal" text-anchor="middle">how it was extracted</text>
+<rect x="50" y="472" width="300" height="130" rx="12" fill="#12213f" stroke="#60a5fa" stroke-width="2"/>
+<text x="200.0" y="507" font-size="21" fill="#60a5fa" font-weight="bold" text-anchor="middle">3  Time / Freshness</text>
+<text x="200.0" y="541" font-size="16" fill="#cbd5e1" font-weight="normal" text-anchor="middle">effective period, version,</text>
+<text x="200.0" y="565" font-size="16" fill="#cbd5e1" font-weight="normal" text-anchor="middle">last verified</text>
+<rect x="850" y="160" width="300" height="130" rx="12" fill="#12213f" stroke="#60a5fa" stroke-width="2"/>
+<text x="1000.0" y="195" font-size="21" fill="#60a5fa" font-weight="bold" text-anchor="middle">4  Subject / Scope</text>
+<text x="1000.0" y="229" font-size="16" fill="#cbd5e1" font-weight="normal" text-anchor="middle">what it is about and where</text>
+<text x="1000.0" y="253" font-size="16" fill="#cbd5e1" font-weight="normal" text-anchor="middle">it applies, and where not</text>
+<rect x="850" y="316" width="300" height="130" rx="12" fill="#12213f" stroke="#4ade80" stroke-width="2"/>
+<text x="1000.0" y="351" font-size="21" fill="#4ade80" font-weight="bold" text-anchor="middle">5  Relations</text>
+<text x="1000.0" y="385" font-size="16" fill="#cbd5e1" font-weight="normal" text-anchor="middle">links to chunks, entities,</text>
+<text x="1000.0" y="409" font-size="16" fill="#cbd5e1" font-weight="normal" text-anchor="middle">policies; each with evidence</text>
+<rect x="850" y="472" width="300" height="130" rx="12" fill="#12213f" stroke="#60a5fa" stroke-width="2"/>
+<text x="1000.0" y="507" font-size="21" fill="#60a5fa" font-weight="bold" text-anchor="middle">6  Constraints / Uncertainty</text>
+<text x="1000.0" y="541" font-size="16" fill="#cbd5e1" font-weight="normal" text-anchor="middle">conditions, exceptions, open</text>
+<text x="1000.0" y="565" font-size="16" fill="#cbd5e1" font-weight="normal" text-anchor="middle">questions, review status</text>
+<rect x="400" y="160" width="400" height="442" rx="14" fill="#0f1b33" stroke="#94a3b8" stroke-width="2"/>
+<text x="600" y="198" font-size="18" fill="#f8fafc" font-weight="bold" text-anchor="middle">SEMANTIC CHUNK</text>
+<text x="600" y="224" font-size="15" fill="#94a3b8" font-weight="normal" text-anchor="middle">chunk_id · version · status</text>
+<text x="600" y="274" font-size="15" fill="#94a3b8" font-weight="bold" text-anchor="middle">Claim</text>
+<text x="600" y="302" font-size="19" fill="#f8fafc" font-weight="normal" text-anchor="middle">“Procedure P applies to</text>
+<text x="600" y="328" font-size="19" fill="#f8fafc" font-weight="normal" text-anchor="middle">equipment class E</text>
+<text x="600" y="354" font-size="19" fill="#f8fafc" font-weight="normal" text-anchor="middle">under standard v3.2.”</text>
+<text x="600" y="404" font-size="15" fill="#94a3b8" font-weight="bold" text-anchor="middle">linked to</text>
+<rect x="414" y="420" width="118" height="54" rx="10" fill="#12213f" stroke="#4ade80" stroke-width="2"/>
+<text x="473.0" y="452" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle">Other chunks</text>
+<rect x="536" y="420" width="118" height="54" rx="10" fill="#12213f" stroke="#4ade80" stroke-width="2"/>
+<text x="595.0" y="452" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle">Evidence</text>
+<rect x="658" y="420" width="128" height="54" rx="10" fill="#12213f" stroke="#4ade80" stroke-width="2"/>
+<text x="722.0" y="452" font-size="15" fill="#cbd5e1" font-weight="normal" text-anchor="middle">Entities · Policy</text>
+<text x="600" y="520" font-size="15" fill="#94a3b8" font-weight="normal" text-anchor="middle">Each link carries its own source,</text>
+<text x="600" y="542" font-size="15" fill="#94a3b8" font-weight="normal" text-anchor="middle">time and approval status</text>
+<text x="600" y="580" font-size="16" fill="#60a5fa" font-weight="bold" text-anchor="middle">reuse · audit · re-verification</text>
+<line x1="350" y1="225" x2="400" y2="225" stroke="#60a5fa" stroke-width="2"/>
+<line x1="350" y1="381" x2="400" y2="381" stroke="#60a5fa" stroke-width="2"/>
+<line x1="350" y1="537" x2="400" y2="537" stroke="#60a5fa" stroke-width="2"/>
+<line x1="800" y1="225" x2="850" y2="225" stroke="#60a5fa" stroke-width="2"/>
+<line x1="800" y1="381" x2="850" y2="381" stroke="#4ade80" stroke-width="2"/>
+<line x1="800" y1="537" x2="850" y2="537" stroke="#60a5fa" stroke-width="2"/>
+<rect x="50" y="640" width="1100" height="110" rx="12" fill="#12213f" stroke="#f87171" stroke-width="2"/>
+<text x="600.0" y="675" font-size="21" fill="#f87171" font-weight="bold" text-anchor="middle">7  Access Boundary</text>
+<text x="600.0" y="709" font-size="16" fill="#cbd5e1" font-weight="normal" text-anchor="middle">owner and authority · classification · allowed roles and purposes · whether it may be shown, used, or sent to a model</text>
+<text x="600.0" y="733" font-size="16" fill="#cbd5e1" font-weight="normal" text-anchor="middle">Enforced at retrieval time, not only at storage time.</text>
+</svg>

@@ -4,9 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Knowledge Flow: From Information to Decision-Ready Knowledge — Chinoba</title>
-  <meta name="description" content="Knowledge Flow is not a repository or a one-time Knowledge Graph build. It is the operating discipline that keeps converting an organization's documents, chat, and enterprise data into Ontology, Knowledge Graph, DSL, Policy, and Constraint — Knowledge Assets that carry meaning, provenance, validity, and authority into the Decision Runtime Kernel and Runtime OS, and keeps circulating as they are used, reviewed, and corrected.">
-  <meta name="keywords" content="Knowledge Flow, Semantic Chunk, Evidence-Grounded Ontology, Knowledge Graph, Graph RAG, DSL, Semantic Decision Runtime, Decision Trace, Decision Runtime Kernel, Runtime OS, Knowledge Governance, Chinoba">
+  <title>Knowledge Flow: From Signals and Evidence to Governed Decisions and Learning — Chinoba</title>
+  <meta name="description" content="Knowledge Flow is not the movement of documents through an organization. It is the governed transformation of signals and evidence into decisions, actions, and learning, while preserving context, boundaries, and traceability. Semantic Chunks, Retrieval Receipts, Evidence, and Decision Traces connect information to accountable judgment and back to the knowledge base.">
+  <meta name="keywords" content="Knowledge Flow, Semantic Chunk, Retrieval Receipt, Evidence, Decision Trace, Graph RAG, Retrieval vs Decision, Knowledge Governance, Human Review, Chinoba">
+
+  <link rel="canonical" href="https://chinoba.org/research/knowledge-flow/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Chinoba">
+  <meta property="og:title" content="Knowledge Flow: From Signals and Evidence to Governed Decisions and Learning">
+  <meta property="og:description" content="The governed transformation of signals and evidence into decisions, actions, and learning, while preserving context, boundaries, and traceability.">
+  <meta property="og:url" content="https://chinoba.org/research/knowledge-flow/">
+  <meta property="og:image" content="https://chinoba.org/research/knowledge-flow/assets/knowledge-flow-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Knowledge Flow loop: Signal, Evidence, Context, Interpretation, Decision, Action, Feedback, with audit and trace across every transition.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Knowledge Flow: From Signals and Evidence to Governed Decisions and Learning">
+  <meta name="twitter:description" content="The governed transformation of signals and evidence into decisions, actions, and learning, while preserving context, boundaries, and traceability.">
+  <meta name="twitter:image" content="https://chinoba.org/research/knowledge-flow/assets/knowledge-flow-og.png">
 
   <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
   <link rel="stylesheet" href="/assets/research.css">
@@ -242,6 +257,119 @@
         margin-top: 2px;
       }
     }
+
+    .concept-grid.cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @media (max-width: 640px) {
+      .concept-grid.cols-2 { grid-template-columns: 1fr; }
+    }
+    .concept .concept-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 10px;
+      color: var(--fg);
+      line-height: 1.4;
+    }
+    .fig-lead { margin-bottom: 0; }
+    .fig-after-lead { margin-top: 24px; margin-left: auto; margin-right: auto; }
+    @media (max-width: 900px) {
+      .concept-grid.cols-3 > .concept:last-child:nth-child(odd) { grid-column: 1 / -1; }
+      .figure-frame[href$=".svg"]::after {
+        content: "Tap to enlarge · scroll to pan";
+        display: block;
+        padding: 8px 12px;
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--fg-faint);
+        border-top: 1px solid var(--line);
+      }
+    }
+    .hero-contrast { margin-top: clamp(32px, 4vw, 48px); text-align: left; }
+    .prose {
+      max-width: 760px;
+      color: var(--fg-mute);
+      font-size: 15.5px;
+      line-height: 1.85;
+      margin-top: clamp(40px, 5vw, 56px);
+    }
+
+    /* ---------- Tables ---------- */
+    .table-wrap {
+      margin-top: clamp(28px, 4vw, 40px);
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .figure + .table-wrap { margin-top: clamp(40px, 5vw, 56px); }
+    .compare-table {
+      margin-top: 0;
+      border: 1px solid var(--line);
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14px;
+    }
+    .compare-table th,
+    .compare-table td {
+      border: 1px solid var(--line);
+      padding: 12px 16px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .compare-table thead th {
+      background: var(--bg-elev);
+      color: var(--fg);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .compare-table tbody th {
+      color: var(--fg);
+      font-weight: 600;
+      background: var(--bg-elev);
+      min-width: 140px;
+    }
+    .compare-table tbody td {
+      color: var(--fg-mute);
+      min-width: 180px;
+    }
+    .table-note {
+      margin: 14px 0 0;
+      font-size: 13px;
+      color: var(--fg-faint);
+      line-height: 1.7;
+      max-width: 760px;
+    }
+    @media (max-width: 720px) {
+      .compare-table { width: auto; min-width: 100%; }
+      .compare-table tbody th { min-width: 150px; }
+      .compare-table tbody td { min-width: 230px; }
+      .lightbox.is-open {
+        overflow: auto;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 64px 12px 24px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .lightbox img {
+        max-width: none;
+        max-height: none;
+        width: 1000px;
+        flex: none;
+      }
+      .lightbox .lightbox-close {
+        position: fixed;
+        top: 14px;
+        right: 14px;
+        background: #0b0b0b;
+        z-index: 101;
+      }
+    }
+    @media (max-width: 520px) {
+      .topbar { flex-wrap: wrap; gap: 8px 16px; }
+    }
   </style>
 </head>
 
@@ -265,171 +393,538 @@
       <div class="eyebrow">Research / Knowledge Flow</div>
       <h1>Knowledge Flow</h1>
       <p class="hero-sub">
-        <span>Enterprises already store more information than any team can read.</span>
-        <span>Storing it and searching it are not the same as an AI understanding it.</span>
-        <span>An AI that can read a document is not yet an AI that can decide.</span>
+        <span>Collecting information is not the same as being able to learn from it.</span>
+        <span>Finding a passage is not the same as being entitled to act on it.</span>
+        <span>An answer is not yet a decision.</span>
       </p>
       <p class="hero-desc">
-        Documents, PDFs, spreadsheets, design specifications, chat, email, and
-        databases hold enormous amounts of enterprise knowledge — distributed
-        across formats, departments, and systems that were never designed to
-        agree with one another. Knowledge Flow is not a mechanism for making
-        that material searchable, and it is not an Ontology or a Knowledge
-        Graph built once and left standing. It is the operating discipline
-        that keeps converting distributed information into Knowledge Assets —
-        Ontology, Knowledge Graph, DSL, Policy, and Constraint — that carry
-        meaning, source, validity, and authority forward into a decision, and
-        keeps circulating as that knowledge is used, reviewed, and corrected.
-        Its spine is one path: <strong>Document → Knowledge → Decision →
-        Trace → Learning.</strong> In the Chinoba architecture, Knowledge
-        Flow is the knowledge foundation beneath the Decision Trace Model,
-        the Decision Runtime Kernel, and the Runtime OS.
+        Knowledge Flow is not the movement of documents through an
+        organization. It is the <strong>governed transformation of signals and
+        evidence into decisions, actions, and learning</strong> — while
+        preserving context, boundaries, and traceability. Storage and search
+        are necessary parts of that path, but they are parts. What makes an
+        organization able to judge and learn is that source, time, context,
+        authority, uncertainty, responsibility, and outcome stay connected
+        from the first signal to the last lesson, and that what was learned
+        returns to the knowledge base where the next decision can find it.
       </p>
 
-      <figure class="figure figure-wide figure-main">
-        <a class="figure-frame" href="assets2/22.png"
-           data-lightbox aria-label="Open the Knowledge Flow overview diagram">
-          <img src="assets2/22.png"
-               alt="Knowledge Flow — Documents become Knowledge, Knowledge becomes a Decision, a Decision becomes an Action, and an Action leaves a Trace, forming the enterprise knowledge infrastructure for the AI era."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">The path Knowledge Flow exists to carry: Document → Knowledge → Decision → Action → Trace.</figcaption>
-      </figure>
+      <div class="concept-grid cols-2 hero-contrast" aria-label="Collecting information compared with being able to learn and decide">
+        <div class="concept">
+          <div class="idx">Collecting</div>
+          <div class="concept-title">More information, stored and searchable</div>
+          <p>Documents are ingested, indexed, and retrievable. Whether a passage is current, applicable, permitted, or contradicted is left to whoever reads it.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">Learning and deciding</div>
+          <div class="concept-title">Grounded judgment that feeds back</div>
+          <p>Evidence arrives with its source, time, scope, and access rules. A named person decides under stated authority, and the result returns as reviewed knowledge.</p>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- ============ 01 WHY: CONNECTED TO THE DATA, NOT THE MEANING ============ -->
+  <!-- ============ 01 WHY ============ -->
   <section class="research-section" id="why" aria-labelledby="why-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">01 / Why: Connected to the Data, Not the Meaning</div>
-        <h2 id="why-h">Connected to the Data. Not to Its Meaning.</h2>
+        <div class="section-label">01 / Why Knowledge Does Not Flow Automatically</div>
+        <h2 id="why-h">Having Knowledge Is Not the Problem. Moving It Intact Is.</h2>
         <p class="section-lede">
-          An enterprise can already point an AI at its documents, tickets,
-          chat, and databases — connection was never the hard part. What
-          breaks down is meaning: context, definitions, exceptions, evidence,
-          and the moment something was last true all live in different
-          places, and neither an AI nor a new hire can recover them from the
-          text alone. Search and retrieval-augmented generation surface a
-          passage; they were never built to settle whether it still holds.
+          Most organizations do not suffer from a shortage of documents,
+          tickets, messages, and records. Generative AI has made producing
+          more of them nearly free. What stays scarce is the ability to
+          bring the right piece of knowledge to the right decision with its
+          meaning, validity, and limits still attached. Six things quietly
+          break that path.
         </p>
       </div>
 
-      <div class="two-col">
-        <div class="col-text">
-          <h3>What Retrieval Settles, and What It Cannot</h3>
-          <p>RAG can search documents, summarize them, and answer a question in fluent prose. It cannot, on its own:</p>
-          <ul>
-            <li>reason across multiple documents and systems at once</li>
-            <li>evaluate a Policy or a Constraint against the current situation</li>
-            <li>execute a decision rule</li>
-            <li>determine who is authorized to act on what it found</li>
-            <li>decide what happens when two sources disagree</li>
-          </ul>
-          <p>
-            A document being searchable says nothing about whether the
-            knowledge inside it is still valid, or which organization,
-            product line, region, or condition it is allowed to govern.
-          </p>
-        </div>
+      <p class="prose fig-lead">The contrast is easiest to see side by side: the same knowledge, once stuck in separate places, and once connected, shared, updated, and used.</p>
+      <figure class="figure figure-standard fig-after-lead">
+        <a class="figure-frame" href="assets/06.png"
+           data-lightbox aria-label="Open the diagram on knowledge that exists but does not flow">
+          <img src="assets/06.png"
+               alt="Two organizations compared. Where knowledge is stuck, it is siloed, analyzed in fragments, and never reaches people. Where knowledge flows, it connects people, is shared, updated, and used."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Knowledge can exist everywhere and still fail to reach, update, or inform anyone.</figcaption>
+      </figure>
 
-        <div class="col-text">
-          <h3>Context Gap and Knowledge Gap</h3>
-          <p>
-            Two distinct gaps stand between a fluent answer and a correct
-            enterprise decision:
-          </p>
-          <ul>
-            <li><strong>Context Gap</strong> — the model does not know the specific situation: which entity, process, contract, or event this question is actually about.</li>
-            <li><strong>Knowledge Gap</strong> — even once the context is known, the model has no structured way to hold the organization's own terminology, business rules, approval conditions, and cross-department relationships.</li>
-          </ul>
-          <code class="quote">
-            AI can answer.
-            It cannot yet decide.
-            Closing that distance
-            is what Knowledge Flow is for.
-          </code>
+      <div class="concept-grid cols-3" style="margin-top:clamp(40px,5vw,56px);">
+        <div class="concept">
+          <div class="idx">01</div>
+          <h3>Silos</h3>
+          <p>Each team keeps its own records, vocabulary, and exceptions. The same word means different things, and no one sees where the pieces would connect.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">02</div>
+          <h3>Lost context</h3>
+          <p>A rule copied out of its document no longer says which product, region, or version it governs, or what exception was attached to it.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">03</div>
+          <h3>Decaying freshness</h3>
+          <p>Knowledge that was true when written keeps being retrieved after it has been superseded, and nothing signals that it has aged.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">04</div>
+          <h3>Retrieval mistaken for judgment</h3>
+          <p>A highly ranked passage is treated as a conclusion. Relevance to a question is confused with authority to act on the answer.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">05</div>
+          <h3>Unclear responsibility</h3>
+          <p>When an AI assembled the basis for a choice, it becomes hard to say who accepted it, under what authority, and with what known gaps.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">06</div>
+          <h3>Access boundaries</h3>
+          <p>Permissions live in the source systems. Once content is copied, summarized, or embedded, those limits are easily flattened or lost.</p>
         </div>
       </div>
 
-      <p style="max-width:760px; color:var(--fg-mute); font-size:15.5px; line-height:1.85; margin-top:clamp(40px,5vw,56px);">
-        Knowledge Flow does not compete with retrieval — it gives retrieval
-        something worth trusting. Ontology resolves company-specific terms to
-        one canonical meaning, the Knowledge Graph holds the relationships a
-        single passage cannot express, and DSL and Policy make the applicable
-        rule explicit rather than implied. Retrieval still finds the
-        candidate; Knowledge Flow is what turns the candidate into knowledge
-        a decision can be built on.
+      <p class="prose">
+        Two further distinctions explain why more distribution does not
+        produce more flow. <strong>Sharing is not propagation:</strong>
+        putting a document where others can open it makes it available, but
+        knowledge only moves when someone adopts it, applies it, corrects
+        it, and passes it on. And many failures labeled as missing knowledge
+        are <strong>routing failures</strong>: the knowledge existed, but it
+        never reached the person or process that needed it, in a form that
+        fit their situation. Similarity search finds neighbours. It does not
+        weigh role, timing, priority, or what the reader is about to decide.
       </p>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/03.png"
-           data-lightbox aria-label="Open the diagram on what LLMs can and cannot know">
-          <img src="assets2/03.png"
-               alt="Comparison of what LLMs can do — read documents, summarize contracts, answer questions, generate content — against what they don't know: company-specific terminology, business rules, approval conditions, inter-department relationships, and the reasons behind past decisions."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">An LLM can read every document in the building and still not know which rule applies, or why the last decision went the way it did.</figcaption>
-      </figure>
+      <p class="prose" style="margin-top:20px;">
+        Better search and larger models help with some of these and leave
+        others untouched. More retrieved text does not settle whether a
+        statement still holds, whether it applies here, whether the person
+        asking may see it, or who answers for acting on it. Those questions
+        need the connections between information and its source, time,
+        context, authority, uncertainty, responsibility, and result — which
+        is what the rest of this page calls flow.
+      </p>
     </div>
   </section>
 
-  <!-- ============ 02 WHAT KNOWLEDGE FLOW IS ============ -->
-  <section class="research-section" id="what-is-knowledge-flow" aria-labelledby="wikf-h">
+  <!-- ============ 02 FROM DOCUMENTS TO GOVERNED KNOWLEDGE FLOW ============ -->
+  <section class="research-section" id="flow" aria-labelledby="flow-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">02 / What Knowledge Flow Is</div>
-        <h2 id="wikf-h">Not a Repository. A Foundation That Keeps Circulating.</h2>
+        <div class="section-label">02 / From Documents to Governed Knowledge Flow</div>
+        <h2 id="flow-h">Seven Transformations, One Loop</h2>
         <p class="section-lede">
-          Knowledge Flow is not a mechanism for making enterprise documents
-          searchable. It continuously turns what an organization already has
-          — documents, conversations, tickets, operational data — into
-          Knowledge Assets: Ontology, Knowledge Graph, DSL, Policy, and
-          Constraint. Every new document, exception, or design change
-          restarts the same cycle rather than sitting outside it. The goal
-          is not a bigger index. It is knowledge a person and an AI can both
-          reason from, together.
+          Documents are inputs, not the unit of flow. What moves through an
+          organization is a chain of transformations: something happens,
+          evidence is gathered, context is applied, a meaning is proposed, a
+          person decides, work is done, and the outcome is observed. Knowledge
+          is not a stock that is built once. It is revalidated and updated
+          every time the loop turns.
         </p>
       </div>
 
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/07.png"
-           data-lightbox aria-label="Open the Knowledge Flow overview pipeline diagram">
-          <img src="assets2/07.png"
-               alt="Knowledge Flow Overview — eight linked stages from Enterprise Documents through Document Ingestion, Knowledge Extraction, Ontology Builder, Knowledge Graph, DSL Generator, and Knowledge Repository, to the Decision Trace Model and Runtime OS."
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets/knowledge-flow-loop.svg"
+           data-lightbox aria-label="Open the Knowledge Flow loop diagram">
+          <img src="assets/knowledge-flow-loop.svg"
+               alt="The Knowledge Flow loop. Signal, Evidence, Context, and Interpretation sit on the retrieval side. A hand-off to authority leads to Decision, Action, and Feedback on the decision side. Feedback returns to the Knowledge Layer, which feeds new signals. Audit and trace span every transition."
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">An architecture that continuously transforms enterprise information into AI-understandable, inferable, and actionable knowledge assets.</figcaption>
+        <figcaption class="figure-caption">Signal → Evidence → Context → Interpretation → Decision → Action → Feedback → back into the knowledge layer.</figcaption>
       </figure>
 
-      <p style="max-width:760px; color:var(--fg-mute); font-size:15.5px; line-height:1.85; margin-top:clamp(40px,5vw,56px);">
-        Organizations do not simply retrieve knowledge — they regenerate it,
-        in context, every time a decision needs it. A repository preserves;
-        a flow circulates. Here is the same path Knowledge Flow carries, in
-        full — ten stages, each responsible for preserving something
-        specific as information moves from a raw document toward a decision
-        a Runtime can act on.
-      </p>
+      <div class="table-wrap">
+        <table class="compare-table is-wrap" aria-label="The seven stages of Knowledge Flow">
+          <thead>
+            <tr><th scope="col">Stage</th><th scope="col">The question it answers</th><th scope="col">What must survive the step</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Signal</th><td>What changed, or what is being asked?</td><td>Origin, timestamp, and who or what raised it.</td></tr>
+            <tr><th scope="row">Evidence</th><td>What supports this, and what contradicts it?</td><td>Source, provenance, and the age of each claim.</td></tr>
+            <tr><th scope="row">Context</th><td>Which situation, scope, and version does this apply to?</td><td>Subject, constraints, effective period, and access rights.</td></tr>
+            <tr><th scope="row">Interpretation</th><td>What does it mean here, and what remains unknown?</td><td>Stated uncertainty, open conflicts, and the reasoning offered.</td></tr>
+            <tr><th scope="row">Decision</th><td>Who may decide, under which policy, and with what conditions?</td><td>Decider, authority, policy version, and exceptions granted.</td></tr>
+            <tr><th scope="row">Action</th><td>What was done, and was it permitted?</td><td>Execution record tied to the decision that allowed it.</td></tr>
+            <tr><th scope="row">Feedback</th><td>What happened, and what should change?</td><td>Outcome versus expectation, overrides, and proposed corrections.</td></tr>
+          </tbody>
+        </table>
+      </div>
 
-      <div class="field-runtime" aria-label="The Knowledge Flow Pipeline">
-        <div class="field-runtime-label">Pipeline Diagram</div>
-        <h3 class="field-runtime-title">Knowledge Flow — the Ten Stages</h3>
+      <div class="two-col" style="margin-top:clamp(48px,6vw,72px);">
+        <div class="col-text">
+          <h3>A Flow, Not a Stock</h3>
+          <p>
+            A repository preserves. A flow keeps checking. Each pass
+            through the loop asks again whether the evidence is still
+            valid, whether the context still holds, and whether the last
+            decision turned out as expected. Knowledge that is never
+            revalidated becomes an archive no matter how well it is
+            organized.
+          </p>
+          <p>
+            There is a deeper reason. Meaning depends on a situation that
+            keeps changing, so what an archive really holds is evidence from
+            which knowledge is rebuilt each time it is needed. A reusable
+            unit therefore has to carry its context with it and be
+            interpreted again at the point of use.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Learning Is Reviewed, Not Automatic</h3>
+          <p>
+            Feedback does not rewrite the knowledge base on its own. An
+            override, a correction, or a surprising outcome becomes a
+            candidate that is reviewed against the same standards as any
+            other claim, then published with a version and an owner. That
+            keeps learning from becoming drift.
+          </p>
+          <p>
+            Change arrives from many directions, not only new documents: a
+            revised policy, a design change, a legal update, a repeated human
+            override, an acknowledged gap in what the system could answer.
+            Each is treated as a common change event, compared with the
+            current version, assessed for impact, and only then proposed for
+            review.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 SEMANTIC CHUNK ============ -->
+  <section class="research-section" id="semantic-chunk" aria-labelledby="chunk-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Semantic Chunk as the Unit of Reuse</div>
+        <h2 id="chunk-h">A Unit of Knowledge, Not a Fragment of Text</h2>
+        <p class="section-lede">
+          For flow to carry meaning, something has to carry it. A document
+          chunk is cut for convenience of search. A Semantic Chunk is cut
+          along meaning and keeps what a later reader needs in order to
+          trust, limit, or challenge it: where it came from, when it held,
+          what it is about, what it connects to, what it does not claim,
+          and who may see it.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets/semantic-chunk.svg"
+           data-lightbox aria-label="Open the Semantic Chunk anatomy diagram">
+          <img src="assets/semantic-chunk.svg"
+               alt="Anatomy of a Semantic Chunk. Seven elements surround a central claim: content or claim, source and provenance, time and freshness, subject and scope, relations, constraints and uncertainty, and an access boundary. The chunk links to other chunks, evidence, and entities or policies, all inside an access boundary."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Seven elements travel with the claim, inside an access boundary that is enforced when the chunk is retrieved.</figcaption>
+      </figure>
+
+      <div class="table-wrap">
+        <table class="compare-table is-wrap" aria-label="Document chunk compared with Semantic Chunk">
+          <thead>
+            <tr><th scope="col">Element</th><th scope="col">What it holds</th><th scope="col">What it makes possible</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Content / Claim</th><td>The statement in its own terms, distinct from any summary of it.</td><td>Checking a summary against what was actually said.</td></tr>
+            <tr><th scope="row">Source / Provenance</th><td>Document, section, record, and how the claim was extracted.</td><td>Audit back to the original, and weighting by source reliability.</td></tr>
+            <tr><th scope="row">Time / Freshness</th><td>Effective period, version, and when it was last verified.</td><td>Reproducing what was known at the time, and spotting stale claims.</td></tr>
+            <tr><th scope="row">Subject / Scope</th><td>What it is about, where it applies, and where it does not.</td><td>Keeping a rule from being applied to the wrong product or region.</td></tr>
+            <tr><th scope="row">Relations</th><td>Links to other chunks, entities, and policies, each with its own evidence.</td><td>Multi-source reasoning, impact analysis, and conflict detection.</td></tr>
+            <tr><th scope="row">Constraints / Uncertainty</th><td>Conditions, exceptions, open questions, and review status.</td><td>Saying what is unresolved instead of presenting a clean answer.</td></tr>
+            <tr><th scope="row">Access Boundary</th><td>Owner, classification, and the roles and purposes allowed to use it.</td><td>Reusing knowledge across teams without flattening permissions.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="two-col" style="margin-top:clamp(48px,6vw,72px);">
+        <div class="col-text">
+          <h3>Why a Document Chunk Falls Short</h3>
+          <p>
+            A passage that says equipment should stop above a threshold is
+            incomplete without the equipment class it names, the standard
+            version it comes from, the exception procedure beside it, and
+            the role authorized to act on it. Cut by length or by heading
+            alone, the passage retrieves well and misleads quietly. The
+            risk is not a missing answer. It is a confident answer without
+            its conditions.
+          </p>
+          <p>
+            A summary has the same weakness. It is useful for understanding,
+            but it drops who said something, when, on what evidence, and under
+            which conditions, so it cannot be the basis of a decision. The
+            chunk is the knowledge underneath the summary.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Three Benefits</h3>
+          <ul>
+            <li><strong>Search:</strong> retrieval can filter by scope, time, and permission before it ranks.</li>
+            <li><strong>Audit:</strong> every claim in an answer can be followed to its source and version.</li>
+            <li><strong>Reuse:</strong> the same unit can serve many questions and teams without being re-read from scratch.</li>
+          </ul>
+          <p>
+            Extraction produces candidates. A candidate becomes a trusted
+            chunk only after validation and review proportional to what it
+            could affect. Passing a format check proves only that the output
+            is well formed, not that it is true, current, or permitted.
+          </p>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:clamp(48px,6vw,72px);">
+        <div class="col-text">
+          <h3>Unresolved Stays Unresolved</h3>
+          <p>
+            When a mapping cannot be confirmed, such as two terms that might
+            be one concept, two rules that disagree, or a date that is
+            missing, the chunk records it as open instead of forcing a
+            merge. An open item can block automatic action downstream. A
+            system that shows fewer open items because it merged aggressively
+            is less trustworthy, not more.
+          </p>
+          <p>
+            Candidates move through explicit states: extracted, resolved,
+            validated, reviewed, approved. Approval of a chunk as knowledge is
+            still not eligibility to authorize an action. Those are separate
+            questions with separate owners.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Access Is Several Permissions</h3>
+          <p>
+            Being allowed to view a chunk, to use it in a recommendation, to
+            send it outside the organization, and to change it are four
+            different permissions, often held by different owners. Derived
+            knowledge inherits the restrictions of its sources, and when
+            several sources contribute, the strictest classification applies.
+            Defaults fail closed.
+          </p>
+          <p>
+            Sometimes even the existence of related evidence has to stay
+            hidden from a requester. That is why the boundary belongs to the
+            chunk itself rather than to a filter bolted on afterwards.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 RETRIEVAL IS NOT DECISION ============ -->
+  <section class="research-section" id="retrieval-not-decision" aria-labelledby="retrieval-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Retrieval Is Not Decision</div>
+        <h2 id="retrieval-h">Retrieval Widens What Can Be Known. Decision Narrows What May Be Done.</h2>
+        <p class="section-lede">
+          Full-text search, vector search, RAG, and Graph RAG are strong
+          ways to find candidates, evidence, and counter-evidence. They are
+          components of Knowledge Flow, not the whole of it. Treating the
+          best-ranked result as the decision collapses two different jobs
+          into one, and removes the place where authority and responsibility
+          should enter.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets/decision-boundary.svg"
+           data-lightbox aria-label="Open the decision boundary diagram">
+          <img src="assets/decision-boundary.svg"
+               alt="Retrieval and Evidence sit on the AI-assisted side of a decision boundary. Policy, Human Approval, and Action sit on the authority side. Each step leaves a record: Retrieval Receipt, Evidence Pack, Authorization check, Decision Trace, and Execution Receipt. Thin evidence loops back to retrieval or escalates; missing policy or approval stops the action."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The boundary sits between assembling evidence and applying authority.</figcaption>
+      </figure>
+
+      <div class="table-wrap">
+        <table class="compare-table is-wrap" aria-label="Roles of retrieval methods in Knowledge Flow">
+          <thead>
+            <tr><th scope="col">Component</th><th scope="col">What it contributes</th><th scope="col">What it does not settle</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Full-text search</th><td>Exact terms, identifiers, clause numbers, and names that must match literally.</td><td>Synonyms, paraphrase, and whether the match still applies.</td></tr>
+            <tr><th scope="row">Vector search</th><td>Semantically similar passages, even when the wording differs.</td><td>Version, scope, and permission. Similar is not applicable.</td></tr>
+            <tr><th scope="row">RAG</th><td>Grounding a generated answer in retrieved passages, with citations.</td><td>Whether the passages are sufficient, current, or in conflict.</td></tr>
+            <tr><th scope="row">Graph RAG</th><td>Following relations across sources: dependencies, approvals, affected parts.</td><td>Whether an edge was verified, and who may act on what it implies.</td></tr>
+            <tr><th scope="row">Policy and approval</th><td>Rules, constraints, authority, and a named person who accepts the result.</td><td>This is where the decision is made. Retrieval cannot stand in for it.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="two-col" style="margin-top:clamp(48px,6vw,72px);">
+        <div class="col-text">
+          <h3>What the AI Should Surface</h3>
+          <p>A useful system does not only answer. It shows how well the answer is supported:</p>
+          <ul>
+            <li>missing evidence, and what was searched but not found</li>
+            <li>contradictions between sources, and which one is newer or higher in authority</li>
+            <li>the age of each claim relative to its effective period</li>
+            <li>coverage: which sources and scopes were and were not reachable</li>
+            <li>open questions that a person should resolve</li>
+          </ul>
+        </div>
+        <div class="col-text">
+          <h3>Why the AI Does Not Hold the Decision</h3>
+          <p>
+            A decision carries authority, accountability, and the power to
+            commit resources or affect people. A model has none of these. It
+            can be wrong without being aware of it, and its confidence says
+            little about whether an action is permitted. A decision is a commitment under
+            uncertainty that someone owns. So the model
+            proposes, compares, and flags, while a person or role with
+            stated authority accepts, amends, rejects, or escalates. Lower
+            risk actions can be delegated in advance under explicit policy,
+            and that delegation is itself a recorded decision.
+          </p>
+          <code class="quote">
+            An answer is not a permission.
+            Relevance is not authority.
+          </code>
+        </div>
+      </div>
+    <div class="two-col" style="margin-top:clamp(48px,6vw,72px);">
+        <div class="col-text">
+          <h3>Four Checks, Then Act, Ask, or Stop</h3>
+          <p>
+            Before an answer becomes an action, four things are confirmed:
+            what the terms mean here, what the evidence is, which definition
+            and version held at that moment, and who may rely on it under
+            which policy. The outcome is one of three: act, ask a person, or
+            stop.
+          </p>
+          <p>
+            That outcome is a boundary the system enforces, not a more
+            cautious tone in the model's wording. A rising number of stops is
+            not necessarily a failure. An unsupported answer that was blocked
+            is the system working as intended.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Conflicts Are Weighed, Not Voted</h3>
+          <p>
+            When sources disagree on a number, a procedure, an approver, or a
+            condition, the system does not assert one side or count which
+            version appears more often. It weighs authority, version,
+            effective date, and context, presents the more formal source
+            while stating that a conflict exists, and routes it for
+            resolution.
+          </p>
+          <p>
+            Conversations are valuable, but they enter as candidates to be
+            checked against formal sources. A formal regulation's emergency
+            rule can still apply in a different context from its normal one.
+          </p>
+        </div>
+      </div>
+      <p class="prose">
+        Permissions have to be applied while retrieving, not afterwards. If
+        vector or graph search ranges over everything and results are hidden
+        at the end, the ranking and the generated text have already used what
+        the requester was never allowed to see.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 05 EVIDENCE, RECEIPT, DECISION TRACE ============ -->
+  <section class="research-section" id="trace" aria-labelledby="trace-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Evidence, Receipt, and Decision Trace</div>
+        <h2 id="trace-h">What Was Relied On, and Why It Was Allowed</h2>
+        <p class="section-lede">
+          Accountability depends on being able to reconstruct a decision
+          afterwards from a record, not from recollection or from a model's
+          own explanation of itself. Three linked records do that work, and
+          the loop closes when they feed learning back.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets/traceability.svg"
+           data-lightbox aria-label="Open the traceability diagram">
+          <img src="assets/traceability.svg"
+               alt="Retrieval Receipt feeds Evidence Pack, which supports Decision Trace. The decision leads to Action and Outcome, then Feedback and Review, then approved updates to the Knowledge Layer. A later question is answered from the record: what we looked for from the Receipt, what we relied on from Evidence, who allowed it and why from the Trace."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Receipt → Evidence → Decision Trace → Outcome → reviewed learning.</figcaption>
+      </figure>
+
+      <div class="concept-grid cols-3" style="margin-top:clamp(40px,5vw,56px);">
+        <div class="concept">
+          <div class="idx">Receipt</div>
+          <h3>Retrieval Receipt</h3>
+          <p>Records how candidates were obtained: the query and filters, the data, index, and knowledge-snapshot version, the as-of time, the permissions applied, and what was returned or excluded. It lets someone repeat or question the search.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">Evidence</div>
+          <h3>Evidence Pack</h3>
+          <p>The claims actually relied on, each with source and freshness, together with contradictions found, gaps, stated uncertainty, and coverage. Missing support is part of the evidence, not an omission from it.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">Trace</div>
+          <h3>Decision Trace</h3>
+          <p>Records who decided, under which authority, which policy and version applied, what conditions or exceptions were attached, and when. It connects the evidence to the permission to act.</p>
+        </div>
+      </div>
+
+      <p class="prose">
+        Kept together, the three serve two purposes. For accountability,
+        they answer after the fact what the decision rested on and why it
+        was allowed. For learning, they let a team compare what was
+        expected with what happened, and find whether the cause was thin
+        evidence, a stale source, a missing rule, or a judgment call worth
+        encoding. Without the record, feedback has nothing to attach to.
+      </p>
+      <p class="prose" style="margin-top:20px;">
+        Organizations tend to keep outcomes and lose reasoning: the
+        alternatives weighed, the assumptions made, the trade-offs accepted.
+        A trace is therefore not a debug log. It links the request, the
+        evidence, the approval, the act, ask, or stop judgment and its
+        reason, the review gate, the execution, and the later outcome, so an
+        error can be located in extraction, in mapping, in evidence
+        selection, in policy, in authority, or at review, instead of being
+        written off as the AI getting it wrong. To reproduce a past
+        decision, replay the rules and knowledge as they stood at that time,
+        identified by a snapshot of versions fixed when the decision was
+        made, not by asking today's model again. Valid time and recorded
+        time stay separate, so a corrected threshold does not rewrite what
+        was known earlier.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 06 REFERENCE ARCHITECTURE ============ -->
+  <section class="research-section" id="architecture" aria-labelledby="architecture-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / A Reference Architecture</div>
+        <h2 id="architecture-h">Nine Layers, With Boundaries Kept</h2>
+        <p class="section-lede">
+          The layers below are a way of seeing responsibilities, not a
+          product blueprint or a mandate for a single platform. Each layer
+          owns one thing, hands off through a recorded interface, and keeps
+          the source's boundaries instead of absorbing them. Knowledge Flow
+          connects, verifies, and learns across teams without pulling their
+          knowledge into one central owner.
+        </p>
+      </div>
+
+      <div class="field-runtime" aria-label="Reference architecture for Knowledge Flow">
+        <div class="field-runtime-label">Reference Architecture</div>
+        <h3 class="field-runtime-title">Responsibilities Across the Layers</h3>
 
         <ol class="field-layers" role="list">
           <li class="field-layer">
             <span class="layer-idx">01</span>
             <span class="layer-body">
-              <span class="layer-name">Source and Ingestion</span>
-              <span class="layer-note">Documents, conversations, and records enter through connectors that preserve who owns each source, not just its text.</span>
+              <span class="layer-name">Signal / Source Layer</span>
+              <span class="layer-note">Documents, tickets, messages, records, and events stay with their owners. Connectors read what they are permitted to and note who owns each source.</span>
             </span>
-            <span class="layer-tag">ingest</span>
+            <span class="layer-tag">sources</span>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
           <li class="field-layer">
             <span class="layer-idx">02</span>
             <span class="layer-body">
-              <span class="layer-name">Normalization and Metadata</span>
-              <span class="layer-note">Formats are unified and metadata attached, so version, department, and access rights survive the conversion, not just the words.</span>
+              <span class="layer-name">Ingestion &amp; Normalization</span>
+              <span class="layer-note">Formats are unified and metadata attached, so version, owner, classification, and permissions survive the conversion along with the words.</span>
             </span>
             <span class="layer-tag">normalize</span>
           </li>
@@ -437,542 +932,215 @@
           <li class="field-layer">
             <span class="layer-idx">03</span>
             <span class="layer-body">
-              <span class="layer-name">Semantic Chunking</span>
-              <span class="layer-note">Content splits along headings, procedures, rules, exceptions, and tables — units that preserve meaning, not fixed-length fragments that break it.</span>
+              <span class="layer-name">Semantic Chunk &amp; Knowledge Layer</span>
+              <span class="layer-note">Content is divided along meaning and held as Semantic Chunks with provenance, time, scope, relations, uncertainty, and access boundary. Extractions stay candidates until reviewed.</span>
             </span>
-            <span class="layer-tag">chunk</span>
+            <span class="layer-tag">chunk · relate</span>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
           <li class="field-layer">
             <span class="layer-idx">04</span>
             <span class="layer-body">
-              <span class="layer-name">Knowledge Extraction</span>
-              <span class="layer-note">Entities, relations, constraints, events, intents, and policy candidates are drawn out — each kept as a candidate with its source attached, not an asserted fact.</span>
+              <span class="layer-name">Retrieval &amp; Evidence Layer</span>
+              <span class="layer-note">Full-text, vector, and graph retrieval gather candidates and counter-evidence under the requester's permissions, then assemble an Evidence Pack and issue a Retrieval Receipt.</span>
             </span>
-            <span class="layer-tag">extract</span>
+            <span class="layer-tag">retrieve</span>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
           <li class="field-layer">
             <span class="layer-idx">05</span>
             <span class="layer-body">
-              <span class="layer-name">Ontology Resolution</span>
-              <span class="layer-note">Aliases collapse to one canonical concept, so responsibility for a term's meaning is traceable rather than left to whichever department wrote it first.</span>
+              <span class="layer-name">Decision / Policy / Authorization Layer</span>
+              <span class="layer-note">Policies, constraints, and authority are evaluated against the evidence. This layer decides what may proceed automatically, what needs review, and what must stop.</span>
             </span>
-            <span class="layer-tag">resolve</span>
+            <span class="layer-tag">authorize</span>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
           <li class="field-layer">
             <span class="layer-idx">06</span>
             <span class="layer-body">
-              <span class="layer-name">Knowledge Graph Construction</span>
-              <span class="layer-note">Entities, relations, and events connect into a graph that keeps provenance intact across every source that contributed a piece of it.</span>
-            </span>
-            <span class="layer-tag">connect</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">07</span>
-            <span class="layer-body">
-              <span class="layer-name">DSL / Policy / Constraint Formalization</span>
-              <span class="layer-note">Decision conditions are formalized with scope, authority, and exception intact — reproducible enough for a Runtime to evaluate, not just read.</span>
-            </span>
-            <span class="layer-tag">formalize</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">08</span>
-            <span class="layer-body">
-              <span class="layer-name">Human Review and Validation</span>
-              <span class="layer-note">Schema, ontology, and risk-based review put a named person's judgment behind every candidate before it is trusted, proportional to what it could affect.</span>
+              <span class="layer-name">Human Review</span>
+              <span class="layer-note">A named person or role accepts, amends, rejects, or escalates, with effort proportional to risk. The approval is recorded with the conditions attached. Reviewers see the current asset, the proposed change, the difference, and its impact. Confidence and risk are separate: a high-confidence change that carries high risk still goes to a person.</span>
             </span>
             <span class="layer-tag">review</span>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
           <li class="field-layer">
-            <span class="layer-idx">09</span>
+            <span class="layer-idx">07</span>
             <span class="layer-body">
-              <span class="layer-name">Knowledge Repository and Versioning</span>
-              <span class="layer-note">Approved assets are versioned and dated, so a decision made last quarter can be reproduced against the knowledge that was actually in force then.</span>
+              <span class="layer-name">Action / Workflow Integration</span>
+              <span class="layer-note">Approved decisions reach business systems through controlled interfaces. Each execution is tied to the decision that permitted it and fails to the safe side.</span>
             </span>
-            <span class="layer-tag">version</span>
+            <span class="layer-tag">act</span>
           </li>
           <li class="field-arrow" aria-hidden="true">↓</li>
           <li class="field-layer">
-            <span class="layer-idx">10</span>
+            <span class="layer-idx">08</span>
             <span class="layer-body">
-              <span class="layer-name">Runtime Delivery and Feedback</span>
-              <span class="layer-note">Knowledge reaches the Decision Runtime Kernel, and what the decision produced returns as feedback that keeps the pipeline honest.</span>
+              <span class="layer-name">Feedback / Evaluation / Learning</span>
+              <span class="layer-note">Outcomes, overrides, and gaps are compared with expectations. Proposed corrections become candidates and return to the knowledge layer after review. Feedback never edits a rule or policy by itself.</span>
             </span>
-            <span class="layer-tag">deliver</span>
+            <span class="layer-tag">learn</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">09</span>
+            <span class="layer-body">
+              <span class="layer-name">Audit &amp; Trace (spans all layers)</span>
+              <span class="layer-note">Receipts, evidence packs, decision traces, and execution records are kept with versions, so a past decision can be replayed against what was in force at the time.</span>
+            </span>
+            <span class="layer-tag">trace</span>
           </li>
         </ol>
       </div>
 
-      <p style="max-width:760px; color:var(--fg-mute); font-size:15.5px; line-height:1.85; margin-top:clamp(40px,5vw,56px);">
-        None of these ten stages is only data processing. Each one exists to
-        keep a specific property intact — meaning, source, current validity,
-        who is accountable, or whether the result can be reproduced later —
-        as knowledge moves from a document toward a decision. This is what
-        changes once documents flow through that discipline instead of only
-        being searched:
-      </p>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/19.png"
-           data-lightbox aria-label="Open the comparison between traditional RAG and Knowledge Flow">
-          <img src="assets2/19.png"
-               alt="Diagram comparing Traditional RAG — document, embedding, search, answer — with Knowledge Flow — document, ontology, knowledge graph, DSL, decision — captioned that RAG focuses on finding information while Knowledge Flow focuses on building and leveraging knowledge."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Traditional RAG ends at an answer; Knowledge Flow continues on to a structured, governed decision.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 03 BUILD THE KNOWLEDGE ============ -->
-  <section class="research-section" id="build-the-knowledge" aria-labelledby="build-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">03 / Build the Knowledge: Semantic Chunk, Ontology, Knowledge Graph</div>
-        <h2 id="build-h">From Raw Material to Knowledge You Can Point To</h2>
-        <p class="section-lede">
-          Turning a document into something an AI can reason from is not one
-          step, and it does not stop at splitting text into pieces. A
-          Semantic Chunk holds a passage together with what it means and
-          where it came from. An Evidence-Grounded Ontology resolves what an
-          organization's own words mean, so "Customer" in Sales and
-          "Customer" in Support collapse into one traceable concept instead
-          of two silent guesses. A Knowledge Graph connects what a single
-          passage can never carry alone. Each layer is missing something the
-          other two provide.
-        </p>
-      </div>
-
-      <div class="two-col">
+      <div class="two-col" style="margin-top:clamp(48px,6vw,72px);">
         <div class="col-text">
-          <h3>Semantic Chunk: A Unit of Meaning, Not a Unit of Search</h3>
+          <h3>Connected, Not Centralized</h3>
           <p>
-            A document chunk, the kind RAG retrieves, is cut to a size
-            convenient for search and embeddings — by character count,
-            paragraph, or heading. That finds a passage, but it does not
-            make the passage trustworthy: "if the temperature exceeds 85°C,
-            stop the equipment" means little once it has been cut away from
-            which equipment, which regulation's version, and who has the
-            authority to act on it. A Semantic Chunk keeps a passage bound
-            to at least seven things:
+            Each department keeps ownership of what it knows and who may see
+            it. The flow adds shared identifiers, relations, and checks
+            between them. A claim from one team can inform another team's
+            decision without becoming that team's to edit, and without the
+            owner's boundary being dissolved along the way. What is shared is
+            a semantic layer of common identifiers and relations that
+            connects sources. No single repository can hold everything or
+            stay current with it, and derived knowledge keeps the access
+            rules of the source it came from.
           </p>
-          <ul>
-            <li>the <strong>Meaning</strong> it maps to</li>
-            <li>its <strong>Relationships</strong> to other concepts</li>
-            <li>the <strong>Evidence</strong> it rests on</li>
-            <li>its <strong>Point in Time and Version</strong></li>
-            <li>who has <strong>Authority</strong> over it</li>
-            <li>its <strong>Confidence</strong> and any open items</li>
-            <li>its <strong>Approval Status</strong></li>
-          </ul>
-          <p>None of it counts as knowledge a Runtime can use until all seven are in place.</p>
         </div>
-
         <div class="col-text">
-          <h3>Candidates, Not Facts</h3>
-          <p>
-            From each chunk, an LLM proposes entities, relations,
-            constraints, events, intents, and policy candidates. None of
-            this is treated as settled:
-          </p>
+          <h3>How Ontology, Graph, DSL, and Runtime Connect</h3>
           <ul>
-            <li>every extraction is a Candidate, not an asserted fact</li>
-            <li>every Candidate carries its Provenance — the source it came from</li>
-            <li>deterministic processing and LLM processing stay separated</li>
-            <li>Schema Validation and Risk-Based Human Review gate promotion</li>
+            <li><strong>Ontology:</strong> one vocabulary. Two terms merge only when definition, evidence, and scope support it.</li>
+            <li><strong>Knowledge Graph:</strong> relations between chunks, entities, and policies, each with its own evidence.</li>
+            <li><strong>DSL and Policy:</strong> conditions, scope, authority, and effective period made explicit enough to evaluate. They are inputs to a decision, not the decision.</li>
+            <li><strong>Decision Runtime:</strong> evaluates them against the live situation and issues an execution request or permission. The flow itself holds no authority to execute.</li>
           </ul>
-          <code class="quote">
-            Source → Evidence → Claim → Knowledge
-          </code>
-          <p>
-            A chain like this is what lets an organization trace any piece of
-            knowledge a decision relied on back to the document, message, or
-            event it actually came from.
-          </p>
         </div>
       </div>
 
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/09.png"
-           data-lightbox aria-label="Open the semantic document chunking diagram">
-          <img src="assets2/09.png"
-               alt="Semantic document chunking — a document paired with metadata (source, section, version, department) splits into meaning units such as chapters, business units, rule units, and event units, instead of being cut by a fixed character count."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">A Semantic Chunk is bounded by meaning — a chapter, a rule, an event — not by a character count.</figcaption>
-      </figure>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/10.png"
-           data-lightbox aria-label="Open the LLM-based knowledge extraction diagram">
-          <img src="assets2/10.png"
-               alt="LLM-based Knowledge Extraction — an enterprise document processed by an LLM into six candidate types: Entity, Relation, Constraint, Event, Intent, and Rule, captioned that the LLM is used as a knowledge-extraction engine, not only to generate answers."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Extraction produces candidate Entities, Relations, Constraints, Events, Intents, and Policy Candidates — not settled fact.</figcaption>
-      </figure>
-
-      <div class="two-col" style="margin-top:clamp(56px,7vw,80px);">
-        <div class="col-text">
-          <h3>Evidence-Grounded Ontology: One Vocabulary, Not a Naming Table</h3>
-          <p>
-            A glossary defines a term. A data catalog says where a field
-            lives. Neither can hold how concepts relate, or trace an actual
-            fact back to its evidence. An Ontology is the skeleton of a
-            decision, not a table mapping one name to another: it classifies
-            what an organization deals with — equipment, contracts,
-            customers, regulations — and the relationships and constraints
-            that hold among them. A constraint matters as much as a
-            relationship: that "an anomaly requires work" does not mean
-            every anomaly justifies stopping a line — the target equipment,
-            the threshold, the regulation's version, and the exception
-            procedure all travel with it.
-          </p>
-          <p>
-            Two departments calling the same thing "Customer" and "Account"
-            is not, by itself, proof they mean the same concept. Collapsing
-            aliases on the strength of matching names alone produces exactly
-            the kind of confident, plausible-looking error a Runtime cannot
-            recover from. An Evidence-Grounded Ontology resolves an alias to
-            one Canonical Name only when the merge is backed by definition,
-            evidence, and scope — and leaves it as an open candidate, not a
-            confirmed match, when it isn't.
-          </p>
-          <ul>
-            <li>alias integration to a single Canonical Name</li>
-            <li>concept merge and concept split</li>
-            <li>version management</li>
-            <li>impact analysis before a change is applied</li>
-          </ul>
-        </div>
-
-        <div class="col-text">
-          <h3>Knowledge Graph and Graph RAG</h3>
-          <p>
-            The Knowledge Graph connects documents, entities, relations,
-            events, rules, and constraints across every source that touched
-            them — the context a single retrieved passage cannot carry on
-            its own. An Evidence-Grounded Graph goes further: every node and
-            relationship can be traced back to the source text, record, or
-            regulation it came from, so a hypothesis, an LLM's inference,
-            and an observed fact are never allowed to look like the same
-            thing. Graph RAG retrieves against that structure, not against
-            embeddings alone:
-          </p>
-          <ul>
-            <li>embedding search</li>
-            <li>entity resolution</li>
-            <li>graph traversal</li>
-            <li>Policy and Constraint retrieval</li>
-            <li>context assembly</li>
-            <li>trace recording</li>
-          </ul>
-          <code class="quote">
-            A knowledge graph is not a bigger index.
-            It is the path a decision walks
-            across sources, toward a rule
-            that actually applies.
-          </code>
-        </div>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/11.png"
-           data-lightbox aria-label="Open the ontology construction diagram">
-          <img src="assets2/11.png"
-               alt="Ontology construction — different department terms for the same concept (Customer, Client, Account, Patron) resolved through concept resolution and alias integration into one Canonical Name, then organized into a unified conceptual model with sub-types such as Corporate, Individual, and Strategic Customer."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Different words, same concept — resolved to one Canonical Name the rest of the pipeline can depend on.</figcaption>
-      </figure>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/12.png"
-           data-lightbox aria-label="Open the Knowledge Graph diagram">
-          <img src="assets2/12.png"
-               alt="Knowledge Graph — structured knowledge including entities, relations, constraints, events, and intent connected into a network of relationships such as Customer, Order, Product, Factory, Machine, and Inspection, enabling multi-hop inference, traceability, and explainability."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Knowledge held as a network of relationships, not a set of documents, is what makes multi-hop inference and traceability possible.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 04 PUT KNOWLEDGE TO WORK ============ -->
-  <section class="research-section" id="put-to-work" aria-labelledby="work-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">04 / Put Knowledge to Work: The Semantic Decision Runtime</div>
-        <h2 id="work-h">DSL, Policy, and a Runtime That Can Act</h2>
-        <p class="section-lede">
-          Organized knowledge is still not a decision. A DSL makes a rule's
-          condition, exception, and authority explicit enough for a Runtime
-          to evaluate the same way every time. The Semantic Decision Runtime
-          is what actually resolves a live situation against that knowledge
-          — checking a condition, flagging an exception, or requesting an
-          approval — and it is not the same system as Knowledge Flow.
-          Knowledge Flow builds and governs the knowledge; the Runtime
-          decides, live, whether it may be used.
-        </p>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>A DSL Is a Knowledge Asset, Not a Program</h3>
-          <p>
-            A DSL is not a direct execution command. It is an input the
-            Decision Runtime evaluates together with Policy, Constraint,
-            Boundary, Risk, and Human Authority — formalizing:
-          </p>
-          <ul>
-            <li>Rule Identity and Scope</li>
-            <li>Context Condition</li>
-            <li>Action and Authority</li>
-            <li>Exception and Priority</li>
-            <li>Effective Period</li>
-            <li>Trace Source</li>
-          </ul>
-          <p>
-            Every element here ties the rule back to who is responsible for
-            it, what document it came from, and which version is currently
-            in force.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>Validating and Governing a Rule</h3>
-          <p>
-            A rule is not trusted the moment it is generated. Before
-            publication it passes through:
-          </p>
-          <ul>
-            <li>schema, ontology, type, and unit validation</li>
-            <li>conflict detection — action, authority, priority, scope, temporal</li>
-            <li>versioning and diff review</li>
-            <li>human review, proportional to risk</li>
-            <li>rollback, if a published rule turns out to be wrong</li>
-          </ul>
-          <code class="quote">
-            A DSL is not the decision.
-            It is the condition
-            under which a Runtime
-            is allowed to reach one.
-          </code>
-        </div>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/13.png"
-           data-lightbox aria-label="Open the DSL generation diagram">
-          <img src="assets2/13.png"
-               alt="DSL Generator — a natural-language rule from an enterprise document, such as a contract-amount approval condition, passed through LLM-based rule extraction and validation into an executable DSL rule with IF and THEN clauses."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">A decision rule buried in a document is extracted, validated, and formalized into an executable — but not self-executing — DSL rule.</figcaption>
-      </figure>
-
-      <p style="max-width:760px; color:var(--fg-mute); font-size:15.5px; line-height:1.85; margin-top:clamp(40px,5vw,56px);">
-        What makes this a Semantic Decision Runtime rather than a rules
-        engine is that Trust is treated as more than one property: whether
-        an Agent's Capability, Knowledge, Intent, Compliance,
-        Explainability, and Impact can all be confirmed for this specific
-        action. A Boundary sets what a Runtime must never do regardless of
-        confidence; a Human Gate decides, in advance, which actions require
-        a person; and a Trace records the path — Request, Evidence,
-        Authority, judgment, execution, Outcome — so a question like "why
-        wasn't it stopped" can be answered from what applied at the time,
-        not from the model's own explanation of itself.
-      </p>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/18.png"
-           data-lightbox aria-label="Open the Decision Trace Model diagram">
-          <img src="assets2/18.png"
-               alt="Decision Trace Model chain — Need, Goal, Context, Constraint, Policy, Decision, Action, and Trace — each stage paired with the question it answers, from what is needed through why the decision was made."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Every stage a Decision Runtime evaluates answers one explicit question — down to why.</figcaption>
-      </figure>
-
-      <div class="two-col" style="margin-top:clamp(56px,7vw,80px);">
-        <div class="col-text">
-          <h3>Two Systems, One Loop</h3>
-          <p>
-            Knowledge Flow is responsible for acquiring, structuring,
-            validating, governing, and distributing knowledge. The Runtime
-            OS is responsible for something different — resolving the
-            current Context and evaluating Ontology, Knowledge Graph, DSL,
-            Policy, Boundary, Risk, and Human Authority against it, live,
-            at the moment a decision is needed.
-          </p>
-          <p>
-            Neither replaces the other. Knowledge Flow without a Runtime is
-            an archive; a Runtime without Knowledge Flow is a model
-            guessing at rules it was never given.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>The Decision Runtime Kernel</h3>
-          <p>The kernel connects, in sequence:</p>
-          <ul>
-            <li>Context Loading</li>
-            <li>Ontology Resolution</li>
-            <li>Knowledge Graph Retrieval</li>
-            <li>DSL Evaluation</li>
-            <li>Policy, Boundary, and Risk Evaluation</li>
-            <li>Human Authority</li>
-            <li>Execution Permission</li>
-            <li>Decision Trace</li>
-          </ul>
-          <code class="quote">
-            The LLM is not the final authority.
-            Execution permission and the reasoning
-            behind it stay separate — and on failure,
-            the system falls to the safe side,
-            traceable back to the source document.
-          </code>
-        </div>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/17.png"
-           data-lightbox aria-label="Open the diagram connecting Knowledge Flow to the Decision Runtime">
-          <img src="assets2/17.png"
-               alt="Connection with Decision Runtime — Knowledge Flow produces Ontology, Knowledge Graph, DSL, Policy, and Constraint, which feed the Decision Runtime Kernel, the Runtime OS, a Decision, and finally an Action."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Knowledge Flow creates knowledge; the Decision Runtime Kernel and Runtime OS use it to decide and act.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 05 OPERATE AND LEARN ============ -->
-  <section class="research-section" id="operate-and-learn" aria-labelledby="operate-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">05 / Operate and Learn: The Review and Update Loop</div>
-        <h2 id="operate-h">Knowledge Is Not a Finished Asset</h2>
-        <p class="section-lede">
-          Publishing a Knowledge Asset is not the end of the story. Every
-          asset needs an owner and a lifecycle, and every override a person
-          makes at runtime is a signal worth learning from — not just an
-          exception to log. This loop is what keeps Knowledge Flow from
-          being a one-time integration project.
-        </p>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>What Every Knowledge Asset Carries</h3>
-          <p>Beyond its content, each asset carries:</p>
-          <ul>
-            <li>Owner and Authority</li>
-            <li>Validity and Scope</li>
-            <li>Confidentiality</li>
-            <li>Provenance</li>
-            <li>Version and Lifecycle state</li>
-          </ul>
-          <p>
-            Change arrives from many directions — a new document, an ECN, a
-            revised policy, a conversation, or an event on the floor. Each
-            has to propagate through Knowledge Candidate, Ontology, Knowledge
-            Graph, DSL, and Repository, in an order that keeps the system
-            consistent rather than momentarily contradictory.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>A Loop, Not a One-Way Ingestion</h3>
-          <p>
-            For anything that matters — a new extraction, a rule change, a
-            concept change — a human can:
-          </p>
-          <ul>
-            <li>Review the diff against the previous version</li>
-            <li>Approve it as-is</li>
-            <li>Reject it</li>
-            <li>Override what the system proposed</li>
-          </ul>
-          <p>
-            When a person overrides a rule — requiring an extra approval a
-            DSL didn't ask for — that override is itself a signal. Left as
-            personal judgment, the next person facing the same situation
-            decides differently. Fed back into the pipeline, repeated
-            overrides become a Knowledge Candidate — a new constraint, a
-            policy exception, a DSL update — reviewed like any other
-            candidate, then published.
-          </p>
-          <code class="quote">
-            Not a smarter model.
-            A learning organization.
-            Every override is a signal,
-            not just an exception.
-          </code>
-        </div>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/15.png"
-           data-lightbox aria-label="Open the continuous knowledge evolution diagram">
-          <img src="assets2/15.png"
-               alt="An eight-step continuous knowledge evolution loop: a new document triggers knowledge extraction, then updates to the Ontology, the Knowledge Graph, and the DSL, followed by human review, publication to the Knowledge Repository, and the next update."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Not a one-time project — a foundation that keeps evolving with every new document and every review.</figcaption>
-      </figure>
-
-      <figure class="figure figure-wide figure-standard">
+      <p class="prose fig-lead">Human Review is where proposal and acceptance become concrete. This lighter, earlier illustration shows the exchange: the AI proposes and highlights differences, and a person reviews, edits, approves, rejects, or governs.</p>
+      <figure class="figure figure-standard fig-after-lead">
         <a class="figure-frame" href="assets2/16.png"
            data-lightbox aria-label="Open the human-in-the-loop diagram">
           <img src="assets2/16.png"
-               alt="Human-in-the-loop cycle — the AI extracts, proposes, identifies differences, generates rules, and suggests relationships; a human reviews, edits, approves, rejects, or governs, in a continuous exchange."
+               alt="Human-in-the-loop cycle. The AI extracts, proposes, identifies differences, generates rules, and suggests relationships. A human reviews, edits, approves, rejects, or governs, in a continuous exchange."
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">Knowledge is co-created: the AI proposes, a person reviews, edits, approves, rejects, or governs.</figcaption>
+        <figcaption class="figure-caption">The AI proposes; a person reviews, edits, approves, rejects, or governs.</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- ============ 06 APPLICATIONS ============ -->
-  <section class="research-section" id="applications" aria-labelledby="applications-h">
+  <!-- ============ 07 WHAT A SYSTEM MUST PROVE ============ -->
+  <section class="research-section" id="prove" aria-labelledby="prove-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">06 / Applications</div>
-        <h2 id="applications-h">Applications</h2>
+        <div class="section-label">07 / What a Knowledge Flow System Must Prove</div>
+        <h2 id="prove-h">Seven Things It Should Be Able to Show</h2>
         <p class="section-lede">
-          In each domain below, what decides the outcome is not how fluent
-          the underlying model sounds. It is whether the knowledge behind an
-          answer carries the right meaning, source, validity, authority,
-          Decision Trace, and human review for that domain.
+          A fluent answer proves nothing about its own basis. The test of a
+          Knowledge Flow system is whether, for an important decision, it
+          can show each of the following from its records.
         </p>
       </div>
 
-      <div class="essays">
-        <div class="essay">
-          <div class="kicker">Manufacturing</div>
-          <h3>Manufacturing</h3>
-          <p>Design standards, quality criteria, ECNs, CAPA, and equipment maintenance rules all change on their own schedules. What matters is not whether an AI can summarize a spec, but whether it can trace a current rule back to the ECN that changed it, and whether a CAPA-derived constraint reaches the shop floor as a validated rule rather than a paraphrase.</p>
+      <div class="table-wrap">
+        <table class="compare-table is-wrap" aria-label="What a Knowledge Flow system must prove">
+          <thead>
+            <tr><th scope="col">The question</th><th scope="col">What it should be able to show</th><th scope="col">Where the proof lives</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Does evidence exist?</th><td>Claims tied to identifiable sources, or an explicit statement that support is missing.</td><td>Evidence Pack, chunk provenance</td></tr>
+            <tr><th scope="row">Is it still valid?</th><td>Effective period, version, and last verification for each claim, checked against the decision date.</td><td>Chunk time fields, Retrieval Receipt as-of time</td></tr>
+            <tr><th scope="row">Were contradictions checked?</th><td>Conflicting sources searched for, found or not found, and how any conflict was resolved or escalated.</td><td>Evidence Pack, Retrieval Receipt</td></tr>
+            <tr><th scope="row">Was access appropriate?</th><td>Permissions inherited from the sources and applied before ranking, and what was excluded because of them.</td><td>Retrieval Receipt, access boundary</td></tr>
+            <tr><th scope="row">Are decider and approver clear?</th><td>A named person or role, the authority they acted under, and the policy version applied. Approved knowledge alone is not permission to act.</td><td>Decision Trace</td></tr>
+            <tr><th scope="row">Can the result be followed?</th><td>The action taken, when, and its outcome, linked to the decision that permitted it.</td><td>Execution record, Decision Trace</td></tr>
+            <tr><th scope="row">Can learning return?</th><td>Feedback captured, reviewed, and published as a versioned change to knowledge or policy.</td><td>Feedback log, knowledge-layer version history</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">A system that cannot show one of these rows is not necessarily wrong. It is unable to demonstrate that it was right, and the decisions that depend on that row deserve extra review.</p>
+    </div>
+  </section>
+
+  <!-- ============ 08 PRACTICAL PATTERNS ============ -->
+  <section class="research-section" id="patterns" aria-labelledby="patterns-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">08 / Practical Patterns</div>
+        <h2 id="patterns-h">Five Generalized Scenarios</h2>
+        <p class="section-lede">
+          The same structure appears in very different work. In each case,
+          the AI's job is to gather and organize, a person's job is to
+          decide, and the record decides how much can be learned afterwards.
+        </p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="compare-table is-wrap" aria-label="Practical Knowledge Flow patterns">
+          <thead>
+            <tr><th scope="col">Pattern</th><th scope="col">What the AI handles</th><th scope="col">What people decide</th><th scope="col">Evidence and trace to keep</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Internal investigation</th><td>Searches records and messages, builds a timeline, and flags gaps and conflicting accounts.</td><td>What the findings mean, who is told, and what follows.</td><td>Sources reached and not reached, the timeline with provenance, and the reviewer's conclusion.</td></tr>
+            <tr><th scope="row">Operational incident review</th><td>Correlates logs, change records, and past incidents, and proposes candidate causes.</td><td>Accepted root cause, remediation, and whether to change a procedure.</td><td>Receipt of what was queried, evidence for each candidate cause, and the approved corrective action.</td></tr>
+            <tr><th scope="row">Policy and contract check</th><td>Locates applicable clauses and versions, and notes exceptions and overlaps.</td><td>Interpretation, approval of an exception, or escalation to legal or compliance.</td><td>Clause versions and effective dates, conflicts noted, and the approver with their authority.</td></tr>
+            <tr><th scope="row">Customer response support</th><td>Retrieves entitlement, history, and current guidance, then drafts a reply.</td><td>What is promised, any exception to standard terms, and when to hand off.</td><td>Sources behind each statement in the reply, and any exception granted with who granted it.</td></tr>
+            <tr><th scope="row">Design review</th><td>Compares a proposal with standards, prior decisions, and dependencies across parts.</td><td>Approval, required changes, or accepted deviation with its rationale.</td><td>Standards and versions checked, impacts found through relations, and the recorded sign-off.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">These are generalized patterns for discussion, not descriptions of any particular organization, customer, or deployment, and they carry no claims about results. What may be automated in a given setting depends on its risks, regulations, and the evidence gathered there.</p>
+    </div>
+  </section>
+
+  <!-- ============ 09 ADOPTION SEQUENCE ============ -->
+  <section class="research-section" id="adoption" aria-labelledby="adoption-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">09 / Adoption Sequence</div>
+        <h2 id="adoption-h">Start With One Decision, Not the Whole Library</h2>
+        <p class="section-lede">
+          The usual first move is to ingest everything. A more reliable path
+          starts from a single decision that matters and builds only the
+          knowledge flow that decision needs, then widens as the record
+          proves itself.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-3">
+        <div class="concept">
+          <div class="idx">Step 01</div>
+          <h3>Choose a high-value decision</h3>
+          <p>Pick one recurring decision where bad evidence is costly and the people involved are known. Define what a good outcome looks like.</p>
         </div>
-        <div class="essay">
-          <div class="kicker">Finance</div>
-          <h3>Finance</h3>
-          <p>Credit, contract, risk, and compliance decisions depend on rules that are explainable and separable from the score that feeds them. A credit judgment is only as good as its ability to show which policy, which contract clause, and which risk limit it applied — and who is authorized to override it.</p>
+        <div class="concept">
+          <div class="idx">Step 02</div>
+          <h3>Define evidence and authority</h3>
+          <p>List the sources that count, who owns them, who may see them, and who may decide. State what the system may propose and what it must not.</p>
         </div>
-        <div class="essay">
-          <div class="kicker">Healthcare</div>
-          <h3>Healthcare</h3>
-          <p>Clinical guidelines are not absolute commands, and AI is not the final diagnostician. Contraindications, patient context, and evidence level all have to be tracked with their own provenance, and a human retains authority over anything the system proposes — especially where guidelines conflict.</p>
+        <div class="concept">
+          <div class="idx">Step 03</div>
+          <h3>Build chunks and retrieval quality</h3>
+          <p>Shape Semantic Chunks for that scope and test retrieval against real questions, including ones whose right answer is that evidence is missing.</p>
         </div>
-        <div class="essay">
-          <div class="kicker">Enterprise Knowledge</div>
-          <h3>Enterprise Knowledge</h3>
-          <p>SharePoint, Teams, Slack, and wikis hold both formal and informal knowledge side by side, and they disagree with each other constantly. Turning a Slack thread into a Knowledge Candidate, detecting when it contradicts a formal document, and keeping access control inherited from the source — not flattened — matters more than making search feel faster.</p>
+        <div class="concept">
+          <div class="idx">Step 04</div>
+          <h3>Introduce Evidence and Receipts</h3>
+          <p>Have every answer return an Evidence Pack and a Retrieval Receipt, so reviewers can see support, gaps, and conflicts instead of only prose.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">Step 05</div>
+          <h3>Run a limited trial with review</h3>
+          <p>Operate with named reviewers on a bounded set of cases. Record Decision Traces and measure how often review changed the outcome.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">Step 06</div>
+          <h3>Feed results back and extend</h3>
+          <p>Compare outcomes with expectations, turn overrides and corrections into reviewed knowledge changes, and only then widen scope or autonomy.</p>
         </div>
       </div>
     </div>
@@ -982,14 +1150,13 @@
   <section class="research-section" id="explore" aria-labelledby="explore-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">07 / Explore — Books, Video, and the Blog</div>
+        <div class="section-label">10 / Explore — Books, Video, and the Blog</div>
         <h2 id="explore-h">Read, Watch, and Go Deeper</h2>
         <p class="section-lede">
-          The guide below is this page's spine. The books, videos, and
-          essays that follow walk the same arc — start with the overview,
-          then Semantic Chunk and the Evidence-Grounded Ontology, then the
-          Semantic Decision Runtime — so a first-time reader can follow the
-          same path in whichever medium fits.
+          The books, videos, and essays below go deeper on the pieces
+          this page connects — the Knowledge Flow pipeline, Semantic Chunk,
+          Evidence-Grounded Ontology, and the Decision Runtime — so a
+          reader can follow the same arc in whichever medium fits.
         </p>
       </div>
 
@@ -1081,15 +1248,6 @@
   <!-- ============ CLOSING ============ -->
   <section class="research-section closing" id="closing" aria-labelledby="closing-h">
     <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
-    <figure class="figure figure-standard" style="margin-bottom: 48px;">
-      <a class="figure-frame" href="assets2/20.png"
-         data-lightbox aria-label="Open the diagram of what Knowledge Flow enables">
-        <img src="assets2/20.png"
-             alt="What Knowledge Flow enables — Unified Meaning, Structured Knowledge, Executable Rules, Explainable Decisions, Continuous Learning, and Human-AI Collaboration."
-             loading="lazy">
-      </a>
-      <figcaption class="figure-caption">Knowledge Flow is the mechanism that turns corporate knowledge into a future-ready, continuously learning asset.</figcaption>
-    </figure>
     <div class="positioning" aria-label="Research positioning within the Chinoba architecture">
       <span class="here">Knowledge Flow</span>
       <span>↓</span>
@@ -1104,18 +1262,20 @@
       <span>Runtime Society</span>
     </div>
     <blockquote>
-      <span>Knowledge Flow is not a way to collect more information.</span>
-      <span>It is how distributed, siloed information becomes a Knowledge Asset —</span>
-      <span>one that carries meaning, source, validity, scope,</span>
-      <span>responsibility, and the ability to be updated.</span>
+      <span>Knowledge Flow matures not when</span>
+      <span>information moves faster, but when</span>
+      <span>the loop from signal to evidence,</span>
+      <span>decision, action, and learning</span>
+      <span>improves with each turn.</span>
       <span>&nbsp;</span>
-      <span>That is the condition on which AI and humans</span>
-      <span>can make a better decision together, not merely a faster one.</span>
+      <span>Better evidence, clearer authority,</span>
+      <span>honest statements of what is not known,</span>
+      <span>and a record that lets the next</span>
+      <span>person ask why.</span>
       <span>&nbsp;</span>
-      <span>Chinoba studies how Ontology, Knowledge Graph, DSL, Decision Trace,</span>
-      <span>the Decision Runtime Kernel, and the Runtime OS connect,</span>
-      <span>so that knowledge keeps circulating through decision,</span>
-      <span>execution, and learning — rather than stopping at an answer.</span>
+      <span>That is how an organization learns,</span>
+      <span>without giving up its boundaries</span>
+      <span>along the way.</span>
     </blockquote>
     <div class="closing-mark">Chinoba.org</div>
     <p class="closing-cta">
