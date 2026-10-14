@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 860" width="1200" height="860" role="img" aria-labelledby="t d" font-family="Arial, Helvetica, sans-serif">
+<title id="t">Revocation, Break-glass, Human Approval and the Kill Switch</title><desc id="d">Execution runs through an agent, an authorization gate and a tool runner. A separate control path — human approval, time-limited break-glass, revocation and a kill switch — acts on the gate, the tool queue and external connections without depending on the agent or orchestrator.</desc>
+<defs><marker id="ablue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#60a5fa"/></marker><marker id="agreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#4ade80"/></marker><marker id="aorange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#fb923c"/></marker><marker id="apurple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker><marker id="ared" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f87171"/></marker><marker id="agray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#94a3b8"/></marker></defs>
+<rect width="1200" height="860" fill="#0b1220"/>
+<text x="600" y="46" font-size="30" fill="#f8fafc" font-weight="bold" text-anchor="middle">Control That Does Not Depend on the Agent</text>
+<text x="600" y="78" font-size="17" fill="#94a3b8" text-anchor="middle">Approval, exception, revocation and stop act through a separate path</text>
+<text x="60" y="128" font-size="15" fill="#94a3b8" font-weight="bold" text-anchor="start">GOVERNED EXECUTION PATH</text>
+<rect x="60" y="145" width="240" height="100" rx="12" fill="#12213f" stroke="#60a5fa" stroke-width="2"/>
+<text x="180" y="184" font-size="20" fill="#60a5fa" font-weight="bold" text-anchor="middle">Agent /</text>
+<text x="180" y="212" font-size="18" fill="#cbd5e1" text-anchor="middle">orchestrator</text>
+<rect x="340" y="145" width="240" height="100" rx="12" fill="#2d1d10" stroke="#fb923c" stroke-width="2"/>
+<text x="460" y="184" font-size="20" fill="#fb923c" font-weight="bold" text-anchor="middle">Authorization</text>
+<text x="460" y="212" font-size="18" fill="#cbd5e1" text-anchor="middle">gate</text>
+<rect x="620" y="145" width="240" height="100" rx="12" fill="#10281d" stroke="#4ade80" stroke-width="2"/>
+<text x="740" y="184" font-size="20" fill="#4ade80" font-weight="bold" text-anchor="middle">Tool &amp;</text>
+<text x="740" y="212" font-size="18" fill="#cbd5e1" text-anchor="middle">execution runner</text>
+<rect x="900" y="145" width="240" height="100" rx="12" fill="#2d1517" stroke="#f87171" stroke-width="2"/>
+<text x="1020" y="184" font-size="20" fill="#f87171" font-weight="bold" text-anchor="middle">External</text>
+<text x="1020" y="212" font-size="18" fill="#cbd5e1" text-anchor="middle">systems and data</text>
+<line x1="300" y1="195" x2="338" y2="195" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#agray)"/>
+<line x1="580" y1="195" x2="618" y2="195" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#agray)"/>
+<line x1="860" y1="195" x2="898" y2="195" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#agray)"/>
+<rect x="40" y="340" width="1120" height="390" rx="16" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="10 8"/>
+<rect x="60" y="380" width="240" height="170" rx="12" fill="#1e1838" stroke="#a78bfa" stroke-width="2"/>
+<text x="180.0" y="424" font-size="20" fill="#a78bfa" font-weight="bold" text-anchor="middle">Human approval</text>
+<text x="180.0" y="452" font-size="16" fill="#cbd5e1" text-anchor="middle">Approves one specific</text>
+<text x="180.0" y="476" font-size="16" fill="#cbd5e1" text-anchor="middle">action, bound to its</text>
+<text x="180.0" y="500" font-size="16" fill="#cbd5e1" text-anchor="middle">exact arguments</text>
+<rect x="340" y="380" width="240" height="170" rx="12" fill="#2d1d10" stroke="#fb923c" stroke-width="2"/>
+<text x="460.0" y="424" font-size="20" fill="#fb923c" font-weight="bold" text-anchor="middle">Break-glass</text>
+<text x="460.0" y="452" font-size="16" fill="#cbd5e1" text-anchor="middle">Narrow, time-limited,</text>
+<text x="460.0" y="476" font-size="16" fill="#cbd5e1" text-anchor="middle">logged exception with</text>
+<text x="460.0" y="500" font-size="16" fill="#cbd5e1" text-anchor="middle">a named approver</text>
+<rect x="620" y="380" width="240" height="170" rx="12" fill="#12213f" stroke="#60a5fa" stroke-width="2"/>
+<text x="740.0" y="424" font-size="20" fill="#60a5fa" font-weight="bold" text-anchor="middle">Revocation</text>
+<text x="740.0" y="452" font-size="16" fill="#cbd5e1" text-anchor="middle">Cancels credentials,</text>
+<text x="740.0" y="476" font-size="16" fill="#cbd5e1" text-anchor="middle">sessions and</text>
+<text x="740.0" y="500" font-size="16" fill="#cbd5e1" text-anchor="middle">delegations</text>
+<rect x="900" y="380" width="240" height="170" rx="12" fill="#2d1517" stroke="#f87171" stroke-width="2"/>
+<text x="1020.0" y="424" font-size="20" fill="#f87171" font-weight="bold" text-anchor="middle">Kill switch</text>
+<text x="1020.0" y="452" font-size="16" fill="#cbd5e1" text-anchor="middle">Halts the execution</text>
+<text x="1020.0" y="476" font-size="16" fill="#cbd5e1" text-anchor="middle">queue and severs</text>
+<text x="1020.0" y="500" font-size="16" fill="#cbd5e1" text-anchor="middle">external connections</text>
+<path d="M180 380 L180 272 L400 272 L400 247" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#apurple)"/>
+<path d="M460 380 L460 247" fill="none" stroke="#fb923c" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#aorange)"/>
+<path d="M740 380 L740 316 L520 316 L520 247" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#ablue)"/>
+<path d="M1020 380 L1020 247" fill="none" stroke="#f87171" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#ared)"/>
+<path d="M1020 292 L740 292 L740 247" fill="none" stroke="#f87171" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#ared)"/>
+<rect x="60" y="575" width="1080" height="85" rx="12" fill="#1a2233" stroke="#94a3b8" stroke-width="2"/>
+<text x="600.0" y="609" font-size="19" fill="#94a3b8" font-weight="bold" text-anchor="middle">All of it is recorded</text>
+<text x="600.0" y="636" font-size="17" fill="#cbd5e1" text-anchor="middle">Each approval, exception, revocation and stop writes to the Decision Trace; the agent cannot edit that Trace.</text>
+<text x="60" y="694" font-size="15" fill="#94a3b8" font-weight="bold" text-anchor="start">INDEPENDENT CONTROL PATH</text>
+<text x="60" y="716" font-size="16" fill="#cbd5e1" text-anchor="start">Separate identity, credentials and runtime from the agent and orchestrator it controls</text>
+<rect x="60" y="765" width="1080" height="70" rx="12" fill="#1e1838" stroke="#a78bfa" stroke-width="2"/>
+<text x="600" y="795" font-size="17" fill="#cbd5e1" text-anchor="middle">Verifier objections, policy conflicts and emergency requests escalate to a named human authority,</text>
+<text x="600" y="820" font-size="17" fill="#cbd5e1" text-anchor="middle">never back to the agent that raised them.</text>
+</svg>

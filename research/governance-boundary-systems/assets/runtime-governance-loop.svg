@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-labelledby="t d" font-family="Arial, Helvetica, sans-serif">
+<title id="t">The Runtime Governance Loop</title><desc id="d">A request passes through context assembly, policy evaluation, evidence check and authorization. Authorization resolves to execute, escalate or stop. Every outcome is written to the decision trace, reviewed, and fed back into policy.</desc>
+<defs><marker id="ablue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#60a5fa"/></marker><marker id="agreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#4ade80"/></marker><marker id="aorange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#fb923c"/></marker><marker id="apurple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker><marker id="ared" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f87171"/></marker><marker id="agray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#94a3b8"/></marker></defs>
+<rect width="1200" height="800" fill="#0b1220"/>
+<text x="600" y="46" font-size="30" fill="#f8fafc" font-weight="bold" text-anchor="middle">The Runtime Governance Loop</text>
+<text x="600" y="78" font-size="17" fill="#94a3b8" text-anchor="middle">Approved policy is applied and recorded consistently; it is not decided by the runtime</text>
+<rect x="60" y="130" width="240" height="110" rx="12" fill="#1e1838" stroke="#a78bfa" stroke-width="2"/>
+<text x="180.0" y="174" font-size="20" fill="#a78bfa" font-weight="bold" text-anchor="middle">1  Request</text>
+<text x="180.0" y="202" font-size="16" fill="#cbd5e1" text-anchor="middle">who asks, for what</text>
+<rect x="340" y="130" width="240" height="110" rx="12" fill="#12213f" stroke="#60a5fa" stroke-width="2"/>
+<text x="460.0" y="174" font-size="20" fill="#60a5fa" font-weight="bold" text-anchor="middle">2  Context Assembly</text>
+<text x="460.0" y="202" font-size="16" fill="#cbd5e1" text-anchor="middle">sources, identity, state</text>
+<rect x="620" y="130" width="240" height="110" rx="12" fill="#12213f" stroke="#60a5fa" stroke-width="2"/>
+<text x="740.0" y="174" font-size="20" fill="#60a5fa" font-weight="bold" text-anchor="middle">3  Policy Evaluation</text>
+<text x="740.0" y="202" font-size="16" fill="#cbd5e1" text-anchor="middle">approved rules, boundaries</text>
+<rect x="900" y="130" width="240" height="110" rx="12" fill="#12213f" stroke="#60a5fa" stroke-width="2"/>
+<text x="1020.0" y="174" font-size="20" fill="#60a5fa" font-weight="bold" text-anchor="middle">4  Evidence Check</text>
+<text x="1020.0" y="202" font-size="16" fill="#cbd5e1" text-anchor="middle">valid, current, in scope</text>
+<line x1="300" y1="185" x2="338" y2="185" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#agray)"/>
+<line x1="580" y1="185" x2="618" y2="185" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#agray)"/>
+<line x1="860" y1="185" x2="898" y2="185" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#agray)"/>
+<path d="M1020 240 L1020 300" fill="none" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#agray)"/>
+<rect x="900" y="300" width="240" height="110" rx="12" fill="#2d1d10" stroke="#fb923c" stroke-width="2"/>
+<text x="1020.0" y="344" font-size="20" fill="#fb923c" font-weight="bold" text-anchor="middle">5  Authorization</text>
+<text x="1020.0" y="372" font-size="16" fill="#cbd5e1" text-anchor="middle">may this act proceed?</text>
+<path d="M1020 410 L1020 450 L180 450 L180 480" fill="none" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#agray)"/>
+<path d="M1020 450 L460 450 L460 480" fill="none" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#agray)"/>
+<line x1="740" y1="450" x2="740" y2="480" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#agray)"/>
+<rect x="60" y="480" width="240" height="100" rx="12" fill="#10281d" stroke="#4ade80" stroke-width="2"/>
+<text x="180.0" y="522" font-size="20" fill="#4ade80" font-weight="bold" text-anchor="middle">Execute</text>
+<text x="180.0" y="550" font-size="16" fill="#cbd5e1" text-anchor="middle">within scope, with limits</text>
+<rect x="340" y="480" width="240" height="100" rx="12" fill="#2d1d10" stroke="#fb923c" stroke-width="2"/>
+<text x="460.0" y="522" font-size="20" fill="#fb923c" font-weight="bold" text-anchor="middle">Escalate</text>
+<text x="460.0" y="550" font-size="16" fill="#cbd5e1" text-anchor="middle">human approver or verifier</text>
+<rect x="620" y="480" width="240" height="100" rx="12" fill="#2d1517" stroke="#f87171" stroke-width="2"/>
+<text x="740.0" y="522" font-size="20" fill="#f87171" font-weight="bold" text-anchor="middle">Stop / Deny</text>
+<text x="740.0" y="550" font-size="16" fill="#cbd5e1" text-anchor="middle">refuse, quarantine, record</text>
+<text x="1020" y="520" font-size="16" fill="#94a3b8" text-anchor="middle">Escalate, Stop and</text>
+<text x="1020" y="546" font-size="16" fill="#94a3b8" text-anchor="middle">Deny are valid results,</text>
+<text x="1020" y="572" font-size="16" fill="#94a3b8" text-anchor="middle">not system failures.</text>
+<path d="M180 580 L180 625" fill="none" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#agray)"/>
+<path d="M460 580 L460 625" fill="none" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#agray)"/>
+<path d="M740 580 L740 625" fill="none" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#agray)"/>
+<rect x="60" y="625" width="860" height="70" rx="12" fill="#1e1838" stroke="#a78bfa" stroke-width="2"/>
+<text x="490.0" y="655" font-size="20" fill="#a78bfa" font-weight="bold" text-anchor="middle">6  Decision Trace</text>
+<text x="490" y="677" font-size="16" fill="#cbd5e1" text-anchor="middle">request · context · policy version · evidence · approver · action · outcome</text>
+<path d="M920 660 L960 660" fill="none" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#agray)"/>
+<rect x="960" y="625" width="180" height="70" rx="12" fill="#1a2233" stroke="#94a3b8" stroke-width="2"/>
+<text x="1050.0" y="668" font-size="20" fill="#94a3b8" font-weight="bold" text-anchor="middle">7  Review</text>
+<path d="M1050 695 L1050 755 L30 755 L30 105 L740 105 L740 128" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#ablue)"/>
+<text x="540" y="780" font-size="16" fill="#60a5fa" text-anchor="middle">Review revises policy, boundaries and evidence requirements — the loop does not end at execution</text>
+</svg>

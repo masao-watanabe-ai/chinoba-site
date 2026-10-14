@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="t d" font-family="Arial, Helvetica, sans-serif">
+<title id="t">Governance and Boundary Systems</title><desc id="d">Seven boundaries evaluated at runtime decide what an AI may know, recommend, decide, execute and escalate under accountable human authority.</desc>
+<defs><marker id="ablue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#60a5fa"/></marker><marker id="agreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#4ade80"/></marker><marker id="aorange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#fb923c"/></marker><marker id="apurple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker><marker id="ared" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f87171"/></marker><marker id="agray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#94a3b8"/></marker></defs>
+<rect width="1200" height="630" fill="#0b1220"/>
+<text x="600" y="120" font-size="18" fill="#94a3b8" font-weight="bold" text-anchor="middle">CHINOBA  /  RESEARCH</text>
+<text x="600" y="200" font-size="54" fill="#f8fafc" font-weight="bold" text-anchor="middle">Governance &amp; Boundary Systems</text>
+<text x="600" y="252" font-size="26" fill="#60a5fa" font-weight="bold" text-anchor="middle">Boundaries evaluated at runtime — not only documented</text>
+<rect x="60" y="330" width="146" height="90" rx="12" fill="#12213f" stroke="#60a5fa" stroke-width="2"/>
+<text x="133.0" y="383" font-size="18" fill="#60a5fa" font-weight="bold" text-anchor="middle">Data</text>
+<rect x="215" y="330" width="146" height="90" rx="12" fill="#1e1838" stroke="#a78bfa" stroke-width="2"/>
+<text x="288.0" y="383" font-size="18" fill="#a78bfa" font-weight="bold" text-anchor="middle">Identity</text>
+<rect x="370" y="330" width="146" height="90" rx="12" fill="#10281d" stroke="#4ade80" stroke-width="2"/>
+<text x="443.0" y="383" font-size="18" fill="#4ade80" font-weight="bold" text-anchor="middle">Decision</text>
+<rect x="525" y="330" width="146" height="90" rx="12" fill="#2d1d10" stroke="#fb923c" stroke-width="2"/>
+<text x="598.0" y="383" font-size="18" fill="#fb923c" font-weight="bold" text-anchor="middle">Execution</text>
+<rect x="680" y="330" width="146" height="90" rx="12" fill="#2d1517" stroke="#f87171" stroke-width="2"/>
+<text x="753.0" y="383" font-size="18" fill="#f87171" font-weight="bold" text-anchor="middle">External</text>
+<rect x="835" y="330" width="146" height="90" rx="12" fill="#12213f" stroke="#60a5fa" stroke-width="2"/>
+<text x="908.0" y="383" font-size="18" fill="#60a5fa" font-weight="bold" text-anchor="middle">Time</text>
+<rect x="990" y="330" width="146" height="90" rx="12" fill="#1e1838" stroke="#a78bfa" stroke-width="2"/>
+<text x="1063.0" y="383" font-size="18" fill="#a78bfa" font-weight="bold" text-anchor="middle">Responsibility</text>
+<text x="600" y="480" font-size="24" fill="#cbd5e1" text-anchor="middle">what an AI may know · recommend · decide · execute · escalate</text>
+<text x="600" y="520" font-size="24" fill="#cbd5e1" text-anchor="middle">under accountable human authority</text>
+<text x="600" y="590" font-size="18" fill="#94a3b8" text-anchor="middle">chinoba.org/research/governance-boundary-systems</text>
+</svg>
