@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1060" width="1600" height="1060" role="img" aria-labelledby="t d">
+<title id="t">Separating code-change, release, and connection authority</title><desc id="d">Three separate keys: an Implementation Agent may change code in a sandbox; a Release Gate with a human approves deployment; a Connection Registry controls any new MCP, API, or A2A endpoint. A Kill Switch outside the agent control plane can revoke all of them.</desc>
+<defs><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7db7ff"/></marker><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5fd38d"/></marker><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ff6b6b"/></marker><marker id="am" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#b0b0b0"/></marker><marker id="ap" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#b48cff"/></marker><marker id="at" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#4fd1c5"/></marker><marker id="ay" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f0b35a"/></marker></defs>
+<rect width="1600" height="1060" fill="#0b0b0b"/>
+<text x="800.0" y="70" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="46" font-weight="700" fill="#f5f5f5" text-anchor="middle">Three Powers, Three Different Keys</text>
+<text x="800.0" y="118" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="26" font-weight="400" fill="#b0b0b0" text-anchor="middle">No agent — and no single approval — holds change, release, and connection authority together</text>
+<rect x="40" y="160" width="480" height="560" rx="16" fill="#111111" fill-opacity="1" stroke="#f0b35a" stroke-width="2.5"/>
+<rect x="64" y="184" width="100" height="34" rx="17" fill="#0b0b0b" fill-opacity="1" stroke="#f0b35a" stroke-width="1.5"/>
+<text x="114.0" y="208" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#f0b35a" text-anchor="middle" letter-spacing="1">KEY A</text>
+<text x="64" y="272" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="44" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="2">CHANGE</text>
+<text x="64" y="312" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="23" font-weight="400" fill="#b0b0b0" text-anchor="start">Who may alter code and config</text>
+<line x1="64" y1="338" x2="496" y2="338" stroke="#2a2a2a" stroke-width="1.5"/>
+<text x="64" y="382" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#6a6a6a" text-anchor="start" letter-spacing="2">HELD BY</text>
+<text x="64" y="416" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#f5f5f5" text-anchor="start">Implementation Agent</text>
+<text x="64" y="468" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#6a6a6a" text-anchor="start" letter-spacing="2">TOUCHES</text>
+<text x="64" y="502" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#f5f5f5" text-anchor="start">Sandbox branch · test env</text>
+<text x="64" y="554" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#6a6a6a" text-anchor="start" letter-spacing="2">CONDITIONS</text>
+<text x="64" y="588.0" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#b0b0b0" text-anchor="start">• Writes code, tests, config</text>
+<text x="64" y="621.0" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#b0b0b0" text-anchor="start">• Output is a change request</text>
+<rect x="64" y="644" width="432" height="52" rx="10" fill="#1c0f0f" fill-opacity="1" stroke="#ff6b6b" stroke-width="1.5"/>
+<text x="280.0" y="678" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="23" font-weight="700" fill="#ff6b6b" text-anchor="middle">✕  Cannot merge or deploy</text>
+<text x="540.0" y="450" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="40" font-weight="700" fill="#6a6a6a" text-anchor="middle">≠</text>
+<rect x="560" y="160" width="480" height="560" rx="16" fill="#111111" fill-opacity="1" stroke="#5fd38d" stroke-width="2.5"/>
+<rect x="584" y="184" width="100" height="34" rx="17" fill="#0b0b0b" fill-opacity="1" stroke="#5fd38d" stroke-width="1.5"/>
+<text x="634.0" y="208" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#5fd38d" text-anchor="middle" letter-spacing="1">KEY B</text>
+<text x="584" y="272" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="44" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="2">RELEASE</text>
+<text x="584" y="312" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="23" font-weight="400" fill="#b0b0b0" text-anchor="start">Who may put it into production</text>
+<line x1="584" y1="338" x2="1016" y2="338" stroke="#2a2a2a" stroke-width="1.5"/>
+<text x="584" y="382" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#6a6a6a" text-anchor="start" letter-spacing="2">HELD BY</text>
+<text x="584" y="416" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#f5f5f5" text-anchor="start">Release Gate + Human</text>
+<text x="584" y="468" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#6a6a6a" text-anchor="start" letter-spacing="2">TOUCHES</text>
+<text x="584" y="502" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#f5f5f5" text-anchor="start">Signed build · deploy permit</text>
+<text x="584" y="554" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#6a6a6a" text-anchor="start" letter-spacing="2">CONDITIONS</text>
+<text x="584" y="588.0" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#b0b0b0" text-anchor="start">• Verifier + tests must pass</text>
+<text x="584" y="621.0" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#b0b0b0" text-anchor="start">• Permit names target and window</text>
+<rect x="584" y="644" width="432" height="52" rx="10" fill="#1c0f0f" fill-opacity="1" stroke="#ff6b6b" stroke-width="1.5"/>
+<text x="800.0" y="678" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="23" font-weight="700" fill="#ff6b6b" text-anchor="middle">✕  Cannot author the change</text>
+<text x="1060.0" y="450" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="40" font-weight="700" fill="#6a6a6a" text-anchor="middle">≠</text>
+<rect x="1080" y="160" width="480" height="560" rx="16" fill="#111111" fill-opacity="1" stroke="#7db7ff" stroke-width="2.5"/>
+<rect x="1104" y="184" width="100" height="34" rx="17" fill="#0b0b0b" fill-opacity="1" stroke="#7db7ff" stroke-width="1.5"/>
+<text x="1154.0" y="208" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#7db7ff" text-anchor="middle" letter-spacing="1">KEY C</text>
+<text x="1104" y="272" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="44" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="2">CONNECT</text>
+<text x="1104" y="312" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="23" font-weight="400" fill="#b0b0b0" text-anchor="start">Who may open a new path outward</text>
+<line x1="1104" y1="338" x2="1536" y2="338" stroke="#2a2a2a" stroke-width="1.5"/>
+<text x="1104" y="382" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#6a6a6a" text-anchor="start" letter-spacing="2">HELD BY</text>
+<text x="1104" y="416" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#f5f5f5" text-anchor="start">Connection Registry + Owner</text>
+<text x="1104" y="468" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#6a6a6a" text-anchor="start" letter-spacing="2">TOUCHES</text>
+<text x="1104" y="502" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#f5f5f5" text-anchor="start">Allow-listed MCP · API · A2A</text>
+<text x="1104" y="554" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#6a6a6a" text-anchor="start" letter-spacing="2">CONDITIONS</text>
+<text x="1104" y="588.0" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#b0b0b0" text-anchor="start">• Each tool has owner, scope, risk</text>
+<text x="1104" y="621.0" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#b0b0b0" text-anchor="start">• Egress proxy enforces the list</text>
+<rect x="1104" y="644" width="432" height="52" rx="10" fill="#1c0f0f" fill-opacity="1" stroke="#ff6b6b" stroke-width="1.5"/>
+<text x="1320.0" y="678" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="23" font-weight="700" fill="#ff6b6b" text-anchor="middle">✕  Agents cannot self-register</text>
+<text x="40" y="770" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#6a6a6a" text-anchor="start" letter-spacing="3">TWO PATHS THE DESIGN MUST CLOSE</text>
+<rect x="40" y="790" width="750" height="96" rx="12" fill="#150d0d" fill-opacity="1" stroke="#ff6b6b" stroke-width="1.8"/>
+<text x="64" y="830" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="25" font-weight="700" fill="#ff6b6b" text-anchor="start">✕  Agent invents a connection</text>
+<text x="64" y="865" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#b0b0b0" text-anchor="start">→ registered, scanned and approved by a person first</text>
+<rect x="810" y="790" width="750" height="96" rx="12" fill="#150d0d" fill-opacity="1" stroke="#ff6b6b" stroke-width="1.8"/>
+<text x="834" y="830" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="25" font-weight="700" fill="#ff6b6b" text-anchor="start">✕  Code-changing agent deploys itself</text>
+<text x="834" y="865" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#b0b0b0" text-anchor="start">→ release permit is issued by a different party</text>
+<rect x="40" y="916" width="1520" height="110" rx="16" fill="#1c150a" fill-opacity="1" stroke="#f0b35a" stroke-width="2.5" stroke-dasharray="10 7"/>
+<text x="70" y="966" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#f0b35a" text-anchor="start">Kill Switch — held outside the agent control plane</text>
+<text x="70" y="1002" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#b0b0b0" text-anchor="start">Revokes permits, freezes agents, and cuts egress in one action. Triggered by monitors, owners, or the human approver.</text>
+</svg>
