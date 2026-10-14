@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-labelledby="t d" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif">
+<title id="t">Division of responsibility: AI, human, system of record</title><desc id="d">AI proposes with evidence, humans decide and own accountability, and the system of record executes approved changes and keeps the trace.</desc>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7db7ff"/></marker>
+<marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a8a"/></marker></defs>
+<rect width="800" height="500" fill="#0b0b0b"/>
+<rect x="30" y="60" width="230" height="290" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/>
+<text x="145" y="92" text-anchor="middle" fill="#f5f5f5" font-size="18" font-weight="600" letter-spacing="0">AI</text>
+<text x="145" y="114" text-anchor="middle" fill="#7db7ff" font-size="13" font-weight="400" letter-spacing="0">proposes</text>
+<path d="M50,128 H240" stroke="#2a2a2a"/>
+<text x="50" y="162" text-anchor="start" fill="#b0b0b0" font-size="13.5" font-weight="400" letter-spacing="0">Retrieves and cites evidence</text>
+<text x="50" y="208" text-anchor="start" fill="#b0b0b0" font-size="13.5" font-weight="400" letter-spacing="0">Drafts and compares options</text>
+<text x="50" y="254" text-anchor="start" fill="#b0b0b0" font-size="13.5" font-weight="400" letter-spacing="0">Flags uncertainty: Ask or Stop</text>
+<text x="50" y="300" text-anchor="start" fill="#b0b0b0" font-size="13.5" font-weight="400" letter-spacing="0">Never holds final accountability</text>
+<rect x="280" y="60" width="230" height="290" rx="4" fill="#111111" stroke="#7db7ff" stroke-width="1.5"/>
+<text x="395" y="92" text-anchor="middle" fill="#f5f5f5" font-size="18" font-weight="600" letter-spacing="0">Human</text>
+<text x="395" y="114" text-anchor="middle" fill="#7db7ff" font-size="13" font-weight="400" letter-spacing="0">decides</text>
+<path d="M300,128 H490" stroke="#2a2a2a"/>
+<text x="300" y="162" text-anchor="start" fill="#b0b0b0" font-size="13.5" font-weight="400" letter-spacing="0">Approves, edits, or rejects</text>
+<text x="300" y="208" text-anchor="start" fill="#b0b0b0" font-size="13.5" font-weight="400" letter-spacing="0">Owns exceptions, escalation</text>
+<text x="300" y="254" text-anchor="start" fill="#b0b0b0" font-size="13.5" font-weight="400" letter-spacing="0">Accepts residual risk</text>
+<text x="300" y="300" text-anchor="start" fill="#b0b0b0" font-size="13.5" font-weight="400" letter-spacing="0">Is named in the trace</text>
+<rect x="530" y="60" width="230" height="290" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/>
+<text x="645" y="92" text-anchor="middle" fill="#f5f5f5" font-size="18" font-weight="600" letter-spacing="0">System of record</text>
+<text x="645" y="114" text-anchor="middle" fill="#7db7ff" font-size="13" font-weight="400" letter-spacing="0">executes and remembers</text>
+<path d="M550,128 H740" stroke="#2a2a2a"/>
+<text x="550" y="162" text-anchor="start" fill="#b0b0b0" font-size="13.5" font-weight="400" letter-spacing="0">Holds authoritative data</text>
+<text x="550" y="208" text-anchor="start" fill="#b0b0b0" font-size="13.5" font-weight="400" letter-spacing="0">Executes only approved changes</text>
+<text x="550" y="254" text-anchor="start" fill="#b0b0b0" font-size="13.5" font-weight="400" letter-spacing="0">Keeps receipts and trace</text>
+<text x="550" y="300" text-anchor="start" fill="#b0b0b0" font-size="13.5" font-weight="400" letter-spacing="0">Enforces access and rollback</text>
+<path d="M262,205 L278,205" stroke="#7db7ff" stroke-width="1.5" fill="none"  marker-end="url(#ar)"/>
+<path d="M512,205 L528,205" stroke="#7db7ff" stroke-width="1.5" fill="none"  marker-end="url(#ar)"/>
+<text x="155" y="382" text-anchor="middle" fill="#8a8a8a" font-size="12" font-weight="400" letter-spacing="0">proposal + evidence</text>
+<text x="405" y="382" text-anchor="middle" fill="#8a8a8a" font-size="12" font-weight="400" letter-spacing="0">approval</text>
+<text x="655" y="382" text-anchor="middle" fill="#8a8a8a" font-size="12" font-weight="400" letter-spacing="0">trace + outcome</text>
+<path d="M655,396 L655,430 L155,430 L155,396" stroke="#8a8a8a" stroke-width="1.5" fill="none" stroke-dasharray="5 4" marker-end="url(#ag)"/>
+<text x="405" y="452" text-anchor="middle" fill="#8a8a8a" font-size="12.5" font-weight="400" letter-spacing="0">operational feedback returns to the AI side as evaluation data</text>
+<text x="405" y="482" text-anchor="middle" fill="#f5f5f5" font-size="14" font-weight="600" letter-spacing="0">AI does not write to the system of record directly.</text>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="470" viewBox="0 0 800 470" role="img" aria-labelledby="t d" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif">
+<title id="t">The path from business question to continuous learning</title><desc id="d">Six stages in a loop: Business Question, Prototype, Evidence, Approval, Operation, Learning; learning feeds the next business question.</desc>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7db7ff"/></marker>
+<marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a8a"/></marker></defs>
+<rect width="800" height="470" fill="#0b0b0b"/>
+<text x="400" y="34" text-anchor="middle" fill="#8a8a8a" font-size="12" font-weight="600" letter-spacing="3">THE REPEATABLE PATH</text>
+<rect x="40" y="70" width="200" height="92" rx="4" fill="#111111" stroke="#7db7ff" stroke-width="1.5"/><text x="140.0" y="112.0" text-anchor="middle" fill="#f5f5f5" font-size="17" font-weight="600">Business Question</text><text x="140.0" y="133.0" text-anchor="middle" fill="#b0b0b0" font-size="13">Who decides what, and why</text>
+<rect x="300" y="70" width="200" height="92" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/><text x="400.0" y="112.0" text-anchor="middle" fill="#f5f5f5" font-size="17" font-weight="600">Prototype</text><text x="400.0" y="133.0" text-anchor="middle" fill="#b0b0b0" font-size="13">Smallest thing that can teach</text>
+<rect x="560" y="70" width="200" height="92" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/><text x="660.0" y="112.0" text-anchor="middle" fill="#f5f5f5" font-size="17" font-weight="600">Evidence</text><text x="660.0" y="133.0" text-anchor="middle" fill="#b0b0b0" font-size="13">Grounds, tests, observed gaps</text>
+<rect x="40" y="290" width="200" height="92" rx="4" fill="#111111" stroke="#7db7ff" stroke-width="1.5"/><text x="140.0" y="332.0" text-anchor="middle" fill="#f5f5f5" font-size="17" font-weight="600">Learning</text><text x="140.0" y="353.0" text-anchor="middle" fill="#b0b0b0" font-size="13">Feedback shapes the next loop</text>
+<rect x="300" y="290" width="200" height="92" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/><text x="400.0" y="332.0" text-anchor="middle" fill="#f5f5f5" font-size="17" font-weight="600">Operation</text><text x="400.0" y="353.0" text-anchor="middle" fill="#b0b0b0" font-size="13">Limited, monitored, reversible</text>
+<rect x="560" y="290" width="200" height="92" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/><text x="660.0" y="332.0" text-anchor="middle" fill="#f5f5f5" font-size="17" font-weight="600">Approval</text><text x="660.0" y="353.0" text-anchor="middle" fill="#b0b0b0" font-size="13">A named person accepts the risk</text>
+<path d="M244,116 L296,116" stroke="#7db7ff" stroke-width="1.5" fill="none"  marker-end="url(#ar)"/>
+<path d="M504,116 L556,116" stroke="#7db7ff" stroke-width="1.5" fill="none"  marker-end="url(#ar)"/>
+<path d="M660.0,166 L660.0,286" stroke="#7db7ff" stroke-width="1.5" fill="none"  marker-end="url(#ar)"/>
+<path d="M556,336 L504,336" stroke="#7db7ff" stroke-width="1.5" fill="none"  marker-end="url(#ar)"/>
+<path d="M296,336 L244,336" stroke="#7db7ff" stroke-width="1.5" fill="none"  marker-end="url(#ar)"/>
+<path d="M140.0,286 L140.0,166" stroke="#7db7ff" stroke-width="1.5" fill="none"  marker-end="url(#ar)"/>
+<text x="134.0" y="232" text-anchor="end" fill="#8a8a8a" font-size="12" font-weight="400" letter-spacing="0">next cycle</text>
+<text x="650.0" y="232" text-anchor="end" fill="#8a8a8a" font-size="12" font-weight="400" letter-spacing="0">evidence + approval gate</text>
+<text x="400" y="226" text-anchor="middle" fill="#f5f5f5" font-size="14" font-weight="600" letter-spacing="0">the unit of adoption</text>
+<text x="400" y="246" text-anchor="middle" fill="#b0b0b0" font-size="14" font-weight="400" letter-spacing="0">is the loop, not the model</text>
+<text x="400" y="440" text-anchor="middle" fill="#8a8a8a" font-size="13" font-weight="400" letter-spacing="0">Each pass leaves a Decision Trace, so the next pass starts from what was learned.</text>
+</svg>

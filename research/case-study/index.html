@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Case Study — Chinoba</title>
-  <meta name="description" content="Case studies showing how Chinoba Research's architectural principles — Decision Trace, Runtime Society, Knowledge Flow, Trust Infrastructure, AI Coordination, Multi-Agent Systems, and more — are composed into real-world AI systems.">
+  <meta name="description" content="How enterprises connect prototyping, validation, governance, and production: a repeatable path from business question to governed decision, measurable operation, and continuous learning.">
 
   <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
   <link rel="stylesheet" href="/assets/research.css">
@@ -255,6 +255,56 @@
       transform: translateY(-1px);
     }
 
+
+    /* ---------- Enterprise AI path: scrollable figures, tables, steps ---------- */
+    .figure-scroll { overflow-x: auto; }
+    .figure-grid.figure-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .table-scroll {
+      margin-top: clamp(32px, 5vw, 48px);
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      -webkit-overflow-scrolling: touch;
+    }
+    .cs-table { width: 100%; min-width: 620px; border-collapse: collapse; font-size: 14px; line-height: 1.65; }
+    .cs-table-wide { min-width: 860px; }
+    .cs-table th, .cs-table td { text-align: left; vertical-align: top; padding: 14px 18px; border-bottom: 1px solid var(--line); color: var(--fg-mute); }
+    .cs-table thead th { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--fg-faint); font-weight: 400; }
+    .cs-table tbody th { color: var(--fg); font-weight: 600; width: 20%; }
+    .cs-table tbody tr:last-child th, .cs-table tbody tr:last-child td { border-bottom: none; }
+    .table-note { margin: 10px 0 0; font-size: 12px; color: var(--fg-faint); display: none; }
+    .cs-steps { list-style: none; margin: clamp(32px, 5vw, 48px) 0 0; padding: 0; border: 1px solid var(--line); }
+    .cs-steps li { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 16px; padding: 20px; border-bottom: 1px solid var(--line); background: var(--bg-elev); }
+    .cs-steps li:last-child { border-bottom: none; }
+    .cs-steps .step-no { font-family: "Courier New", monospace; font-size: 13px; letter-spacing: 2px; color: var(--accent); }
+    .cs-steps h3 { margin: 0 0 6px; font-size: 16px; color: var(--fg); }
+    .cs-steps p { margin: 0; font-size: 14px; line-height: 1.75; color: var(--fg-mute); }
+    .cs-checks { list-style: none; margin: 0; padding: 0; position: relative; }
+    .cs-checks li { padding: 10px 0 10px 28px; position: relative; font-size: 14px; line-height: 1.65; color: var(--fg-mute); border-bottom: 1px solid var(--line); }
+    .cs-checks li:last-child { border-bottom: none; }
+    .cs-checks li::before { content: ""; position: absolute; left: 4px; top: 17px; width: 10px; height: 10px; border: 1px solid var(--fg-faint); border-radius: 2px; }
+    .cs-diagnose { margin-top: clamp(36px, 5vw, 56px); }
+    .cs-diagnose-note { position: relative; margin: 18px 0 0; font-size: 13px; line-height: 1.75; color: var(--fg-dim); }
+    .two-col .col-text ul li strong { color: var(--fg); }
+
+    @media (max-width: 760px) {
+      .figure-grid.figure-grid-2 { grid-template-columns: 1fr; }
+      .figure-scroll .figure-frame { min-width: 620px; }
+      .table-note { display: block; }
+      .cs-steps li { grid-template-columns: 1fr; gap: 6px; }
+    }
+
+    /* Lightbox: SVG diagrams keep a readable size and pan on small screens */
+    .lightbox { overflow: auto; justify-content: flex-start; align-items: flex-start; }
+    .lightbox img { margin: auto; }
+    .lightbox .lightbox-close { position: fixed; z-index: 2; background: rgba(0, 0, 0, 0.7); }
+    .lightbox img[src$=".svg"] { margin: auto; width: min(1100px, 100%); max-height: none; background: #0b0b0b; }
+    @media (max-width: 760px) {
+      .lightbox { padding: 64px 12px 24px; }
+      .lightbox img[src$=".svg"] { width: 800px; max-width: none; }
+      .figure-scroll + .figure-caption::after { content: " · swipe, or tap to enlarge"; }
+    }
+
     @media (max-width: 900px) {
       .concept-grid.cols-4 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -296,28 +346,32 @@
       <div class="eyebrow">Research / Case Study</div>
       <h1>Case Study</h1>
       <p class="hero-sub">
-        <span>How Chinoba's architectural principles</span>
-        <span>compose into real-world AI systems.</span>
+        <span>From prototype to governed decision</span>
+        <span>to continuous learning.</span>
       </p>
       <p class="hero-desc">
-        Chinoba Research explores the fundamental architecture of
-        intelligence. The following case studies demonstrate how those
-        architectural principles can be composed to design real-world
-        AI systems — where coordination, governance, trust, knowledge,
-        and decision-making are engineered to work as one.
+        Enterprise AI value does not come from deploying a model or
+        completing a prototype. It comes from building a repeatable
+        path from business question to governed decision, measurable
+        operation, and continuous learning. The real unit of adoption
+        is not the model — it is that path.
       </p>
 
       <figure class="figure figure-wide figure-main">
-        <a class="figure-frame" href="/research/case-study/assets/01.png"
-           data-lightbox aria-label="Open Case Studies cover diagram">
-          <img src="/research/case-study/assets/01.png"
-               alt="The Future of AI Is Architecture — Case Studies of Chinoba Research: how AI, humans, organizations, and society work together"
-               loading="lazy">
-        </a>
+        <div class="figure-scroll">
+          <a class="figure-frame" href="/research/case-study/assets/cs-adoption-loop.svg"
+             data-lightbox aria-label="Open the adoption loop diagram">
+            <img src="/research/case-study/assets/cs-adoption-loop.svg"
+                 alt="A loop of six stages: Business Question, Prototype, Evidence, Approval, Operation, and Learning, with learning feeding the next business question"
+                 width="800" height="470">
+          </a>
+        </div>
+        <figcaption class="figure-caption">Fig. 01 — The Repeatable Path</figcaption>
       </figure>
     </div>
   </header>
 
+  <!-- ============ EXPLORE THIS THEME ============ -->
   <!-- ============ EXPLORE THIS THEME ============ -->
   <section class="research-section" id="explore" aria-labelledby="explore-h">
     <div class="wrap">
@@ -367,101 +421,399 @@
     </div>
   </section>
 
-  <!-- ============ 01 OVERVIEW ============ -->
-  <section class="research-section" id="overview" aria-labelledby="overview-h">
+  <!-- ============ 01 WHY PILOTS STALL ============ -->
+  <section class="research-section" id="why" aria-labelledby="why-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">01 / Overview</div>
-        <h2 id="overview-h">The Research Architecture, Realized</h2>
+        <div class="section-label">01 / Why AI Pilots Stall</div>
+        <h2 id="why-h">The Demo Worked. The Organization Did Not Change.</h2>
         <p class="section-lede">
-          Where the Research section explains Chinoba's architectural
-          principles, Case Study demonstrates how they are composed
-          into working systems — each case a different architectural
-          composition meeting the field where decisions are actually
-          made.
+          Many stalled pilots are not defeated by model quality. They
+          were never connected to a decision, an owner, a data boundary,
+          or an operating routine.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Misaligned with the work</h3>
+          <p>The pilot answers a question nobody must answer. It showcases a capability instead of shortening a real investigation, review, or approval.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>No accountable owner</h3>
+          <p>Everyone is a stakeholder and no one is responsible. When the output is wrong, nobody can say who accepted the risk of using it.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Impossible to evaluate</h3>
+          <p>Success is "it seemed smart." Without test questions, expected evidence, and a baseline, no one can show it is better than the current way.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>No operating boundary</h3>
+          <p>Permissions, data classes, audit, and cost were deferred. At production time they all arrive at once, and the pilot cannot absorb them.</p>
+        </div>
+      </div>
+
+      <p class="figure-lede">
+        The pattern is consistent: a technically impressive proof of
+        concept reaches the edge of the organization — its authority
+        structure, its records, its exceptions — and stops. The existing
+        illustrations below frame the same gap from the architecture side.
+      </p>
+
+      <div class="figure-grid figure-grid-2">
+        <figure class="figure">
+          <a class="figure-frame" href="/research/case-study/assets/03.png"
+             data-lightbox aria-label="Open Projects Stop at PoC diagram">
+            <img src="/research/case-study/assets/03.png"
+                 alt="Yet many AI projects stop at PoC — accuracy keeps improving, but enterprise projects never reach production, and the problem is no longer only the model"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 02 — Projects Stall at PoC</figcaption>
+        </figure>
+        <figure class="figure">
+          <a class="figure-frame" href="/research/case-study/assets/04.png"
+             data-lightbox aria-label="Open The Real Challenge diagram">
+            <img src="/research/case-study/assets/04.png"
+                 alt="The real challenge — how do AIs cooperate, how do humans supervise, how is knowledge inherited, how are decisions explained, how is trust maintained"
+                 loading="lazy">
+          </a>
+          <figcaption class="figure-caption">Fig. 03 — The Real Challenge</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 PROTOTYPE TO CAPABILITY ============ -->
+  <section class="research-section" id="capability" aria-labelledby="capability-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / From Prototype to Capability</div>
+        <h2 id="capability-h">A Prototype Is a Device for Learning a Decision</h2>
+        <p class="section-lede">
+          Treat a prototype as a way to learn how a decision is really
+          made — not as a small version of the production system.
         </p>
       </div>
 
       <div class="two-col">
         <div class="col-text">
           <p>
-            Case Study is where the architecture of intelligence meets
-            the field.
-            Manufacturing,
-            healthcare,
-            finance,
-            government,
-            infrastructure,
-            multi-agent systems,
-            and retail
-            each have their own structure of risk,
-            their own coordination patterns,
-            and their own definition of an acceptable decision.
+            Rapid prototyping is valuable because generative AI makes
+            building cheap. But cheap building only helps if the
+            experiment is aimed at a question: which judgment is being
+            supported, from what evidence, and where must a person step in?
           </p>
           <p>
-            Across these domains, the same set of structural problems
-            keep reappearing — decision ambiguity, organizational
-            coordination, safety boundaries, human escalation,
-            runtime governance, and operational risk. No single
-            principle answers them; each system is engineered from
-            several, composed together.
+            A prototype that cannot be tested against real cases teaches
+            nothing, and a prototype that quietly becomes production
+            inherits every shortcut taken to make it fast. Freedom to
+            experiment and discipline about promotion belong together.
           </p>
-
-          <code class="quote">AI is met by the world only through structure.</code>
-
-          <p>
-            So these cases are read not as demonstrations of one
-            technology, but as architectural compositions — Decision
-            Trace, Runtime Society, Knowledge Flow, Trust
-            Infrastructure, AI Coordination, Multi-Agent Systems, Graph
-            Intelligence, and Governance integrated in different
-            proportions to fit each domain.
-          </p>
-
-          <h3>What This Page Holds</h3>
-          <p>
-            Each case study shows how these architectural principles
-            are integrated — coordination, governance, trust,
-            knowledge, and decision-making engineered to work as one
-            system inside a real domain. Together they form a
-            comparative atlas of how the architecture of intelligence is
-            composed across the real world.
-          </p>
+          <code class="quote">Build fast to learn fast; promote only what has been proven.</code>
         </div>
-
         <div class="col-text">
-          <h3>Recurring Problems Across Domains</h3>
+          <h3>One Question per Prototype</h3>
           <p>
-            Different industries — same structural questions.
+            Narrow each prototype to a single business scenario and a
+            single hypothesis. For every scenario, define three outcomes
+            in advance:
           </p>
-          <ul class="oss-tags" aria-label="Recurring problems">
-            <li>decision ambiguity</li>
-            <li>organizational coordination</li>
-            <li>safety boundary</li>
-            <li>human escalation</li>
-            <li>runtime governance</li>
-            <li>operational risk</li>
-            <li>regulatory exposure</li>
-            <li>exception handling</li>
+          <ul>
+            <li><strong>Act</strong> — conditions are met; proceed with a limited next step.</li>
+            <li><strong>Ask</strong> — evidence, information, or permission is missing; request it.</li>
+            <li><strong>Stop</strong> — impact, authority, or uncertainty exceeds the boundary; hand off to a person.</li>
           </ul>
-
-          <h3>Why a Cross-Domain View</h3>
           <p>
-            Studying domains in isolation hides how intelligence is
-            organized beneath them. A cross-domain view exposes how the
-            same principles recompose — the layer where AI either
-            becomes part of an accountable system, or fails to.
+            What the prototype carries forward is not its code. It is
+            the scenario, the evidence, the boundary, and the lessons from failure.
           </p>
         </div>
       </div>
 
       <p class="figure-lede">
-        Every case study on this page is read through the same three
-        movements — first the current problems a domain is stuck on,
-        then the architectural composition applied to it, and finally
-        what becomes possible once the system is coordinated,
-        accountable, and improvable. Different domains, different
-        compositions, one architectural language.
+        The path from question to learning is one continuous loop. Each
+        stage has a different owner and a different artifact, and the
+        loop closes only when what operations learn changes the next
+        question — the same shape as Fig. 01, read stage by stage.
+      </p>
+
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Stages of the repeatable path">
+        <table class="cs-table">
+          <thead><tr><th scope="col">Stage</th><th scope="col">Purpose</th><th scope="col">Artifact left behind</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Business Question</th><td>Name the decision, its owner, and the cost of being wrong.</td><td>Scenario and boundary statement</td></tr>
+            <tr><th scope="row">Prototype</th><td>Test one hypothesis against real material.</td><td>Working example and observed gaps</td></tr>
+            <tr><th scope="row">Evidence</th><td>Measure grounding, usefulness, and boundary behavior.</td><td>Test results and acceptance criteria</td></tr>
+            <tr><th scope="row">Approval</th><td>A named owner accepts scope and residual risk.</td><td>Signed-off release decision</td></tr>
+            <tr><th scope="row">Operation</th><td>Run in a limited, monitored, reversible form.</td><td>Receipts and Decision Trace</td></tr>
+            <tr><th scope="row">Learning</th><td>Turn operational feedback into changes.</td><td>Updated questions, rules, and tests</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 GATEWAY ============ -->
+  <section class="research-section" id="gateway" aria-labelledby="gateway-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Enterprise AI Gateway</div>
+        <h2 id="gateway-h">The Gateway Is a Boundary, Not a Connector</h2>
+        <p class="section-lede">
+          An Enterprise AI Gateway is where organizational policy
+          becomes technical operation — one place that decides who may
+          use which model, knowledge, and tool, and records what happened.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <p>
+            Without a shared boundary, each AI application tends to hold its own
+            credentials, pick its own models, call business systems
+            directly, and keep its own logs. User permissions blur with
+            service-account permissions, and after an incident no one can
+            reconstruct who did what, on what basis.
+          </p>
+          <p>
+            The Gateway moves those concerns out of "please be careful"
+            prompts and into controls that operate mechanically. The
+            application passes the user, purpose, and requested
+            operation; the Gateway evaluates policy and calls only what is permitted.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>What the Boundary Holds</h3>
+          <ul class="oss-tags" aria-label="Gateway responsibilities">
+            <li>identity &amp; role</li>
+            <li>authorization</li>
+            <li>usage policy</li>
+            <li>secrets handling</li>
+            <li>model selection</li>
+            <li>cost control</li>
+            <li>guardrails</li>
+            <li>observability</li>
+            <li>audit receipts</li>
+          </ul>
+          <h3>What It Does Not Do</h3>
+          <p>
+            It does not decide policy, fix poor data, or make a decision
+            accountable. It is only as good as the ownership and rules
+            behind it — a boundary the organization defines and the
+            Gateway enforces.
+          </p>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-main">
+        <div class="figure-scroll">
+          <a class="figure-frame" href="/research/case-study/assets/cs-gateway-boundary.svg"
+             data-lightbox aria-label="Open the Enterprise AI Gateway boundary diagram">
+            <img src="/research/case-study/assets/cs-gateway-boundary.svg"
+                 alt="Callers (business user, prototype workspace, AI agent) pass through the Enterprise AI Gateway — identity, policy, secrets, model routing, guardrails, audit — to models, knowledge, and business tools"
+                 width="800" height="520" loading="lazy">
+          </a>
+        </div>
+        <figcaption class="figure-caption">Fig. 04 — The Gateway as a Governance Boundary</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 04 REFERENCE ARCHITECTURE ============ -->
+  <section class="research-section" id="architecture" aria-labelledby="architecture-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / A Reference Architecture</div>
+        <h2 id="architecture-h">Nine Elements, One Accountable Path</h2>
+        <p class="section-lede">
+          A vendor-neutral arrangement showing how a business question
+          travels to a recorded decision and back as learning.
+        </p>
+      </div>
+
+      <div class="field-runtime" aria-label="Reference architecture">
+        <div class="field-runtime-label">Layer Diagram</div>
+        <h3 class="field-runtime-title">Reference Architecture for Governed Enterprise AI</h3>
+        <ol class="field-layers" role="list">
+          <li class="field-layer"><span class="layer-idx">A1</span><span class="layer-body"><span class="layer-name">Business User / Domain Expert</span><span class="layer-note">Brings the question and holds the domain judgment. Reviews proposals; is the source of truth about what "useful" means.</span></span><span class="layer-tag">question</span></li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer"><span class="layer-idx">A2</span><span class="layer-body"><span class="layer-name">Prototype Workspace</span><span class="layer-note">A safe place to try ideas on sample or limited data. Connects only through the Gateway, so experiments inherit the same boundaries.</span></span><span class="layer-tag">explore</span></li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer"><span class="layer-idx">A3</span><span class="layer-body"><span class="layer-name">AI Gateway</span><span class="layer-note">The single entry for models, knowledge, and tools: identity, routing, guardrails, cost, and audit.</span></span><span class="layer-tag">boundary</span></li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer"><span class="layer-idx">A4</span><span class="layer-body"><span class="layer-name">Retrieval / Knowledge Layer</span><span class="layer-note">Curated, owned, versioned knowledge with citations. Retrieval respects who is asking, not just what matches.</span></span><span class="layer-tag">grounding</span></li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer"><span class="layer-idx">A5</span><span class="layer-body"><span class="layer-name">Policy &amp; Authorization</span><span class="layer-note">Rules about who may see, propose, or change what, evaluated on every request rather than assumed.</span></span><span class="layer-tag">policy</span></li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer"><span class="layer-idx">A6</span><span class="layer-body"><span class="layer-name">Human Approval</span><span class="layer-note">A named person accepts, edits, or rejects any consequential proposal. Ask and Stop paths are explicit.</span></span><span class="layer-tag">approval</span></li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer"><span class="layer-idx">A7</span><span class="layer-body"><span class="layer-name">Evidence / Decision Trace</span><span class="layer-note">What was asked, which evidence and versions were used, who approved, what changed — in a verifiable structure, not buried in logs.</span></span><span class="layer-tag">trace</span></li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer"><span class="layer-idx">A8</span><span class="layer-body"><span class="layer-name">Production Integration</span><span class="layer-note">Approved actions reach systems of record through controlled, idempotent interfaces, with a fallback to the existing workflow.</span></span><span class="layer-tag">integration</span></li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer"><span class="layer-idx">A9</span><span class="layer-body"><span class="layer-name">Operational Feedback</span><span class="layer-note">Corrections, overrides, escalations, and outcomes return to the workspace as new test cases and revised rules.</span></span><span class="layer-tag">learning</span></li>
+        </ol>
+      </div>
+
+      <p class="figure-lede">
+        Within this path, responsibility has to be unambiguous. The AI
+        proposes with evidence; a human decides and is accountable; the
+        system of record executes approved changes and keeps the trace.
+        In this design, the AI does not write to the system of record on its own authority.
+      </p>
+
+      <figure class="figure figure-wide figure-main">
+        <div class="figure-scroll">
+          <a class="figure-frame" href="/research/case-study/assets/cs-responsibility-split.svg"
+             data-lightbox aria-label="Open the responsibility split diagram">
+            <img src="/research/case-study/assets/cs-responsibility-split.svg"
+                 alt="Three lanes: AI proposes with evidence, human decides and owns accountability, system of record executes approved changes and keeps the trace"
+                 width="800" height="500" loading="lazy">
+          </a>
+        </div>
+        <figcaption class="figure-caption">Fig. 05 — Who Does What: AI, Human, System of Record</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 05 BEFORE PRODUCTION ============ -->
+  <section class="research-section" id="proof" aria-labelledby="proof-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / What Must Be Proven</div>
+        <h2 id="proof-h">Before Production, Prove More Than Accuracy</h2>
+        <p class="section-lede">
+          Success is judged by Evidence, Decision Trace, Human Approval,
+          and Operational Feedback — not by model performance alone.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-main">
+        <div class="figure-scroll">
+          <a class="figure-frame" href="/research/case-study/assets/cs-promotion-gates.svg"
+             data-lightbox aria-label="Open the promotion gates diagram">
+            <img src="/research/case-study/assets/cs-promotion-gates.svg"
+                 alt="A prototype passes an evidence gate, an approval gate, and a reversibility gate before limited operation; failures return to revision"
+                 width="800" height="480" loading="lazy">
+          </a>
+        </div>
+        <figcaption class="figure-caption">Fig. 06 — Gates Between Prototype and Production</figcaption>
+      </figure>
+
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Pre-production proof checklist">
+        <table class="cs-table">
+          <thead><tr><th scope="col">Dimension</th><th scope="col">Question to answer</th><th scope="col">What counts as proof</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Correctness</th><td>Is it right on realistic, recurring questions?</td><td>Test set with expected evidence; agreed pass thresholds</td></tr>
+            <tr><th scope="row">Grounding</th><td>Can every claim point to a current, valid source?</td><td>Citation accuracy; behavior when sources conflict or are missing</td></tr>
+            <tr><th scope="row">Authority</th><td>Does it respect who is allowed to see or do what?</td><td>Cross-boundary tests across roles; denied requests that stay denied</td></tr>
+            <tr><th scope="row">Data boundary</th><td>What data may reach a model, and where does it go?</td><td>Data-class rules enforced at the Gateway; redaction tests</td></tr>
+            <tr><th scope="row">Exceptions</th><td>What happens when it is unsure or out of scope?</td><td>Defined Ask / Stop paths; measured handoff rate</td></tr>
+            <tr><th scope="row">Reversibility</th><td>Can an action be undone or bypassed quickly?</td><td>Shadow-mode results, rollback rehearsal, manual fallback</td></tr>
+            <tr><th scope="row">Accountability</th><td>Who approves, and who answers for the outcome?</td><td>Named owner and approver recorded in the trace</td></tr>
+            <tr><th scope="row">Operating cost</th><td>Is the value worth the run cost and support load?</td><td>Cost per task against measured time or rework saved</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 CASE PATTERNS ============ -->
+  <section class="research-section" id="patterns" aria-labelledby="patterns-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Case Patterns</div>
+        <h2 id="patterns-h">Five Generalized Patterns</h2>
+        <p class="section-lede">
+          Illustrative scenarios, not reports of specific deployments.
+          Each separates what AI does, what people decide, and what
+          evidence must remain.
+        </p>
+      </div>
+
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Generalized case patterns">
+        <table class="cs-table cs-table-wide">
+          <thead><tr><th scope="col">Pattern</th><th scope="col">AI does</th><th scope="col">People decide</th><th scope="col">Evidence to keep</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Internal knowledge assistance</th><td>Finds and summarizes relevant documents the asker is permitted to see, with citations.</td><td>Whether the answer is sufficient and which source to trust.</td><td>Question, sources and versions used, permission check outcome.</td></tr>
+            <tr><th scope="row">Business judgment support</th><td>Gathers grounds, compares options, flags missing information.</td><td>The decision itself, and any exception to policy.</td><td>Options considered, evidence, approver, rationale, outcome.</td></tr>
+            <tr><th scope="row">Customer-response support</th><td>Drafts a reply and proposes next steps from approved material.</td><td>What is sent, and when to escalate to a specialist.</td><td>Draft versus sent text, escalation reason, customer-facing sources.</td></tr>
+            <tr><th scope="row">Document generation</th><td>Produces a first draft from templates and approved inputs.</td><td>Content accuracy, tone, and release.</td><td>Inputs, template version, reviewer edits, approval record.</td></tr>
+            <tr><th scope="row">Operations investigation</th><td>Correlates records and history to suggest likely causes and checks.</td><td>Which cause to act on and whether to change anything.</td><td>Records consulted, hypotheses ranked, action taken, result.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Swipe horizontally on narrow screens to see all columns.</p>
+    </div>
+  </section>
+
+  <!-- ============ 07 ADOPTION SEQUENCE ============ -->
+  <section class="research-section" id="sequence" aria-labelledby="sequence-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / A Practical Adoption Sequence</div>
+        <h2 id="sequence-h">Six Steps, and a Way to Diagnose Where You Are</h2>
+        <p class="section-lede">
+          Start narrow, make the boundary explicit, and widen scope only
+          as evidence accumulates.
+        </p>
+      </div>
+
+      <ol class="cs-steps">
+        <li><span class="step-no">01</span><div><h3>Define the problem</h3><p>Pick one recurring decision with a business owner and a measurable cost. Avoid "a chatbot that answers anything."</p></div></li>
+        <li><span class="step-no">02</span><div><h3>Set the decision boundary</h3><p>Decide what AI may Act on, when it must Ask, and what always Stops for a person. Name the approver.</p></div></li>
+        <li><span class="step-no">03</span><div><h3>Build the prototype</h3><p>Make the smallest version that can be tested on real cases, connected through the Gateway from the start.</p></div></li>
+        <li><span class="step-no">04</span><div><h3>Evaluate with Evidence</h3><p>Run the test set; check grounding, permissions, and exceptions; write acceptance criteria before building for production.</p></div></li>
+        <li><span class="step-no">05</span><div><h3>Operate in limited scope</h3><p>Begin in shadow mode with staff reviewing AI candidates, then a small group, then low-risk support — with rollback ready.</p></div></li>
+        <li><span class="step-no">06</span><div><h3>Improve continuously</h3><p>Feed corrections and outcomes back as tests and rule changes. Expand only when evidence supports it.</p></div></li>
+      </ol>
+
+      <div class="field-runtime cs-diagnose" aria-label="Self-diagnosis">
+        <div class="field-runtime-label">Self-Diagnosis</div>
+        <h3 class="field-runtime-title">Where Is Your Organization Today?</h3>
+        <ul class="cs-checks">
+          <li>Can we name the one decision this AI supports, and who owns it?</li>
+          <li>Do we have a test set with expected evidence, and a pre-AI baseline?</li>
+          <li>Do all model and tool calls pass through one controlled entry?</li>
+          <li>Can we show, a week later, what evidence led to a given proposal?</li>
+          <li>Is it defined when the AI must ask or stop — and who receives the handoff?</li>
+          <li>Could we turn this off tomorrow without halting the business process?</li>
+          <li>Does operational feedback change our tests, rules, or knowledge?</li>
+        </ul>
+        <p class="cs-diagnose-note">
+          Mostly "no" in the first three: work on the question and boundary
+          before building more. Strong there but weak on the last four:
+          invest in evidence, approval, and feedback before expanding scope.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 CORE DOMAINS ============ -->
+  <section class="research-section" id="domains" aria-labelledby="domains-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">08 / Domain Compositions</div>
+        <h2 id="domains-h">Seven Domains, Many Compositions</h2>
+        <p class="section-lede">
+          Seven domains where Chinoba's architectural principles meet
+          the ground — each a different composition of coordination,
+          governance, trust, and decision-making engineered to reach
+          an accountable decision.
+        </p>
+      </div>
+
+      <p class="figure-lede">
+        The path above is domain-neutral. Across industries, the same
+        structure recurs while the emphasis changes — which risks
+        dominate, who must approve, and what counts as an acceptable
+        decision. Every domain below is read through the same three
+        movements: current problems, architectural composition, and
+        what becomes possible.
       </p>
 
       <figure class="figure figure-wide figure-main">
@@ -471,130 +823,8 @@
                alt="The Common Pattern — every case study follows the same structure: current problems, Chinoba architecture, and what becomes possible"
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">Fig. 01 — How Every Case Study Is Read</figcaption>
+        <figcaption class="figure-caption">Fig. 07 — How Every Case Study Is Read</figcaption>
       </figure>
-    </div>
-  </section>
-
-  <!-- ============ 02 WHY IT MATTERS ============ -->
-  <section class="research-section" id="why" aria-labelledby="why-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">02 / Why It Matters</div>
-        <h2 id="why-h">Not Accuracy — Connection to the Real</h2>
-        <p class="section-lede">
-          What matters is not the accuracy of the AI,
-          but how the AI is connected to the real world.
-        </p>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <p>
-            Real environments are not benchmarks. They contain
-            responsibility,
-            safety,
-            approval,
-            regulation,
-            coordination,
-            human judgment,
-            and exception handling.
-          </p>
-          <p>
-            None of these are produced by a model. They are produced
-            by structure — by how the system around the model is
-            designed, where decisions cross boundaries, who is
-            allowed to act, and what is recorded.
-          </p>
-          <p>
-            This is why a runtime is required between the signal
-            and the decision. Without it, AI output collides
-            directly with operational reality — and reality wins.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>The Required Structure</h3>
-          <p>
-            Across every domain in this page, the same chain
-            recurs — only the labels change.
-          </p>
-
-          <div class="why-flow" aria-label="Runtime chain">
-            <span class="step">Signal</span>
-            <span class="arrow">↓</span>
-            <span class="step">Runtime</span>
-            <span class="arrow">↓</span>
-            <span class="step">Boundary</span>
-            <span class="arrow">↓</span>
-            <span class="step">Human Gate</span>
-            <span class="arrow">↓</span>
-            <span class="step">Decision</span>
-            <span class="arrow">↓</span>
-            <span class="step">Trace</span>
-          </div>
-
-          <p style="margin-top: 22px;">
-            Case studies are read against this chain. Where the chain
-            breaks is where the failure mode lives.
-          </p>
-        </div>
-      </div>
-
-      <p class="figure-lede">
-        The gap in three movements — AI is now everywhere and can
-        generate, search, analyze, and code; yet many enterprise
-        projects still stall at proof-of-concept because the problem
-        is no longer only the model; and the real challenge turns out
-        to be coordination, supervision, and trust — the structure
-        around the model, not the model itself.
-      </p>
-
-      <div class="figure-grid">
-        <figure class="figure">
-          <a class="figure-frame" href="/research/case-study/assets/02.png"
-             data-lightbox aria-label="Open AI Is Everywhere diagram">
-            <img src="/research/case-study/assets/02.png"
-                 alt="AI is everywhere — today AI can generate, search, analyze, design, and code, and almost every organization is adopting it"
-                 loading="lazy">
-          </a>
-          <figcaption class="figure-caption">Fig. 02 — AI Is Everywhere</figcaption>
-        </figure>
-        <figure class="figure">
-          <a class="figure-frame" href="/research/case-study/assets/03.png"
-             data-lightbox aria-label="Open Projects Stop at PoC diagram">
-            <img src="/research/case-study/assets/03.png"
-                 alt="Yet many AI projects stop at PoC — accuracy keeps improving, but enterprise projects never reach production, and the problem is no longer only the model"
-                 loading="lazy">
-          </a>
-          <figcaption class="figure-caption">Fig. 03 — Yet Projects Stall at PoC</figcaption>
-        </figure>
-        <figure class="figure">
-          <a class="figure-frame" href="/research/case-study/assets/04.png"
-             data-lightbox aria-label="Open The Real Challenge diagram">
-            <img src="/research/case-study/assets/04.png"
-                 alt="The real challenge — how do AIs cooperate, how do humans supervise, how is knowledge inherited, how are decisions explained, how is trust maintained"
-                 loading="lazy">
-          </a>
-          <figcaption class="figure-caption">Fig. 04 — The Real Challenge</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 03 CORE DOMAINS ============ -->
-  <section class="research-section" id="domains" aria-labelledby="domains-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">03 / Core Domains</div>
-        <h2 id="domains-h">Seven Domains, Many Compositions</h2>
-        <p class="section-lede">
-          Seven domains where Chinoba's architectural principles meet
-          the ground — each a different composition of coordination,
-          governance, trust, and decision-making engineered to reach
-          an accountable decision.
-        </p>
-      </div>
 
       <div class="concept-grid cols-4">
         <div class="concept">
@@ -663,7 +893,7 @@
                alt="Beyond individual AI — graph intelligence, AI economics, governance, physical AI, public AI, infrastructure, and emergent intelligence together build a resilient AI ecosystem"
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">Fig. 05 — Beyond Individual AI</figcaption>
+        <figcaption class="figure-caption">Fig. 08 — Beyond Individual AI</figcaption>
       </figure>
 
       <p class="figure-lede">
@@ -684,7 +914,7 @@
                  alt="Decision Trace Model case examples — input, reasoning, decision, action, and trace applied across healthcare, manufacturing, and finance"
                  loading="lazy">
           </a>
-          <figcaption class="figure-caption">Fig. 06 — Decision Trace Model</figcaption>
+          <figcaption class="figure-caption">Fig. 09 — Decision Trace Model</figcaption>
         </figure>
         <figure class="figure">
           <a class="figure-frame" href="/research/case-study/assets/09.png"
@@ -693,7 +923,7 @@
                  alt="Knowledge Flow case examples — create, connect, share, apply, and evolve across knowledge transfer, enterprise learning, and education"
                  loading="lazy">
           </a>
-          <figcaption class="figure-caption">Fig. 07 — Knowledge Flow</figcaption>
+          <figcaption class="figure-caption">Fig. 10 — Knowledge Flow</figcaption>
         </figure>
         <figure class="figure">
           <a class="figure-frame" href="/research/case-study/assets/10.png"
@@ -702,7 +932,7 @@
                  alt="Trust Infrastructure case examples — establish trust, trace decisions, verify integrity, measure reputation, and maintain trust across supply chain, healthcare, and AI reputation"
                  loading="lazy">
           </a>
-          <figcaption class="figure-caption">Fig. 08 — Trust Infrastructure</figcaption>
+          <figcaption class="figure-caption">Fig. 11 — Trust Infrastructure</figcaption>
         </figure>
       </div>
 
@@ -714,7 +944,7 @@
                  alt="AI Coordination case examples — perceive, reason, coordinate, act, and learn across hospitals, airports, and enterprise copilots"
                  loading="lazy">
           </a>
-          <figcaption class="figure-caption">Fig. 09 — AI Coordination</figcaption>
+          <figcaption class="figure-caption">Fig. 12 — AI Coordination</figcaption>
         </figure>
         <figure class="figure">
           <a class="figure-frame" href="/research/case-study/assets/12.png"
@@ -723,7 +953,7 @@
                  alt="Multi-Agent Systems case examples — goal, assemble agents, communicate, collaborate, execute, and learn across research, customer support, and logistics"
                  loading="lazy">
           </a>
-          <figcaption class="figure-caption">Fig. 10 — Multi-Agent Systems</figcaption>
+          <figcaption class="figure-caption">Fig. 13 — Multi-Agent Systems</figcaption>
         </figure>
         <figure class="figure">
           <a class="figure-frame" href="/research/case-study/assets/08.png"
@@ -732,7 +962,7 @@
                  alt="Runtime Society case examples — people, organizations, and AI systems cooperating in real time across smart city, disaster response, and energy management"
                  loading="lazy">
           </a>
-          <figcaption class="figure-caption">Fig. 11 — Runtime Society</figcaption>
+          <figcaption class="figure-caption">Fig. 14 — Runtime Society</figcaption>
         </figure>
       </div>
 
@@ -832,7 +1062,7 @@
   <section class="research-section" id="essays" aria-labelledby="essays-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">04 / Related Essays</div>
+        <div class="section-label">09 / Related Essays</div>
         <h2 id="essays-h">Reading Around Case Studies</h2>
         <p class="section-lede">
           Essays exploring how Chinoba's architectural principles are
@@ -903,7 +1133,7 @@
   <section class="research-section" id="books" aria-labelledby="books-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">05 / Related Books</div>
+        <div class="section-label">10 / Related Books</div>
         <h2 id="books-h">Long-form Texts</h2>
         <p class="section-lede">
           Recommended reading. These books provide the architectural
@@ -1029,9 +1259,40 @@
     </div>
   </section>
 
-  <!-- ============ 06 CLOSING ============ -->
+  <!-- ============ 08 CLOSING STATEMENT ============ -->
+  <section class="research-section" id="synthesis" aria-labelledby="synthesis-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">11 / Closing</div>
+        <h2 id="synthesis-h">A Capability, Not a Project</h2>
+      </div>
+      <div class="two-col">
+        <div class="col-text">
+          <p>
+            Prototypes, gateways, and evaluations are parts of one
+            organizational habit: observing how decisions are actually
+            made, improving how they are supported, and learning from
+            outcomes. Treating that as an ongoing practice — rather than
+            a launch — is what separates lasting value from a stalled pilot.
+          </p>
+          <p>
+            That is the thesis of this page: value comes not from
+            deploying a model or finishing a prototype, but from a
+            repeatable path — business question, governed decision,
+            measurable operation, continuous learning — that the
+            Gateway, the gates, and the evidence all serve.
+          </p>
+        </div>
+        <div class="col-text">
+          <code class="quote">Enterprise AI is not a one-time deployment. It is the organization's ability to learn, decide, and improve safely.</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
   <section class="research-section closing" id="closing" aria-labelledby="closing-h">
-    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Chinoba Research Statement</h2>
 
     <figure class="figure figure-wide figure-main">
       <a class="figure-frame" href="/research/case-study/assets/16.png"

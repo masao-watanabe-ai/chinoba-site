@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520" role="img" aria-labelledby="t d" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif">
+<title id="t">Enterprise AI Gateway as a governance boundary</title><desc id="d">Callers on the left pass through the gateway, which handles identity, policy, secrets, model routing, guardrails and audit before reaching models, knowledge and business tools on the right.</desc>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7db7ff"/></marker>
+<marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a8a"/></marker></defs>
+<rect width="800" height="520" fill="#0b0b0b"/>
+<text x="120" y="34" text-anchor="middle" fill="#8a8a8a" font-size="12" font-weight="600" letter-spacing="3">CALLERS</text>
+<text x="400" y="34" text-anchor="middle" fill="#7db7ff" font-size="12" font-weight="600" letter-spacing="3">BOUNDARY</text>
+<text x="680" y="34" text-anchor="middle" fill="#8a8a8a" font-size="12" font-weight="600" letter-spacing="3">RESOURCES</text>
+<rect x="30" y="70" width="180" height="70" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/><text x="120.0" y="111.0" text-anchor="middle" fill="#f5f5f5" font-size="17" font-weight="600">Business user</text>
+<rect x="30" y="180" width="180" height="70" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/><text x="120.0" y="221.0" text-anchor="middle" fill="#f5f5f5" font-size="17" font-weight="600">Prototype workspace</text>
+<rect x="30" y="290" width="180" height="70" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/><text x="120.0" y="331.0" text-anchor="middle" fill="#f5f5f5" font-size="17" font-weight="600">AI agent / app</text>
+<rect x="270" y="52" width="260" height="360" rx="6" fill="#0f1620" stroke="#7db7ff" stroke-width="1.5"/>
+<text x="400" y="84" text-anchor="middle" fill="#f5f5f5" font-size="18" font-weight="600" letter-spacing="0">Enterprise AI Gateway</text>
+<rect x="290" y="104" width="220" height="40" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/><text x="400.0" y="130.0" text-anchor="middle" fill="#f5f5f5" font-size="15" font-weight="600">Identity &amp; role</text>
+<rect x="290" y="154" width="220" height="40" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/><text x="400.0" y="180.0" text-anchor="middle" fill="#f5f5f5" font-size="15" font-weight="600">Policy &amp; authorization</text>
+<rect x="290" y="204" width="220" height="40" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/><text x="400.0" y="230.0" text-anchor="middle" fill="#f5f5f5" font-size="15" font-weight="600">Secrets &amp; credentials</text>
+<rect x="290" y="254" width="220" height="40" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/><text x="400.0" y="280.0" text-anchor="middle" fill="#f5f5f5" font-size="15" font-weight="600">Model routing &amp; cost</text>
+<rect x="290" y="304" width="220" height="40" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/><text x="400.0" y="330.0" text-anchor="middle" fill="#f5f5f5" font-size="15" font-weight="600">Guardrails &amp; filtering</text>
+<rect x="290" y="354" width="220" height="40" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/><text x="400.0" y="380.0" text-anchor="middle" fill="#f5f5f5" font-size="15" font-weight="600">Audit &amp; receipts</text>
+<rect x="590" y="70" width="180" height="70" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/><text x="680.0" y="111.0" text-anchor="middle" fill="#f5f5f5" font-size="17" font-weight="600">Foundation models</text>
+<rect x="590" y="180" width="180" height="70" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/><text x="680.0" y="221.0" text-anchor="middle" fill="#f5f5f5" font-size="17" font-weight="600">Knowledge / retrieval</text>
+<rect x="590" y="290" width="180" height="70" rx="4" fill="#111111" stroke="#2a2a2a" stroke-width="1"/><text x="680.0" y="331.0" text-anchor="middle" fill="#f5f5f5" font-size="17" font-weight="600">Business APIs &amp; tools</text>
+<path d="M214,105 L266,105" stroke="#7db7ff" stroke-width="1.5" fill="none"  marker-end="url(#ar)"/>
+<path d="M534,105 L586,105" stroke="#7db7ff" stroke-width="1.5" fill="none"  marker-end="url(#ar)"/>
+<path d="M214,215 L266,215" stroke="#7db7ff" stroke-width="1.5" fill="none"  marker-end="url(#ar)"/>
+<path d="M534,215 L586,215" stroke="#7db7ff" stroke-width="1.5" fill="none"  marker-end="url(#ar)"/>
+<path d="M214,325 L266,325" stroke="#7db7ff" stroke-width="1.5" fill="none"  marker-end="url(#ar)"/>
+<path d="M534,325 L586,325" stroke="#7db7ff" stroke-width="1.5" fill="none"  marker-end="url(#ar)"/>
+<rect x="30" y="440" width="740" height="56" rx="4" fill="#111111" stroke="#2a2a2a"/>
+<text x="400" y="464" text-anchor="middle" fill="#f5f5f5" font-size="14" font-weight="600" letter-spacing="0">Policy is decided by the organization: owners, risk, and data classes.</text>
+<text x="400" y="484" text-anchor="middle" fill="#b0b0b0" font-size="13" font-weight="400" letter-spacing="0">The Gateway does not invent policy; it enforces it and records what happened.</text>
+</svg>
