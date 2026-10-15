@@ -25,3 +25,11 @@ wrangler.jsonc
 .dev.vars*
 .env*
 node_modules/**
+
+# Research source material: EPUB manuscripts and topic drafts (not for public delivery).
+# Both capitalisations exist on disk and matching is case-sensitive.
+research/*/Book/**
+research/*/book/**
+research/*/topic/**
+# No EPUB manuscripts are linked from any page; keep them out of delivery wherever they sit.
+research/**/*.epub

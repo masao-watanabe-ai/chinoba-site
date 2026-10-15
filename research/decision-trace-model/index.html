@@ -4,11 +4,326 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Decision Trace Model — Chinoba</title>
-  <meta name="description" content="Decision Trace Model (DTM): a framework for separating AI-generated signals from organizational decisions — making judgment traceable, auditable, and governable.">
+  <title>Decision Trace Model — Making AI-Assisted Decisions Reconstructable — Chinoba</title>
+  <meta name="description" content="Decision Trace Model (DTM): record a decision as one connected path — event, signal, context, decision, boundary, human gate, execution, outcome — so you can reconstruct why an action was allowed. Definition, structure, lifecycle, use cases, and a staged implementation guide.">
+
+  <link rel="canonical" href="https://chinoba.org/research/decision-trace-model/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Chinoba">
+  <meta property="og:title" content="Decision Trace Model — Making AI-Assisted Decisions Reconstructable">
+  <meta property="og:description" content="Record a decision as one connected path so you can reconstruct why an action was allowed — not only what the AI said.">
+  <meta property="og:url" content="https://chinoba.org/research/decision-trace-model/">
 
   <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
   <link rel="stylesheet" href="/assets/research.css">
+
+  <style>
+    /* ---------- Page-specific additions ---------- */
+    a:focus-visible,
+    .figure-frame:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .concept-grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .concept-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    ol.concept-grid { list-style: none; margin: 0; padding: 0; }
+    .concept .concept-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 10px;
+      color: var(--fg);
+      line-height: 1.4;
+    }
+    .concept p + p { margin-top: 10px; }
+    .concept p strong {
+      color: var(--fg);
+      font-weight: 600;
+    }
+    .concept .idx { color: var(--fg-dim); }
+    .concept-grid + .table-note,
+    .figure + .concept-grid { margin-top: clamp(40px, 5vw, 56px); }
+
+    @media (max-width: 900px) {
+      .concept-grid.cols-4,
+      .concept-grid.cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .concept-grid.cols-3 > .concept:last-child:nth-child(odd),
+      .steps > .concept:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    }
+    @media (max-width: 640px) {
+      .concept-grid.cols-4,
+      .concept-grid.cols-3 { grid-template-columns: 1fr; }
+    }
+
+    /* ---------- Hero additions ---------- */
+    .hero .hero-sub { font-style: normal; color: var(--fg); font-size: clamp(20px, 2.6vw, 26px); }
+    .hero .hero-sub span:last-child { color: var(--accent); }
+    .hero-visual {
+      position: relative;
+      margin: clamp(40px, 6vw, 64px) 0 0;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--bg-elev);
+    }
+    .hero-visual img { display: block; width: 100%; height: auto; }
+    .hero-points {
+      position: relative;
+      list-style: none;
+      margin: 28px 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .hero-points li { background: var(--bg); padding: 20px 22px 22px; }
+    .hero-points strong {
+      display: block;
+      color: var(--fg);
+      font-size: 15px;
+      letter-spacing: 0.2px;
+      margin-bottom: 6px;
+    }
+    .hero-points span { display: block; color: var(--fg-mute); font-size: 14px; line-height: 1.7; }
+    @media (max-width: 900px) { .hero-points { grid-template-columns: 1fr; } }
+
+    /* ---------- In-page navigation ---------- */
+    .page-nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 24px 0;
+    }
+    .page-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .page-nav a {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      color: var(--fg-mute);
+      padding: 6px 12px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      background: var(--bg-elev);
+      transition: border-color 200ms ease, color 200ms ease;
+    }
+    .page-nav a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    @media (max-width: 640px) { .page-nav { padding: 24px 18px 0; } }
+
+    /* ---------- Explore / link lists ---------- */
+    .theme-links { margin-top: 20px; display: flex; flex-direction: column; gap: 6px; }
+    .theme-links .theme-lang {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-dim);
+      margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child { margin-top: 0; }
+    .theme-links a { font-size: 13px; color: var(--accent); letter-spacing: 0.3px; line-height: 1.55; }
+    .book.no-cover { grid-template-columns: 1fr; }
+
+    /* ---------- Text helpers ---------- */
+    .subhead {
+      font-size: 20px;
+      font-weight: 600;
+      margin: clamp(48px, 6vw, 72px) 0 8px;
+      color: var(--fg);
+      letter-spacing: 0.2px;
+    }
+    .subhead-lede {
+      color: var(--fg-mute);
+      max-width: 700px;
+      margin: 0 0 28px;
+      font-size: 15.5px;
+      line-height: 1.8;
+    }
+    .two-col .col-text ol { margin: 14px 0 20px; padding-left: 20px; }
+    .two-col .col-text ol li { margin-bottom: 6px; color: var(--fg-mute); font-size: 15.5px; line-height: 1.85; }
+    .two-col .col-text code,
+    .compare-table code,
+    .usecase code {
+      font-family: "Courier New", monospace;
+      font-size: 0.92em;
+      color: var(--fg);
+      background: rgba(255,255,255,0.05);
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+    .note-box {
+      margin-top: clamp(40px, 5vw, 56px);
+      padding: 20px 24px;
+      border-left: 2px solid var(--accent);
+      background: rgba(125, 183, 255, 0.04);
+      max-width: 820px;
+    }
+    .note-box .note-label {
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .note-box p { color: var(--fg-mute); font-size: 15px; line-height: 1.8; margin: 0 0 10px; }
+    .note-box p:last-child { margin-bottom: 0; }
+    .note-box strong { color: var(--fg); font-weight: 600; }
+    .figure + .two-col,
+    .two-col + .note-box,
+    .figure + .note-box { margin-top: clamp(40px, 5vw, 56px); }
+    .fig-lead { margin-bottom: 0; }
+
+    /* ---------- Tables ---------- */
+    .table-wrap {
+      margin-top: clamp(28px, 4vw, 40px);
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .compare-table {
+      margin-top: 0;
+      border: 1px solid var(--line);
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14px;
+    }
+    .compare-table caption {
+      text-align: left;
+      padding: 0 0 12px;
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--fg-dim);
+    }
+    .compare-table th,
+    .compare-table td {
+      border: 1px solid var(--line);
+      padding: 12px 16px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.65;
+    }
+    .compare-table thead th {
+      background: var(--bg-elev);
+      color: var(--fg);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .compare-table tbody th {
+      color: var(--fg);
+      font-weight: 600;
+      background: var(--bg-elev);
+      min-width: 150px;
+    }
+    .compare-table tbody td { color: var(--fg-mute); min-width: 200px; }
+    .compare-table .is-trace { color: var(--fg); }
+    .table-note {
+      margin: 14px 0 0;
+      font-size: 13px;
+      color: var(--fg-dim);
+      line-height: 1.7;
+      max-width: 760px;
+    }
+    .scroll-hint { display: none; }
+
+    /* ---------- Use cases ---------- */
+    .usecase {
+      margin-top: clamp(28px, 4vw, 40px);
+      border: 1px solid var(--line-strong);
+      background: var(--bg-elev);
+      border-radius: 4px;
+    }
+    .usecase-head { padding: 24px 28px 22px; border-bottom: 1px solid var(--line); }
+    .usecase-head .kicker {
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--fg-dim);
+      margin-bottom: 8px;
+    }
+    .usecase-head h3 { font-size: 20px; margin: 0 0 8px; font-weight: 600; color: var(--fg); line-height: 1.4; }
+    .usecase-head p { margin: 0; color: var(--fg-mute); font-size: 14.5px; line-height: 1.75; max-width: 760px; }
+    .usecase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+    }
+    .usecase-col { background: var(--bg); padding: 22px 24px 26px; }
+    .usecase-col h4 {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-dim);
+      margin: 0 0 14px;
+      font-weight: 600;
+    }
+    .usecase-col.is-trace h4 { color: var(--accent); }
+    .usecase-col ul { margin: 0; padding-left: 18px; }
+    .usecase-col li { color: var(--fg-mute); font-size: 14px; line-height: 1.75; margin-bottom: 8px; }
+    .usecase-col li:last-child { margin-bottom: 0; }
+    .usecase-source { padding: 12px 28px 16px; font-size: 12.5px; color: var(--fg-dim); border-top: 1px solid var(--line); }
+    @media (max-width: 900px) { .usecase-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) {
+      .usecase-head, .usecase-source { padding-left: 20px; padding-right: 20px; }
+      .usecase-col { padding: 20px; }
+    }
+
+    /* ---------- Closing additions ---------- */
+    .closing-cta { margin-top: 28px; font-size: 13px; color: var(--fg-dim); }
+    .closing-cta a { color: var(--accent); }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .cta-row .oss-link { margin-bottom: 0; }
+
+    .essay.is-static { cursor: default; }
+    .essay.is-static:hover { background: var(--bg); }
+    .essay-meta.is-soon { color: var(--fg-dim); }
+
+    @media (max-width: 900px) {
+      .figure-frame[href$=".svg"]::after {
+        content: "Tap to enlarge · scroll to pan";
+        display: block;
+        padding: 8px 12px;
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--fg-dim);
+        border-top: 1px solid var(--line);
+      }
+    }
+    @media (max-width: 720px) {
+      .compare-table { width: auto; min-width: 100%; }
+      .compare-table tbody th { min-width: 150px; }
+      .compare-table tbody td { min-width: 230px; }
+      .scroll-hint {
+        display: block;
+        margin: 0 0 8px;
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--fg-dim);
+      }
+      .lightbox.is-open {
+        overflow: auto;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 64px 12px 24px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .lightbox img { max-width: none; max-height: none; width: 1000px; flex: none; }
+      .lightbox .lightbox-close { position: fixed; top: 14px; right: 14px; background: #0b0b0b; z-index: 101; }
+    }
+    @media (max-width: 520px) {
+      .topbar { flex-wrap: wrap; gap: 8px 16px; }
+    }
+  </style>
 </head>
 
 <body>
@@ -31,16 +346,44 @@
       <div class="eyebrow">Research / Decision Trace Model</div>
       <h1>Decision Trace Model</h1>
       <p class="hero-sub">
-        <span>AI is not prediction.</span>
-        <span>It is decision.</span>
+        <span>An AI gave an answer.</span>
+        <span>Can you show why the action was allowed?</span>
       </p>
       <p class="hero-desc">
-        A framework for separating AI-generated signals
-        from organizational decisions —
-        making judgment traceable, auditable, and governable.
+        The Decision Trace Model (DTM) records a decision as one connected
+        path — event, signal, context, decision, boundary, human gate,
+        execution, and outcome — so that, long after the fact, you can
+        reconstruct why an action was permitted, not only what the AI said.
       </p>
     </div>
+
+    <figure class="hero-visual">
+      <img src="/research/decision-trace-model/assets/hero-trace-path.webp"
+           width="1600" height="560"
+           alt="Five stages joined by one continuous path: evidence as stacked documents, policy as a shield with a check mark, human approval as a person with a check mark, action as forward chevrons, and outcome as concentric rings. A dotted trace line runs beneath all five and loops back to the start for review."
+           fetchpriority="high">
+    </figure>
+
+    <ul class="hero-points">
+      <li><strong>Explain</strong><span>Reconstruct which signals were used, which rules and limits applied, and who approved the action.</span></li>
+      <li><strong>Control</strong><span>Begin with one high-risk decision. Add structure only where it earns its place.</span></li>
+      <li><strong>Improve</strong><span>Replay traces against outcomes to learn whether the signal, rule, boundary, or human gate should change.</span></li>
+    </ul>
   </header>
+
+  <nav class="page-nav" aria-label="On this page">
+    <ul>
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#definition">Definition</a></li>
+      <li><a href="#structure">Structure</a></li>
+      <li><a href="#lifecycle">Lifecycle</a></li>
+      <li><a href="#use-cases">Use cases</a></li>
+      <li><a href="#implementation">Implementation</a></li>
+      <li><a href="#principles">Anti-patterns</a></li>
+      <li><a href="#connected">Related research</a></li>
+      <li><a href="#books">Books</a></li>
+    </ul>
+  </nav>
 
   <!-- ============ EXPLORE THIS THEME ============ -->
   <section class="research-section" id="explore" aria-labelledby="explore-h">
@@ -94,160 +437,745 @@
     </div>
   </section>
 
-  <!-- ============ 01 OVERVIEW ============ -->
-  <section class="research-section" id="overview" aria-labelledby="overview-h">
+  <!-- ============ 01 PROBLEM ============ -->
+  <section class="research-section" id="problem" aria-labelledby="problem-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">01 / Overview</div>
-        <h2 id="overview-h">Signal is not Decision</h2>
+        <div class="section-label">01 / The Problem</div>
+        <h2 id="problem-h">Outcomes Remain. Reasons Disappear.</h2>
         <p class="section-lede">
-          DTM is a framework for handling decision-making in
-          environments where AI, humans, organizations, and external
-          systems interact under uncertainty.
+          Most systems keep what went in, what came out, and what was
+          updated. When a decision is questioned later, the path between
+          those points is missing.
         </p>
       </div>
 
       <div class="two-col">
         <div class="col-text">
+          <h3>Signal is not Decision</h3>
           <p>
-            Modern AI systems are extremely powerful at generating
-            <em>signals</em> — predictions, classifications,
-            recommendations, generated content, retrieved knowledge.
-          </p>
-          <p>
-            But real-world organizations do not operate on signals
-            alone. They must decide what action to take, who is
-            responsible, where escalation is required, what safety
-            boundaries exist, when humans must intervene, and how
-            decisions can later be audited.
+            AI produces <em>signals</em>: scores, classifications,
+            predictions, summaries. An organization needs a
+            <em>decision</em>: execute, stop, escalate, prioritize. When the
+            relationship between the two is never defined, the same signal
+            leads one person to execute, another to hold, and another to
+            escalate — and nobody can later say why.
           </p>
 
-          <code class="quote">Signal &ne; Decision</code>
-
+          <h3>Mature records, missing reasoning</h3>
           <p>
-            The core idea is that AI output should not directly
-            become organizational action. Decisions emerge through
-            a runtime structure involving context formation,
-            boundary evaluation, human gates, coordination,
-            traceability, and execution control.
+            Manufacturers already manage drawings, documents, revisions,
+            approvals, and quality traceability well. Yet it is common that
+            no one knows why a proposal was adopted, what the alternatives
+            were, which concerns were raised, or why it was judged
+            acceptable at the time.
           </p>
 
-          <h3>Why It Matters</h3>
+          <h3>Code without history</h3>
+          <code class="quote">if risk_score &gt; 0.8:
+    block_transaction()</code>
           <p>
-            As AI becomes more autonomous and agentic, organizations
-            face a growing problem: AI can generate answers, but
-            organizations still struggle to decide safely.
+            Why 0.8? Who decided it? When was it changed? The decision
+            works, but it has no history.
           </p>
+        </div>
+
+        <div class="col-text">
+          <h3>What this costs</h3>
+          <ul>
+            <li><strong>Audit.</strong> Request, model-output, and database logs exist, yet “why was this decision made?” stays invisible.</li>
+            <li><strong>Incident review.</strong> Explanations end at “at the time, there appeared to be no problem,” with no record of which concerns were accepted or set aside.</li>
+            <li><strong>Improvement.</strong> You cannot tell whether the signal was inaccurate, the rule flawed, the boundary too strict, or human judgment inconsistent.</li>
+            <li><strong>Accountability.</strong> You cannot tell whether the cause was the AI’s suggestion, the rule priority, the human approval, or the order of execution.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <div class="note-label">Why it matters</div>
+        <p>
+          As AI becomes more autonomous and agentic, it can generate answers
+          faster than organizations can decide safely. Real decisions carry
+          ambiguity, weak signals, conflicting precedent, incomplete
+          information, legal limits, and safety requirements.
+        </p>
+        <p>
+          Input → Model → Output has no place for any of this. The Decision
+          Trace Model adds the missing decision layer between AI generation
+          and organizational action. Its value is not a bigger archive of
+          logs: it is being able to reconstruct the <strong>decision</strong>,
+          the <strong>evidence</strong> it rested on, and the
+          <strong>boundary of responsibility</strong> between AI, rules, and
+          people.
+        </p>
+      </div>
+
+      <div class="table-wrap" role="region" aria-labelledby="logs-cap" tabindex="0">
+        <p class="scroll-hint" aria-hidden="true">Scroll to compare →</p>
+        <table class="compare-table">
+          <caption id="logs-cap">More logs are not a Decision Trace</caption>
+          <thead>
+            <tr><th scope="col">&nbsp;</th><th scope="col">Ordinary logs</th><th scope="col">Decision Trace</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Records</th>
+              <td>What went in, what came out, what was updated.</td>
+              <td class="is-trace">Signals used, rules applied, exceptions triggered, boundaries checked, human intervention, options not selected, outcome.</td>
+            </tr>
+            <tr>
+              <th scope="row">Unit of storage</th>
+              <td>A request, an event, a row, a document.</td>
+              <td class="is-trace">The decision itself.</td>
+            </tr>
+            <tr>
+              <th scope="row">Question answered</th>
+              <td>What happened?</td>
+              <td class="is-trace">Why was this action allowed?</td>
+            </tr>
+            <tr>
+              <th scope="row">Structure</th>
+              <td>Fragments; reasons are inferred afterwards.</td>
+              <td class="is-trace">One ordered trace per decision, which can be replayed.</td>
+            </tr>
+            <tr>
+              <th scope="row">Used for</th>
+              <td>Monitoring and after-the-fact audit of results.</td>
+              <td class="is-trace">Audit, replay, and improvement of the decision.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 DEFINITION ============ -->
+  <section class="research-section" id="definition" aria-labelledby="definition-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / Definition</div>
+        <h2 id="definition-h">What a Decision Trace Is</h2>
+        <p class="section-lede">
+          A Decision Trace is the smallest record from which a decision can
+          be reconstructed afterwards: what was observed, what was proposed,
+          which rules and limits applied, who approved, what was done, and
+          what happened.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <code class="quote">Event → Signal → Decision → Boundary → Human → Log</code>
           <p>
-            Real-world problems contain ambiguity, weak signals,
-            conflicting historical cases, incomplete information,
-            organizational constraints, legal boundaries, and
-            safety requirements. Traditional AI architectures focus on
-            <em>Input → Model → Output</em>. DTM introduces the
-            missing decision layer between AI generation and
-            organizational action.
+            This is the core flow of the model. Later chapters of the guides
+            add Context before the decision, and Execution and Outcome
+            after it.
           </p>
+
+          <h3>AI generates signals; decisions are designed</h3>
+          <p>
+            A model’s output is material for judgment. The decision itself
+            — conditions, priorities, branches, stop conditions, human
+            involvement — is written down as structure, outside the model.
+          </p>
+
+          <h3>One structure for people and AI</h3>
+          <p>
+            Human and AI decisions are recorded in the same trace
+            structure. The model began as a way to preserve human
+            decision-making, and it does not require AI: signals can come
+            from queries, rules, sensors, or people, with AI added later.
+          </p>
+
+          <h3>The five-question test</h3>
+          <p>A trace is complete enough when it can answer:</p>
+          <ol>
+            <li>What event occurred?</li>
+            <li>Which model generated the signal?</li>
+            <li>Which rule determined the decision?</li>
+            <li>Which boundary was applied?</li>
+            <li>Who approved the final outcome?</li>
+          </ol>
         </div>
 
         <figure class="figure">
           <a class="figure-frame" href="/assets/DTM_page/DTM%20module.png"
              data-lightbox aria-label="Open DTM module diagram">
             <img src="/assets/DTM_page/DTM%20module.png"
-                 alt="Decision Trace Model — module diagram"
+                 alt="DTM Module diagram. Eight stages — Event, Signal, Runtime, Flow, Boundary, Human Gate, Execution, Ledger — each map to a module with its role and example functions, resting on shared foundations: authentication, configuration and master data, data infrastructure, monitoring, and security."
                  loading="lazy">
           </a>
           <figcaption class="figure-caption">Fig. 01 — DTM Module Architecture</figcaption>
         </figure>
       </div>
+
+      <div class="note-box">
+        <div class="note-label">Research direction</div>
+        <p>
+          <strong>DTM 2.0 asks for the “why” behind the decision.</strong>
+          It places Need, Goal, Constraint, Context, and Lack before the
+          event, adds Interpretation between signal and decision, and
+          closes the loop through Outcome, Feedback, Learning, and
+          Knowledge. The same signal can mean different things depending on
+          what is being pursued and what is missing.
+        </p>
+        <p>
+          The expanded structure may be better named a Meaning Trace. It
+          connects this line of work to
+          <a href="/research/runtime-society">Runtime Society</a> and
+          <a href="/research/trust-infrastructure">Trust Infrastructure</a>.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- ============ 02 CORE STRUCTURE ============ -->
-  <section class="research-section" id="core" aria-labelledby="core-h">
+  <!-- ============ 03 STRUCTURE ============ -->
+  <section class="research-section" id="structure" aria-labelledby="structure-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">02 / Core Structure</div>
-        <h2 id="core-h">Decision Runtime as a Layer</h2>
+        <div class="section-label">03 / Structure</div>
+        <h2 id="structure-h">Anatomy of a Trace</h2>
         <p class="section-lede">
-          DTM treats decision-making itself as a first-class
-          architectural layer — assembled from five primitives that
-          separate signal generation from organizational action.
+          Nine elements, using the vocabulary of the guides. Each answers a
+          question you will be asked after the fact.
         </p>
       </div>
 
-      <div class="concept-grid">
+      <figure class="figure figure-wide figure-main fig-lead">
+        <a class="figure-frame" href="/research/decision-trace-model/assets/dtm-structure.svg"
+           data-lightbox aria-label="Open Decision Trace anatomy diagram">
+          <img src="/research/decision-trace-model/assets/dtm-structure.svg"
+               width="1200" height="660"
+               alt="Anatomy of a Decision Trace. Two rows of four stages read left to right: Event, Signal, Context, Decision; then Boundary, Human Gate, Execution, Outcome. Each stage is appended to a Decision Trace Ledger below, which is append-only, uses one trace_id per decision, links records with prev_hash and event_hash, and can be replayed."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 02 — Every stage is appended to one ledger, in order, under one trace_id.</figcaption>
+      </figure>
+
+      <div class="concept-grid cols-3">
+        <div class="concept">
+          <div class="idx">01</div>
+          <h3 class="concept-title">Event</h3>
+          <p><strong>Records</strong> What happened and what triggered the decision: an inquiry, an anomaly alert, an approval request.</p>
+          <p><strong>Why</strong> Decisions never start from nothing. The event gives the trace its context.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">02</div>
+          <h3 class="concept-title">Signal</h3>
+          <p><strong>Records</strong> What AI or agents proposed: predictions, scores, classifications, summaries, candidate actions, including those not adopted.</p>
+          <p><strong>Why</strong> Shows which outputs were used and which were set aside. A signal is input to a decision, never the decision.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">03</div>
+          <h3 class="concept-title">Context</h3>
+          <p><strong>Records</strong> History, similar past cases, current state, and human knowledge, including where they conflict.</p>
+          <p><strong>Why</strong> The same signal means different things in different contexts. Conflicting evidence is itself a risk signal.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">04</div>
+          <h3 class="concept-title">Decision</h3>
+          <p><strong>Records</strong> Which decision contract, rules, and priorities were applied; what was selected and what was not.</p>
+          <p><strong>Why</strong> A bare “approved” cannot be reviewed. A structure of selection can.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">05</div>
+          <h3 class="concept-title">Boundary</h3>
+          <p><strong>Records</strong> The limits and policies checked (regulatory, budget, safety, risk) and the result: act, ask, or stop.</p>
+          <p><strong>Why</strong> Explains why something was not executed, and which constraint stopped it.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">06</div>
+          <h3 class="concept-title">Human Gate</h3>
+          <p><strong>Records</strong> Who approved, rejected, or allowed an exception; under what authority; what the reviewer weighed.</p>
+          <p><strong>Why</strong> Without it, human-in-the-loop is an opaque black box of responsibility.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">07</div>
+          <h3 class="concept-title">Execution</h3>
+          <p><strong>Records</strong> The action actually taken, by which system, agent, or person, tied to the decision that authorized it.</p>
+          <p><strong>Why</strong> A decision that cannot be tied to an action cannot be verified.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">08</div>
+          <h3 class="concept-title">Outcome</h3>
+          <p><strong>Records</strong> What happened afterwards, attached later to the same trace: sales, waste, a follow-up complaint, a failure avoided.</p>
+          <p><strong>Why</strong> Lets you judge the decision, not only the model. This is where the loop closes.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">09</div>
+          <h3 class="concept-title">Ledger</h3>
+          <p><strong>Records</strong> All of the above as an ordered, append-only trace under one <code>trace_id</code>, hash-chained with <code>prev_hash</code> and <code>event_hash</code>.</p>
+          <p><strong>Why</strong> History cannot be quietly rewritten, it can be replayed, and improvements are recorded as new traces.</p>
+        </div>
+      </div>
+      <h3 class="subhead">The five primitives behind the nine elements</h3>
+      <p class="subhead-lede">
+        The model was first described with five primitives. They are the
+        same structure seen from the runtime side: each one maps onto the
+        elements above.
+      </p>
+      <div class="concept-grid steps">
         <div class="concept">
           <div class="idx">i</div>
-          <h3>Signal</h3>
-          <p>AI-generated outputs — predictions, anomalies, recommendations, generated text, similarity results. Informative, but not authoritative.</p>
+          <h3 class="concept-title">Signal</h3>
+          <p>AI-generated outputs: predictions, anomalies, recommendations, text. Informative, not authoritative.</p>
+          <p><strong>Trace</strong> Event, Signal</p>
         </div>
-
         <div class="concept">
           <div class="idx">ii</div>
-          <h3>Runtime</h3>
-          <p>The central orchestration layer. Evaluates signals, forms context, checks boundaries, coordinates agents, records traces. A Decision OS.</p>
+          <h3 class="concept-title">Runtime</h3>
+          <p>The orchestration layer that evaluates signals, forms context, checks boundaries, coordinates agents, and records the trace.</p>
+          <p><strong>Trace</strong> Context, Decision, Execution</p>
         </div>
-
         <div class="concept">
           <div class="idx">iii</div>
-          <h3>Boundary</h3>
-          <p>Safety limits, escalation rules, operational constraints, governance conditions. Boundaries prevent unsafe automatic execution.</p>
+          <h3 class="concept-title">Boundary</h3>
+          <p>Safety limits, escalation rules, operational constraints, and governance conditions that stop unsafe automatic execution.</p>
+          <p><strong>Trace</strong> Boundary</p>
         </div>
-
         <div class="concept">
           <div class="idx">iv</div>
-          <h3>Human Gate</h3>
+          <h3 class="concept-title">Human Gate</h3>
           <p>Critical decisions require explicit human involvement. Human-in-the-loop is architectural, not optional.</p>
+          <p><strong>Trace</strong> Human Gate</p>
         </div>
-
         <div class="concept">
           <div class="idx">v</div>
-          <h3>Decision Trace</h3>
-          <p>Every important decision remains traceable, explainable, auditable, reusable, learnable — forming organizational memory.</p>
+          <h3 class="concept-title">Decision Trace</h3>
+          <p>Every important decision stays traceable, explainable, auditable, and reusable, forming organizational memory.</p>
+          <p><strong>Trace</strong> Outcome, Ledger</p>
         </div>
       </div>
 
-      <figure class="figure figure-wide">
-        <a class="figure-frame" href="/assets/DTM_page/Applicable%20system%20architecture%20for%20manufacturing.png"
-           data-lightbox aria-label="Open manufacturing architecture diagram">
-          <img src="/assets/DTM_page/Applicable%20system%20architecture%20for%20manufacturing.png"
-               alt="Applicable system architecture for manufacturing"
+      <p class="table-note">
+        The guides’ ledger example also stores a policy name and version
+        next to the boundary (for instance <code>fraud_policy_v2</code>).
+        Chinoba’s <a href="/research/knowledge-flow">Knowledge Flow</a>
+        research adds the Evidence Pack and Retrieval Receipt as the records
+        of what a decision relied on.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 04 LIFECYCLE ============ -->
+  <section class="research-section" id="lifecycle" aria-labelledby="lifecycle-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Lifecycle</div>
+        <h2 id="lifecycle-h">From Signal to Review</h2>
+        <p class="section-lede">
+          A decision is not a moment. It is a path with checkpoints, and the
+          trace lets you walk it backward for audit and forward for
+          improvement.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-main fig-lead">
+        <a class="figure-frame" href="/research/decision-trace-model/assets/dtm-lifecycle-loop.svg"
+           data-lightbox aria-label="Open decision lifecycle diagram">
+          <img src="/research/decision-trace-model/assets/dtm-lifecycle-loop.svg"
+               width="1200" height="680"
+               alt="The decision lifecycle as a loop. Top row, left to right: Event and Signal, Context, Decision, Boundary. The boundary result is Act, Ask, or Stop. Bottom row, right to left: Human Gate approval, Execution, Outcome, Review and replay. A dashed arrow returns from Review to the start, revising signals, decisions, boundaries, and human gates. One trace links every step."
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">Fig. 02 — Applicable System Architecture for Manufacturing</figcaption>
+        <figcaption class="figure-caption">Fig. 03 — Decision → Approval → Action → Outcome → Review, with one trace linking every step.</figcaption>
+      </figure>
+
+      <div class="two-col" style="margin-top: clamp(40px, 5vw, 56px);">
+        <div class="col-text">
+          <h3>A human gate is a designed node, not a button</h3>
+          <p>
+            “A human reviews if needed” leaves unclear when people should
+            step in and what they are responsible for. A designed gate
+            states when to escalate, what the person decides, what
+            authority they hold, and how far an override may go.
+          </p>
+          <p>
+            The reviewer is not rubber-stamping AI output. In the
+            manufacturing case below, they weigh signal strength, similarity
+            to past failures, counterexamples, safety impact, causal
+            uncertainty, validation cost, and the risk of misjudgment, and
+            may reach an intermediate decision such as
+            <code>HOLD_WITH_ADDITIONAL_VALIDATION</code>.
+          </p>
+          <h3>Approval Binding</h3>
+          <p>
+            Approving a summary is not approving an action. Approval Binding
+            ties what the person reviewed to what is executed — for example
+            by hash — and sends the case back for reapproval if the
+            content, recipient, or policy changes. It is one of five
+            implementation building blocks in Chinoba’s
+            <a href="/research/philosophy-of-ai">Philosophy of AI</a>
+            research. The DTM guides do not define it; it is the natural
+            partner of the Human Gate.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>Why the record resists tampering and substitution</h3>
+          <ul>
+            <li><strong>Append-only.</strong> Events are never overwritten or deleted. Improvements are recorded as new traces; the past is not rewritten.</li>
+            <li><strong>One trace per decision.</strong> A shared <code>trace_id</code> and event order keep causality, not just time order, so the path can be replayed.</li>
+            <li><strong>Hash chain.</strong> Each event references the hash of the previous one, so tampering or a missing event is detectable. No full blockchain is required.</li>
+            <li><strong>Replay.</strong> Re-run a past decision under the same conditions, or with a different rule or boundary, to compare results.</li>
+          </ul>
+          <h3>Stopping is a property of the decision</h3>
+          <p>
+            Telling an agent “stop if it is dangerous” in a prompt is not a
+            structure. The guides place a boundary after the decision, with
+            three kinds of stop: a hard stop for critical risk, a soft stop
+            that hands the case to a person, and a redirect to another
+            route. Safety is layered: permission control, decision and
+            boundary, human responsibility, and the log.
+          </p>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="/assets/DTM_page/The%20Role%20of%20DTM%20Runtime.png"
+           data-lightbox aria-label="Open DTM Runtime diagram">
+          <img src="/assets/DTM_page/The%20Role%20of%20DTM%20Runtime.png"
+               alt="The Role of DTM Runtime. Seven steps turn AI output into responsible action: receive signals, build a relationship structure, understand context, verify constraints and boundaries, insert human judgment at the human gate, make decisions and execute, then record and learn. Each step lists its key questions."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 04 — The Role of DTM Runtime</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- ============ 03 OSS ECOSYSTEM ============ -->
-  <section class="research-section" id="oss" aria-labelledby="oss-h">
+  <!-- ============ 05 USE CASES ============ -->
+  <section class="research-section" id="use-cases" aria-labelledby="use-cases-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">03 / Open-Source Ecosystem</div>
-        <h2 id="oss-h">Open-Source Ecosystem</h2>
+        <div class="section-label">05 / Use Cases</div>
+        <h2 id="use-cases-h">Three Decisions, Traced</h2>
         <p class="section-lede">
-          The DTM ecosystem consists of modular OSS components
-          for runtime-based decision systems.
+          Each case comes from the guides and articles behind this page.
+          For each: what is missing without a trace, what the trace holds,
+          and what you can check afterwards.
         </p>
       </div>
 
-      <div class="oss-block">
+      <article class="usecase" aria-labelledby="uc1-h">
+        <div class="usecase-head">
+          <div class="kicker">Manufacturing · Quality judgment</div>
+          <h3 id="uc1-h">An ambiguous signal in a safety-related design</h3>
+          <p>Voltage becomes slightly unstable at high temperature. The threshold is not exceeded, similar cases exist, and their outcomes differed. It may be a real failure, or noise.</p>
+        </div>
+        <div class="usecase-grid">
+          <div class="usecase-col">
+            <h4>Before: what is missing</h4>
+            <ul>
+              <li>Design reviews lean on veteran experience, memory of past incidents, departmental power balance, and the mood of the meeting.</li>
+              <li>A simple RAG answer stops at “there are similar cases.” It cannot handle contradictions between cases, safety boundaries, or escalation.</li>
+              <li>Why the decision was made is poorly preserved.</li>
+            </ul>
+          </div>
+          <div class="usecase-col is-trace">
+            <h4>Decision Trace: what is recorded</h4>
+            <ul>
+              <li>The weak signal is kept (risk score 0.38), not dismissed as “within threshold.”</li>
+              <li>Past failure traces, QA notes, and the ledger are searched. Two cases conflict, and the conflict raises the risk score to 0.52.</li>
+              <li>Two knowledge holders are consulted: QA thermal validation (similarity 0.84, risk 0.68) and field failure analysis (the 2024 case was sensor noise).</li>
+              <li>Boundary escalation: safety-related ambiguity, conflicting precedent, insufficient causal certainty. Status: <code>WAITING_HUMAN_REVIEW</code>.</li>
+              <li>Decision: <code>HOLD_WITH_ADDITIONAL_VALIDATION</code>, with a long-duration thermal test, sensor noise isolation, and extra QA validation required.</li>
+            </ul>
+          </div>
+          <div class="usecase-col">
+            <h4>After: what you can verify</h4>
+            <ul>
+              <li>Why the release was held rather than approved or rejected.</li>
+              <li>Which cases and which people informed the call.</li>
+              <li>That the conflict itself triggered escalation.</li>
+              <li>Later signals about thermal instability can reference how the organization decided, not only what documents say.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="usecase-source">Source: scenario in the DTM article on decision ambiguity at the boundary. The scores belong to that illustrative scenario.</div>
+      </article>
+
+      <article class="usecase" aria-labelledby="uc2-h">
+        <div class="usecase-head">
+          <div class="kicker">Maintenance · High-risk autonomous action</div>
+          <h3 id="uc2-h">A maintenance-support AI near safety-critical equipment</h3>
+          <p>The AI reads sensor data, maintenance records, inventory, failure history, and worker qualifications, proposes inspection plans, and may issue work orders for minor inspections.</p>
+        </div>
+        <div class="usecase-grid">
+          <div class="usecase-col">
+            <h4>Before: what is missing</h4>
+            <ul>
+              <li>Bug-free code is necessary but not sufficient. The open questions are about authority and boundaries.</li>
+              <li>May the AI decide that safety-critical equipment can keep running without human approval? What if a sensor value is missing?</li>
+              <li>After an accident, can the data, rules, responsible parties, and exceptions be reconstructed?</li>
+            </ul>
+          </div>
+          <div class="usecase-col is-trace">
+            <h4>Decision Trace: what is recorded</h4>
+            <ul>
+              <li>The Decision Law checked before execution: continuing safety-critical equipment needs a qualified human’s approval; a missing required sensor value or inspection record blocks an automatic “safe” finding.</li>
+              <li>Automatic parts procurement only when approved budget, supplier, and spending limit are all met.</li>
+              <li>Any proposal to avoid a shutdown carries alternatives, a risk assessment, and evidence references.</li>
+              <li>The result as Act, Ask, or Stop, with its reason. If inputs, rules, evidence, executor, and outcome cannot be retained, the action is not executed.</li>
+            </ul>
+          </div>
+          <div class="usecase-col">
+            <h4>After: what you can verify</h4>
+            <ul>
+              <li>That evidence, authority, and boundaries were satisfied before execution, not argued afterwards.</li>
+              <li>Who approved, and under what authority.</li>
+              <li>Which laws were missing or too coarse: exceptions, Human Gate rejections, and near misses accumulate as traces and show where the laws need revising.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="usecase-source">Source: the article on verifiable autonomy and Decision Law. Autonomy is not binary: Act, Ask, and Stop are decided against laws written in advance, not by model confidence alone.</div>
+      </article>
+
+      <article class="usecase" aria-labelledby="uc3-h">
+        <div class="usecase-head">
+          <div class="kicker">Customer support · Replay and improvement</div>
+          <h3 id="uc3-h">An automatic reply that became a complaint</h3>
+          <p>An inquiry is classified as an FAQ and answered automatically. Later it escalates into a complaint.</p>
+        </div>
+        <div class="usecase-grid">
+          <div class="usecase-col">
+            <h4>Before: what is missing</h4>
+            <ul>
+              <li>The log holds the inquiry text, the classification, the reply, and the completion time.</li>
+              <li>It does not explain why an automatic reply was sent, or why a similar case was escalated before.</li>
+            </ul>
+          </div>
+          <div class="usecase-col is-trace">
+            <h4>Decision Trace: what is recorded</h4>
+            <ul>
+              <li>Event: inquiry received.</li>
+              <li>Signal: LLM classification FAQ, confidence 0.82.</li>
+              <li>Decision: confidence ≥ 0.80, therefore <code>auto_reply</code>.</li>
+              <li>Boundary: no issue, the customer is not a VIP. Human: no intervention.</li>
+              <li>Action: automatic reply. Outcome: later escalated into a complaint.</li>
+            </ul>
+          </div>
+          <div class="usecase-col">
+            <h4>After: what you can verify</h4>
+            <ul>
+              <li>Replay the decision and ask whether the 0.80 threshold was too low.</li>
+              <li>Ask whether checking sentiment would have prevented it, even for an FAQ.</li>
+              <li>Ask whether complaint history belongs in the boundary for non-VIP customers.</li>
+              <li>The target of improvement is the decision, not only model accuracy.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="usecase-source">Source: the Decision Trace Ledger chapter of the practical guide.</div>
+      </article>
+
+      <p class="table-note">
+        The same sources also trace retail store decisions (option, concern,
+        rejected option, decision, outcome), finance (approve, reject,
+        modify, hold), software development, education, and UX. Retail is
+        the one the guide suggests starting by hand: structure roughly
+        200–500 store decisions before adding search or AI assistance.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 06 IMPLEMENTATION ============ -->
+  <section class="research-section" id="implementation" aria-labelledby="implementation-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Implementation</div>
+        <h2 id="implementation-h">Implementation Guide</h2>
+        <p class="section-lede">
+          Start with the smallest trace that can answer an auditor’s
+          question, on the decision where a wrong answer is hardest to undo.
+          Do not begin with a complete runtime: a minimal one is still a
+          runtime.
+        </p>
+      </div>
+
+      <h3 class="subhead" style="margin-top: 0;">A minimum trace record</h3>
+      <p class="subhead-lede">
+        These fields come from the ledger design in the guides and from
+        Chinoba’s Knowledge Flow research. Add fields only when a question
+        needs them.
+      </p>
+
+      <div class="table-wrap" role="region" aria-labelledby="fields-cap" tabindex="0">
+        <p class="scroll-hint" aria-hidden="true">Scroll to compare →</p>
+        <table class="compare-table">
+          <caption id="fields-cap">Minimum fields in a decision trace</caption>
+          <thead>
+            <tr><th scope="col">Field</th><th scope="col">What it holds</th><th scope="col">Why it matters</th><th scope="col">Basis</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Identifier and order</th>
+              <td><code>trace_id</code> and ordered events: <code>event_received</code>, <code>signal_generated</code>, <code>decision_contract_applied</code>, <code>boundary_checked</code>, <code>human_reviewed</code>, <code>action_executed</code>, <code>outcome_recorded</code>.</td>
+              <td>Joins every stage of one decision so the path can be replayed.</td>
+              <td>Ledger chapter</td>
+            </tr>
+            <tr>
+              <th scope="row">Timestamps</th>
+              <td>When each event happened. Keep the time something was true separate from the time it was recorded.</td>
+              <td>A corrected threshold does not rewrite what was known earlier.</td>
+              <td>Guides; Knowledge Flow</td>
+            </tr>
+            <tr>
+              <th scope="row">Inputs and sources</th>
+              <td>The event, the signals, and the context relied on: documents, past cases, people consulted, plus conflicts and gaps.</td>
+              <td>Shows what the decision rested on. Missing support is part of the evidence.</td>
+              <td>Guides; Knowledge Flow</td>
+            </tr>
+            <tr>
+              <th scope="row">Rule and policy version</th>
+              <td>The decision contract, applied rules, and priorities, with the policy name and version.</td>
+              <td>Replay needs the rules as they stood on the day, not today’s.</td>
+              <td>Ledger example; Knowledge Flow</td>
+            </tr>
+            <tr>
+              <th scope="row">Model and prompt version†</th>
+              <td>Which model or agent produced each signal, and its version. Where a prompt is used, its version.</td>
+              <td>Separates a model issue from a context, rule, or operations issue.</td>
+              <td>Audit questions; †guidance</td>
+            </tr>
+            <tr>
+              <th scope="row">Boundary check</th>
+              <td>The limits evaluated and the result: act, ask, or stop (or execute, human, redirect, stop).</td>
+              <td>Explains why an action ran, waited, or did not run.</td>
+              <td>Guides; Governance</td>
+            </tr>
+            <tr>
+              <th scope="row">Authority and approval</th>
+              <td>Who approved, rejected, or allowed an exception, under what authority, bound to the exact action.</td>
+              <td>Makes accountability visible, and makes substitution detectable.</td>
+              <td>Guides; Approval Binding</td>
+            </tr>
+            <tr>
+              <th scope="row">Execution result</th>
+              <td>What ran, on which system or by whom, and how it ended.</td>
+              <td>Ties the decision to a real action.</td>
+              <td>Guides</td>
+            </tr>
+            <tr>
+              <th scope="row">Outcome</th>
+              <td>The result in business terms, attached after a set period.</td>
+              <td>Lets you compare what was expected with what happened.</td>
+              <td>Guides</td>
+            </tr>
+            <tr>
+              <th scope="row">Exceptions and conflicts</th>
+              <td><code>conflict_detected</code>, <code>conflicting_signals</code>, <code>unresolved_tradeoff</code>, overrides, and stops.</td>
+              <td>Disagreement is information. Do not smooth it away.</td>
+              <td>Multi-agent chapter</td>
+            </tr>
+            <tr>
+              <th scope="row">Integrity</th>
+              <td>Append-only storage with <code>prev_hash</code> and <code>event_hash</code>.</td>
+              <td>History cannot be quietly changed.</td>
+              <td>Ledger chapter</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="table-note">† Implementation guidance that follows from the sources’ audit questions and replay requirements. The guides do not specify a prompt-version field.</p>
+      </div>
+
+      <h3 class="subhead">Fit it into what you already run</h3>
+      <p class="subhead-lede">A trace layer sits beside existing systems. It connects information you already have rather than replacing it.</p>
+      <div class="concept-grid cols-3">
+        <div class="concept">
+          <div class="idx">Logging</div>
+          <h3 class="concept-title">Existing log stack</h3>
+          <p>Keep your logs. Add a <code>trace_id</code> so request, model-output, and workflow events about one decision can be joined. The ledger core stays minimal; databases remain external.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">RAG and search</div>
+          <h3 class="concept-title">Store the decision, not just the document</h3>
+          <p>RAG retrieves documents for a model to summarize. A trace store lets you also retrieve how past cases were decided: why one was escalated, why another was approved.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">Evidence</div>
+          <h3 class="concept-title">Evidence and receipts</h3>
+          <p>Link each signal and context item to its source through an Evidence Pack and Retrieval Receipt, as described in <a href="/research/knowledge-flow">Knowledge Flow</a>.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">Workflow</div>
+          <h3 class="concept-title">Approvals as human gates</h3>
+          <p>Model each approval as an explicit node with authority and override scope, and bind the approval to the action that runs.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">Orchestration</div>
+          <h3 class="concept-title">Orchestrator writes the trace</h3>
+          <p>An orchestrator runs the decision flow (for example as a behavior tree) and writes each step, including boundary and human gate results, to the ledger.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">Audit</div>
+          <h3 class="concept-title">Audit and replay</h3>
+          <p>With an append-only ledger, auditors can ask which model, which rule, which boundary, and who approved — and replay the decision under changed rules.</p>
+        </div>
+      </div>
+
+      <h3 class="subhead">Start where a wrong decision is hardest to undo</h3>
+      <p class="subhead-lede">
+        Most organizations already hold pieces of this: quality events,
+        approvals, review processes. The first step is tracing existing
+        decisions, not inventing new ones. AI can come later.
+      </p>
+      <ol class="concept-grid steps">
+        <li class="concept">
+          <div class="idx">Step 1</div>
+          <h3 class="concept-title">Pick one decision</h3>
+          <p>Choose one high-risk process. Interview experienced staff, collect typical and exceptional cases, and write down Event, Signal, Decision, Boundary, and Human, with priorities such as Safety &gt; Quality &gt; Cost.</p>
+        </li>
+        <li class="concept">
+          <div class="idx">Step 2</div>
+          <h3 class="concept-title">Separate signal from decision</h3>
+          <p>Keep your existing models. Put a small decision layer behind them with minimal rules and at least one human point. Do not push the rule back into the LLM prompt.</p>
+        </li>
+        <li class="concept">
+          <div class="idx">Step 3</div>
+          <h3 class="concept-title">Record the trace</h3>
+          <p>Capture the minimum fields under a <code>trace_id</code>. Always record human intervention. Attach outcomes after a set period. A CSV or database is enough; never delete history.</p>
+        </li>
+        <li class="concept">
+          <div class="idx">Step 4</div>
+          <h3 class="concept-title">Review and improve</h3>
+          <p>Review representative traces. Sort each finding into model, rule, boundary, or human gate. Change one thing and run the cycle again.</p>
+        </li>
+        <li class="concept">
+          <div class="idx">Step 5</div>
+          <h3 class="concept-title">Expand when needed</h3>
+          <p>Add a rule language, an independent boundary, behavior trees, the hash-chained ledger, or multiple agents only where the earlier steps show a limit.</p>
+        </li>
+      </ol>
+
+      <h3 class="subhead">Reference architecture and open source</h3>
+      <p class="subhead-lede">One way to connect these pieces, and the open-source modules that implement them.</p>
+
+      <figure class="figure figure-wide figure-main fig-lead">
+        <a class="figure-frame" href="/assets/DTM_page/Applicable%20system%20architecture%20for%20manufacturing.png"
+           data-lightbox aria-label="Open manufacturing architecture diagram">
+          <img src="/assets/DTM_page/Applicable%20system%20architecture%20for%20manufacturing.png"
+               alt="Applicable system architecture: external data sources and systems feed an interaction layer, then the DTM Runtime (decision-runtime-core), which contains signal integration, risk and context analysis, boundary management, knowledge reference, decision logic, and a human gate, and writes to a Decision Trace ledger with hash chain. The runtime connects to execution systems and to people such as engineers, QA, safety owners, executives, and auditors, with learning feeding back into organizational memory."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 05 — Applicable System Architecture (DTM and external systems, users)</figcaption>
+      </figure>
+
+      <div class="oss-block" style="margin-top: clamp(40px, 5vw, 56px);">
         <figure class="figure">
           <a class="figure-frame" href="/assets/DTM_page/OSS%20module.png"
              data-lightbox aria-label="Open OSS module diagram">
             <img src="/assets/DTM_page/OSS%20module.png"
-                 alt="DTM OSS module map"
+                 alt="Currently open-source modules. decision-runtime-core sits at the center as the decision kernel. Around it: interaction-core-v2, decision-trace-model-v2, decision-trace-ledger-core-k2, dtm-view-core-v2, multi-agent-orchestrator-core-v2, and decision-trace-gnn-core-v2. The end-to-end flow is Interaction, Signal, Runtime, Boundary, Human Gate, Execution, Ledger."
                  loading="lazy">
           </a>
-          <figcaption class="figure-caption">Fig. 03 — OSS Module Map</figcaption>
+          <figcaption class="figure-caption">Fig. 06 — OSS Module Map</figcaption>
         </figure>
 
         <div class="oss-meta">
           <h3>Modular components</h3>
           <p>
-            Each module addresses a single concern within the
-            decision runtime — execution, trace, interaction,
-            view, ledger, organizational memory.
+            Each module addresses a single concern within the decision
+            runtime — execution, trace, interaction, view, ledger,
+            organizational memory.
           </p>
 
           <a class="oss-link" href="https://github.com/chinoba-lab" target="_blank" rel="noopener">
@@ -268,117 +1196,149 @@
     </div>
   </section>
 
-  <!-- ============ 04 DECISION FLOW ============ -->
-  <section class="research-section" id="flow" aria-labelledby="flow-h">
+  <!-- ============ 07 PRINCIPLES & ANTI-PATTERNS ============ -->
+  <section class="research-section" id="principles" aria-labelledby="principles-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">04 / Decision Flow</div>
-        <h2 id="flow-h">Event → Trace</h2>
+        <div class="section-label">07 / Design Principles</div>
+        <h2 id="principles-h">Principles and Anti-Patterns</h2>
         <p class="section-lede">
-          A decision is not a single moment. It is a traversal
-          across distinct stages — each leaving a structured record.
+          Four principles from the guides, and seven failure patterns to
+          design against, each with a short fix.
         </p>
       </div>
 
-      <ol class="flow" role="list">
-        <li class="flow-step" tabindex="0">
-          <span class="step-num">01</span>
-          <span class="step-name">Event</span>
-          <p class="step-desc">Something happens in the world that the system observes.</p>
-        </li>
-        <li class="flow-step" tabindex="0">
-          <span class="step-num">02</span>
-          <span class="step-name">Signal</span>
-          <p class="step-desc">AI generates an interpretation — prediction, anomaly, suggestion.</p>
-        </li>
-        <li class="flow-step" tabindex="0">
-          <span class="step-num">03</span>
-          <span class="step-name">Decision</span>
-          <p class="step-desc">The runtime forms context and considers what action is appropriate.</p>
-        </li>
-        <li class="flow-step" tabindex="0">
-          <span class="step-num">04</span>
-          <span class="step-name">Boundary</span>
-          <p class="step-desc">Safety limits, escalation rules, and governance conditions are checked.</p>
-        </li>
-        <li class="flow-step" tabindex="0">
-          <span class="step-num">05</span>
-          <span class="step-name">Human Gate</span>
-          <p class="step-desc">When ambiguity exceeds threshold, a human enters the loop.</p>
-        </li>
-        <li class="flow-step" tabindex="0">
-          <span class="step-num">06</span>
-          <span class="step-name">Execution</span>
-          <p class="step-desc">The decision is enacted — by a system, agent, or person.</p>
-        </li>
-        <li class="flow-step" tabindex="0">
-          <span class="step-num">07</span>
-          <span class="step-name">Trace</span>
-          <p class="step-desc">The full path becomes an artifact — auditable, replayable, learnable.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ============ 05 DTM RUNTIME ============ -->
-  <section class="research-section" id="runtime" aria-labelledby="runtime-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">05 / DTM Runtime</div>
-        <h2 id="runtime-h">The Role of DTM Runtime</h2>
-        <p class="section-lede">
-          How AI-generated signals become safe and accountable
-          real-world decisions.
-        </p>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <p>
-            DTM Runtime is the execution and coordination layer that
-            transforms AI-generated signals into real-world
-            organizational action.
-          </p>
-          <p>
-            Rather than allowing AI outputs to directly trigger
-            execution, the runtime forms relationships between signals,
-            context, constraints, history, organizational policies,
-            and human judgment.
-          </p>
-          <p>This creates a structured decision process involving:</p>
-          <ul>
-            <li>Signal reception</li>
-            <li>Relationship graph formation</li>
-            <li>Context understanding</li>
-            <li>Boundary verification</li>
-            <li>Human gate evaluation</li>
-            <li>Execution control</li>
-            <li>Trace recording and learning</li>
-          </ul>
-          <p>
-            The result is not merely AI prediction, but traceable,
-            governable, and accountable organizational decision-making.
-          </p>
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">Principle 1</div>
+          <h3 class="concept-title">Separate signal and decision</h3>
+          <p>AI does not decide. Decisions are externalized as rules, so changing a model does not break the decision.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">Principle 2</div>
+          <h3 class="concept-title">Connect decision to execution</h3>
+          <p>Every decision is translated into an action, and the action is recorded against it.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">Principle 3</div>
+          <h3 class="concept-title">Define the boundary first</h3>
+          <p>Decide what must never be done, where the system stops, and what returns to humans, before deciding what to automate.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">Principle 4</div>
+          <h3 class="concept-title">Close the loop through the log</h3>
+          <p>Decision, result, improvement. The ledger serves improvement as well as audit.</p>
         </div>
       </div>
 
-      <figure class="figure figure-wide">
-        <a class="figure-frame" href="/assets/DTM_page/The%20Role%20of%20DTM%20Runtime.png"
-           data-lightbox aria-label="Open DTM Runtime diagram">
-          <img src="/assets/DTM_page/The%20Role%20of%20DTM%20Runtime.png"
-               alt="The Role of DTM Runtime"
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Fig. 04 — The Role of DTM Runtime</figcaption>
-      </figure>
+      <div class="table-wrap" role="region" aria-labelledby="anti-cap" tabindex="0">
+        <p class="scroll-hint" aria-hidden="true">Scroll to compare →</p>
+        <table class="compare-table">
+          <caption id="anti-cap">Anti-patterns and fixes</caption>
+          <thead>
+            <tr><th scope="col">Anti-pattern</th><th scope="col">What goes wrong</th><th scope="col">Fix</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">No evidence link</th>
+              <td>The decision cannot be checked against what it relied on. Explanations become recollection.</td>
+              <td>Record references to the signals, sources, and people used. Keep conflicts and rejected options. Link to the Evidence Pack where you have one.</td>
+            </tr>
+            <tr>
+              <th scope="row">Decision and execution not tied together</th>
+              <td>A decision exists, but nobody can show it was the one that ran.</td>
+              <td>Put every step under one <code>trace_id</code>, in order, from event to outcome, and record the action against its decision.</td>
+            </tr>
+            <tr>
+              <th scope="row">Approved object differs from executed object</th>
+              <td>A person approved a summary, and something else ran.</td>
+              <td>Apply Approval Binding: bind the reviewed content to the executed action, for example by hash, and return for reapproval on any change.</td>
+            </tr>
+            <tr>
+              <th scope="row">Policy, model, and prompt versions not kept</th>
+              <td>Replay answers with today’s rules and model, not the ones in force at the time.</td>
+              <td>Record the policy version and the producing model with each signal. Keep decision rules outside the prompt. Replay from a snapshot fixed at decision time.</td>
+            </tr>
+            <tr>
+              <th scope="row">Blurred responsibility among people, AI, and rules</th>
+              <td>No one can say whether the suggestion, the rule priority, the approval, or the execution order caused the outcome.</td>
+              <td>Agents emit signals. A decision layer applies the contract. The boundary can stop. The human gate is a named node with authority and override scope.</td>
+            </tr>
+            <tr>
+              <th scope="row">Raw logs, but no searchable decisions</th>
+              <td>Reasons can only be inferred from fragments.</td>
+              <td>Make the decision the unit of storage. Index traces by case and retrieve past decisions alongside documents.</td>
+            </tr>
+            <tr>
+              <th scope="row">Safety by instruction</th>
+              <td>“Stop if dangerous” in a prompt is not enforced. An agent generates the action that seems right at the moment.</td>
+              <td>Enforce stops at the boundary: hard stop, soft stop to a human, or redirect. The agent does not stop; the decision does.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
-  <!-- ============ 06 RELATED ESSAYS ============ -->
+  <!-- ============ 08 CONNECTED RESEARCH ============ -->
+  <section class="research-section" id="connected" aria-labelledby="connected-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">08 / Connected Research</div>
+        <h2 id="connected-h">Where the Trace Connects</h2>
+        <p class="section-lede">
+          A trace is one layer of a larger inquiry. These Chinoba pages
+          supply the evidence behind a decision, the boundary around it,
+          the approval that binds it, and the runtime that carries it.
+        </p>
+      </div>
+
+      <div class="essays">
+        <a class="essay" href="/research/knowledge-flow">
+          <div class="kicker">Evidence</div>
+          <h3>Knowledge Flow</h3>
+          <p>How signals and evidence become governed decisions and learning: Receipt, Evidence, Decision Trace, Outcome, and reviewed learning.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="/research/governance-boundary-systems">
+          <div class="kicker">Boundary</div>
+          <h3>Governance &amp; Boundary Systems</h3>
+          <p>Boundaries evaluated at runtime, the Act, Ask, and Stop results, and the evidence a governed decision must leave behind.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="/research/philosophy-of-ai">
+          <div class="kicker">Approval Binding</div>
+          <h3>Philosophy of AI</h3>
+          <p>Five implementation building blocks, including Capability Boundaries, Approval Binding, and Decision Trace as one continuous record.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="/research/multi-agent-systems">
+          <div class="kicker">Agents</div>
+          <h3>Multi-Agent Systems</h3>
+          <p>Role separation, bounded authority, independent verification, and accountable cooperation among agents.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="/research/runtime-society">
+          <div class="kicker">Runtime</div>
+          <h3>Runtime Society</h3>
+          <p>The Decision Runtime that turns signals into authorized, traceable decisions through Policy, Boundary, Human Gate, and Command Permit.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+        <a class="essay" href="/research/trust-infrastructure">
+          <div class="kicker">Trust</div>
+          <h3>Trust Infrastructure</h3>
+          <p>How Decision Trace and Knowledge Flow let trust become a bounded, revisable expectation rather than a fixed score.</p>
+          <div class="essay-meta is-available">Available Now</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 09 RELATED ESSAYS ============ -->
   <section class="research-section" id="essays" aria-labelledby="essays-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">06 / Related Essays</div>
+        <div class="section-label">09 / Related Essays</div>
         <h2 id="essays-h">Reading Around DTM</h2>
         <p class="section-lede">
           Essays that surround and extend the model — written in
@@ -417,34 +1377,35 @@
           <p>A structural overview of the Decision Trace Model architecture, including Runtime, Boundary, Human Gate, Trace, Coordination, and organizational decision flow.</p>
           <div class="essay-meta is-available">Available Now</div>
         </a>
-        <a class="essay" href="#">
+        <div class="essay is-static">
           <div class="kicker">Memory</div>
           <h3>Decision Trace as Runtime Memory</h3>
           <p>How traces become the substrate for coordinated decisions across agents and humans.</p>
-          <div class="essay-meta">Coming Soon</div>
-        </a>
+          <div class="essay-meta is-soon">Coming Soon</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 07 RELATED BOOKS ============ -->
+  <!-- ============ 10 BOOKS ============ -->
   <section class="research-section" id="books" aria-labelledby="books-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">07 / Related Books</div>
-        <h2 id="books-h">Long-form Texts</h2>
+        <div class="section-label">10 / Further Reading</div>
+        <h2 id="books-h">Books and Guides</h2>
         <p class="section-lede">
-          Knowledge artifacts that compile this line of inquiry into
-          structured volumes. English editions shown here.
+          Three volumes cover the model, its implementation, and the wider
+          field around it. English editions are shown here; Japanese
+          editions are listed under Explore This Theme.
         </p>
       </div>
 
       <div class="books-list">
         <div class="book">
           <div class="book-body">
-            <div class="book-title">AI is not prediction. It is decision.</div>
-            <div class="book-subtitle">— Decision Trace Model Practical Guide —</div>
-            <p>A practical guide for designing AI as a decision system rather than a predictive output engine.</p>
+            <div class="book-title">AI Is Not Prediction. It Is Decision.</div>
+            <div class="book-subtitle">— A Practical Guide to Designing AI Decision Systems —</div>
+            <p>The model from first principles: Signal ≠ Decision, how to design and write decisions, Light and Full DTM, multi-agent extension, the Decision Trace Ledger, use cases, PoC steps, and safety design in the agent era. Start here.</p>
             <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
           </div>
           <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
@@ -452,11 +1413,20 @@
           </a>
         </div>
 
+        <div class="book no-cover">
+          <div class="book-body">
+            <div class="book-title">Decision Trace Model Practical Implementation Guide</div>
+            <div class="book-subtitle">— Connecting AI-Powered Judgment to Real-World Organizational Implementation —</div>
+            <p>A runtime view of the model in five parts: foundations, the Decision Trace Model, domain applications (manufacturing, healthcare, retail, governance, and multi-agent coordination), an incremental implementation roadmap, and the decision-centric organization.</p>
+            <a class="book-link" href="https://amzn.to/4oPLqLA" target="_blank" rel="noopener noreferrer">Available on Kindle →</a>
+          </div>
+        </div>
+
         <div class="book">
           <div class="book-body">
             <div class="book-title">Intelligence Field</div>
             <div class="book-subtitle">— Intelligence as Relationship —</div>
-            <p>A new perspective on AI, relational intelligence, and social intelligence fields.</p>
+            <p>The wider setting: relational intelligence, trust infrastructure, boundaries, and Knowledge Flow, with Decision Trace at the center of how experience returns to learning.</p>
             <a class="book-link" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener">Available on Kindle →</a>
           </div>
           <a class="book-cover" href="https://www.amazon.com/dp/B0H1GM1M75" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
@@ -479,7 +1449,46 @@
     </div>
   </section>
 
-  <!-- ============ 07 CLOSING ============ -->
+  <!-- ============ SUMMARY ============ -->
+  <section class="research-section" id="summary" aria-labelledby="summary-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Summary</div>
+        <h2 id="summary-h">From Logging Outputs to Operating Decisions</h2>
+        <p class="section-lede">
+          The shift is small to state and large in effect: stop treating the
+          AI’s output as the thing to record, and start treating the
+          decision as an asset to keep, replay, and improve.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-3">
+        <div class="concept">
+          <div class="idx">From</div>
+          <h3 class="concept-title">Record the output</h3>
+          <p>What went in, what came out, what was updated. Results survive; reasons do not.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">To</div>
+          <h3 class="concept-title">Record the path to the action</h3>
+          <p>Signals, context, rules, boundaries, approvals, execution, and outcome as one ordered trace.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">Then</div>
+          <h3 class="concept-title">Operate it as an asset</h3>
+          <p>Replay, review, and revise signals, rules, boundaries, and human gates. Knowledge becomes decision memory.</p>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="oss-link" href="/research/governance-boundary-systems">Governance &amp; Boundary Systems →</a>
+        <a class="oss-link" href="/research/knowledge-flow">Knowledge Flow →</a>
+        <a class="oss-link" href="#books">Books and guides →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
   <section class="research-section closing" id="closing" aria-labelledby="closing-h">
     <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
     <blockquote>
@@ -504,20 +1513,35 @@
       </div>
 
       <div class="related-research">
-        <a href="/#research" data-slug="runtime-society">
+        <a href="/research/knowledge-flow" data-slug="knowledge-flow">
+          <span class="related-label">03 / Inquiry</span>
+          <span class="related-name">Knowledge Flow</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/governance-boundary-systems" data-slug="governance-boundary-systems">
+          <span class="related-label">08 / Inquiry</span>
+          <span class="related-name">Governance &amp; Boundary Systems</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/runtime-society" data-slug="runtime-society">
           <span class="related-label">02 / Inquiry</span>
           <span class="related-name">Runtime Society</span>
-          <span class="related-status">Forthcoming</span>
+          <span class="related-status">Available</span>
         </a>
-        <a href="/#research" data-slug="trust-infrastructure">
+        <a href="/research/trust-infrastructure" data-slug="trust-infrastructure">
           <span class="related-label">04 / Inquiry</span>
           <span class="related-name">Trust Infrastructure</span>
-          <span class="related-status">Forthcoming</span>
+          <span class="related-status">Available</span>
         </a>
-        <a href="/#research" data-slug="ai-coordination">
+        <a href="/research/ai-coordination" data-slug="ai-coordination">
           <span class="related-label">05 / Inquiry</span>
           <span class="related-name">AI Coordination</span>
-          <span class="related-status">Forthcoming</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/multi-agent-systems" data-slug="multi-agent-systems">
+          <span class="related-label">06 / Inquiry</span>
+          <span class="related-name">Multi-Agent Systems</span>
+          <span class="related-status">Available</span>
         </a>
       </div>
     </div>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="1200" height="680" role="img" aria-labelledby="t d" font-family="Arial, Helvetica, sans-serif">
+<title id="t">The decision lifecycle and verification loop</title><desc id="d">A decision flows from Event and Signal, through Context, Decision and Boundary, to a Human Gate, Execution and Outcome, then into Review and Replay. Review feeds changes back into Signals, Decisions, Boundaries and Human Gates. The trace connects every step, so it serves audit and continuous improvement.</desc>
+<defs><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#60a5fa"/></marker><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#4ade80"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#fb923c"/></marker><marker id="am" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a8b4c7"/></marker></defs>
+<rect width="1200" height="680" fill="#0b1220"/>
+<text x="600" y="46" font-size="30" font-weight="bold" fill="#f8fafc" text-anchor="middle">The Decision Lifecycle and Verification Loop</text>
+<text x="600" y="76" font-size="17" fill="#a8b4c7" text-anchor="middle">The same trace serves audit looking back and improvement looking forward.</text>
+<rect x="48" y="120" width="240" height="118" rx="10" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+<rect x="48" y="120" width="6" height="118" rx="3" fill="#60a5fa"/>
+<text x="70" y="150" font-size="13" letter-spacing="2" fill="#a8b4c7">01 / SIGNAL</text>
+<text x="70" y="176" font-size="21" font-weight="bold" fill="#f8fafc">Event → Signal</text>
+<text x="70" y="202" font-size="16" fill="#a8b4c7">The situation is observed and</text>
+<text x="70" y="223" font-size="16" fill="#a8b4c7">AI or agents interpret it.</text>
+<line x1="294" y1="179.0" x2="330" y2="179.0" stroke="#a8b4c7" stroke-width="2" marker-end="url(#am)"/>
+<rect x="336" y="120" width="240" height="118" rx="10" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+<rect x="336" y="120" width="6" height="118" rx="3" fill="#60a5fa"/>
+<text x="358" y="150" font-size="13" letter-spacing="2" fill="#a8b4c7">02 / CONTEXT</text>
+<text x="358" y="176" font-size="21" font-weight="bold" fill="#f8fafc">Context</text>
+<text x="358" y="202" font-size="16" fill="#a8b4c7">History, similar cases, human</text>
+<text x="358" y="223" font-size="16" fill="#a8b4c7">knowledge; conflicts kept.</text>
+<line x1="582" y1="179.0" x2="618" y2="179.0" stroke="#a8b4c7" stroke-width="2" marker-end="url(#am)"/>
+<rect x="624" y="120" width="240" height="118" rx="10" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+<rect x="624" y="120" width="6" height="118" rx="3" fill="#4ade80"/>
+<text x="646" y="150" font-size="13" letter-spacing="2" fill="#a8b4c7">03 / DECISION</text>
+<text x="646" y="176" font-size="21" font-weight="bold" fill="#f8fafc">Decision</text>
+<text x="646" y="202" font-size="16" fill="#a8b4c7">Rules and priorities turn the</text>
+<text x="646" y="223" font-size="16" fill="#a8b4c7">signal into a choice.</text>
+<line x1="870" y1="179.0" x2="906" y2="179.0" stroke="#a8b4c7" stroke-width="2" marker-end="url(#am)"/>
+<rect x="912" y="120" width="240" height="118" rx="10" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+<rect x="912" y="120" width="6" height="118" rx="3" fill="#fb923c"/>
+<text x="934" y="150" font-size="13" letter-spacing="2" fill="#a8b4c7">04 / BOUNDARY</text>
+<text x="934" y="176" font-size="21" font-weight="bold" fill="#f8fafc">Boundary</text>
+<text x="934" y="202" font-size="16" fill="#a8b4c7">Limits are checked before</text>
+<text x="934" y="223" font-size="16" fill="#a8b4c7">anything is executed.</text>
+<rect x="912" y="520" width="240" height="118" rx="10" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+<rect x="912" y="520" width="6" height="118" rx="3" fill="#fb923c"/>
+<text x="934" y="550" font-size="13" letter-spacing="2" fill="#a8b4c7">05 / HUMAN GATE</text>
+<text x="934" y="576" font-size="21" font-weight="bold" fill="#f8fafc">Approval</text>
+<text x="934" y="602" font-size="16" fill="#a8b4c7">A named person approves</text>
+<text x="934" y="623" font-size="16" fill="#a8b4c7">this exact action.</text>
+<line x1="906" y1="579.0" x2="870" y2="579.0" stroke="#a8b4c7" stroke-width="2" marker-end="url(#am)"/>
+<rect x="624" y="520" width="240" height="118" rx="10" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+<rect x="624" y="520" width="6" height="118" rx="3" fill="#a78bfa"/>
+<text x="646" y="550" font-size="13" letter-spacing="2" fill="#a8b4c7">06 / EXECUTION</text>
+<text x="646" y="576" font-size="21" font-weight="bold" fill="#f8fafc">Action</text>
+<text x="646" y="602" font-size="16" fill="#a8b4c7">The approved action runs and</text>
+<text x="646" y="623" font-size="16" fill="#a8b4c7">its result is recorded.</text>
+<line x1="618" y1="579.0" x2="582" y2="579.0" stroke="#a8b4c7" stroke-width="2" marker-end="url(#am)"/>
+<rect x="336" y="520" width="240" height="118" rx="10" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+<rect x="336" y="520" width="6" height="118" rx="3" fill="#a78bfa"/>
+<text x="358" y="550" font-size="13" letter-spacing="2" fill="#a8b4c7">07 / OUTCOME</text>
+<text x="358" y="576" font-size="21" font-weight="bold" fill="#f8fafc">Outcome</text>
+<text x="358" y="602" font-size="16" fill="#a8b4c7">What happened afterwards is</text>
+<text x="358" y="623" font-size="16" fill="#a8b4c7">observed and attached.</text>
+<line x1="330" y1="579.0" x2="294" y2="579.0" stroke="#a8b4c7" stroke-width="2" marker-end="url(#am)"/>
+<rect x="48" y="520" width="240" height="118" rx="10" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+<rect x="48" y="520" width="6" height="118" rx="3" fill="#4ade80"/>
+<text x="70" y="550" font-size="13" letter-spacing="2" fill="#a8b4c7">08 / REVIEW</text>
+<text x="70" y="576" font-size="21" font-weight="bold" fill="#f8fafc">Review and replay</text>
+<text x="70" y="602" font-size="16" fill="#a8b4c7">Replay the trace; compare it</text>
+<text x="70" y="623" font-size="16" fill="#a8b4c7">with the outcome.</text>
+<line x1="1032.0" y1="242" x2="1032.0" y2="514" stroke="#a8b4c7" stroke-width="2" marker-end="url(#am)"/>
+<line x1="168.0" y1="516" x2="168.0" y2="244" stroke="#4ade80" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#ag)"/>
+<text x="184.0" y="278" font-size="15" fill="#4ade80">Revise signals, decisions,</text>
+<text x="184.0" y="299" font-size="15" fill="#4ade80">boundaries, human gates</text>
+<text x="908" y="272" font-size="13" letter-spacing="2" fill="#a8b4c7" text-anchor="end">BOUNDARY RESULT</text>
+<rect x="630" y="284" width="86" height="34" rx="17" fill="none" stroke="#4ade80" stroke-width="1.6"/><text x="673" y="307" font-size="17" font-weight="bold" fill="#4ade80" text-anchor="middle">Act</text>
+<rect x="726" y="284" width="86" height="34" rx="17" fill="none" stroke="#fbbf24" stroke-width="1.6"/><text x="769" y="307" font-size="17" font-weight="bold" fill="#fbbf24" text-anchor="middle">Ask</text>
+<rect x="822" y="284" width="86" height="34" rx="17" fill="none" stroke="#f87171" stroke-width="1.6"/><text x="865" y="307" font-size="17" font-weight="bold" fill="#f87171" text-anchor="middle">Stop</text>
+<text x="908" y="346" font-size="15" fill="#a8b4c7" text-anchor="end">Ask goes to a person; Stop is recorded</text>
+<text x="908" y="367" font-size="15" fill="#a8b4c7" text-anchor="end">with its reason.</text>
+<rect x="300" y="395" width="600" height="100" rx="12" fill="#0f1f1a" stroke="#4ade80" stroke-width="1.5"/>
+<text x="600" y="430" font-size="13" letter-spacing="2" fill="#4ade80" text-anchor="middle">ONE TRACE LINKS EVERY STEP</text>
+<text x="600" y="466" font-size="18" font-weight="bold" fill="#f8fafc" text-anchor="middle">Audit reads it backward. Improvement writes forward from it.</text>
+</svg>

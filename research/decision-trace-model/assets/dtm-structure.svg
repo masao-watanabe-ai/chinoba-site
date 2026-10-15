@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" width="1200" height="660" role="img" aria-labelledby="t d" font-family="Arial, Helvetica, sans-serif">
+<title id="t">Anatomy of a Decision Trace</title><desc id="d">Eight stages are recorded in order: Event, Signal, Context, Decision, Boundary, Human Gate, Execution and Outcome. Each stage is appended to one Decision Trace Ledger under a single trace_id, so the whole path can be reconstructed and replayed later.</desc>
+<defs><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#60a5fa"/></marker><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#4ade80"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#fb923c"/></marker><marker id="am" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a8b4c7"/></marker></defs>
+<rect width="1200" height="660" fill="#0b1220"/>
+<text x="600" y="46" font-size="30" font-weight="bold" fill="#f8fafc" text-anchor="middle">Anatomy of a Decision Trace</text>
+<text x="600" y="76" font-size="17" fill="#a8b4c7" text-anchor="middle">Each stage leaves a record, in order, under one trace_id.</text>
+<rect x="48" y="110" width="240" height="118" rx="10" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+<rect x="48" y="110" width="6" height="118" rx="3" fill="#60a5fa"/>
+<text x="70" y="140" font-size="13" letter-spacing="2" fill="#a8b4c7">01 / EVENT</text>
+<text x="70" y="166" font-size="21" font-weight="bold" fill="#f8fafc">Event</text>
+<text x="70" y="192" font-size="16" fill="#a8b4c7">What happened, and what</text>
+<text x="70" y="213" font-size="16" fill="#a8b4c7">started the decision.</text>
+<line x1="294" y1="169.0" x2="330" y2="169.0" stroke="#a8b4c7" stroke-width="2" marker-end="url(#am)"/>
+<rect x="336" y="110" width="240" height="118" rx="10" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+<rect x="336" y="110" width="6" height="118" rx="3" fill="#60a5fa"/>
+<text x="358" y="140" font-size="13" letter-spacing="2" fill="#a8b4c7">02 / SIGNAL</text>
+<text x="358" y="166" font-size="21" font-weight="bold" fill="#f8fafc">Signal</text>
+<text x="358" y="192" font-size="16" fill="#a8b4c7">What AI or agents proposed:</text>
+<text x="358" y="213" font-size="16" fill="#a8b4c7">scores, classes, text.</text>
+<line x1="582" y1="169.0" x2="618" y2="169.0" stroke="#a8b4c7" stroke-width="2" marker-end="url(#am)"/>
+<rect x="624" y="110" width="240" height="118" rx="10" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+<rect x="624" y="110" width="6" height="118" rx="3" fill="#60a5fa"/>
+<text x="646" y="140" font-size="13" letter-spacing="2" fill="#a8b4c7">03 / CONTEXT</text>
+<text x="646" y="166" font-size="21" font-weight="bold" fill="#f8fafc">Context</text>
+<text x="646" y="192" font-size="16" fill="#a8b4c7">History, state and human</text>
+<text x="646" y="213" font-size="16" fill="#a8b4c7">knowledge around it.</text>
+<line x1="870" y1="169.0" x2="906" y2="169.0" stroke="#a8b4c7" stroke-width="2" marker-end="url(#am)"/>
+<rect x="912" y="110" width="240" height="118" rx="10" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+<rect x="912" y="110" width="6" height="118" rx="3" fill="#4ade80"/>
+<text x="934" y="140" font-size="13" letter-spacing="2" fill="#a8b4c7">04 / DECISION</text>
+<text x="934" y="166" font-size="21" font-weight="bold" fill="#f8fafc">Decision</text>
+<text x="934" y="192" font-size="16" fill="#a8b4c7">Rules and priorities applied;</text>
+<text x="934" y="213" font-size="16" fill="#a8b4c7">options not chosen.</text>
+<rect x="48" y="290" width="240" height="118" rx="10" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+<rect x="48" y="290" width="6" height="118" rx="3" fill="#fb923c"/>
+<text x="70" y="320" font-size="13" letter-spacing="2" fill="#a8b4c7">05 / BOUNDARY</text>
+<text x="70" y="346" font-size="21" font-weight="bold" fill="#f8fafc">Boundary</text>
+<text x="70" y="372" font-size="16" fill="#a8b4c7">Limits checked; result is</text>
+<text x="70" y="393" font-size="16" fill="#a8b4c7">Act, Ask or Stop.</text>
+<line x1="294" y1="349.0" x2="330" y2="349.0" stroke="#a8b4c7" stroke-width="2" marker-end="url(#am)"/>
+<rect x="336" y="290" width="240" height="118" rx="10" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+<rect x="336" y="290" width="6" height="118" rx="3" fill="#fb923c"/>
+<text x="358" y="320" font-size="13" letter-spacing="2" fill="#a8b4c7">06 / HUMAN GATE</text>
+<text x="358" y="346" font-size="21" font-weight="bold" fill="#f8fafc">Human Gate</text>
+<text x="358" y="372" font-size="16" fill="#a8b4c7">Who reviewed, under what</text>
+<text x="358" y="393" font-size="16" fill="#a8b4c7">authority, with what result.</text>
+<line x1="582" y1="349.0" x2="618" y2="349.0" stroke="#a8b4c7" stroke-width="2" marker-end="url(#am)"/>
+<rect x="624" y="290" width="240" height="118" rx="10" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+<rect x="624" y="290" width="6" height="118" rx="3" fill="#a78bfa"/>
+<text x="646" y="320" font-size="13" letter-spacing="2" fill="#a8b4c7">07 / EXECUTION</text>
+<text x="646" y="346" font-size="21" font-weight="bold" fill="#f8fafc">Execution</text>
+<text x="646" y="372" font-size="16" fill="#a8b4c7">What was actually done,</text>
+<text x="646" y="393" font-size="16" fill="#a8b4c7">and by whom or what.</text>
+<line x1="870" y1="349.0" x2="906" y2="349.0" stroke="#a8b4c7" stroke-width="2" marker-end="url(#am)"/>
+<rect x="912" y="290" width="240" height="118" rx="10" fill="#111a2e" stroke="#334155" stroke-width="1.5"/>
+<rect x="912" y="290" width="6" height="118" rx="3" fill="#a78bfa"/>
+<text x="934" y="320" font-size="13" letter-spacing="2" fill="#a8b4c7">08 / OUTCOME</text>
+<text x="934" y="346" font-size="21" font-weight="bold" fill="#f8fafc">Outcome</text>
+<text x="934" y="372" font-size="16" fill="#a8b4c7">What happened next, so the</text>
+<text x="934" y="393" font-size="16" fill="#a8b4c7">decision can be judged.</text>
+<path d="M1032.0 232 V258 H168.0 V284" fill="none" stroke="#a8b4c7" stroke-width="2" marker-end="url(#am)"/>
+<line x1="168.0" y1="412" x2="168.0" y2="464" stroke="#4ade80" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ag)"/>
+<line x1="456.0" y1="412" x2="456.0" y2="464" stroke="#4ade80" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ag)"/>
+<line x1="744.0" y1="412" x2="744.0" y2="464" stroke="#4ade80" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ag)"/>
+<line x1="1032.0" y1="412" x2="1032.0" y2="464" stroke="#4ade80" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ag)"/>
+<path d="M1162 169.0 H1186 V520 H1176" fill="none" stroke="#4ade80" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ag)"/>
+<rect x="48" y="470" width="1104" height="150" rx="12" fill="#0f1f1a" stroke="#4ade80" stroke-width="1.5"/>
+<text x="74" y="512" font-size="13" letter-spacing="2" fill="#4ade80">DECISION TRACE LEDGER</text>
+<text x="74" y="546" font-size="22" font-weight="bold" fill="#f8fafc">A decision is stored as one ordered trace, not as scattered logs.</text>
+<rect x="74" y="566" width="123.6" height="32" rx="16" fill="none" stroke="#4ade80" stroke-width="1.2"/>
+<text x="135.8" y="588" font-size="15" fill="#f8fafc" text-anchor="middle" font-family="Courier New, monospace">append-only</text>
+<rect x="211.6" y="566" width="258.0" height="32" rx="16" fill="none" stroke="#4ade80" stroke-width="1.2"/>
+<text x="340.6" y="588" font-size="15" fill="#f8fafc" text-anchor="middle" font-family="Courier New, monospace">one trace_id per decision</text>
+<rect x="483.6" y="566" width="229.2" height="32" rx="16" fill="none" stroke="#4ade80" stroke-width="1.2"/>
+<text x="598.2" y="588" font-size="15" fill="#f8fafc" text-anchor="middle" font-family="Courier New, monospace">prev_hash / event_hash</text>
+<rect x="726.8" y="566" width="114.0" height="32" rx="16" fill="none" stroke="#4ade80" stroke-width="1.2"/>
+<text x="783.8" y="588" font-size="15" fill="#f8fafc" text-anchor="middle" font-family="Courier New, monospace">replayable</text>
+</svg>
