@@ -4,276 +4,257 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Public AI &amp; Algorithmic Governance — Chinoba</title>
-  <meta name="description" content="Decision structures, boundaries, human review, and accountability systems for AI used in government, public administration, and civic infrastructure — a research archive on public decision runtime and algorithmic governance.">
+  <title>Public AI &amp; Algorithmic Governance — Designing Accountable Public Decisions — Chinoba</title>
+  <meta name="description" content="Public AI is a governance system, not only a model: how governments separate AI recommendation from administrative decision, and build explanation, human review, audit trails, appeal, and remedy into public-sector AI. A practical design guide with controls, lifecycle, failure modes, scenarios, and a readiness checklist.">
+  <meta name="keywords" content="public AI, algorithmic governance, public sector AI governance, government AI accountability, human review, decision trace, appeal and remedy, algorithmic fairness, AI procurement, automation bias, Chinoba">
+
+  <link rel="canonical" href="https://chinoba.org/research/public-ai-algorithmic-governance/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Chinoba">
+  <meta property="og:title" content="Public AI &amp; Algorithmic Governance — Designing Accountable Public Decisions">
+  <meta property="og:description" content="Prediction is not decision. Automation is not accountability. Transparency is not recourse. A practical design guide to governing AI in government and public services.">
+  <meta property="og:url" content="https://chinoba.org/research/public-ai-algorithmic-governance/">
+  <meta property="og:image" content="https://chinoba.org/research/public-ai-algorithmic-governance/assets2/public-ai-governance-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Public AI Is a Governance System: prediction, decision, authority, and recourse.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Public AI &amp; Algorithmic Governance — Designing Accountable Public Decisions">
+  <meta name="twitter:description" content="Separating AI recommendation from administrative decision, and building explanation, review, audit, and appeal into public-sector AI.">
+  <meta name="twitter:image" content="https://chinoba.org/research/public-ai-algorithmic-governance/assets2/public-ai-governance-og.png">
 
   <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
   <link rel="stylesheet" href="/assets/research.css">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://chinoba.org/research/public-ai-algorithmic-governance/#article",
+        "headline": "Public AI & Algorithmic Governance — Designing Accountable Public Decisions",
+        "description": "A practical design guide to governing AI in government and public services: separating prediction, decision, and authority; governance controls; lifecycle; failure modes; scenarios; and a readiness checklist.",
+        "url": "https://chinoba.org/research/public-ai-algorithmic-governance/",
+        "mainEntityOfPage": "https://chinoba.org/research/public-ai-algorithmic-governance/",
+        "image": "https://chinoba.org/research/public-ai-algorithmic-governance/assets2/public-ai-governance-og.png",
+        "inLanguage": "en",
+        "dateModified": "2026-10-17",
+        "keywords": "Public AI, Algorithmic Governance, Government AI Accountability, Human Review, Decision Trace, Appeal and Remedy",
+        "author": { "@type": "Person", "name": "Masao Watanabe" },
+        "publisher": { "@type": "Organization", "name": "Chinoba", "url": "https://chinoba.org/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Chinoba", "item": "https://chinoba.org/" },
+          { "@type": "ListItem", "position": 2, "name": "Research", "item": "https://chinoba.org/#research" },
+          { "@type": "ListItem", "position": 3, "name": "Public AI & Algorithmic Governance", "item": "https://chinoba.org/research/public-ai-algorithmic-governance/" }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <style>
     /* ---------- Page-specific overrides ---------- */
-    .concept-grid.cols-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+    .concept-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .concept-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    @media (max-width: 900px) {
+      .concept-grid.cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
+    @media (max-width: 640px) {
+      .concept-grid.cols-2, .concept-grid.cols-3 { grid-template-columns: 1fr; }
+      .topbar { flex-wrap: wrap; gap: 8px 16px; }
+      .topbar .breadcrumb { flex-wrap: wrap; }
+    }
+
+    /* In-page navigation */
+    .toc {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      display: flex; flex-wrap: wrap; gap: 8px 10px;
+    }
+    .toc a {
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--fg-dim); border: 1px solid var(--line-strong);
+      padding: 6px 12px; border-radius: 999px; line-height: 1.4;
+    }
+    .toc a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+    @media (max-width: 640px) { .toc { padding: 0 18px; } }
+
+    /* Body copy helpers */
+    .prose { max-width: 760px; color: var(--fg-mute); font-size: 15.5px; line-height: 1.85; }
+    .prose p { margin: 0 0 18px; }
+    .spaced { margin-top: clamp(32px, 4vw, 48px); }
+    .fig-lead { max-width: 760px; margin: clamp(44px, 6vw, 64px) auto 0; }
+    .fig-lead h3 { font-size: 20px; margin: 0 0 12px; font-weight: 600; letter-spacing: 0.2px; color: var(--fg); }
+    .fig-lead p { color: var(--fg-mute); font-size: 15.5px; line-height: 1.85; margin: 0; }
+    .fig-lead + .figure { margin-top: clamp(20px, 3vw, 28px); }
+    .figure-src { margin: 8px 0 0; font-size: 12px; letter-spacing: 1px; color: var(--fg-faint); }
+    .figure-src a { color: var(--fg-dim); text-decoration: underline; }
+
+    .quote {
+      display: block; margin: 22px 0 6px; padding: 14px 18px;
+      border-left: 2px solid var(--line-strong); color: var(--fg);
+      font-family: "Courier New", monospace; font-size: 14px; letter-spacing: 0.3px;
+      background: rgba(255,255,255,0.015);
+    }
+    .two-col .col-text .quote.is-diagram,
+    .quote.is-diagram { white-space: pre-line; line-height: 1.95; letter-spacing: 0.4px; }
+
+    /* Callout */
+    .callout {
+      max-width: 760px; margin: clamp(28px, 4vw, 40px) 0 0;
+      border: 1px solid var(--line-strong); border-left: 3px solid var(--accent);
+      background: var(--bg-elev); padding: 18px 22px; border-radius: 4px;
+    }
+    .callout .callout-label {
+      font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .callout p { margin: 0; color: var(--fg); font-size: 15.5px; line-height: 1.75; }
+
+    /* Concept cards with a field example */
+    .concept .eg {
+      margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--line);
+      font-size: 13px; line-height: 1.65; color: var(--fg-dim);
+    }
+    .concept .eg b {
+      color: var(--fg-mute); font-weight: 600; letter-spacing: 1.5px;
+      font-size: 11px; text-transform: uppercase; display: block; margin-bottom: 1px;
+    }
+    .concept .eg.human b { color: #f0c070; }
+    .concept .eg.recourse b { color: #7fd1a8; }
+
+    /* Comparison / matrix tables (cards on small screens) */
+    .table-wrap { margin-top: clamp(20px, 3vw, 28px); overflow-x: auto; }
+    .table-title {
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--fg-faint); margin: clamp(40px, 5vw, 56px) 0 0;
+    }
+    .table-caption {
+      max-width: 760px; margin: 12px 0 0; font-size: 14px; line-height: 1.7; color: var(--fg-dim);
+    }
+    table.matrix {
+      width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.6;
+      border: 1px solid var(--line-strong); background: var(--bg-elev);
+    }
+    table.matrix th, table.matrix td {
+      text-align: left; vertical-align: top; padding: 14px 16px;
+      border-bottom: 1px solid var(--line); color: var(--fg-mute);
+    }
+    table.matrix thead th {
+      font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase;
+      color: var(--fg-faint); font-weight: 600; background: var(--bg-elev-2);
+      border-bottom: 1px solid var(--line-strong);
+    }
+    table.matrix tbody th { color: var(--fg); font-weight: 600; min-width: 150px; }
+    table.matrix tbody tr:last-child th, table.matrix tbody tr:last-child td { border-bottom: none; }
+    table.matrix td a, table.matrix th a { color: var(--accent); }
+    table.matrix td em { color: var(--fg-dim); font-style: normal; }
+    @media (max-width: 860px) {
+      .table-wrap { overflow-x: visible; }
+      table.matrix, table.matrix tbody, table.matrix tr, table.matrix th, table.matrix td { display: block; }
+      table.matrix thead { position: absolute; left: -9999px; }
+      table.matrix tr { border-bottom: 1px solid var(--line-strong); padding: 8px 0; }
+      table.matrix tbody tr:last-child { border-bottom: none; }
+      table.matrix th, table.matrix td { border: none; padding: 6px 16px; }
+      table.matrix tbody th { min-width: 0; font-size: 16px; padding-top: 12px; }
+      table.matrix td[data-label]::before {
+        content: attr(data-label); display: block; font-size: 10.5px; letter-spacing: 1.8px;
+        text-transform: uppercase; color: var(--fg-faint); margin-bottom: 2px;
+      }
+    }
+
+    /* Readiness checklist */
+    .check-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: clamp(28px, 4vw, 44px); }
+    @media (max-width: 860px) { .check-groups { grid-template-columns: 1fr; } }
+    .check-group {
+      border: 1px solid var(--line-strong); background: var(--bg-elev);
+      border-radius: 4px; padding: 22px 22px 14px; margin: 0; min-width: 0;
+    }
+    .check-group legend {
+      padding: 0 8px; margin-left: -8px; font-size: 11px; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .check-group label {
+      display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px;
+      padding: 10px 0; border-bottom: 1px solid var(--line);
+      font-size: 14.5px; line-height: 1.6; color: var(--fg-mute); cursor: pointer;
+    }
+    .check-group label:last-child { border-bottom: none; }
+    .check-group input { width: 18px; height: 18px; margin: 3px 0 0; accent-color: #7db7ff; }
+    .check-group label:has(input:checked) { color: var(--fg-faint); }
+    .check-group label b { color: var(--fg); font-weight: 600; }
+    .check-group label:has(input:checked) b { color: var(--fg-dim); }
+    .check-tally { margin-top: 18px; font-size: 13px; color: var(--fg-dim); }
+    .check-tally output { color: var(--fg); font-weight: 600; }
+
+    /* Explore / Featured Resources */
+    .theme-links { margin-top: 20px; display: flex; flex-direction: column; gap: 6px; }
+    .theme-links .theme-lang {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--fg-faint); margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child { margin-top: 0; }
+    .theme-links a { font-size: 13px; color: var(--accent); letter-spacing: 0.3px; line-height: 1.55; }
+    .theme-links .theme-book { font-size: 13px; color: var(--fg); letter-spacing: 0.3px; line-height: 1.55; }
+    .theme-links .theme-book-sub { display: block; color: var(--fg-mute); font-size: 12.5px; }
+    .theme-links .theme-book-status { display: inline-block; margin-top: 5px; font-size: 11px; letter-spacing: 1.5px; color: var(--fg-faint); }
 
     /* Essay coming-soon variant */
-    .essay.is-coming-soon {
-      cursor: default;
-    }
-
-    .essay.is-coming-soon:hover {
-      background: var(--bg);
-    }
-
-    .essay .essay-meta.is-coming-soon {
-      color: var(--fg-faint);
-    }
-
+    .essay.is-coming-soon { cursor: default; }
+    .essay.is-coming-soon:hover { background: var(--bg); }
+    .essay .essay-meta.is-coming-soon { color: var(--fg-faint); }
     .essay .essay-meta.is-coming-soon::before {
-      content: "";
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--fg-faint);
-      margin-right: 8px;
-      vertical-align: middle;
-      transform: translateY(-1px);
+      content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--fg-faint); margin-right: 8px; vertical-align: middle; transform: translateY(-1px);
     }
 
-    /* Diagram placeholders */
+    /* Architecture archive */
     .diagrams {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px; background: var(--line); border: 1px solid var(--line);
     }
-
-    .diagram-card {
-      background: var(--bg);
-      padding: 26px 24px 28px;
-      display: flex;
-      flex-direction: column;
-      min-height: 220px;
-    }
-
-    .diagram-card .kicker {
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--fg-faint);
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    .diagram-card h3 {
-      font-size: 16px;
-      margin: 0 0 14px;
-      font-weight: 600;
-      color: var(--fg);
-      letter-spacing: 0.2px;
-    }
-
-    .diagram-frame {
-      flex: 1;
-      border: 1px dashed var(--line-strong);
-      border-radius: 8px;
-      background:
-        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
-        var(--bg-elev);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--fg-faint);
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      min-height: 110px;
-    }
-
-    /* ---------- Public AI Governance Flow diagram ---------- */
-    .governance-flow {
-      margin-top: clamp(56px, 7vw, 80px);
-      border: 1px solid var(--line);
-      background: var(--bg-elev);
-      padding: 28px clamp(20px, 4vw, 40px) 36px;
-      border-radius: 4px;
-    }
-
-    .governance-flow-label {
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--fg-faint);
-      margin-bottom: 6px;
-    }
-
-    .governance-flow-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--fg);
-      margin: 0 0 22px;
-      letter-spacing: 0.2px;
-    }
-
-    .governance-stages {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .governance-stage {
-      display: grid;
-      grid-template-columns: 56px minmax(0, 1fr);
-      align-items: baseline;
-      gap: 18px;
-      padding: 14px 4px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .governance-stage:last-child {
-      border-bottom: none;
-    }
-
-    .governance-stage .stage-idx {
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--fg-faint);
-      text-transform: uppercase;
-    }
-
-    .governance-stage .stage-body {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .governance-stage .stage-name {
-      font-size: 15px;
-      color: var(--fg);
-      letter-spacing: 0.2px;
-      font-weight: 600;
-    }
-
-    .governance-stage .stage-note {
-      font-size: 13px;
-      color: var(--fg-mute);
-      line-height: 1.6;
-    }
-
-    .governance-arrow {
-      display: flex;
-      justify-content: center;
-      color: var(--fg-faint);
-      font-size: 11px;
-      letter-spacing: 4px;
-      padding: 4px 0 6px;
-    }
-
-    @media (max-width: 900px) {
-      .concept-grid.cols-4 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .diagrams {
-        grid-template-columns: 1fr;
-      }
-      .governance-stage {
-        grid-template-columns: 1fr;
-        gap: 4px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .concept-grid.cols-4 {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ---------- Inline diagram lead-ins (template-standard) ---------- */
-    .fig-lead {
-      max-width: 760px;
-      margin: clamp(44px, 6vw, 64px) auto 0;
-    }
-    .fig-lead h3 {
-      font-size: 20px;
-      margin: 0 0 12px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      color: var(--fg);
-    }
-    .fig-lead p {
-      color: var(--fg-mute);
-      font-size: 15.5px;
-      line-height: 1.85;
-      margin: 0;
-    }
-    .fig-lead + .figure {
-      margin-top: clamp(20px, 3vw, 28px);
-    }
-
-    /* ---------- Archive: real diagram images (template-standard) ---------- */
+    .diagram-card { background: var(--bg); padding: 26px 24px 28px; display: flex; flex-direction: column; min-height: 220px; min-width: 0; }
+    .diagram-card .kicker { font-size: 11px; letter-spacing: 2px; color: var(--fg-faint); text-transform: uppercase; margin-bottom: 14px; }
+    .diagram-card h3 { font-size: 16px; margin: 0 0 14px; font-weight: 600; color: var(--fg); letter-spacing: 0.2px; }
     .diagram-shot {
-      display: block;
-      margin-top: auto;
-      border: 1px solid var(--line-strong);
-      border-radius: 8px;
-      overflow: hidden;
-      background: #fff;
-      cursor: zoom-in;
+      display: block; margin-top: auto; border: 1px solid var(--line-strong);
+      border-radius: 8px; overflow: hidden; background: #fff; cursor: zoom-in;
       transition: border-color 200ms ease;
     }
-    .diagram-shot:hover {
-      border-color: var(--fg-faint);
-    }
-    .diagram-shot img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
+    .diagram-shot:hover { border-color: var(--fg-faint); }
+    .diagram-shot img { display: block; width: 100%; height: auto; }
+    @media (max-width: 900px) { .diagrams { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .diagram-card { padding: 22px 16px 24px; } }
 
-    /* ---------- Explore This Theme (template-standard) ---------- */
-    .theme-links {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    /* Research positioning ladder in the closing section */
+    .closing .positioning {
+      font-family: "Courier New", monospace; font-size: 12px; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--fg-faint); line-height: 2.05; margin: 0 0 44px;
     }
-    .theme-links .theme-lang {
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--fg-faint);
-      margin-top: 12px;
+    .closing .positioning span { display: block; }
+    .closing .positioning .here { color: var(--fg); }
+    .closing-cta { margin-top: 28px; font-size: 13px; color: var(--fg-faint); }
+    .closing-cta a { color: var(--accent); }
+
+    /* Mobile lightbox: pan a full-size diagram */
+    .figure-frame[href$=".svg"]::after { content: none; }
+    @media (max-width: 900px) {
+      .figure-frame::after {
+        content: "Tap to enlarge · scroll to pan";
+        display: block; padding: 8px 12px; font-size: 11px; letter-spacing: 1.5px;
+        text-transform: uppercase; color: var(--fg-faint); border-top: 1px solid var(--line);
+      }
     }
-    .theme-links .theme-lang:first-child {
-      margin-top: 0;
-    }
-    .theme-links a {
-      font-size: 13px;
-      color: var(--accent);
-      letter-spacing: 0.3px;
-      line-height: 1.55;
-    }
-    .theme-links .theme-book {
-      font-size: 13px;
-      color: var(--fg);
-      letter-spacing: 0.3px;
-      line-height: 1.55;
-    }
-    .theme-links .theme-book-sub {
-      display: block;
-      color: var(--fg-mute);
-      font-size: 12.5px;
-    }
-    .theme-links .theme-book-status {
-      display: inline-block;
-      margin-top: 5px;
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      color: var(--fg-faint);
+    @media (max-width: 720px) {
+      .lightbox.is-open {
+        overflow: auto; align-items: flex-start; justify-content: flex-start;
+        padding: 64px 12px 24px; -webkit-overflow-scrolling: touch;
+      }
+      .lightbox img { max-width: none; max-height: none; width: 1000px; flex: none; }
+      .lightbox .lightbox-close { position: fixed; top: 14px; right: 14px; background: #0b0b0b; z-index: 101; }
     }
   </style>
 </head>
@@ -296,21 +277,19 @@
   <header class="hero">
     <div class="hero-inner">
       <div class="eyebrow">Research / Public AI &amp; Algorithmic Governance</div>
-      <h1>Public AI &amp; Algorithmic Governance</h1>
+      <h1>Public AI Is a Governance System</h1>
       <p class="hero-sub">
-        <span>Public AI is not only automation.</span>
-        <span>It is a question of decision, accountability, and governance.</span>
+        <span>Public AI is not only a model deployed in government.</span>
+        <span>It is a governance system for making</span>
+        <span>consequential decisions accountable.</span>
       </p>
       <p class="hero-desc">
-        As AI enters government,
-        public services,
-        administration,
-        and civic infrastructure,
-        the central issue becomes not only how AI predicts,
-        but how public decisions are made,
-        bounded,
-        reviewed,
-        and traced.
+        When AI shapes who gets support, who is investigated, and who waits,
+        the question is not only how well it predicts. It is who decides,
+        on what authority, with what evidence, and how a citizen can
+        understand, contest, and correct the result. This page treats public AI
+        as an operating design: law, data, models, people, audit, and recourse
+        working as one system.
       </p>
     </div>
   </header>
@@ -366,78 +345,103 @@
     </div>
   </section>
 
-  <!-- ============ 01 OVERVIEW ============ -->
-  <section class="research-section" id="overview" aria-labelledby="overview-h">
+  <!-- ============ SUMMARY ============ -->
+  <section class="research-section" id="summary" aria-labelledby="summary-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">01 / Overview</div>
-        <h2 id="overview-h">Overview</h2>
+        <div class="section-label">The 30-Second Version</div>
+        <h2 id="summary-h">Three Distinctions That Decide Whether Public AI Can Be Trusted</h2>
+      </div>
+
+      <div class="concept-grid cols-3">
+        <div class="concept">
+          <div class="idx">01</div>
+          <h3>Prediction ≠ Decision</h3>
+          <p>A score or recommendation is an input. An administrative decision applies rules and judgment to a person’s case, and someone must own it.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">02</div>
+          <h3>Automation ≠ Accountability</h3>
+          <p>Automating a step does not move responsibility to the software or the vendor. The institution must still be able to say who decided, and why.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">03</div>
+          <h3>Transparency ≠ Recourse</h3>
+          <p>Publishing how a system works does not help a resident who was wrongly refused. They need reasons they can act on, and a route to correction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="toc" aria-label="On this page">
+    <a href="#why">Why different</a>
+    <a href="#principle">Core principle</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#controls">Controls</a>
+    <a href="#lifecycle">Lifecycle</a>
+    <a href="#recourse">Recourse</a>
+    <a href="#failure-modes">Failure modes</a>
+    <a href="#scenarios">Scenarios</a>
+    <a href="#relationship">Beyond procedures</a>
+    <a href="#checklist">Checklist</a>
+    <a href="#connections">Chinoba map</a>
+  </nav>
+
+  <!-- ============ 01 WHY PUBLIC AI IS DIFFERENT ============ -->
+  <section class="research-section" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Why Public AI Is Different</div>
+        <h2 id="why-h">Accuracy Does Not Justify a Public Decision</h2>
         <p class="section-lede">
-          Public AI is the layer of AI systems used inside
-          institutions whose decisions affect rights,
-          access, fairness, and public trust.
+          Public AI appears in government procedures, healthcare policy, education,
+          transportation, disaster response, and welfare. In each, the output can
+          change what a person receives, owes, or is able to access.
         </p>
       </div>
 
       <div class="two-col">
         <div class="col-text">
-          <h3>Where Public AI Operates</h3>
-          <p>Public AI refers to AI systems used in:</p>
+          <h3>What makes the public setting different</h3>
           <ul>
-            <li>government services</li>
-            <li>public administration</li>
-            <li>social systems</li>
-            <li>civic infrastructure</li>
-            <li>regulatory decision support</li>
-            <li>welfare, healthcare, education, and disaster response</li>
-            <li>public-sector automation</li>
+            <li><b>Rights and access are at stake.</b> Decisions touch benefits, burdens, opportunities, and trust.</li>
+            <li><b>Errors spread.</b> A mistake harms the individual, then the credibility of the institution.</li>
+            <li><b>Residents often cannot opt out.</b> They cannot take their case to another government.</li>
+            <li><b>Accuracy is necessary, not sufficient.</b> A decision also needs a legal basis, reasons, and a path to challenge.</li>
+            <li><b>The agency stays answerable.</b> Buying a system does not transfer accountability to the vendor.</li>
           </ul>
-
-          <code class="quote">
-            Public AI must not be treated
-            as simple automation.
-          </code>
-
-          <p>
-            It requires decision structures that make
-            responsibility, review, boundaries, appeal,
-            and accountability visible — not optional.
-          </p>
         </div>
-
         <div class="col-text">
-          <h3>Not Automation Alone</h3>
+          <h3>Efficiency is not the same as public value</h3>
           <p>
-            Public AI is often introduced under the framing
-            of efficiency — faster processing, fewer manual
-            steps, reduced administrative load. That framing
-            is not wrong, but it is incomplete.
+            A system can process more cases and still lower public value if people
+            unfamiliar with digital tools can no longer reach a service. A medical AI
+            is not usable with confidence if patients cannot understand its basis.
+            An education AI can widen inequality if access differs by family circumstances.
           </p>
-
-          <h3>Working Statement</h3>
-          <code class="quote">
-            Public AI is the design of decision
-            structures inside public institutions —
-            not the deployment of models inside them.
-          </code>
-
           <p>
-            This inquiry treats public AI as institutional
-            infrastructure: a runtime layer through which
-            public decisions are made, reviewed, and traced.
+            Public AI therefore has to ask who benefits and who may be left behind,
+            not only how many cases were closed.
           </p>
         </div>
       </div>
 
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/02.png"
-           data-lightbox aria-label="Open the diagram showing that AI is not just a computational tool">
-          <img src="assets/02.png"
-               alt="AI is not just a computational tool: used across search, social media, government, finance, and healthcare, it shapes information, decisions, behavior, and social systems."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Inside public institutions, AI is not a feature. It is a layer that shapes what decisions are even made.</figcaption>
-      </figure>
+      <p class="table-title">Commercial AI vs Public AI</p>
+      <div class="table-wrap">
+        <table class="matrix">
+          <thead>
+            <tr><th scope="col">Dimension</th><th scope="col">Typical commercial AI</th><th scope="col">Public AI</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Objective</th><td data-label="Typical commercial AI">Revenue, productivity, customer lifetime value</td><td data-label="Public AI">Public benefit, fairness, safety, inclusion, social trust</td></tr>
+            <tr><th scope="row">Who is affected</th><td data-label="Typical commercial AI">Customers who can usually switch provider</td><td data-label="Public AI">Residents who often have no alternative</td></tr>
+            <tr><th scope="row">Cost of error</th><td data-label="Typical commercial AI">A lost sale, a refund, a churned account</td><td data-label="Public AI">A lost benefit, an unjust burden, damaged trust in the institution</td></tr>
+            <tr><th scope="row">What justifies a result</th><td data-label="Typical commercial AI">Performance against a business metric</td><td data-label="Public AI">Performance, plus legal basis, reasons, and a way to contest</td></tr>
+            <tr><th scope="row">Who answers for it</th><td data-label="Typical commercial AI">The product team or vendor</td><td data-label="Public AI">The public institution, even when a vendor built the system</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-caption">The comparison is about emphasis. Commercial systems also have duties to customers; the difference is that public decisions carry legal authority over people who cannot easily walk away.</p>
 
       <figure class="figure figure-wide figure-standard">
         <a class="figure-frame" href="assets/07.png"
@@ -446,99 +450,86 @@
                alt="Introducing AI to government: citizen data flows into AI, which supports public services across welfare, taxation, healthcare, and disaster management."
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">Where public AI operates — welfare, taxation, healthcare, disaster response — is where its decisions touch rights.</figcaption>
+        <figcaption class="figure-caption">Welfare, taxation, healthcare, and disaster response are where AI-supported decisions touch rights.</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- ============ 02 WHY IT MATTERS ============ -->
-  <section class="research-section" id="why" aria-labelledby="why-h">
+  <!-- ============ 02 CORE PRINCIPLE ============ -->
+  <section class="research-section" id="principle" aria-labelledby="principle-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">02 / Why It Matters</div>
-        <h2 id="why-h">Why It Matters</h2>
+        <div class="section-label">02 / Core Principle</div>
+        <h2 id="principle-h">Separate Prediction, Decision, and Authority</h2>
         <p class="section-lede">
-          Public-sector AI is not a productivity tool.
-          It touches the legitimacy of the institutions
-          that use it.
+          “The AI recommended it” and “the agency decided it” are different
+          statements. Public AI governance begins by keeping them apart.
         </p>
       </div>
 
-      <div class="two-col">
+      <p class="table-title">Five things that must not be merged</p>
+      <div class="table-wrap">
+        <table class="matrix">
+          <thead>
+            <tr><th scope="col">Layer</th><th scope="col">Question it answers</th><th scope="col">Owner</th><th scope="col">What goes wrong when merged</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">AI prediction or recommendation</th><td data-label="Question">What does the data suggest about this case?</td><td data-label="Owner">System owner, with the vendor’s documentation</td><td data-label="What goes wrong when merged">A score is treated as a finding of fact</td></tr>
+            <tr><th scope="row">Administrative judgment</th><td data-label="Question">Given the rules and this person’s circumstances, what is the right outcome?</td><td data-label="Owner">Case officer</td><td data-label="What goes wrong when merged">Judgment shrinks to clicking “accept”</td></tr>
+            <tr><th scope="row">Legal or policy authority</th><td data-label="Question">Who is empowered to decide, under which rules, within which limits?</td><td data-label="Owner">Legislature, agency head, policy owner</td><td data-label="What goes wrong when merged">A model quietly redefines eligibility</td></tr>
+            <tr><th scope="row">Human approval and accountability</th><td data-label="Question">Who signs this decision and answers for it?</td><td data-label="Owner">Named decision owner</td><td data-label="What goes wrong when merged">“The system decided” leaves no owner</td></tr>
+            <tr><th scope="row">Citizen notice and recourse</th><td data-label="Question">Can the person understand, contest, and obtain correction?</td><td data-label="Owner">Appeals function independent of the recommendation</td><td data-label="What goes wrong when merged">Appeal re-runs the same score</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-caption">If one actor or one system fills several rows at once, the later rows stop being independent checks.</p>
+
+      <div class="two-col spaced">
         <div class="col-text">
-          <h3>What Public AI Affects</h3>
-          <p>Public-sector AI affects:</p>
-          <ul>
-            <li>rights</li>
-            <li>access to services</li>
-            <li>fairness</li>
-            <li>safety</li>
-            <li>public trust</li>
-            <li>administrative transparency</li>
-            <li>democratic legitimacy</li>
-          </ul>
-
+          <h3>Signal is not decision</h3>
           <p>
-            Traditional AI systems often focus on a
-            narrow pipeline:
+            AI is good at generating signals: a risk score, a trend, a match.
+            What matters socially is which signals are adopted, under which
+            boundaries, and under whose responsibility. Decision Trace Model
+            describes that path:
           </p>
-
-          <code class="quote">
-            Input → Model → Output
-          </code>
-
-          <p>
-            That framing is sufficient for product
-            features. It is not sufficient for public
-            decisions.
-          </p>
+          <code class="quote is-diagram">Event
+↓
+Signal
+↓
+Context
+↓
+Decision
+↓
+Boundary
+↓
+Human Gate
+↓
+Execution
+↓
+Trace</code>
         </div>
-
         <div class="col-text">
-          <h3>What Public AI Requires</h3>
-          <p>Public AI requires a longer chain:</p>
-
-          <code class="quote">
-            Public Event
-            ↓
-            Signal
-            ↓
-            Context
-            ↓
-            Decision Runtime
-            ↓
-            Policy Boundary
-            ↓
-            Human Review
-            ↓
-            Public Accountability
-            ↓
-            Trace
-          </code>
-
+          <h3>Even a perfect observation of what people want is not a decision</h3>
           <p>
-            In public systems, the problem is not only
-            whether AI is accurate.
+            Proposals such as Yusuke Narita’s <em>22nd-Century Democracy</em> imagine
+            algorithms inferring what people want from behavioral data. Whatever
+            one thinks of that, it exposes the harder question: “what people want”
+            and “what society can sustainably and lawfully execute” are not always
+            the same.
           </p>
-
-          <code class="quote">
-            The problem is whether AI-assisted decisions
-            can be explained, challenged, audited,
-            and governed.
-          </code>
+          <p>
+            Law, minority protection, safety, and exceptions still have to
+            be applied by someone. Observation does not replace that step.
+          </p>
         </div>
       </div>
 
-      <div class="fig-lead">
-        <h3>From prediction systems to accountable decision systems</h3>
-        <p>
-          Public AI changes not only how governments process information,
-          but how institutions justify public decisions. The architecture
-          below illustrates the transition: rules and systems that were once
-          designed and operated by humans now embed an algorithmic layer —
-          and the final decision, and its accountability, must remain human.
-        </p>
+      <div class="callout">
+        <div class="callout-label">Working rule</div>
+        <p>AI can support a decision. It must not restrict a person’s rights through a classification that no one can explain.</p>
       </div>
+
       <figure class="figure figure-wide figure-standard">
         <a class="figure-frame" href="assets/05.png"
            data-lightbox aria-label="Open the diagram showing how social systems are evolving to include an algorithmic layer">
@@ -546,204 +537,93 @@
                alt="Social systems are evolving: traditionally Law to System to Human; today an Algorithm layer sits between System and Human, influencing decisions that humans still finalize."
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">The algorithm becomes part of the system — but the accountable decision stays with people.</figcaption>
-      </figure>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/16.png"
-           data-lightbox aria-label="Open the diagram of the interrelated challenges in algorithmic governance">
-          <img src="assets/16.png"
-               alt="Challenges in algorithmic governance form an interrelated field: bias, privacy, democracy, trust, law, security, and human oversight."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Legitimacy, rights, and trust are not separate concerns — they are an interlocking field a public system must hold together.</figcaption>
+        <figcaption class="figure-caption">The algorithm becomes part of the system, but final decisions and their accountability stay with people.</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- ============ 03 CORE STRUCTURE ============ -->
-  <section class="research-section" id="core" aria-labelledby="core-h">
+  <!-- ============ 03 ARCHITECTURE ============ -->
+  <section class="research-section" id="architecture" aria-labelledby="architecture-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">03 / Core Structure</div>
-        <h2 id="core-h">Core Structure</h2>
+        <div class="section-label">03 / Public AI Governance Architecture</div>
+        <h2 id="architecture-h">Seven Layers, One Accountable System</h2>
         <p class="section-lede">
-          Eight layers that together compose a public AI
-          decision runtime — from signal to trace.
+          Technology, law, operations, and explanation are designed together.
+          Weakness in any layer shows up as a failure for the citizen.
         </p>
       </div>
 
-      <div class="concept-grid cols-4">
-        <div class="concept">
-          <div class="idx">i</div>
-          <h3>Public Signal Layer</h3>
-          <p>Events, applications, requests, and observations entering the public system — the raw input of public decisions.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">ii</div>
-          <h3>Policy Context Layer</h3>
-          <p>Statutes, regulations, internal rules, and institutional norms that frame what any decision is allowed to mean.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">iii</div>
-          <h3>Decision Runtime</h3>
-          <p>The execution substrate where signals, policy, and AI-generated suggestions are combined into draft decisions.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">iv</div>
-          <h3>Boundary &amp; Rights Layer</h3>
-          <p>Limits on what may be decided automatically, what must be paused, and which rights cannot be overridden by a model.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">v</div>
-          <h3>Human Review / Appeal Gate</h3>
-          <p>A required pause where a human official assumes responsibility — and where a citizen can challenge a decision.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">vi</div>
-          <h3>Audit &amp; Accountability Layer</h3>
-          <p>Mechanisms for oversight bodies, auditors, and the public to inspect how a decision was made and by whom.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">vii</div>
-          <h3>Public Ledger / Trace Layer</h3>
-          <p>Structured, durable records of decisions — the institutional memory through which legitimacy is reconstructed.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">viii</div>
-          <h3>Feedback &amp; Institutional Learning</h3>
-          <p>Loops that carry audit findings, appeals, and outcomes back into policy and runtime configuration over time.</p>
-        </div>
-      </div>
-
-      <div class="fig-lead">
-        <h3>The layered view, in one picture</h3>
-        <p>
-          Read from top to bottom, algorithmic governance is a chain, not a
-          box: society sets the rules, rules constrain the algorithms, and the
-          algorithms feed — but do not replace — the decision. Each layer is a
-          distinct institutional concern.
-        </p>
-      </div>
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/04.png"
-           data-lightbox aria-label="Open the diagram defining algorithmic governance as Society, Rules, Algorithms, Decision">
-          <img src="assets/04.png"
-               alt="What is algorithmic governance: the study of how algorithms shape the design of social systems, structured as Society, Rules, Algorithms, and Decision."
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets2/public-ai-governance-architecture.png"
+           data-lightbox aria-label="Open the public AI governance reference architecture diagram">
+          <img src="assets2/public-ai-governance-architecture.png" width="1600" height="1000"
+               alt="Public AI governance reference architecture: policy and legal basis constrains data and evidence, the model, the human decision, citizen notice, and appeal. A vendor and procurement boundary surrounds data and model. Audit, monitoring, and decision trace record every step and feed findings back to policy."
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">Algorithmic governance is the design of how algorithms sit inside social systems — between rules and decisions.</figcaption>
+        <figcaption class="figure-caption">The AI recommends, a named official decides, the citizen can contest, and audit records the whole path.</figcaption>
+        <p class="figure-src"><a href="assets2/public-ai-governance-architecture.svg">Editable SVG</a></p>
       </figure>
 
-      <div class="fig-lead">
-        <h3>Decision Runtime — where responsibility converges</h3>
-        <p>
-          Decision Runtime is not an AI model. It is the institutional
-          execution layer where policy, human responsibility, and AI
-          recommendations converge before any public action is taken. The
-          public-safety example below shows the pattern: data is analysed into
-          a risk assessment, but the final decision — and the accountability
-          for it — remains with a human.
+      <p class="table-title">What each layer must settle</p>
+      <div class="table-wrap">
+        <table class="matrix">
+          <thead>
+            <tr><th scope="col">Layer</th><th scope="col">What it must settle</th><th scope="col">Accountable role</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Policy and legal basis</th><td data-label="What it must settle">Purpose, eligibility rules, who may decide, which rights cannot be overridden, prohibited uses</td><td data-label="Accountable role">Policy owner and legal counsel</td></tr>
+            <tr><th scope="row">Data and evidence</th><td data-label="What it must settle">Provenance, quality, minimization, consent, and the line between facts and inferences</td><td data-label="Accountable role">Data steward and data protection officer</td></tr>
+            <tr><th scope="row">Model / algorithm</th><td data-label="What it must settle">What it recommends, which factors it uses, known limits, and its tested error profile</td><td data-label="Accountable role">System owner</td></tr>
+            <tr><th scope="row">Human decision-making</th><td data-label="What it must settle">Who decides, with what evidence and authority to override, and how reasons are recorded</td><td data-label="Accountable role">Named decision owner</td></tr>
+            <tr><th scope="row">Audit and monitoring</th><td data-label="What it must settle">Decision trace, fairness and drift measures, incident thresholds, and the power to suspend</td><td data-label="Accountable role">Internal audit and independent evaluator</td></tr>
+            <tr><th scope="row">Citizen explanation and appeal</th><td data-label="What it must settle">Notice content, deadlines, an independent review route, and what remedy is available</td><td data-label="Accountable role">Appeals function</td></tr>
+            <tr><th scope="row">Vendor and procurement boundary</th><td data-label="What it must settle">Contracted logs, documentation, audit access, change notice, subcontractors, and exit</td><td data-label="Accountable role">Procurement officer and system owner</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-caption">The vendor boundary wraps data and model, not the decision. The agency can buy components; it cannot buy the decision-making responsibility.</p>
+    </div>
+  </section>
+
+  <!-- ============ 04 CONTROLS ============ -->
+  <section class="research-section" id="controls" aria-labelledby="controls-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Governance Controls</div>
+        <h2 id="controls-h">Who Checks What, When, and What Remains on Record</h2>
+        <p class="section-lede">
+          A principle becomes a control when someone is named, a moment is fixed,
+          and a record is kept.
         </p>
       </div>
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets/08.png"
-           data-lightbox aria-label="Open the diagram of using data and AI for public safety with a human decision">
-          <img src="assets/08.png"
-               alt="Using data and AI for public safety: crime data feeds an AI risk assessment, but the final decision is made by humans, with AI used only to support judgment."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">AI analyses and assesses; the human decides. In public decisions, the model produces a signal — never the conclusion.</figcaption>
-      </figure>
 
-      <!-- ====== Public AI Governance Flow diagram ====== -->
-      <div class="governance-flow" aria-label="Public AI Governance Flow">
-        <div class="governance-flow-label">Layer Diagram</div>
-        <h3 class="governance-flow-title">Public AI Governance Flow</h3>
-
-        <ol class="governance-stages" role="list">
-          <li class="governance-stage">
-            <span class="stage-idx">01</span>
-            <span class="stage-body">
-              <span class="stage-name">Public Event</span>
-              <span class="stage-note">An application, request, observation, or incident enters the institution.</span>
-            </span>
-          </li>
-          <li class="governance-arrow" aria-hidden="true">↓</li>
-          <li class="governance-stage">
-            <span class="stage-idx">02</span>
-            <span class="stage-body">
-              <span class="stage-name">Signal</span>
-              <span class="stage-note">The event is captured, classified, and translated into a structured signal.</span>
-            </span>
-          </li>
-          <li class="governance-arrow" aria-hidden="true">↓</li>
-          <li class="governance-stage">
-            <span class="stage-idx">03</span>
-            <span class="stage-body">
-              <span class="stage-name">Context</span>
-              <span class="stage-note">Policy, history, and case-specific context are attached to the signal.</span>
-            </span>
-          </li>
-          <li class="governance-arrow" aria-hidden="true">↓</li>
-          <li class="governance-stage">
-            <span class="stage-idx">04</span>
-            <span class="stage-body">
-              <span class="stage-name">Decision Runtime</span>
-              <span class="stage-note">A draft decision is composed under explicit rules — AI assists, never concludes.</span>
-            </span>
-          </li>
-          <li class="governance-arrow" aria-hidden="true">↓</li>
-          <li class="governance-stage">
-            <span class="stage-idx">05</span>
-            <span class="stage-body">
-              <span class="stage-name">Policy Boundary</span>
-              <span class="stage-note">Rights, statutes, and institutional limits constrain what may be executed.</span>
-            </span>
-          </li>
-          <li class="governance-arrow" aria-hidden="true">↓</li>
-          <li class="governance-stage">
-            <span class="stage-idx">06</span>
-            <span class="stage-body">
-              <span class="stage-name">Human Review</span>
-              <span class="stage-note">A responsible official confirms, modifies, or refuses the draft decision.</span>
-            </span>
-          </li>
-          <li class="governance-arrow" aria-hidden="true">↓</li>
-          <li class="governance-stage">
-            <span class="stage-idx">07</span>
-            <span class="stage-body">
-              <span class="stage-name">Public Accountability</span>
-              <span class="stage-note">The decision is communicated, justified, and made open to appeal.</span>
-            </span>
-          </li>
-          <li class="governance-arrow" aria-hidden="true">↓</li>
-          <li class="governance-stage">
-            <span class="stage-idx">08</span>
-            <span class="stage-body">
-              <span class="stage-name">Trace</span>
-              <span class="stage-note">A durable record is written — replayable, auditable, and citizen-accessible.</span>
-            </span>
-          </li>
-        </ol>
+      <div class="table-wrap">
+        <table class="matrix">
+          <thead>
+            <tr><th scope="col">Control</th><th scope="col">Who checks, and when</th><th scope="col">What must be true</th><th scope="col">Record kept</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Purpose limitation</th><td data-label="Who checks, and when">Policy owner and legal counsel, before design and at every change of use</td><td data-label="What must be true">Use is bound to a stated policy purpose. <em>E.g. a benefits-eligibility model is not repurposed for fraud flagging without new approval.</em></td><td data-label="Record kept">Purpose statement, legal basis, approval</td></tr>
+            <tr><th scope="row">Data minimization and privacy</th><td data-label="Who checks, and when">Data protection officer, before data preparation and annually</td><td data-label="What must be true">Only fields needed for the decision are used; sensitive attributes are excluded or tightly governed; retention is limited; consent applies where required, as in health data.</td><td data-label="Record kept">Data inventory, privacy impact assessment, access log, retention schedule</td></tr>
+            <tr><th scope="row">Fairness assessment</th><td data-label="Who checks, and when">Analyst independent of the vendor, before deployment and each period after</td><td data-label="What must be true">Error rates and outcomes are compared across groups and across proxies such as postcode or language. <em>E.g. do applicants from one district get flagged more for the same facts?</em></td><td data-label="Record kept">Metrics report, thresholds, mitigation decisions</td></tr>
+            <tr><th scope="row">Explainability fit to the decision</th><td data-label="Who checks, and when">Decision owner with communications staff, at design and for each notice template</td><td data-label="What must be true">The citizen gets reasons they can act on: which facts, which rule, how to correct them. Staff see the factors, not only a score.</td><td data-label="Record kept">Explanation templates, comprehension testing with real users</td></tr>
+            <tr><th scope="row">Human review for consequential decisions</th><td data-label="Who checks, and when">Case officer with authority, on every adverse or high-impact case</td><td data-label="What must be true">The reviewer sees the evidence beyond the score, has time and training, and can override without penalty.</td><td data-label="Record kept">Reviewer, evidence viewed, decision, reasons, override flag</td></tr>
+            <tr><th scope="row">Audit logs and decision trace</th><td data-label="Who checks, and when">System owner continuously; internal audit periodically</td><td data-label="What must be true">Input version, model version, recommendation, reviewer, final decision, and notice are linked for each case.</td><td data-label="Record kept">Tamper-evident trace with a defined retention period</td></tr>
+            <tr><th scope="row">Independent evaluation</th><td data-label="Who checks, and when">Audit office or outside evaluator, before launch and periodically</td><td data-label="What must be true">The evaluator tests the process as well as the model, with access to logs and contract terms.</td><td data-label="Record kept">Evaluation report and management response</td></tr>
+            <tr><th scope="row">Incident response and suspension</th><td data-label="Who checks, and when">Operations lead and decision owner, when a threshold is crossed</td><td data-label="What must be true">The AI can be paused while the service continues manually; affected people are identified and informed.</td><td data-label="Record kept">Incident record, suspension decision, remediation</td></tr>
+            <tr><th scope="row">Procurement and vendor accountability</th><td data-label="Who checks, and when">Procurement officer and legal counsel, at contract and at renewal</td><td data-label="What must be true">The contract requires logs, documentation, audit access, change notice, subcontractor disclosure, and exit support. The agency keeps accountability.</td><td data-label="Record kept">Contract clauses, change notices, service reports</td></tr>
+            <tr><th scope="row">Citizen notice, appeal, and remedy</th><td data-label="Who checks, and when">Appeals office independent of the recommendation, for every adverse decision</td><td data-label="What must be true">The notice says AI supported the decision, gives reasons, deadlines, and how to appeal. Review looks at the case itself, and remedy is real.</td><td data-label="Record kept">Notice sent, appeal file, outcome, time to resolution</td></tr>
+          </tbody>
+        </table>
       </div>
+      <p class="table-caption">These are design patterns for discussion, not legal advice. Which controls are mandatory, and how strictly, depends on the jurisdiction and on how consequential the decision is.</p>
 
       <div class="fig-lead">
-        <h3>Accountability is reconstructed through traceability</h3>
+        <h3>Controls only work if they feed back</h3>
         <p>
-          Every significant public decision should remain replayable,
-          inspectable, and reviewable long after execution. The trace is not a
-          log file — it is the institutional memory through which legitimacy is
-          reconstructed. Auditing closes the loop: decision records are
-          examined for fairness, accuracy, and transparency, and findings feed
-          back into the runtime.
+          Decision logs make audit possible, audit makes improvement possible,
+          and re-evaluation closes the loop.
         </p>
       </div>
       <figure class="figure figure-wide figure-standard">
@@ -753,7 +633,397 @@
                alt="Algorithm auditing cycle: algorithms are deployed, decision logs are preserved, audits verify fairness, accuracy, and transparency, and improvements feed back in a continuous loop."
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">Audit → improve → re-evaluate. Traceable decision logs are what make the loop — and accountability — possible.</figcaption>
+        <figcaption class="figure-caption">Audit, improve, re-evaluate. Traceable decision logs are what make the loop possible.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 05 LIFECYCLE ============ -->
+  <section class="research-section" id="lifecycle" aria-labelledby="lifecycle-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Lifecycle</div>
+        <h2 id="lifecycle-h">From Policy Intent to Recourse, and Back to Policy</h2>
+        <p class="section-lede">
+          Monitoring, appeal, suspension, and redesign are not the end of a
+          project. They are part of operating the system.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets2/public-ai-lifecycle-loop.png"
+           data-lightbox aria-label="Open the public AI lifecycle and accountability loop diagram">
+          <img src="assets2/public-ai-lifecycle-loop.png" width="1600" height="900"
+               alt="Public AI lifecycle: ten steps from policy intent, decision rules, data preparation, build or procure, impact assessment, controlled rollout, human review, citizen notice, appeal and remedy, to monitoring and audit. Policy revision feeds back to the start; findings can trigger redesign or suspension."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Appeal outcomes and audit findings change the rules, the data, the model, or the contract.</figcaption>
+        <p class="figure-src"><a href="assets2/public-ai-lifecycle-loop.svg">Editable SVG</a></p>
+      </figure>
+
+      <p class="table-title">The question at each stage</p>
+      <div class="table-wrap">
+        <table class="matrix">
+          <thead>
+            <tr><th scope="col">Stage</th><th scope="col">Question to answer</th><th scope="col">Record produced</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">1 · Policy intent</th><td data-label="Question to answer">What public purpose is this serving, and is AI the right tool?</td><td data-label="Record produced">Purpose statement, legal basis</td></tr>
+            <tr><th scope="row">2 · Eligibility and decision rules</th><td data-label="Question to answer">Which rules are fixed by law, and which leave room for judgment?</td><td data-label="Record produced">Rule specification, authority map</td></tr>
+            <tr><th scope="row">3 · Data preparation</th><td data-label="Question to answer">Where does the data come from, and does it encode past inequity?</td><td data-label="Record produced">Provenance and quality notes</td></tr>
+            <tr><th scope="row">4 · Model development or procurement</th><td data-label="Question to answer">What may the system recommend, and what does the contract guarantee?</td><td data-label="Record produced">Specification, contract terms</td></tr>
+            <tr><th scope="row">5 · Impact assessment</th><td data-label="Question to answer">Who could be harmed, and how would we find out?</td><td data-label="Record produced">Fairness, privacy, and rights assessment</td></tr>
+            <tr><th scope="row">6 · Controlled rollout</th><td data-label="Question to answer">Can it start small, with limits and a way back?</td><td data-label="Record produced">Pilot scope, stop conditions</td></tr>
+            <tr><th scope="row">7 · Human review</th><td data-label="Question to answer">Does the reviewer have evidence, time, and power to disagree?</td><td data-label="Record produced">Review and override records</td></tr>
+            <tr><th scope="row">8 · Citizen notice</th><td data-label="Question to answer">Does the person know what happened, why, and what they can do?</td><td data-label="Record produced">Notice and delivery proof</td></tr>
+            <tr><th scope="row">9 · Appeal and remedy</th><td data-label="Question to answer">Is review independent, timely, and able to change the outcome?</td><td data-label="Record produced">Appeal file and outcome</td></tr>
+            <tr><th scope="row">10 · Monitoring and audit</th><td data-label="Question to answer">Are outcomes, disparities, and drift staying within limits?</td><td data-label="Record produced">Monitoring reports, audit findings</td></tr>
+            <tr><th scope="row">11 · Policy revision</th><td data-label="Question to answer">What should change in the rules, data, model, or contract?</td><td data-label="Record produced">Revision decision and rationale</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-caption">A system without stages 9 to 11 is a launch, not a lifecycle.</p>
+    </div>
+  </section>
+
+  <!-- ============ 06 RECOURSE ============ -->
+  <section class="research-section" id="recourse" aria-labelledby="recourse-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Decision, Explanation, and Recourse</div>
+        <h2 id="recourse-h">What Happens When a Citizen Is Told No</h2>
+        <p class="section-lede">
+          The path to remedy has to exist before the first adverse decision,
+          and it has to work for someone with no technical background.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets2/public-ai-recourse-flow.png"
+           data-lightbox aria-label="Open the decision, explanation, and recourse flow diagram">
+          <img src="assets2/public-ai-recourse-flow.png" width="1600" height="1020"
+               alt="Decision, explanation, and recourse flow in four lanes: the citizen submits a case; the AI system supports the assessment; the decision owner reviews and decides; the citizen receives notice and may file an appeal; an independent review examines the case itself; a remedy is applied and the outcome is notified to the citizen."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The appeal goes to someone who reviews the case, not to the same recommendation again.</figcaption>
+        <p class="figure-src"><a href="assets2/public-ai-recourse-flow.svg">Editable SVG</a></p>
+      </figure>
+
+      <div class="two-col spaced">
+        <div class="col-text">
+          <h3>A usable notice says</h3>
+          <ul>
+            <li>what was decided, and by whom or which office</li>
+            <li>that an AI system supported the assessment</li>
+            <li>the main facts and the rule that led to the outcome</li>
+            <li>how to correct wrong data and by when</li>
+            <li>how to appeal, and who reviews it</li>
+          </ul>
+        </div>
+        <div class="col-text">
+          <h3>Recourse has to be real</h3>
+          <ul>
+            <li>The reviewer can see the underlying evidence, not only the score.</li>
+            <li>The reviewer is not the person or system that made the first recommendation.</li>
+            <li>Inferences such as “this household needs support” are labelled as inferences and can be corrected.</li>
+            <li>Appeal outcomes are counted, and a high reversal rate triggers review of the system.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 FAILURE MODES ============ -->
+  <section class="research-section" id="failure-modes" aria-labelledby="failure-modes-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Failure Modes and Safeguards</div>
+        <h2 id="failure-modes-h">Eight Ways Public AI Fails, and What Prevents Each</h2>
+        <p class="section-lede">
+          Most failures are not exotic. They are predictable consequences of
+          missing design or missing operation.
+        </p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="matrix">
+          <thead>
+            <tr><th scope="col">Failure</th><th scope="col">How it arises</th><th scope="col">Design safeguard</th><th scope="col">Operating safeguard</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Historical bias becomes automated exclusion</th><td data-label="How it arises">Training on past decisions that reflected unequal access or enforcement</td><td data-label="Design safeguard">Question whether the label (for example, past “detected fraud”) measures the policy outcome</td><td data-label="Operating safeguard">Disparity monitoring by group; approval before retraining</td></tr>
+            <tr><th scope="row">Proxy variables conceal discrimination</th><td data-label="How it arises">Postcode, language, school, or employment gaps stand in for protected traits</td><td data-label="Design safeguard">Feature review and an allow-list of permitted inputs</td><td data-label="Operating safeguard">Test outcomes across groups, not only inputs</td></tr>
+            <tr><th scope="row">Automation bias weakens review</th><td data-label="How it arises">Staff defer to a confident score, especially under workload pressure</td><td data-label="Design safeguard">Show evidence before the score; require reasons when agreeing with high-impact recommendations</td><td data-label="Operating safeguard">Track agreement and override rates; sample audits; training</td></tr>
+            <tr><th scope="row">Opaque vendor systems prevent accountability</th><td data-label="How it arises">Proprietary models, no log access, undisclosed updates</td><td data-label="Design safeguard">Contract for logs, documentation, and audit rights</td><td data-label="Operating safeguard">Change notification and independent testing</td></tr>
+            <tr><th scope="row">Model drift changes outcomes silently</th><td data-label="How it arises">Population, policy, or data sources change; the model is updated</td><td data-label="Design safeguard">Version pinning and release approval</td><td data-label="Operating safeguard">Drift thresholds and re-assessment before updates go live</td></tr>
+            <tr><th scope="row">Citizens cannot contest a decision</th><td data-label="How it arises">Notice says “the system decided” with no reasons or route</td><td data-label="Design safeguard">Contestability built into the notice and process</td><td data-label="Operating safeguard">Appeal time targets; independent reviewers; outcomes feed audit</td></tr>
+            <tr><th scope="row">A technically correct model violates policy intent</th><td data-label="How it arises">It optimizes a proxy such as throughput or predicted fraud rather than the policy goal</td><td data-label="Design safeguard">Tie metrics to policy outcomes, such as successful access to support and missed-support rate</td><td data-label="Operating safeguard">Periodic policy review of what the system actually does</td></tr>
+            <tr><th scope="row">“Human-in-the-loop” becomes a rubber stamp</th><td data-label="How it arises">The reviewer lacks authority, time, or information</td><td data-label="Design safeguard">Authority to override; escalation path; reasons recorded</td><td data-label="Operating safeguard">Measure review time, override rate, and reversal on appeal</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-caption">A near-zero override rate is not proof the system is right. It may mean no one is really reviewing.</p>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/16.png"
+           data-lightbox aria-label="Open the diagram of the interrelated challenges in algorithmic governance">
+          <img src="assets/16.png"
+               alt="Challenges in algorithmic governance form an interrelated field: bias, privacy, democracy, trust, law, security, and human oversight."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Bias, privacy, trust, law, security, and oversight form one field, and a public system has to hold them together.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 08 SCENARIOS ============ -->
+  <section class="research-section" id="scenarios" aria-labelledby="scenarios-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">08 / Practical Public-Sector Scenarios</div>
+        <h2 id="scenarios-h">Where the Line Falls in Six Common Uses</h2>
+        <p class="section-lede">
+          Generalized patterns for discussion. Where each line falls in practice
+          depends on the law, the risks, and the evidence gathered locally.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-3">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Welfare and benefit prioritization</h3>
+          <p>Ordering outreach or case backlogs so people likely to miss support are found sooner.</p>
+          <p class="eg"><b>AI supports</b>Flags incomplete applications and likely missed entitlements.</p>
+          <p class="eg human"><b>Humans decide</b>Eligibility, amount, and any denial. Lower priority never removes the right to be assessed.</p>
+          <p class="eg"><b>Evidence and record</b>Factors used, rule cited, caseworker.</p>
+          <p class="eg recourse"><b>Explanation and remedy</b>Notice with reasons; appeal to a unit independent of the ranking.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Fraud and risk detection</h3>
+          <p>Surfacing anomalies in claims or payments for human inquiry.</p>
+          <p class="eg"><b>AI supports</b>Flags patterns and explains which signals triggered the flag.</p>
+          <p class="eg human"><b>Humans decide</b>Whether to open an inquiry. No suspension or penalty rests on a flag alone.</p>
+          <p class="eg"><b>Evidence and record</b>Flag reasons, supporting evidence, investigator, false-positive rate.</p>
+          <p class="eg recourse"><b>Explanation and remedy</b>The person can respond before adverse action; wrongful flags are corrected and counted.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Housing, education, and employment support</h3>
+          <p>Identifying who may benefit from limited programs.</p>
+          <p class="eg"><b>AI supports</b>Proposes candidates; labels each “needs support” as an inference, not a fact.</p>
+          <p class="eg human"><b>Humans decide</b>Selection criteria are set by policy; staff confirm each placement.</p>
+          <p class="eg"><b>Evidence and record</b>Criteria, inference labels, who confirmed.</p>
+          <p class="eg recourse"><b>Explanation and remedy</b>People, guardians, or teachers can correct data and request reconsideration. Learners are not given fixed scores.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Inquiry and application support</h3>
+          <p>Helping residents find the right program and complete the right steps in order.</p>
+          <p class="eg"><b>AI supports</b>Answers questions, checks missing documents, and sequences related procedures such as those after a birth or job loss.</p>
+          <p class="eg human"><b>Humans decide</b>Legal judgments. Uncertain or rights-affecting cases return to a responsible professional through a Human Gate.</p>
+          <p class="eg"><b>Evidence and record</b>Policy documents cited, their version, and the handoff.</p>
+          <p class="eg recourse"><b>Explanation and remedy</b>A clear route to a person and to written confirmation of what applies.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Urban operations, transport, and disaster</h3>
+          <p>Forecasting and resource allocation across agencies.</p>
+          <p class="eg"><b>AI supports</b>Predicts floods, estimates damage, proposes routes, shelters, and who may need assistance.</p>
+          <p class="eg human"><b>Humans decide</b>Responsible personnel confirm important decisions. A person’s wishes and legal rights are not overridden because a plan looks optimal.</p>
+          <p class="eg"><b>Evidence and record</b>Forecast version, assumptions, approver, timeline.</p>
+          <p class="eg recourse"><b>Explanation and remedy</b>After-action review and a channel to report people missed or wrongly allocated; coverage checked for older adults and people with disabilities.</p>
+        </div>
+
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Audit and administrative investigation</h3>
+          <p>Reviewing large document sets for inconsistencies or risk.</p>
+          <p class="eg"><b>AI supports</b>Summarizes documents, links related records, and highlights inconsistencies.</p>
+          <p class="eg human"><b>Humans decide</b>Findings, conclusions, and sanctions rest on verified evidence, not model output.</p>
+          <p class="eg"><b>Evidence and record</b>Source documents, tool version, reviewer verification.</p>
+          <p class="eg recourse"><b>Explanation and remedy</b>The subject can see the evidence relied on and respond to it.</p>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/08.png"
+           data-lightbox aria-label="Open the diagram of using data and AI for public safety with a human decision">
+          <img src="assets/08.png"
+               alt="Using data and AI for public safety: crime data feeds an AI risk assessment, but the final decision is made by humans, with AI used only to support judgment."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">AI analyses and assesses; the human decides. The model produces a signal, never the conclusion.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 09 BEYOND PROCEDURES ============ -->
+  <section class="research-section" id="relationship" aria-labelledby="relationship-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">09 / Beyond Single Procedures</div>
+        <h2 id="relationship-h">Public Services Are Fragmented. A Life Is Not.</h2>
+        <p class="section-lede">
+          Residents live one life across government, healthcare, education, and
+          welfare. Public AI can help connect support across those boundaries
+          without erasing them.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>From transactions to continuing support</h3>
+          <p>
+            Services are usually organized as applications: a resident applies, the
+            agency reviews, a result is sent. But a birth, a job loss, or a
+            diagnosis changes a whole situation at once, and the person is left to find
+            each program and repeat the same information.
+          </p>
+          <p>
+            If an AI can understand a person’s current circumstances, the programs
+            available, and their deadlines, it can guide them through one coherent
+            journey. This is a navigation role. It does not mean the AI decides
+            eligibility.
+          </p>
+          <h3>Connect, do not merge</h3>
+          <p>
+            The aim is not one giant database. Each domain keeps its own
+            responsibility and authority, and information moves only under
+            informed consent and clear boundaries, when necessary.
+          </p>
+        </div>
+
+        <div class="col-text">
+          <h3>Health and education need tighter boundaries</h3>
+          <p>In healthcare, boundaries have to settle:</p>
+          <ul>
+            <li>what information the AI may access</li>
+            <li>what stays limited to diagnostic support</li>
+            <li>which decisions need a physician’s confirmation</li>
+            <li>patient consent, emergency escalation, and retention</li>
+          </ul>
+          <p>
+            Presenting diagnostic candidates is not making a diagnosis, and presenting
+            options is not applying them. The trace should record which symptoms,
+            results, and guidelines were considered, and who confirmed.
+          </p>
+          <p>
+            In education, inferences must be separated from facts and open to
+            correction by learners, guardians, and teachers. Judging friendships or
+            personalities is highly risky, and AI should support change rather than assign fixed scores.
+          </p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Measure public value, not only volume</div>
+        <p>Useful indicators include procedure completion, successful access to support, time from consultation to resolution, missed-support rate, and reduction of the digital divide, rather than cases processed or cost cut alone.</p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/17.png"
+           data-lightbox aria-label="Open the diagram showing that AI does not govern society alone">
+          <img src="assets/17.png"
+               alt="AI does not govern society alone: law defines rules, institutions operate them, algorithms make judgments and recommendations, humans supervise and make final decisions, and society is influenced by those decisions."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Algorithms sit inside a chain of law, institutions, and people. They do not replace it.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 10 CHECKLIST ============ -->
+  <section class="research-section" id="checklist" aria-labelledby="checklist-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">10 / Public AI Readiness Checklist</div>
+        <h2 id="checklist-h">What to Confirm Before and During Operation</h2>
+        <p class="section-lede">
+          Use this in a pre-launch review and again at each audit. An unchecked
+          item marks where no one could explain a decision to a citizen.
+        </p>
+      </div>
+
+      <form class="check-groups" id="checklist-form" onsubmit="return false;" aria-describedby="check-tally">
+        <fieldset class="check-group">
+          <legend>Mandate and authority</legend>
+          <label><input type="checkbox"><span>The <b>policy purpose</b> is explicit and legitimate, with a legal basis and prohibited uses recorded.</span></label>
+          <label><input type="checkbox"><span>The <b>decision owner</b> is named.</span></label>
+          <label><input type="checkbox"><span>AI recommendations are <b>distinguishable from final decisions</b> in screens, records, and notices.</span></label>
+          <label><input type="checkbox"><span>Any change of purpose or scope needs fresh approval.</span></label>
+        </fieldset>
+
+        <fieldset class="check-group">
+          <legend>Data and fairness</legend>
+          <label><input type="checkbox"><span>Data <b>provenance and quality</b> are documented.</span></label>
+          <label><input type="checkbox"><span>Only necessary data is used and a privacy impact has been assessed.</span></label>
+          <label><input type="checkbox"><span>Protected groups and <b>disparate impact</b> are evaluated, including through proxy variables.</span></label>
+          <label><input type="checkbox"><span>Inferences are labelled as inferences, and citizens can correct them.</span></label>
+        </fieldset>
+
+        <fieldset class="check-group">
+          <legend>Human review and explanation</legend>
+          <label><input type="checkbox"><span>Human review has <b>authority to override</b>, plus the time and evidence to do it.</span></label>
+          <label><input type="checkbox"><span>Citizens receive an <b>understandable explanation</b> with reasons they can act on.</span></label>
+          <label><input type="checkbox"><span>Staff are trained on automation bias; agreement and override rates are tracked.</span></label>
+          <label><input type="checkbox"><span>High-impact or uncertain cases route to a responsible professional.</span></label>
+        </fieldset>
+
+        <fieldset class="check-group">
+          <legend>Recourse and operations</legend>
+          <label><input type="checkbox"><span>Appeals are handled by a process <b>independent of the automated recommendation</b>.</span></label>
+          <label><input type="checkbox"><span>Vendor responsibilities are <b>contractually explicit</b>: logs, audit access, change notice, exit.</span></label>
+          <label><input type="checkbox"><span>Outcomes are <b>monitored after deployment</b> for drift and disparity.</span></label>
+          <label><input type="checkbox"><span>The system can be <b>suspended safely</b>, with a manual fallback.</span></label>
+          <label><input type="checkbox"><span>A past case can be reconstructed from the decision trace alone.</span></label>
+        </fieldset>
+      </form>
+      <p class="check-tally" id="check-tally" aria-live="polite"><output id="check-count">0</output> of <span id="check-total">17</span> checked. Selections stay in your browser and are not saved.</p>
+    </div>
+  </section>
+
+  <!-- ============ 11 CHINOBA CONNECTIONS ============ -->
+  <section class="research-section" id="connections" aria-labelledby="connections-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">11 / Chinoba Research Connections</div>
+        <h2 id="connections-h">What Each Line of Inquiry Carries in Public AI</h2>
+        <p class="section-lede">
+          Public AI governance draws on several Chinoba research lines. Each answers
+          a different question in the same system.
+        </p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="matrix">
+          <thead>
+            <tr><th scope="col">Research line</th><th scope="col">Role in public AI</th><th scope="col">Question it answers</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row"><a href="/research/governance-boundary-systems/">Governance &amp; Boundary Systems</a></th><td data-label="Role in public AI">Sets what the AI may know, recommend, decide, and escalate, and what is off-limits</td><td data-label="Question it answers">Where does automation stop and authority begin?</td></tr>
+            <tr><th scope="row"><a href="/research/trust-infrastructure/">Trust Infrastructure</a></th><td data-label="Role in public AI">Identity, consent, access control, evidence, and verification across organizations</td><td data-label="Question it answers">Can each party rely on what the others claim?</td></tr>
+            <tr><th scope="row"><a href="/research/decision-trace-model/">Decision Trace</a></th><td data-label="Role in public AI">Links recommendation, reviewer, rationale, notice, and outcome in one record</td><td data-label="Question it answers">Who decided, on what basis, and can we replay it?</td></tr>
+            <tr><th scope="row"><a href="/research/knowledge-flow/">Knowledge Flow</a></th><td data-label="Role in public AI">Turns laws, ordinances, manuals, and past cases into structured, current rules and conditions</td><td data-label="Question it answers">Is the system using the right, current rule?</td></tr>
+            <tr><th scope="row"><a href="/research/ai-coordination/">AI Coordination</a></th><td data-label="Role in public AI">Separates roles for generating, verifying, approving, and executing across agents and people</td><td data-label="Question it answers">Who may do what, and who checks it?</td></tr>
+            <tr><th scope="row"><a href="/research/runtime-society/">Runtime Society</a></th><td data-label="Role in public AI">Coordinates government, healthcare, education, and welfare agents with human gates, as in disaster response</td><td data-label="Question it answers">How do many actors cooperate without losing responsibility?</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-caption">Together: knowledge supplies the rules, boundaries limit action, trust infrastructure supplies evidence, coordination assigns roles, and the decision trace keeps the record.</p>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets/19.png"
+           data-lightbox aria-label="Open the Chinoba research map diagram">
+          <img src="assets/19.png"
+               alt="Chinoba research: decision trace, governance, boundary design, human-AI coordination, and runtime society, forming the social infrastructure for trustworthy AI."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Public AI is one application of the broader social infrastructure for trustworthy AI.</figcaption>
       </figure>
     </div>
   </section>
@@ -762,7 +1032,7 @@
   <section class="research-section" id="essays" aria-labelledby="essays-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">04 / Related Essays</div>
+        <div class="section-label">12 / Related Essays</div>
         <h2 id="essays-h">Reading Around Public AI</h2>
         <p class="section-lede">
           Essays that extend this inquiry into government AI,
@@ -810,7 +1080,7 @@
   <section class="research-section" id="books" aria-labelledby="books-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">05 / Related Books</div>
+        <div class="section-label">13 / Related Books</div>
         <h2 id="books-h">Long-form Texts</h2>
         <p class="section-lede">
           Knowledge artifacts that compile the surrounding research
@@ -850,7 +1120,7 @@
   <section class="research-section" id="oss" aria-labelledby="oss-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">06 / Related OSS</div>
+        <div class="section-label">14 / Related OSS</div>
         <h2 id="oss-h">Related OSS</h2>
         <p class="section-lede">
           Runtime and trace-based components
@@ -887,16 +1157,15 @@
     </div>
   </section>
 
-  <!-- ============ 07 DIAGRAMS ============ -->
+  <!-- ============ 15 ARCHIVE ============ -->
   <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">07 / Diagrams</div>
+        <div class="section-label">15 / Diagrams</div>
         <h2 id="diagrams-h">Architecture Archive</h2>
         <p class="section-lede">
-          A growing archive of architectural sketches for
-          public AI, algorithmic governance, and accountable
-          decision runtimes.
+          Supporting sketches on transparency, accountability, fairness,
+          research themes, and applications in finance and cities.
         </p>
       </div>
 
@@ -941,11 +1210,51 @@
                  loading="lazy">
           </a>
         </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 05</div>
+          <h3>What Is Algorithmic Governance?</h3>
+          <a class="diagram-shot" href="assets/04.png"
+             data-lightbox aria-label="Open the diagram defining algorithmic governance as Society, Rules, Algorithms, Decision">
+            <img src="assets/04.png"
+                 alt="What is algorithmic governance: the study of how algorithms shape the design of social systems, structured as Society, Rules, Algorithms, and Decision."
+                 loading="lazy">
+          </a>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 06</div>
+          <h3>AI Is Not Just a Computational Tool</h3>
+          <a class="diagram-shot" href="assets/02.png"
+             data-lightbox aria-label="Open the diagram showing that AI is not just a computational tool">
+            <img src="assets/02.png"
+                 alt="AI is not just a computational tool: used across search, social media, government, finance, and healthcare, it shapes information, decisions, behavior, and social systems."
+                 loading="lazy">
+          </a>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 07</div>
+          <h3>Financial System</h3>
+          <a class="diagram-shot" href="assets/09.png"
+             data-lightbox aria-label="Open the diagram of AI-supported credit scoring and loan decisions">
+            <img src="assets/09.png"
+                 alt="Financial system: customer data feeds an AI credit score, which supports loan decisions, alongside insurance, fraud detection, and market monitoring."
+                 loading="lazy">
+          </a>
+        </div>
+        <div class="diagram-card">
+          <div class="kicker">Diagram 08</div>
+          <h3>Smart City</h3>
+          <a class="diagram-shot" href="assets/10.png"
+             data-lightbox aria-label="Open the smart city diagram">
+            <img src="assets/10.png"
+                 alt="Smart city: data and algorithms optimize traffic, energy, water, and public transport to support a sustainable city."
+                 loading="lazy">
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 07.5 SYNTHESIS FIGURE ============ -->
+  <!-- ============ SYNTHESIS FIGURE ============ -->
   <section class="research-section" aria-label="Synthesis">
     <div class="wrap">
       <figure class="figure figure-wide figure-main">
@@ -955,37 +1264,50 @@
                alt="What truly matters: a model's accuracy is not enough — governance, trust, and society are what let AI earn public acceptance. Governance connects AI's value to society."
                loading="lazy">
         </a>
-        <figcaption class="figure-caption">Even highly accurate AI cannot earn public acceptance without governance and trust. In public systems, that is the whole point.</figcaption>
+        <figcaption class="figure-caption">Even highly accurate AI cannot earn public acceptance without governance and trust.</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- ============ 08 CLOSING ============ -->
+  <!-- ============ CLOSING ============ -->
   <section class="research-section closing" id="closing" aria-labelledby="closing-h">
     <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
+    <div class="positioning" aria-label="Research positioning within the Chinoba architecture">
+      <span>Knowledge Flow</span>
+      <span>↓</span>
+      <span>Decision Trace</span>
+      <span>↓</span>
+      <span>Governance &amp; Boundaries</span>
+      <span>↓</span>
+      <span>Trust Infrastructure</span>
+      <span>↓</span>
+      <span class="here">Public AI</span>
+      <span>↓</span>
+      <span>Runtime Society</span>
+    </div>
     <blockquote>
-      <span>Public AI is not merely a matter of automation.</span>
-      <span>It is the design of</span>
-      <span>decision boundaries,</span>
-      <span>human review,</span>
-      <span>accountability,</span>
-      <span>appeal,</span>
-      <span>and institutional memory</span>
-      <span>inside public systems.</span>
+      <span>Public AI is not measured by how much it automates.</span>
+      <span>It is measured by whether a person affected</span>
+      <span>can understand the decision,</span>
+      <span>contest it,</span>
+      <span>and see it corrected,</span>
+      <span>and whether the institution can show</span>
+      <span>who decided and why.</span>
     </blockquote>
     <div class="closing-mark">Chinoba.org</div>
+    <p class="closing-cta">
+      <a href="#checklist">Readiness Checklist →</a>
+      &nbsp;·&nbsp;
+      <a href="#architecture">Reference Architecture →</a>
+    </p>
   </section>
 
-  <!-- ============ 09 RELATED RESEARCH ============ -->
+  <!-- ============ RELATED RESEARCH ============ -->
   <section class="research-section" id="related" aria-labelledby="related-h">
     <div class="wrap">
       <div class="section-head">
         <div class="section-label">+ / Related Research</div>
         <h2 id="related-h">Other Lines of Inquiry</h2>
-        <p class="section-lede">
-          Public AI connects outward to neighboring
-          threads in the Chinoba field.
-        </p>
       </div>
 
       <div class="related-research">
@@ -994,30 +1316,35 @@
           <span class="related-name">Decision Trace Model</span>
           <span class="related-status">Available</span>
         </a>
+        <a href="/research/runtime-society" data-slug="runtime-society">
+          <span class="related-label">02 / Inquiry</span>
+          <span class="related-name">Runtime Society</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/knowledge-flow" data-slug="knowledge-flow">
+          <span class="related-label">03 / Inquiry</span>
+          <span class="related-name">Knowledge Flow</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/trust-infrastructure" data-slug="trust-infrastructure">
+          <span class="related-label">04 / Inquiry</span>
+          <span class="related-name">Trust Infrastructure</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/ai-coordination" data-slug="ai-coordination">
+          <span class="related-label">05 / Inquiry</span>
+          <span class="related-name">AI Coordination</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/multi-agent-systems" data-slug="multi-agent-systems">
+          <span class="related-label">06 / Inquiry</span>
+          <span class="related-name">Multi-Agent Systems</span>
+          <span class="related-status">Available</span>
+        </a>
         <a href="/research/governance-boundary-systems" data-slug="governance-boundary-systems">
           <span class="related-label">08 / Inquiry</span>
           <span class="related-name">Governance &amp; Boundary Systems</span>
           <span class="related-status">Available</span>
-        </a>
-        <a href="/#research" data-slug="trust-infrastructure">
-          <span class="related-label">04 / Inquiry</span>
-          <span class="related-name">Trust Infrastructure</span>
-          <span class="related-status">Forthcoming</span>
-        </a>
-        <a href="/#research" data-slug="ai-coordination">
-          <span class="related-label">05 / Inquiry</span>
-          <span class="related-name">AI Coordination</span>
-          <span class="related-status">Forthcoming</span>
-        </a>
-        <a href="/#research" data-slug="multi-agent-systems">
-          <span class="related-label">06 / Inquiry</span>
-          <span class="related-name">Multi-Agent Systems</span>
-          <span class="related-status">Forthcoming</span>
-        </a>
-        <a href="/#research" data-slug="runtime-society">
-          <span class="related-label">02 / Inquiry</span>
-          <span class="related-name">Runtime Society</span>
-          <span class="related-status">Forthcoming</span>
         </a>
       </div>
     </div>
@@ -1055,38 +1382,47 @@
   <script>
     (function () {
       var lb = document.getElementById('lightbox');
-      if (!lb) return;
-      var lbImg = lb.querySelector('img');
-      var lbClose = lb.querySelector('.lightbox-close');
-
-      function open(src, alt) {
-        lbImg.src = src;
-        lbImg.alt = alt || '';
-        lb.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function close() {
-        lb.classList.remove('is-open');
-        lbImg.src = '';
-        document.body.style.overflow = '';
-      }
-
-      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
-        el.addEventListener('click', function (e) {
-          e.preventDefault();
-          var img = el.querySelector('img');
-          open(el.getAttribute('href'), img ? img.alt : '');
+      if (lb) {
+        var lbImg = lb.querySelector('img');
+        var lbClose = lb.querySelector('.lightbox-close');
+        var open = function (src, alt) {
+          lbImg.src = src;
+          lbImg.alt = alt || '';
+          lb.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+        };
+        var close = function () {
+          lb.classList.remove('is-open');
+          lbImg.src = '';
+          document.body.style.overflow = '';
+        };
+        document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+          el.addEventListener('click', function (e) {
+            e.preventDefault();
+            var img = el.querySelector('img');
+            open(el.getAttribute('href'), img ? img.alt : '');
+          });
         });
-      });
+        lb.addEventListener('click', function (e) {
+          if (e.target === lb || e.target === lbImg) close();
+        });
+        lbClose.addEventListener('click', close);
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
+        });
+      }
 
-      lb.addEventListener('click', function (e) {
-        if (e.target === lb || e.target === lbImg) close();
-      });
-      lbClose.addEventListener('click', close);
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
-      });
+      // Checklist tally (progressive enhancement; the page works without it)
+      var boxes = document.querySelectorAll('#checklist-form input[type="checkbox"]');
+      var out = document.getElementById('check-count');
+      var total = document.getElementById('check-total');
+      if (boxes.length && out) {
+        total.textContent = boxes.length;
+        var update = function () {
+          out.textContent = document.querySelectorAll('#checklist-form input:checked').length;
+        };
+        boxes.forEach(function (b) { b.addEventListener('change', update); });
+      }
     })();
   </script>
 

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1020" width="1600" height="1020" role="img" aria-labelledby="t d"><title id="t">Decision, explanation, and recourse flow</title><desc id="d">A citizen submits a case, an AI system supports the assessment, a named decision owner decides, the citizen receives notice, may appeal, an independent reviewer examines the case, and a remedy is applied.</desc><defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8a93a0"/></marker><marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7db7ff"/></marker><marker id="g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7fd1a8"/></marker><marker id="m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f0c070"/></marker></defs><rect width="1600" height="1020" fill="#0b0b0b"/>
+<text x="60" y="70" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#8a93a0" text-anchor="start" letter-spacing="3">DECISION, EXPLANATION, AND RECOURSE FLOW</text>
+<text x="60" y="112" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">When a decision harms someone, the path to remedy must already exist.</text>
+<rect x="60" y="150" width="1480" height="190" rx="8" fill="#131820" stroke="#2f3a4a" stroke-width="1.5"/>
+<text x="80" y="184" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#7fd1a8" text-anchor="start" letter-spacing="3">CITIZEN</text>
+<rect x="60" y="350" width="1480" height="190" rx="8" fill="#10151c" stroke="#2f3a4a" stroke-width="1.5"/>
+<text x="80" y="384" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#7db7ff" text-anchor="start" letter-spacing="3">AI SYSTEM</text>
+<rect x="60" y="550" width="1480" height="190" rx="8" fill="#131820" stroke="#2f3a4a" stroke-width="1.5"/>
+<text x="80" y="584" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#f0c070" text-anchor="start" letter-spacing="3">DECISION OWNER</text>
+<rect x="60" y="750" width="1480" height="190" rx="8" fill="#10151c" stroke="#2f3a4a" stroke-width="1.5"/>
+<text x="80" y="784" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#7db7ff" text-anchor="start" letter-spacing="3">INDEPENDENT REVIEW</text>
+<rect x="90" y="195" width="230" height="125" rx="10" fill="#131820" stroke="#7fd1a8" stroke-width="2"/>
+<text x="112" y="245" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="21" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">1  Submits case</text>
+<text x="112" y="282" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">Application plus</text>
+<text x="112" y="309" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">supporting evidence</text>
+<rect x="370" y="395" width="290" height="125" rx="10" fill="#131820" stroke="#7db7ff" stroke-width="2"/>
+<text x="392" y="445" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="21" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">2  Supported assessment</text>
+<text x="392" y="482" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">Recommendation, key factors,</text>
+<text x="392" y="509" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">confidence and limits</text>
+<rect x="700" y="595" width="250" height="125" rx="10" fill="#131820" stroke="#f0c070" stroke-width="2"/>
+<text x="722" y="645" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="21" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">3  Reviews &amp; decides</text>
+<text x="722" y="682" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">Checks evidence; may</text>
+<text x="722" y="709" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">override; logs reasons</text>
+<rect x="990" y="195" width="270" height="125" rx="10" fill="#131820" stroke="#7fd1a8" stroke-width="2"/>
+<text x="1012" y="245" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="21" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">4  Receives notice</text>
+<text x="1012" y="282" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">Decision, reasons, rights,</text>
+<text x="1012" y="309" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">deadline, contact</text>
+<rect x="1290" y="195" width="230" height="125" rx="10" fill="#131820" stroke="#7fd1a8" stroke-width="2"/>
+<text x="1312" y="245" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="21" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">5  Files appeal</text>
+<text x="1312" y="282" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">No legal or technical</text>
+<text x="1312" y="309" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">expertise required</text>
+<rect x="1270" y="795" width="250" height="125" rx="10" fill="#131820" stroke="#7db7ff" stroke-width="2"/>
+<text x="1292" y="845" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="21" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">6  Independent review</text>
+<text x="1292" y="882" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">Reviews the case itself,</text>
+<text x="1292" y="909" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">not only the AI score</text>
+<rect x="1005" y="595" width="240" height="125" rx="10" fill="#131820" stroke="#f0c070" stroke-width="2"/>
+<text x="1027" y="645" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="21" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">7  Remedy</text>
+<text x="1027" y="682" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">Reverse, correct,</text>
+<text x="1027" y="709" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">compensate</text>
+<path d="M320 257 L345 257 L345 457 L368 457" fill="none" stroke="#7fd1a8" stroke-width="3" marker-end="url(#g)"/>
+<path d="M660 457 L680 457 L680 657 L698 657" fill="none" stroke="#7db7ff" stroke-width="3" marker-end="url(#b)"/>
+<path d="M950 657 L970 657 L970 257 L988 257" fill="none" stroke="#f0c070" stroke-width="3" marker-end="url(#m)"/>
+<line x1="1260" y1="257" x2="1288" y2="257" stroke="#7fd1a8" stroke-width="3" marker-end="url(#g)"/>
+<line x1="1405" y1="320" x2="1405" y2="793" stroke="#7fd1a8" stroke-width="3" marker-end="url(#g)"/>
+<path d="M1270 857 L1125 857 L1125 722" fill="none" stroke="#7db7ff" stroke-width="3" marker-end="url(#b)"/>
+<line x1="1125" y1="593" x2="1125" y2="328" stroke="#7fd1a8" stroke-width="3" marker-end="url(#g)" stroke-dasharray="9 7"/>
+<text x="1140" y="410" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" font-weight="400" fill="#7fd1a8" text-anchor="start" letter-spacing="0">outcome notified</text>
+<rect x="60" y="960" width="1480" height="50" rx="8" fill="none"/>
+<text x="60" y="985" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="600" fill="#f0c070" text-anchor="start" letter-spacing="0">Every step writes to the decision trace. Appeal outcomes feed audit and policy revision.</text>
+</svg>

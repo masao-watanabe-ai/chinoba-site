@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="t d"><title id="t">Public AI Is a Governance System</title><desc id="d">Prediction, decision, authority, recourse.</desc><defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8a93a0"/></marker><marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7db7ff"/></marker><marker id="g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7fd1a8"/></marker><marker id="m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f0c070"/></marker></defs><rect width="1200" height="630" fill="#0b0b0b"/>
+<rect x="0" y="0" width="1200" height="630" fill="#0b0b0b"/>
+<text x="70" y="95" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#8a93a0" text-anchor="start" letter-spacing="4">CHINOBA  /  RESEARCH</text>
+<text x="70" y="200" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="70" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">Public AI Is a</text>
+<text x="70" y="280" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="70" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">Governance System</text>
+<text x="70" y="335" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="25" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">Making consequential decisions explainable, contestable, and accountable.</text>
+<rect x="70" y="395" width="235" height="86" rx="10" fill="#131820" stroke="#7db7ff" stroke-width="2"/>
+<text x="187" y="448" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="29" font-weight="700" fill="#f5f5f5" text-anchor="middle" letter-spacing="0">Prediction</text>
+<line x1="307" y1="438" x2="340" y2="438" stroke="#7db7ff" stroke-width="3" marker-end="url(#b)"/>
+<rect x="345" y="395" width="235" height="86" rx="10" fill="#131820" stroke="#f0c070" stroke-width="2"/>
+<text x="462" y="448" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="29" font-weight="700" fill="#f5f5f5" text-anchor="middle" letter-spacing="0">Decision</text>
+<line x1="582" y1="438" x2="615" y2="438" stroke="#f0c070" stroke-width="3" marker-end="url(#m)"/>
+<rect x="620" y="395" width="235" height="86" rx="10" fill="#131820" stroke="#f0c070" stroke-width="2"/>
+<text x="737" y="448" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="29" font-weight="700" fill="#f5f5f5" text-anchor="middle" letter-spacing="0">Authority</text>
+<line x1="857" y1="438" x2="890" y2="438" stroke="#f0c070" stroke-width="3" marker-end="url(#m)"/>
+<rect x="895" y="395" width="235" height="86" rx="10" fill="#131820" stroke="#7fd1a8" stroke-width="2"/>
+<text x="1012" y="448" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="29" font-weight="700" fill="#f5f5f5" text-anchor="middle" letter-spacing="0">Recourse</text>
+<text x="70" y="560" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="21" font-weight="600" fill="#f0c070" text-anchor="start" letter-spacing="0">Prediction ≠ decision  ·  Automation ≠ accountability  ·  Transparency ≠ recourse</text>
+<text x="1130" y="600" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" font-weight="400" fill="#8a93a0" text-anchor="end" letter-spacing="0">chinoba.org</text>
+</svg>

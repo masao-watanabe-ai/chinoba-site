@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-labelledby="t d"><title id="t">Public AI lifecycle and accountability loop</title><desc id="d">Ten steps from policy intent to monitoring and audit, followed by policy revision that feeds back to the start. Appeal outcomes and audit findings trigger redesign or suspension.</desc><defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8a93a0"/></marker><marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7db7ff"/></marker><marker id="g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7fd1a8"/></marker><marker id="m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f0c070"/></marker></defs><rect width="1600" height="900" fill="#0b0b0b"/>
+<text x="60" y="70" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#8a93a0" text-anchor="start" letter-spacing="3">PUBLIC AI LIFECYCLE AND ACCOUNTABILITY LOOP</text>
+<text x="60" y="112" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">Appeal, audit, and suspension are part of operation — not the end of it.</text>
+<rect x="60" y="190" width="250" height="170" rx="10" fill="#131820" stroke="#f0c070" stroke-width="2"/>
+<text x="82" y="224" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#f0c070" text-anchor="start" letter-spacing="2.5">STEP 1</text>
+<text x="82" y="260" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">Policy intent</text>
+<text x="82" y="297" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">Purpose, legal basis</text>
+<line x1="310" y1="275" x2="365" y2="275" stroke="#f0c070" stroke-width="3" marker-end="url(#m)"/>
+<rect x="367" y="190" width="250" height="170" rx="10" fill="#131820" stroke="#f0c070" stroke-width="2"/>
+<text x="389" y="224" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#f0c070" text-anchor="start" letter-spacing="2.5">STEP 2</text>
+<text x="389" y="260" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">Decision rules</text>
+<text x="389" y="297" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">Eligibility, authority</text>
+<line x1="617" y1="275" x2="672" y2="275" stroke="#f0c070" stroke-width="3" marker-end="url(#m)"/>
+<rect x="674" y="190" width="250" height="170" rx="10" fill="#131820" stroke="#7db7ff" stroke-width="2"/>
+<text x="696" y="224" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#7db7ff" text-anchor="start" letter-spacing="2.5">STEP 3</text>
+<text x="696" y="260" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">Data preparation</text>
+<text x="696" y="297" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">Provenance, minimization</text>
+<line x1="924" y1="275" x2="979" y2="275" stroke="#7db7ff" stroke-width="3" marker-end="url(#b)"/>
+<rect x="981" y="190" width="250" height="170" rx="10" fill="#131820" stroke="#7db7ff" stroke-width="2"/>
+<text x="1003" y="224" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#7db7ff" text-anchor="start" letter-spacing="2.5">STEP 4</text>
+<text x="1003" y="260" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">Build or procure</text>
+<text x="1003" y="297" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">Contract, logs, audit rights</text>
+<line x1="1231" y1="275" x2="1286" y2="275" stroke="#7db7ff" stroke-width="3" marker-end="url(#b)"/>
+<rect x="1288" y="190" width="250" height="170" rx="10" fill="#131820" stroke="#7db7ff" stroke-width="2"/>
+<text x="1310" y="224" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#7db7ff" text-anchor="start" letter-spacing="2.5">STEP 5</text>
+<text x="1310" y="260" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">Impact assessment</text>
+<text x="1310" y="297" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">Fairness, privacy</text>
+<rect x="1288" y="520" width="250" height="170" rx="10" fill="#131820" stroke="#7db7ff" stroke-width="2"/>
+<text x="1310" y="554" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#7db7ff" text-anchor="start" letter-spacing="2.5">STEP 6</text>
+<text x="1310" y="590" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">Controlled rollout</text>
+<text x="1310" y="627" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">Pilot, scope limits</text>
+<line x1="1288" y1="605" x2="1233" y2="605" stroke="#7db7ff" stroke-width="3" marker-end="url(#b)"/>
+<rect x="981" y="520" width="250" height="170" rx="10" fill="#131820" stroke="#f0c070" stroke-width="2"/>
+<text x="1003" y="554" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#f0c070" text-anchor="start" letter-spacing="2.5">STEP 7</text>
+<text x="1003" y="590" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">Human review</text>
+<text x="1003" y="627" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">Authority to override</text>
+<line x1="981" y1="605" x2="926" y2="605" stroke="#f0c070" stroke-width="3" marker-end="url(#m)"/>
+<rect x="674" y="520" width="250" height="170" rx="10" fill="#131820" stroke="#7fd1a8" stroke-width="2"/>
+<text x="696" y="554" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#7fd1a8" text-anchor="start" letter-spacing="2.5">STEP 8</text>
+<text x="696" y="590" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">Citizen notice</text>
+<text x="696" y="627" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">Reasons, deadlines</text>
+<line x1="674" y1="605" x2="619" y2="605" stroke="#7fd1a8" stroke-width="3" marker-end="url(#g)"/>
+<rect x="367" y="520" width="250" height="170" rx="10" fill="#131820" stroke="#7fd1a8" stroke-width="2"/>
+<text x="389" y="554" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#7fd1a8" text-anchor="start" letter-spacing="2.5">STEP 9</text>
+<text x="389" y="590" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">Appeal &amp; remedy</text>
+<text x="389" y="627" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">Independent review</text>
+<line x1="367" y1="605" x2="312" y2="605" stroke="#7fd1a8" stroke-width="3" marker-end="url(#g)"/>
+<rect x="60" y="520" width="250" height="170" rx="10" fill="#131820" stroke="#7db7ff" stroke-width="2"/>
+<text x="82" y="554" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#7db7ff" text-anchor="start" letter-spacing="2.5">STEP 10</text>
+<text x="82" y="590" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#f5f5f5" text-anchor="start" letter-spacing="0">Monitor &amp; audit</text>
+<text x="82" y="627" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#b8bec8" text-anchor="start" letter-spacing="0">Drift, disparity, incidents</text>
+<path d="M1413.0 360 L1413.0 518" fill="none" stroke="#8a93a0" stroke-width="3" marker-end="url(#a)"/>
+<text x="60" y="170" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#8a93a0" text-anchor="start" letter-spacing="3">DESIGN &amp; ASSESS</text>
+<text x="240" y="740" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#8a93a0" text-anchor="start" letter-spacing="3">OPERATE, EXPLAIN &amp; LEARN</text>
+<path d="M185.0 690 L185.0 790 L30 790 L30 275 L58 275" fill="none" stroke="#f0c070" stroke-width="3" marker-end="url(#m)" stroke-dasharray="9 7"/>
+<text x="60" y="830" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="600" fill="#f0c070" text-anchor="start" letter-spacing="0">11  Policy revision — audit findings and appeal outcomes change the rules, data, model, or contract, then the loop starts again.</text>
+<path d="M1106.0 520 L1106.0 365" fill="none" stroke="#7fd1a8" stroke-width="3" marker-end="url(#g)" stroke-dasharray="9 7"/>
+<text x="1118.0" y="455" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#7fd1a8" text-anchor="start" letter-spacing="0">redesign or suspend</text>
+</svg>
