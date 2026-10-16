@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="t d" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+<title id="t">Trust Infrastructure for AI Systems</title><desc id="d">From AI output to accountable action.</desc>
+<defs><marker id="an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14305c"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#17808a"/></marker><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b83"/></marker></defs>
+<rect width="1200" height="630" fill="#f6f8fb"/>
+<rect x="0" y="0" width="14" height="630" fill="#17808a"/>
+<text x="80" y="120" font-size="20" fill="#5b6b83" font-weight="700" text-anchor="start" letter-spacing="4">CHINOBA RESEARCH</text>
+<text x="80" y="215" font-size="72" fill="#14305c" font-weight="700" text-anchor="start" >Trust Infrastructure</text>
+<text x="80" y="295" font-size="72" fill="#14305c" font-weight="700" text-anchor="start" >for AI Systems</text>
+<text x="80" y="355" font-size="32" fill="#2b6cb0" font-weight="400" text-anchor="start" >From AI output to accountable action</text>
+<rect x="80" y="430" width="170" height="70" rx="14" fill="#ffffff" stroke="#2b6cb0" stroke-width="2"/>
+<text x="165.0" y="475" font-size="24" fill="#14305c" font-weight="700" text-anchor="middle" >Evidence</text>
+<line x1="254" y1="465" x2="280" y2="465" stroke="#14305c" stroke-width="3" marker-end="url(#an)"/>
+<rect x="284" y="430" width="170" height="70" rx="14" fill="#ffffff" stroke="#2b6cb0" stroke-width="2"/>
+<text x="369.0" y="475" font-size="24" fill="#14305c" font-weight="700" text-anchor="middle" >Authority</text>
+<line x1="458" y1="465" x2="484" y2="465" stroke="#14305c" stroke-width="3" marker-end="url(#an)"/>
+<rect x="488" y="430" width="170" height="70" rx="14" fill="#14305c" stroke="#14305c" stroke-width="2"/>
+<text x="573.0" y="475" font-size="24" fill="#fff" font-weight="700" text-anchor="middle" >Approval</text>
+<line x1="662" y1="465" x2="688" y2="465" stroke="#14305c" stroke-width="3" marker-end="url(#an)"/>
+<rect x="692" y="430" width="180" height="70" rx="14" fill="#ffffff" stroke="#2b6cb0" stroke-width="2"/>
+<text x="782.0" y="475" font-size="24" fill="#14305c" font-weight="700" text-anchor="middle" >Execution</text>
+<line x1="876" y1="465" x2="902" y2="465" stroke="#14305c" stroke-width="3" marker-end="url(#an)"/>
+<rect x="906" y="430" width="170" height="70" rx="14" fill="#ffffff" stroke="#2b6cb0" stroke-width="2"/>
+<text x="991.0" y="475" font-size="24" fill="#14305c" font-weight="700" text-anchor="middle" >Trace</text>
+<text x="80" y="570" font-size="26" fill="#14305c" font-weight="700" text-anchor="start" font-style="italic">Smartness must not become authority.</text>
+</svg>

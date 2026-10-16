@@ -4,9 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Trust Infrastructure — Chinoba</title>
-  <meta name="description" content="Trust Infrastructure: how Decision Trace, Knowledge Flow, a Trust Knowledge Graph, and a Trust Engine turn trust from a fixed score into a bounded, revisable expectation about future behavior — connected to Boundary, Human Authority, and outcome feedback.">
-  <meta name="keywords" content="Trust Infrastructure, Decision Trace, Knowledge Flow, Trust Engine, Trust Knowledge Graph, Expectation Graph, Trust Context, Boundary, Human Gate, AI Governance">
+  <title>Trust Infrastructure for AI Systems — From AI Output to Accountable Action | Chinoba</title>
+  <meta name="description" content="Trust Infrastructure connects evidence, authority, policy, approval binding, execution boundaries, and decision trace so AI agents can act in organizations with accountability. Principles, architecture, use cases, and a staged roadmap.">
+  <meta name="keywords" content="Trust Infrastructure, AI Agent Governance, Approval Binding, Execution Gateway, Decision Trace, Evidence, Authority, Policy Enforcement, Human Approval, Auditability, AI Governance">
+
+  <link rel="canonical" href="https://chinoba.org/research/trust-infrastructure/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Chinoba">
+  <meta property="og:title" content="Trust Infrastructure for AI Systems — From AI Output to Accountable Action">
+  <meta property="og:description" content="Smartness must not become authority. A practical architecture for AI that proposes, humans who approve the exact action, and gateways that execute only what was approved.">
+  <meta property="og:url" content="https://chinoba.org/research/trust-infrastructure/">
+  <meta property="og:image" content="https://chinoba.org/research/trust-infrastructure/assets4/trust-infrastructure-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Trust Infrastructure for AI Systems: Evidence, Authority, Approval, Execution, and Trace shown as a connected chain.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Trust Infrastructure for AI Systems — From AI Output to Accountable Action">
+  <meta name="twitter:description" content="Smartness must not become authority. A practical architecture for AI that proposes, humans who approve the exact action, and gateways that execute only what was approved.">
+  <meta name="twitter:image" content="https://chinoba.org/research/trust-infrastructure/assets4/trust-infrastructure-og.png">
 
   <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
   <link rel="stylesheet" href="/assets/research.css">
@@ -243,6 +258,129 @@
         margin-top: 2px;
       }
     }
+
+    /* ---------- Hero additions ---------- */
+    .key-message {
+      margin: 36px 0 0;
+      padding: 18px 22px;
+      max-width: 640px;
+      border-left: 2px solid var(--accent);
+      background: rgba(125, 183, 255, 0.05);
+      color: var(--fg);
+      font-size: clamp(17px, 2vw, 20px);
+      line-height: 1.6;
+      font-style: italic;
+    }
+    .hero-flow {
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 10px;
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--fg-mute);
+    }
+    .hero-flow li { display: inline-flex; align-items: center; gap: 10px; }
+    .hero-flow li + li::before { content: "→"; color: var(--fg-faint); }
+    .hero-flow .chip {
+      border: 1px solid var(--line-strong);
+      padding: 5px 11px;
+      border-radius: 999px;
+    }
+    .page-nav {
+      margin: 30px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      font-size: 13px;
+    }
+    .page-nav a { color: var(--accent); letter-spacing: 0.3px; }
+
+    /* ---------- Plain prose and callouts ---------- */
+    .prose-note {
+      max-width: 760px;
+      color: var(--fg-mute);
+      font-size: 15.5px;
+      line-height: 1.85;
+      margin: clamp(32px, 4vw, 48px) 0 0;
+    }
+    .two-col .col-text ol {
+      margin: 0 0 18px;
+      padding-left: 20px;
+    }
+    .two-col .col-text ol li {
+      margin-bottom: 8px;
+      color: var(--fg-mute);
+    }
+    .concept.is-summary {
+      background: var(--bg-elev);
+    }
+    .concept.is-summary p { color: var(--fg); }
+
+    /* ---------- Use cases ---------- */
+    .usecases {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .usecase {
+      background: var(--bg);
+      padding: 28px clamp(20px, 3vw, 30px) 30px;
+    }
+    .usecase .kicker {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .usecase h3 {
+      font-size: 19px;
+      font-weight: 600;
+      margin: 0;
+      color: var(--fg);
+      line-height: 1.4;
+    }
+    .usecase dl {
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr);
+      gap: 12px 24px;
+      margin: 18px 0 0;
+    }
+    .usecase dt {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      padding-top: 4px;
+    }
+    .usecase dd {
+      margin: 0;
+      color: var(--fg-mute);
+      font-size: 14.5px;
+      line-height: 1.75;
+    }
+    .usecase dt.is-gate { color: var(--accent); }
+    @media (max-width: 700px) {
+      .usecase dl { grid-template-columns: 1fr; gap: 2px; }
+      .usecase dt { margin-top: 12px; }
+    }
+
+    /* Tall diagrams: keep them readable on small screens */
+    .figure-tall .figure-frame img { background: #f6f8fb; }
+    .figure-note {
+      margin-top: 10px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--fg-faint);
+    }
   </style>
 </head>
 
@@ -264,131 +402,706 @@
   <header class="hero">
     <div class="hero-inner">
       <div class="eyebrow">Research / Trust Infrastructure</div>
-      <h1>Trust Infrastructure</h1>
+      <h1>Trust Infrastructure for AI Systems</h1>
       <p class="hero-sub">
-        <span>AI no longer only proposes.</span>
-        <span>It judges, calls tools, coordinates with other AI,</span>
-        <span>and acts on the physical world.</span>
-        <span>Capability alone is not a reason to let it.</span>
+        <span>From AI output to accountable action.</span>
       </p>
       <p class="hero-desc">
-        Trust is not a reputation, a past success rate, or a fixed score
-        attached to a person or an AI. It is a bounded, revisable
-        expectation — held by a specific evaluator, about a specific
-        subject, for a specific purpose, role, situation, and time
-        horizon — that the subject will produce the expected result.
-        Trust Infrastructure is the foundation that connects people, AI,
-        organizations, knowledge, policy, action, and outcome, so that how
-        far something can be trusted to act is explainable rather than
-        assumed.
+        An AI system that answers well is not yet one an organization can
+        safely let act. Once an agent can send a customer notice, change a
+        permission, deploy code, or release a payment, the question moves
+        from “is the answer correct?” to “on what evidence, under whose
+        authority, and with what proof that what ran is what a person
+        approved?” Trust Infrastructure is the implementable foundation
+        that connects evidence, authority, approval, execution, and audit,
+        so people and organizations can rely on AI for consequential work.
       </p>
+      <p class="key-message">
+        Trust is not added after an AI system acts. It must be designed
+        into the path from evidence to execution.
+      </p>
+      <ol class="hero-flow" aria-label="The path from evidence to execution">
+        <li><span class="chip">Evidence</span></li>
+        <li><span class="chip">Authority</span></li>
+        <li><span class="chip">Approval</span></li>
+        <li><span class="chip">Execution</span></li>
+        <li><span class="chip">Trace</span></li>
+      </ol>
+      <nav class="page-nav" aria-label="On this page">
+        <a href="#problem">The problem</a>
+        <a href="#definition">Definition</a>
+        <a href="#principles">Principles</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#approval-binding">Approval Binding</a>
+        <a href="#use-cases">Use cases</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#foundations">Foundations</a>
+      </nav>
     </div>
   </header>
 
-  <!-- ============ FEATURED PUBLICATION ============ -->
-  <section class="research-section" id="featured-book" aria-labelledby="featured-book-h">
-    <div class="wrap">
-      <h2 id="featured-book-h" class="visually-hidden" style="position:absolute;left:-9999px;">Featured Publication</h2>
-      <span class="featured-badge">Featured Publication</span>
-      <div class="featured-pub">
-        <div class="books-list">
-          <div class="book">
-            <div class="book-body">
-              <div class="book-title">Trust Infrastructure: Practical Guide</div>
-              <div class="book-subtitle">AI-Era Trust Infrastructure Design with Decision Trace, Knowledge Flow, and Trust Engine</div>
-              <p>
-                The practical guide behind this page's architecture. It
-                works through why conventional trust evaluation — reputation,
-                past success rate, a single trust score — cannot carry the
-                weight of delegating a role to an AI Agent, how a Decision
-                Trace records the reasoning behind a judgment rather than
-                only its result, how a Trust Knowledge Graph binds Actor,
-                Role, Goal, Policy, Evidence, and Context into a queryable
-                Trust Context, how a Trust Engine builds an Expectation
-                Graph from that context, and how Boundary and Human
-                Authority govern what trust is allowed to do at the moment
-                of execution.
-              </p>
-              <a class="book-link" href="https://amzn.to/4ctK2ct" target="_blank" rel="noopener noreferrer">View on Amazon →</a>
-              <span class="book-asin">ASIN B0HFJNX2DM · Kindle · Masao Watanabe</span>
-            </div>
-            <a class="book-cover" href="https://amzn.to/4ctK2ct" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
-              <img src="/assets/books/B0HFJNX2DM.jpg" alt="" loading="lazy">
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FEATURED RESOURCES ============ -->
-  <section class="research-section" id="resources" aria-labelledby="resources-h">
+  <!-- ============ 01 THE PROBLEM ============ -->
+  <section class="research-section chapter" id="problem" aria-labelledby="problem-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">Featured Resources</div>
-        <h2 id="resources-h">Start Here — the New Practical Guide, Books, Video, and Blog</h2>
+        <div class="section-label">01 / The Problem</div>
+        <h2 id="problem-h">When AI Moves From Answering to Acting</h2>
         <p class="section-lede">
-          The practical guide above leads this line of inquiry. Below it
-          are the neighboring Chinoba books, videos, and essays on Decision
-          Trace, Knowledge Flow, Runtime AI Governance, and AI Coordination
-          that this page draws on.
+          A chat assistant that is wrong produces a bad answer. An agent
+          connected to a payment system, an identity directory, a
+          deployment pipeline, or a customer channel can produce a bad
+          action — and some actions are hard to undo. Accuracy still
+          matters, but it stops being the only question.
         </p>
       </div>
 
-      <div class="essays">
-        <div class="essay">
-          <h3>📚 More Books</h3>
-          <p>Neighboring practical guides on the decision, knowledge, governance, and coordination layers that Trust Infrastructure connects.</p>
-          <div class="theme-links">
-            <div class="theme-lang">Japanese Edition</div>
-            <a href="https://amzn.to/3RIgot7" target="_blank" rel="noopener noreferrer">Trust Infrastructure実践ガイド: Decision Trace・Knowledge Flow・Trust EngineによるAI時代の信頼基盤設計 →</a>
-            <div class="theme-lang">English</div>
-            <a href="https://amzn.to/4akcn44" target="_blank" rel="noopener noreferrer">AI Is Not Prediction. It Is Decision. — A Practical Guide to Designing AI Decision Systems →</a>
-            <a href="https://amzn.to/4x2Ytwg" target="_blank" rel="noopener noreferrer">Knowledge Flow Practical Guide: Transform Enterprise Knowledge into AI-Ready Knowledge Infrastructure →</a>
-            <a href="https://amzn.to/4bUauMj" target="_blank" rel="noopener noreferrer">Runtime AI Governance: Practical Guide →</a>
-            <a href="https://amzn.to/4if6eL9" target="_blank" rel="noopener noreferrer">AI Coordination Engineering: A Practical Guide →</a>
-          </div>
+      <div class="two-col">
+        <div class="col-text">
+          <h3>What Changes Once Agents Are Connected to Tools</h3>
+          <ul>
+            <li>Payments and procurement: a proposal becomes a released payment or a placed order</li>
+            <li>Identity and permissions: a request becomes a granted or revoked access right</li>
+            <li>Customer communication: a draft becomes a message in a customer's inbox</li>
+            <li>Deployment and infrastructure: a plan becomes a change in production</li>
+            <li>Workflows: one agent's output triggers the next system's action</li>
+          </ul>
         </div>
-
-        <div class="essay">
-          <h3>📺 Watch on YouTube</h3>
-          <p>Visual introductions to trust, decision trace, knowledge flow, and coordination in the age of AI.</p>
-          <div class="theme-links">
-            <div class="theme-lang">English</div>
-            <a href="https://youtu.be/mgc6s6NRNAE" target="_blank" rel="noopener noreferrer">Trust Infrastructure: Building the Foundation for Human–AI Collaboration →</a>
-            <a href="https://youtu.be/1kVIUsTBTRk" target="_blank" rel="noopener noreferrer">Decision Trace Model Explained | The Missing Layer Between AI and Real-World Decisions →</a>
-            <a href="https://youtu.be/GYLMhOPhcdA" target="_blank" rel="noopener noreferrer">Knowledge Flow: Transforming Enterprise Knowledge into AI-Ready Knowledge Infrastructure →</a>
-            <a href="https://youtu.be/DfBcWWOB8oc" target="_blank" rel="noopener noreferrer">What Is AI Coordination? Coordination Engineering for the Multi-Agent Era →</a>
-            <a href="https://www.youtube.com/watch?v=0GjebENeG6U" target="_blank" rel="noopener noreferrer">What Is Chinoba? Building Unified Intelligence Through Trust | Intelligence as Relationship →</a>
-            <a href="https://www.youtube.com/watch?v=Afvon5qT51A" target="_blank" rel="noopener noreferrer">Trust Infrastructure — The Foundation of Trust in the AI Era →</a>
-            <div class="theme-lang">Japanese</div>
-            <a href="https://youtu.be/FuuJLaAEP2g" target="_blank" rel="noopener noreferrer">AI社会を支えるTrust Infrastructureとは？｜人・AI・組織が安心して協調するための新しい基盤 →</a>
-            <a href="https://youtu.be/w9v0ktZfEVs" target="_blank" rel="noopener noreferrer">Trust Infrastructure — AI時代の信用基盤 →</a>
-            <a href="https://www.youtube.com/watch?v=1I0_XtmoBqU" target="_blank" rel="noopener noreferrer">Chinobaとは何か――人・AI・知識・組織をTrustで結ぶ新しい知能基盤 →</a>
-          </div>
+        <div class="col-text">
+          <h3>A Fluent Answer Is Not a Control</h3>
+          <p>
+            Models can sound equally confident when they are right and
+            when they are wrong. Review by a person helps only if the
+            person sees the right things and the system then does exactly
+            what they approved. Without that, “human in the loop” can
+            become a click that carries no verifiable meaning.
+          </p>
         </div>
+      </div>
 
-        <div class="essay">
-          <h3>📰 From the Blog</h3>
-          <p>Long-form essays behind this page's argument, on trust, evaluation, and trustworthy runtime for AI-era coordination.</p>
-          <div class="theme-links">
-            <div class="theme-lang">English</div>
-            <a href="https://deus-ex-machina-ism.com/en/trust-infrastructure/" target="_blank" rel="noopener noreferrer">Trust Infrastructure →</a>
-            <a href="https://deus-ex-machina-ism.com/en/trust-evaluation/" target="_blank" rel="noopener noreferrer">Trust Evaluation in the Age of AI →</a>
-            <a href="https://deus-ex-machina-ism.com/en/why-trust-needs-immutable-runtime/" target="_blank" rel="noopener noreferrer">What Is Immutable Linux? — Why "Trustworthy Runtime" Matters in the Age of AI →</a>
-            <div class="theme-lang">Japanese</div>
-            <a href="https://deus-ex-machina-ism.com/trust-infrastructure/" target="_blank" rel="noopener noreferrer">Trust Infrastructure →</a>
-          </div>
+      <div class="field-runtime" aria-label="Five questions every consequential AI action must answer">
+        <div class="field-runtime-label">Five Questions</div>
+        <h3 class="field-runtime-title">What an organization must be able to answer before an AI acts</h3>
+        <ol class="field-layers" role="list">
+          <li class="field-layer">
+            <span class="layer-idx">Q1</span>
+            <span class="layer-body">
+              <span class="layer-name">What evidence supports this action?</span>
+              <span class="layer-note">Sources, versions, and freshness — not only a fluent rationale.</span>
+            </span>
+            <span class="layer-tag">evidence</span>
+          </li>
+          <li class="field-layer">
+            <span class="layer-idx">Q2</span>
+            <span class="layer-body">
+              <span class="layer-name">Who is allowed to authorize it?</span>
+              <span class="layer-note">Authority belongs to a role, a scope, and a time window — not to whichever model is most capable.</span>
+            </span>
+            <span class="layer-tag">authority</span>
+          </li>
+          <li class="field-layer">
+            <span class="layer-idx">Q3</span>
+            <span class="layer-body">
+              <span class="layer-name">What exactly did the human approve?</span>
+              <span class="layer-note">A summary on a screen is not the same thing as the action payload that will run.</span>
+            </span>
+            <span class="layer-tag">approval</span>
+          </li>
+          <li class="field-layer">
+            <span class="layer-idx">Q4</span>
+            <span class="layer-body">
+              <span class="layer-name">Can the executed action be proven to match the approved action?</span>
+              <span class="layer-note">Between approval and execution, a target, an amount, or a message can change.</span>
+            </span>
+            <span class="layer-tag">execution</span>
+          </li>
+          <li class="field-layer">
+            <span class="layer-idx">Q5</span>
+            <span class="layer-body">
+              <span class="layer-name">Can the decision be reconstructed later?</span>
+              <span class="layer-note">Audit, dispute, and learning all need the whole chain, not just the outcome.</span>
+            </span>
+            <span class="layer-tag">trace</span>
+          </li>
+        </ol>
+      </div>
+
+      <p class="prose-note">
+        Making the model smarter does not, by itself, answer any of these.
+        They are design questions about the system around the model —
+        which is why this page starts with how AI is allowed to act, and
+        only then with how well it reasons.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 02 DEFINITION ============ -->
+  <section class="research-section chapter" id="definition" aria-labelledby="definition-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / Definition</div>
+        <h2 id="definition-h">What Trust Infrastructure Is</h2>
+        <p class="section-lede">
+          Trust Infrastructure is the set of connected mechanisms that
+          carry an AI-assisted decision from evidence to execution and
+          back into the record. An audit log is one part of it and an
+          identity system is another. The value lies in the connections
+          between them.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Evidence</h3>
+          <p>What a proposal rests on: sources, versions, provenance, and freshness.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Identity</h3>
+          <p>Who or what is acting — user, agent, or service — each distinguishable and attributable.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Authority</h3>
+          <p>What that identity may do, in which scope and for how long, and who can delegate or revoke it.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Policy</h3>
+          <p>Rules written so a system can enforce them, not only so a person can read them.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Approval Binding</h3>
+          <p>A human decision tied to the exact action payload, not to a summary of it.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Execution Boundary</h3>
+          <p>The point where intent becomes effect: credentials are held here and checks are run again here.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vii</div>
+          <h3>Decision Trace</h3>
+          <p>The structured record linking evidence, options, authority, approval, action, and result.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">viii</div>
+          <h3>Auditability</h3>
+          <p>The ability to reconstruct and examine a past decision for review, dispute, and improvement.</p>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top: clamp(40px,5vw,56px);">
+        <div class="col-text">
+          <h3>More Than Logs or Login</h3>
+          <p>
+            Logging records what happened; it does not decide what may
+            happen. Authentication establishes who is acting; it does not
+            say whether this action is within scope. A governance document
+            states intent; it does not stop an action. Trust Infrastructure
+            turns each of these into an enforced step on one path.
+          </p>
+          <p>
+            In Chinoba's research architecture, the
+            <a href="/research/decision-trace-model">Decision Trace Model</a>
+            supplies the record,
+            <a href="/research/knowledge-flow">Knowledge Flow</a>
+            supplies the evidence, and
+            <a href="/research/governance-boundary-systems">Governance &amp; Boundary Systems</a>
+            supply the limits. This page covers how they are wired into a
+            single executable path.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>How the Pieces Relate</h3>
+          <code class="quote is-diagram">Evidence
+→ Proposal (AI Agent)
+→ Policy and Authority check
+→ Human approval, bound to the payload
+→ Execution Boundary
+→ Decision Trace
+→ Audit and learning</code>
+          <p>
+            Each step produces something the next step can verify. If a
+            step cannot be verified, the path stops rather than guessing.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 01 WHY CONVENTIONAL TRUST EVALUATION IS NOT ENOUGH ============ -->
+  <!-- ============ 03 CORE PRINCIPLES ============ -->
+  <section class="research-section chapter" id="principles" aria-labelledby="principles-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Core Principles</div>
+        <h2 id="principles-h">Seven Design Principles</h2>
+        <p class="section-lede">
+          These are properties of the system around the model. They are
+          meant to hold even when the model is wrong, manipulated, or
+          simply unlucky.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">1</div>
+          <h3>Evidence before action</h3>
+          <p>A proposal carries its sources, versions, and freshness. Missing or stale evidence is a reason to hold, not to guess.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">2</div>
+          <h3>Authority is explicit and scoped</h3>
+          <p>Each agent and role has defined actions, resources, limits, and duration. Capability is never treated as permission.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">3</div>
+          <h3>Approval is bound to an immutable action payload</h3>
+          <p>What a person approves is the exact, fixed payload. Any change to it invalidates the approval.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">4</div>
+          <h3>High-risk execution is separated from intelligence</h3>
+          <p>The component that reasons does not hold the credentials. A restricted gateway executes.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">5</div>
+          <h3>Policies are enforceable, not merely documented</h3>
+          <p>Rules live in a form a deterministic layer can evaluate, with versions, owners, and effective dates.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">6</div>
+          <h3>Every consequential decision leaves a reconstructable trace</h3>
+          <p>Evidence, options, authority, approval, action, and result are linked so the decision can be examined later.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">7</div>
+          <h3>Revocation, expiry, and emergency stop are designed in advance</h3>
+          <p>Grants expire by default and can be withdrawn at once. A tested stop path exists before it is needed.</p>
+        </div>
+        <div class="concept is-summary">
+          <div class="idx">=</div>
+          <h3>Taken together</h3>
+          <p>Trust is built into the path from evidence to execution, rather than added once an action has already happened.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 PRACTICAL ARCHITECTURE ============ -->
+  <section class="research-section chapter" id="architecture" aria-labelledby="architecture-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Practical Architecture</div>
+        <h2 id="architecture-h">Models Propose. Deterministic Layers Decide What Runs.</h2>
+        <p class="section-lede">
+          The central design decision is a separation. A model may reason
+          and propose. Deterministic layers decide what is allowed, verify
+          what was approved, control execution, and write the record.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard figure-tall">
+        <a class="figure-frame" href="assets4/trust-infrastructure-overview.svg"
+           data-lightbox aria-label="Open the Trust Infrastructure overview diagram">
+          <img src="assets4/trust-infrastructure-overview.svg" width="900" height="880"
+               alt="Vertical architecture diagram. Evidence and Context feed an AI Agent that proposes. Its proposals pass through Policy and Authority, Human Approval, and an Execution Gateway before reaching External Systems. A Decision Trace and Audit bar records every step. A red dashed line marked No direct path shows the AI Agent cannot reach external systems directly."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Figure 1 — The AI Agent has no direct path to external systems. Every action passes through policy, bound approval, and a controlled gateway, and each step is recorded.</figcaption>
+      </figure>
+
+      <div class="field-runtime" aria-label="Roles in the Trust Infrastructure architecture">
+        <div class="field-runtime-label">Roles</div>
+        <h3 class="field-runtime-title">Who does what</h3>
+        <ol class="field-layers" role="list">
+          <li class="field-layer">
+            <span class="layer-idx">01</span>
+            <span class="layer-body">
+              <span class="layer-name">Knowledge / Evidence Layer</span>
+              <span class="layer-note">Retrieves sources with version, owner, validity period, and scope, so the agent receives evidence and not only text.</span>
+            </span>
+            <span class="layer-tag">evidence</span>
+          </li>
+          <li class="field-layer">
+            <span class="layer-idx">02</span>
+            <span class="layer-body">
+              <span class="layer-name">AI Agent</span>
+              <span class="layer-note">Interprets the situation, drafts, summarizes, and generates candidate actions. Its output is a proposal.</span>
+            </span>
+            <span class="layer-tag">probabilistic</span>
+          </li>
+          <li class="field-layer">
+            <span class="layer-idx">03</span>
+            <span class="layer-body">
+              <span class="layer-name">Policy Engine</span>
+              <span class="layer-note">Evaluates identity, role, scope, risk tier, and rules against the proposal, and returns allow, require approval, hold, or deny.</span>
+            </span>
+            <span class="layer-tag">deterministic</span>
+          </li>
+          <li class="field-layer">
+            <span class="layer-idx">04</span>
+            <span class="layer-body">
+              <span class="layer-name">Human Approval</span>
+              <span class="layer-note">Presents the evidence, the exact payload, the risk, and the deadline, and records approve, reject, or modify against that payload.</span>
+            </span>
+            <span class="layer-tag">bound</span>
+          </li>
+          <li class="field-layer">
+            <span class="layer-idx">05</span>
+            <span class="layer-body">
+              <span class="layer-name">Execution Gateway</span>
+              <span class="layer-note">Holds the credentials. Verifies the approval, re-validates context, executes once, and fails closed if anything cannot be verified.</span>
+            </span>
+            <span class="layer-tag">deterministic</span>
+          </li>
+          <li class="field-layer">
+            <span class="layer-idx">06</span>
+            <span class="layer-body">
+              <span class="layer-name">Decision Trace / Audit</span>
+              <span class="layer-note">Records the chain in a tamper-evident, append-only form for reconstruction, review, and learning.</span>
+            </span>
+            <span class="layer-tag">record</span>
+          </li>
+        </ol>
+      </div>
+
+      <figure class="figure figure-wide figure-standard figure-tall">
+        <a class="figure-frame" href="assets4/intelligence-authority-separation.svg"
+           data-lightbox aria-label="Open the diagram separating intelligence from authority">
+          <img src="assets4/intelligence-authority-separation.svg" width="900" height="680"
+               alt="Diagram with two zones. In the Intelligence zone, a Reasoning Agent, a capable AI model, plans, drafts, and proposes. In the Authority zone, a Deterministic Policy Engine returns allow, hold, or deny to a Restricted Execution Gateway that holds the credentials and reaches External Systems. A red dashed line marked No direct path shows the agent cannot call external systems itself."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Figure 2 — A highly capable agent never holds execution authority. It hands a proposal to a rules layer, and only the gateway touches external systems.</figcaption>
+      </figure>
+
+      <div class="two-col" style="margin-top: clamp(40px,5vw,56px);">
+        <div class="col-text">
+          <h3>What a Model Can Do</h3>
+          <ul>
+            <li>Summarize evidence for the reviewer</li>
+            <li>Draft a message, a plan, or a change</li>
+            <li>Generate and rank candidate actions</li>
+            <li>Explain its rationale in reviewable terms</li>
+          </ul>
+          <p>
+            These are valuable, and they are where model capability
+            belongs.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>What Must Stay Deterministic</h3>
+          <ul>
+            <li>Authority decisions: who may do what, within which scope</li>
+            <li>Approval verification: does this execution match what was approved?</li>
+            <li>Execution control: credentials, limits, and fail-closed behavior</li>
+            <li>The audit record itself</li>
+          </ul>
+          <code class="quote">
+            Smartness must not become authority.
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 APPROVAL BINDING ============ -->
+  <section class="research-section chapter" id="approval-binding" aria-labelledby="approval-binding-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Approval Binding</div>
+        <h2 id="approval-binding-h">What the Human Saw Must Be What Runs</h2>
+        <p class="section-lede">
+          An approval is meaningful only if it refers to the exact thing
+          that later happens. Approval Binding ties a human decision to a
+          fixed action payload in a way that detects any later change.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard figure-tall">
+        <a class="figure-frame" href="assets4/approval-binding-comparison.svg"
+           data-lightbox aria-label="Open the diagram comparing weak and bound approval">
+          <img src="assets4/approval-binding-comparison.svg" width="900" height="790"
+               alt="Comparison diagram. Top, weak approval: an AI proposal and a human click lead to a changed action executing, so what the human saw does not equal what ran. Bottom, bound approval: an action payload is reviewed by a human, a signed approval records hash, scope, and expiry, execution is verified against it, and the action runs once, so the approved and executed hashes match."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Figure 3 — Weak approval trusts a click. Bound approval checks that the payload at execution matches the payload that was reviewed. The hash shown is illustrative.</figcaption>
+      </figure>
+
+      <div class="two-col" style="margin-top: clamp(40px,5vw,56px);">
+        <div class="col-text">
+          <h3>Why a Click Is Not Enough</h3>
+          <p>
+            A reviewer approves: “send Customer A the renewal offer on
+            terms X, with message Y.” If the recipient, the terms, or the
+            text change before execution — through a bug, a prompt
+            injection, a retry, or a later edit — the approval no longer
+            describes what happens. The system has to notice, not assume.
+          </p>
+          <p>
+            Approval Binding is therefore not extra bureaucracy. It is what
+            gives a human approval a checkable meaning.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>How Binding Works, in Plain Terms</h3>
+          <ol>
+            <li>The proposed action is frozen as a payload: target, parameters, text, and scope.</li>
+            <li>A fingerprint (hash) of that payload is computed. Any change to the payload changes the fingerprint.</li>
+            <li>The reviewer sees the payload and its evidence, and approves or rejects exactly that.</li>
+            <li>The approval is recorded with the fingerprint, the approver, the scope, and an expiry time, and is signed so it cannot be altered unnoticed.</li>
+            <li>At execution, the gateway recomputes the fingerprint, confirms it matches, confirms the approval is unexpired and unused, and checks current policy and context again.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="concept-grid cols-3" style="margin-top: clamp(40px,5vw,56px);">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Approval payload</h3>
+          <p>The frozen description of the action: who, what, how much, which message, which system.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Hash</h3>
+          <p>A fingerprint of the payload. If a single character changes, the fingerprint no longer matches.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Scope</h3>
+          <p>The limits of the approval: this customer, this amount ceiling, this system, this set of changes.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Expiry</h3>
+          <p>Approvals age out. Prices, context, and policy move, and a stale approval should not execute.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Single-use token</h3>
+          <p>Each approval authorizes one execution. A retry or a replay finds it already spent.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Re-validation</h3>
+          <p>At the moment of execution, policy, authority, and context are checked again rather than trusted from earlier.</p>
+        </div>
+      </div>
+
+      <p class="prose-note">
+        For actions that cannot be undone, separate <em>prepare</em> from
+        <em>commit</em>: first lock the target and fix the plan and its
+        expected impact, then re-verify policy, context, approval, and
+        expiry immediately before executing. If the context has changed,
+        the decision is made again.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 06 CONCRETE USE CASES ============ -->
+  <section class="research-section chapter" id="use-cases" aria-labelledby="use-cases-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Concrete Use Cases</div>
+        <h2 id="use-cases-h">Five Places the Pattern Applies</h2>
+        <p class="section-lede">
+          The same five-part shape recurs: the AI proposes, constraints
+          bound the proposal, a person approves the exact action, an
+          execution boundary enforces that approval, and a record remains.
+          The details below are illustrative designs, not claims about
+          any deployed system.
+        </p>
+      </div>
+
+      <div class="usecases">
+        <article class="usecase">
+          <div class="kicker">Customer communication</div>
+          <h3>Customer Notification Agent</h3>
+          <dl>
+            <dt>AI proposes</dt><dd>Drafts a notice for an affected customer segment, with selected terms.</dd>
+            <dt>Constraints</dt><dd>Approved templates only; no unreleased commitments; recipient list taken from a verified source; consent and timing rules applied.</dd>
+            <dt>Human approval</dt><dd>The account owner approves the exact recipient set, terms, and message text.</dd>
+            <dt class="is-gate">Execution boundary</dt><dd>The messaging gateway sends only the approved payload; a changed recipient or text is rejected.</dd>
+            <dt>Record kept</dt><dd>Evidence used, template version, approved payload hash, send time, and delivery result.</dd>
+          </dl>
+        </article>
+        <article class="usecase">
+          <div class="kicker">Engineering</div>
+          <h3>Deployment and Infrastructure Change Agent</h3>
+          <dl>
+            <dt>AI proposes</dt><dd>Proposes a change plan and a configuration diff for a service.</dd>
+            <dt>Constraints</dt><dd>Allowed environments and change windows; blast-radius limits; required tests passed.</dd>
+            <dt>Human approval</dt><dd>The service owner approves the specific diff and target environment; production needs a second approver.</dd>
+            <dt class="is-gate">Execution boundary</dt><dd>The pipeline accepts only the approved artifact digest; credentials never reach the agent.</dd>
+            <dt>Record kept</dt><dd>Diff, test evidence, approvers, artifact digest, rollout result, and rollback path.</dd>
+          </dl>
+        </article>
+        <article class="usecase">
+          <div class="kicker">Finance and procurement</div>
+          <h3>Payment or Procurement Workflow Agent</h3>
+          <dl>
+            <dt>AI proposes</dt><dd>Matches an invoice to a purchase order and proposes a payment.</dd>
+            <dt>Constraints</dt><dd>Amount ceilings by role; payee on a verified list; segregation of duties; duplicate detection.</dd>
+            <dt>Human approval</dt><dd>The budget owner approves payee, amount, and account; amounts above a threshold also need finance control.</dd>
+            <dt class="is-gate">Execution boundary</dt><dd>The payment service releases only the bound payee and amount; changed bank details force a new approval.</dd>
+            <dt>Record kept</dt><dd>Documents matched, rule results, approvals, and the payment reference.</dd>
+          </dl>
+        </article>
+        <article class="usecase">
+          <div class="kicker">Security and IT</div>
+          <h3>Identity and Permission Administration Agent</h3>
+          <dl>
+            <dt>AI proposes</dt><dd>Proposes granting or removing access based on a request and the requester's role.</dd>
+            <dt>Constraints</dt><dd>Least privilege; time-boxed grants; no self-approval; additional review for sensitive roles.</dd>
+            <dt>Human approval</dt><dd>The resource owner approves the exact role, scope, and duration.</dd>
+            <dt class="is-gate">Execution boundary</dt><dd>The gateway applies the change with an expiring grant; a broader grant than approved is rejected.</dd>
+            <dt>Record kept</dt><dd>Request, justification, approver, grant start and expiry, and any revocation.</dd>
+          </dl>
+        </article>
+        <article class="usecase">
+          <div class="kicker">Manufacturing</div>
+          <h3>Maintenance Decision Assistant</h3>
+          <dl>
+            <dt>AI proposes</dt><dd>Proposes an inspection plan or a hold recommendation from sensor trends and failure history.</dd>
+            <dt>Constraints</dt><dd>Safety-critical equipment decisions are never resolved automatically; missing sensor data triggers escalation; the current maintenance policy version applies.</dd>
+            <dt>Human approval</dt><dd>A maintenance lead or safety officer approves any stop-or-continue decision on safety-critical equipment.</dd>
+            <dt class="is-gate">Execution boundary</dt><dd>Work orders and equipment commands go through a controlled interface with fail-safe defaults.</dd>
+            <dt>Record kept</dt><dd>Sensor data and its version, policy version, alternatives considered, approver, and outcome.</dd>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 IMPLEMENTATION ROADMAP ============ -->
+  <section class="research-section chapter" id="roadmap" aria-labelledby="roadmap-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Implementation Roadmap</div>
+        <h2 id="roadmap-h">Do Not Start With Full Autonomy</h2>
+        <p class="section-lede">
+          Start by making decisions visible, then bounded, then
+          verifiable, then executable under control. Widen delegation
+          only as evidence from each stage supports it.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard figure-tall">
+        <a class="figure-frame" href="assets4/implementation-roadmap.svg"
+           data-lightbox aria-label="Open the implementation roadmap diagram">
+          <img src="assets4/implementation-roadmap.svg" width="900" height="700"
+               alt="Five rising steps showing the implementation roadmap: 1 Evidence, 2 Authority, 3 Approval Binding, 4 Controlled Execution, 5 Continuous Governance, with an arrow labeled Expand autonomy only as each stage is proven."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Figure 4 — Five stages, each of which has to hold before autonomy widens.</figcaption>
+      </figure>
+
+      <div class="field-runtime" aria-label="Implementation stages">
+        <div class="field-runtime-label">Stages</div>
+        <h3 class="field-runtime-title">From visible decisions to governed autonomy</h3>
+        <ol class="field-layers" role="list">
+          <li class="field-layer">
+            <span class="layer-idx">Stage 1</span>
+            <span class="layer-body">
+              <span class="layer-name">Evidence and traceability</span>
+              <span class="layer-note">Capture sources, versions, and a structured Decision Trace for one workflow. Run the AI in proposal-only mode.</span>
+            </span>
+            <span class="layer-tag">see</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">Stage 2</span>
+            <span class="layer-body">
+              <span class="layer-name">Role, authority, and policy boundaries</span>
+              <span class="layer-note">Define agent identities, scoped permissions, risk tiers, and policies a system can enforce. Treat unclassified cases as high risk by default.</span>
+            </span>
+            <span class="layer-tag">bound</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">Stage 3</span>
+            <span class="layer-body">
+              <span class="layer-name">Approval binding for consequential actions</span>
+              <span class="layer-note">Freeze payloads and bind approvals with hash, scope, expiry, and single use. Begin with the few actions that are costly to reverse.</span>
+            </span>
+            <span class="layer-tag">verify</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">Stage 4</span>
+            <span class="layer-body">
+              <span class="layer-name">Controlled execution gateways</span>
+              <span class="layer-note">Move credentials behind the gateway. Re-validate at execution, fail closed, and add prepare and commit for irreversible steps.</span>
+            </span>
+            <span class="layer-tag">control</span>
+          </li>
+          <li class="field-arrow" aria-hidden="true">↓</li>
+          <li class="field-layer">
+            <span class="layer-idx">Stage 5</span>
+            <span class="layer-body">
+              <span class="layer-name">Continuous review, simulation, and governance</span>
+              <span class="layer-note">Sample decisions, watch for drift, rehearse revocation and emergency stop, and widen or narrow autonomy based on measured results.</span>
+            </span>
+            <span class="layer-tag">improve</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="two-col" style="margin-top: clamp(40px,5vw,56px);">
+        <div class="col-text">
+          <h3>Start Narrow</h3>
+          <p>
+            Choose one workflow that has real consequences but a contained
+            blast radius. Complete Stages 1 to 3 there before replicating
+            the pattern. The goal of the first release is not autonomy; it
+            is a path in which every consequential step can be checked.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Autonomy Is Earned</h3>
+          <p>
+            Moving a case class from human-approved to automatic is an
+            expansion of delegation, not a threshold tweak. It should
+            follow evidence: calibrated evaluation, verified rollback and
+            stop paths, and agreement from the business and risk owners.
+          </p>
+          <code class="quote">
+            Autonomy is granted by evidence, not by ambition.
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOUNDATIONS ============ -->
+  <section class="research-section" id="foundations" aria-labelledby="foundations-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Foundations</div>
+        <h2 id="foundations-h">Foundations: Trust as a Bounded, Revisable Expectation</h2>
+        <p class="section-lede">
+          The architecture above rests on a specific view of trust,
+          developed in the Chinoba practical guide. Trust is not a fixed
+          score attached to a person or an AI. It is a bounded, revisable
+          expectation — held by a specific evaluator, about a specific
+          subject, for a specific purpose, role, situation, and time
+          horizon. The sections below keep that foundation: why
+          conventional trust evaluation falls short, how Decision Trace
+          and Knowledge Flow feed a Trust Knowledge Graph, how a Trust
+          Engine forms an expectation, and how Boundary and Human
+          Authority govern execution.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 WHY CONVENTIONAL TRUST EVALUATION IS NOT ENOUGH ============ -->
   <section class="research-section chapter" id="limits" aria-labelledby="limits-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">01 / Why Conventional Trust Evaluation Is Not Enough</div>
+        <div class="section-label">08 / Why Conventional Trust Evaluation Is Not Enough</div>
         <h2 id="limits-h">Why Conventional Trust Evaluation Is Not Enough</h2>
         <p class="section-lede">
           A reputation score, a past success rate, and a single trust
@@ -480,11 +1193,11 @@ Evaluator × Target × Role × Goal
     </div>
   </section>
 
-  <!-- ============ 02 DECISION TRACE ============ -->
+  <!-- ============ 09 DECISION TRACE ============ -->
   <section class="research-section chapter" id="decision-trace" aria-labelledby="decision-trace-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">02 / Decision Trace: Recording Decisions, Not Just Results</div>
+        <div class="section-label">09 / Decision Trace: Recording Decisions, Not Just Results</div>
         <h2 id="decision-trace-h">Decision Trace: Recording Decisions, Not Just Results</h2>
         <p class="section-lede">
           A decision cannot be understood from its result alone. A good
@@ -549,11 +1262,11 @@ Evaluator × Target × Role × Goal
     </div>
   </section>
 
-  <!-- ============ 03 KNOWLEDGE FLOW AND THE TRUST KNOWLEDGE GRAPH ============ -->
+  <!-- ============ 10 KNOWLEDGE FLOW AND THE TRUST KNOWLEDGE GRAPH ============ -->
   <section class="research-section chapter" id="knowledge-flow" aria-labelledby="knowledge-flow-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">03 / Knowledge Flow and the Trust Knowledge Graph</div>
+        <div class="section-label">10 / Knowledge Flow and the Trust Knowledge Graph</div>
         <h2 id="knowledge-flow-h">Knowledge Flow and the Trust Knowledge Graph</h2>
         <p class="section-lede">
           Knowledge Flow delivers the meaning, source, authority, validity
@@ -641,11 +1354,11 @@ Evaluator × Target × Role × Goal
     </div>
   </section>
 
-  <!-- ============ 04 TRUST ENGINE AND EXPECTATION GRAPH ============ -->
+  <!-- ============ 11 TRUST ENGINE AND EXPECTATION GRAPH ============ -->
   <section class="research-section chapter" id="trust-engine" aria-labelledby="trust-engine-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">04 / Trust Engine and Expectation Graph</div>
+        <div class="section-label">11 / Trust Engine and Expectation Graph</div>
         <h2 id="trust-engine-h">Trust Engine and Expectation Graph</h2>
         <p class="section-lede">
           The Trust Engine is the runtime structure that turns Decision
@@ -747,11 +1460,11 @@ Evaluator × Target × Role × Goal
     </div>
   </section>
 
-  <!-- ============ 05 TRUST, BOUNDARY, HUMAN AUTHORITY, AND RUNTIME DECISION ============ -->
+  <!-- ============ 12 TRUST, BOUNDARY, HUMAN AUTHORITY, AND RUNTIME DECISION ============ -->
   <section class="research-section chapter" id="boundary" aria-labelledby="boundary-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">05 / Trust, Boundary, Human Authority, and Runtime Decision</div>
+        <div class="section-label">12 / Trust, Boundary, Human Authority, and Runtime Decision</div>
         <h2 id="boundary-h">Trust, Boundary, Human Authority, and Runtime Decision</h2>
         <p class="section-lede">
           Trust is reference information for a runtime decision — it is
@@ -801,14 +1514,14 @@ Evaluator × Target × Role × Goal
     </div>
   </section>
 
-  <!-- ============ 06 APPLICATIONS ============ -->
+  <!-- ============ 13 APPLICATIONS ============ -->
   <section class="research-section" id="applications" aria-labelledby="applications-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">06 / Applications of Trust Infrastructure</div>
-        <h2 id="applications-h">Applications of Trust Infrastructure</h2>
+        <div class="section-label">13 / More Application Domains</div>
+        <h2 id="applications-h">More Application Domains</h2>
         <p class="section-lede">
-          In each case, trust is not a score attached to a system. It is
+          Beyond the five designs above, the same pattern applies across other domains. In each case, trust is not a score attached to a system. It is
           knowledge, context, and policy resolved into an expectation,
           checked against human authority, recorded as a decision trace,
           and corrected by outcome feedback. Higher-risk domains are
@@ -862,11 +1575,11 @@ Evaluator × Target × Role × Goal
     </div>
   </section>
 
-  <!-- ============ 07 OPERATIONS, EVALUATION, AND MATURITY ============ -->
+  <!-- ============ 14 OPERATIONS, EVALUATION, AND MATURITY ============ -->
   <section class="research-section" id="operations" aria-labelledby="operations-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">07 / Operations, Evaluation, and Maturity</div>
+        <div class="section-label">14 / Operations, Evaluation, and Maturity</div>
         <h2 id="operations-h">Operations, Evaluation, and Maturity</h2>
         <p class="section-lede">
           Trust Infrastructure is operated, not just designed: monitoring,
@@ -989,6 +1702,105 @@ Evaluator × Target × Role × Goal
     </div>
   </section>
 
+  <!-- ============ FEATURED PUBLICATION ============ -->
+  <section class="research-section" id="featured-book" aria-labelledby="featured-book-h">
+    <div class="wrap">
+      <h2 id="featured-book-h" class="visually-hidden" style="position:absolute;left:-9999px;">Featured Publication</h2>
+      <span class="featured-badge">Featured Publication</span>
+      <div class="featured-pub">
+        <div class="books-list">
+          <div class="book">
+            <div class="book-body">
+              <div class="book-title">Trust Infrastructure: Practical Guide</div>
+              <div class="book-subtitle">AI-Era Trust Infrastructure Design with Decision Trace, Knowledge Flow, and Trust Engine</div>
+              <p>
+                The practical guide behind this page's architecture. It
+                works through why conventional trust evaluation — reputation,
+                past success rate, a single trust score — cannot carry the
+                weight of delegating a role to an AI Agent, how a Decision
+                Trace records the reasoning behind a judgment rather than
+                only its result, how a Trust Knowledge Graph binds Actor,
+                Role, Goal, Policy, Evidence, and Context into a queryable
+                Trust Context, how a Trust Engine builds an Expectation
+                Graph from that context, and how Boundary and Human
+                Authority govern what trust is allowed to do at the moment
+                of execution.
+              </p>
+              <a class="book-link" href="https://amzn.to/4ctK2ct" target="_blank" rel="noopener noreferrer">View on Amazon →</a>
+              <span class="book-asin">ASIN B0HFJNX2DM · Kindle · Masao Watanabe</span>
+            </div>
+            <a class="book-cover" href="https://amzn.to/4ctK2ct" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1">
+              <img src="/assets/books/B0HFJNX2DM.jpg" alt="Cover of Trust Infrastructure: Practical Guide by Masao Watanabe" width="132" height="190" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED RESOURCES ============ -->
+  <section class="research-section" id="resources" aria-labelledby="resources-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Featured Resources</div>
+        <h2 id="resources-h">The Practical Guide, Books, Video, and Blog</h2>
+        <p class="section-lede">
+          The practical guide above leads this line of inquiry. Below it
+          are the neighboring Chinoba books, videos, and essays on Decision
+          Trace, Knowledge Flow, Runtime AI Governance, and AI Coordination
+          that this page draws on.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay">
+          <h3>📚 More Books</h3>
+          <p>Neighboring practical guides on the decision, knowledge, governance, and coordination layers that Trust Infrastructure connects.</p>
+          <div class="theme-links">
+            <div class="theme-lang">Japanese Edition</div>
+            <a href="https://amzn.to/3RIgot7" target="_blank" rel="noopener noreferrer">Trust Infrastructure実践ガイド: Decision Trace・Knowledge Flow・Trust EngineによるAI時代の信頼基盤設計 →</a>
+            <div class="theme-lang">English</div>
+            <a href="https://amzn.to/4akcn44" target="_blank" rel="noopener noreferrer">AI Is Not Prediction. It Is Decision. — A Practical Guide to Designing AI Decision Systems →</a>
+            <a href="https://amzn.to/4x2Ytwg" target="_blank" rel="noopener noreferrer">Knowledge Flow Practical Guide: Transform Enterprise Knowledge into AI-Ready Knowledge Infrastructure →</a>
+            <a href="https://amzn.to/4bUauMj" target="_blank" rel="noopener noreferrer">Runtime AI Governance: Practical Guide →</a>
+            <a href="https://amzn.to/4if6eL9" target="_blank" rel="noopener noreferrer">AI Coordination Engineering: A Practical Guide →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📺 Watch on YouTube</h3>
+          <p>Visual introductions to trust, decision trace, knowledge flow, and coordination in the age of AI.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://youtu.be/mgc6s6NRNAE" target="_blank" rel="noopener noreferrer">Trust Infrastructure: Building the Foundation for Human–AI Collaboration →</a>
+            <a href="https://youtu.be/1kVIUsTBTRk" target="_blank" rel="noopener noreferrer">Decision Trace Model Explained | The Missing Layer Between AI and Real-World Decisions →</a>
+            <a href="https://youtu.be/GYLMhOPhcdA" target="_blank" rel="noopener noreferrer">Knowledge Flow: Transforming Enterprise Knowledge into AI-Ready Knowledge Infrastructure →</a>
+            <a href="https://youtu.be/DfBcWWOB8oc" target="_blank" rel="noopener noreferrer">What Is AI Coordination? Coordination Engineering for the Multi-Agent Era →</a>
+            <a href="https://www.youtube.com/watch?v=0GjebENeG6U" target="_blank" rel="noopener noreferrer">What Is Chinoba? Building Unified Intelligence Through Trust | Intelligence as Relationship →</a>
+            <a href="https://www.youtube.com/watch?v=Afvon5qT51A" target="_blank" rel="noopener noreferrer">Trust Infrastructure — The Foundation of Trust in the AI Era →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://youtu.be/FuuJLaAEP2g" target="_blank" rel="noopener noreferrer">AI社会を支えるTrust Infrastructureとは？｜人・AI・組織が安心して協調するための新しい基盤 →</a>
+            <a href="https://youtu.be/w9v0ktZfEVs" target="_blank" rel="noopener noreferrer">Trust Infrastructure — AI時代の信用基盤 →</a>
+            <a href="https://www.youtube.com/watch?v=1I0_XtmoBqU" target="_blank" rel="noopener noreferrer">Chinobaとは何か――人・AI・知識・組織をTrustで結ぶ新しい知能基盤 →</a>
+          </div>
+        </div>
+
+        <div class="essay">
+          <h3>📰 From the Blog</h3>
+          <p>Long-form essays behind this page's argument, on trust, evaluation, and trustworthy runtime for AI-era coordination.</p>
+          <div class="theme-links">
+            <div class="theme-lang">English</div>
+            <a href="https://deus-ex-machina-ism.com/en/trust-infrastructure/" target="_blank" rel="noopener noreferrer">Trust Infrastructure →</a>
+            <a href="https://deus-ex-machina-ism.com/en/trust-evaluation/" target="_blank" rel="noopener noreferrer">Trust Evaluation in the Age of AI →</a>
+            <a href="https://deus-ex-machina-ism.com/en/why-trust-needs-immutable-runtime/" target="_blank" rel="noopener noreferrer">What Is Immutable Linux? — Why "Trustworthy Runtime" Matters in the Age of AI →</a>
+            <div class="theme-lang">Japanese</div>
+            <a href="https://deus-ex-machina-ism.com/trust-infrastructure/" target="_blank" rel="noopener noreferrer">Trust Infrastructure →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ CLOSING ============ -->
   <section class="research-section closing" id="closing" aria-labelledby="closing-h">
     <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
@@ -1015,15 +1827,14 @@ Evaluator × Target × Role × Goal
       <span>Runtime Society</span>
     </div>
     <blockquote>
-      <span>Trust Infrastructure does not assign a fixed trust score</span>
-      <span>to a person or an AI.</span>
+      <span>Trust Infrastructure is not a way to slow AI down.</span>
+      <span>It is the condition for extending AI</span>
+      <span>to work that matters:</span>
+      <span>evidence before action, authority that is explicit,</span>
+      <span>approval that binds, execution that is bounded,</span>
+      <span>and a trace that remains.</span>
       <span>&nbsp;</span>
-      <span>It is the foundation that explains, verifies, and improves,</span>
-      <span>over time and against outcomes,</span>
-      <span>how far someone — in a given role, for a given purpose,</span>
-      <span>using specific knowledge and evidence,</span>
-      <span>under specific policy and boundary —</span>
-      <span>can be trusted to act.</span>
+      <span>Smartness must not become authority.</span>
       <span>&nbsp;</span>
       <span>Chinoba connects Decision Trace, Knowledge Flow,</span>
       <span>the Trust Knowledge Graph, the Expectation Graph,</span>
@@ -1033,7 +1844,14 @@ Evaluator × Target × Role × Goal
     </blockquote>
     <div class="closing-mark">Chinoba.org</div>
     <p class="closing-cta">
-      <a href="https://amzn.to/4ctK2ct" target="_blank" rel="noopener noreferrer">New Book →</a>
+      <a href="/research/governance-boundary-systems">Governance &amp; Boundary Systems →</a>
+      &nbsp;·&nbsp;
+      <a href="/research/decision-trace-model">Decision Trace Model →</a>
+      &nbsp;·&nbsp;
+      <a href="/research/runtime-society">Runtime Society →</a>
+    </p>
+    <p class="closing-cta">
+      <a href="https://amzn.to/4ctK2ct" target="_blank" rel="noopener noreferrer">Book →</a>
       &nbsp;·&nbsp;
       <a href="https://youtu.be/mgc6s6NRNAE" target="_blank" rel="noopener noreferrer">YouTube →</a>
       &nbsp;·&nbsp;
@@ -1048,10 +1866,10 @@ Evaluator × Target × Role × Goal
         <div class="section-label">+ / Related Research</div>
         <h2 id="related-h">Other Lines of Inquiry</h2>
         <p class="section-lede">
-          Trust Infrastructure is not a standalone topic but one layer in
-          a single research architecture — Decision Trace gives it a
-          substrate, Knowledge Flow feeds it, Governance and Coordination
-          build on its output, and Runtime Society is where the whole
+          Trust Infrastructure is one layer in a single research
+          architecture — Decision Trace gives it a substrate, Knowledge
+          Flow feeds it, Governance &amp; Boundary Systems define the
+          limits it enforces, and Runtime Society is where the whole
           sequence resolves. The neighboring threads below read as one
           continuous inquiry.
         </p>

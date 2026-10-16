@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 880" width="900" height="880" role="img" aria-labelledby="t d" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+<title id="t">Trust Infrastructure: from evidence to accountable action</title><desc id="d">A vertical chain: Evidence and Context feed an AI Agent, whose proposals pass through Policy and Authority, Human Approval, and an Execution Gateway before reaching external systems. A Decision Trace records every step. A red dashed path shows the AI Agent has no direct route to external systems.</desc>
+<defs><marker id="an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14305c"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#17808a"/></marker><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b83"/></marker></defs>
+<rect width="900" height="880" fill="#f6f8fb"/>
+<text x="450" y="46" font-size="28" fill="#14305c" font-weight="700" text-anchor="middle" >From AI output to accountable action</text>
+<text x="450" y="74" font-size="17" fill="#5b6b83" font-weight="400" text-anchor="middle" >Every consequential action passes through authority, approval, and a controlled gateway.</text>
+<rect x="130" y="110" width="440" height="84" rx="12" fill="#ffffff" stroke="#17808a" stroke-width="2"/>
+<text x="150" y="145.55" font-size="21" fill="#14305c" font-weight="700" text-anchor="start" >Evidence / Context</text>
+<text x="150" y="173.55" font-size="16" fill="#5b6b83" font-weight="400" text-anchor="start" >Sources, versions, provenance</text>
+<rect x="468.8" y="97" width="89.2" height="26" rx="13" fill="#17808a"/>
+<text x="513.4" y="115" font-size="13" fill="#fff" font-weight="700" text-anchor="middle" letter-spacing="1">supplies</text>
+<rect x="130" y="236" width="440" height="84" rx="12" fill="#14305c" stroke="#14305c" stroke-width="2"/>
+<text x="150" y="271.55" font-size="21" fill="#fff" font-weight="700" text-anchor="start" >AI Agent</text>
+<text x="150" y="299.55" font-size="16" fill="#c9d9f0" font-weight="400" text-anchor="start" >Proposes, summarizes, drafts</text>
+<rect x="468.8" y="223" width="89.2" height="26" rx="13" fill="#14305c"/>
+<text x="513.4" y="241" font-size="13" fill="#fff" font-weight="700" text-anchor="middle" letter-spacing="1">proposes</text>
+<rect x="130" y="362" width="440" height="84" rx="12" fill="#ffffff" stroke="#2b6cb0" stroke-width="2"/>
+<text x="150" y="397.55" font-size="21" fill="#14305c" font-weight="700" text-anchor="start" >Policy &amp; Authority</text>
+<text x="150" y="425.55" font-size="16" fill="#5b6b83" font-weight="400" text-anchor="start" >Who may do what, and within what scope</text>
+<rect x="468.8" y="349" width="89.2" height="26" rx="13" fill="#2b6cb0"/>
+<text x="513.4" y="367" font-size="13" fill="#fff" font-weight="700" text-anchor="middle" letter-spacing="1">enforces</text>
+<rect x="130" y="488" width="440" height="84" rx="12" fill="#ffffff" stroke="#2b6cb0" stroke-width="2"/>
+<text x="150" y="523.55" font-size="21" fill="#14305c" font-weight="700" text-anchor="start" >Human Approval</text>
+<text x="150" y="551.55" font-size="16" fill="#5b6b83" font-weight="400" text-anchor="start" >Approves the exact action payload</text>
+<rect x="468.8" y="475" width="89.2" height="26" rx="13" fill="#2b6cb0"/>
+<text x="513.4" y="493" font-size="13" fill="#fff" font-weight="700" text-anchor="middle" letter-spacing="1">enforces</text>
+<rect x="130" y="614" width="440" height="84" rx="12" fill="#ffffff" stroke="#2b6cb0" stroke-width="2"/>
+<text x="150" y="649.5500000000001" font-size="21" fill="#14305c" font-weight="700" text-anchor="start" >Execution Gateway</text>
+<text x="150" y="677.5500000000001" font-size="16" fill="#5b6b83" font-weight="400" text-anchor="start" >Verifies, re-validates, then executes</text>
+<rect x="468.8" y="601" width="89.2" height="26" rx="13" fill="#2b6cb0"/>
+<text x="513.4" y="619" font-size="13" fill="#fff" font-weight="700" text-anchor="middle" letter-spacing="1">enforces</text>
+<rect x="130" y="740" width="440" height="84" rx="12" fill="#ffffff" stroke="#8593a8" stroke-width="2"/>
+<text x="150" y="775.5500000000001" font-size="21" fill="#14305c" font-weight="700" text-anchor="start" >External Systems</text>
+<text x="150" y="803.5500000000001" font-size="16" fill="#5b6b83" font-weight="400" text-anchor="start" >Payments · deployments · messages</text>
+<line x1="350.0" y1="196" x2="350.0" y2="233" stroke="#14305c" stroke-width="3" marker-end="url(#an)"/>
+<line x1="350.0" y1="322" x2="350.0" y2="359" stroke="#14305c" stroke-width="3" marker-end="url(#an)"/>
+<line x1="350.0" y1="448" x2="350.0" y2="485" stroke="#14305c" stroke-width="3" marker-end="url(#an)"/>
+<line x1="350.0" y1="574" x2="350.0" y2="611" stroke="#14305c" stroke-width="3" marker-end="url(#an)"/>
+<line x1="350.0" y1="700" x2="350.0" y2="737" stroke="#14305c" stroke-width="3" marker-end="url(#an)"/>
+<rect x="700" y="110" width="170" height="714" rx="14" fill="#14305c" stroke="#14305c" stroke-width="2"/>
+<text x="785" y="160" font-size="21" fill="#fff" font-weight="700" text-anchor="middle" >Decision Trace</text>
+<text x="785" y="188" font-size="21" fill="#fff" font-weight="700" text-anchor="middle" >&amp; Audit</text>
+<text x="785" y="234" font-size="16" fill="#c9d9f0" font-weight="400" text-anchor="middle" >Evidence used,</text>
+<text x="785" y="258" font-size="16" fill="#c9d9f0" font-weight="400" text-anchor="middle" >authority checked,</text>
+<text x="785" y="282" font-size="16" fill="#c9d9f0" font-weight="400" text-anchor="middle" >payload approved,</text>
+<text x="785" y="306" font-size="16" fill="#c9d9f0" font-weight="400" text-anchor="middle" >action executed —</text>
+<text x="785" y="330" font-size="16" fill="#c9d9f0" font-weight="400" text-anchor="middle" >recorded as one</text>
+<text x="785" y="354" font-size="16" fill="#c9d9f0" font-weight="400" text-anchor="middle" >reconstructable</text>
+<text x="785" y="378" font-size="16" fill="#c9d9f0" font-weight="400" text-anchor="middle" >chain.</text>
+<line x1="574" y1="152.0" x2="696" y2="152.0" stroke="#5b6b83" stroke-width="2" stroke-dasharray="3 6" marker-end="url(#am)"/>
+<line x1="574" y1="278.0" x2="696" y2="278.0" stroke="#5b6b83" stroke-width="2" stroke-dasharray="3 6" marker-end="url(#am)"/>
+<line x1="574" y1="404.0" x2="696" y2="404.0" stroke="#5b6b83" stroke-width="2" stroke-dasharray="3 6" marker-end="url(#am)"/>
+<line x1="574" y1="530.0" x2="696" y2="530.0" stroke="#5b6b83" stroke-width="2" stroke-dasharray="3 6" marker-end="url(#am)"/>
+<line x1="574" y1="656.0" x2="696" y2="656.0" stroke="#5b6b83" stroke-width="2" stroke-dasharray="3 6" marker-end="url(#am)"/>
+<line x1="574" y1="782.0" x2="696" y2="782.0" stroke="#5b6b83" stroke-width="2" stroke-dasharray="3 6" marker-end="url(#am)"/>
+<path d="M126,278.0 L70,278.0 L70,782.0 L122,782.0" fill="none" stroke="#c0392b" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#ar)"/>
+<circle cx="70" cy="480" r="20" fill="#fff" stroke="#c0392b" stroke-width="3"/>
+<path d="M61.25,471.25 L78.75,488.75 M78.75,471.25 L61.25,488.75" fill="none" stroke="#c0392b" stroke-width="4"/>
+<text transform="translate(40,480) rotate(-90)" font-size="15" fill="#c0392b" font-weight="700" text-anchor="middle">No direct path</text>
+<text x="450" y="858" font-size="22" fill="#14305c" font-weight="700" text-anchor="middle" font-style="italic">Smartness must not become authority.</text>
+</svg>

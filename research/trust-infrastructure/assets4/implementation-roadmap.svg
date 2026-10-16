@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" role="img" aria-labelledby="t d" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+<title id="t">Trust Infrastructure implementation roadmap</title><desc id="d">Five rising stages: Evidence, Authority, Approval Binding, Controlled Execution, and Continuous Governance, with the principle of expanding autonomy only as each stage is proven.</desc>
+<defs><marker id="an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14305c"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#17808a"/></marker><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b83"/></marker></defs>
+<rect width="900" height="700" fill="#f6f8fb"/>
+<text x="450" y="44" font-size="28" fill="#14305c" font-weight="700" text-anchor="middle" >Build trust in stages, not all at once</text>
+<rect x="25" y="330" width="164" height="250" rx="12" fill="#ffffff" stroke="#2b6cb0" stroke-width="2"/>
+<circle cx="59" cy="368" r="22" fill="#2b6cb0"/>
+<text x="59" y="376" font-size="22" fill="#fff" font-weight="700" text-anchor="middle" >1</text>
+<text x="41" y="422" font-size="20" fill="#14305c" font-weight="700" text-anchor="start" >Evidence</text>
+<text x="41" y="461" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="start" >• Sources, versions</text>
+<text x="41" y="491" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="start" >• Decision Trace</text>
+<text x="41" y="521" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="start" >• Replayable records</text>
+<rect x="201" y="282" width="164" height="298" rx="12" fill="#ffffff" stroke="#2b6cb0" stroke-width="2"/>
+<circle cx="235" cy="320" r="22" fill="#2b6cb0"/>
+<text x="235" y="328" font-size="22" fill="#fff" font-weight="700" text-anchor="middle" >2</text>
+<text x="217" y="374" font-size="20" fill="#14305c" font-weight="700" text-anchor="start" >Authority</text>
+<text x="217" y="413" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="start" >• Scoped roles</text>
+<text x="217" y="443" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="start" >• Enforceable policy</text>
+<text x="217" y="473" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="start" >• Risk tiers</text>
+<rect x="377" y="234" width="164" height="346" rx="12" fill="#ffffff" stroke="#17808a" stroke-width="2"/>
+<circle cx="411" cy="272" r="22" fill="#17808a"/>
+<text x="411" y="280" font-size="22" fill="#fff" font-weight="700" text-anchor="middle" >3</text>
+<text x="393" y="326" font-size="20" fill="#14305c" font-weight="700" text-anchor="start" >Approval</text>
+<text x="393" y="351" font-size="20" fill="#14305c" font-weight="700" text-anchor="start" >Binding</text>
+<text x="393" y="390" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="start" >• Exact payload</text>
+<text x="393" y="420" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="start" >• Hash and expiry</text>
+<text x="393" y="450" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="start" >• Single use</text>
+<rect x="553" y="186" width="164" height="394" rx="12" fill="#ffffff" stroke="#17808a" stroke-width="2"/>
+<circle cx="587" cy="224" r="22" fill="#17808a"/>
+<text x="587" y="232" font-size="22" fill="#fff" font-weight="700" text-anchor="middle" >4</text>
+<text x="569" y="278" font-size="20" fill="#14305c" font-weight="700" text-anchor="start" >Controlled</text>
+<text x="569" y="303" font-size="20" fill="#14305c" font-weight="700" text-anchor="start" >Execution</text>
+<text x="569" y="342" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="start" >• Gateway-held keys</text>
+<text x="569" y="372" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="start" >• Re-validate first</text>
+<text x="569" y="402" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="start" >• Fail closed</text>
+<rect x="729" y="138" width="164" height="442" rx="12" fill="#ffffff" stroke="#14305c" stroke-width="2"/>
+<circle cx="763" cy="176" r="22" fill="#14305c"/>
+<text x="763" y="184" font-size="22" fill="#fff" font-weight="700" text-anchor="middle" >5</text>
+<text x="745" y="230" font-size="20" fill="#14305c" font-weight="700" text-anchor="start" >Continuous</text>
+<text x="745" y="255" font-size="20" fill="#14305c" font-weight="700" text-anchor="start" >Governance</text>
+<text x="745" y="294" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="start" >• Review and drift</text>
+<text x="745" y="324" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="start" >• Simulation</text>
+<text x="745" y="354" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="start" >• Revoke and stop</text>
+<line x1="30" y1="618" x2="870" y2="618" stroke="#14305c" stroke-width="3" marker-end="url(#an)"/>
+<text x="450" y="650" font-size="20" fill="#14305c" font-weight="700" text-anchor="middle" font-style="italic">Expand autonomy only as each stage is proven.</text>
+<text x="450" y="678" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="middle" >No stage requires full autonomy.</text>
+</svg>

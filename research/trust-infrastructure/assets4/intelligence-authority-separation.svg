@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" role="img" aria-labelledby="t d" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+<title id="t">Separating intelligence from authority</title><desc id="d">Left zone: a capable reasoning AI agent that only proposes. Right zone: a deterministic policy engine and a restricted execution gateway that holds credentials and reaches external systems. A red dashed path shows the agent cannot call external systems directly.</desc>
+<defs><marker id="an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14305c"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker><marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#17808a"/></marker><marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b83"/></marker></defs>
+<rect width="900" height="680" fill="#f6f8fb"/>
+<text x="450" y="44" font-size="28" fill="#14305c" font-weight="700" text-anchor="middle" >Separate intelligence from authority</text>
+<rect x="30" y="76" width="300" height="520" rx="16" fill="#eaf1fb" stroke="#b7cbe6" stroke-width="2"/>
+<text x="180" y="112" font-size="15" fill="#2b6cb0" font-weight="700" text-anchor="middle" letter-spacing="3">INTELLIGENCE</text>
+<rect x="370" y="76" width="500" height="520" rx="16" fill="#e9f5f5" stroke="#a9d3d6" stroke-width="2"/>
+<text x="620" y="112" font-size="15" fill="#17808a" font-weight="700" text-anchor="middle" letter-spacing="3">AUTHORITY</text>
+<rect x="55" y="200" width="250" height="150" rx="12" fill="#14305c" stroke="#14305c" stroke-width="2"/>
+<text x="180.0" y="256.75" font-size="22" fill="#fff" font-weight="700" text-anchor="middle" >Reasoning Agent</text>
+<text x="180.0" y="286.25" font-size="17" fill="#c9d9f0" font-weight="400" text-anchor="middle" >Capable AI model</text>
+<text x="180.0" y="309.2" font-size="17" fill="#c9d9f0" font-weight="400" text-anchor="middle" >Plans, drafts, proposes</text>
+<text x="180" y="140" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="middle" >Flexible, probabilistic.</text>
+<text x="180" y="161" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="middle" >Its output is a proposal,</text>
+<text x="180" y="182" font-size="15" fill="#5b6b83" font-weight="400" text-anchor="middle" >never a permission.</text>
+<rect x="420" y="136" width="400" height="100" rx="12" fill="#ffffff" stroke="#17808a" stroke-width="2"/>
+<text x="620.0" y="179.2" font-size="20" fill="#14305c" font-weight="700" text-anchor="middle" >Deterministic Policy Engine</text>
+<text x="620.0" y="207.2" font-size="16" fill="#5b6b83" font-weight="400" text-anchor="middle" >Authority, scope, approval rules</text>
+<rect x="744.0" y="123" width="64.0" height="26" rx="13" fill="#17808a"/>
+<text x="776.0" y="141" font-size="13" fill="#fff" font-weight="700" text-anchor="middle" letter-spacing="1">RULES</text>
+<rect x="420" y="290" width="400" height="110" rx="12" fill="#ffffff" stroke="#17808a" stroke-width="2"/>
+<text x="620.0" y="327.4" font-size="20" fill="#14305c" font-weight="700" text-anchor="middle" >Restricted Execution Gateway</text>
+<text x="620.0" y="355.4" font-size="16" fill="#5b6b83" font-weight="400" text-anchor="middle" >Holds the credentials</text>
+<text x="620.0" y="377.0" font-size="16" fill="#5b6b83" font-weight="400" text-anchor="middle" >Verifies approval, then executes</text>
+<rect x="752.4" y="277" width="55.6" height="26" rx="13" fill="#17808a"/>
+<text x="780.2" y="295" font-size="13" fill="#fff" font-weight="700" text-anchor="middle" letter-spacing="1">GATE</text>
+<rect x="420" y="466" width="400" height="84" rx="12" fill="#ffffff" stroke="#8593a8" stroke-width="2"/>
+<text x="620.0" y="501.2" font-size="20" fill="#14305c" font-weight="700" text-anchor="middle" >External Systems</text>
+<text x="620.0" y="529.2" font-size="16" fill="#5b6b83" font-weight="400" text-anchor="middle" >Payments · deployments · messages</text>
+<path d="M305,255 L362,255 L362,186 L416,186" fill="none" stroke="#14305c" stroke-width="3" marker-end="url(#an)"/>
+<text x="334" y="243" font-size="13" fill="#14305c" font-weight="700" text-anchor="middle" >proposal</text>
+<line x1="620" y1="238" x2="620" y2="288" stroke="#17808a" stroke-width="3" marker-end="url(#at)"/>
+<text x="632" y="268" font-size="14" fill="#17808a" font-weight="700" text-anchor="start" >allow · hold · deny</text>
+<line x1="620" y1="402" x2="620" y2="464" stroke="#17808a" stroke-width="3" marker-end="url(#at)"/>
+<path d="M180,352 L180,508 L416,508" fill="none" stroke="#c0392b" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#ar)"/>
+<circle cx="300" cy="508" r="20" fill="#fff" stroke="#c0392b" stroke-width="3"/>
+<path d="M291.25,499.25 L308.75,516.75 M308.75,499.25 L291.25,516.75" fill="none" stroke="#c0392b" stroke-width="4"/>
+<text x="300" y="548" font-size="15" fill="#c0392b" font-weight="700" text-anchor="middle" >No direct path</text>
+<text x="450" y="646" font-size="22" fill="#14305c" font-weight="700" text-anchor="middle" font-style="italic">Smartness must not become authority.</text>
+</svg>
