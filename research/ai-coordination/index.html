@@ -4,248 +4,235 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>AI Coordination — AI Coordination Engineering — Chinoba</title>
-  <meta name="description" content="AI Coordination Engineering: how goal, role, permission, context, knowledge, risk, trust, and boundary combine into an Autonomy Control runtime where autonomy is not assigned but generated at runtime — and preserved as Decision Trace.">
-  <meta name="keywords" content="AI Coordination Engineering, Multi-Agent Systems, Autonomy Control, Delegation Contract, Trust Infrastructure, Decision Trace, Runtime Society">
+  <title>AI Coordination — Multi-Agent Coordination Engineering for Enterprise AI Architecture — Chinoba</title>
+  <meta name="description" content="AI Coordination is how enterprises make multiple AI agents, people, tools, and permissions work as one accountable system: role separation, task contracts, evidence-first handoff, independent verification, approval binding, and a kill switch. A practical design guide to multi-agent coordination and enterprise AI architecture.">
+  <meta name="keywords" content="AI Coordination, Multi-Agent Coordination, Enterprise AI Architecture, AI Coordination Engineering, multi-agent systems, agent orchestration, human approval, approval binding, least privilege, independent verification, Decision Trace, Autonomy Control, Chinoba">
+
+  <link rel="canonical" href="https://chinoba.org/research/ai-coordination/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Chinoba">
+  <meta property="og:title" content="AI Coordination — Multi-Agent Coordination for Enterprise AI Architecture">
+  <meta property="og:description" content="The challenge is no longer building a capable agent. It is coordinating intelligence, authority, evidence, and action. A practical design guide to enterprise multi-agent coordination.">
+  <meta property="og:url" content="https://chinoba.org/research/ai-coordination/">
+  <meta property="og:image" content="https://chinoba.org/research/ai-coordination/assets3/ai-coordination-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AI Coordination: intelligence proposes, authority decides, verification checks, execution acts.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Coordination — Multi-Agent Coordination for Enterprise AI Architecture">
+  <meta name="twitter:description" content="Coordinating intelligence, authority, evidence, and action: roles, task contracts, verification, approval binding, and stop conditions for multi-agent systems.">
+  <meta name="twitter:image" content="https://chinoba.org/research/ai-coordination/assets3/ai-coordination-og.png">
 
   <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
   <link rel="stylesheet" href="/assets/research.css">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://chinoba.org/research/ai-coordination/#article",
+        "headline": "AI Coordination — Multi-Agent Coordination Engineering for Enterprise AI Architecture",
+        "description": "A practical design guide to coordinating AI agents, people, tools, data, and permissions: role separation, task contracts, evidence-first handoff, independent verification, approval binding, and graceful stop.",
+        "url": "https://chinoba.org/research/ai-coordination/",
+        "mainEntityOfPage": "https://chinoba.org/research/ai-coordination/",
+        "image": "https://chinoba.org/research/ai-coordination/assets3/ai-coordination-og.png",
+        "inLanguage": "en",
+        "dateModified": "2026-10-17",
+        "keywords": "AI Coordination, Multi-Agent Coordination, Enterprise AI Architecture, Decision Trace, Autonomy Control",
+        "author": { "@type": "Person", "name": "Masao Watanabe" },
+        "publisher": { "@type": "Organization", "name": "Chinoba", "url": "https://chinoba.org/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Chinoba", "item": "https://chinoba.org/" },
+          { "@type": "ListItem", "position": 2, "name": "Research", "item": "https://chinoba.org/#research" },
+          { "@type": "ListItem", "position": 3, "name": "AI Coordination", "item": "https://chinoba.org/research/ai-coordination/" }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <style>
     /* ---------- Page-specific overrides ---------- */
-    .concept-grid.cols-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-    .concept-grid.cols-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
+    .concept-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .concept-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .concept-grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     @media (max-width: 900px) {
-      .concept-grid.cols-4,
-      .concept-grid.cols-3 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+      .concept-grid.cols-3, .concept-grid.cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 640px) {
-      .concept-grid.cols-4,
-      .concept-grid.cols-3 {
-        grid-template-columns: 1fr;
+      .concept-grid.cols-2, .concept-grid.cols-3, .concept-grid.cols-4 { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar { flex-wrap: wrap; gap: 8px 16px; }
+      .topbar .breadcrumb { flex-wrap: wrap; }
+    }
+
+    /* In-page navigation */
+    .toc {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      display: flex; flex-wrap: wrap; gap: 8px 10px;
+    }
+    .toc a {
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--fg-dim); border: 1px solid var(--line-strong);
+      padding: 6px 12px; border-radius: 999px; line-height: 1.4;
+    }
+    .toc a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+
+    /* Body copy helpers */
+    .prose { max-width: 760px; color: var(--fg-mute); font-size: 15.5px; line-height: 1.85; }
+    .prose + .prose { margin-top: 0; }
+    .spaced { margin-top: clamp(32px, 4vw, 48px); }
+
+    .quote {
+      display: block; margin: 22px 0 6px; padding: 14px 18px;
+      border-left: 2px solid var(--line-strong); color: var(--fg);
+      font-family: "Courier New", monospace; font-size: 14px; letter-spacing: 0.3px;
+      background: rgba(255,255,255,0.015);
+    }
+    .two-col .col-text .quote.is-diagram,
+    .quote.is-diagram { white-space: pre-line; line-height: 1.95; letter-spacing: 0.4px; }
+
+    /* Callout */
+    .callout {
+      max-width: 760px; margin: clamp(28px, 4vw, 40px) 0 0;
+      border: 1px solid var(--line-strong); border-left: 3px solid var(--accent);
+      background: var(--bg-elev); padding: 18px 22px; border-radius: 4px;
+    }
+    .callout .callout-label {
+      font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .callout p { margin: 0; color: var(--fg); font-size: 15.5px; line-height: 1.75; }
+
+    /* Concept cards with a field example */
+    .concept .eg {
+      margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--line);
+      font-size: 13px; line-height: 1.65; color: var(--fg-dim);
+    }
+    .concept .eg b {
+      color: var(--fg-mute); font-weight: 600; letter-spacing: 1.5px;
+      font-size: 11px; text-transform: uppercase; margin-right: 6px;
+    }
+    .concept .fix b { color: var(--accent); }
+
+    /* Comparison / matrix tables */
+    .table-wrap { margin-top: clamp(28px, 4vw, 44px); overflow-x: auto; }
+    .table-title {
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--fg-faint); margin: clamp(40px, 5vw, 56px) 0 0;
+    }
+    table.matrix {
+      width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.6;
+      border: 1px solid var(--line-strong); background: var(--bg-elev);
+    }
+    .table-caption {
+      max-width: 760px; margin: 14px 0 0; font-size: 13px; line-height: 1.65; color: var(--fg-dim);
+    }
+    table.matrix th, table.matrix td {
+      text-align: left; vertical-align: top; padding: 14px 16px;
+      border-bottom: 1px solid var(--line); color: var(--fg-mute);
+    }
+    table.matrix thead th {
+      font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase;
+      color: var(--fg-faint); font-weight: 600; background: var(--bg-elev-2);
+      border-bottom: 1px solid var(--line-strong);
+    }
+    table.matrix tbody th { color: var(--fg); font-weight: 600; white-space: nowrap; }
+    table.matrix tbody tr:last-child th, table.matrix tbody tr:last-child td { border-bottom: none; }
+    table.matrix .no { color: #ff9a9a; }
+    table.matrix td a { color: var(--accent); }
+    @media (max-width: 860px) {
+      .table-wrap { overflow-x: visible; }
+      table.matrix, table.matrix tbody, table.matrix tr, table.matrix th, table.matrix td { display: block; }
+      table.matrix thead { position: absolute; left: -9999px; }
+      table.matrix tr { border-bottom: 1px solid var(--line-strong); padding: 8px 0; }
+      table.matrix tbody tr:last-child { border-bottom: none; }
+      table.matrix th, table.matrix td { border: none; padding: 6px 16px; }
+      table.matrix tbody th { white-space: normal; font-size: 16px; padding-top: 12px; }
+      table.matrix td[data-label]::before {
+        content: attr(data-label); display: block; font-size: 10.5px; letter-spacing: 1.8px;
+        text-transform: uppercase; color: var(--fg-faint); margin-bottom: 2px;
       }
     }
 
-    /* ---------- Explore / Featured Resources ---------- */
-    .theme-links {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    /* Scenario cards */
+    .scenario .flow-line {
+      margin: 14px 0 0; font-family: "Courier New", monospace; font-size: 12.5px;
+      line-height: 1.8; color: var(--fg-mute); letter-spacing: 0.2px;
     }
-    .theme-links .theme-lang {
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--fg-faint);
-      margin-top: 12px;
+    .scenario .gate {
+      margin: 12px 0 0; padding-top: 12px; border-top: 1px solid var(--line);
+      font-size: 13.5px; line-height: 1.7; color: var(--fg-mute);
     }
-    .theme-links .theme-lang:first-child {
-      margin-top: 0;
-    }
-    .theme-links a {
-      font-size: 13px;
-      color: var(--accent);
-      letter-spacing: 0.3px;
-      line-height: 1.55;
+    .scenario .gate b {
+      color: var(--accent); font-weight: 600; letter-spacing: 1.5px;
+      font-size: 11px; text-transform: uppercase; display: block; margin-bottom: 2px;
     }
 
-    /* ---------- Featured Publication ---------- */
+    /* Design checklist */
+    .check-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: clamp(28px, 4vw, 44px); }
+    @media (max-width: 860px) { .check-groups { grid-template-columns: 1fr; } }
+    .check-group {
+      border: 1px solid var(--line-strong); background: var(--bg-elev);
+      border-radius: 4px; padding: 22px 22px 14px; margin: 0; min-width: 0;
+    }
+    .check-group legend {
+      padding: 0 8px; margin-left: -8px; font-size: 11px; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .check-group label {
+      display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px;
+      padding: 10px 0; border-bottom: 1px solid var(--line);
+      font-size: 14.5px; line-height: 1.6; color: var(--fg-mute); cursor: pointer;
+    }
+    .check-group label:last-child { border-bottom: none; }
+    .check-group input { width: 18px; height: 18px; margin: 3px 0 0; accent-color: #7db7ff; }
+    .check-group label:has(input:checked) { color: var(--fg-faint); }
+    .check-group label b { color: var(--fg); font-weight: 600; }
+    .check-group label:has(input:checked) b { color: var(--fg-dim); }
+    .check-tally { margin-top: 18px; font-size: 13px; color: var(--fg-dim); }
+    .check-tally output { color: var(--fg); font-weight: 600; }
+
+    /* Explore / Featured Resources */
+    .theme-links { margin-top: 20px; display: flex; flex-direction: column; gap: 6px; }
+    .theme-links .theme-lang {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--fg-faint); margin-top: 12px;
+    }
+    .theme-links .theme-lang:first-child { margin-top: 0; }
+    .theme-links a { font-size: 13px; color: var(--accent); letter-spacing: 0.3px; line-height: 1.55; }
+
     .featured-badge {
-      display: inline-block;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      padding: 4px 10px;
-      border-radius: 999px;
-      margin-bottom: 18px;
+      display: inline-block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px;
+      border-radius: 999px; margin-bottom: 18px;
     }
     .featured-pub {
-      border: 1px solid var(--line-strong);
-      background: var(--bg-elev);
+      border: 1px solid var(--line-strong); background: var(--bg-elev);
       padding: clamp(28px, 4vw, 40px) clamp(20px, 4vw, 40px) clamp(32px, 4vw, 44px);
       border-radius: 4px;
     }
-    .book.no-cover {
-      grid-template-columns: 1fr;
-    }
-    .book-asin {
-      display: block;
-      margin-top: 10px;
-      font-size: 11px;
-      letter-spacing: 1px;
-      color: var(--fg-faint);
-    }
-
-    /* Conceptual diagram variant — vertical token chains rendered as drawn */
-    .two-col .col-text .quote.is-diagram,
-    .oss-meta .quote.is-diagram {
-      white-space: pre-line;
-      line-height: 1.95;
-      letter-spacing: 0.4px;
-    }
+    .book.no-cover { grid-template-columns: 1fr; }
+    .book-asin { display: block; margin-top: 10px; font-size: 11px; letter-spacing: 1px; color: var(--fg-faint); }
 
     /* Research positioning ladder in the closing section */
     .closing .positioning {
-      font-family: "Courier New", monospace;
-      font-size: 12px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--fg-faint);
-      line-height: 2.05;
-      margin: 0 0 44px;
+      font-family: "Courier New", monospace; font-size: 12px; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--fg-faint); line-height: 2.05; margin: 0 0 44px;
     }
-    .closing .positioning span {
-      display: block;
-    }
-    .closing .positioning .here {
-      color: var(--fg);
-    }
-    .closing-cta {
-      margin-top: 28px;
-      font-size: 13px;
-      color: var(--fg-faint);
-    }
-    .closing-cta a {
-      color: var(--accent);
-    }
-
-    /* Quote box styling */
-    .quote {
-      display: block;
-      margin: 22px 0 6px;
-      padding: 14px 18px;
-      border-left: 2px solid var(--line-strong);
-      color: var(--fg);
-      font-family: "Courier New", monospace;
-      font-size: 14px;
-      letter-spacing: 0.3px;
-      background: rgba(255,255,255,0.015);
-    }
-
-    /* ---------- AI Coordination Runtime (layer diagram) ---------- */
-    .field-runtime {
-      margin-top: clamp(56px, 7vw, 80px);
-      border: 1px solid var(--line);
-      background: var(--bg-elev);
-      padding: 28px clamp(20px, 4vw, 40px) 36px;
-      border-radius: 4px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .field-runtime::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%);
-      pointer-events: none;
-    }
-
-    .field-runtime-label {
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--fg-faint);
-      margin-bottom: 6px;
-      position: relative;
-    }
-
-    .field-runtime-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--fg);
-      margin: 0 0 22px;
-      letter-spacing: 0.2px;
-      position: relative;
-    }
-
-    .field-layers {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      position: relative;
-    }
-
-    .field-layer {
-      display: grid;
-      grid-template-columns: 56px minmax(0, 1fr) auto;
-      align-items: baseline;
-      gap: 18px;
-      padding: 14px 4px;
-      border-bottom: 1px solid var(--line);
-    }
-    .field-layer:last-child {
-      border-bottom: none;
-    }
-
-    .field-layer .layer-idx {
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--fg-faint);
-      text-transform: uppercase;
-    }
-
-    .field-layer .layer-body {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .field-layer .layer-name {
-      font-size: 15px;
-      color: var(--fg);
-      letter-spacing: 0.2px;
-      font-weight: 600;
-    }
-
-    .field-layer .layer-note {
-      font-size: 13px;
-      color: var(--fg-mute);
-      line-height: 1.6;
-    }
-
-    .field-layer .layer-tag {
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      color: var(--fg-faint);
-      text-transform: uppercase;
-      font-family: "Courier New", monospace;
-    }
-
-    .field-arrow {
-      display: flex;
-      justify-content: center;
-      color: var(--fg-faint);
-      font-size: 11px;
-      letter-spacing: 4px;
-      padding: 4px 0 6px;
-    }
-
-    @media (max-width: 900px) {
-      .field-layer {
-        grid-template-columns: 1fr;
-        gap: 4px;
-      }
-      .field-layer .layer-tag {
-        margin-top: 2px;
-      }
-    }
+    .closing .positioning span { display: block; }
+    .closing .positioning .here { color: var(--fg); }
+    .closing-cta { margin-top: 28px; font-size: 13px; color: var(--fg-faint); }
+    .closing-cta a { color: var(--accent); }
   </style>
 </head>
-
 <body>
 
   <!-- ============ TOP BAR ============ -->
@@ -263,29 +250,67 @@
   <!-- ============ HERO ============ -->
   <header class="hero">
     <div class="hero-inner">
-      <div class="eyebrow">Research / AI Coordination — AI Coordination Engineering</div>
+      <div class="eyebrow">Research / AI Coordination — Multi-Agent Coordination Engineering</div>
       <h1>AI Coordination</h1>
       <p class="hero-sub">
-        <span>AI no longer only answers.</span>
-        <span>It retrieves knowledge, generates candidates,</span>
-        <span>judges, calls tools, and acts on external systems.</span>
-        <span>Lining up several capable AIs does not, by itself,</span>
-        <span>produce a more intelligent or better-coordinated system.</span>
+        <span>The challenge is no longer building a capable agent.</span>
+        <span>It is coordinating intelligence, authority,</span>
+        <span>evidence, and action.</span>
       </p>
       <p class="hero-desc">
-        AI Coordination is the design discipline that aligns the goals,
-        roles, context, authority, responsibility, and outcomes of
-        multiple AI agents, humans, knowledge, tools, organizations, and
-        physical systems into one accountable whole. The central claim of
-        this research is simple to state and hard to engineer: autonomy
-        is not assigned. Autonomy is generated at runtime — decision by
-        decision, from goal, role, permission, context, knowledge, risk,
-        trust, and boundary, resolved into a judgment to act, ask, or
-        stop, and preserved as a Decision Trace an organization can
-        verify afterward.
+        AI Coordination Engineering is the discipline of deciding which
+        agent does what, on what evidence, under whose authority — and
+        where work must stop to be verified or approved before it touches
+        the real world. It turns multi-agent coordination from a
+        conversation into an executable, verifiable operating structure,
+        so that enterprises can gain the speed of autonomous agents
+        without giving up safety, accountability, or explainability.
       </p>
     </div>
   </header>
+
+  <!-- ============ 30-SECOND SUMMARY ============ -->
+  <section class="research-section" id="summary" aria-labelledby="summary-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">The 30-Second Version</div>
+        <h2 id="summary-h">Three Distinctions That Decide Whether Multi-Agent Systems Work</h2>
+      </div>
+
+      <div class="concept-grid cols-3">
+        <div class="concept">
+          <div class="idx">01</div>
+          <h3>Capability ≠ Authority</h3>
+          <p>What an agent <em>can</em> do is not what it <em>may decide</em>. Define for every agent what it may decide, what it must never do, and where it must ask — not only which tools it can call.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">02</div>
+          <h3>Execution ≠ Approval</h3>
+          <p>The agent that produces the work never verifies, approves, or commits it. Verification and approval are gates placed <em>before</em> an effect leaves the system, not reviews after it.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">03</div>
+          <h3>Handoff = Evidence</h3>
+          <p>A handoff that says “done” is a message. A handoff that carries evidence, uncertainty, and the authority used is coordination — and it is what lets a failure be traced and contained.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="toc" aria-label="On this page">
+    <a href="#problem">Problem</a>
+    <a href="#definition">What it is</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#evidence">Evidence &amp; state</a>
+    <a href="#principles">Principles</a>
+    <a href="#lifecycle">Lifecycle</a>
+    <a href="#authority">Authority</a>
+    <a href="#failure-modes">Failure modes</a>
+    <a href="#applications">Applications</a>
+    <a href="#checklist">Checklist</a>
+    <a href="#library">Books</a>
+    <a href="#position">Chinoba map</a>
+  </nav>
 
   <!-- ============ OPENING FIGURE ============ -->
   <section class="research-section" aria-label="From answering to acting">
@@ -302,10 +327,816 @@
     </div>
   </section>
 
-  <!-- ============ FEATURED PUBLICATION ============ -->
-  <section class="research-section" id="featured-book" aria-labelledby="featured-book-h">
+  <!-- ============ 01 PROBLEM ============ -->
+  <section class="research-section" id="problem" aria-labelledby="problem-h">
     <div class="wrap">
-      <h2 id="featured-book-h" class="visually-hidden" style="position:absolute;left:-9999px;">Featured Publication</h2>
+      <div class="section-head">
+        <div class="section-label">01 / The Problem</div>
+        <h2 id="problem-h">Why One Capable Agent — or Many — Is Not Enough</h2>
+        <p class="section-lede">
+          Enterprises are moving from “using AI” to “operating AI
+          organizations”: research, risk, compliance, scheduling, and
+          coding agents working on one business workflow. The question
+          that follows is no longer “how accurate is the model?” It is
+          “who controls the coordination?”
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Concentrating everything in one agent</h3>
+          <p>
+            A single agent that searches, reasons, executes, and approves
+            its own work has no independent check. One wrong assumption
+            flows straight into an external action, and there is no point
+            at which anyone else could have stopped it.
+          </p>
+          <p>
+            Splitting that agent into many does not fix this by itself.
+            It only moves the risk into the handoffs.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Blurred boundaries between agents</h3>
+          <p>
+            When it is unclear who owns the goal, who may change the
+            plan, and who can stop delivery, every agent can do its own
+            job well and the system can still fail. The review agent’s
+            warning may be advice or a veto; nobody has defined which.
+          </p>
+          <code class="quote">
+            Every agent can be right on its own terms
+            and the system can still be wrong.
+          </code>
+        </div>
+      </div>
+
+      <p class="table-title">What it looks like in production</p>
+      <div class="concept-grid cols-3" style="margin-top:20px;">
+        <div class="concept"><div class="idx">i</div><h3>Competing and duplicated work</h3><p>Two agents update the same plan, or repeat the same search, order, or email — because nothing records who owns the task.</p></div>
+        <div class="concept"><div class="idx">ii</div><h3>Endless loops</h3><p>A planner waits for research, research waits for review, review waits for the planner. Each keeps emitting plausible status updates.</p></div>
+        <div class="concept"><div class="idx">iii</div><h3>Authority drift</h3><p>A low-privilege agent gets a privileged one to do what it may not — a confused deputy acting on borrowed permission.</p></div>
+        <div class="concept"><div class="idx">iv</div><h3>Wrong handoffs</h3><p>The executor receives “draft complete” but not “evidence insufficient,” and prepares to send the proposal anyway.</p></div>
+        <div class="concept"><div class="idx">v</div><h3>Lost evidence</h3><p>Conclusions travel without their sources. Downstream agents treat an inference as a verified fact.</p></div>
+        <div class="concept"><div class="idx">vi</div><h3>Vanishing responsibility</h3><p>Several agents and a reviewer share a decision, and when it fails no one is the accountable owner.</p></div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/05.png"
+           data-lightbox aria-label="Open the diagram of errors flowing through an AI coordination network">
+          <img src="assets2/05.png"
+               alt="Diagram titled 'In AI Coordination, Errors Also Flow Through the Network,' showing a planner agent's wrong assumption passed to a coordinator agent, becoming wrong delegation to sales, contract, and payment agents, and resulting in coordinated failure."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">A wrong assumption does not stay with the agent that made it — it travels through delegation and becomes a failure shared by every agent that trusted it.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 02 DEFINITION ============ -->
+  <section class="research-section" id="definition" aria-labelledby="definition-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / AI Coordination Engineering</div>
+        <h2 id="definition-h">Coordination Is a Design Object, Not a Conversation</h2>
+        <p class="section-lede">
+          AI Coordination Engineering is not about adding agents. It is
+          about designing roles, state, communication, evidence,
+          authority, and stop conditions so that the combined system can
+          be run, checked, and stopped.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Six things to design explicitly</h3>
+          <ul>
+            <li><strong>Roles</strong> — who produces, who checks, who approves, who acts</li>
+            <li><strong>State</strong> — one ledger of tasks, owners, versions, and status</li>
+            <li><strong>Communication</strong> — typed handoffs, not free-form chat</li>
+            <li><strong>Evidence</strong> — sources, freshness, and uncertainty that travel with every claim</li>
+            <li><strong>Authority</strong> — what each agent may decide, for this purpose, until when</li>
+            <li><strong>Stop conditions</strong> — timeouts, budgets, boundaries, escalation, and a kill switch</li>
+          </ul>
+        </div>
+        <div class="col-text">
+          <h3>Messages are necessary, not sufficient</h3>
+          <p>
+            A research agent can report “research complete,” a policy
+            agent “verified,” and a review agent “approval possible” —
+            every message delivered correctly — and the resulting action
+            can still be wrong. That is a coordination failure, and no
+            message-broker reliability prevents it.
+          </p>
+          <code class="quote is-diagram">Multiple Agents ≠ Coordinated System
+Communication ≠ Coordination
+Coordination ≠ Decision Authority
+Agent Consensus ≠ Organizational Decision</code>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">A new operating role</div>
+        <p>
+          Enterprises will increasingly run a dual structure — a human
+          organization plus an agent organization. The critical question
+          shifts from “who built the AI?” to “who controls AI
+          coordination?” That is the work of an <strong>Agent Orchestration
+          Lead</strong>: choosing which agents run in what order, where
+          Human Gates sit, where escalation happens, and where boundaries
+          stop execution.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 ARCHITECTURE ============ -->
+  <section class="research-section" id="architecture" aria-labelledby="architecture-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Coordination Architecture</div>
+        <h2 id="architecture-h">Separate Intelligence, Authority, Verification, and Execution</h2>
+        <p class="section-lede">
+          A reliable multi-agent system is not a smarter agent. It is a
+          set of separated planes — each with its own credentials and
+          failure domain — connected by explicit contracts, shared state,
+          and a policy boundary that no agent can edit.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets3/coordination-reference-architecture.png"
+           data-lightbox aria-label="Open the coordination reference architecture diagram">
+          <img src="assets3/coordination-reference-architecture.png"
+               width="1672" height="941"
+               alt="Coordination Reference Architecture in four planes. Authority: Human Approver, Policy and Boundary, Approval Binding. Intelligence: Orchestrator, Planner, Researcher, Specialist Agents. Verification: Evidence Store and Shared State, Independent Verifier. Execution: Executor Agent and External Systems, separated from the other planes by an Execution Boundary with a kill switch. A Decision Trace spans all planes."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Reference architecture. Intelligence proposes, authority decides, verification checks, and only the Executor acts — through an execution boundary that carries a kill switch.</figcaption>
+      </figure>
+
+      <p class="table-title">Five shared artifacts hold the system together</p>
+      <div class="concept-grid cols-3" style="margin-top:20px;">
+        <div class="concept"><div class="idx">1</div><h3>Task contract</h3><p>Goal, scope, inputs, done-criteria, deadline, authority, and escalation path for every assignment.</p></div>
+        <div class="concept"><div class="idx">2</div><h3>Shared state</h3><p>A task ledger with owner, version, and status — so retries, handoffs, and duplicates are visible.</p></div>
+        <div class="concept"><div class="idx">3</div><h3>Evidence</h3><p>Claims bound to source, time, applicability, contradictions, and what was not checked.</p></div>
+        <div class="concept"><div class="idx">4</div><h3>Handoff</h3><p>A typed packet from one role to the next: claim, evidence, uncertainty, authority used, next action.</p></div>
+        <div class="concept"><div class="idx">5</div><h3>Policy boundary</h3><p>Limits and approval rules evaluated outside the agents, so no agent can relax its own constraints.</p></div>
+        <div class="concept"><div class="idx">+</div><h3>Decision trace</h3><p>The causal record across all five: what was known, chosen, authorized, done, and what followed.</p></div>
+      </div>
+
+      <p class="table-title">Agent responsibility matrix</p>
+      <p class="table-caption">Roles are functional, not product names: one agent can hold several roles on low-risk, reversible work. For high-impact actions, generate, verify, approve, and execute stay separate.</p>
+      <div class="table-wrap" style="margin-top:0;">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th scope="col">Role</th>
+              <th scope="col">Responsibility</th>
+              <th scope="col">May decide</th>
+              <th scope="col">Must not</th>
+              <th scope="col">Output</th>
+              <th scope="col">Credentials</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Orchestrator</th>
+              <td data-label="Responsibility">Routes tasks, tracks state and dependencies, detects stalls, escalates</td>
+              <td data-label="May decide">Assignment, retry, replan, escalation</td>
+              <td data-label="Must not" class="no">Override policy or the verifier; approve its own plan</td>
+              <td data-label="Output">Task ledger, task contracts</td>
+              <td data-label="Credentials">No business-system access</td>
+            </tr>
+            <tr>
+              <th scope="row">Planner</th>
+              <td data-label="Responsibility">Decomposes the goal into tasks, dependencies, success conditions</td>
+              <td data-label="May decide">Task order, alternative plans</td>
+              <td data-label="Must not" class="no">Approve high-impact actions; downgrade a mandatory review to optional to hit a deadline</td>
+              <td data-label="Output">Task graph, success criteria</td>
+              <td data-label="Credentials">Read plan and ledger</td>
+            </tr>
+            <tr>
+              <th scope="row">Researcher</th>
+              <td data-label="Responsibility">Collects knowledge and evidence for the task</td>
+              <td data-label="May decide">Which in-scope sources to query; how to rank evidence</td>
+              <td data-label="Must not" class="no">Disclose externally; grant policy exceptions</td>
+              <td data-label="Output">Evidence pack: source, time, applicability, contradictions, uncertainty</td>
+              <td data-label="Credentials">Read-only, scoped sources</td>
+            </tr>
+            <tr>
+              <th scope="row">Executor</th>
+              <td data-label="Responsibility">Performs only the authorized action and confirms external state</td>
+              <td data-label="May decide">Execution mechanics inside the bound action</td>
+              <td data-label="Must not" class="no">Change goals; widen its own authorization; re-execute when the outcome is unknown</td>
+              <td data-label="Output">Action receipt, confirmed external state</td>
+              <td data-label="Credentials">Narrow, per-task, expiring write access</td>
+            </tr>
+            <tr>
+              <th scope="row">Verifier</th>
+              <td data-label="Responsibility">Independently checks content, evidence, and compliance with conditions</td>
+              <td data-label="May decide">Pass, fail, or needs-evidence against defined criteria</td>
+              <td data-label="Must not" class="no">Deliver or execute what it reviewed; reuse the producer’s context and sources</td>
+              <td data-label="Output">Verification report: findings, severity, unresolved issues</td>
+              <td data-label="Credentials">Read-only on the artifact and independent sources</td>
+            </tr>
+            <tr>
+              <th scope="row">Human Approver</th>
+              <td data-label="Responsibility">Takes final responsibility for high-risk, exceptional, or externally binding decisions</td>
+              <td data-label="May decide">Approve, modify, reject, escalate, override</td>
+              <td data-label="Must not" class="no">Approve what it has not seen evidence for; delegate approval to the producing agent</td>
+              <td data-label="Output">Bound approval: action, parameters, evidence version, expiry</td>
+              <td data-label="Credentials">Signing authority for approvals</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="table-title">Centralized orchestration or distributed coordination?</p>
+      <p class="table-caption">No pattern is free. Pick by what must stay consistent and what benefits from locality.</p>
+      <div class="table-wrap" style="margin-top:0;">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th scope="col">Pattern</th>
+              <th scope="col">Use when</th>
+              <th scope="col">Typical failure</th>
+              <th scope="col">Containment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Supervisor (centralized)</th>
+              <td data-label="Use when">Order is clear and one task state can be maintained</td>
+              <td data-label="Typical failure">Single point of failure; a supervisor that can override policy becomes a confused deputy</td>
+              <td data-label="Containment">Per-worker credentials; cap what a supervisor can authorize; rebuild from a persisted ledger</td>
+            </tr>
+            <tr>
+              <th scope="row">Hierarchical</th>
+              <td data-label="Use when">Many agents; work splits into teams with separate scopes</td>
+              <td data-label="Typical failure">Slow escalation; sub-goals drift from the top-level goal</td>
+              <td data-label="Containment">Scope-limited authority per team; contracts carried across levels</td>
+            </tr>
+            <tr>
+              <th scope="row">Peer-to-peer (distributed)</th>
+              <td data-label="Use when">Local, fast exchange between specialists with a shared protocol</td>
+              <td data-label="Typical failure">Peers hold different versions of state; duplicate work</td>
+              <td data-label="Containment">Task ledger with owners; version-conditional updates; resolve conflicts by policy, authority, freshness, reversibility — not arrival order or majority vote</td>
+            </tr>
+            <tr>
+              <th scope="row">Market / competitive</th>
+              <td data-label="Use when">You want competing proposals or load balancing</td>
+              <td data-label="Typical failure">Selection by score instead of correctness; high cost</td>
+              <td data-label="Containment">Independent evaluation of proposals; budget limits</td>
+            </tr>
+            <tr>
+              <th scope="row">Hybrid (recommended)</th>
+              <td data-label="Use when">Most enterprise work</td>
+              <td data-label="Typical failure">Unclear which layer owns which decision</td>
+              <td data-label="Containment">Centralize what must be consistent — state, policy, approval. Distribute what benefits from locality — research, drafting, analysis.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 EVIDENCE & SHARED STATE ============ -->
+  <section class="research-section" id="evidence" aria-labelledby="evidence-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Evidence, Context, and Shared State</div>
+        <h2 id="evidence-h">What Crosses a Handoff Matters More Than Who Sends It</h2>
+        <p class="section-lede">
+          Coordination assumes agents act on a shared understanding of
+          what is true, current, and applicable. That assumption fails
+          quietly when knowledge is stale, out of scope, or read with a
+          different meaning by each agent that touches it.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>An evidence-first handoff</h3>
+          <code class="quote is-diagram">Handoff
+├── Claim
+├── Evidence: source · time · applicability
+├── Uncertainty and contradictions
+├── What was not checked
+├── Authority used
+└── Next action requested</code>
+          <p>
+            “Done” is not a handoff. The next role needs the grounds to
+            decide, not only the conclusion.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Shared memory is not automatically safe</h3>
+          <p>
+            Old task state, another agent’s unrelated context, or a stale
+            conclusion left in shared memory pollutes a new decision as
+            convincingly as fabricated data. What to share and what to
+            isolate is a design choice, not a default.
+          </p>
+          <ul>
+            <li>source — where it came from</li>
+            <li>freshness — until when it can be used</li>
+            <li>meaning — one interpretation for every consumer</li>
+            <li>provenance — how and by what authority it was produced</li>
+          </ul>
+          <code class="quote">
+            If knowledge quality is low,
+            autonomy must also be reduced.
+          </code>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/14.png"
+           data-lightbox aria-label="Open the diagram of knowledge flow supporting autonomy and decision trace supporting accountability">
+          <img src="assets2/14.png"
+               alt="Diagram titled 'Knowledge Supports Autonomy, Decision Trace Supports Accountability,' showing knowledge flow with source, freshness, meaning, relationship, and trust feeding autonomy and decision, which are recorded in a decision trace of observation, context, knowledge, policy, risk and trust, action, and outcome."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Knowledge flow decides how much autonomy is safe; the decision trace makes the resulting decision accountable.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 05 PRINCIPLES ============ -->
+  <section class="research-section" id="principles" aria-labelledby="principles-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Implementation Principles</div>
+        <h2 id="principles-h">Eight Principles You Can Apply Next Week</h2>
+        <p class="section-lede">
+          Each principle is a design decision you can check in a
+          review — and each has a concrete form on the shop floor.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-2">
+        <div class="concept">
+          <div class="idx">01</div>
+          <h3>Role separation</h3>
+          <p>Generation, verification, approval, and execution are different roles with different credentials and failure domains. Combine them only for small, reversible work.</p>
+          <p class="eg"><b>In practice</b>The agent that drafts the customer email cannot send it.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">02</div>
+          <h3>Explicit task contracts</h3>
+          <p>Every assignment states goal, scope, inputs, done-criteria, deadline, authority, and escalation path. “Help with this” is not a contract.</p>
+          <p class="eg"><b>In practice</b>“Summarize line-3 incidents from the last 30 days; read-only; done when every claim cites a source.”</p>
+        </div>
+        <div class="concept">
+          <div class="idx">03</div>
+          <h3>Evidence-first handoff</h3>
+          <p>Claims move with source, time, applicability, and open questions. A step without evidence is not complete, however confident the text.</p>
+          <p class="eg"><b>In practice</b>The Researcher reports “no similar defect found,” plus the two systems it could not query.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">04</div>
+          <h3>Least privilege</h3>
+          <p>Credentials are scoped per agent and per task, and they expire. A delegation can narrow authority but never widen it.</p>
+          <p class="eg"><b>In practice</b>The support agent reads the CRM and drafts a refund; the refund API is not in its token.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">05</div>
+          <h3>Independent verification</h3>
+          <p>The verifier uses different context, sources, and criteria than the producer. Agreement between agents sharing the same premise is not correctness.</p>
+          <p class="eg"><b>In practice</b>The test agent writes tests from the specification, not from the implementer’s code.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">06</div>
+          <h3>Human approval binding</h3>
+          <p>Chinoba defines Approval Binding as tying an approval to one action, its parameters, the evidence version, the approver, and an expiry. If anything changes, the approval no longer applies.</p>
+          <p class="eg"><b>In practice</b>A manager approves “10% discount, Customer X, quote v4, today.” Quote v5 needs a new approval.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">07</div>
+          <h3>Observability and decision trace</h3>
+          <p>Record what was known, which boundary was checked, why the system chose Act, Ask, or Stop, and who approved — not only the output.</p>
+          <p class="eg"><b>In practice</b>The trace shows that evidence was dropped at the third handoff, so the fix is a handoff schema, not a better model.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">08</div>
+          <h3>Graceful stop and kill switch</h3>
+          <p>Stopping means revoking external connections and execution authority first, while preserving state. After a timeout, inquire about state; never blindly re-execute.</p>
+          <p class="eg"><b>In practice</b>An outbound-email spike trips a breaker: executor credentials are revoked, drafts are kept for review.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 LIFECYCLE ============ -->
+  <section class="research-section" id="lifecycle" aria-labelledby="lifecycle-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Coordination Lifecycle</div>
+        <h2 id="lifecycle-h">Execution Is One Layer. Verification and Approval Are Another.</h2>
+        <p class="section-lede">
+          Work moves from signal to outcome in eight steps. The key
+          design move is the commit boundary: agents may draft, analyze,
+          and simulate freely inside a sandbox, but nothing changes the
+          outside world until verification and approval have passed.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="assets3/coordination-lifecycle.png"
+           data-lightbox aria-label="Open the coordination lifecycle diagram">
+          <img src="assets3/coordination-lifecycle.png"
+               width="1672" height="941"
+               alt="Coordination Lifecycle in eight steps: Signal or Request, Decompose, Assign, Execute in a sandbox, Verify, Approve, Commit or Act, Observe or Learn. Steps one to four are a reversible sandbox, Verify and Approve are pre-commit gates, and a commit boundary precedes the effects. Each step lists its owner and artifact. Rejected work returns to Execute or Decompose, and outcomes feed back to the start."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Verify and Approve sit before the commit boundary. Execution produces candidates; only Commit changes the outside world, and rejected work returns to the sandbox.</figcaption>
+      </figure>
+
+      <div class="two-col" style="margin-top:clamp(40px,5vw,56px);">
+        <div class="col-text">
+          <h3>What each step must produce</h3>
+          <ul>
+            <li><strong>Signal / Request</strong> — a request with stated intent</li>
+            <li><strong>Decompose</strong> — a task graph with success criteria</li>
+            <li><strong>Assign</strong> — a task contract per agent</li>
+            <li><strong>Execute</strong> — a draft and an evidence pack, no external effects</li>
+            <li><strong>Verify</strong> — an independent verification report</li>
+            <li><strong>Approve</strong> — a bound approval, or a rejection with reasons</li>
+            <li><strong>Commit / Act</strong> — an action receipt, matching the approval exactly</li>
+            <li><strong>Observe / Learn</strong> — a decision trace that updates trust, policy, and knowledge</li>
+          </ul>
+        </div>
+        <div class="col-text">
+          <h3>Gates before, recovery after</h3>
+          <p>
+            Pre-commit checks prevent what you can foresee. Monitoring
+            and rollback contain what you cannot. They complement each
+            other — and rollback does not help with a sent email, a
+            published statement, or a physical command.
+          </p>
+          <p>
+            That is why the more irreversible the action, the more it
+            belongs behind a gate rather than behind a retry.
+          </p>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/10.png"
+           data-lightbox aria-label="Open the diagram combining pre-execution verification with post-execution recovery">
+          <img src="assets2/10.png"
+               alt="Diagram titled 'Combine Pre-Execution Verification with Post-Execution Recovery,' showing planner, policy check, risk check, and execution feeding action, monitor, detect, stop or rollback, and learn, alongside the notes 'common knowledge leads to common error' and 'irreversible action cannot roll back.'"
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Pre-execution checks and post-execution recovery are complementary — one prevents what it can foresee, the other contains what it cannot.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 07 AUTHORITY ============ -->
+  <section class="research-section" id="authority" aria-labelledby="authority-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Authority: Autonomy Control and Delegation</div>
+        <h2 id="authority-h">Autonomy Is Generated at Runtime, Not Assigned Once</h2>
+        <p class="section-lede">
+          Low autonomy is safe but slow and burdensome; high autonomy is
+          fast but lets mistakes propagate. The answer is not a
+          permanent setting. It is a control plane that resolves goal,
+          role, permission, context, knowledge, risk, trust, and boundary
+          into one of three outcomes — Act, Ask, or Stop — for each decision.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/12.png"
+           data-lightbox aria-label="Open the diagram of the Autonomy Control Plane">
+          <img src="assets2/12.png"
+               alt="Diagram titled 'Integrated Autonomy Management: Autonomy Control Plane,' showing Goal, Role, Permission, Context, Knowledge, Risk, Trust, and Boundary feeding a central control plane that resolves to Act, Ask, or Stop between AI agents and external systems."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Eight inputs resolve into exactly one of three outcomes: Act, Ask, or Stop.</figcaption>
+      </figure>
+
+      <div class="two-col" style="margin-top:clamp(40px,5vw,56px);">
+        <div class="col-text">
+          <h3>Five levels, chosen per task and context</h3>
+          <ul>
+            <li><strong>L0 Observe only</strong> — collect and analyze, no external action</li>
+            <li><strong>L1 Recommend</strong> — present options; a human acts</li>
+            <li><strong>L2 Act with approval</strong> — prepare, then execute after approval</li>
+            <li><strong>L3 Act with monitoring</strong> — execute, then review</li>
+            <li><strong>L4 Autonomous</strong> — decide and execute within an authorized scope</li>
+          </ul>
+          <p>
+            The same agent sends product information at L4 and needs
+            manager approval at L2 before committing to a discount.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>A Human Gate is not a rubber stamp</h3>
+          <p>
+            To avoid approval fatigue, the gate must show the options,
+            the evidence and reasoning, what is unresolved, the likely
+            impact if wrong, and the deadline. Approvals are then
+            <em>bound</em> to that exact action. In this framework,
+            Approval Binding means tying an approval to one action, its
+            parameters, the evidence version, the approver, and an
+            expiry, so an executor can refuse anything that no longer
+            matches. It is a design definition used on this page, not a
+            general industry standard.
+          </p>
+          <code class="quote">
+            Capability is what an agent can do.
+            Authority is whether it may do so here, now,
+            for this purpose.
+          </code>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:clamp(40px,5vw,56px);">
+        <div class="col-text">
+          <h3>Delegation is a contract, not a message</h3>
+          <code class="quote is-diagram">Delegation Contract
+├── Purpose
+├── Scope
+├── Authority
+├── Constraints
+├── Expiration
+├── Responsibility
+└── Expected Outcome</code>
+        </div>
+        <div class="col-text">
+          <h3>Where delegated authority breaks</h3>
+          <p>
+            Redelegation without a carried-forward contract is how
+            privilege escalates silently. A Planner could request a
+            prohibited operation by asking a highly privileged Executor.
+            Every delegation must be traceable end to end and revocable
+            when its purpose or the trust behind it no longer holds.
+          </p>
+          <p>
+            Even a joint decision needs a human <strong>accountable
+            owner</strong>; responsibility does not dissolve because the
+            decision was distributed.
+          </p>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/15.png"
+           data-lightbox aria-label="Open the diagram of AI-to-AI requests treated as delegation contracts">
+          <img src="assets2/15.png"
+               alt="Diagram titled 'Treat Requests Between AI Agents as Delegation Contracts,' showing a planner agent issuing a delegation contract with purpose, scope, authority, constraints, expiration, and responsibility to an execution agent, and blocking an unauthorized redelegation of authority."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">A delegation contract binds authority to a purpose and an expiration — and blocks the redelegation that would let autonomy escalate unnoticed.</figcaption>
+      </figure>
+
+      <figure class="figure figure-wide figure-standard">
+        <a class="figure-frame" href="assets2/13.png"
+           data-lightbox aria-label="Open the diagram of autonomy levels by task and context">
+          <img src="assets2/13.png"
+               alt="Diagram titled 'Even for the Same AI, Adjust Autonomy by Task,' showing five autonomy levels from Level 0 observe only to Level 4 autonomous action, mapped to examples: product information at Level 4, discount proposal at Level 2, contract commitment at Level 1 or 2, and unauthorized action at Level 0."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Autonomy is determined by task and context, not by agent: the same AI sits at different levels for different actions.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 08 FAILURE MODES ============ -->
+  <section class="research-section" id="failure-modes" aria-labelledby="failure-modes-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">08 / Failure Modes</div>
+        <h2 id="failure-modes-h">Six Ways Multi-Agent Systems Fail — and the Design Answer to Each</h2>
+        <p class="section-lede">
+          These failures are rarely model failures. They are structural:
+          an agent verified itself, a boundary was missing, a memory was
+          polluted. Each has a design-level countermeasure.
+        </p>
+      </div>
+
+      <div class="concept-grid cols-2">
+        <div class="concept">
+          <div class="idx">F1</div>
+          <h3>Many agents amplify the same error</h3>
+          <p>Agents sharing one context, source, or model share one blind spot, and agreement looks like confirmation.</p>
+          <p class="eg fix"><b>Design</b>Independent sources and criteria for the verifier. Treat agreement as a signal, not proof. Resolve conflicts by policy, authority, freshness, and reversibility — never majority vote.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">F2</div>
+          <h3>Self-verification and self-approval</h3>
+          <p>The producer checks its own work, or a supervisor approves the plan it wrote.</p>
+          <p class="eg fix"><b>Design</b>Separate credentials per role. Enforce policy outside the agents. The executor validates a bound approval before acting.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">F3</div>
+          <h3>Shared memory contamination</h3>
+          <p>Stale, unverified, or out-of-scope conclusions sit in shared memory and are read as facts.</p>
+          <p class="eg fix"><b>Design</b>Append-only evidence with provenance and expiry. Task-scoped memory. Validate or quarantine writes. Keep “claims” separate from “verified facts.”</p>
+        </div>
+        <div class="concept">
+          <div class="idx">F4</div>
+          <h3>Responsibility disappears between agents</h3>
+          <p>Planning, investigation, execution, and review each assume someone else owns the outcome.</p>
+          <p class="eg fix"><b>Design</b>A named accountable owner in every task contract. A trace entry for every handoff. A human owner for any joint decision.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">F5</div>
+          <h3>A privileged agent becomes too clever</h3>
+          <p>The more capable and autonomous the agent holding authority, the more damage one wrong judgment can do.</p>
+          <p class="eg fix"><b>Design</b>Autonomy set per task and context (L0–L4). Capability is not authority. Policy sits outside the agent; supervisors cannot override it.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">F6</div>
+          <h3>Connections and deploy rights cross the boundary</h3>
+          <p>An agent with network, email, or deploy access acts outside its intended scope — by error or by compromise.</p>
+          <p class="eg fix"><b>Design</b>An execution boundary with egress allow-lists, per-task expiring credentials, staged deploys, pre-commit gates for irreversible actions, and a kill switch.</p>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-main" style="margin-top:clamp(40px,5vw,56px);">
+        <a class="figure-frame" href="assets3/failure-containment-blast-radius.png"
+           data-lightbox aria-label="Open the failure containment and blast radius diagram">
+          <img src="assets3/failure-containment-blast-radius.png"
+               width="1672" height="941"
+               alt="Failure containment diagram comparing two systems with the same compromised Agent A. In the flat system, shared memory and one credential set spread the failure to Agents B, C, and D, so the blast radius is the whole system. In the contained system, scoped credentials, own memory, and barriers between cells keep the failure inside Agent A's cell, with an append-only evidence store and an executor behind the execution boundary. Four controls: scoped credentials, validated handoffs, circuit breaker, kill switch."
+               loading="lazy">
+        </a>
+        <figcaption class="figure-caption">The same compromised agent, two outcomes. Scoped credentials, validated handoffs, circuit breakers, and a kill switch turn a system-wide failure into a one-cell failure.</figcaption>
+      </figure>
+
+      <p class="table-title">Classic distributed-systems failures — amplified by AI judgment</p>
+      <p class="table-caption">The names are familiar; what changes is how much worse each becomes once judgment, delegated authority, and external execution are involved.</p>
+      <div class="table-wrap" style="margin-top:0;">
+        <table class="matrix">
+          <thead>
+            <tr><th scope="col">Failure</th><th scope="col">What happens with agents</th><th scope="col">Containment</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Deadlock</th>
+              <td data-label="With agents">Cyclic waits that stay hidden because each agent keeps producing plausible status updates</td>
+              <td data-label="Containment">Timeouts, dependency graphs, priority scheduling, a supervisor empowered to break the cycle, escalation to a human</td>
+            </tr>
+            <tr>
+              <th scope="row">Race conditions</th>
+              <td data-label="With agents">Two coherent decisions on the same record; one silently overwrites the other</td>
+              <td data-label="Containment">Mutual exclusion, optimistic locking, a policy for resolving conflicting decisions — not only writes</td>
+            </tr>
+            <tr>
+              <th scope="row">Duplicate execution</th>
+              <td data-label="With agents">A timed-out retry repeats an order or email that already succeeded</td>
+              <td data-label="Containment">Idempotency keys, a task ledger, semantic deduplication, cache with freshness rules</td>
+            </tr>
+            <tr>
+              <th scope="row">Irreversible actions</th>
+              <td data-label="With agents">Sent emails, signed contracts, and machine commands cannot be rolled back</td>
+              <td data-label="Containment">Pre-commit Human Gate; compensating actions as a fallback</td>
+            </tr>
+            <tr>
+              <th scope="row">Cascading failure</th>
+              <td data-label="With agents">One agent’s wrong conclusion becomes the next agent’s trusted input</td>
+              <td data-label="Containment">Fail-closed defaults, circuit breakers, bulkheads, validation agents</td>
+            </tr>
+            <tr>
+              <th scope="row">Naive retry</th>
+              <td data-label="With agents">The same flawed reasoning repeated more confidently</td>
+              <td data-label="Containment">Backoff, adaptive retry that changes agent, model, or tool; checkpoints for real rollback</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 09 APPLICATIONS ============ -->
+  <section class="research-section" id="applications" aria-labelledby="applications-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">09 / Enterprise Application Examples</div>
+        <h2 id="applications-h">Five Scenarios, One Pattern</h2>
+        <p class="section-lede">
+          In each case the outcome depends less on model capability than
+          on whether conflicting goals, stale knowledge, missing
+          authority, and irreversible actions were anticipated — and
+          whether the gate sits before the effect.
+        </p>
+      </div>
+
+      <div class="essays">
+        <div class="essay scenario">
+          <div class="kicker">Manufacturing</div>
+          <h3>Fault and quality investigation</h3>
+          <p>A Research agent finds “no issue in past cases,” a Risk agent sees a weak anomaly, and a Compliance agent flags a new regulation. Which signal wins is a coordination decision, set by policy — not by arrival order.</p>
+          <div class="flow-line">Sensor event → Detection → Risk evaluation → Boundary check → Human approval → Maintenance → Trace</div>
+          <div class="gate"><b>Gate</b>Line-stop and equipment commands are physical and irreversible: fail-safe defaults and a human approval sit in front of them.</div>
+        </div>
+        <div class="essay scenario">
+          <div class="kicker">Software development</div>
+          <h3>Design, implementation, test, independent verifier</h3>
+          <p>Change generation is kept separate from change application. The test agent derives tests from the specification, and a Verifier with its own context checks security and CI results.</p>
+          <div class="flow-line">Plan → Implement → Test from spec → Independent verify → Maintainer approval → Staged deploy</div>
+          <div class="gate"><b>Gate</b>The implementer has no merge or deploy rights; an automatic fix still routes through approval before it merges.</div>
+        </div>
+        <div class="essay scenario">
+          <div class="kicker">Customer response</div>
+          <h3>Proposals and external notification</h3>
+          <p>Sales prepares, Finance checks credit and margin, Legal checks contract exceptions, and a Coordination agent integrates. No agent finalizes a discount or sends the message alone.</p>
+          <div class="flow-line">Request → Research → Proposal → Policy and risk check → Human Gate → Send → Trace</div>
+          <div class="gate"><b>Gate</b>Drafts run automatically; discount exceptions need manager and legal approval; final external communication needs explicit, bound approval; a possible legal violation stops and escalates.</div>
+        </div>
+        <div class="essay scenario">
+          <div class="kicker">Knowledge work</div>
+          <h3>Internal knowledge search and decision support</h3>
+          <p>Researcher agents retrieve with provenance and freshness; a Verifier flags stale or conflicting sources; the answer arrives with uncertainty and options. The decision stays with a person.</p>
+          <div class="flow-line">Question → Retrieve → Verify freshness and conflicts → Options + uncertainty → Human decision → Trace</div>
+          <div class="gate"><b>Gate</b>Low action risk allows high autonomy, but only if knowledge quality clears the bar — otherwise autonomy drops to recommend.</div>
+        </div>
+        <div class="essay scenario">
+          <div class="kicker">Across organizations</div>
+          <h3>Buyer, supplier, and logistics agents</h3>
+          <p>Agents become representatives of their organizations. Identity is not authority: a verified logistics agent still needs a delegation contract and shares only the minimum information the purpose requires.</p>
+          <div class="flow-line">Discover → Verify → Negotiate → Delegate → Observe → Trace → Renew or revoke</div>
+          <div class="gate"><b>Gate</b>Each party keeps an internal trace; only delegations, consent, evidence, and verifiable results go into a shared boundary trace.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 10 CHECKLIST ============ -->
+  <section class="research-section" id="checklist" aria-labelledby="checklist-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">10 / Practical Design Checklist</div>
+        <h2 id="checklist-h">What to Check Before Agents Touch Real Systems</h2>
+        <p class="section-lede">
+          Use this in an architecture review. Every unchecked item is a
+          place where a failure can travel, or where no one can say
+          afterward what happened.
+        </p>
+      </div>
+
+      <form class="check-groups" id="checklist-form" onsubmit="return false;" aria-describedby="check-tally">
+        <fieldset class="check-group">
+          <legend>Roles and authority</legend>
+          <label><input type="checkbox"><span>Each agent has <b>what it may decide</b> and what it must never do defined — not only what it can call.</span></label>
+          <label><input type="checkbox"><span>Generation, verification, approval, and execution are separate roles for high-impact actions.</span></label>
+          <label><input type="checkbox"><span>Policy is evaluated outside the agents; capability is never treated as authority.</span></label>
+          <label><input type="checkbox"><span>Every task has a named accountable human owner.</span></label>
+        </fieldset>
+
+        <fieldset class="check-group">
+          <legend>Handoff and evidence</legend>
+          <label><input type="checkbox"><span>Handoffs carry <b>evidence, source, freshness, and uncertainty</b> — not just “done.”</span></label>
+          <label><input type="checkbox"><span>Task contracts state goal, scope, done-criteria, deadline, and escalation path.</span></label>
+          <label><input type="checkbox"><span>Shared memory has provenance, expiry, and scoped, validated writes.</span></label>
+          <label><input type="checkbox"><span>Redelegation is blocked unless the contract explicitly allows it.</span></label>
+        </fieldset>
+
+        <fieldset class="check-group">
+          <legend>Verification and approval</legend>
+          <label><input type="checkbox"><span>An <b>independent verifier</b> (different context, sources, criteria) runs before any external effect.</span></label>
+          <label><input type="checkbox"><span>High-risk operations require <b>Approval Binding</b>: action, parameters, evidence version, expiry.</span></label>
+          <label><input type="checkbox"><span>Approval requests show options, rationale, risk, policy, and consequences.</span></label>
+          <label><input type="checkbox"><span>The executor refuses any action that no longer matches its approval.</span></label>
+        </fieldset>
+
+        <fieldset class="check-group">
+          <legend>Stop and recovery</legend>
+          <label><input type="checkbox"><span>External connections and execution authority can be <b>revoked in one operation</b>.</span></label>
+          <label><input type="checkbox"><span>Timeouts lead to state inquiry, not blind retry; idempotency keys and a task ledger prevent duplicates.</span></label>
+          <label><input type="checkbox"><span>Irreversible actions sit behind pre-commit gates; reversible ones have rollback or compensation.</span></label>
+          <label><input type="checkbox"><span>Each task has step, time, and cost budgets and a circuit breaker.</span></label>
+        </fieldset>
+
+        <fieldset class="check-group" style="grid-column: 1 / -1;">
+          <legend>Traceability</legend>
+          <label><input type="checkbox"><span>The decision trace shows observation, evidence, policy, risk, the reason for Act / Ask / Stop, approval, action, and outcome.</span></label>
+          <label><input type="checkbox"><span>Handoff loss, rejected approvals, and escalation rates are monitored and fed back into policy and knowledge.</span></label>
+          <label><input type="checkbox"><span>You have tested it: a past incident can be reconstructed from the trace alone.</span></label>
+        </fieldset>
+      </form>
+      <p class="check-tally" id="check-tally" aria-live="polite"><output id="check-count">0</output> of <span id="check-total">19</span> checked. Selections stay in your browser and are not saved.</p>
+    </div>
+  </section>
+
+  <!-- ============ 11 LIBRARY ============ -->
+  <section class="research-section" id="library" aria-labelledby="library-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">11 / Books, Video, and Blog</div>
+        <h2 id="library-h">Go Deeper</h2>
+        <p class="section-lede">
+          This page distills two practical guides. The first is the full
+          engineering treatment; the second places coordination inside a
+          runtime for human–AI society.
+        </p>
+      </div>
+
       <span class="featured-badge">Featured Publication</span>
       <div class="featured-pub">
         <div class="books-list">
@@ -314,15 +1145,16 @@
               <div class="book-title">AI Coordination Engineering: A Practical Guide</div>
               <div class="book-subtitle">Designing Coordination, Autonomy, and Trust in the Multi-Agent Era</div>
               <p>
-                The practical guide behind this page's architecture. It
-                works through why coordination is not communication, how
-                deadlock, race conditions, duplicate execution, and
-                cascading failure grow more dangerous once AI judgment and
-                external execution are involved, how an Autonomy Control
-                Plane resolves Goal, Role, Permission, Context, Knowledge,
-                Risk, Trust, and Boundary into Act, Ask, or Stop, how
-                Delegation Contracts carry authority between agents, and
-                how Decision Trace closes the loop back into coordination.
+                Forty-seven chapters plus appendices on the full stack:
+                why coordination is not communication, Planner / Researcher
+                / Reviewer / Executor roles and supervisor, peer-to-peer,
+                and hierarchical architectures, deadlock, race conditions,
+                duplicate execution, and cascading failure, the seven
+                approaches to autonomy control and the Autonomy Control
+                Plane, Delegation Contracts, responsibility diffusion,
+                Decision Trace, and the AI Coordination Runtime — with
+                schemas for delegation, trace, and policy, a Human Gate
+                checklist, and an adoption roadmap.
               </p>
               <a class="book-link" href="https://amzn.to/4if6eL9" target="_blank" rel="noopener noreferrer">View on Amazon →</a>
               <span class="book-asin">ASIN B0HFLQTP1F · Kindle · Masao Watanabe</span>
@@ -331,32 +1163,28 @@
               <img src="/assets/books/B0HFLQTP1F.jpg" alt="" loading="lazy">
             </a>
           </div>
+          <div class="book no-cover">
+            <div class="book-body">
+              <div class="book-title">Multi-Agent Coordination: Governance, Resonance and Runtime Society</div>
+              <p>
+                The runtime view: agent routing, specialized agents,
+                boundary checks, Human Gates, retry, override, and
+                coordination trace as one structure for connecting agents
+                to organizations, law, and responsibility — in
+                manufacturing, open-source operations, and government.
+              </p>
+              <a class="book-link" href="https://amzn.to/4431TCv" target="_blank" rel="noopener noreferrer">View on Amazon →</a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ============ FEATURED RESOURCES ============ -->
-  <section class="research-section" id="resources" aria-labelledby="resources-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">Featured Resources</div>
-        <h2 id="resources-h">Start Here — the New Practical Guide, Books, Video, and Blog</h2>
-        <p class="section-lede">
-          The practical guide above leads this line of inquiry. Below it
-          are the neighboring Chinoba books, videos, and essays on
-          Multi-Agent Systems, Autonomy Control, Trust Infrastructure,
-          Decision Trace, and Runtime Society that this page draws on.
-        </p>
-      </div>
-
-      <div class="essays">
+      <div class="essays" id="resources" style="margin-top:clamp(40px,5vw,56px);">
         <div class="essay">
           <h3>📚 More Books</h3>
-          <p>Neighboring practical guides on the governance, trust, knowledge, and runtime layers that AI Coordination Engineering connects.</p>
+          <p>Neighboring practical guides on the governance, trust, knowledge, and runtime layers that AI Coordination connects.</p>
           <div class="theme-links">
             <div class="theme-lang">English</div>
-            <a href="https://amzn.to/4431TCv" target="_blank" rel="noopener noreferrer">Multi-Agent Coordination: Governance, Resonance and Runtime Society →</a>
             <a href="https://amzn.to/4wwTXVS" target="_blank" rel="noopener noreferrer">Runtime AI Governance: Practical Guide →</a>
             <a href="https://amzn.to/3SF97KP" target="_blank" rel="noopener noreferrer">Trust Infrastructure: Practical Guide →</a>
             <a href="https://amzn.to/4bW7NcW" target="_blank" rel="noopener noreferrer">Knowledge Flow Practical Guide →</a>
@@ -383,7 +1211,7 @@
 
         <div class="essay">
           <h3>📰 From the Blog</h3>
-          <p>The long-form essays behind this page's argument, on coordination, orchestration, and agent safety as runtime infrastructure.</p>
+          <p>Long-form essays on coordination, orchestration, and agent safety as runtime infrastructure.</p>
           <div class="theme-links">
             <div class="theme-lang">English</div>
             <a href="https://deus-ex-machina-ism.com/en/ai-coordination/" target="_blank" rel="noopener noreferrer">AI Coordination →</a>
@@ -398,675 +1226,66 @@
     </div>
   </section>
 
-  <!-- ============ 01 MULTI-AGENT SYSTEMS BRIDGE ============ -->
-  <section class="research-section" id="multi-agent-bridge" aria-labelledby="multi-agent-bridge-h">
+  <!-- ============ 12 POSITION IN CHINOBA ============ -->
+  <section class="research-section" id="position" aria-labelledby="position-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">01 / Multi-Agent Systems — Where the Coordination Problem Begins</div>
-        <h2 id="multi-agent-bridge-h">Multi-Agent Systems — Where the Coordination Problem Begins</h2>
+        <div class="section-label">12 / Where Coordination Sits in the Chinoba Architecture</div>
+        <h2 id="position-h">Coordination Is the Layer That Turns Evidence and Authority Into Action</h2>
         <p class="section-lede">
-          A single AI Agent can reason, call tools, and execute a task
-          within its own scope. Enterprise systems increasingly
-          distribute that capability instead — across a research Agent,
-          a pricing Agent, a contract Agent, a risk Agent — into a
-          Multi-Agent System. That system is where the coordination
-          problem this page addresses actually begins.
+          Knowledge Flow supplies the evidence, Governance sets the
+          boundaries, Trust Infrastructure makes parties verifiable, and
+          Decision Trace remembers what happened. AI Coordination is
+          where all of them meet in a running multi-agent system.
         </p>
       </div>
 
-      <div class="two-col">
-        <div class="col-text">
-          <h3>From Specialized Agents to a Coordination Problem</h3>
-          <code class="quote is-diagram">Single Agent
-↓ Specialized Agents
-↓ Multi-Agent System
-↓ Coordination Problem
-↓ AI Coordination
-↓ Accountable Action</code>
-          <p>
-            Specialization solves a real problem — narrower scope,
-            reusable roles, parallel execution, separated expertise. It
-            does not, by itself, decide who owns the goal, which Agent
-            acts next, what context is shared, or when a human must
-            intervene. Adding Agents multiplies capability; it does not,
-            on its own, produce coordination.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>Two Different Contributions</h3>
-          <code class="quote">
-            Multi-Agent Systems
-            = the architecture of distributed,
-            specialized capability
-
-            AI Coordination
-            = the discipline that aligns that
-            capability into accountable action
-          </code>
-          <p>
-            Multi-Agent Systems provide distributed capability. AI
-            Coordination is what makes distributed capability
-            governable — the subject of the sections that follow.
-          </p>
-        </div>
+      <p class="table-caption">What each research area contributes to coordination — and what coordination asks of it.</p>
+      <div class="table-wrap" style="margin-top:0;">
+        <table class="matrix">
+          <thead>
+            <tr><th scope="col">Research area</th><th scope="col">Contributes to coordination</th><th scope="col">Coordination asks of it</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="/research/knowledge-flow">Knowledge Flow</a></th>
+              <td data-label="Contributes">Evidence with source, freshness, meaning, and provenance</td>
+              <td data-label="Coordination asks">Knowledge quality gates that lower autonomy when evidence is weak</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="/research/decision-trace-model">Decision Trace Model</a></th>
+              <td data-label="Contributes">The causal record of observation, policy, approval, action, and outcome</td>
+              <td data-label="Coordination asks">A trace that spans agents, handoffs, and humans, not per-agent logs</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="/research/governance-boundary-systems">Governance &amp; Boundary Systems</a></th>
+              <td data-label="Contributes">Boundaries, Human Gates, and escalation rules</td>
+              <td data-label="Coordination asks">Boundaries evaluated at runtime, outside every agent</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="/research/trust-infrastructure">Trust Infrastructure</a></th>
+              <td data-label="Contributes">Identity, authority, and evidence that parties can verify</td>
+              <td data-label="Coordination asks">Trust as task-specific and revocable, not a fixed score</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="/research/multi-agent-systems">Multi-Agent Systems</a></th>
+              <td data-label="Contributes">Specialized agents and the frameworks that implement them</td>
+              <td data-label="Coordination asks">Roles, contracts, and state that frameworks do not provide on their own</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="/research/runtime-society">Runtime Society</a></th>
+              <td data-label="Contributes">The wider system where organizations and people run alongside agents</td>
+              <td data-label="Coordination asks">Coordination that extends across organizational boundaries</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
-      <p style="max-width:760px; color:var(--fg-mute); font-size:15.5px; line-height:1.85; margin-top:clamp(32px,4vw,44px);">
-        A compact enterprise example makes this concrete: a customer
-        request passed through a research agent, a pricing agent, a
-        contract agent, and a risk agent before reaching approval.
-      </p>
-
-      <code class="quote is-diagram" style="max-width:420px;">Customer Request
-↓ research-agent
-↓ pricing-agent
-↓ contract-agent
-↓ risk-agent
-↓ approval</code>
-
-      <p style="max-width:760px; color:var(--fg-mute); font-size:15.5px; line-height:1.85; margin-top:clamp(24px,3vw,32px);">
-        Each Agent in that chain can be individually competent —
-        accurate research, defensible pricing, careful contract review —
-        and the handoff between them can still fail, because competence
-        at one step says nothing about goal, role, context, knowledge,
-        authority, responsibility, risk, trust, or boundary at the next.
-        That is not a framework problem. It is the AI Coordination
-        problem the rest of this page works through in detail. Such
-        systems are commonly implemented with Agent Frameworks —
-        OpenAI Agents SDK, Claude Agent SDK, AutoGen, LangGraph — which
-        help implement Agents and workflows but do not by themselves
-        resolve the coordination problem addressed here.
-      </p>
-
-      <code class="quote is-diagram">Multiple Agents ≠ Coordinated System
-Communication ≠ Coordination
-Coordination ≠ Decision Authority
-Agent Consensus ≠ Organizational Decision</code>
-
-      <p class="closing-cta" style="margin-top:28px;">
-        Explore how specialized Agents, OpenAI Agents SDK, Claude Agent
-        SDK, AutoGen, LangGraph, and the Chinoba Decision Runtime fit
-        together in practical Multi-Agent architectures.
-      </p>
-      <p class="closing-cta" style="margin-top:8px;">
-        <a class="book-link" href="/research/multi-agent-systems/">Explore Multi-Agent Systems →</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- ============ 02 COORDINATION IS NOT COMMUNICATION ============ -->
-  <section class="research-section" id="not-communication" aria-labelledby="not-communication-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">02 / Coordination Is Not Communication</div>
-        <h2 id="not-communication-h">Coordination Is Not Communication</h2>
-        <p class="section-lede">
-          A research agent can report "research complete," a policy agent
-          can report "verified," and a review agent can report "approval
-          possible" — every message delivered correctly, none of it
-          malformed — and the resulting action can still be wrong. That
-          is not a communications failure. It is a coordination failure,
-          and no amount of message-broker reliability, retries, or
-          encryption prevents it.
-        </p>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>What Coordination Requires Beyond Messages</h3>
-          <p>
-            The ability to send and receive messages is necessary for
-            coordination. It is not sufficient. Coordination additionally
-            requires:
-          </p>
-          <code class="quote is-diagram">Common Purpose
-↓ Division of Roles
-↓ Situational Awareness
-↓ Decision-Making
-↓ Authority and Responsibility
-↓ Learning from Outcomes</code>
-        </div>
-
-        <div class="col-text">
-          <h3>Local Optimization Is Not Global Alignment</h3>
-          <p>
-            Adding smart agents does not automatically create a smart
-            system. Each agent can perform well when evaluated on its
-            own — and the overall system can still fail, because local
-            optimization is not the same thing as global alignment. The
-            recurring causes are goal conflict, context inconsistency,
-            authority conflict, the propagation of incorrect knowledge as
-            if it were verified fact, and coordination cost that eats the
-            gains coordination was meant to produce.
-          </p>
-          <code class="quote">
-            Every agent can be right on its own terms
-            and the system can still be wrong.
-            Majority vote settles a tally.
-            It does not settle correctness, authority, or safety.
-          </code>
-        </div>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/05.png"
-           data-lightbox aria-label="Open the diagram of errors flowing through an AI coordination network">
-          <img src="assets2/05.png"
-               alt="Diagram titled 'In AI Coordination, Errors Also Flow Through the Network,' showing a planner agent's wrong assumption passed to a coordinator agent, becoming wrong delegation to sales, contract, and payment agents, and resulting in coordinated failure."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">A wrong assumption does not stay with the agent that made it — it travels through delegation and becomes a coordinated failure shared by every agent that trusted it.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 03 FAILURE MODES OF MULTI-AGENT SYSTEMS ============ -->
-  <section class="research-section" id="failure-modes" aria-labelledby="failure-modes-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">03 / Failure Modes of Multi-Agent Systems</div>
-        <h2 id="failure-modes-h">Failure Modes of Multi-Agent Systems</h2>
-        <p class="section-lede">
-          Distributed systems already named these failure modes. What
-          changes when the actors are AI agents is not the name of the
-          failure — it is how much worse each one becomes once judgment,
-          delegated authority, propagated knowledge, and external
-          execution are combined with it.
-        </p>
-      </div>
-
-      <div class="concept-grid cols-3">
-        <div class="concept">
-          <div class="idx">i</div>
-          <h3>Deadlock</h3>
-          <p>Two agents each wait on a resource, approval, or answer the other holds. Among AI agents the stall can go unnoticed longer, because each side keeps generating plausible status updates instead of failing loudly. Timeouts, dependency graphs, and a supervisor agent empowered to break the cycle make the wait visible and end it.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">ii</div>
-          <h3>Race Conditions</h3>
-          <p>Two agents read the same account, contract, or plan and each proposes an update; one decision is silently overwritten, and because both used coherent reasoning, neither looks wrong on its own. Mutual exclusion, optimistic locking, and a coordination policy for resolving conflicting decisions — not only conflicting writes — contain it.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">iii</div>
-          <h3>Duplicate Execution</h3>
-          <p>An agent times out and retries a search, order, or email that had already succeeded. Because many AI actions are irreversible outside the system, duplication is not only wasted cost. Idempotency keys, a task ledger recording what has already been attempted, and semantic deduplication of near-identical requests are the containment.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">iv</div>
-          <h3>Irreversible Actions and Compensation</h3>
-          <p>A sent email, a signed contract, or a physical command cannot be undone by a database rollback. The Saga pattern's compensating action is the available substitute, and the more consequential the action, the more it belongs behind a pre-commit Human Gate rather than an automatic retry.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">v</div>
-          <h3>Cascading Failure</h3>
-          <p>One agent's incorrect conclusion becomes another agent's trusted input, and a single bad decision compounds as it is reused downstream. Fail-safe and fail-closed defaults, circuit breakers that stop calling a degraded agent, and bulkheads that contain a failure to one part of the system keep one error from becoming an organization-wide one.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">vi</div>
-          <h3>Retry, Recovery, and Rollback</h3>
-          <p>A naive retry repeats the same flawed reasoning under the same flawed conditions and returns the same wrong answer, more confidently. Exponential backoff, adaptive retry that switches the agent, model, or tool, and checkpoints that allow a genuine rollback turn a retry into recovery instead of repetition.</p>
-        </div>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/10.png"
-           data-lightbox aria-label="Open the diagram combining pre-execution verification with post-execution recovery">
-          <img src="assets2/10.png"
-               alt="Diagram titled 'Combine Pre-Execution Verification with Post-Execution Recovery,' showing planner, policy check, risk check, and execution feeding action, monitor, detect, stop or rollback, and learn, alongside the notes 'common knowledge leads to common error' and 'irreversible action cannot roll back.'"
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Pre-execution checks and post-execution recovery are complementary, not redundant — one prevents what it can foresee, the other contains what it cannot.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 04 AUTONOMY CONTROL ============ -->
-  <section class="research-section" id="autonomy-control" aria-labelledby="autonomy-control-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">04 / Autonomy Control: Policy, Risk, Trust, and Boundary</div>
-        <h2 id="autonomy-control-h">Autonomy Control: Policy, Risk, Trust, and Boundary</h2>
-        <p class="section-lede">
-          Autonomy is not one number. It has dimensions — an agent can be
-          highly autonomous in planning and tightly constrained in
-          action — and what an agent is technically capable of doing is
-          not the same as what it is authorized to do in this situation,
-          for this goal, under this permission.
-        </p>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>Six Dimensions of Autonomy</h3>
-          <p>Autonomy is decomposed along at least six axes, each independently adjustable:</p>
-          <code class="quote is-diagram">Goal Autonomy
-Planning Autonomy
-Decision Autonomy
-Action Autonomy
-Coordination Autonomy
-Learning Autonomy</code>
-        </div>
-
-        <div class="col-text">
-          <h3>Capability Is Not Authority</h3>
-          <p>
-            An agent may be technically capable of sending the email,
-            approving the refund, or committing the change — capability
-            is what it can do. Whether it may do so here, now, for this
-            requester and this stated purpose, is authority. Confusing
-            the two is how a correct action becomes an unauthorized one.
-          </p>
-          <code class="quote">
-            Autonomy is not a reward for age
-            or a property fixed to a model.
-            It is a range that widens when goal, role,
-            permission, context, knowledge, risk, trust,
-            and boundary support it — and narrows
-            the moment they do not.
-          </code>
-        </div>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/12.png"
-           data-lightbox aria-label="Open the diagram of the Autonomy Control Plane">
-          <img src="assets2/12.png"
-               alt="Diagram titled 'Integrated Autonomy Management: Autonomy Control Plane,' showing Goal, Role, Permission, Context, Knowledge, Risk, Trust, and Boundary feeding a central control plane that resolves to Act, Ask, or Stop between AI agents and external systems."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Autonomy is not fixed to an AI agent. It is determined at runtime, by a control plane that resolves eight inputs into exactly one of three outcomes.</figcaption>
-      </figure>
-
-      <div class="concept-grid cols-3">
-        <div class="concept">
-          <div class="idx">Act</div>
-          <h3>Act</h3>
-          <p>The agent executes within a defined scope — goal, role, permission, context, knowledge, risk, trust, and boundary all clear their thresholds, so no escalation is required.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">Ask</div>
-          <h3>Ask</h3>
-          <p>The agent presents its candidates, evidence, and unresolved questions to a human rather than deciding alone, because something about goal, risk, or trust does not clear on its own.</p>
-        </div>
-        <div class="concept">
-          <div class="idx">Stop</div>
-          <h3>Stop</h3>
-          <p>Execution is refused outright. Proceeding would cross a Boundary — and no amount of accumulated trust or operational efficiency reopens that door.</p>
-        </div>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>Boundary: What Trust Cannot Buy</h3>
-          <p>
-            A Boundary is not a policy exception waiting to be argued
-            down. It marks the limits that protect safety, privacy, human
-            rights, and critical assets — limits that hold regardless of
-            how capable, efficient, or previously reliable the agent
-            asking to cross them has been.
-          </p>
-        </div>
-        <div class="col-text">
-          <h3>Human Gate as a Control Point</h3>
-          <p>
-            A Human Gate is not a rubber-stamp approval click. It is the
-            point where an agent must present its candidate actions, the
-            evidence and reasoning behind them, what remains unresolved,
-            the likely impact if wrong, and the deadline by which a
-            decision is needed — so a human is deciding on the same
-            grounds the agent used, not on trust alone.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 05 KNOWLEDGE, CONTEXT, AND SHARED MEANING ============ -->
-  <section class="research-section" id="knowledge-context" aria-labelledby="knowledge-context-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">05 / Knowledge, Context, and Shared Meaning</div>
-        <h2 id="knowledge-context-h">Knowledge, Context, and Shared Meaning</h2>
-        <p class="section-lede">
-          Coordination assumes agents can act on a shared understanding of
-          what is true, current, and applicable. That assumption fails
-          quietly whenever knowledge is fragmented, stale, out of scope,
-          or interpreted with a different meaning by each agent that
-          touches it.
-        </p>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>What Knowledge Flow Carries</h3>
-          <p>Delivering the right knowledge to the right agent means carrying more than content:</p>
-          <ul>
-            <li>source — where it came from</li>
-            <li>freshness — until when it can be used</li>
-            <li>meaning — whether it can be interpreted the same way by every consumer</li>
-            <li>relationship — how it binds to this target and this context</li>
-            <li>provenance — how it was produced and by what authority</li>
-          </ul>
-        </div>
-
-        <div class="col-text">
-          <h3>Shared Memory Is Not Automatically Safe</h3>
-          <p>
-            A shared memory is not a solved problem simply because it
-            exists. Old task state, another agent's unrelated context, or
-            a stale conclusion left in shared memory can pollute a new
-            decision as convincingly as fabricated information. What to
-            share and what to isolate — context scope and context
-            boundary — has to be a deliberate design choice, not a
-            default.
-          </p>
-          <code class="quote">
-            If knowledge quality is low,
-            autonomy must also be reduced.
-          </code>
-        </div>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>Ontology and Knowledge Graph</h3>
-          <p>
-            An ontology is a semantic contract — a common vocabulary that
-            lets agents agree on what an entity, relation, or event means
-            before they argue about what to do with it. A knowledge graph
-            connects entities, relationships, events, roles, and
-            capabilities, so the context an agent needs is not
-            re-derived from scratch but shared as structure.
-          </p>
-        </div>
-        <div class="col-text">
-          <h3>Dynamic Task Assignment</h3>
-          <p>
-            Assigning the right work to the right agent draws on an
-            Agent Registry and Capability Profile — what an agent can do,
-            what knowledge and tools it can currently reach, its past
-            performance, its cost and response time, and its current
-            trust for this kind of task. Assignment is a runtime decision,
-            not a static org chart.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 06 DELEGATION, RESPONSIBILITY, AND TRUST ============ -->
-  <section class="research-section" id="delegation" aria-labelledby="delegation-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">06 / Delegation, Responsibility, and Trust</div>
-        <h2 id="delegation-h">Delegation, Responsibility, and Trust</h2>
-        <p class="section-lede">
-          Asking another agent to do something is not the same as
-          granting it authority to do so. Treating every request between
-          AI agents as a message rather than a Runtime Artifact is how
-          authority quietly leaks — through redelegation, escalation, and
-          a confused deputy acting on borrowed permission it should never
-          have held.
-        </p>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>A Delegation Contract, Not a Message</h3>
-          <p>
-            A Delegation Contract makes authority explicit and bounded —
-            at minimum:
-          </p>
-          <code class="quote is-diagram">Delegation Contract
-├── Purpose
-├── Scope
-├── Authority
-├── Constraints
-├── Expiration
-├── Responsibility
-└── Expected Outcome</code>
-        </div>
-
-        <div class="col-text">
-          <h3>Where Delegated Authority Breaks</h3>
-          <p>
-            Redelegation without a carried-forward contract is how
-            privilege quietly escalates. The confused deputy problem is
-            an agent using authority it was lent for one purpose to
-            serve another. A delegation must be traceable end to end, and
-            it must be revocable — suspended or withdrawn — the moment
-            its purpose, scope, or the trust behind it no longer holds.
-          </p>
-          <code class="quote">
-            Trust is not a fixed score assigned once.
-            It is an expectation about future behavior —
-            for this purpose, this role, this context,
-            this counterpart, and this impact.
-          </code>
-        </div>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/15.png"
-           data-lightbox aria-label="Open the diagram of AI-to-AI requests treated as delegation contracts">
-          <img src="assets2/15.png"
-               alt="Diagram titled 'Treat Requests Between AI Agents as Delegation Contracts,' showing a planner agent issuing a delegation contract with purpose, scope, authority, constraints, expiration, and responsibility to an execution agent, and blocking an unauthorized redelegation of authority."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">A delegation contract binds authority to a purpose and an expiration — and explicitly blocks the redelegation that would let autonomy escalate unnoticed.</figcaption>
-      </figure>
-
-      <p style="max-width:760px; color:var(--fg-mute); font-size:15.5px; line-height:1.85; margin-top:clamp(40px,5vw,56px);">
-        A joint decision made by several agents and a human reviewer does
-        not dissolve responsibility across all of them equally. Even a
-        coordinated judgment needs a human Accountable Owner — someone
-        whose responsibility does not diffuse away simply because the
-        decision was distributed.
-      </p>
-    </div>
-  </section>
-
-  <!-- ============ 07 DECISION TRACE AND THE AI COORDINATION RUNTIME ============ -->
-  <section class="research-section" id="runtime" aria-labelledby="runtime-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">07 / Decision Trace and the AI Coordination Runtime</div>
-        <h2 id="runtime-h">Decision Trace and the AI Coordination Runtime</h2>
-        <p class="section-lede">
-          The mechanisms above — coordination, autonomy control,
-          knowledge, delegation — are not independent modules. They are
-          layers of a single runtime that every coordinated AI decision
-          passes through, and a loop that every such decision traverses.
-        </p>
-      </div>
-
-      <div class="field-runtime" aria-label="AI Coordination Runtime — Layer Architecture">
-        <div class="field-runtime-label">Layer Diagram</div>
-        <h3 class="field-runtime-title">The AI Coordination Runtime</h3>
-
-        <ol class="field-layers" role="list">
-          <li class="field-layer">
-            <span class="layer-idx">L1</span>
-            <span class="layer-body">
-              <span class="layer-name">Agent Layer</span>
-              <span class="layer-note">The actors that generate candidates — reasoning, planning, and proposing action within their assigned role.</span>
-            </span>
-            <span class="layer-tag">agents</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L2</span>
-            <span class="layer-body">
-              <span class="layer-name">Knowledge Layer</span>
-              <span class="layer-note">Context is supplied with meaning, freshness, and provenance — not raw retrieval, but knowledge fit to decide on.</span>
-            </span>
-            <span class="layer-tag">knowledge</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L3</span>
-            <span class="layer-body">
-              <span class="layer-name">Coordination Layer</span>
-              <span class="layer-note">Tasks, dependencies, and delegation contracts are aligned across agents before any candidate is authorized.</span>
-            </span>
-            <span class="layer-tag">coordination</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L4</span>
-            <span class="layer-body">
-              <span class="layer-name">Autonomy Control Layer</span>
-              <span class="layer-note">Goal, role, permission, context, knowledge, risk, trust, and boundary are evaluated and resolved into Act, Ask, or Stop.</span>
-            </span>
-            <span class="layer-tag">act / ask / stop</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L5</span>
-            <span class="layer-body">
-              <span class="layer-name">Execution Layer</span>
-              <span class="layer-note">Only authorized effects are reflected externally — tools, APIs, and physical systems are invoked within scope.</span>
-            </span>
-            <span class="layer-tag">execute</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L6</span>
-            <span class="layer-body">
-              <span class="layer-name">Trace Layer</span>
-              <span class="layer-note">Decisions and results are connected causally — what was known, chosen, authorized, done, and what followed.</span>
-            </span>
-            <span class="layer-tag">trace</span>
-          </li>
-          <li class="field-arrow" aria-hidden="true">↓</li>
-          <li class="field-layer">
-            <span class="layer-idx">L7</span>
-            <span class="layer-body">
-              <span class="layer-name">Feedback Layer</span>
-              <span class="layer-note">Outcomes return into knowledge, trust, and coordination, so the next round of coordination starts better informed.</span>
-            </span>
-            <span class="layer-tag">feedback</span>
-          </li>
-        </ol>
-      </div>
-
-      <div class="two-col" style="margin-top:clamp(48px,6vw,64px);">
-        <div class="col-text">
-          <h3>The Runtime Loop</h3>
-          <code class="quote is-diagram">Observe
-↓ Resolve Context and Knowledge
-↓ Generate Candidates
-↓ Evaluate Policy, Risk, Trust, and Boundary
-↓ Authorize: Act / Ask / Stop
-↓ Execute
-↓ Trace Outcome
-↓ Learn and Re-coordinate</code>
-        </div>
-        <div class="col-text">
-          <h3>What a Decision Trace Preserves</h3>
-          <p>
-            A Decision Trace is not a copy of a model's internal chain of
-            thought, and it is not an operations log. It is the
-            structured record an organization needs to verify, after the
-            fact, what a decision was based on and who was answerable
-            for it:
-          </p>
-          <ul>
-            <li>observation and context</li>
-            <li>knowledge and provenance</li>
-            <li>alternatives considered</li>
-            <li>applied policy</li>
-            <li>risk and trust</li>
-            <li>the autonomy decision — act, ask, or stop, and why</li>
-            <li>human approval, where one was sought</li>
-            <li>action and outcome</li>
-            <li>recovery, where one was needed</li>
-          </ul>
-        </div>
-      </div>
-
-      <figure class="figure figure-wide figure-standard">
-        <a class="figure-frame" href="assets2/16.png"
-           data-lightbox aria-label="Open the diagram of autonomy generated at runtime through the coordination loop">
-          <img src="assets2/16.png"
-               alt="Diagram titled 'Autonomy Is Not \"Given\"; It Is \"Generated\" at Runtime,' showing a loop of Observe, Evaluate, Trust, Authorize, Act, Trace, and Learn connecting AI agents to a control plane and external systems."
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Autonomy is not assigned to an agent once. It is generated every time the loop runs — observed, evaluated, authorized, acted, traced, and learned from again.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 08 APPLICATIONS AND EVOLUTION ============ -->
-  <section class="research-section" id="applications" aria-labelledby="applications-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">08 / Applications and Evolution</div>
-        <h2 id="applications-h">Applications and Evolution</h2>
-        <p class="section-lede">
-          In each case below, what determines the outcome is not raw
-          model capability. It is whether conflicting goals, stale or
-          wrong knowledge, insufficient authority, and irreversible
-          actions were anticipated — and whether recovery was designed in
-          before, not after, the failure.
-        </p>
-      </div>
-
-      <div class="essays">
-        <div class="essay">
-          <div class="kicker">Enterprise Operations</div>
-          <h3>Enterprise Operations</h3>
-          <p>Research, proposal, approval, and execution treated as one coordination loop across sales, legal, and finance agents with separated goals and roles — where a stale price list or an unapproved contract exception is caught by policy and a human gate before it reaches a customer, not after.</p>
-        </div>
-        <div class="essay">
-          <div class="kicker">Software Development Agents</div>
-          <h3>Software Development Agents</h3>
-          <p>Planning, coding, review, test, and security agents with change generation kept separate from change application — where authority to touch a repository is staged, and an automatic fix still routes through human approval before it merges.</p>
-        </div>
-        <div class="essay">
-          <div class="kicker">Customer Support and Contract Management</div>
-          <h3>Customer Support and Contract Management</h3>
-          <p>Support, knowledge, policy, and legal agents integrated around a case rather than a single answer — where contractual commitments and exception conditions are bounded in advance, and misdelivery has a defined recovery path rather than an assumption that responses are always final.</p>
-        </div>
-        <div class="essay">
-          <div class="kicker">Manufacturing, Logistics, and Physical AI</div>
-          <h3>Manufacturing, Logistics, and Physical AI</h3>
-          <p>Equipment and safety agents coordinating from demand forecast to purchase order and physical action — where fail-safe defaults and human gates sit in front of irreversible physical actions, because a Semantic Digital Twin can inform a decision but cannot undo a machine command already sent.</p>
-        </div>
-        <div class="essay">
-          <div class="kicker">Cross-Organization AI Coordination</div>
-          <h3>Cross-Organization AI Coordination</h3>
-          <p>Agents from different organizations, under different policies and different trust baselines, delegating work across a boundary — where federated identity, a disclosure scope, and a cross-organization decision trace are what let a failure be traced back to the party responsible for it.</p>
-        </div>
-      </div>
-
-      <p style="max-width:760px; color:var(--fg-mute); font-size:15.5px; line-height:1.85; margin-top:clamp(40px,5vw,56px);">
-        Beyond individual deployments, this research is oriented toward
-        an AI Coordination Maturity Model — from independent AI use,
-        through fixed workflows and role-divided coordination, toward
-        trust-aware, dynamically coordinated systems — and toward what a
-        Runtime Organization and a Runtime Society could become once
-        coordination, autonomy control, and decision trace are treated as
-        infrastructure rather than as features of individual agents.
-        These are directions this research is exploring, not
-        capabilities already deployed.
-      </p>
     </div>
   </section>
 
   <!-- ============ CLOSING ============ -->
   <section class="research-section closing" id="closing" aria-labelledby="closing-h">
     <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
-    <figure class="figure figure-standard" style="margin-bottom: 48px;">
-      <a class="figure-frame" href="assets/20.png"
-         data-lightbox aria-label="Open the diagram of AI collaboration connecting agents, people, organizations, and society">
-        <img src="assets/20.png"
-             alt="Diagram titled 'AI collaboration for a better future,' connecting AI, people, organizations, and society toward better AI, better collaboration, better organizations, a better society, and a shared future."
-             loading="lazy">
-      </a>
-      <figcaption class="figure-caption">AI Coordination is one layer of the Chinoba runtime-society architecture — its feedback loop reaches outward, into organizations and society.</figcaption>
-    </figure>
     <div class="positioning" aria-label="Research positioning within the Chinoba architecture">
       <span>Knowledge Flow</span>
       <span>↓</span>
@@ -1092,16 +1311,12 @@ Learning Autonomy</code>
       <span>where the judgment branched,</span>
       <span>how far the consequence reached,</span>
       <span>and who must recover which state.</span>
-      <span>&nbsp;</span>
-      <span>Chinoba studies how Knowledge Flow, Trust Infrastructure,</span>
-      <span>Autonomy Control, Delegation Contract, and Decision Trace</span>
-      <span>connect into that structure.</span>
     </blockquote>
     <div class="closing-mark">Chinoba.org</div>
     <p class="closing-cta">
-      <a href="https://amzn.to/4if6eL9" target="_blank" rel="noopener noreferrer">New Book →</a>
+      <a href="#checklist">Design Checklist →</a>
       &nbsp;·&nbsp;
-      <a href="#resources">Featured Resources →</a>
+      <a href="https://amzn.to/4if6eL9" target="_blank" rel="noopener noreferrer">The Practical Guide →</a>
       &nbsp;·&nbsp;
       <a href="https://deus-ex-machina-ism.com/en/ai-coordination/" target="_blank" rel="noopener noreferrer">Blog →</a>
     </p>
@@ -1113,13 +1328,6 @@ Learning Autonomy</code>
       <div class="section-head">
         <div class="section-label">+ / Related Research</div>
         <h2 id="related-h">Other Lines of Inquiry</h2>
-        <p class="section-lede">
-          AI Coordination is not a standalone topic but one layer in a
-          single research architecture — Knowledge Flow and Decision
-          Trace feed it, Governance and Trust Infrastructure bound it,
-          Multi-Agent Systems is where its mechanisms operate, and
-          Runtime Society is where the whole sequence resolves.
-        </p>
       </div>
 
       <div class="related-research">
@@ -1194,38 +1402,49 @@ Learning Autonomy</code>
   <script>
     (function () {
       var lb = document.getElementById('lightbox');
-      if (!lb) return;
-      var lbImg = lb.querySelector('img');
-      var lbClose = lb.querySelector('.lightbox-close');
+      if (lb) {
+        var lbImg = lb.querySelector('img');
+        var lbClose = lb.querySelector('.lightbox-close');
 
-      function open(src, alt) {
-        lbImg.src = src;
-        lbImg.alt = alt || '';
-        lb.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-      }
+        var open = function (src, alt) {
+          lbImg.src = src;
+          lbImg.alt = alt || '';
+          lb.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+        };
+        var close = function () {
+          lb.classList.remove('is-open');
+          lbImg.src = '';
+          document.body.style.overflow = '';
+        };
 
-      function close() {
-        lb.classList.remove('is-open');
-        lbImg.src = '';
-        document.body.style.overflow = '';
-      }
-
-      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
-        el.addEventListener('click', function (e) {
-          e.preventDefault();
-          var img = el.querySelector('img');
-          open(el.getAttribute('href'), img ? img.alt : '');
+        document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+          el.addEventListener('click', function (e) {
+            e.preventDefault();
+            var img = el.querySelector('img');
+            open(el.getAttribute('href'), img ? img.alt : '');
+          });
         });
-      });
+        lb.addEventListener('click', function (e) {
+          if (e.target === lb || e.target === lbImg) close();
+        });
+        lbClose.addEventListener('click', close);
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
+        });
+      }
 
-      lb.addEventListener('click', function (e) {
-        if (e.target === lb || e.target === lbImg) close();
-      });
-      lbClose.addEventListener('click', close);
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
-      });
+      // Checklist tally (progressive enhancement; the page works without it)
+      var boxes = document.querySelectorAll('#checklist-form input[type="checkbox"]');
+      var out = document.getElementById('check-count');
+      var total = document.getElementById('check-total');
+      if (boxes.length && out) {
+        total.textContent = boxes.length;
+        var update = function () {
+          out.textContent = document.querySelectorAll('#checklist-form input:checked').length;
+        };
+        boxes.forEach(function (b) { b.addEventListener('change', update); });
+      }
     })();
   </script>
 
