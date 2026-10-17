@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-labelledby="t d" font-family="Helvetica Neue, Arial, sans-serif">
+<title id="t">Community Graph with AI as an accountable actor</title>
+<desc id="d">An AI agent as a node connected to a person who delegates and supervises, an organization, knowledge it may access, decisions it is entrusted with, another agent, and a human authority who holds final accountability.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#070d1f"/><stop offset="1" stop-color="#0e1c42"/></linearGradient>
+<radialGradient id="glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#22d3ee" stop-opacity="0.22"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0"/></radialGradient>
+<marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7db7ff"/></marker>
+<marker id="arp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker>
+</defs>
+<rect width="1200" height="675" fill="url(#bg)"/>
+<line x1="190" y1="190" x2="600" y2="340" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+<line x1="600" y1="95" x2="600" y2="340" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+<line x1="1010" y1="190" x2="600" y2="340" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+<line x1="1010" y1="490" x2="600" y2="340" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+<line x1="600" y1="590" x2="600" y2="340" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+<line x1="190" y1="490" x2="600" y2="340" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+<circle cx="600" cy="340" r="170" fill="url(#glow)"/>
+<rect x="75" y="158" width="230" height="64" rx="32" fill="#0f1f4a" fill-opacity="1" stroke="#60a5fa" stroke-width="3"/>
+<text x="190" y="199" font-size="26" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Person</text>
+<rect x="485" y="63" width="230" height="64" rx="32" fill="#0f1f4a" fill-opacity="1" stroke="#22d3ee" stroke-width="3"/>
+<text x="600" y="104" font-size="26" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Organization</text>
+<rect x="895" y="158" width="230" height="64" rx="32" fill="#0f1f4a" fill-opacity="1" stroke="#60a5fa" stroke-width="3"/>
+<text x="1010" y="199" font-size="26" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Knowledge</text>
+<rect x="895" y="458" width="230" height="64" rx="32" fill="#0f1f4a" fill-opacity="1" stroke="#22d3ee" stroke-width="3"/>
+<text x="1010" y="499" font-size="26" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Decision</text>
+<rect x="485" y="558" width="230" height="64" rx="32" fill="#0f1f4a" fill-opacity="1" stroke="#a78bfa" stroke-width="3"/>
+<text x="600" y="599" font-size="26" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Human Authority</text>
+<rect x="75" y="458" width="230" height="64" rx="32" fill="#0f1f4a" fill-opacity="1" stroke="#a78bfa" stroke-width="3"/>
+<text x="190" y="499" font-size="26" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Other Agent</text>
+<circle cx="600" cy="340" r="72" fill="#241a52" stroke="#a78bfa" stroke-width="4"/>
+<text x="600" y="338" font-size="32" fill="#fff" font-weight="700" text-anchor="middle" letter-spacing="0">AI</text>
+<text x="600" y="370" font-size="24" fill="#c4b5fd" font-weight="700" text-anchor="middle" letter-spacing="0">Agent</text>
+<rect x="226.99999999999997" y="245.0" width="336.00000000000006" height="36" rx="18" fill="#070d1f" fill-opacity="1" stroke="#223566" stroke-width="1.5"/>
+<text x="395.0" y="271.0" font-size="22" fill="#7db7ff" font-weight="400" text-anchor="middle" letter-spacing="0">delegates to · supervises</text>
+<rect x="524.4" y="197.5" width="151.20000000000002" height="36" rx="18" fill="#070d1f" fill-opacity="1" stroke="#223566" stroke-width="1.5"/>
+<text x="600.0" y="223.5" font-size="22" fill="#7db7ff" font-weight="400" text-anchor="middle" letter-spacing="0">belongs to</text>
+<rect x="729.4" y="245.0" width="151.20000000000002" height="36" rx="18" fill="#070d1f" fill-opacity="1" stroke="#223566" stroke-width="1.5"/>
+<text x="805.0" y="271.0" font-size="22" fill="#7db7ff" font-weight="400" text-anchor="middle" letter-spacing="0">may access</text>
+<rect x="704.76" y="395.0" width="200.48000000000002" height="36" rx="18" fill="#070d1f" fill-opacity="1" stroke="#223566" stroke-width="1.5"/>
+<text x="805.0" y="421.0" font-size="22" fill="#7db7ff" font-weight="400" text-anchor="middle" letter-spacing="0">entrusted with</text>
+<rect x="499.76" y="445.0" width="200.48000000000002" height="36" rx="18" fill="#070d1f" fill-opacity="1" stroke="#223566" stroke-width="1.5"/>
+<text x="600.0" y="471.0" font-size="22" fill="#7db7ff" font-weight="400" text-anchor="middle" letter-spacing="0">accountable to</text>
+<rect x="276.28" y="395.0" width="237.44000000000003" height="36" rx="18" fill="#070d1f" fill-opacity="1" stroke="#223566" stroke-width="1.5"/>
+<text x="395.0" y="421.0" font-size="22" fill="#7db7ff" font-weight="400" text-anchor="middle" letter-spacing="0">collaborates with</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1040" width="720" height="1040" role="img" aria-labelledby="t d" font-family="Helvetica Neue, Arial, sans-serif">
+<title id="t">Vector RAG and Graph Intelligence compared</title>
+<desc id="d">Vector RAG retrieves similar text chunks; Graph Intelligence follows entities, relations, evidence, time and constraints. The two are complementary.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#070d1f"/><stop offset="1" stop-color="#0e1c42"/></linearGradient>
+<radialGradient id="glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#22d3ee" stop-opacity="0.22"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0"/></radialGradient>
+<marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7db7ff"/></marker>
+<marker id="arp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker>
+</defs>
+<rect width="720" height="1040" fill="url(#bg)"/>
+<rect x="30" y="30" width="660" height="380" rx="24" fill="#0b1736" fill-opacity="1" stroke="#3b82f6" stroke-width="2"/>
+<text x="360" y="90" font-size="40" fill="#60a5fa" font-weight="700" text-anchor="middle" letter-spacing="0">Vector RAG</text>
+<circle cx="360" cy="160" r="28" fill="#12306b" stroke="#60a5fa" stroke-width="3"/>
+<text x="360" y="170" font-size="26" fill="#fff" font-weight="700" text-anchor="middle" letter-spacing="0">Q</text>
+<line x1="360" y1="188" x2="150" y2="236" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6 6" stroke-linecap="round"/>
+<rect x="92" y="236" width="116" height="48" rx="10" fill="#0f1f4a" fill-opacity="1" stroke="#60a5fa" stroke-width="2"/>
+<text x="150" y="268" font-size="24" fill="#c9d6f2" font-weight="400" text-anchor="middle" letter-spacing="0">chunk</text>
+<line x1="360" y1="188" x2="290" y2="236" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6 6" stroke-linecap="round"/>
+<rect x="232" y="236" width="116" height="48" rx="10" fill="#0f1f4a" fill-opacity="1" stroke="#60a5fa" stroke-width="2"/>
+<text x="290" y="268" font-size="24" fill="#c9d6f2" font-weight="400" text-anchor="middle" letter-spacing="0">chunk</text>
+<line x1="360" y1="188" x2="430" y2="236" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6 6" stroke-linecap="round"/>
+<rect x="372" y="236" width="116" height="48" rx="10" fill="#0f1f4a" fill-opacity="1" stroke="#60a5fa" stroke-width="2"/>
+<text x="430" y="268" font-size="24" fill="#c9d6f2" font-weight="400" text-anchor="middle" letter-spacing="0">chunk</text>
+<line x1="360" y1="188" x2="570" y2="236" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6 6" stroke-linecap="round"/>
+<rect x="512" y="236" width="116" height="48" rx="10" fill="#0f1f4a" fill-opacity="1" stroke="#60a5fa" stroke-width="2"/>
+<text x="570" y="268" font-size="24" fill="#c9d6f2" font-weight="400" text-anchor="middle" letter-spacing="0">chunk</text>
+<text x="360" y="350" font-size="32" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Finds similar text</text>
+<text x="360" y="388" font-size="26" fill="#9fb0d4" font-weight="400" text-anchor="middle" letter-spacing="0">Similar is not the same as related</text>
+<rect x="30" y="430" width="660" height="420" rx="24" fill="#0b1736" fill-opacity="1" stroke="#22d3ee" stroke-width="2"/>
+<text x="360" y="490" font-size="40" fill="#22d3ee" font-weight="700" text-anchor="middle" letter-spacing="0">Graph Intelligence</text>
+<line x1="190" y1="560" x2="530" y2="560" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="190" y1="560" x2="190" y2="680" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="530" y1="560" x2="530" y2="680" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="190" y1="680" x2="530" y2="680" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="190" y1="560" x2="360" y2="620" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="530" y1="560" x2="360" y2="620" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="190" y1="680" x2="360" y2="620" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="530" y1="680" x2="360" y2="620" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="110" y="532" width="160" height="56" rx="28" fill="#0f1f4a" fill-opacity="1" stroke="#60a5fa" stroke-width="2.5"/>
+<text x="190" y="569" font-size="26" fill="#e8efff" font-weight="600" text-anchor="middle" letter-spacing="0">Entity</text>
+<rect x="450" y="532" width="160" height="56" rx="28" fill="#0f1f4a" fill-opacity="1" stroke="#22d3ee" stroke-width="2.5"/>
+<text x="530" y="569" font-size="26" fill="#e8efff" font-weight="600" text-anchor="middle" letter-spacing="0">Relation</text>
+<rect x="110" y="652" width="160" height="56" rx="28" fill="#0f1f4a" fill-opacity="1" stroke="#a78bfa" stroke-width="2.5"/>
+<text x="190" y="689" font-size="26" fill="#e8efff" font-weight="600" text-anchor="middle" letter-spacing="0">Evidence</text>
+<rect x="450" y="652" width="160" height="56" rx="28" fill="#0f1f4a" fill-opacity="1" stroke="#60a5fa" stroke-width="2.5"/>
+<text x="530" y="689" font-size="26" fill="#e8efff" font-weight="600" text-anchor="middle" letter-spacing="0">Time</text>
+<rect x="280" y="592" width="160" height="56" rx="28" fill="#0f1f4a" fill-opacity="1" stroke="#22d3ee" stroke-width="2.5"/>
+<text x="360" y="629" font-size="26" fill="#e8efff" font-weight="600" text-anchor="middle" letter-spacing="0">Constraint</text>
+<text x="360" y="775" font-size="32" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Follows relations to evidence</text>
+<text x="360" y="813" font-size="26" fill="#9fb0d4" font-weight="400" text-anchor="middle" letter-spacing="0">Who, what, when, which rule</text>
+<rect x="30" y="880" width="660" height="120" rx="18" fill="#12183f" fill-opacity="1" stroke="#a78bfa" stroke-width="2"/>
+<text x="360" y="930" font-size="32" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Complementary</text>
+<text x="360" y="974" font-size="28" fill="#c4b5fd" font-weight="400" text-anchor="middle" letter-spacing="0">vectors find · graphs connect</text>
+</svg>

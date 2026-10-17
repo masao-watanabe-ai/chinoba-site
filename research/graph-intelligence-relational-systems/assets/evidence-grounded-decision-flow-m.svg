@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1180" width="720" height="1180" role="img" aria-labelledby="t d" font-family="Helvetica Neue, Arial, sans-serif">
+<title id="t">Evidence-grounded decision flow</title>
+<desc id="d">Source, Semantic Chunk, Evidence Graph, Retrieval, Decision Proposal, Human Approval, Execution, Decision Trace, with feedback to earlier layers.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#070d1f"/><stop offset="1" stop-color="#0e1c42"/></linearGradient>
+<radialGradient id="glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#22d3ee" stop-opacity="0.22"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0"/></radialGradient>
+<marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7db7ff"/></marker>
+<marker id="arp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker>
+</defs>
+<rect width="720" height="1180" fill="url(#bg)"/>
+<rect x="60" y="30" width="600" height="92" rx="20" fill="#0f1f4a" fill-opacity="1" stroke="#3b82f6" stroke-width="3"/>
+<text x="94" y="86.0" font-size="30" fill="#6f82ad" font-weight="700" text-anchor="middle" letter-spacing="0">1</text>
+<text x="140" y="70" font-size="32" fill="#e8efff" font-weight="700" text-anchor="start" letter-spacing="0">Source</text>
+<text x="140" y="104" font-size="24" fill="#9fb0d4" font-weight="400" text-anchor="start" letter-spacing="0">records</text>
+<line x1="360" y1="125" x2="360" y2="147" stroke="#7db7ff" stroke-width="4" marker-end="url(#ar)" stroke-linecap="round"/>
+<rect x="60" y="150" width="600" height="92" rx="20" fill="#0f1f4a" fill-opacity="1" stroke="#3b82f6" stroke-width="3"/>
+<text x="94" y="206.0" font-size="30" fill="#6f82ad" font-weight="700" text-anchor="middle" letter-spacing="0">2</text>
+<text x="140" y="190" font-size="32" fill="#e8efff" font-weight="700" text-anchor="start" letter-spacing="0">Semantic Chunk</text>
+<text x="140" y="224" font-size="24" fill="#9fb0d4" font-weight="400" text-anchor="start" letter-spacing="0">meaning units</text>
+<line x1="360" y1="245" x2="360" y2="267" stroke="#7db7ff" stroke-width="4" marker-end="url(#ar)" stroke-linecap="round"/>
+<rect x="60" y="270" width="600" height="92" rx="20" fill="#0f1f4a" fill-opacity="1" stroke="#3b82f6" stroke-width="3"/>
+<text x="94" y="326.0" font-size="30" fill="#6f82ad" font-weight="700" text-anchor="middle" letter-spacing="0">3</text>
+<text x="140" y="310" font-size="32" fill="#e8efff" font-weight="700" text-anchor="start" letter-spacing="0">Evidence Graph</text>
+<text x="140" y="344" font-size="24" fill="#9fb0d4" font-weight="400" text-anchor="start" letter-spacing="0">relations + proof</text>
+<line x1="360" y1="365" x2="360" y2="387" stroke="#7db7ff" stroke-width="4" marker-end="url(#ar)" stroke-linecap="round"/>
+<rect x="60" y="390" width="600" height="92" rx="20" fill="#0f1f4a" fill-opacity="1" stroke="#3b82f6" stroke-width="3"/>
+<text x="94" y="446.0" font-size="30" fill="#6f82ad" font-weight="700" text-anchor="middle" letter-spacing="0">4</text>
+<text x="140" y="430" font-size="32" fill="#e8efff" font-weight="700" text-anchor="start" letter-spacing="0">Retrieval</text>
+<text x="140" y="464" font-size="24" fill="#9fb0d4" font-weight="400" text-anchor="start" letter-spacing="0">grounded lookup</text>
+<line x1="360" y1="485" x2="360" y2="507" stroke="#7db7ff" stroke-width="4" marker-end="url(#ar)" stroke-linecap="round"/>
+<rect x="60" y="510" width="600" height="92" rx="20" fill="#0c2a4a" fill-opacity="1" stroke="#22d3ee" stroke-width="3"/>
+<text x="94" y="566.0" font-size="30" fill="#6f82ad" font-weight="700" text-anchor="middle" letter-spacing="0">5</text>
+<text x="140" y="550" font-size="32" fill="#e8efff" font-weight="700" text-anchor="start" letter-spacing="0">Decision Proposal</text>
+<text x="140" y="584" font-size="24" fill="#9fb0d4" font-weight="400" text-anchor="start" letter-spacing="0">options</text>
+<line x1="360" y1="605" x2="360" y2="627" stroke="#a78bfa" stroke-width="4" marker-end="url(#arp)" stroke-linecap="round"/>
+<rect x="60" y="630" width="600" height="92" rx="20" fill="#241a52" fill-opacity="1" stroke="#a78bfa" stroke-width="3"/>
+<text x="94" y="686.0" font-size="30" fill="#6f82ad" font-weight="700" text-anchor="middle" letter-spacing="0">6</text>
+<text x="140" y="670" font-size="32" fill="#e8efff" font-weight="700" text-anchor="start" letter-spacing="0">Human Approval</text>
+<text x="140" y="704" font-size="24" fill="#9fb0d4" font-weight="400" text-anchor="start" letter-spacing="0">accountable person</text>
+<line x1="360" y1="725" x2="360" y2="747" stroke="#a78bfa" stroke-width="4" marker-end="url(#arp)" stroke-linecap="round"/>
+<rect x="60" y="750" width="600" height="92" rx="20" fill="#0c2a4a" fill-opacity="1" stroke="#22d3ee" stroke-width="3"/>
+<text x="94" y="806.0" font-size="30" fill="#6f82ad" font-weight="700" text-anchor="middle" letter-spacing="0">7</text>
+<text x="140" y="790" font-size="32" fill="#e8efff" font-weight="700" text-anchor="start" letter-spacing="0">Execution</text>
+<text x="140" y="824" font-size="24" fill="#9fb0d4" font-weight="400" text-anchor="start" letter-spacing="0">within scope</text>
+<line x1="360" y1="845" x2="360" y2="867" stroke="#7db7ff" stroke-width="4" marker-end="url(#ar)" stroke-linecap="round"/>
+<rect x="60" y="870" width="600" height="92" rx="20" fill="#0c2a4a" fill-opacity="1" stroke="#22d3ee" stroke-width="3"/>
+<text x="94" y="926.0" font-size="30" fill="#6f82ad" font-weight="700" text-anchor="middle" letter-spacing="0">8</text>
+<text x="140" y="910" font-size="32" fill="#e8efff" font-weight="700" text-anchor="start" letter-spacing="0">Decision Trace</text>
+<text x="140" y="944" font-size="24" fill="#9fb0d4" font-weight="400" text-anchor="start" letter-spacing="0">who · what · why</text>
+<line x1="360" y1="965" x2="360" y2="977" stroke="#22d3ee" stroke-width="3" marker-end="url(#ar)" stroke-dasharray="10 8" stroke-linecap="round"/>
+<rect x="60" y="980" width="600" height="92" rx="18" fill="#0c2a4a" fill-opacity="1" stroke="#22d3ee" stroke-width="2" stroke-dasharray="8 8"/>
+<text x="360" y="1020" font-size="30" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Feedback</text>
+<text x="360" y="1052" font-size="24" fill="#9fb0d4" font-weight="400" text-anchor="middle" letter-spacing="0">traces improve chunks, graph, policy</text>
+</svg>

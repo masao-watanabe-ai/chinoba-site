@@ -4,17 +4,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Graph Intelligence &amp; Relational Systems — Chinoba</title>
-  <meta name="description" content="A research archive on graph-based intelligence, relational learning, propagation structures, trust graphs, and decision graphs for organizational and runtime AI systems.">
+  <title>Graph Intelligence &amp; Relational Systems: From Connected Information to Evidence-Grounded Decisions — Chinoba</title>
+  <meta name="description" content="How relationships among people, organizations, knowledge, machines and AI agents are represented, learned (GNNs, dynamic graphs) and governed. Community Graph and Relationship Capital, applied Graph RAG / Evidence Graph / Decision Trace architecture, and human-approved boundaries and stop conditions.">
+  <meta name="keywords" content="Graph Intelligence, relational systems, graph neural networks, dynamic graphs, Community Graph, Relationship Capital, Graph RAG, evidence graph, decision trace, multi-agent systems, human approval, governance boundary, Chinoba">
+
+  <link rel="canonical" href="https://chinoba.org/research/graph-intelligence-relational-systems/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Chinoba">
+  <meta property="og:title" content="Graph Intelligence &amp; Relational Systems">
+  <meta property="og:description" content="Relationships as the substrate of intelligence: graph learning, Community Graphs, and evidence-grounded decisions under human-set boundaries.">
+  <meta property="og:url" content="https://chinoba.org/research/graph-intelligence-relational-systems/">
+  <meta property="og:image" content="https://chinoba.org/research/graph-intelligence-relational-systems/assets/graph-intelligence-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Fragmented documents, chats, people, equipment, rules and decisions becoming connected through an Evidence Graph.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Graph Intelligence &amp; Relational Systems">
+  <meta name="twitter:description" content="Relationships as the substrate of intelligence: graph learning, Community Graphs, and evidence-grounded decisions under human-set boundaries.">
+  <meta name="twitter:image" content="https://chinoba.org/research/graph-intelligence-relational-systems/assets/graph-intelligence-og.png">
 
   <link rel="icon" type="image/png" href="/assets/chinoba-logo.png">
   <link rel="stylesheet" href="/assets/research.css">
 
   <style>
     /* ---------- Page-specific overrides ---------- */
-    .concept-grid.cols-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
+    .concept-grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .concept-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
     /* Essay coming-soon variant */
     .essay.is-coming-soon {
@@ -38,52 +53,92 @@
       transform: translateY(-1px);
     }
 
-    /* Diagram placeholders */
-    .diagrams {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
     }
-    .diagram-card {
-      background: var(--bg);
-      padding: 26px 24px 28px;
+    .hero .hero-jp {
+      color: var(--fg-mute);
+      font-size: clamp(15px, 1.8vw, 17px);
+      margin: -16px 0 28px;
+      letter-spacing: 0.5px;
+    }
+    .page-toc {
+      margin-top: 28px;
       display: flex;
-      flex-direction: column;
-      min-height: 220px;
-    }
-    .diagram-card .kicker {
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--fg-faint);
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      margin-bottom: 14px;
     }
-    .diagram-card h3 {
-      font-size: 16px;
-      margin: 0 0 14px;
-      font-weight: 600;
+    .page-toc a { color: var(--fg-faint); }
+    .page-toc a:hover { color: var(--accent); text-decoration: none; }
+
+    /* ---------- Tables ---------- */
+    .table-wrap {
+      margin-top: clamp(28px, 4vw, 40px);
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .figure + .table-wrap { margin-top: clamp(40px, 5vw, 56px); }
+    .compare-table {
+      border: 1px solid var(--line);
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14px;
+    }
+    .compare-table th,
+    .compare-table td {
+      border: 1px solid var(--line);
+      padding: 12px 16px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .compare-table thead th {
+      background: var(--bg-elev);
       color: var(--fg);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .compare-table tbody th {
+      color: var(--fg);
+      font-weight: 600;
+      background: var(--bg-elev);
+      min-width: 140px;
+    }
+    .compare-table tbody td { color: var(--fg-mute); min-width: 180px; }
+    .table-note {
+      margin: 14px 0 0;
+      font-size: 13px;
+      color: var(--fg-faint);
+      line-height: 1.7;
+      max-width: 760px;
+    }
+    .scroll-hint { display: none; }
+    .uc-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin: clamp(44px, 5vw, 60px) 0 8px;
       letter-spacing: 0.2px;
     }
-    .diagram-frame {
-      flex: 1;
-      border: 1px dashed var(--line-strong);
-      border-radius: 8px;
-      background:
-        radial-gradient(ellipse at center, rgba(125, 183, 255, 0.04) 0%, rgba(125, 183, 255, 0) 60%),
-        var(--bg-elev);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--fg-faint);
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      min-height: 110px;
-    }
+    .uc-title:first-child { margin-top: 0; }
+    .uc-lede { color: var(--fg-mute); font-size: 15.5px; line-height: 1.85; max-width: 720px; margin: 0; }
+    .compare-table:focus-visible, .table-wrap:focus-visible { outline: 1px solid var(--accent); }
+    .graph-layer { grid-template-columns: 56px minmax(0, 1fr) minmax(0, 240px); }
+    .graph-layer .layer-tag { text-transform: none; letter-spacing: 0.3px; line-height: 1.5; }
+    .section-head + .figure,
+    .section-head + .two-col { margin-top: 0; }
+    .two-col + .figure { margin-top: clamp(40px, 5vw, 56px); }
+    .figure + .concept-grid,
+    .figure + .graph-runtime { margin-top: clamp(40px, 5vw, 56px); }
+    .section-lede + .concept-grid { margin-top: 0; }
+    .concept-grid + .figure-lede { margin-top: clamp(40px, 5vw, 56px); }
 
+    /* ---------- Layer diagram ---------- */
     /* ---------- Graph Intelligence Runtime Structure (CSS-based layered diagram) ---------- */
     .graph-runtime {
       margin-top: clamp(56px, 7vw, 80px);
@@ -187,29 +242,30 @@
     }
 
     @media (max-width: 900px) {
-      .concept-grid.cols-4 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .diagrams {
-        grid-template-columns: 1fr;
-      }
-      .graph-layer {
-        grid-template-columns: 1fr;
-        gap: 4px;
-      }
-      .graph-layer .layer-tag {
-        margin-top: 2px;
+      .concept-grid.cols-4,
+      .concept-grid.cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .graph-layer { grid-template-columns: 1fr; gap: 4px; }
+      .graph-layer .layer-tag { margin-top: 2px; }
+    }
+    @media (max-width: 720px) {
+      .compare-table { width: auto; min-width: 100%; }
+      .compare-table tbody th { min-width: 150px; }
+      .compare-table tbody td { min-width: 230px; }
+      .scroll-hint {
+        display: block;
+        margin: 24px 0 -16px;
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--fg-faint);
       }
     }
-
     @media (max-width: 640px) {
-      .concept-grid.cols-4 {
-        grid-template-columns: 1fr;
-      }
+      .concept-grid.cols-4,
+      .concept-grid.cols-3 { grid-template-columns: 1fr; }
     }
 
-    /* ---------- Page figures (reuse global .figure / .figure-frame) ---------- */
-    /* Lead-in paragraph that introduces a figure — mirrors body prose */
+    /* ---------- Page figures ---------- */
     .figure-lede {
       color: var(--fg-mute);
       font-size: 15.5px;
@@ -217,14 +273,11 @@
       max-width: 720px;
       margin: clamp(48px, 6vw, 64px) 0 0;
     }
-    .figure-lede + .figure-wide {
-      margin-top: 18px;
-    }
+    .section-head + .figure-lede { margin-top: 0; }
+    .figure-lede + .figure-wide { margin-top: 18px; }
 
     /* Hero cover image — sits beneath the hero copy */
-    .hero .figure {
-      margin: clamp(32px, 5vw, 48px) auto 0;
-    }
+    .hero .figure { margin: clamp(32px, 5vw, 48px) auto 0; }
 
     /* ---------- Explore This Theme ---------- */
     .theme-links {
@@ -275,6 +328,47 @@
       vertical-align: middle;
       transform: translateY(-1px);
     }
+
+    /* ---------- Refinements ---------- */
+    .scope-note {
+      margin: 0 0 clamp(32px, 4vw, 44px);
+      padding: 16px 20px;
+      border: 1px solid var(--line-strong);
+      border-left: 2px solid var(--accent);
+      background: rgba(125, 183, 255, 0.04);
+      color: var(--fg-mute);
+      font-size: 14px;
+      line-height: 1.75;
+      max-width: 820px;
+    }
+    .scope-note strong { color: var(--fg); }
+    .uc-title .tag {
+      margin-left: 10px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      border: 1px solid var(--line-strong);
+      padding: 2px 8px;
+      border-radius: 10px;
+      vertical-align: middle;
+    }
+    .table-wrap {
+      scrollbar-color: var(--accent) var(--bg-elev);
+      background:
+        linear-gradient(to right, var(--bg) 30%, rgba(11,11,11,0)) 0 0 / 40px 100% no-repeat local,
+        linear-gradient(to left, var(--bg) 30%, rgba(11,11,11,0)) 100% 0 / 40px 100% no-repeat local,
+        radial-gradient(farthest-side at 0 50%, rgba(125,183,255,.28), rgba(125,183,255,0)) 0 0 / 14px 100% no-repeat scroll,
+        radial-gradient(farthest-side at 100% 50%, rgba(125,183,255,.28), rgba(125,183,255,0)) 100% 0 / 14px 100% no-repeat scroll;
+    }
+    .table-wrap::-webkit-scrollbar { height: 8px; }
+    .table-wrap::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 4px; }
+    .scroll-hint span { color: var(--accent); }
+    @media (max-width: 720px) {
+      .scroll-hint { color: var(--fg-mute); }
+      .page-toc { gap: 10px 16px; }
+      .page-toc a { padding: 4px 0; }
+    }
   </style>
 </head>
 
@@ -296,32 +390,798 @@
   <header class="hero">
     <div class="hero-inner">
       <div class="eyebrow">Research / Graph Intelligence &amp; Relational Systems</div>
-      <h1>Graph Intelligence &amp; Relational Systems</h1>
+      <h1>Graph Intelligence: From Connected Information to Evidence-Grounded Decisions</h1>
+      <p class="hero-jp" lang="ja">関係性から学び、根拠ある判断へつなぐ。</p>
       <p class="hero-sub">
-        <span>Intelligence does not emerge only from isolated models,</span>
-        <span>but from relationships,</span>
-        <span>propagation,</span>
-        <span>and structure.</span>
+        <span>Intelligence does not live only in isolated records.</span>
+        <span>It is shaped by relationships,</span>
+        <span>and by the boundaries people draw around them.</span>
       </p>
       <p class="hero-desc">
-        Graph-based intelligence systems
-        allow AI to model relationships,
-        context propagation,
-        trust structures,
-        decision traces,
-        and organizational knowledge flow.
+        This inquiry studies how relationships among people, organizations,
+        knowledge, machines and AI agents can be represented, learned from
+        and governed. Graph neural networks are its technical foundation;
+        evidence-grounded retrieval and Decision Trace are applied
+        architectures for enterprise use; and human-set boundaries decide
+        what any of it may do.
+      </p>
+
+      <nav class="page-toc" aria-label="On this page">
+        <a href="#why">01 Why relations</a>
+        <a href="#gnn">02 GNN basics</a>
+        <a href="#dynamic">03 Dynamic &amp; multi-agent</a>
+        <a href="#community">04 Community Graph</a>
+        <a href="#applications">05 Applications</a>
+        <a href="#architecture">06 Applied architecture</a>
+        <a href="#boundary">07 Boundaries</a>
+        <a href="#roadmap">08 Roadmap</a>
+      </nav>
+
+
+      <figure class="figure figure-main">
+        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/fragmented-to-relational.svg" data-lightbox data-mobile="/research/graph-intelligence-relational-systems/assets/fragmented-to-relational-m.svg" aria-label="Open figure: Fragmented knowledge to relational intelligence">
+          <picture>
+            <source media="(max-width: 640px)" srcset="/research/graph-intelligence-relational-systems/assets/fragmented-to-relational-m.svg">
+            <img src="/research/graph-intelligence-relational-systems/assets/fragmented-to-relational.svg" width="1200" height="675" alt="Fragmented knowledge becomes relational: documents, chats, people, equipment, rules and decisions shown first as isolated nodes, then connected through an Evidence Graph" fetchpriority="high">
+          </picture>
+        </a>
+        <figcaption class="figure-caption">Fig. 01 — Fragmented Knowledge to Relational Intelligence</figcaption>
+      </figure>
+
+    </div>
+  </header>
+
+  <section class="research-section" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">01 / Why Relations</div>
+        <h2 id="why-h">Intelligence Is Shaped by the Edges</h2>
+        <p class="section-lede">The gap is rarely missing data. It is missing relations: among information, people, work, decisions and evidence.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Information exists. Its relations are cut.</h3>
+          <p>
+            Most organizations are not short of information. Specifications,
+            notes, chat threads, equipment logs, customer histories, rules and
+            past decisions all exist &mdash; in different systems, owned by
+            different people, written at different times. What is missing is
+            the link between them: which spec a defect report concerns, which
+            rule applied on that date, who approved the exception, and why.
+          </p>
+          <p>
+            Searching returns passages that resemble a question. Deciding
+            needs to know how things bear on one another.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Value sits in connections, not in points</h3>
+          <p>
+            Customer, HR and sales systems record <em>what exists</em>. They
+            rarely record <em>how things are connected</em>. Two customers with
+            the same attributes can behave differently because their
+            relationships differ &mdash; which communities they belong to, who
+            influences them, which services they trust.
+          </p>
+          <code class="quote">
+            Intelligence is not stored in a node.
+            It is shaped by the edges.
+          </code>
+          <p>
+            The same holds inside an organization, and increasingly between
+            people and AI agents. Graph Intelligence is the study of how such
+            relationships can be represented, learned from and reasoned over.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="research-section" id="gnn" aria-labelledby="gnn-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">02 / Graph Learning Foundations</div>
+        <h2 id="gnn-h">Graph Neural Networks: Learning From Relational Structure</h2>
+        <p class="section-lede">The technical base of this inquiry &mdash; how models learn from entities and the relationships between them.</p>
+      </div>
+
+      <p class="figure-lede" style="margin-top:0">
+        A graph neural network (GNN) is a neural network for data whose
+        elements are connected: social networks, road networks, molecules,
+        knowledge graphs, production lines. It is the technical foundation of
+        this inquiry &mdash; the part that <em>learns</em> from relational structure.
+      </p>
+      <div style="height: clamp(32px, 4vw, 44px)"></div>
+<div class="concept-grid cols-3">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Representation learning</h3>
+          <p>Nodes (and edges) are mapped to low-dimensional vectors that preserve graph structure, so downstream models can use relationships as input.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Message passing</h3>
+          <p>Each node updates its state from its neighbors, layer by layer. Structure therefore shapes what the model represents.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Architectures</h3>
+          <p>Graph Convolutional Networks (GCN), Graph Attention Networks (GAT) and Message Passing Neural Networks (MPNN) are common families.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Tasks</h3>
+          <p>Node classification, link prediction, graph classification and graph generation.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Learning modes</h3>
+          <p>Semi-supervised and unsupervised learning; combinable with CNNs and RNNs when the data also has sequence or image structure.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>What is learned</h3>
+          <p>Statistics of relationships &mdash; for example that a structure like A&nbsp;&rarr;&nbsp;B&nbsp;&rarr;&nbsp;C recurs. Not why, and not where a decision should stop (see &sect;07).</p>
+        </div>
+      </div>
+<div style="height: clamp(40px, 5vw, 56px)"></div>
+      <p class="figure-lede" style="margin-top:0">
+        The same primitive &mdash; entities as nodes, relationships as edges &mdash;
+        appears across the domains covered in the research notes.
+      </p>
+
+      <p class="scroll-hint" aria-hidden="true"><span>←</span> Swipe sideways to see all columns <span>→</span></p>
+      <div class="table-wrap" role="region" aria-label="Graph formulations across domains, scrollable" tabindex="0">
+        <table class="compare-table">
+          <caption class="visually-hidden">Graph formulations across domains covered in the research notes</caption>
+          <thead><tr><th scope="col">Domain</th><th scope="col">Nodes</th><th scope="col">Edges</th><th scope="col">Typical task</th></tr></thead>
+          <tbody>
+<tr><th scope="row">Weather forecasting</th><td>Stations, regions</td><td>Distance, wind flow, pattern correlation</td><td>Spatio-temporal forecasting</td></tr>
+<tr><th scope="row">Building structure</th><td>Columns, beams, slabs</td><td>Physical connections</td><td>Generating and evaluating structures against requirements</td></tr>
+<tr><th scope="row">Materials</th><td>Atoms</td><td>Bonds (length, strength)</td><td>Property prediction and candidate design</td></tr>
+<tr><th scope="row">Product &amp; demand</th><td>Products, customers, reviews</td><td>Purchases, similarity, influence</td><td>Market response and demand forecasting</td></tr>
+<tr><th scope="row">Manufacturing process</th><td>Machines, operations, operators</td><td>Dependencies between steps</td><td>Bottleneck and anomaly detection, quality control</td></tr>
+<tr><th scope="row">Multi-agent systems</th><td>Agents</td><td>Communication and dependency</td><td>Coordinated action</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="research-section" id="dynamic" aria-labelledby="dynamic-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">03 / Dynamic &amp; Multi-Agent</div>
+        <h2 id="dynamic-h">From Static Graphs to Change and Coordination</h2>
+        <p class="section-lede">Relations change over time, can be altered hypothetically, and, once agents act, become a coordination problem.</p>
+      </div>
+<div class="concept-grid cols-2">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Dynamic graphs</h3>
+          <p>Nodes and edges change over time. Dynamic GNNs model temporal dependencies and time-varying connections, often combined with RNN or LSTM components. Typical uses: traffic forecasting, social and biological networks, financial data.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Counterfactual learning</h3>
+          <p>Ask &ldquo;what if this node had a different attribute, or this edge did not exist?&rdquo; Build the altered graph, train on both, and compare outcomes. This links graph learning to causal reasoning &mdash; as hypotheses, not verdicts.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Multi-agent graphs</h3>
+          <p>Agents are nodes; communication and dependency are edges. Each agent integrates its own state with its neighbors&rsquo; to choose actions, and the system learns from rewards. Communication and cooperation become part of the model.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Live process graphs</h3>
+          <p>In manufacturing, machines, operations and operators form a graph that is first designed and simulated, then updated from real-time data to support optimization and early anomaly detection.</p>
+        </div>
+      </div>
+
+      <p class="figure-lede">
+        Moving from static to dynamic and multi-agent graphs changes the
+        question from &ldquo;what is connected?&rdquo; to &ldquo;what is connected <em>now</em>, and wha
+        happens if it changes?&rdquo; It also raises the stakes: once agents act on
+        the graph, someone must decide what they are permitted to do (&sect;07).
+      </p>
+
+    </div>
+  </section>
+
+  <section class="research-section" id="community" aria-labelledby="community-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">04 / Community Graph &amp; Relationship Capital</div>
+        <h2 id="community-h">Relationships as Assets &mdash; and AI as an Accountable Actor</h2>
+        <p class="section-lede">Extending the graph from data to society: people, organizations, knowledge and AI agents, with explicit authority and accountability.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>A graph of who is connected to what</h3>
+          <p>
+            A Community Graph represents the actors of a community &mdash; people,
+            organizations, knowledge, services and now AI &mdash; and the
+            relationships among them. It is not a directory. It records
+            <em>who is connected to what, and in what meaningful way</em>,
+            including how one person plays several roles (parent, manager,
+            resident, customer) as a single node.
+          </p>
+          <p>
+            Inside a company it works as a dynamic map of how work actually
+            flows: who was involved in a decision, which knowledge was used,
+            where information stopped, which departmental links are weak.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Relationships have histories</h3>
+          <p>
+            A link is not complete once created. It changes. A useful graph
+            records when a relationship began, how strong it is, whether it is
+            still active, which events changed it, and which decisions or
+            actions it influenced. Relationships become evolving assets rather
+            than static rows.
+          </p>
+          <h3>Relationship Capital</h3>
+          <p>
+            Facilities, patents and data are assets. So are ongoing customer
+            relationships, collaboration between companies, trust in a local
+            community, shared work among employees, and human&ndash;AI
+            collaboration. These rarely appear on a balance sheet but shape
+            future value: companies using the same AI can differ because of
+            the relationships around it.
+          </p>
+        </div>
+      </div>
+
+      <p class="scroll-hint" aria-hidden="true"><span>←</span> Swipe sideways to see all columns <span>→</span></p>
+      <div class="table-wrap" role="region" aria-label="Community Graph node types, scrollable" tabindex="0">
+        <table class="compare-table">
+          <caption class="visually-hidden">Community Graph node types and example relationships</caption>
+          <thead><tr><th scope="col">Node type</th><th scope="col">Examples</th><th scope="col">Example relationships</th></tr></thead>
+          <tbody>
+<tr><th scope="row">People</th><td>Residents, customers, employees, visitors</td><td>Belongs to · Uses · Participated in · Purchased</td></tr>
+<tr><th scope="row">AI</th><td>Assistants, specialist agents, business agents</td><td>Uses · Delegates to · Supervises · Sets trust level for</td></tr>
+<tr><th scope="row">Organizations</th><td>Companies, local governments, schools, hospitals, stores</td><td>Manages · Collaborates with · Trusts</td></tr>
+<tr><th scope="row">Communities &amp; events</th><td>Regions, teams, projects, meetings, campaigns</td><td>Supports · Participated in · Is influenced by</td></tr>
+<tr><th scope="row">Knowledge &amp; services</th><td>Documents, rules, expertise, past decisions, products</td><td>Referenced knowledge from · Requested a decision from</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/community-graph-ai-actor.svg" data-lightbox data-mobile="/research/graph-intelligence-relational-systems/assets/community-graph-ai-actor-m.svg" aria-label="Open figure: AI as an actor with defined authority">
+          <picture>
+            <source media="(max-width: 640px)" srcset="/research/graph-intelligence-relational-systems/assets/community-graph-ai-actor-m.svg">
+            <img src="/research/graph-intelligence-relational-systems/assets/community-graph-ai-actor.svg" width="1200" height="675" alt="An AI agent node connected to a person who delegates and supervises, an organization, knowledge it may access, decisions it is entrusted with, another agent, and a human authority who is accountable" loading="lazy">
+          </picture>
+        </a>
+        <figcaption class="figure-caption">Fig. 02 — AI as an Actor With Defined Authority</figcaption>
+      </figure>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>AI as an actor, not only a tool</h3>
+          <p>
+            As agents spread, AI takes on roles: supporting sales, reviewing
+            contracts, watching equipment, answering inquiries, coordinating
+            other agents. Each has different knowledge, authority and area of
+            responsibility. In a Community Graph an AI is a node like any other,
+            and the graph can state who uses it, which organization it belongs
+            to, what knowledge it may access, which decisions it may be
+            entrusted with, which agents it works with &mdash; and <strong>who holds
+            final accountability</strong>.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Trust in AI is not trust between people</h3>
+          <p>It is built from observable properties:</p>
+          <ul>
+            <li>accuracy and consistency</li>
+            <li>explainability</li>
+            <li>clear authority boundaries</li>
+            <li>privacy protection</li>
+            <li>human control</li>
+            <li>traceable decision histories</li>
+          </ul>
+          <p>
+            The graph can hold edges such as <em>uses</em>, <em>delegates to</em>,
+            <em>supervises</em>, <em>approves</em> and <em>sets a trust level for</em>.
+            The question it answers is not only what AI can do, but in whose
+            relationship, and to what extent, it can be entrusted.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="research-section" id="applications" aria-labelledby="applications-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">05 / Enterprise Applications</div>
+        <h2 id="applications-h">Where Relational Intelligence Meets Work</h2>
+        <p class="section-lede">Conceptual examples of how relational knowledge supports manufacturing, enterprise operations and multi-agent teams, with people deciding.</p>
+      </div>
+
+      <aside class="scope-note"><strong>Scope note.</strong> The research notes cover process modeling, anomaly detection and quality control for manufacturing (GNN-based), and multi-agent graph models. The step-by-step flows below, and every enterprise example, are <strong>illustrative / conceptual examples written for this page</strong>. They are not case studies, not drawn from the notes, and not deployed results. The evidence and record columns rely on the applied architecture in &sect;06.</aside>
+
+      <h3 class="uc-title">Manufacturing <span class="tag">illustrative</span></h3>
+      <p class="uc-lede">Quality, maintenance and engineering questions cross process, equipment, material and document boundaries. A graph of machines, operations and operators keeps those links together; people keep the decisions.</p>
+
+      <p class="scroll-hint" aria-hidden="true"><span>←</span> Swipe sideways to see all columns <span>→</span></p>
+      <div class="table-wrap" role="region" aria-label="Manufacturing illustrative flows, scrollable" tabindex="0">
+        <table class="compare-table">
+          <caption class="visually-hidden">Manufacturing illustrative flows from input to record</caption>
+          <thead><tr><th scope="col">Scenario</th><th scope="col">Input</th><th scope="col">Relations explored</th><th scope="col">Evidence</th><th scope="col">Judgment support</th><th scope="col">Human approval</th><th scope="col">Record</th></tr></thead>
+          <tbody>
+<tr><th scope="row">Quality anomaly</th><td>Defect report on a lot</td><td>lot → process step → equipment → material batch → earlier similar nonconformities</td><td>Inspection records, SOP revision in force, sensor logs with timestamps</td><td>Ranked candidate causes; evidence gaps flagged</td><td>Quality engineer decides hold / release and corrective action</td><td>Candidates, evidence used, decision and rationale</td></tr>
+<tr><th scope="row">Equipment maintenance</th><td>Vibration alarm on a machine</td><td>machine → component → maintenance history → spare parts → line schedule</td><td>Work orders, manuals, sensor trends</td><td>Maintenance options with downtime impact</td><td>Maintenance lead approves stop or schedule</td><td>Alarm, options, approved action, result</td></tr>
+<tr><th scope="row">Technical inquiry</th><td>Customer question about a spec</td><td>product → version → specification → test report → applicable regulation → past replies</td><td>Current spec, test report, prior answers</td><td>Draft reply with citations; flags where the version is ambiguous</td><td>Technical owner approves before anything is sent externally</td><td>Sources, final reply, approver</td></tr>
+<tr><th scope="row">Change impact</th><td>Engineering change request</td><td>part → assemblies → suppliers → drawings → quality plan → customer agreements</td><td>BOM, drawings, contracts</td><td>Impact set and required re-approvals</td><td>Change board approves</td><td>Impact analysis, decision, notified parties</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="uc-title">Enterprise operations <span class="tag">illustrative</span></h3>
+      <p class="uc-lede">Policies, contracts and customer commitments only mean something in relation to dates, owners and precedent.</p>
+
+      <p class="scroll-hint" aria-hidden="true"><span>←</span> Swipe sideways to see all columns <span>→</span></p>
+      <div class="table-wrap" role="region" aria-label="Enterprise illustrative flows, scrollable" tabindex="0">
+        <table class="compare-table">
+          <caption class="visually-hidden">Enterprise illustrative flows from input to record</caption>
+          <thead><tr><th scope="col">Scenario</th><th scope="col">Input</th><th scope="col">Relations explored</th><th scope="col">Evidence</th><th scope="col">Judgment support</th><th scope="col">Human approval</th><th scope="col">Record</th></tr></thead>
+          <tbody>
+<tr><th scope="row">Policy &amp; regulation</th><td>Employee asks whether an expense is allowed</td><td>rule → version in force → exception → owner → precedent cases</td><td>Rule text, effective dates, prior rulings</td><td>Applicable rule and nearest precedent; ambiguity flagged</td><td>Policy owner for exceptions</td><td>Question, rule version, ruling</td></tr>
+<tr><th scope="row">Contract review</th><td>Renewal request</td><td>contract → clauses → counterparties → obligations → related projects</td><td>Clause text, amendments, correspondence</td><td>Obligations and conflicts surfaced for review</td><td>Legal reviewer signs off</td><td>Clauses cited, changes proposed, approver</td></tr>
+<tr><th scope="row">Customer response</th><td>Escalated complaint</td><td>customer → orders → products → prior cases → commitments made</td><td>Case history, order data, service terms</td><td>Draft response consistent with earlier commitments</td><td>Account owner approves anything binding</td><td>Draft, sources, sent version</td></tr>
+<tr><th scope="row">Project decision</th><td>Request to change scope</td><td>project → dependencies → budget → owners → earlier decisions</td><td>Plans, budget lines, decision log</td><td>Options with affected parties and prior rationale</td><td>Project sponsor decides</td><td>Options, decision, reasons</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="uc-title">Multi-agent work <span class="tag">illustrative</span></h3>
+      <p class="uc-lede">Research, planning, implementation and verification agents share one evidence base; the person with authority stays in the loop for anything consequential.</p>
+
+      <p class="scroll-hint" aria-hidden="true"><span>←</span> Swipe sideways to see all columns <span>→</span></p>
+      <div class="table-wrap" role="region" aria-label="Multi-agent illustrative flows, scrollable" tabindex="0">
+        <table class="compare-table">
+          <caption class="visually-hidden">Multi-agent illustrative flows from input to record</caption>
+          <thead><tr><th scope="col">Scenario</th><th scope="col">Input</th><th scope="col">Relations explored</th><th scope="col">Evidence</th><th scope="col">Judgment support</th><th scope="col">Human approval</th><th scope="col">Record</th></tr></thead>
+          <tbody>
+<tr><th scope="row">Change request</th><td>Feature request</td><td>Research agent: requirement → affected components → past incidents. Planner: plan → dependencies. Executor: change draft. Verifier: tests, evidence check</td><td>Specs, code history, test results, incident records</td><td>Plan plus an independent verification report</td><td>Release owner approves deployment</td><td>Each agent's inputs and outputs, verifier findings, approval, outcome</td></tr>
+<tr><th scope="row">Incident investigation</th><td>Production incident</td><td>alert → service → recent changes → owners → runbook → earlier incidents</td><td>Logs, change records, runbooks</td><td>Hypotheses ranked with supporting and contradicting evidence</td><td>Incident commander approves any remediation</td><td>Timeline, hypotheses, actions taken, result</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="table-note">In every row the person in the approval column remains accountable for the outcome; the graph and the AI supply evidence and options.</p>
+
+    </div>
+  </section>
+
+  <section class="research-section" id="architecture" aria-labelledby="architecture-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">06 / Applied Architecture</div>
+        <h2 id="architecture-h">Graph RAG, Evidence Graph and Decision Trace</h2>
+        <p class="section-lede">How relational representation can be carried into enterprise knowledge and decision systems &mdash; an application layer built on the foundations above.</p>
+      </div>
+
+      <aside class="scope-note"><strong>Scope note.</strong> Graph RAG, Evidence Graph, Semantic Chunk, Retrieval Receipt and Decision Trace are <strong>not described in the research notes</strong>, and the notes do not lead to them directly. They are Chinoba&rsquo;s <strong>applied architecture</strong>: one way to carry relational learning and relational representation into enterprise knowledge and decision systems, with evidence and human approval kept in the loop.</aside>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Vectors and graphs complement each other</h3>
+          <p>
+            Vector search is fast, flexible and needs little modeling. It finds
+            passages that resemble a question and normally stays as the firs
+            step. It does not hold who is responsible, which version was in
+            force, what an exception depends on or which approval path applies.
+            Those are properties of relations.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Graphs are not a universal remedy</h3>
+          <p>
+            They cost modeling effort, inherit extraction errors and need
+            upkeep. The comparison below describes typical designs, no
+            product capabilities; a well-built RAG pipeline can add metadata and
+            versions, and a graph can be built badly.
+          </p>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/vector-rag-vs-graph-intelligence.svg" data-lightbox data-mobile="/research/graph-intelligence-relational-systems/assets/vector-rag-vs-graph-intelligence-m.svg" aria-label="Open figure: Vector RAG and Graph Intelligence comparison">
+          <picture>
+            <source media="(max-width: 640px)" srcset="/research/graph-intelligence-relational-systems/assets/vector-rag-vs-graph-intelligence-m.svg">
+            <img src="/research/graph-intelligence-relational-systems/assets/vector-rag-vs-graph-intelligence.svg" width="1200" height="675" alt="Comparison of Vector RAG, which retrieves similar text chunks, and Graph Intelligence, which follows entities, relations, evidence, time and constraints; the two are complementary" loading="lazy">
+          </picture>
+        </a>
+        <figcaption class="figure-caption">Fig. 03 — Vector RAG and Graph Intelligence</figcaption>
+      </figure>
+
+      <p class="scroll-hint" aria-hidden="true"><span>←</span> Swipe sideways to see all columns <span>→</span></p>
+      <div class="table-wrap" role="region" aria-label="Vector, RAG and graph comparison, scrollable" tabindex="0">
+        <table class="compare-table">
+          <caption class="visually-hidden">Comparison of vector search, traditional RAG and a graph-based design</caption>
+          <thead><tr><th scope="col">Property</th><th scope="col">Vector search</th><th scope="col">Traditional RAG</th><th scope="col">Graph-based design</th></tr></thead>
+          <tbody>
+<tr><th scope="row">Retrieval target</th><td>Embeddings of text or images; nearest neighbors</td><td>Text chunks retrieved by similarity, then passed to an LLM</td><td>Entities, typed relations and the evidence chunks attached to them</td></tr>
+<tr><th scope="row">Relationships</th><td>Implicit in wording; not stored</td><td>Implicit; depends on what lands in the same chunk</td><td>Explicit typed edges (e.g. <em>applies-to</em>, <em>supersedes</em>, <em>approved-by</em>)</td></tr>
+<tr><th scope="row">Cause &amp; dependency</th><td>Not represented</td><td>Inferred by the LLM from text; easily missed</td><td>Dependency and impact paths can be traversed. Edges show structure, not proof of causality</td></tr>
+<tr><th scope="row">Point in time</th><td>Ranks by similarity; a stale version can rank first</td><td>Same; relies on metadata filters</td><td>Validity period, supersession and state-at-decision-time modeled as attributes</td></tr>
+<tr><th scope="row">Authority &amp; permission</th><td>Document-level filters at best</td><td>Document-level filters at best</td><td>Ownership, role and permission edges can be evaluated per path; enforcement stays in a separate access-control layer</td></tr>
+<tr><th scope="row">Explainability</th><td>A similarity score</td><td>A list of cited passages</td><td>A path from the answer back to relations and sources</td></tr>
+<tr><th scope="row">Auditability</th><td>Query logs</td><td>Which chunks were retrieved</td><td>A retrieval receipt: which graph elements and versions were used</td></tr>
+<tr><th scope="row">Multi-step reasoning</th><td>Weak; one-shot top-k</td><td>Limited; iterative prompting</td><td>Multi-hop traversal across relations</td></tr>
+<tr><th scope="row">Cost &amp; limits</th><td>Low to adopt; no schema</td><td>Moderate</td><td>Highest: schema design, extraction errors, continuous maintenance. Bounded by graph quality</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="uc-title">From source to Decision Trace</h3>
+      <p class="uc-lede">Every step leaves something behind: provenance at the source, evidence on every edge, a receipt at retrieval, an approver at execution, a trace afterward. The graph is the middle of the chain, not the whole of it.</p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/evidence-grounded-decision-flow.svg" data-lightbox data-mobile="/research/graph-intelligence-relational-systems/assets/evidence-grounded-decision-flow-m.svg" aria-label="Open figure: Evidence-grounded decision flow">
+          <picture>
+            <source media="(max-width: 640px)" srcset="/research/graph-intelligence-relational-systems/assets/evidence-grounded-decision-flow-m.svg">
+            <img src="/research/graph-intelligence-relational-systems/assets/evidence-grounded-decision-flow.svg" width="1200" height="675" alt="Evidence-grounded decision flow in eight steps: Source, Semantic Chunk, Evidence Graph, Retrieval, Decision Proposal, Human Approval, Execution, Decision Trace, with feedback" loading="lazy">
+          </picture>
+        </a>
+        <figcaption class="figure-caption">Fig. 04 — Evidence-Grounded Decision Flow</figcaption>
+      </figure>
+
+      <div class="graph-runtime" aria-label="Applied architecture layers">
+        <div class="graph-runtime-label">Layer Diagram</div>
+        <h3 class="graph-runtime-title">What each layer does &mdash; and what it keeps</h3>
+        <ol class="graph-layers" role="list">
+          <li class="graph-layer">
+            <span class="layer-idx">L1</span>
+            <span class="layer-body"><span class="layer-name">Source</span><span class="layer-note">Documents, tickets, logs, specs, master data &mdash; the system of record.</span></span>
+            <span class="layer-tag">keeps: owner · version · access rights</span>
+          </li>
+          <li class="graph-arrow" aria-hidden="true">↓</li>
+          <li class="graph-layer">
+            <span class="layer-idx">L2</span>
+            <span class="layer-body"><span class="layer-name">Semantic Chunk</span><span class="layer-note">Meaningful units (a clause, a procedure step, a test result), not arbitrary windows.</span></span>
+            <span class="layer-tag">keeps: provenance · position · timestamp</span>
+          </li>
+          <li class="graph-arrow" aria-hidden="true">↓</li>
+          <li class="graph-layer">
+            <span class="layer-idx">L3</span>
+            <span class="layer-body"><span class="layer-name">Entity / Relation Extraction</span><span class="layer-note">Identifies entities and typed relations; resolves duplicates. Probabilistic; needs review.</span></span>
+            <span class="layer-tag">keeps: confidence · extractor version</span>
+          </li>
+          <li class="graph-arrow" aria-hidden="true">↓</li>
+          <li class="graph-layer">
+            <span class="layer-idx">L4</span>
+            <span class="layer-body"><span class="layer-name">Evidence Graph</span><span class="layer-note">Entities and relations, each linked to supporting chunks, with validity periods and constraints.</span></span>
+            <span class="layer-tag">keeps: evidence links · time · constraints</span>
+          </li>
+          <li class="graph-arrow" aria-hidden="true">↓</li>
+          <li class="graph-layer">
+            <span class="layer-idx">L5</span>
+            <span class="layer-body"><span class="layer-name">Retrieval / Reasoning</span><span class="layer-note">Vector search for candidates, then graph traversal and LLM synthesis. Emits a Retrieval Receipt.</span></span>
+            <span class="layer-tag">keeps: receipt · paths used · gaps</span>
+          </li>
+          <li class="graph-arrow" aria-hidden="true">↓</li>
+          <li class="graph-layer">
+            <span class="layer-idx">L6</span>
+            <span class="layer-body"><span class="layer-name">Human Approval / Execution</span><span class="layer-note">A proposal is reviewed by an accountable person; execution runs only inside granted scope.</span></span>
+            <span class="layer-tag">keeps: approver · scope · expiry</span>
+          </li>
+          <li class="graph-arrow" aria-hidden="true">↓</li>
+          <li class="graph-layer">
+            <span class="layer-idx">L7</span>
+            <span class="layer-body"><span class="layer-name">Decision Trace</span><span class="layer-note">Question, evidence, options, decision, approver and outcome.</span></span>
+            <span class="layer-tag">keeps: who · what · why · result</span>
+          </li>
+          <li class="graph-arrow" aria-hidden="true">↓</li>
+          <li class="graph-layer">
+            <span class="layer-idx">L8</span>
+            <span class="layer-body"><span class="layer-name">Feedback</span><span class="layer-note">Outcomes correct chunks, relations and policies; disputed edges return for review.</span></span>
+            <span class="layer-tag">keeps: corrections · review queue</span>
+          </li>
+        </ol>
+      </div>
+<div style="height: clamp(40px, 5vw, 56px)"></div><div class="concept-grid cols-3">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Relational retrieval</h3>
+          <p>Questions that span entities: <em>which open orders use parts from the lot flagged last week?</em></p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Evidence tracing</h3>
+          <p>Every answer can be walked back to relations and source passages, including the version used.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>State, time &amp; constraints</h3>
+          <p>What was valid when, and which limits applied &mdash; checkable against the state at decision time.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Exceptions &amp; contradictions</h3>
+          <p>Conflicting sources, orphaned approvals and rules without an owner appear as structure.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Shared agent context</h3>
+          <p>Agents read the same entities, evidence and constraints instead of rebuilding context from prompts.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Improvement via trace</h3>
+          <p>Past decisions with their evidence and outcomes become material for reviewing future ones.</p>
+        </div>
+      </div>
+
+      <p class="figure-lede">
+        The Decision Trace is also where this architecture meets graph
+        learning: a ledger records the decision process, a graph connects the
+        judgments, a GNN learns relational patterns, and past judgments suppor
+        later ones. This is Chinoba&rsquo;s Decision Trace GNN proposal &mdash; a
+        research direction, not a settled method.
       </p>
 
       <figure class="figure figure-wide figure-main">
-        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/01.png"
-           data-lightbox aria-label="Open Graph Intelligence overview diagram">
-          <img src="/research/graph-intelligence-relational-systems/assets/01.png"
-               alt="What is a GNN, and why can't AI learn human judgment? — a graph of connected nodes above an AI mind, framing a deeper look at structure and the nature of judgment"
-               loading="lazy">
+        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/12.webp" data-lightbox aria-label="Open figure: Decision Trace GNN">
+          <img src="/research/graph-intelligence-relational-systems/assets/12.webp" width="1672" height="941" alt="Decision Trace GNN: a ledger records the decision process, a graph connects judgments, a GNN learns relational patterns, and past judgments support better future decisions" loading="lazy">
         </a>
+        <figcaption class="figure-caption">Fig. 05 — Decision Trace GNN</figcaption>
       </figure>
+
     </div>
-  </header>
+  </section>
+
+  <section class="research-section" id="boundary" aria-labelledby="boundary-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">07 / Boundaries, Stop Conditions &amp; Authority</div>
+        <h2 id="boundary-h">Graphs Learn Relations. Design Sets the Boundaries.</h2>
+        <p class="section-lede">What a GNN or an agent understands is separate from what it is permitted to do. The line between them is written by people.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="col-text">
+          <h3>Meaning appears where a line is drawn</h3>
+          <p>
+            Approximation treats 0.49 and 0.51 almost alike. A decision does
+            not: at some point the difference becomes pass or fail, allowed or
+            denied, safe or dangerous. That jump lies outside smooth
+            approximation, and the better a model approximates, the more such
+            boundaries blur &mdash; which is why an answer can be fluent and still
+            feel wrong.
+          </p>
+          <p>
+            A GNN comes closer to meaning than most models, because meaning
+            often lives in relationships: a design may be rejected because of a
+            component constraint, a safety standard, a past accident, cost.
+            But what a GNN learns is the statistics of relationships.
+          </p>
+        </div>
+        <div class="col-text">
+          <h3>Design writes the discontinuities</h3>
+          <code class="quote">
+            A GNN can learn that A &rarr; B &rarr; C recurs.
+            It cannot decide that the decision should stop here.
+            That is a designed rule.
+          </code>
+          <p>Boundaries, stop conditions and exception handling are where meaning remains:</p>
+          <ul>
+            <li>Do not decide below this probability.</li>
+            <li>Do not automate this type of case.</li>
+            <li>Return this case to human judgment.</li>
+          </ul>
+          <p>The question is not whether AI can understand meaning, but <strong>who writes the discontinuities, and where they are written.</strong></p>
+        </div>
+      </div>
+
+      <div class="graph-runtime" aria-label="Three-layer structure of AI">
+        <div class="graph-runtime-label">Layer Diagram</div>
+        <h3 class="graph-runtime-title">Three layers of AI</h3>
+        <ol class="graph-layers" role="list">
+          <li class="graph-layer">
+            <span class="layer-idx">1</span>
+            <span class="layer-body"><span class="layer-name">Continuous approximation</span><span class="layer-note">LLMs, deep learning, transformers: smooth function approximation in vector space.</span></span>
+            <span class="layer-tag">approximates the world</span>
+          </li>
+          <li class="graph-arrow" aria-hidden="true">↓</li>
+          <li class="graph-layer">
+            <span class="layer-idx">2</span>
+            <span class="layer-body"><span class="layer-name">Relational structure</span><span class="layer-note">Graph neural networks: learn which things connect and what patterns recur.</span></span>
+            <span class="layer-tag">learns relationships</span>
+          </li>
+          <li class="graph-arrow" aria-hidden="true">↓</li>
+          <li class="graph-layer">
+            <span class="layer-idx">3</span>
+            <span class="layer-body"><span class="layer-name">Semantic discontinuity</span><span class="layer-note">Ontology, rules, boundaries: pass / fail, allowed / denied, stop / continue.</span></span>
+            <span class="layer-tag">designed by people</span>
+          </li>
+        </ol>
+      </div>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/08.webp" data-lightbox aria-label="Open figure: Can a GNN learn meaning">
+          <img src="/research/graph-intelligence-relational-systems/assets/08.webp" width="1672" height="941" alt="Can a GNN learn meaning? GNNs capture relationships, but whether they grasp meaning, context and purpose remains an open question" loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 06 — Can a GNN Learn Meaning?</figcaption>
+      </figure>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/10.webp" data-lightbox aria-label="Open figure: Meaning from boundary, rule, ontology and human">
+          <img src="/research/graph-intelligence-relational-systems/assets/10.webp" width="1672" height="941" alt="Meaning is born from Boundary, Rule, Ontology and Human: the same person can mean patient, customer or employee depending on the frame" loading="lazy">
+        </a>
+        <figcaption class="figure-caption">Fig. 07 — Meaning Is Born from Boundary, Rule, Ontology and Human</figcaption>
+      </figure>
+
+      <div class="two-col" style="margin-top: clamp(48px, 6vw, 64px);">
+        <div class="col-text">
+          <h3>Understanding is not authority</h3>
+          <p>
+            A graph can make an agent very good at seeing how things are
+            connected. That says nothing about what it may do. Capability
+            &mdash; reading, inferring, proposing &mdash; and authority &mdash; the right to
+            change something in the world &mdash; are granted, held and revoked
+            separately. Where agents are nodes in a Community Graph (&sect;04),
+            their authority edges are set by people, not learned.
+          </p>
+          <code class="quote">
+            The intelligence that understands relations
+            must not be the authority that permits execution.
+          </code>
+        </div>
+        <div class="col-text">
+          <h3>Design principles</h3>
+          <ul>
+            <li>Authority is granted by a control layer outside the model and the graph.</li>
+            <li>An approval binds to the exact action <em>and</em> the evidence version it relied on.</li>
+            <li>Approvals expire and are consumed; they are not reusable.</li>
+            <li>The verifier is independent of the executor.</li>
+            <li>Missing evidence, contradiction or low confidence escalates to a person.</li>
+            <li>Every proposal, approval and outcome goes into the Decision Trace.</li>
+          </ul>
+        </div>
+      </div>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/governed-multi-agent-coordination.svg" data-lightbox data-mobile="/research/graph-intelligence-relational-systems/assets/governed-multi-agent-coordination-m.svg" aria-label="Open figure: Governed multi-agent coordination">
+          <picture>
+            <source media="(max-width: 640px)" srcset="/research/graph-intelligence-relational-systems/assets/governed-multi-agent-coordination-m.svg">
+            <img src="/research/graph-intelligence-relational-systems/assets/governed-multi-agent-coordination.svg" width="1200" height="675" alt="Governed multi-agent coordination: Research, Planner, Executor and Verifier agents act through an authority control layer independent of agent capability, with Human Authority approving scoped execution and everything recorded in a Decision Trace" loading="lazy">
+          </picture>
+        </a>
+        <figcaption class="figure-caption">Fig. 08 — Governed Multi-Agent Coordination</figcaption>
+      </figure>
+
+      <p class="scroll-hint" aria-hidden="true"><span>←</span> Swipe sideways to see all columns <span>→</span></p>
+      <div class="table-wrap" role="region" aria-label="Actions requiring separate control, scrollable" tabindex="0">
+        <table class="compare-table">
+          <caption class="visually-hidden">Actions that need a separate control layer</caption>
+          <thead><tr><th scope="col">Action</th><th scope="col">What the graph can support</th><th scope="col">What must be controlled separately</th></tr></thead>
+          <tbody>
+<tr><th scope="row">Permission change</th><td>Show who holds access, related roles and exposure</td><td>Identity and access authority; approval bound to the exact change</td></tr>
+<tr><th scope="row">External sending</th><td>Find related facts; draft the message</td><td>Communication policy; named approver; approval bound to the final text</td></tr>
+<tr><th scope="row">Deployment</th><td>Impact analysis and change history</td><td>Release gate; verifier independent of the author; rollback and revocation</td></tr>
+<tr><th scope="row">Purchase order</th><td>Supplier, contract and price-history relations</td><td>Delegation limits and budget authority</td></tr>
+<tr><th scope="row">Payment</th><td>Match invoice, contract and receipt</td><td>Dual approval, payment-system controls and monitoring</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="two-col" style="margin-top: clamp(40px, 5vw, 56px);">
+        <div class="col-text">
+          <h3>Limits to state plainly</h3>
+          <ul>
+            <li>Graph quality is bounded by extraction quality; a wrong edge can look authoritative.</li>
+            <li>LLMs can invent relations or misread evidence, so extracted edges need confidence and review.</li>
+            <li>GNN predictions are statistical; they do not set boundaries, exceptions or permissions.</li>
+            <li>Agents act on what they are given. Responsibility for the result stays with named people.</li>
+          </ul>
+        </div>
+        <div class="col-text">
+          <h3>Related inquiry</h3>
+          <p>
+            The authority model is developed in
+            <a href="/research/governance-boundary-systems">Governance &amp; Boundary Systems</a>
+            and <a href="/research/multi-agent-systems">Multi-Agent Systems</a>; the record tha
+            makes it auditable is described in
+            <a href="/research/decision-trace-model">Decision Trace Model</a>.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="research-section" id="roadmap" aria-labelledby="roadmap-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">08 / Roadmap</div>
+        <h2 id="roadmap-h">Research Directions and Application Maturity</h2>
+        <p class="section-lede">Open questions for the inquiry, and four cumulative levels for organizations adopting the applied architecture.</p>
+      </div>
+
+      <h3 class="uc-title" style="margin-top:0">Research directions</h3>
+      <p class="uc-lede">Open questions this inquiry intends to pursue. They are directions, not commitments or results.</p>
+      <div style="height: clamp(24px, 3vw, 32px)"></div>
+<div class="concept-grid cols-3">
+        <div class="concept">
+          <div class="idx">i</div>
+          <h3>Decision Trace GNN</h3>
+          <p>Learning relational patterns from ledgered decisions, with each trace tied to its boundary.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">ii</div>
+          <h3>Dynamic evidence graphs</h3>
+          <p>Connecting temporal graph learning with validity periods and supersession in the Evidence Graph.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iii</div>
+          <h3>Counterfactual change impact</h3>
+          <p>Using &ldquo;what if this edge were removed&rdquo; as reviewed hypotheses for engineering and policy changes.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">iv</div>
+          <h3>Authority-aware Community Graphs</h3>
+          <p>Modeling delegation, supervision and accountability edges for AI actors, set by people.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">v</div>
+          <h3>Boundary-aware evaluation</h3>
+          <p>Testing whether systems escalate when evidence is missing or contradictory, rather than only measuring accuracy.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">vi</div>
+          <h3>Relationship Capital</h3>
+          <p>Finding workable ways to observe the strength and history of relationships without turning people into scores.</p>
+        </div>
+      </div>
+
+      <h3 class="uc-title">Application maturity</h3>
+      <p class="uc-lede">For organizations adopting the applied architecture of &sect;06, four cumulative levels. Most value at L1&ndash;L3 comes from data hygiene and review habits, not model size; do not move to L4 before L2&ndash;L3 controls work.</p>
+
+      <figure class="figure figure-wide figure-main">
+        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/graph-intelligence-roadmap.svg" data-lightbox data-mobile="/research/graph-intelligence-relational-systems/assets/graph-intelligence-roadmap-m.svg" aria-label="Open figure: Maturity roadmap">
+          <picture>
+            <source media="(max-width: 640px)" srcset="/research/graph-intelligence-relational-systems/assets/graph-intelligence-roadmap-m.svg">
+            <img src="/research/graph-intelligence-relational-systems/assets/graph-intelligence-roadmap.svg" width="1200" height="675" alt="Maturity roadmap in four rising steps: Connected Retrieval, Evidence-Grounded Answers, Decision Support, Governed Agent Coordination" loading="lazy">
+          </picture>
+        </a>
+        <figcaption class="figure-caption">Fig. 09 — Maturity Roadmap</figcaption>
+      </figure>
+<div class="concept-grid cols-4">
+        <div class="concept">
+          <div class="idx">L1</div>
+          <h3>Connected Retrieval</h3>
+          <p>Data: documents, master data, entity links.<br>Operations: entity resolution; link curation.<br>Governance: source access rights carried over; read-only.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">L2</div>
+          <h3>Evidence-Grounded Answers</h3>
+          <p>Data: + Semantic Chunks with provenance and versions.<br>Operations: citation checks; retrieval receipts; evaluation sets.<br>Governance: every answer cites sources; unsupported answers are declined.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">L3</div>
+          <h3>Decision Support</h3>
+          <p>Data: + constraints, state, past decisions.<br>Operations: reviewers inside the workflow; option comparison.<br>Governance: named decision owner; a Decision Trace per proposal; escalation rules.</p>
+        </div>
+        <div class="concept">
+          <div class="idx">L4</div>
+          <h3>Governed Agent Coordination</h3>
+          <p>Data: + roles, authority, agent identities.<br>Operations: orchestration; independent verifier; revocation and stop controls.<br>Governance: scoped authority; approval binding; audit and periodic review.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
   <!-- ============ EXPLORE THIS THEME ============ -->
   <section class="research-section" id="explore" aria-labelledby="explore-h">
@@ -364,474 +1224,11 @@
     </div>
   </section>
 
-  <!-- ============ 01 OVERVIEW ============ -->
-  <section class="research-section" id="overview" aria-labelledby="overview-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">01 / Overview</div>
-        <h2 id="overview-h">Overview</h2>
-        <p class="section-lede">
-          A relational view of intelligence — where meaning,
-          influence, and decision live between entities, not
-          inside them.
-        </p>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>What Graph Intelligence Models</h3>
-          <p>Graph Intelligence refers to AI systems that model:</p>
-          <ul>
-            <li>relationships</li>
-            <li>propagation</li>
-            <li>topology</li>
-            <li>semantic structure</li>
-            <li>organizational interaction</li>
-            <li>influence networks</li>
-            <li>trust structures</li>
-            <li>decision dependencies</li>
-          </ul>
-
-          <code class="quote">
-            Many real-world systems
-            are not isolated entities.
-          </code>
-
-          <p>
-            They are relational systems —
-            and their behavior cannot be
-            recovered from the parts alone.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>Why a Graph Frame</h3>
-          <p>
-            Graph-based architectures enable AI to model
-            interaction, propagation, dependency, and
-            collective structure — the substrate that
-            isolated embeddings tend to flatten away.
-          </p>
-
-          <h3>Working Statement</h3>
-          <code class="quote">
-            Intelligence is not stored in a node.
-            It is shaped by the edges.
-          </code>
-
-          <p>
-            This inquiry treats graph intelligence as a
-            relational layer for decision systems — where
-            organizational memory, trust, and influence
-            become first-class objects of computation.
-          </p>
-        </div>
-      </div>
-
-      <p class="figure-lede">
-        The relational view made concrete: reality is not a list
-        of isolated things but a web of people, organizations,
-        knowledge, and rules bound together. Notice how meaning
-        gathers at the connections, not the nodes — the same
-        intuition graph intelligence encodes when it treats
-        relationships as the primary object of computation.
-      </p>
-
-      <figure class="figure figure-wide figure-main">
-        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/05.png"
-           data-lightbox aria-label="Open Reality is Relationships diagram">
-          <img src="/research/graph-intelligence-relational-systems/assets/05.png"
-               alt="Reality is relationships — the real world is not made of words but of relationships between people, organizations, knowledge, and rules, and this network is what drives it"
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Fig. 01 — Reality Is Made of Relationships</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 02 WHY IT MATTERS ============ -->
-  <section class="research-section" id="why" aria-labelledby="why-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">02 / Why It Matters</div>
-        <h2 id="why-h">Why It Matters</h2>
-        <p class="section-lede">
-          Real organizational intelligence is relational —
-          and relational structure is exactly what most AI
-          pipelines discard at the input boundary.
-        </p>
-      </div>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>The Default AI Pipeline</h3>
-          <p>Traditional AI often processes information as:</p>
-
-          <code class="quote">
-            Input → Embedding → Output
-          </code>
-
-          <p>
-            This frame is sufficient for many product
-            features. It treats each input as if it were
-            independent of every other.
-          </p>
-
-          <p>
-            But organizations — and the decisions inside
-            them — are rarely independent. They carry
-            history, context, and connection.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>What Real Organizations Carry</h3>
-          <p>However, real organizational intelligence contains:</p>
-          <ul>
-            <li>relational context</li>
-            <li>propagation</li>
-            <li>temporal influence</li>
-            <li>semantic dependency</li>
-            <li>organizational memory</li>
-            <li>trust flow</li>
-            <li>decision linkage</li>
-          </ul>
-
-          <p>
-            GNNs and graph intelligence systems allow AI
-            to move closer to relational reasoning — to
-            propagate context, not just compress it.
-          </p>
-
-          <code class="quote">
-            The future of AI may not depend
-            only on larger models.
-            It may depend on better representations
-            of relationships.
-          </code>
-        </div>
-      </div>
-
-      <p class="figure-lede">
-        Every wave of AI — from machine learning to deep learning
-        to transformers and large language models — has advanced by
-        finding patterns in ever-larger data. That is a genuine
-        achievement, but it is also a ceiling: the real world is not
-        only a distribution of patterns, and much of what an
-        organization needs to reason about lives in structure that
-        pattern-matching alone cannot recover.
-      </p>
-
-      <figure class="figure figure-wide figure-main">
-        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/03.png"
-           data-lightbox aria-label="Open AI evolution and its common limit diagram">
-          <img src="/research/graph-intelligence-relational-systems/assets/03.png"
-               alt="AI changed everything, but shares one common point — machine learning, deep learning, transformers, and LLMs all learn patterns from data, yet the real world cannot be explained by patterns alone"
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Fig. 02 — The Common Limit of Pattern-Based AI</figcaption>
-      </figure>
-
-      <p class="figure-lede">
-        This is the opening for a graph frame. Where language models
-        are powerful with text, graph neural networks are powerful
-        with relationships — representing entities as nodes, their
-        connections as edges, and the whole as a structure that can
-        be reasoned over. The two are complementary, and together
-        they point past the limits of any single larger model.
-      </p>
-
-      <figure class="figure figure-wide figure-main">
-        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/02.png"
-           data-lightbox aria-label="Open Why Relationships Matter diagram">
-          <img src="/research/graph-intelligence-relational-systems/assets/02.png"
-               alt="Graph Neural Networks as the next AI beyond LLMs — nodes are entities, edges are relationships, and the graph is structure; GNNs help AI understand relationships, reason in context, and make better decisions"
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Fig. 03 — Why Relationships Matter</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 03 CORE STRUCTURE ============ -->
-  <section class="research-section" id="core" aria-labelledby="core-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">03 / Core Structure</div>
-        <h2 id="core-h">Core Structure</h2>
-        <p class="section-lede">
-          Eight layers that compose a graph-based intelligence
-          runtime — from nodes and edges to organizational
-          coordination.
-        </p>
-      </div>
-
-      <p class="figure-lede">
-        Before the layers, the primitives. A graph is only three
-        things — nodes for entities, edges for the connections
-        between them, and the relationships those edges carry as
-        meaning, context, and impact. Read from left to right: the
-        same three primitives that describe a single relationship
-        also describe an entire world of people, organizations,
-        events, and knowledge linked around a shared transaction.
-      </p>
-
-      <figure class="figure figure-wide figure-main">
-        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/06.png"
-           data-lightbox aria-label="Open graph primitives diagram">
-          <img src="/research/graph-intelligence-relational-systems/assets/06.png"
-               alt="A graph is nodes, edges, and relationships — the world is naturally represented as a graph, expressed not through isolated elements but through their connections"
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Fig. 04 — Nodes, Edges, and Relationships</figcaption>
-      </figure>
-
-      <div class="concept-grid cols-4">
-        <div class="concept">
-          <div class="idx">i</div>
-          <h3>Node Intelligence</h3>
-          <p>The smallest unit of representation — an entity, agent, document, or decision endowed with its own state and meaning.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">ii</div>
-          <h3>Edge Relationships</h3>
-          <p>Typed connections between nodes — influence, dependency, citation, trust, escalation — making structure explicit.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">iii</div>
-          <h3>Propagation Layer</h3>
-          <p>How signals, context, and influence travel across the graph — the substrate on which relational reasoning runs.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">iv</div>
-          <h3>Semantic Structure</h3>
-          <p>The meaning carried by topology itself — neighborhoods, motifs, and patterns that encode what a region of the graph is about.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">v</div>
-          <h3>Trust Graph</h3>
-          <p>A relational ledger of reputation, verification, and reliability — where trust is a measurable property of connection.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">vi</div>
-          <h3>Decision Graph</h3>
-          <p>The web of decisions, dependencies, and traces — how a single decision inherits from and conditions others.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">vii</div>
-          <h3>Organizational Memory</h3>
-          <p>The accumulated relational history of an institution — preserved as structure, not flattened into prose.</p>
-        </div>
-
-        <div class="concept">
-          <div class="idx">viii</div>
-          <h3>Runtime Graph Coordination</h3>
-          <p>Live coordination across agents, humans, and systems — the graph as an executable layer for relational decisions.</p>
-        </div>
-      </div>
-
-      <!-- ====== Graph Intelligence Runtime Structure (layered diagram) ====== -->
-      <div class="graph-runtime" aria-label="Graph Intelligence Runtime Structure">
-        <div class="graph-runtime-label">Layer Diagram</div>
-        <h3 class="graph-runtime-title">Graph Intelligence Runtime Structure</h3>
-
-        <ol class="graph-layers" role="list">
-          <li class="graph-layer">
-            <span class="layer-idx">L1</span>
-            <span class="layer-body">
-              <span class="layer-name">Nodes</span>
-              <span class="layer-note">Entities, agents, documents, and decisions — the atomic units of representation.</span>
-            </span>
-            <span class="layer-tag">entities</span>
-          </li>
-          <li class="graph-arrow" aria-hidden="true">↓</li>
-          <li class="graph-layer">
-            <span class="layer-idx">L2</span>
-            <span class="layer-body">
-              <span class="layer-name">Edges</span>
-              <span class="layer-note">Typed relationships — influence, dependency, citation, trust, escalation.</span>
-            </span>
-            <span class="layer-tag">relationships</span>
-          </li>
-          <li class="graph-arrow" aria-hidden="true">↓</li>
-          <li class="graph-layer">
-            <span class="layer-idx">L3</span>
-            <span class="layer-body">
-              <span class="layer-name">Propagation</span>
-              <span class="layer-note">Message passing and context flow — the mechanism by which structure becomes inference.</span>
-            </span>
-            <span class="layer-tag">message passing</span>
-          </li>
-          <li class="graph-arrow" aria-hidden="true">↓</li>
-          <li class="graph-layer">
-            <span class="layer-idx">L4</span>
-            <span class="layer-body">
-              <span class="layer-name">Semantic Structure</span>
-              <span class="layer-note">Topology-aware meaning — neighborhoods, motifs, and patterns encoding what regions are about.</span>
-            </span>
-            <span class="layer-tag">topology</span>
-          </li>
-          <li class="graph-arrow" aria-hidden="true">↓</li>
-          <li class="graph-layer">
-            <span class="layer-idx">L5</span>
-            <span class="layer-body">
-              <span class="layer-name">Trust Graph</span>
-              <span class="layer-note">Reputation, verification, and reliability expressed as a relational property of connection.</span>
-            </span>
-            <span class="layer-tag">trust</span>
-          </li>
-          <li class="graph-arrow" aria-hidden="true">↓</li>
-          <li class="graph-layer">
-            <span class="layer-idx">L6</span>
-            <span class="layer-body">
-              <span class="layer-name">Decision Graph</span>
-              <span class="layer-note">Decision dependencies and trace lineage — decisions as nodes with inheritance.</span>
-            </span>
-            <span class="layer-tag">decisions</span>
-          </li>
-          <li class="graph-arrow" aria-hidden="true">↓</li>
-          <li class="graph-layer">
-            <span class="layer-idx">L7</span>
-            <span class="layer-body">
-              <span class="layer-name">Organizational Memory</span>
-              <span class="layer-note">Accumulated relational history retained as structure — replayable across time.</span>
-            </span>
-            <span class="layer-tag">memory</span>
-          </li>
-          <li class="graph-arrow" aria-hidden="true">↓</li>
-          <li class="graph-layer">
-            <span class="layer-idx">L8</span>
-            <span class="layer-body">
-              <span class="layer-name">Runtime Graph Coordination</span>
-              <span class="layer-note">Live coordination across agents and humans — graph as an executable substrate.</span>
-            </span>
-            <span class="layer-tag">runtime</span>
-          </li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 04 THE MEANING GAP ============ -->
-  <section class="research-section" id="meaning" aria-labelledby="meaning-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">04 / The Meaning Gap</div>
-        <h2 id="meaning-h">From Structure to Judgment</h2>
-        <p class="section-lede">
-          Graph intelligence gives AI a powerful grip on structure.
-          But structure is not yet meaning — and meaning is what
-          human decisions are made of. This is the gap the
-          Decision Trace GNN is designed to close.
-        </p>
-      </div>
-
-      <p class="figure-lede">
-        Once a model can read relationships, a harder question
-        follows: can it read what those relationships mean? A GNN
-        can see that two nodes are connected, but not why the
-        connection was made, what it is for, or what is happening
-        inside the structure. These are the questions that separate
-        pattern from judgment.
-      </p>
-
-      <figure class="figure figure-wide figure-main">
-        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/08.png"
-           data-lightbox aria-label="Open Can GNN Learn Meaning diagram">
-          <img src="/research/graph-intelligence-relational-systems/assets/08.png"
-               alt="Can a GNN learn meaning? — GNNs capture relationships, but whether they grasp meaning, context, and purpose (why a connection was made, what it is for, what is happening in the structure) remains an open question"
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Fig. 05 — Can a GNN Learn Meaning?</figcaption>
-      </figure>
-
-      <div class="two-col">
-        <div class="col-text">
-          <h3>What Graphs Give — and Withhold</h3>
-          <p>
-            A graph neural network learns the structure of
-            relationships: which nodes connect, what patterns recur,
-            how strongly and in what role entities relate. That is a
-            great deal — and for many tasks it is enough.
-          </p>
-          <p>
-            What it does not learn is meaning. The semantics of a
-            connection, its context, its purpose, the background
-            knowledge that tells us what a relationship is <em>about</em>
-            — none of this is present in topology alone.
-          </p>
-        </div>
-
-        <div class="col-text">
-          <h3>Where Meaning Comes From</h3>
-          <p>
-            Meaning is not written into the data from the start. It
-            is born from how we frame the world — the boundary we
-            draw around it, the rules and ontology we impose, and the
-            human judgment that reads the same structure through
-            purpose, values, and context.
-          </p>
-
-          <code class="quote">
-            Meaning does not exist in the data.
-            It is born from how
-            we design the world.
-          </code>
-        </div>
-      </div>
-
-      <p class="figure-lede">
-        The same network of people, organizations, and documents can
-        carry entirely different meanings depending on the frame
-        placed over it. Boundary decides how far the world extends;
-        rules and ontology give it structure; and human judgment
-        supplies purpose. Meaning is a product of that design, not a
-        property of the graph.
-      </p>
-
-      <figure class="figure figure-wide figure-main">
-        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/10.png"
-           data-lightbox aria-label="Open Meaning is born from Boundary, Rule, Ontology, and Human diagram">
-          <img src="/research/graph-intelligence-relational-systems/assets/10.png"
-               alt="Meaning is born from Boundary, Rule, Ontology, and Human — the same person can mean patient, customer, or employee depending on the frame, so meaning arises from how we design the world, not from the data itself"
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Fig. 06 — Meaning Is Born from Boundary, Rule, Ontology, and Human</figcaption>
-      </figure>
-
-      <p class="figure-lede">
-        This is where relational learning meets the Decision Trace
-        Model. When decisions are recorded on a ledger, connected
-        into a graph, and given a boundary that fixes what each
-        judgment meant, a GNN can finally learn from them — not the
-        meaning of words, but the structure of judgment itself.
-        Decision Trace GNN turns past decisions into a substrate for
-        better future ones.
-      </p>
-
-      <figure class="figure figure-wide figure-main">
-        <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/12.png"
-           data-lightbox aria-label="Open Decision Trace GNN diagram">
-          <img src="/research/graph-intelligence-relational-systems/assets/12.png"
-               alt="Decision Trace GNN — a ledger records the decision process, a graph represents the connections between judgments, a GNN learns relational patterns, and decision learning uses past judgments to support better future decisions"
-               loading="lazy">
-        </a>
-        <figcaption class="figure-caption">Fig. 07 — Decision Trace GNN: Making Judgment Learnable</figcaption>
-      </figure>
-    </div>
-  </section>
-
   <!-- ============ 05 RELATED ESSAYS ============ -->
   <section class="research-section" id="essays" aria-labelledby="essays-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">05 / Related Essays</div>
+        <div class="section-label">09 / Related Essays</div>
         <h2 id="essays-h">Reading Around Graph Intelligence</h2>
         <p class="section-lede">
           Essays that extend this inquiry into GNN-based
@@ -865,12 +1262,12 @@
           <p>How decision traces, runtime logs, and organizational behavior can become learnable graph assets through ledger structures and GNN-based propagation models.</p>
           <div class="essay-meta is-available">Available Now</div>
         </a>
-        <a class="essay is-coming-soon" href="#" aria-disabled="true">
+        <div class="essay is-coming-soon" aria-label="Coming soon">
           <div class="kicker">Relational Runtime</div>
           <h3>Graphs as Runtime — From Static Topology to Live Coordination</h3>
           <p>A forthcoming essay on how graphs operate as a runtime substrate for organizational and agentic AI systems.</p>
           <div class="essay-meta is-coming-soon">Coming Soon</div>
-        </a>
+        </div>
       </div>
     </div>
   </section>
@@ -879,7 +1276,7 @@
   <section class="research-section" id="books" aria-labelledby="books-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">06 / Related Books</div>
+        <div class="section-label">10 / Related Books</div>
         <h2 id="books-h">Long-form Texts</h2>
         <p class="section-lede">
           Knowledge artifacts that compile the surrounding research
@@ -917,10 +1314,10 @@
             <div class="book-title">Decision Trace Model Practical Guide</div>
             <div class="book-subtitle">— Designing AI as a Decision System —</div>
             <p>The companion practical guide for engineers and architects building decision systems on top of relational and traceable structures.</p>
-            <a class="book-link" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener">Available on Kindle →</a>
+            <a class="book-link" href="https://www.amazon.com/dp/B0H3N162S9" target="_blank" rel="noopener">Available on Kindle →</a>
           </div>
-          <a class="book-cover" href="https://www.amazon.com/dp/B0GX2XWJJG" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-            <img src="/assets/book_pic/en/01.jpg" alt="" loading="lazy">
+          <a class="book-cover" href="https://www.amazon.com/dp/B0H3N162S9" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+            <img src="/assets/books/B0H3N162S9.jpg" alt="" loading="lazy">
           </a>
         </div>
       </div>
@@ -931,7 +1328,7 @@
   <section class="research-section" id="oss" aria-labelledby="oss-h">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-label">07 / Related OSS</div>
+        <div class="section-label">11 / Related OSS</div>
         <h2 id="oss-h">Related OSS</h2>
         <p class="section-lede">
           Graph-oriented runtime and intelligence components
@@ -969,120 +1366,76 @@
     </div>
   </section>
 
-  <!-- ============ 08 DIAGRAMS ============ -->
-  <section class="research-section" id="diagrams" aria-labelledby="diagrams-h">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-label">08 / Diagrams</div>
-        <h2 id="diagrams-h">Architecture Archive</h2>
-        <p class="section-lede">
-          A growing archive of architectural sketches for
-          graph intelligence, relational propagation, and
-          decision-graph runtimes.
-        </p>
-      </div>
 
-      <div class="diagrams">
-        <div class="diagram-card">
-          <div class="kicker">Diagram 01</div>
-          <h3>Decision Graph Structure</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 02</div>
-          <h3>Trust Propagation Network</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 03</div>
-          <h3>Organizational Intelligence Graph</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 04</div>
-          <h3>Runtime Coordination Graph</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-        <div class="diagram-card">
-          <div class="kicker">Diagram 05</div>
-          <h3>Semantic Relationship Architecture</h3>
-          <div class="diagram-frame">Forthcoming</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ============ 08 CLOSING ============ -->
+  <!-- ============ CLOSING ============ -->
   <section class="research-section closing" id="closing" aria-labelledby="closing-h">
-    <h2 id="closing-h" class="visually-hidden" style="position:absolute;left:-9999px;">Closing Statement</h2>
-
-    <figure class="figure figure-wide figure-main">
-      <a class="figure-frame" href="/research/graph-intelligence-relational-systems/assets/13.png"
-         data-lightbox aria-label="Open How Decision Trace GNN Works diagram">
-        <img src="/research/graph-intelligence-relational-systems/assets/13.png"
-             alt="How Decision Trace GNN works — events, signals, decisions, and boundaries linked as a graph around a judgment, pointing toward the next stage of this inquiry at Chinoba.org"
-             loading="lazy">
-      </a>
-    </figure>
-
+    <h2 id="closing-h" class="visually-hidden">Closing Statement</h2>
     <blockquote>
-      <span>Intelligence is not merely computation.</span>
-      <span>It is the propagation of meaning,</span>
-      <span>relationships,</span>
-      <span>trust,</span>
-      <span>and decisions</span>
-      <span>across connected structures.</span>
+      <span>Graphs let AI see how things are connected.</span>
+      <span>Evidence lets people check what it saw.</span>
+      <span>Boundaries decide where it must stop,</span>
+      <span>and people remain accountable for what follows.</span>
     </blockquote>
     <div class="closing-mark">Chinoba.org</div>
   </section>
 
-  <!-- ============ 09 RELATED RESEARCH ============ -->
+  <!-- ============ RELATED RESEARCH ============ -->
   <section class="research-section" id="related" aria-labelledby="related-h">
     <div class="wrap">
       <div class="section-head">
         <div class="section-label">+ / Related Research</div>
-        <h2 id="related-h">Other Lines of Inquiry</h2>
+        <h2 id="related-h">Where This Connects</h2>
         <p class="section-lede">
-          Graph Intelligence connects outward to neighboring
-          threads in the Chinoba field.
+          Graph Intelligence supplies the relational foundation. Decisions,
+          authority, trust and coordination are developed in neighboring
+          lines of inquiry.
         </p>
       </div>
-
       <div class="related-research">
         <a href="/research/decision-trace-model" data-slug="decision-trace-model">
           <span class="related-label">01 / Inquiry</span>
           <span class="related-name">Decision Trace Model</span>
           <span class="related-status">Available</span>
         </a>
-        <a href="/#research" data-slug="knowledge-flow">
+        <a href="/research/runtime-society" data-slug="runtime-society">
+          <span class="related-label">02 / Inquiry</span>
+          <span class="related-name">Runtime Society</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/knowledge-flow" data-slug="knowledge-flow">
           <span class="related-label">03 / Inquiry</span>
           <span class="related-name">Knowledge Flow</span>
-          <span class="related-status">Forthcoming</span>
+          <span class="related-status">Available</span>
         </a>
-        <a href="/#research" data-slug="trust-infrastructure">
+        <a href="/research/trust-infrastructure" data-slug="trust-infrastructure">
           <span class="related-label">04 / Inquiry</span>
           <span class="related-name">Trust Infrastructure</span>
-          <span class="related-status">Forthcoming</span>
+          <span class="related-status">Available</span>
         </a>
-        <a href="/#research" data-slug="ai-coordination">
+        <a href="/research/ai-coordination" data-slug="ai-coordination">
           <span class="related-label">05 / Inquiry</span>
           <span class="related-name">AI Coordination</span>
-          <span class="related-status">Forthcoming</span>
+          <span class="related-status">Available</span>
         </a>
-        <a href="/#research" data-slug="multi-agent-systems">
+        <a href="/research/multi-agent-systems" data-slug="multi-agent-systems">
           <span class="related-label">06 / Inquiry</span>
           <span class="related-name">Multi-Agent Systems</span>
-          <span class="related-status">Forthcoming</span>
+          <span class="related-status">Available</span>
         </a>
-        <a href="/#research" data-slug="intelligence-as-relationship">
-          <span class="related-label">∞ / Inquiry</span>
-          <span class="related-name">Intelligence as Relationship</span>
-          <span class="related-status">Forthcoming</span>
+        <a href="/research/governance-boundary-systems" data-slug="governance-boundary-systems">
+          <span class="related-label">07 / Inquiry</span>
+          <span class="related-name">Governance &amp; Boundary Systems</span>
+          <span class="related-status">Available</span>
+        </a>
+        <a href="/research/physical-ai-cyber-physical-systems" data-slug="physical-ai-cyber-physical-systems">
+          <span class="related-label">08 / Inquiry</span>
+          <span class="related-name">Physical AI &amp; Cyber-Physical Systems</span>
+          <span class="related-status">Available</span>
         </a>
       </div>
     </div>
   </section>
-
   <!-- ============ FOOTER ============ -->
   <footer class="research-footer">
     <div class="footer-inner">
@@ -1136,7 +1489,8 @@
         el.addEventListener('click', function (e) {
           e.preventDefault();
           var img = el.querySelector('img');
-          open(el.getAttribute('href'), img ? img.alt : '');
+          var m = el.getAttribute('data-mobile');
+          open((m && window.innerWidth <= 640) ? m : el.getAttribute('href'), img ? img.alt : '');
         });
       });
 

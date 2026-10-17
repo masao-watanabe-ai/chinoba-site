@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1060" width="720" height="1060" role="img" aria-labelledby="t d" font-family="Helvetica Neue, Arial, sans-serif">
+<title id="t">Governed multi-agent coordination</title>
+<desc id="d">Research, Planner, Executor and Verifier agents act through an authority control layer independent of agent capability; Human Authority approves scoped execution; everything is recorded in a Decision Trace.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#070d1f"/><stop offset="1" stop-color="#0e1c42"/></linearGradient>
+<radialGradient id="glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#22d3ee" stop-opacity="0.22"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0"/></radialGradient>
+<marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7db7ff"/></marker>
+<marker id="arp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker>
+</defs>
+<rect width="720" height="1060" fill="url(#bg)"/>
+<text x="360" y="48" font-size="28" fill="#60a5fa" font-weight="700" text-anchor="middle" letter-spacing="3">CAPABILITY</text>
+<rect x="40" y="70" width="300" height="110" rx="20" fill="#0f1f4a" fill-opacity="1" stroke="#3b82f6" stroke-width="3"/>
+<text x="190" y="120" font-size="32" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Research</text>
+<text x="190" y="156" font-size="24" fill="#9fb0d4" font-weight="400" text-anchor="middle" letter-spacing="0">reads · cites</text>
+<rect x="380" y="70" width="300" height="110" rx="20" fill="#0f1f4a" fill-opacity="1" stroke="#3b82f6" stroke-width="3"/>
+<text x="530" y="120" font-size="32" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Planner</text>
+<text x="530" y="156" font-size="24" fill="#9fb0d4" font-weight="400" text-anchor="middle" letter-spacing="0">options · plan</text>
+<rect x="40" y="200" width="300" height="110" rx="20" fill="#0f1f4a" fill-opacity="1" stroke="#3b82f6" stroke-width="3"/>
+<text x="190" y="250" font-size="32" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Executor</text>
+<text x="190" y="286" font-size="24" fill="#9fb0d4" font-weight="400" text-anchor="middle" letter-spacing="0">drafts actions</text>
+<rect x="380" y="200" width="300" height="110" rx="20" fill="#0f1f4a" fill-opacity="1" stroke="#22d3ee" stroke-width="3"/>
+<text x="530" y="250" font-size="32" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Verifier</text>
+<text x="530" y="286" font-size="24" fill="#9fb0d4" font-weight="400" text-anchor="middle" letter-spacing="0">checks independently</text>
+<line x1="360" y1="325" x2="360" y2="372" stroke="#7db7ff" stroke-width="3" marker-end="url(#ar)" stroke-linecap="round"/>
+<rect x="40" y="375" width="640" height="140" rx="20" fill="#1c1650" fill-opacity="1" stroke="#a78bfa" stroke-width="3"/>
+<text x="360" y="430" font-size="32" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Authority Control Layer</text>
+<text x="360" y="474" font-size="24" fill="#c4b5fd" font-weight="400" text-anchor="middle" letter-spacing="0">scope · policy · approval · revocation</text>
+<line x1="360" y1="517" x2="360" y2="562" stroke="#a78bfa" stroke-width="3" marker-end="url(#arp)" stroke-linecap="round"/>
+<rect x="40" y="565" width="640" height="110" rx="20" fill="#241a52" fill-opacity="1" stroke="#a78bfa" stroke-width="3"/>
+<text x="360" y="615" font-size="32" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Human Authority</text>
+<text x="360" y="652" font-size="24" fill="#c4b5fd" font-weight="400" text-anchor="middle" letter-spacing="0">approves · rejects · escalates</text>
+<line x1="360" y1="677" x2="360" y2="722" stroke="#a78bfa" stroke-width="3" marker-end="url(#arp)" stroke-linecap="round"/>
+<rect x="40" y="725" width="640" height="110" rx="20" fill="#0c2a4a" fill-opacity="1" stroke="#22d3ee" stroke-width="3"/>
+<text x="360" y="775" font-size="32" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Scoped Execution</text>
+<text x="360" y="812" font-size="24" fill="#9fb0d4" font-weight="400" text-anchor="middle" letter-spacing="0">only what was approved</text>
+<line x1="360" y1="837" x2="360" y2="882" stroke="#22d3ee" stroke-width="3" marker-end="url(#ar)" stroke-dasharray="10 8" stroke-linecap="round"/>
+<rect x="40" y="885" width="640" height="130" rx="18" fill="#0c2a4a" fill-opacity="1" stroke="#22d3ee" stroke-width="2" stroke-dasharray="8 8"/>
+<text x="360" y="935" font-size="32" fill="#e8efff" font-weight="700" text-anchor="middle" letter-spacing="0">Decision Trace</text>
+<text x="360" y="975" font-size="24" fill="#9fb0d4" font-weight="400" text-anchor="middle" letter-spacing="0">proposals · evidence · approvals</text>
+</svg>
