@@ -2,7 +2,7 @@
   "library_title": "Knowledge Artifacts / Library",
   "library_subtitle": "The research, compiled.",
   "library_description": "Books and long-form artifacts produced from the Lines of Inquiry — organized by theme, available in English and Japanese editions.",
-  "total_books": 47,
+  "total_books": 51,
   "themes": [
     {
       "theme_id": "theme_01",
@@ -640,9 +640,45 @@
           "theme": "Runtime Society",
           "theme_id": "theme_04",
           "index": 4
+        },
+        {
+          "book_id": "enterprise_ai_gateway_practical_guide_en",
+          "language": "en",
+          "title": "Enterprise AI Gateway",
+          "subtitle": "A Practical Implementation Guide to RAG, GraphRAG, and AI Governance with Amazon Bedrock",
+          "description": "A hands-on guide to implementing an Enterprise AI Gateway that connects knowledge, business APIs, human approval, and audit across a secure boundary.",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "price": "$5.99 USD",
+          "asin": "B0HMTG1X36",
+          "submitted_date": "2026-10-13",
+          "amazon_url": "https://www.amazon.com/dp/B0HMTG1X36",
+          "cover_image": "/assets/books/B0HMTG1X36.jpg",
+          "order": 5,
+          "theme": "Runtime Society",
+          "theme_id": "theme_04",
+          "index": 5
+        },
+        {
+          "book_id": "enterprise_ai_gateway_practical_guide_ja",
+          "language": "ja",
+          "title": "Enterprise AI Gateway",
+          "subtitle": "Amazon Bedrockで実現するRAG・GraphRAG・AIガバナンス実装ガイド",
+          "description": "知識、業務API、人間承認、監査を安全な境界でつなぐEnterprise AI Gatewayを、Amazon Bedrockで実装するための実践ガイド。",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "price": "¥980 JPY",
+          "asin": "B0HMTTF319",
+          "submitted_date": "2026-10-13",
+          "amazon_url": "https://www.amazon.co.jp/dp/B0HMTTF319",
+          "cover_image": "/assets/books/B0HMTTF319.jpg",
+          "order": 6,
+          "theme": "Runtime Society",
+          "theme_id": "theme_04",
+          "index": 6
         }
       ],
-      "book_count": 4
+      "book_count": 6
     },
     {
       "theme_id": "theme_05",
@@ -828,9 +864,45 @@
           "theme": "Building Intelligence Fields",
           "theme_id": "theme_06",
           "index": 4
+        },
+        {
+          "book_id": "enterprise_ai_prototyping_platform_en",
+          "language": "en",
+          "title": "Enterprise AI Prototyping Platform",
+          "subtitle": "Building an Enterprise Code Generation Platform with Claude Code, Codex, and Amazon Bedrock",
+          "description": "A practical guide to turning AI coding and rapid prototyping into safe, sustained organizational capability through a Model Gateway, sandboxes, review standards, and Decision Trace.",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "price": "$5.99 USD",
+          "asin": "B0HNGY29G9",
+          "submitted_date": "2026-10-18",
+          "amazon_url": "https://www.amazon.com/dp/B0HNGY29G9",
+          "cover_image": "/assets/books/B0HNGY29G9.jpg",
+          "order": 5,
+          "theme": "Building Intelligence Fields",
+          "theme_id": "theme_06",
+          "index": 5
+        },
+        {
+          "book_id": "enterprise_ai_prototyping_platform_ja",
+          "language": "ja",
+          "title": "Enterprise AI Prototyping Platform",
+          "subtitle": "Claude Code・Codex・Amazon Bedrockでつくる企業向けコード生成基盤",
+          "description": "AIコーディングとラピッドプロトタイピングを、Model Gateway、隔離サンドボックス、レビュー標準、Decision Traceによって、安全かつ継続的な組織能力へ変えるための実践ガイド。",
+          "author": "Masao Watanabe",
+          "format": "Kindle",
+          "price": "¥980 JPY",
+          "asin": "B0HNH75R8R",
+          "submitted_date": "2026-10-18",
+          "amazon_url": "https://www.amazon.co.jp/dp/B0HNH75R8R",
+          "cover_image": "/assets/books/B0HNH75R8R.jpg",
+          "order": 6,
+          "theme": "Building Intelligence Fields",
+          "theme_id": "theme_06",
+          "index": 6
         }
       ],
-      "book_count": 4
+      "book_count": 6
     },
     {
       "theme_id": "theme_07",
