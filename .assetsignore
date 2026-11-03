@@ -33,3 +33,9 @@ research/*/book/**
 research/*/topic/**
 # No EPUB manuscripts are linked from any page; keep them out of delivery wherever they sit.
 research/**/*.epub
+
+# Original full-resolution demo videos (>25 MiB Workers asset limit). Web copies live in research/case-study/media/.
+research/*/demo/**
+
+# Local MP4 copies are not referenced by the site (videos are on YouTube); keep them out of delivery.
+research/*/media/*.mp4

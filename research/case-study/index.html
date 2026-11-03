@@ -203,6 +203,32 @@
       }
     }
 
+
+    /* ---------- Interactive System Demonstrations ---------- */
+    .demo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-top: 8px; }
+    .demo-card { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+    .demo-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .demo-tags span { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--fg-faint); border: 1px solid var(--border, rgba(127,127,127,.35)); border-radius: 999px; padding: 2px 10px; }
+    .demo-card h3 { margin: 0; }
+    .demo-card p { margin: 0; }
+    .demo-lang { display: flex; flex-wrap: wrap; gap: 6px; }
+    .demo-lang button { font: inherit; font-size: 12px; letter-spacing: 1px; color: var(--accent); background: transparent; border: 1px solid currentColor; border-radius: 999px; padding: 4px 14px; cursor: pointer; opacity: .65; }
+    .demo-lang button[aria-pressed="true"] { opacity: 1; background: var(--accent); color: var(--bg, #0b0b0b); }
+    .demo-lang button:focus-visible, .demo-watch:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .demo-lang-off { font-size: 12px; letter-spacing: 1px; color: var(--fg-faint); border: 1px dashed currentColor; border-radius: 999px; padding: 4px 14px; cursor: not-allowed; }
+    .demo-stage { margin-top: auto; position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 6px; overflow: hidden; }
+    .demo-stage img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .demo-stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .is-coming-soon .demo-stage img { filter: grayscale(.7) brightness(.28) blur(3px); transform: scale(1.04); }
+    .demo-soon { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-align: center; padding: 16px; color: #fff; }
+    .demo-soon strong { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+    .demo-soon span { font-size: 13px; line-height: 1.5; max-width: 36ch; opacity: .85; }
+    .demo-watch { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font: inherit; font-size: 14px; letter-spacing: 1px; color: var(--bg, #0b0b0b); background: var(--accent); border: 0; border-radius: 999px; padding: 12px 26px; cursor: pointer; }
+    .demo-foot { min-height: 52px; display: flex; flex-direction: column; gap: 4px; }
+    .demo-foot a, .demo-error a { font-size: 13px; color: var(--accent); }
+    .demo-error { font-size: 12px; color: var(--fg-faint); }
+    @media (max-width: 760px) { .demo-grid { grid-template-columns: 1fr; } }
+
     /* ---------- Explore This Theme ---------- */
     .theme-links {
       margin-top: 20px;
@@ -420,6 +446,106 @@
       </div>
     </div>
   </section>
+
+  <!-- ============ INTERACTIVE SYSTEM DEMONSTRATIONS ============ -->
+  <section class="research-section" id="demos" aria-labelledby="demos-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-label">Demonstrations</div>
+        <h2 id="demos-h">Interactive System Demonstrations</h2>
+        <p class="section-lede">
+          Explore working demonstrations of Chinoba research concepts across decision support,
+          operational workflows, knowledge flow, trust, and AI-enabled systems.
+        </p>
+      </div>
+      <div class="demo-grid" id="demo-grid"></div>
+      <noscript><p class="demo-error">JavaScript is required to browse the demonstration videos.</p></noscript>
+    </div>
+  </section>
+  <script src="demos-data.js"></script>
+  <script>
+    (function () {
+      var grid = document.getElementById('demo-grid');
+      if (!grid || !window.CS_DEMOS) return;
+      var LANGS = [['en', 'English'], ['ja', '日本語']];
+      function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
+      function ytUrl(id) { return 'https://www.youtube.com/watch?v=' + id; }
+      function embedUrl(id, lang) {
+        return 'https://www.youtube-nocookie.com/embed/' + id + '?rel=0&modestbranding=1&cc_load_policy=1&cc_lang_pref=' + lang;
+      }
+
+      window.CS_DEMOS.forEach(function (d) {
+        var published = d.status === 'published' && d.youtube && (d.youtube.en || d.youtube.ja);
+        var card = el('article', 'demo-card' + (published ? '' : ' is-coming-soon'));
+        var tags = el('div', 'demo-tags');
+        d.tags.forEach(function (t) { tags.appendChild(el('span', '', t)); });
+        var h = el('h3', '', d.title); h.id = 'demo-' + d.slug + '-h';
+        var stage = el('div', 'demo-stage');
+        var img = el('img'); img.src = d.poster; img.alt = ''; img.loading = 'lazy';
+        stage.appendChild(img);
+        var langRow = el('div', 'demo-lang');
+        var foot = el('div', 'demo-foot');
+
+        if (!published) {
+          var badge = el('div', 'demo-soon');
+          badge.appendChild(el('strong', '', 'Video coming soon'));
+          badge.appendChild(el('span', '', 'This bilingual system demonstration will be available on YouTube soon.'));
+          stage.appendChild(badge);
+          LANGS.forEach(function (l) {
+            var s = el('span', 'demo-lang-off', l[1] + ' — Coming soon');
+            s.setAttribute('aria-disabled', 'true');
+            langRow.appendChild(s);
+          });
+        } else {
+          var lang = 'en', started = false, btns = {};
+          var watch = el('button', 'demo-watch', 'Watch demo'); watch.type = 'button';
+          watch.setAttribute('aria-label', 'Watch demo: ' + d.title);
+          stage.appendChild(watch);
+          var link = el('a', 'demo-yt', 'Watch on YouTube →');
+          link.target = '_blank'; link.rel = 'noopener noreferrer';
+          var note = el('p', 'demo-error'); note.hidden = true;
+          note.appendChild(document.createTextNode('If the video does not play here, '));
+          var nl = el('a', '', 'watch it on YouTube'); nl.target = '_blank'; nl.rel = 'noopener noreferrer';
+          note.appendChild(nl); note.appendChild(document.createTextNode('.'));
+
+          function sync() {
+            var id = d.youtube[lang];
+            link.href = nl.href = ytUrl(id);
+            Object.keys(btns).forEach(function (k) { btns[k].setAttribute('aria-pressed', String(k === lang)); });
+            if (started) load();
+          }
+          function load() {
+            var f = stage.querySelector('iframe');
+            if (!f) {
+              f = el('iframe');
+              f.title = d.title;
+              f.allow = 'accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+              f.allowFullscreen = true;
+              f.referrerPolicy = 'strict-origin-when-cross-origin';
+              stage.appendChild(f);
+            }
+            f.src = embedUrl(d.youtube[lang], lang);
+            note.hidden = false;
+          }
+          LANGS.forEach(function (l) {
+            if (!d.youtube[l[0]]) return;
+            var b = el('button', '', l[1]); b.type = 'button';
+            b.addEventListener('click', function () { lang = l[0]; sync(); });
+            btns[l[0]] = b; langRow.appendChild(b);
+          });
+          langRow.setAttribute('role', 'group');
+          langRow.setAttribute('aria-label', 'Video language for ' + d.title);
+          watch.addEventListener('click', function () {
+            started = true; watch.hidden = true; stage.classList.add('is-playing'); load();
+          });
+          foot.appendChild(link); foot.appendChild(note);
+          sync();
+        }
+        [tags, h, el('p', '', d.description), langRow, stage, foot].forEach(function (n) { card.appendChild(n); });
+        grid.appendChild(card);
+      });
+    })();
+  </script>
 
   <!-- ============ 01 WHY PILOTS STALL ============ -->
   <section class="research-section" id="why" aria-labelledby="why-h">
