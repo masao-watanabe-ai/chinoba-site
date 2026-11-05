@@ -50,7 +50,6 @@ window.CS_DEMOS = [
     tags: ['Rapid Prototyping', 'Operations'],
     poster: 'media/rapid-prototyping-en.jpg',
     posters: { en: 'media/rapid-prototyping-en.jpg', ja: 'media/rapid-prototyping-ja.jpg' },
-    embed: false,
     status: 'published',
     youtube: { en: 'yLptbPVsqb0', ja: 'BTVtRwZOnhI' }
   },
