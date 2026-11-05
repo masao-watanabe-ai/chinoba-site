@@ -12,7 +12,7 @@ window.CS_DEMOS = [
     title: 'Asterion Deal Desk',
     description: 'A decision-trace demonstration for discount, commercial-term, and contract-exception approvals.',
     tags: ['Decision Trace', 'Commercial Decisions', 'Approval Authority'],
-    poster: 'media/deal-desk-en.jpg',
+    poster: 'media/deal-desk-coming-soon-en.jpg',
     status: 'coming_soon',
     youtube: { en: null, ja: null }
   },
@@ -21,7 +21,7 @@ window.CS_DEMOS = [
     title: 'Asterion Plant Assurance Desk',
     description: 'Connects inspection evidence, open punch items, approval authority, and commissioning conditions in one traceable decision on whether a unit may begin cold commissioning.',
     tags: ['Decision Trace', 'Operations', 'Commissioning'],
-    poster: 'media/plant-assurance-en.jpg',
+    poster: 'media/plant-assurance-coming-soon-en.jpg',
     status: 'coming_soon',
     youtube: { en: null, ja: null }
   },
