@@ -50,7 +50,11 @@ window.CS_DEMOS = [
     tags: ['Rapid Prototyping', 'Operations'],
     poster: 'media/rapid-prototyping-en.jpg',
     status: 'coming_soon',
-    youtube: { en: null, ja: null }
+    youtube: { en: null, ja: null },
+    links: [
+      { label: 'Watch Demo (Japanese) ↗', href: 'https://youtu.be/BTVtRwZOnhI' },
+      { label: 'Watch Demo (English) ↗', href: 'https://youtu.be/yLptbPVsqb0' }
+    ]
   },
   {
     slug: 'ransomware-containment',
