@@ -31,6 +31,7 @@ window.CS_DEMOS = [
     description: 'Shows how machine, material, and zone nodes contribute time-stamped evidence to a System Twin, so teams see what an anomaly may affect and what people should verify next.',
     tags: ['Physical AI', 'Manufacturing', 'Knowledge Flow'],
     poster: 'media/system-twin-en.jpg',
+    posters: { en: 'media/system-twin-en.jpg', ja: 'media/system-twin-ja.jpg' },
     status: 'published',
     youtube: { en: 'Zp4dzG47dCg', ja: '6sURN1W_i-Q' }
   },
@@ -59,6 +60,7 @@ window.CS_DEMOS = [
     description: 'Shows why AI risk detection alone cannot authorize action: a trust envelope, delegated authority, and human approval gate containment, and every step is kept as one Decision Trace.',
     tags: ['Trust Infrastructure', 'Security', 'Decision Trace'],
     poster: 'media/ransomware-containment-en.jpg',
+    posters: { en: 'media/ransomware-containment-en.jpg', ja: 'media/ransomware-containment-ja.jpg' },
     status: 'published',
     youtube: { en: 'NTBeWuOVEYs', ja: 'xQacI-FQvJk' }
   },
