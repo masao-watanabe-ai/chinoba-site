@@ -60,5 +60,23 @@ window.CS_DEMOS = [
     poster: 'media/ransomware-containment-en.jpg',
     status: 'published',
     youtube: { en: 'NTBeWuOVEYs', ja: 'xQacI-FQvJk' }
+  },
+  {
+    slug: 'retail-decision-studio',
+    title: 'Retail Decision Studio',
+    description: 'Compares store actions across placement, replenishment, waste prevention, and promotion within guardrails. Out-of-policy actions require Human Review; missing data stays Unknown; human-approved outcomes return to Decision Trace learning.',
+    tags: ['Retail', 'Decision Trace', 'Human Decision'],
+    poster: 'media/retail-decision-studio-en.jpg',
+    status: 'coming_soon',
+    youtube: { en: null, ja: null }
+  },
+  {
+    slug: 'enterprise-hr-decision-support-studio',
+    title: 'Enterprise HR Decision Support Studio',
+    description: 'AI proposes hypotheses—not scores—for HR decisions; Unknown is never positive. HR reviews questions, Human Review gates consequential decisions, and anonymized outcomes inform learning.',
+    tags: ['Enterprise HR', 'Decision Trace', 'Human Decision'],
+    poster: 'media/enterprise-hr-decision-support-en.jpg',
+    status: 'coming_soon',
+    youtube: { en: null, ja: null }
   }
 ];
