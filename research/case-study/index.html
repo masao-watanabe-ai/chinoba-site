@@ -486,16 +486,7 @@
         var langRow = el('div', 'demo-lang');
         var foot = el('div', 'demo-foot');
 
-        if (d.links && d.links.length) {
-          // External-link-only card: plain YouTube links, no embed.
-          card.className = 'demo-card';
-          langRow = null;
-          d.links.forEach(function (l) {
-            var a = el('a', 'demo-yt', l.label); a.href = l.href;
-            a.target = '_blank'; a.rel = 'noopener noreferrer';
-            foot.appendChild(a);
-          });
-        } else if (!published) {
+        if (!published) {
           var badge = el('div', 'demo-soon');
           badge.appendChild(el('strong', '', 'VIDEO COMING SOON'));
           badge.appendChild(el('span', '', 'This bilingual system demonstration will be available on YouTube soon.'));
@@ -507,9 +498,10 @@
           });
         } else {
           var lang = 'en', started = false, btns = {};
+          var embed = d.embed !== false;
           var watch = el('button', 'demo-watch', 'Watch demo'); watch.type = 'button';
           watch.setAttribute('aria-label', 'Watch demo: ' + d.title);
-          stage.appendChild(watch);
+          if (embed) stage.appendChild(watch);
           var link = el('a', 'demo-yt', 'Watch on YouTube →');
           link.target = '_blank'; link.rel = 'noopener noreferrer';
           var note = el('p', 'demo-error'); note.hidden = true;
@@ -520,8 +512,9 @@
           function sync() {
             var id = d.youtube[lang];
             link.href = nl.href = ytUrl(id);
+            if (d.posters && d.posters[lang]) img.src = d.posters[lang];
             Object.keys(btns).forEach(function (k) { btns[k].setAttribute('aria-pressed', String(k === lang)); });
-            if (started) load();
+            if (embed && started) load();
           }
           function load() {
             var f = stage.querySelector('iframe');
@@ -547,7 +540,7 @@
           watch.addEventListener('click', function () {
             started = true; watch.hidden = true; stage.classList.add('is-playing'); load();
           });
-          foot.appendChild(link); foot.appendChild(note);
+          foot.appendChild(link); if (embed) foot.appendChild(note);
           sync();
         }
         [tags, h, el('p', '', d.description), langRow, stage, foot].filter(Boolean).forEach(function (n) { card.appendChild(n); });

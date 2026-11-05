@@ -49,12 +49,10 @@ window.CS_DEMOS = [
     description: 'Walks through turning an operational question into a testable workflow, a working prototype, and a field review, from fictional Practice Mode to a team’s own operational data.',
     tags: ['Rapid Prototyping', 'Operations'],
     poster: 'media/rapid-prototyping-en.jpg',
-    status: 'coming_soon',
-    youtube: { en: null, ja: null },
-    links: [
-      { label: 'Watch Demo (Japanese) ↗', href: 'https://youtu.be/BTVtRwZOnhI' },
-      { label: 'Watch Demo (English) ↗', href: 'https://youtu.be/yLptbPVsqb0' }
-    ]
+    posters: { en: 'media/rapid-prototyping-en.jpg', ja: 'media/rapid-prototyping-ja.jpg' },
+    embed: false,
+    status: 'published',
+    youtube: { en: 'yLptbPVsqb0', ja: 'BTVtRwZOnhI' }
   },
   {
     slug: 'ransomware-containment',
