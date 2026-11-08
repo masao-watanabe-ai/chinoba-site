@@ -12,9 +12,10 @@ window.CS_DEMOS = [
     title: 'Asterion Deal Desk',
     description: 'A decision-trace demonstration for discount, commercial-term, and contract-exception approvals.',
     tags: ['Decision Trace', 'Commercial Decisions', 'Approval Authority'],
-    poster: 'media/deal-desk-coming-soon-en.jpg',
-    status: 'coming_soon',
-    youtube: { en: null, ja: null }
+    poster: 'media/deal-desk-en.jpg',
+    posters: { en: 'media/deal-desk-en.jpg', ja: 'media/deal-desk-ja.jpg' },
+    status: 'published',
+    youtube: { en: 'gtcx9ptmwGI', ja: '52J0R8i-cnk' }
   },
   {
     slug: 'asterion-plant-assurance-desk',
