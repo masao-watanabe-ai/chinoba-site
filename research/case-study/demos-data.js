@@ -80,7 +80,7 @@ window.CS_DEMOS = [
     description: 'AI proposes hypotheses—not scores—for HR decisions; Unknown is never positive. HR reviews questions, Human Review gates consequential decisions, and anonymized outcomes inform learning.',
     tags: ['Enterprise HR', 'Decision Trace', 'Human Decision'],
     poster: 'media/enterprise-hr-decision-support-en.jpg',
-    posters: { en: 'media/enterprise-hr-decision-support-en.jpg' },
+    posters: { en: 'media/enterprise-hr-decision-support-en.jpg', ja: 'media/enterprise-hr-decision-support-ja.jpg' },
     status: 'published',
     youtube: { en: 'XOwDrqX0vOg', ja: 'uJgO9ah8o6Y' }
   }
