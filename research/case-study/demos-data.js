@@ -42,8 +42,8 @@ window.CS_DEMOS = [
     description: 'Answers equipment and quality inquiries from cited documents, hands high-risk cases to the designated approver, and records each inquiry and outcome in a Decision Trace.',
     tags: ['Manufacturing', 'Operations', 'Decision Trace'],
     poster: 'media/evidence-grounded-ops-en.jpg',
-    status: 'coming_soon',
-    youtube: { en: null, ja: null }
+    status: 'published',
+    youtube: { en: 'NYCjlyZ95UE', ja: 'LxWecvVZFPI' }
   },
   {
     slug: 'rapid-prototyping-system',
