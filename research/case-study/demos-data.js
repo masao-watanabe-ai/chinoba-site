@@ -42,6 +42,7 @@ window.CS_DEMOS = [
     description: 'Answers equipment and quality inquiries from cited documents, hands high-risk cases to the designated approver, and records each inquiry and outcome in a Decision Trace.',
     tags: ['Manufacturing', 'Operations', 'Decision Trace'],
     poster: 'media/evidence-grounded-ops-en.jpg',
+    posters: { en: 'media/evidence-grounded-ops-en.jpg', ja: 'media/evidence-grounded-ops-ja.jpg' },
     status: 'published',
     youtube: { en: 'NYCjlyZ95UE', ja: 'LxWecvVZFPI' }
   },
