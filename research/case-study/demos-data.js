@@ -71,9 +71,9 @@ window.CS_DEMOS = [
     title: 'Retail Decision Studio',
     description: 'Compares store actions across placement, replenishment, waste prevention, and promotion within guardrails. Out-of-policy actions require Human Review; missing data stays Unknown; human-approved outcomes return to Decision Trace learning.',
     tags: ['Retail', 'Decision Trace', 'Human Decision'],
-    poster: 'media/retail-decision-studio-en.jpg',
-    status: 'coming_soon',
-    youtube: { en: null, ja: null }
+    status: 'published',
+    linkOut: true, // thumbnail + links open YouTube in a new tab (no in-card embed)
+    youtube: { en: 'f07iGbbvKPA', ja: 'Gxn3D4wLxcg' }
   },
   {
     slug: 'enterprise-hr-decision-support-studio',

@@ -217,6 +217,8 @@
     .demo-lang button:focus-visible, .demo-watch:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
     .demo-lang-off { font-size: 12px; letter-spacing: 1px; color: var(--fg-faint); border: 1px dashed currentColor; border-radius: 999px; padding: 4px 14px; cursor: not-allowed; }
     .demo-stage { margin-top: auto; position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 6px; overflow: hidden; }
+    .demo-stage.is-link { display: block; cursor: pointer; }
+    .demo-stage.is-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
     .demo-stage img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .demo-stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .is-coming-soon .demo-stage img { filter: grayscale(.7) brightness(.28) blur(3px); transform: scale(1.04); }
@@ -480,8 +482,9 @@
         var tags = el('div', 'demo-tags');
         d.tags.forEach(function (t) { tags.appendChild(el('span', '', t)); });
         var h = el('h3', '', d.title); h.id = 'demo-' + d.slug + '-h';
-        var stage = el('div', 'demo-stage');
-        var img = el('img'); img.src = d.poster; img.alt = ''; img.loading = 'lazy';
+        var linkOut = published && d.linkOut;
+        var stage = el(linkOut ? 'a' : 'div', 'demo-stage' + (linkOut ? ' is-link' : ''));
+        var img = el('img'); if (!d.linkOut) img.src = d.poster; img.alt = ''; img.loading = 'lazy';
         stage.appendChild(img);
         var langRow = el('div', 'demo-lang');
         var foot = el('div', 'demo-foot');
@@ -498,10 +501,12 @@
           });
         } else {
           var lang = 'en', started = false, btns = {};
-          var embed = d.embed !== false;
-          var watch = el('button', 'demo-watch', 'Watch demo'); watch.type = 'button';
+          var embed = d.embed !== false && !linkOut;
+          var watch = el(linkOut ? 'span' : 'button', 'demo-watch', 'Watch demo');
+          if (!linkOut) watch.type = 'button';
           watch.setAttribute('aria-label', 'Watch demo: ' + d.title);
-          if (embed) stage.appendChild(watch);
+          if (embed || linkOut) stage.appendChild(watch);
+          if (linkOut) { stage.target = '_blank'; stage.rel = 'noopener noreferrer'; watch.removeAttribute('aria-label'); }
           var link = el('a', 'demo-yt', 'Watch on YouTube →');
           link.target = '_blank'; link.rel = 'noopener noreferrer';
           var note = el('p', 'demo-error'); note.hidden = true;
@@ -512,7 +517,17 @@
           function sync() {
             var id = d.youtube[lang];
             link.href = nl.href = ytUrl(id);
-            if (d.posters && d.posters[lang]) img.src = d.posters[lang];
+            if (linkOut) {
+              stage.href = ytUrl(id);
+              stage.setAttribute('aria-label', (lang === 'ja' ? 'デモを見る: ' : 'Watch demo: ') + d.title);
+              watch.textContent = lang === 'ja' ? 'デモを見る' : 'Watch demo';
+              link.textContent = lang === 'ja' ? 'YouTubeで見る →' : 'Watch on YouTube →';
+              img.onerror = function () {
+                img.onerror = null;
+                img.src = 'https://img.youtube.com/vi/' + id + '/hqdefault.jpg';
+              };
+              img.src = 'https://img.youtube.com/vi/' + id + '/maxresdefault.jpg';
+            } else if (d.posters && d.posters[lang]) img.src = d.posters[lang];
             Object.keys(btns).forEach(function (k) { btns[k].setAttribute('aria-pressed', String(k === lang)); });
             if (embed && started) load();
           }
@@ -537,7 +552,7 @@
           });
           langRow.setAttribute('role', 'group');
           langRow.setAttribute('aria-label', 'Video language for ' + d.title);
-          watch.addEventListener('click', function () {
+          if (!linkOut) watch.addEventListener('click', function () {
             started = true; watch.hidden = true; stage.classList.add('is-playing'); load();
           });
           foot.appendChild(link); if (embed) foot.appendChild(note);
